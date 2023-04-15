@@ -13,7 +13,7 @@ import { DemoFacade } from '../../../state/demo.facade';
 export class DemoListComponent implements OnInit {
   @Output() onSelectDemo: EventEmitter<null> = new EventEmitter();
 
-  constructor(private df: DemoFacade) {}
+  constructor(private df: DemoFacade) { }
 
   demos$ = this.df.getDemos();
   filter$ = this.df.getFilter();
@@ -22,13 +22,13 @@ export class DemoListComponent implements OnInit {
     map(([demos, filter]) => {
       return filter !== ''
         ? demos.filter((d) =>
-            d.title.toLowerCase().includes(filter.toLowerCase())
-          )
+          d.title.toLowerCase().includes(filter.toLowerCase())
+        )
         : demos;
     })
   );
 
-  ngOnInit() {}
+  ngOnInit() { }
 
   drop(event: CdkDragDrop<DemoItem[]>) {
     this.demos$.subscribe((arr) => {
@@ -52,7 +52,7 @@ export class DemoListComponent implements OnInit {
   }
 
   changeVisibility(item: DemoItem) {
-    this.df.changeVisibility(item);
+    this.df.updateDemo(item);
   }
 
   selectItem(item: DemoItem) {

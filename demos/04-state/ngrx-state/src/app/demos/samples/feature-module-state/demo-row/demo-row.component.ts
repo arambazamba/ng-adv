@@ -21,7 +21,7 @@ export class DemoRowComponent {
   }
 
   changeVisibility() {
-    this.item.visible = !this.item.visible;
-    this.onChangeVisibility.emit(this.item);
+    let changed = { ...this.item, visible: !this.item.visible }
+    this.onChangeVisibility.emit(changed);
   }
 }

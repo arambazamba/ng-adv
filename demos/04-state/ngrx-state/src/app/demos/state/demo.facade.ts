@@ -48,9 +48,9 @@ export class DemoFacade {
     this.store.dispatch(DemoActions.setselected({ item }));
   }
 
-  changeVisibility(item: DemoItem) {
-    this.store.dispatch(DemoActions.togglevisiblity({ item }));
-  }
+  // changeVisibility(item: DemoItem) {
+  //   this.store.dispatch(DemoActions.togglevisiblity({ item }));
+  // }
 
   setFilter(filter: string) {
     this.store.dispatch(DemoActions.applyfilter({ filter }));

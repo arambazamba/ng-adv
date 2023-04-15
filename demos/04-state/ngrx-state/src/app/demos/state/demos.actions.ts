@@ -16,7 +16,6 @@ export const DemoActions = createActionGroup({
     deleteDemo: props<{ item: DemoItem }>(),
     deleteDemoSuccess: props<{ item: DemoItem }>(),
     deleteDemoFailure: props<{ err: Error }>(),
-    toggleVisiblity: props<{ item: DemoItem }>(),
     setSelected: props<{ item: DemoItem }>(),
     applyFilter: props<{ filter: string }>(),
   }

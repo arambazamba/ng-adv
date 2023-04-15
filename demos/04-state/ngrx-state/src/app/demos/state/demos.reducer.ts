@@ -54,16 +54,17 @@ export const demoReducer = createReducer(
       loaded: true,
     });
   }),
-  on(DemoActions.loaddemosfailure, (state, action) => {
-    return { ...state };
+  on(DemoActions.updatedemosuccess, (state, action) => {
+    const item: Update<DemoItem> = {
+      id: action.item.id,
+      changes: { visible: action.item.visible },
+    };
+    return demosAdapter.updateOne(item, { ...state });
   }),
   on(DemoActions.deletedemosuccess, (state, action) => {
     return demosAdapter.removeOne(action.item.id, {
       ...state,
     });
-  }),
-  on(DemoActions.deletedemofailure, (state, action) => {
-    return { ...state };
   }),
   on(DemoActions.setselected, (state, action) => {
     return { ...state, selected: action.item };
@@ -71,11 +72,7 @@ export const demoReducer = createReducer(
   on(DemoActions.applyfilter, (state, action) => {
     return { ...state, filter: action.filter };
   }),
-  on(DemoActions.togglevisiblity, (state, action) => {
-    const item: Update<DemoItem> = {
-      id: action.item.id,
-      changes: { visible: action.item.visible },
-    };
-    return demosAdapter.updateOne(item, { ...state });
-  })
+  on(DemoActions.updatedemofailure, DemoActions.deletedemofailure, DemoActions.loaddemosfailure, (state, action) => {
+    return { ...state };
+  }),
 );
