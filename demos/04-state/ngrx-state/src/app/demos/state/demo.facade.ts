@@ -1,4 +1,4 @@
-import { Injectable } from '@angular/core';
+import { Injectable, inject } from '@angular/core';
 import { Store } from '@ngrx/store';
 import { take } from 'rxjs/operators';
 import { DemoItem } from '../demo-base/demo-item.model';
@@ -10,8 +10,7 @@ import { DemoActions } from './demos.actions';
   providedIn: 'root',
 })
 export class DemoFacade {
-  constructor(private store: Store<DemoState>) { }
-
+  store = inject(Store<DemoState>)
   init() {
     this.hasLoaded().subscribe((loaded) => {
       if (!loaded) {
@@ -47,10 +46,6 @@ export class DemoFacade {
   selectDemo(item: DemoItem) {
     this.store.dispatch(DemoActions.setselected({ item }));
   }
-
-  // changeVisibility(item: DemoItem) {
-  //   this.store.dispatch(DemoActions.togglevisiblity({ item }));
-  // }
 
   setFilter(filter: string) {
     this.store.dispatch(DemoActions.applyfilter({ filter }));

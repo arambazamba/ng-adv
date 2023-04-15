@@ -8,10 +8,18 @@ interface EntityState<T> {
 ```
 
 - Explain `this.store.dispatch(loadDemos());` in `demo-container.component.ts`
-- Examin setMenu() which now uses the ngrx store
+```typescript
+export class DemoFacade {
+  store = inject(Store<DemoState>)
+  init() {
+    this.hasLoaded().subscribe((loaded) => {
+      if (!loaded) {
+        this.store.dispatch(DemoActions.loaddemos());
+```
+- Examin how the demo facade uses the ngrx store and provides the data to the component
 
 ```typescript
-setMenu() {
-    this.demos$ = this.store.select(getAllDemos);
-}
+getDemos() {
+    return this.store.select(getAllDemos)
+  }
 ```
