@@ -3,12 +3,10 @@ import { ActivatedRoute, NavigationEnd, Router } from '@angular/router';
 import { Subject } from 'rxjs';
 import { filter, map, takeUntil } from 'rxjs/operators';
 import { MenuService } from 'src/app/shared/menu/menu.service';
+import { SidebarActions } from 'src/app/shared/side-panel/sidebar.actions';
+import { SidePanelService } from 'src/app/shared/side-panel/sidepanel.service';
 import { environment } from 'src/environments/environment';
 import { LoadingService } from '../../shared/loading/loading.service';
-import { DemoService } from '../demo-base/demo.service';
-import { SidePanelService } from 'src/app/shared/side-panel/sidepanel.service';
-import { SidebarActions } from 'src/app/shared/side-panel/sidebar.actions';
-import { MenuFacade } from 'src/app/state/menu.facade';
 import { DemoFacade } from '../state/demo.facade';
 
 @Component({
