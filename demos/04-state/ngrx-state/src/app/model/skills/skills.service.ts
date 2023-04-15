@@ -1,18 +1,15 @@
-import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
+import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
-import { SkillBS } from './skills-bs';
-import { tap } from 'rxjs/operators';
 import { environment } from 'src/environments/environment';
+import { SkillBS } from './skills-bs';
 
 @Injectable({ providedIn: 'root' })
 export class SkillsService {
-  constructor(private httpClient: HttpClient) {}
+  constructor(private httpClient: HttpClient) { }
 
-  getSkills(): Observable<SkillBS[]> {
-    return this.httpClient
-      .get<SkillBS[]>(`${environment.apiUrl}skills`)
-      .pipe(tap((data) => console.log('data from api', data)));
+  getSkills() {
+    return this.httpClient.get<SkillBS[]>(`${environment.apiUrl}skills`)
   }
 
   getSkill(id: number): Observable<SkillBS> {
