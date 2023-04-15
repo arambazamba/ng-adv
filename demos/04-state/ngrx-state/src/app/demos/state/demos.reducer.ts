@@ -23,6 +23,7 @@ export const demosFeatureKey = 'demos';
 // }
 
 export interface DemoState extends EntityState<DemoItem> {
+  loaded: boolean;
   selected: DemoItem;
   filter: string;
 }
@@ -33,6 +34,7 @@ export const demosAdapter: EntityAdapter<DemoItem> =
 export const defaultDemoItemState: DemoState = {
   ids: [],
   entities: {},
+  loaded: false,
   filter: '',
   selected: {
     id: 0,
@@ -53,6 +55,7 @@ export const demoReducer = createReducer(
   on(loadDemosSuccess, (state, action) => {
     return demosAdapter.setAll(action.items, {
       ...state,
+      loaded: true,
     });
   }),
   on(loadDemosFailure, (state, action) => {

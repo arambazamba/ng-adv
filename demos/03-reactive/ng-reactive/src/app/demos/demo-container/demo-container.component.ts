@@ -33,13 +33,13 @@ export class DemoContainerComponent implements OnInit {
   sidenavMode = this.ms.getSideNavPosition();
   sidenavVisible = this.ms.getSideNavVisible();
   workbenchMargin = this.sidenavVisible.pipe(
-    map(visible => { return visible ? { 'margin-left': '5px' } : {} })
+    map((visible: boolean) => { return visible ? { 'margin-left': '5px' } : {} })
   );
 
   showMdEditor = this.eb
     .getCommands()
     .pipe(
-      map((action) => (action === SidebarActions.HIDE_MARKDOWN ? false : true))
+      map((action: SidebarActions) => (action === SidebarActions.HIDE_MARKDOWN ? false : true))
     );
 
   constructor() {
