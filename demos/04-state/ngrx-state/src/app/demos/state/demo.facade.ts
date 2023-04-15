@@ -3,16 +3,8 @@ import { Store } from '@ngrx/store';
 import { take } from 'rxjs/operators';
 import { DemoItem } from '../demo-base/demo-item.model';
 import { getAllDemos, getFilter, getSelected, hasLoaded } from './demo.selectors';
-import {
-  addDemo,
-  applyFilter,
-  deleteDemo,
-  loadDemos,
-  setSelected,
-  toggleVisiblity,
-  updateDemo,
-} from './demos.actions';
 import { DemoState } from './demos.reducer';
+import { DemoActions } from './demos.actions';
 
 @Injectable({
   providedIn: 'root',
@@ -23,7 +15,7 @@ export class DemoFacade {
   init() {
     this.hasLoaded().subscribe((loaded) => {
       if (!loaded) {
-        this.store.dispatch(loadDemos());
+        this.store.dispatch(DemoActions.loaddemos());
       }
     });
   }
@@ -41,27 +33,27 @@ export class DemoFacade {
   }
 
   deleteDemo(item: DemoItem) {
-    this.store.dispatch(deleteDemo({ item }));
+    this.store.dispatch(DemoActions.deletedemo({ item }));
   }
 
   addDemo(item: DemoItem) {
-    this.store.dispatch(addDemo({ item }));
+    this.store.dispatch(DemoActions.adddemo({ item }));
   }
 
   updateDemo(item: DemoItem) {
-    this.store.dispatch(updateDemo({ item }));
+    this.store.dispatch(DemoActions.updatedemo({ item }));
   }
 
   selectDemo(item: DemoItem) {
-    this.store.dispatch(setSelected({ item }));
+    this.store.dispatch(DemoActions.setselected({ item }));
   }
 
   changeVisibility(item: DemoItem) {
-    this.store.dispatch(toggleVisiblity({ item }));
+    this.store.dispatch(DemoActions.togglevisiblity({ item }));
   }
 
   setFilter(filter: string) {
-    this.store.dispatch(applyFilter({ filter }));
+    this.store.dispatch(DemoActions.applyfilter({ filter }));
   }
 
   getFilter() {

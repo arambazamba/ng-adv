@@ -5,13 +5,9 @@ import {
   Update,
 } from '@ngrx/entity';
 import { createReducer, on } from '@ngrx/store';
-import { setSelected, applyFilter, toggleVisiblity } from './demos.actions';
 import { DemoItem } from '../demo-base/demo-item.model';
-import {
-  deleteDemoSuccess,
-  loadDemosFailure,
-  loadDemosSuccess,
-} from './demos.actions';
+import { DemoActions } from './demos.actions';
+
 
 // State
 export const demosFeatureKey = 'demos';
@@ -52,30 +48,30 @@ export const initialState = demosAdapter.getInitialState(defaultDemoItemState);
 // Reducer
 export const demoReducer = createReducer(
   initialState,
-  on(loadDemosSuccess, (state, action) => {
+  on(DemoActions.loaddemossuccess, (state, action) => {
     return demosAdapter.setAll(action.items, {
       ...state,
       loaded: true,
     });
   }),
-  on(loadDemosFailure, (state, action) => {
+  on(DemoActions.loaddemosfailure, (state, action) => {
     return { ...state };
   }),
-  on(deleteDemoSuccess, (state, action) => {
+  on(DemoActions.deletedemosuccess, (state, action) => {
     return demosAdapter.removeOne(action.item.id, {
       ...state,
     });
   }),
-  on(loadDemosFailure, (state, action) => {
+  on(DemoActions.deletedemofailure, (state, action) => {
     return { ...state };
   }),
-  on(setSelected, (state, action) => {
+  on(DemoActions.setselected, (state, action) => {
     return { ...state, selected: action.item };
   }),
-  on(applyFilter, (state, action) => {
+  on(DemoActions.applyfilter, (state, action) => {
     return { ...state, filter: action.filter };
   }),
-  on(toggleVisiblity, (state, action) => {
+  on(DemoActions.togglevisiblity, (state, action) => {
     const item: Update<DemoItem> = {
       id: action.item.id,
       changes: { visible: action.item.visible },

@@ -1,4 +1,4 @@
-import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
+import { Component, EventEmitter, Input, Output } from '@angular/core';
 import { DemoItem } from '../../../demo-base/demo-item.model';
 
 @Component({
@@ -6,15 +6,11 @@ import { DemoItem } from '../../../demo-base/demo-item.model';
   templateUrl: './demo-row.component.html',
   styleUrls: ['./demo-row.component.scss'],
 })
-export class DemoRowComponent implements OnInit {
+export class DemoRowComponent {
   @Input() item: DemoItem = new DemoItem();
   @Output() onDelete = new EventEmitter<DemoItem>();
   @Output() onSelect = new EventEmitter<DemoItem>();
   @Output() onChangeVisibility = new EventEmitter<DemoItem>();
-
-  constructor() {}
-
-  ngOnInit() {}
 
   delete() {
     this.onDelete.emit(this.item);
