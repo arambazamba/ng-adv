@@ -4,26 +4,19 @@ import { Injectable, inject } from '@angular/core';
 import { MatDrawerMode } from '@angular/material/sidenav';
 import { BehaviorSubject, Observable } from 'rxjs';
 import { tap } from 'rxjs/operators';
-import { MenuItem } from './menu-item.model';
+import { SidenNavItem } from './sidenavitem.model';
+import { environment } from '../../../environments/environment';
 
 @Injectable({
   providedIn: 'root',
 })
-export class MenuService {
+export class SideNavService {
 
   http = inject(HttpClient);
   breakpointObserver = inject(BreakpointObserver);
 
   constructor() {
-    this.breakpointObserver
-      .observe([Breakpoints.XSmall, Breakpoints.Small])
-      .pipe(
-        tap((matchesBreakpoints) => {
-          console.log("matchesBreakpoint: ", matchesBreakpoints.matches);
-          this.visible$.next(matchesBreakpoints.matches ? false : true);
-          this.position$.next(matchesBreakpoints.matches ? 'over' : 'side');
-        })
-      ).subscribe();
+    this.watchScreen.subscribe();
   }
 
   visible$: BehaviorSubject<boolean> = new BehaviorSubject<boolean>(true);
@@ -36,6 +29,16 @@ export class MenuService {
   getSideNavPosition() {
     return this.position$.asObservable();
   }
+
+  watchScreen = this.breakpointObserver
+    .observe([Breakpoints.XSmall, Breakpoints.Small])
+    .pipe(
+      tap((matchesBreakpoint) => {
+        console.log(matchesBreakpoint);
+        this.visible$.next(matchesBreakpoint.matches ? false : true);
+        this.position$.next(matchesBreakpoint.matches ? 'over' : 'side');
+      })
+    );
 
   setSideNavEnabled(val: boolean) {
     this.visible$.next(val);
@@ -50,7 +53,7 @@ export class MenuService {
     this.visible$.next(status);
   }
 
-  getTopItems(): Observable<MenuItem[]> {
-    return this.http.get<MenuItem[]>('/assets/top-items.json');
+  getTopItems(): Observable<SidenNavItem[]> {
+    return this.http.get<SidenNavItem[]>(`${environment.apiUrl}top-links`);
   }
 }
