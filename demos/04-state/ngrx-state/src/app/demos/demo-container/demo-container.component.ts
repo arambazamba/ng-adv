@@ -2,7 +2,7 @@ import { Component, OnInit, inject } from '@angular/core';
 import { ActivatedRoute, NavigationEnd, Router } from '@angular/router';
 import { Subject } from 'rxjs';
 import { filter, map, takeUntil } from 'rxjs/operators';
-import { MenuService } from 'src/app/shared/menu/menu.service';
+import { SideNavService } from 'src/app/shared/sidenav/sidenav.service';
 import { SidebarActions } from 'src/app/shared/side-panel/sidebar.actions';
 import { SidePanelService } from 'src/app/shared/side-panel/sidepanel.service';
 import { environment } from 'src/environments/environment';
@@ -18,7 +18,7 @@ export class DemoContainerComponent implements OnInit {
   router = inject(Router);
   route = inject(ActivatedRoute);
   df = inject(DemoFacade);
-  ms = inject(MenuService);
+  ms = inject(SideNavService);
   ls = inject(LoadingService);
   eb = inject(SidePanelService);
 

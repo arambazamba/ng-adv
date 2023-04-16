@@ -5,15 +5,16 @@ import { tap } from 'rxjs/operators';
 import {
   changeSideNavPosition,
   changeSideNavVisible,
-  toggleSideNav,
+  toggleSideNav
 } from './app.actions';
 import { AppState } from './app.reducer';
-import { getSideNavPosition, getSideNavVisible } from './app.selector';
+import { getSideNavVisible, getSideNavPosition } from './app.selector';
+
 
 @Injectable({
   providedIn: 'root',
 })
-export class MenuFacade {
+export class SideNavFacade {
 
   breakpointObserver = inject(BreakpointObserver);
   store = inject(Store<AppState>);
