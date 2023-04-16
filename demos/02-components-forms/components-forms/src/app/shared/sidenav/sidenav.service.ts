@@ -4,13 +4,13 @@ import { Injectable, inject } from '@angular/core';
 import { MatDrawerMode } from '@angular/material/sidenav';
 import { BehaviorSubject, Observable } from 'rxjs';
 import { tap } from 'rxjs/operators';
-import { environment } from 'src/environments/environment';
-import { MenuItem } from './menu-item.model';
+import { NavItem } from '../navbar/navitem.model';
+import { environment } from '../../../environments/environment';
 
 @Injectable({
   providedIn: 'root',
 })
-export class MenuService {
+export class SideNavService {
 
   http = inject(HttpClient);
   breakpointObserver = inject(BreakpointObserver);
@@ -53,7 +53,7 @@ export class MenuService {
     this.visible$.next(status);
   }
 
-  getTopItems(): Observable<MenuItem[]> {
-    return this.http.get<MenuItem[]>(`${environment.apiUrl}top-links`);
+  getTopItems(): Observable<NavItem[]> {
+    return this.http.get<NavItem[]>(`${environment.apiUrl}top-links`);
   }
 }

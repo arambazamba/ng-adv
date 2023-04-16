@@ -4,7 +4,7 @@ import { Injectable, inject } from '@angular/core';
 import { MatDrawerMode } from '@angular/material/sidenav';
 import { BehaviorSubject, Observable } from 'rxjs';
 import { tap } from 'rxjs/operators';
-import { SidenNavItem } from './sidenavitem.model';
+import { NavItem } from '../navbar/navitem.model';
 import { environment } from '../../../environments/environment.prod';
 
 @Injectable({
@@ -53,7 +53,7 @@ export class SideNavService {
     this.visible$.next(status);
   }
 
-  getTopItems(): Observable<SidenNavItem[]> {
-    return this.http.get<SidenNavItem[]>(`${environment.apiUrl}top-links`);
+  getTopItems(): Observable<NavItem[]> {
+    return this.http.get<NavItem[]>(`${environment.apiUrl}top-links`);
   }
 }

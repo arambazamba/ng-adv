@@ -1,4 +1,4 @@
-export class SidenNavItem {
+export class NavItem {
   label: string = '';
   url: string = '';
 }
