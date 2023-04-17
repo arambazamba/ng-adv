@@ -53,6 +53,7 @@ import { ContainerPresenterComponent } from './samples/container-presenter/conta
 import { PrefixNot } from '@angular/compiler';
 import { PresenterListComponent } from './samples/container-presenter/presenter-list/presenter-list.component';
 import { PresenterEditComponent } from './samples/container-presenter/presenter-edit/presenter-edit.component';
+import { StandaloneComponent } from './samples/standalone/standalone.component';
 
 
 const appearance: MatFormFieldDefaultOptions = {
@@ -117,6 +118,7 @@ const appearance: MatFormFieldDefaultOptions = {
       ],
     }),
     FormlyMaterialModule,
+    StandaloneComponent
   ],
   providers: [
     {
