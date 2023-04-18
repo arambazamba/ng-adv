@@ -1,6 +1,6 @@
 import { createReducer, on } from '@ngrx/store';
-import { Customer } from './customer.model';
 import { loadCustomersFailure, loadCustomersSuccess } from './customers.actions';
+import { Customer } from '../customer.model';
 
 export const customersFeatureKey = 'customers';
 
