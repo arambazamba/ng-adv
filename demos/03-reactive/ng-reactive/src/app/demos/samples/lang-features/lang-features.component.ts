@@ -25,17 +25,17 @@ export class LangFeaturesComponent implements OnInit {
       ],
     };
 
-    const cloendPerson = { ...father };
+    const spreadClonedPerson = { ...father };
     const copiedPerson = Object.assign(father);
-    const othercopiedPerson = Object.assign({}, father);
+    const clonedPerson = Object.assign({}, father);
 
     const arr = [1, 2, 3];
     const clonedArray = [...arr];
 
-    console.log('Spreaded Person:', cloendPerson);
+    console.log('Spreaded Person:', spreadClonedPerson);
 
     father.children[0].name = 'Giro';
-    console.log('After Change:', cloendPerson);
+    console.log('After Change:', spreadClonedPerson);
 
     const person = { ...simplePerson, ...father };
     console.log('Spread combined Person:', person);
@@ -92,5 +92,19 @@ export class LangFeaturesComponent implements OnInit {
         })
       )
       .subscribe();
+
+    //object destructuring
+    const father = {
+      birth: new Date(),
+      job: 'Dev Dude',
+      children: [
+        { name: 'David', age: 12 },
+        { name: 'Soi', age: 7 },
+      ],
+    };
+
+    const { birth, job } = father;
+    console.log('birth:', birth);
+    console.log('job:', job);
   }
 }

@@ -25,8 +25,8 @@ export class StatefulDemoService {
       });
   }
 
-  getDemos(): Observable<DemoItem[]> {
-    return this.demos;
+  getDemos() {
+    return this.demos.asObservable();
   }
 
   deleteDemo(item: DemoItem): Observable<any> {

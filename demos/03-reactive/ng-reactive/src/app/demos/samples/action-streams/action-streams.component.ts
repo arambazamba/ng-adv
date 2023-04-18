@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { UntypedFormControl } from '@angular/forms';
+import { FormControl, UntypedFormControl } from '@angular/forms';
 import { combineLatest } from 'rxjs';
 import { map, startWith } from 'rxjs/operators';
 import { DemoService } from '../../demo-base/demo.service';
@@ -7,13 +7,13 @@ import { DemoService } from '../../demo-base/demo.service';
 @Component({
   selector: 'app-action-streams',
   templateUrl: './action-streams.component.html',
-  styleUrls: ['./action-streams.component.scss'],
+  styleUrls: ['./action-streams.component.scss']
 })
 export class ActionStreamsComponent {
-  constructor(private ds: DemoService) {}
+  constructor(private ds: DemoService) { }
 
   demosData$ = this.ds.getItems();
-  filter$ = new UntypedFormControl('');
+  filter$ = new FormControl<string>('', { nonNullable: true });
 
   demos$ = combineLatest([
     this.demosData$,
@@ -22,8 +22,8 @@ export class ActionStreamsComponent {
     map(([demos, filter]) => {
       return filter != ''
         ? demos.filter((d) =>
-            d.title.toLowerCase().includes(filter.toLowerCase())
-          )
+          d.title.toLowerCase().includes(filter.toLowerCase())
+        )
         : demos;
     })
   );

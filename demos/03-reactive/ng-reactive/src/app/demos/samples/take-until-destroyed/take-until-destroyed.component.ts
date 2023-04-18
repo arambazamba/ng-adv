@@ -1,6 +1,6 @@
 import { Component, DestroyRef, inject } from '@angular/core';
 import { takeUntilDestroyed } from '@angular/core/rxjs-interop';
-import { FormControl, UntypedFormControl, Validators } from '@angular/forms';
+import { FormControl, Validators } from '@angular/forms';
 
 @Component({
   selector: 'app-take-until-destroyed',
@@ -12,7 +12,7 @@ export class TakeUntilDestroyedComponent {
   name = new FormControl('',
     [Validators.required, Validators.minLength(3)],
     []);
-  postal = new UntypedFormControl('3544', [Validators.minLength(4)]);
+  postal = new FormControl('3544', [Validators.minLength(4)]);
   city = new FormControl<string>('Idolsberg', [Validators.maxLength(15)]);
 
   ngOnInit() {

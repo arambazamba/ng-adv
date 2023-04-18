@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import axios from 'axios';
-import { from, Observable, of } from 'rxjs';
-import { filter, map, delay } from 'rxjs/operators';
+import { Observable, from, of } from 'rxjs';
+import { delay } from 'rxjs/operators';
 
 @Component({
   selector: 'app-simple-observable',
@@ -72,7 +72,7 @@ export class CreatingObservableComponent implements OnInit {
     skills$.subscribe((data) => console.log('skill item: ', data));
 
     //Simple cast and pipe / delay operator
-    const skillsx$ = of(skills).pipe(delay(500));
+    const skillsPro$ = of(skills).pipe(delay(500));
 
   }
 

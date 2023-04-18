@@ -12,7 +12,7 @@ import { StatefulDemoService } from '../stateful-demo.service';
   styleUrls: ['./list.component.scss'],
 })
 export class ListComponent {
-  constructor(private ds: StatefulDemoService) {}
+  constructor(private ds: StatefulDemoService) { }
 
   // Data Stream
   demosData$: Observable<DemoItem[]> = this.ds.getDemos();
@@ -29,8 +29,8 @@ export class ListComponent {
       console.log(demos);
       return filter !== ''
         ? demos.filter((d) =>
-            d.title.toLowerCase().includes(filter.toLowerCase())
-          )
+          d.title.toLowerCase().includes(filter.toLowerCase())
+        )
         : demos;
     })
   );
@@ -51,7 +51,10 @@ export class ListComponent {
   }
 
   deleteItem(item: DemoItem) {
-    this.ds.deleteDemo(item);
+    // spinner show
+    this.ds.deleteDemo(item).subscribe(() => {
+      // spinner hide
+    });
   }
 
   changeVisibility(item: DemoItem) {
