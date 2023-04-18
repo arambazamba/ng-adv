@@ -158,6 +158,14 @@
       "saved": "2020-09-16T20:10:06.925Z"
     }
   ],
+  "customers": [
+    {
+      "id": 1, "name": "Fritzi"
+    },
+    {
+      "id": 2, "name": "Mimi"
+    }
+  ],
   "top-links": [
     {
       "label": "Home",

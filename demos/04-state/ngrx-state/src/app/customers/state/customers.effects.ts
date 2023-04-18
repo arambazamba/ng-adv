@@ -8,13 +8,13 @@ import { CustomersService } from './customers.service';
 export class DemosEffects {
   constructor(private actions$: Actions, private service: CustomersService) { }
 
-  loadDemos$ = createEffect(() =>
+  loadCustomers$ = createEffect(() =>
     this.actions$.pipe(
       ofType(loadCustomers),
       mergeMap(() =>
         this.service.getCustomers().pipe(
           map((customers) => ({
-            type: '[App Init] loadDemos Success',
+            type: '[Customer] loadCustomers Success',
             items: customers,
           })),
           catchError((err) => of(loadCustomersFailure({ err })))
