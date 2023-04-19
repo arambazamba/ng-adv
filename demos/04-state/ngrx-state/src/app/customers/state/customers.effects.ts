@@ -1,23 +1,25 @@
-import { loadCustomers, loadCustomersFailure } from './customers.actions';
-import { Injectable } from '@angular/core';
-import { Actions, createEffect, ofType } from '@ngrx/effects/src';
+
+import { Injectable, inject } from '@angular/core';
+import { Actions, createEffect, ofType } from '@ngrx/effects';
 import { of } from 'rxjs';
-import { mergeMap, map, catchError } from 'rxjs/operators';
-import { CustomersService } from './customers.service';
+import { catchError, map, mergeMap } from 'rxjs/operators';
+import { CustomersService } from '../customers.service';
+import { CustomersActions } from './customers.actions';
+
 @Injectable()
-export class DemosEffects {
-  constructor(private actions$: Actions, private service: CustomersService) { }
+export class CustomerEffects {
+  actions$ = inject(Actions);
+  service = inject(CustomersService);
 
   loadCustomers$ = createEffect(() =>
     this.actions$.pipe(
-      ofType(loadCustomers),
+      ofType(CustomersActions.loadcustomers),
       mergeMap(() =>
         this.service.getCustomers().pipe(
-          map((customers) => ({
-            type: '[Customer] loadCustomers Success',
-            items: customers,
-          })),
-          catchError((err) => of(loadCustomersFailure({ err })))
+          map((customers) =>
+            CustomersActions.loadcustomerssuccess({ items: customers })
+          ),
+          catchError((err) => of(CustomersActions.loadcustomersfailure({ err })))
         )
       )
     )

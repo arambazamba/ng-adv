@@ -6,12 +6,12 @@ import { CustomersState, customerReducer } from '../customers/state/customers.re
 
 export interface State {
   app: AppState;
-  customer: CustomersState
+  customers: CustomersState
 }
 
 export const reducers: ActionReducerMap<State> = {
   app: appReducer,
-  customer: customerReducer,
+  customers: customerReducer,
 };
 
 export const metaReducers: MetaReducer<State>[] = !environment.production

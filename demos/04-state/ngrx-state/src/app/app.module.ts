@@ -16,7 +16,8 @@ import { MaterialModule } from './material.module';
 import { LoadingInterceptor } from './shared/loading/loading-interceptor';
 import { LoadingService } from './shared/loading/loading.service';
 import { SharedModule } from './shared/shared.module';
-import { reducers } from './state';
+import { metaReducers, reducers } from './state';
+import { CustomerEffects } from './customers/state/customers.effects';
 
 @NgModule({
   declarations: [AppComponent, HomeComponent, CustomersComponent],
@@ -28,8 +29,8 @@ import { reducers } from './state';
     FlexLayoutModule,
     HttpClientModule,
     SharedModule,
-    StoreModule.forRoot(reducers),
-    EffectsModule.forRoot([]),
+    StoreModule.forRoot(reducers, { metaReducers }),
+    EffectsModule.forRoot([CustomerEffects]),
     EntityDataModule.forRoot({}),
     StoreDevtoolsModule.instrument({
       logOnly: environment.production,
