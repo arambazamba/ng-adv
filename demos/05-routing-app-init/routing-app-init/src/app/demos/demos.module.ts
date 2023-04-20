@@ -15,7 +15,7 @@ import { LocServiceComponent } from './samples/loc-service/loc-service.component
 import { MembersComponent } from './samples/multi-guard/members/members.component';
 import { MultiGuardComponent } from './samples/multi-guard/multi-guard.component';
 import { OnlyAuthenticatedGuard } from './samples/multi-guard/only-authenticated.guard';
-import { OnlyPrimeMembersGuard } from './samples/multi-guard/only-prime-members.guard';
+// import { OnlyPrimeMembersGuard } from './samples/multi-guard/only-prime-members.guard';
 import { PrimeComponent } from './samples/multi-guard/prime/prime.component';
 import { MultiInterceptorComponent } from './samples/multi-interceptor/multi-interceptor.component';
 import { RoutingTargetComponent } from './samples/routing/routing-target/routing-target.component';
@@ -30,6 +30,7 @@ import { PreloadingNgrxComponent } from './samples/preloading-ngrx/preloading-ng
 import { CodeSplittingComponent } from './samples/code-splitting/code-splitting.component';
 import { AuxilaryRoutesComponent } from './samples/auxilary-routes/auxilary-routes.component';
 import { DiInjectComponent } from './samples/di-inject/di-inject.component';
+import { onlyPrimeMembersGuard } from './samples/multi-guard/only-prime-members.guard';
 
 const demoRoutes: Routes = [
   {
@@ -75,7 +76,7 @@ const demoRoutes: Routes = [
             component: PrimeComponent,
             canActivate: [
               OnlyAuthenticatedGuard,
-              OnlyPrimeMembersGuard
+              onlyPrimeMembersGuard
             ],
           },
         ],
