@@ -20,7 +20,11 @@ export const customerAdapter: EntityAdapter<Customer> =
 
 export const initialAppState: AppState = customerAdapter.getInitialState({
   title: 'Advanced Angular Development',
-  user: { name: 'Giro the Galgo', isLoggedIn: false, isPrimeMember: false },
+  user: {
+    name: 'Giro the Galgo',
+    isLoggedIn: false,
+    isPrimeMember: false
+  },
   sideNavVisible: true,
   sideNavPosition: 'side',
 });
