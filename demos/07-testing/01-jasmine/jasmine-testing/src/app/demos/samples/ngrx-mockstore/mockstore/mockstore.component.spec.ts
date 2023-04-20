@@ -1,8 +1,9 @@
-import { ComponentFixture, TestBed } from '@angular/core/testing';
+import { ComponentFixture, TestBed, fakeAsync } from '@angular/core/testing';
 import { provideMockStore, MockStore } from '@ngrx/store/testing';
 import { MockstoreComponent } from './mockstore.component';
 import { DemoState } from '../../../state/demos.reducer';
 import { mockstoreData } from './mockstore.data';
+import { By } from '@angular/platform-browser';
 
 
 describe('MockstoreComponent', () => {
@@ -11,8 +12,8 @@ describe('MockstoreComponent', () => {
   let mockStore: MockStore<DemoState>;
   const initialState = mockstoreData;
 
-  beforeEach(async () => {
-    await TestBed.configureTestingModule({
+  beforeEach(() => {
+    TestBed.configureTestingModule({
       declarations: [MockstoreComponent],
       providers: [provideMockStore({ initialState })]
     }).compileComponents();
@@ -32,4 +33,11 @@ describe('MockstoreComponent', () => {
       expect(demos.length).toBe(2);
     });
   });
+
+  it('should be display 2 demos', () => {
+    fixture.autoDetectChanges();
+    const els = fixture.debugElement.queryAll(By.css('.underlined'));
+    expect(els.length).toBe(2);
+  });
+
 });
