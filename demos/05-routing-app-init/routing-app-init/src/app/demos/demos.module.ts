@@ -31,6 +31,7 @@ import { CodeSplittingComponent } from './samples/code-splitting/code-splitting.
 import { AuxilaryRoutesComponent } from './samples/auxilary-routes/auxilary-routes.component';
 import { DiInjectComponent } from './samples/di-inject/di-inject.component';
 import { onlyPrimeMembersGuard } from './samples/multi-guard/only-prime-members.guard';
+import { RouterBindingComponent } from './samples/router-binding/router-binding.component';
 
 const demoRoutes: Routes = [
   {
@@ -57,6 +58,10 @@ const demoRoutes: Routes = [
       {
         path: 'locationsrv',
         component: LocServiceComponent,
+      },
+      {
+        path: 'router-bindings',
+        component: RouterBindingComponent,
       },
       {
         path: 'preload-ngrx',
@@ -119,6 +124,7 @@ const demoRoutes: Routes = [
     CodeSplittingComponent,
     AuxilaryRoutesComponent,
     DiInjectComponent,
+    RouterBindingComponent,
   ],
   imports: [
     CommonModule,
