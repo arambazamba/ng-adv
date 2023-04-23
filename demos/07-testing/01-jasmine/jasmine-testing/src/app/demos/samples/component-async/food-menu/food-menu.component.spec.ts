@@ -1,18 +1,17 @@
-import { ComponentFixture, TestBed, fakeAsync, flush, tick, waitForAsync } from '@angular/core/testing';
+import { ComponentFixture, TestBed, fakeAsync, tick, waitForAsync } from '@angular/core/testing';
 import { By } from '@angular/platform-browser';
+import { FoodMenuComponent } from './food-menu.component';
 
-import { TimerComponent } from './timer.component';
-
-describe('TimerComponent', async () => {
-  let component: TimerComponent;
-  let fixture: ComponentFixture<TimerComponent>;
+describe('FoodMenuComponent', () => {
+  let component: FoodMenuComponent;
+  let fixture: ComponentFixture<FoodMenuComponent>;
 
   beforeEach(async () => {
     TestBed.configureTestingModule({
-      declarations: [TimerComponent]
+      declarations: [FoodMenuComponent]
     }).compileComponents();
 
-    fixture = TestBed.createComponent(TimerComponent);
+    fixture = TestBed.createComponent(FoodMenuComponent);
     component = fixture.componentInstance;
   });
 

@@ -14,10 +14,8 @@ import { DemoContainerComponent } from './demo-container/demo-container.componen
 import { demoRoutes } from './demo.routing.module';
 import { AsyncComponent } from './samples/component-async/async.component';
 import { SimpleAuthWhenStableComponent } from './samples/component-async/simple-auth-async-when-stable/simple-auth-when-stable.component';
-import { SimpleAuthAsyncComponent } from './samples/component-async/simple-auth-async/simple-auth-async.component';
 import { SimpleAuthDoneComponent } from './samples/component-async/simple-auth-done/simple-auth-done.component';
 import { SimpleAuthFakeAsyncComponent } from './samples/component-async/simple-auth-fake-async/simple-auth-fake-async.component';
-import { TimerComponent } from './samples/component-async/timer/timer.component';
 import { ComponentClassComponent } from './samples/component-class/component-class.component';
 import { ComponentEventsComponent } from './samples/component-events/component-events.component';
 import { FoodListComponent } from './samples/component-integration/food-list/food-list.component';
@@ -58,6 +56,7 @@ import { demoReducer, demosFeatureKey } from './state/demos.reducer';
 import { MockstoreComponent } from './samples/ngrx-mockstore/mockstore/mockstore.component';
 import { SelectorsComponent } from './samples/ngrx-selectors/selectors/selectors.component';
 import { ReducersComponent } from './samples/ngrx-reducers/reducers/reducers.component';
+import { FoodMenuComponent } from './samples/component-async/food-menu/food-menu.component';
 
 @NgModule({
   declarations: [
@@ -80,7 +79,6 @@ import { ReducersComponent } from './samples/ngrx-reducers/reducers/reducers.com
     MarblesComponent,
     MockStoreComponent,
     PhonenumberPipe,
-    SimpleAuthAsyncComponent,
     ComponentTestComponent,
     SimpleAuthDoneComponent,
     SimpleAuthFakeAsyncComponent,
@@ -102,10 +100,10 @@ import { ReducersComponent } from './samples/ngrx-reducers/reducers/reducers.com
     NgrxSelectorsComponent,
     NgrxReducersComponent,
     HttpTestsBsComponent,
-    TimerComponent,
     MockstoreComponent,
     SelectorsComponent,
     ReducersComponent,
+    FoodMenuComponent,
   ],
   imports: [
     CommonModule,
