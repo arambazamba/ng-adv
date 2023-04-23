@@ -6,8 +6,6 @@ import { FoodItem } from '../food/food.model';
   templateUrl: './integration-test.component.html',
   styleUrls: ['./integration-test.component.scss'],
 })
-export class IntegrationTestComponent implements OnInit {
+export class IntegrationTestComponent {
   f: FoodItem = { id: 99, name: 'Cordon Bleu', rating: 4 };
-
-  ngOnInit() { }
 }
