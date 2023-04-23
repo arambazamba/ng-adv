@@ -1,10 +1,5 @@
 import { Injectable } from '@angular/core';
-import {
-  CanActivate,
-  ActivatedRouteSnapshot,
-  RouterStateSnapshot,
-  UrlTree,
-} from '@angular/router';
+import { ActivatedRouteSnapshot, RouterStateSnapshot, UrlTree } from '@angular/router';
 import { Observable } from 'rxjs';
 import { MockAuthService } from './mock-auth.service';
 import { tap } from 'rxjs/operators';
@@ -13,7 +8,7 @@ import { SnackbarService } from '../../../shared/snackbar/snackbar.service';
 @Injectable({
   providedIn: 'root',
 })
-export class OnlyAuthenticatedGuard implements CanActivate {
+export class OnlyAuthenticatedGuard  {
   constructor(private as: MockAuthService, private sns: SnackbarService) { }
 
   canActivate(

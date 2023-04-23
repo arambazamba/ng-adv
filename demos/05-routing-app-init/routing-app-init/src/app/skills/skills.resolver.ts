@@ -1,9 +1,5 @@
 import { Injectable } from '@angular/core';
-import {
-  ActivatedRouteSnapshot,
-  Resolve,
-  RouterStateSnapshot,
-} from '@angular/router';
+import { ActivatedRouteSnapshot, RouterStateSnapshot } from '@angular/router';
 import { Observable } from 'rxjs';
 import { filter, first, tap } from 'rxjs/operators';
 import { SkillsEntityService } from './skills-entity.service';
@@ -11,7 +7,7 @@ import { SkillsEntityService } from './skills-entity.service';
 @Injectable({
   providedIn: 'root',
 })
-export class SkillsResolver implements Resolve<boolean> {
+export class SkillsResolver  {
   constructor(private skillsService: SkillsEntityService) {}
 
   resolve(
