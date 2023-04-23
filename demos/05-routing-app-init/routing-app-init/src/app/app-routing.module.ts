@@ -2,8 +2,8 @@ import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { ErrPageComponent } from './error/err-page/err-page.component';
 import { HomeComponent } from './home/home.component';
-import { CustomersComponent } from './customers/component/customers.component';
 import { CustomerEditComponent } from './customers/component/customer-edit/customer-edit.component';
+import { CustomersComponent } from './customers/component/customer-list/customers.component';
 
 const routes: Routes = [
   {
