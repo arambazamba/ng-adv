@@ -4,7 +4,7 @@ import { AsyncComponent } from './samples/component-async/async.component';
 import { ComponentClassComponent } from './samples/component-class/component-class.component';
 import { ComponentEventsComponent } from './samples/component-events/component-events.component';
 import { IntegrationTestComponent } from './samples/component-integration/integration-test.component';
-import { MarblesComponent } from './samples/marbles/marbles.component';
+import { MarblesComponent } from './samples/component-marbles/marbles.component';
 import { ComponentTestComponent } from './samples/component-test/component-test.component';
 import { ComponentWriteComponent } from './samples/component-write/component-write.component';
 import { CypressComponent } from './samples/cypress/cypress.component';

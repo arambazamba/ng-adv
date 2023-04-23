@@ -1,1 +1,0 @@
-- Examine `marble-syntax.spec.ts` in `/marbles`. It explains the basics about marbles and how to use them.

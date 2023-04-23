@@ -21,7 +21,7 @@ import { ComponentEventsComponent } from './samples/component-events/component-e
 import { FoodListComponent } from './samples/component-integration/food-list/food-list.component';
 import { FoodRowComponent } from './samples/component-integration/food-row/food-row.component';
 import { IntegrationTestComponent } from './samples/component-integration/integration-test.component';
-import { MarblesComponent } from './samples/marbles/marbles.component';
+import { MarblesComponent } from './samples/component-marbles/marbles.component';
 
 import { ComponentTestComponent } from './samples/component-test/component-test.component';
 import { SimpleFoodComponent } from './samples/component-test/simple-food/simple-food.component';
