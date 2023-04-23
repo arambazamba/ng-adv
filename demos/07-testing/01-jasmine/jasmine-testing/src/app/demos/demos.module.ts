@@ -40,10 +40,10 @@ import { UnitTestingComponent } from './samples/intro-unit-testing/unit-testing.
 import { MaterialAsyncComponent } from './samples/material-async/material-async.component';
 import { MaterialComponent } from './samples/material/material.component';
 import { MockStoreComponent } from './samples/mock-store/mock-store.component';
-import { MockHostComponent } from './samples/mocking/mock-host/mock-host.component';
-import { SpyHostComponent } from './samples/mocking/spy-host/spy-host.component';
-import { UseMockComponent } from './samples/mocking/use-mock/use-mock.component';
-import { UseSpyComponent } from './samples/mocking/use-spy/use-spy.component';
+import { MockHostComponent } from './samples/component-mocking/mock-host/mock-host.component';
+import { SpyHostComponent } from './samples/component-mocking/spy-host/spy-host.component';
+import { UseMockComponent } from './samples/component-mocking/use-mock/use-mock.component';
+import { UseSpyComponent } from './samples/component-mocking/use-spy/use-spy.component';
 import { NgrxMockstoreComponent } from './samples/ngrx-mockstore/ngrx-mockstore.component';
 import { NgrxReducersComponent } from './samples/ngrx-reducers/ngrx-reducers.component';
 import { NgrxSelectorsComponent } from './samples/ngrx-selectors/ngrx-selectors.component';
