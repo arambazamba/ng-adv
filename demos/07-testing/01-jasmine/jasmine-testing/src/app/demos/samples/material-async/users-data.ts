@@ -1,9 +1,18 @@
+import { getLocaleEraNames } from '@angular/common';
+
 export const usersdata = [
-  { email: 'dummy@mail.com', created: '01-01-2020', roles: 'admin,standard' },
-  { email: 'hello@mail.com', created: '01-01-2022', roles: 'admin' },
   {
-    email: 'yes@mail.com',
+    name: 'Soi', email: 'soi@mail.com', created: '02-12-2012',
+    description: 'Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et'
+  },
+  {
+    name: 'Giro', email: 'giro@mail.com', created: '01-06-2010',
+    description: 'Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et'
+  },
+  {
+    name: 'Cleo',
+    email: 'cleo@mail.com',
     created: '01-01-2033',
-    roles: 'admin,standard,restricted',
+    description: 'Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et'
   },
 ];
