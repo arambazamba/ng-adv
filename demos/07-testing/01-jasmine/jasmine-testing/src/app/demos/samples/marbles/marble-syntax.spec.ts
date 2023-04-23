@@ -15,7 +15,6 @@ describe('Marble Testing', () => {
       const { cold, expectObservable } = helpers;
       const source$ = cold('a--b-c|', { a: 1, b: 3, c: 5 });
       const expected = 'a--b-c|';
-
       expectObservable(source$).toBe(expected, { a: 1, b: 3, c: 5 });
     });
   });
