@@ -2,6 +2,8 @@ import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { ErrPageComponent } from './error/err-page/err-page.component';
 import { HomeComponent } from './home/home.component';
+import { CustomersComponent } from './customers/component/customers.component';
+import { CustomerEditComponent } from './customers/component/customer-edit/customer-edit.component';
 
 const routes: Routes = [
   {
@@ -19,9 +21,12 @@ const routes: Routes = [
       import('./skills/skills.module').then((m) => m.SkillsModule),
   },
   {
-    path: 'admin',
-    loadChildren: () =>
-      import('./admin/admin.module').then((m) => m.AdminModule),
+    path: 'customers',
+    component: CustomersComponent,
+  },
+  {
+    path: 'customers/:id',
+    component: CustomerEditComponent,
   },
   {
     path: 'auth',
@@ -38,4 +43,4 @@ const routes: Routes = [
   imports: [RouterModule.forRoot(routes, {})],
   exports: [RouterModule],
 })
-export class AppRoutingModule {}
+export class AppRoutingModule { }

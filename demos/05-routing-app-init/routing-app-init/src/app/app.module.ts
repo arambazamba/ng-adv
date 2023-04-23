@@ -28,6 +28,8 @@ import { ConfigService } from './app-init/config.service';
 import { EntityDataModule } from '@ngrx/data';
 import { GlobalErrService } from './error/global-err-handler';
 import { CustomerEffects } from './customers/state/customers.effects';
+import { CustomersComponent } from './customers/component/customers.component';
+import { CustomerEditComponent } from './customers/component/customer-edit/customer-edit.component';
 // import { GlobalErrService } from './error/global-err-handler';
 // import { HttpErrorInterceptor } from './error/globle-http-err-handler';
 // import { FBAuthInterceptor } from './auth/fbauth.interceptor';
@@ -36,7 +38,7 @@ import { CustomerEffects } from './customers/state/customers.effects';
 // import { RetryInterceptorService } from './interceptors/retry-interceptor.service';
 
 @NgModule({
-  declarations: [AppComponent, HomeComponent, ErrPageComponent],
+  declarations: [AppComponent, HomeComponent, ErrPageComponent, CustomersComponent, CustomerEditComponent],
   imports: [
     BrowserModule,
     AppRoutingModule,

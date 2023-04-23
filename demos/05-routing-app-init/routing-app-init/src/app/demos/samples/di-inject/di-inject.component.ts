@@ -1,4 +1,4 @@
-import { Component, inject, OnInit } from '@angular/core';
+import { Component, inject } from '@angular/core';
 import { DemoService } from '../../demo-base/demo.service';
 
 @Component({
@@ -6,12 +6,7 @@ import { DemoService } from '../../demo-base/demo.service';
   templateUrl: './di-inject.component.html',
   styleUrls: ['./di-inject.component.scss']
 })
-export class DiInjectComponent implements OnInit {
+export class DiInjectComponent {
   service = inject(DemoService);
-
-  ngOnInit() {
-    this.service.getItems().subscribe(demos => {
-      console.log(demos);
-    });
-  }
+  demos = this.service.getItems();
 }

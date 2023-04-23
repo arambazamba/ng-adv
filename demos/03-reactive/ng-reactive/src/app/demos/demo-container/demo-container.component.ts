@@ -38,14 +38,7 @@ export class DemoContainerComponent {
   );
 
   currentCMD = this.eb.getCommands()
-
   showMdEditor: boolean = false;
-  // RxJS Version using BehaviourSubject
-  // showMdEditor = this.eb
-  // .getCommands()
-  // .pipe(
-  //   map((action) => (action === SidebarActions.HIDE_MARKDOWN ? false : true))
-  // );
 
   constructor() {
     effect(() => {

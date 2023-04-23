@@ -1,10 +1,10 @@
 import { MatDrawerMode } from '@angular/material/sidenav';
 import { createEntityAdapter, EntityAdapter, EntityState } from '@ngrx/entity';
 import { createReducer, on } from '@ngrx/store';
-import { Customer } from '../app-init/customer.model';
+import { Customer } from '../customers/customer.model';
+import { CustomersActions } from '../customers/state/customers.actions';
 import { User } from '../user/user.model';
 import { changeSideNavPosition, changeSideNavVisible, toggleLoggedIn, togglePrimeMember, toggleSideNav } from './app.actions';
-import { CustomersActions } from '../customers/state/customers.actions';
 
 export const appFeatureKey = 'app';
 

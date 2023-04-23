@@ -126,6 +126,10 @@
     {
       "label": "Skills",
       "url": "skills"
+    },
+    {
+      "label": "Customers",
+      "url": "customers"
     }
   ]
 }
