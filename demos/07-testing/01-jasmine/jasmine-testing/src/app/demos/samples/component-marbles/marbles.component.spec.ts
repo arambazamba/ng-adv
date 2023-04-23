@@ -1,13 +1,19 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 import { TestScheduler } from 'rxjs/testing';
 import { MarblesComponent } from './marbles.component';
+import { PersonService } from './person.service';
+import { EMPTY, of } from 'rxjs';
+import { By } from '@angular/platform-browser';
 
 describe('MaterialAsyncComponent', () => {
   let fixture: ComponentFixture<MarblesComponent>;
   let component: MarblesComponent;
   let testScheduler: TestScheduler;
+  let spy: any;
 
   beforeEach(() => {
+    spy = jasmine.createSpyObj('PersonService', ['getPersons']);
+    spy.getPersons.and.returnValue(of(EMPTY));
     testScheduler = new TestScheduler((actual, expected) => {
       expect(actual).toEqual(expected);
     });
@@ -15,6 +21,7 @@ describe('MaterialAsyncComponent', () => {
     TestBed.configureTestingModule({
       declarations: [MarblesComponent],
       imports: [],
+      providers: [{ provide: PersonService, useValue: spy }],
     });
     fixture = TestBed.createComponent(MarblesComponent);
     component = fixture.componentInstance;
@@ -38,23 +45,11 @@ describe('MaterialAsyncComponent', () => {
     testScheduler.run((helpers) => {
       const { cold, expectObservable } = helpers;
       const source$ = cold('a--b-c|', { a: 'Soi', b: 'Giro', c: 'Cleo' });
-
-      // let spy = spyOn(component, 'getMarbles').and.returnValue(source$);
-
+      spy.getPersons.and.returnValue(source$);
+      component.ngOnInit();
+      fixture.detectChanges();
+      const boxes = fixture.debugElement.queryAll(By.css('.box'));
+      expect(boxes.length).toBe(2);
     });
   });
-
-  // it('should show display the roles of giro when the second tab is clicked', (done) => {
-  //   fixture.detectChanges();
-  //   let tags = fixture.nativeElement.querySelectorAll('.mat-mdc-tab');
-  //   tags[1].click();
-
-  //   fixture.detectChanges();
-  //   fixture.whenStable().then(() => {
-  //     fixture.detectChanges();
-  //     let tabBody = fixture.nativeElement.querySelector('.mat-mdc-tab-body-content');
-  //     done();
-  //     expect(tabBody.innerHTML).toContain('Giro');
-  //   });
-  // });
 })
