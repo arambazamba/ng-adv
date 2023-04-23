@@ -14,16 +14,14 @@ import { DemoContainerComponent } from './demo-container/demo-container.componen
 import { demoRoutes } from './demo.routing.module';
 import { AsyncComponent } from './samples/component-async/async.component';
 import { SimpleAuthWhenStableComponent } from './samples/component-async/simple-auth-async-when-stable/simple-auth-when-stable.component';
-import { SimpleAuthAsyncComponent } from './samples/component-async/simple-auth-async/simple-auth-async.component';
 import { SimpleAuthDoneComponent } from './samples/component-async/simple-auth-done/simple-auth-done.component';
 import { SimpleAuthFakeAsyncComponent } from './samples/component-async/simple-auth-fake-async/simple-auth-fake-async.component';
-import { TimerComponent } from './samples/component-async/timer/timer.component';
 import { ComponentClassComponent } from './samples/component-class/component-class.component';
 import { ComponentEventsComponent } from './samples/component-events/component-events.component';
 import { FoodListComponent } from './samples/component-integration/food-list/food-list.component';
 import { FoodRowComponent } from './samples/component-integration/food-row/food-row.component';
 import { IntegrationTestComponent } from './samples/component-integration/integration-test.component';
-import { MarblesComponent } from './samples/marbles/marbles.component';
+import { MarblesComponent } from './samples/component-marbles/marbles.component';
 
 import { ComponentTestComponent } from './samples/component-test/component-test.component';
 import { SimpleFoodComponent } from './samples/component-test/simple-food/simple-food.component';
@@ -42,10 +40,10 @@ import { UnitTestingComponent } from './samples/intro-unit-testing/unit-testing.
 import { MaterialAsyncComponent } from './samples/material-async/material-async.component';
 import { MaterialComponent } from './samples/material/material.component';
 import { MockStoreComponent } from './samples/mock-store/mock-store.component';
-import { MockHostComponent } from './samples/mocking/mock-host/mock-host.component';
-import { SpyHostComponent } from './samples/mocking/spy-host/spy-host.component';
-import { UseMockComponent } from './samples/mocking/use-mock/use-mock.component';
-import { UseSpyComponent } from './samples/mocking/use-spy/use-spy.component';
+import { MockHostComponent } from './samples/component-mocking/mock-host/mock-host.component';
+import { SpyHostComponent } from './samples/component-mocking/spy-host/spy-host.component';
+import { UseMockComponent } from './samples/component-mocking/use-mock/use-mock.component';
+import { UseSpyComponent } from './samples/component-mocking/use-spy/use-spy.component';
 import { NgrxMockstoreComponent } from './samples/ngrx-mockstore/ngrx-mockstore.component';
 import { NgrxReducersComponent } from './samples/ngrx-reducers/ngrx-reducers.component';
 import { NgrxSelectorsComponent } from './samples/ngrx-selectors/ngrx-selectors.component';
@@ -58,6 +56,7 @@ import { demoReducer, demosFeatureKey } from './state/demos.reducer';
 import { MockstoreComponent } from './samples/ngrx-mockstore/mockstore/mockstore.component';
 import { SelectorsComponent } from './samples/ngrx-selectors/selectors/selectors.component';
 import { ReducersComponent } from './samples/ngrx-reducers/reducers/reducers.component';
+import { FoodMenuComponent } from './samples/component-async/food-menu/food-menu.component';
 
 @NgModule({
   declarations: [
@@ -80,7 +79,6 @@ import { ReducersComponent } from './samples/ngrx-reducers/reducers/reducers.com
     MarblesComponent,
     MockStoreComponent,
     PhonenumberPipe,
-    SimpleAuthAsyncComponent,
     ComponentTestComponent,
     SimpleAuthDoneComponent,
     SimpleAuthFakeAsyncComponent,
@@ -102,10 +100,10 @@ import { ReducersComponent } from './samples/ngrx-reducers/reducers/reducers.com
     NgrxSelectorsComponent,
     NgrxReducersComponent,
     HttpTestsBsComponent,
-    TimerComponent,
     MockstoreComponent,
     SelectorsComponent,
     ReducersComponent,
+    FoodMenuComponent,
   ],
   imports: [
     CommonModule,

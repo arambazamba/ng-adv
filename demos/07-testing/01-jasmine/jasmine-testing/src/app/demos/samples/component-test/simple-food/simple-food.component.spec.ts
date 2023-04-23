@@ -29,6 +29,10 @@ describe('Component - Spy - FoodComponent:', () => {
 
   it('should call getItems to subscribe data', () => {
     expect(component.food.length).toBe(4)
+
+    // you can access the html using fixture.nativeElement.innerHTML
+    let html = fixture.nativeElement.innerHTML as HTMLElement;
+    console.log(html);
   })
 
   it('should have the correct food items on the Template', () => {

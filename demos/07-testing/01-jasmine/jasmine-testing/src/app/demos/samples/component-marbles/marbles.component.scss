@@ -1,0 +1,11 @@
+.box{
+  border: 1px solid var(--color-primary);
+  padding: var(--gap-small);
+  margin: var(--gap-small) 0px;
+}
+
+.entry{
+  border-top: 1px solid var(--color-accent);
+  margin-top: var(--gap-small);
+  padding-left: var(--gap-small);
+}

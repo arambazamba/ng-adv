@@ -1,0 +1,10 @@
+<app-markdown-renderer [md]="'component-marbles'"></app-markdown-renderer>
+
+<div class="box">
+  Current Person: {{ currentPerson  }}
+</div>
+
+<div class="box">
+  Person Log:
+  <div class="entry" *ngFor="let p of personLog">{{p}}</div>
+</div>

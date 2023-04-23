@@ -1,4 +1,4 @@
-- Navigate to folder `\mocking` and examine `auth.service.ts` and compare it to `auth.service.mock.ts`. They are used in `use-mock.component.ts` and `use-mock.component.spec.ts`.
+- Navigate to folder `\component-mocking` and examine `auth.service.ts` and compare it to `auth.service.mock.ts`. They are used in `use-mock.component.ts` and `use-mock.component.spec.ts`.
 
 ```typescript
 export class UseMockComponent {
