@@ -5,10 +5,6 @@ import { Component, OnInit } from '@angular/core';
   templateUrl: './ux-split.component.html',
   styleUrls: ['./ux-split.component.scss'],
 })
-export class uxSplitComponent implements OnInit {
-  constructor() {}
-
+export class uxSplitComponent {
   toolbar = '100px';
-
-  ngOnInit() {}
 }

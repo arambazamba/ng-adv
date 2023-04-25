@@ -2,48 +2,39 @@
   "demos": [
     {
       "url": "style-inheritance",
-      "title": "Style Inheritance",
-      "component": "StyleInheritanceComponent"
+      "title": "Style Inheritance"
     },
     {
       "url": "bootstrap",
-      "title": "Material vs Bootstrap",
-      "component": "MaterialVsBootstrapComponent"
+      "title": "Material vs Bootstrap"
     },
     {
       "url": "card",
-      "title": "Theming",
-      "component": "CardComponent"
+      "title": "Theming"
     },
     {
       "url": "mat-overrides",
-      "title": "Material Overrides",
-      "component": "PopupContainerComponent"
+      "title": "Material Overrides"
     },
     {
       "url": "table",
-      "title": "Formated Table",
-      "component": "StatefulComponent"
+      "title": "Formated Table"
     },
     {
       "url": "multi-theme",
-      "title": "Multi Theme",
-      "component": "MultiThemeComponent"
+      "title": "Multi Theme"
     },
     {
       "url": "ngoptimizedimg",
-      "title": "NgOptimizedImage",
-      "component": "NgOptimizedImageComponent"
+      "title": "NgOptimizedImage"
     },
     {
       "url": "feedback",
-      "title": "Visual Feedback",
-      "component": "VisualFeedbackComponent"
+      "title": "Visual Feedback"
     },
     {
       "url": "mdc-migration",
-      "title": "MDC Migration",
-      "component": "MdcMigrationComponent"
+      "title": "MDC Migration"
     }
   ],
   "posts": [

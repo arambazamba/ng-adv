@@ -11,16 +11,14 @@ import { environment } from '../../../environments/environment';
   providedIn: 'root',
 })
 export class SideNavService {
-
   http = inject(HttpClient);
   breakpointObserver = inject(BreakpointObserver);
+  visible$: BehaviorSubject<boolean> = new BehaviorSubject<boolean>(true);
+  position$: BehaviorSubject<MatDrawerMode> = new BehaviorSubject<MatDrawerMode>('side');
 
   constructor() {
     this.watchScreen.subscribe();
   }
-
-  visible$: BehaviorSubject<boolean> = new BehaviorSubject<boolean>(true);
-  position$: BehaviorSubject<MatDrawerMode> = new BehaviorSubject<MatDrawerMode>('side');
 
   getSideNavVisible() {
     return this.visible$.asObservable();

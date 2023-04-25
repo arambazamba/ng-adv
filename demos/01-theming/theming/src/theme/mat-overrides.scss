@@ -9,13 +9,13 @@
 .mat-mdc-card-header {
   background-color: var(--color-primary);
   color: var(--color-fg);
-  height: var(--toolbar-small);
-  padding: 8px 16px;
-  margin-bottom: var(--gap-medium);
+  height: var(--toolbar-medium);
+  padding-top: 0px;
 }
 
 .mat-mdc-card-title{
   margin-top: var(--gap-small);
+  color: var(--color-font);
 }
 
 .mat-mdc-card-subtitle{
@@ -23,7 +23,7 @@
 }
 
 .mat-mdc-card-content {
-  padding: var(--gap-medium);
+  padding: var(--gap-medium) !important;
   margin-bottom: 0 !important;
 }
 
@@ -50,11 +50,13 @@ button.mat-mdc-raised-button{
   top: -1rem;
 }
 
-
 //mat-dialog
+/*TODO(mdc-migration): The following rule targets internal classes of dialog that may no longer apply for the MDC version.*/
+/*TODO(mdc-migration): The following rule targets internal classes of dialog that may no longer apply for the MDC version.*/
 mat-dialog-container {
   .form-container {
     padding: 0 10px;
+    /*TODO(mdc-migration): The following rule targets internal classes of form-field that may no longer apply for the MDC version.*/
     .mat-form-field-flex:first-child {
       padding-top: 10px;
     }

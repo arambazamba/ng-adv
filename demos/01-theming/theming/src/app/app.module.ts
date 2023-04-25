@@ -12,7 +12,6 @@ import { AppComponent } from './app.component';
 import { HomeComponent } from './home/home.component';
 import { MaterialModule } from './material.module';
 import { SharedModule } from './shared/shared.module';
-import { FlexLayoutModule } from '@angular/flex-layout';
 import { LoadingInterceptor } from './shared/loading/loading-interceptor';
 import { LoadingService } from './shared/loading/loading.service';
 
@@ -23,7 +22,6 @@ import { LoadingService } from './shared/loading/loading.service';
     AppRoutingModule,
     BrowserAnimationsModule,
     MaterialModule,
-    FlexLayoutModule,
     HttpClientModule,
     SharedModule,
     MarkdownModule.forRoot({
@@ -36,4 +34,4 @@ import { LoadingService } from './shared/loading/loading.service';
   ],
   bootstrap: [AppComponent],
 })
-export class AppModule {}
+export class AppModule { }
