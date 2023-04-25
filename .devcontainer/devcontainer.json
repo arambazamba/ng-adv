@@ -7,5 +7,14 @@
     "ghcr.io/devcontainers/features/node:1": {
       "version": "16"
     }     
-  }
+},
+"customizations": {
+	"vscode": {
+		"extensions": [
+			"Angular.ng-template",
+			"cmstead.jsrefactor",
+			"nrwl.angular-console"
+		]
+	}
+}
 }
