@@ -7,3 +7,7 @@ export const getCustomers = createSelector(
   getCustomerState,
   (state: CustomersState) => state.customers
 );
+
+export const getCustomerById = (id: number) => createSelector(
+  getCustomers, (customers) => customers.filter(c => c.id == id)
+);
