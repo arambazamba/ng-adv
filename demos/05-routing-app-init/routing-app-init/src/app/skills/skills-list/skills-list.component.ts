@@ -1,8 +1,7 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, inject } from '@angular/core';
+import { Observable } from 'rxjs';
 import { Skill } from '../skill.model';
 import { SkillsEntityService } from '../skills-entity.service';
-import { Observable } from 'rxjs';
-import { ActivatedRoute } from '@angular/router';
 
 @Component({
   selector: 'app-skills-list',
@@ -10,12 +9,15 @@ import { ActivatedRoute } from '@angular/router';
   styleUrls: ['./skills-list.component.scss'],
 })
 export class SkillsListComponent {
-  constructor(
-    private skillsService: SkillsEntityService,
-    private route: ActivatedRoute
-  ) {
-    this.skills = this.skillsService.entities$;
+  service = inject(SkillsEntityService);
+
+  constructor() {
+    this.skills = this.service.entities$;
   }
 
-  skills: Observable<Skill[]> = this.route.data['skills'];
+  // change comment to load skills from preloaded data
+  // load skills from entity service
+  skills: Observable<Skill[]>;
+  // load skills from preloaded data that was loaded from ngrx-data
+  // skills: Observable<Skill[]> = this.route.data['skills'];
 }

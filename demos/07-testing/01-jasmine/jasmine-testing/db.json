@@ -122,7 +122,7 @@
     },
     {
       "url": "integrationtests",
-      "title": "Comp Integration",
+      "title": "Comp Nested Integration",
       "id": 6,
       "topicid": 1,
       "visible": true,
@@ -130,7 +130,7 @@
     },
     {
       "url": "marbles",
-      "title": "Marbles",
+      "title": "Comp Marbles",
       "id": 79,
       "topicid": 1,
       "visible": true,

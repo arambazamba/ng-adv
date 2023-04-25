@@ -1,5 +1,4 @@
-Examine routing config in `demo.module.ts` and the use of guards:
-
+Examine routing config in `demo.module.ts` and the use of guards. OnlyPrimeMembersGuard is implemented in a functional pattern.
 ```typescript
 { path: 'multi-guard',
   component: MultiGuardComponent,

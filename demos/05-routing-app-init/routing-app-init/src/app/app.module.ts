@@ -1,33 +1,29 @@
-import {
-  HttpClientModule,
-  HTTP_INTERCEPTORS,
-  HttpClient,
-} from '@angular/common/http';
-import { NgModule, ErrorHandler, APP_INITIALIZER } from '@angular/core';
+import { HttpClientModule } from '@angular/common/http';
+import { APP_INITIALIZER, NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { EntityDataModule } from '@ngrx/data';
 import { EffectsModule } from '@ngrx/effects';
 import {
-  StoreRouterConnectingModule,
-  RouterStateSerializer,
   RouterState,
+  StoreRouterConnectingModule
 } from '@ngrx/router-store';
 import { StoreModule } from '@ngrx/store';
 import { StoreDevtoolsModule } from '@ngrx/store-devtools';
 import { environment } from 'src/environments/environment';
-import { AppRoutingModule } from './app-routing.module';
-import { AppComponent } from './app.component';
-import { HomeComponent } from './home/home.component';
-import { MaterialModule } from './material.module';
-import { SharedModule } from './shared/shared.module';
-import { reducers, metaReducers } from './state';
-import { ErrPageComponent } from './error/err-page/err-page.component';
 import { AppInitService, initFactory } from './app-init/app-init.service';
 import { configFactory } from './app-init/config.factory';
 import { ConfigService } from './app-init/config.service';
-import { EntityDataModule } from '@ngrx/data';
-import { GlobalErrService } from './error/global-err-handler';
+import { AppRoutingModule } from './app-routing.module';
+import { AppComponent } from './app.component';
+import { CustomerEditComponent } from './customers/component/customer-edit/customer-edit.component';
+import { CustomersComponent } from './customers/component/customer-list/customers.component';
 import { CustomerEffects } from './customers/state/customers.effects';
+import { ErrPageComponent } from './error/err-page/err-page.component';
+import { HomeComponent } from './home/home.component';
+import { MaterialModule } from './material.module';
+import { SharedModule } from './shared/shared.module';
+import { metaReducers, reducers } from './state';
 // import { GlobalErrService } from './error/global-err-handler';
 // import { HttpErrorInterceptor } from './error/globle-http-err-handler';
 // import { FBAuthInterceptor } from './auth/fbauth.interceptor';
@@ -36,7 +32,7 @@ import { CustomerEffects } from './customers/state/customers.effects';
 // import { RetryInterceptorService } from './interceptors/retry-interceptor.service';
 
 @NgModule({
-  declarations: [AppComponent, HomeComponent, ErrPageComponent],
+  declarations: [AppComponent, HomeComponent, ErrPageComponent, CustomersComponent, CustomerEditComponent],
   imports: [
     BrowserModule,
     AppRoutingModule,

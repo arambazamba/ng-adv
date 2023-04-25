@@ -1,28 +1,18 @@
+<app-markdown-renderer [md]="'material-async'"></app-markdown-renderer>
+
 <mat-card>
-    <mat-card-header>
-      <mat-card-title>Async & Material</mat-card-title>
-    </mat-card-header>
-    <mat-card-content>
-        <table mat-table [dataSource]="dataSource" multiTemplateDataRows matSort matSortActive="email" matSortDirection="asc">
-            <ng-container matColumnDef="email">
-              <th mat-header-cell *matHeaderCellDef mat-sort-header>Email</th>
-              <td mat-cell *matCellDef="let user">{{user.email}}</td>
-            </ng-container>
-          
-            <ng-container matColumnDef="created">
-              <th mat-header-cell *matHeaderCellDef mat-sort-header>Created</th>
-              <td mat-cell *matCellDef="let user">{{user.created}}</td>
-            </ng-container>
-          
-            <ng-container matColumnDef="roles">
-              <th mat-header-cell *matHeaderCellDef mat-sort-header>Roles</th>
-              <td mat-cell *matCellDef="let user">{{user.roles}}</td>
-            </ng-container>
-          
-            <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
-            <tr mat-row *matRowDef="let user; columns: displayedColumns;"
-                class="user-row">
-            </tr>
-          </table>
-    </mat-card-content>
-  </mat-card>
+  <mat-card-header>
+    <mat-card-title>Async & Material</mat-card-title>
+  </mat-card-header>
+  <mat-card-content>
+    <mat-tab-group>
+      <mat-tab *ngFor="let ut of users">
+        <ng-template mat-tab-label>
+            {{ ut.name }}
+        </ng-template>
+        {{ ut.name }} was born on {{ ut.created | date: 'MM/dd/yyyy' }}.
+        {{ut.description}}
+      </mat-tab>
+    </mat-tab-group>
+  </mat-card-content>
+</mat-card>

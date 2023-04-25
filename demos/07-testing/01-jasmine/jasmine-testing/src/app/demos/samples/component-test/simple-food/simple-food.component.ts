@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, inject } from '@angular/core';
 import { FoodItem } from '../../food/food.model';
 import { FoodService } from '../../food/food.service';
 
@@ -8,8 +8,7 @@ import { FoodService } from '../../food/food.service';
   styleUrls: ['./simple-food.component.scss'],
 })
 export class SimpleFoodComponent implements OnInit {
-  constructor(public fs: FoodService) { }
-
+  fs = inject(FoodService);
   food: FoodItem[] = [];
 
   ngOnInit() {

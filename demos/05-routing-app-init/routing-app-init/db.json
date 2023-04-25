@@ -73,6 +73,15 @@
       "sortOrder": 0
     },
     {
+      "url": "router-bindings",
+      "title": "Router Bindings",
+      "component": "RouterBindingComponent",
+      "id": 44,
+      "topicid": 1,
+      "visible": true,
+      "sortOrder": 0
+    },
+    {
       "url": "routing",
       "title": "Routing NgRx",
       "component": "RoutingComponent",
@@ -117,6 +126,10 @@
     {
       "label": "Skills",
       "url": "skills"
+    },
+    {
+      "label": "Customers",
+      "url": "customers"
     }
   ]
 }
