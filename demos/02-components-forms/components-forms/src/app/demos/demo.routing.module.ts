@@ -26,6 +26,7 @@ import { ErrStateMatcherComponent } from './samples/err-state-matcher/err-state-
 import { DirectiveCompositionComponent } from './samples/directive-composition/directive-composition.component';
 import { ContentProjectionComponent } from './samples/content-projection/content-projection.component';
 import { ContainerPresenterComponent } from './samples/container-presenter/container-presenter.component';
+import { DynamicComponentsComponent } from './samples/dynamic-components/dynamic-components.component';
 
 const demoRoutes: Routes = [
   {
@@ -57,6 +58,7 @@ const demoRoutes: Routes = [
       { path: 'formarray', component: FormArrayComponent },
       { path: 'form-errors', component: FormErrorsComponent },
       { path: 'err-state-matcher', component: ErrStateMatcherComponent },
+      { path: 'dynamic-components', component: DynamicComponentsComponent },
       { path: 'validation', component: ReactiveValidationComponent },
       { path: 'cascade', component: ReactiveCascadeComponent },
       { path: 'typedforms', component: ReactiveTypedComponent },

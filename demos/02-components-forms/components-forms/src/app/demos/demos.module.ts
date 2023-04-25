@@ -50,6 +50,7 @@ import { PresenterListComponent } from './samples/container-presenter/presenter-
 import { PresenterEditComponent } from './samples/container-presenter/presenter-edit/presenter-edit.component';
 import { StandaloneComponent } from './samples/standalone/standalone.component';
 import { ColumnDirective, RowDirective } from './samples/directive-composition/flex-layout-replacements';
+import { DynamicComponentsComponent } from './samples/dynamic-components/dynamic-components.component';
 
 
 const appearance: MatFormFieldDefaultOptions = {
@@ -95,7 +96,8 @@ const appearance: MatFormFieldDefaultOptions = {
     SplitPopupComponent,
     ContainerPresenterComponent,
     PresenterListComponent,
-    PresenterEditComponent
+    PresenterEditComponent,
+    DynamicComponentsComponent
   ],
   imports: [
     CommonModule,
