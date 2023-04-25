@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, inject } from '@angular/core';
 import { FormArray, FormBuilder } from '@angular/forms';
 import { PersonService } from '../person/person.service';
 
@@ -7,15 +7,13 @@ import { PersonService } from '../person/person.service';
   templateUrl: './form-array.component.html',
   styleUrls: ['./form-array.component.scss'],
 })
-export class FormArrayComponent implements OnInit {
-  public skillForm = this.fb.group({
+export class FormArrayComponent {
+  fb: FormBuilder = inject(FormBuilder);
+  ps: PersonService = inject(PersonService);
+  skillForm = this.fb.group({
     name: '',
     skillsGrp: this.fb.array([]),
   });
-
-  constructor(private fb: FormBuilder, private ps: PersonService) { }
-
-  ngOnInit() { }
 
   addSkill() {
     const skillsGrp = this.skillForm.controls.skillsGrp as FormArray;

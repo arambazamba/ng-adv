@@ -2,202 +2,111 @@
   "demos": [
     {
       "url": "standalone",
-      "topicid": 3,
-      "title": "Standalone Component",
-      "component": "StandaloneComponent",
-      "visible": true,
-      "sortOrder": 2
+      "title": "Standalone Component"
     },
     {
       "url": "lazy-standalone",
-      "topicid": 3,
-      "title": "Lazy Standalone Comp.",
-      "component": "LazyStandaloneComponent",
-      "visible": true,
-      "sortOrder": 2
+      "title": "Lazy Standalone Comp."
     },
     {
       "url": "standalone-bootstrap",
-      "topicid": 3,
-      "title": "Boot Standalone Comp.",
-      "component": "BootstrapStandaloneComponent",
-      "visible": true,
-      "sortOrder": 2
+      "title": "Boot Standalone Comp."
     },
     {
       "url": "directives-composition",
-      "topicid": 3,
-      "title": "Directives Composition",
-      "component": "DirectiveCompositionComponent",
-      "visible": true,
-      "sortOrder": 2
+      "title": "Directives Composition"
     },
     {
       "url": "content-projection",
-      "topicid": 3,
-      "title": "Content Projection",
-      "component": "ContentProjectionComponent",
-      "visible": true,
-      "sortOrder": 2
+      "title": "Content Projection"
     },
     {
       "url": "template-vs-container",
-      "topicid": 3,
-      "title": "ng-template / ng-content",
-      "component": "TemplateVsContainerComponent",
-      "visible": true,
-      "sortOrder": 2
+      "title": "ng-template / ng-content"
     },
     {
       "url": "viewchild",
-      "topicid": 3,
-      "title": "ViewChild / Children",
-      "component": "ViewChildComponent",
-      "visible": true,
-      "sortOrder": 2
+      "title": "ViewChild / Children"
     },
     {
       "url": "contentchild",
-      "topicid": 3,
-      "title": "ContentChild / Children",
-      "component": "ContentChildComponent",
-      "visible": true,
-      "sortOrder": 2
+      "title": "ContentChild / Children"
     },
     {
       "url": "hostbinding",
-      "topicid": 3,
-      "title": "Hostbinding / Listener",
-      "component": "HostBindingListenerComponent",
-      "visible": true,
-      "sortOrder": 2
+      "title": "Hostbinding / Listener"
+    },
+    {
+      "url": "hostbinding",
+      "title": "Hostbinding / Listener"
+    },
+    {
+      "url": "dynamic-components",
+      "title": "Dynamic Components"
     },
     {
       "url": "formcontrol",
-      "topicid": 3,
-      "title": "FormControl",
-      "component": "FormControlComponent",
-      "visible": true,
-      "sortOrder": 1
+      "title": "FormControl"
     },
     {
       "url": "reactiveforms",
-      "topicid": 2,
-      "title": "Reactive Forms",
-      "component": "ReactiveFormsComponent",
-      "visible": true,
-      "sortOrder": 3
+      "title": "Reactive Forms"
     },
     {
       "url": "formbuilder",
-      "topicid": 2,
-      "title": "Form Builder",
-      "component": "FormBuilderComponent",
-      "visible": true,
-      "sortOrder": 4
+      "title": "Form Builder"
     },
     {
       "url": "typedforms",
-      "topicid": 2,
-      "title": "Typed Forms",
-      "component": "ReactiveTypedComponent",
-      "visible": true,
-      "sortOrder": 4
+      "title": "Typed Forms"
     },
     {
       "url": "typedformsexplicit",
-      "topicid": 2,
-      "title": "Typed Forms Explicit",
-      "component": "ReactiveExplicitTypedComponent",
-      "visible": true,
-      "sortOrder": 5
+      "title": "Typed Forms Explicit"
     },
     {
       "url": "typednonnullable",
-      "topicid": 2,
-      "title": "Typed NonNullable",
-      "component": "ReactiveFormsComponent",
-      "visible": true,
-      "sortOrder": 4
+      "title": "Typed NonNullable"
     },
     {
       "url": "raw-value",
-      "topicid": 2,
-      "title": "GetRawValue",
-      "component": "GetRawValueComponent",
-      "visible": true,
-      "sortOrder": 4
+      "title": "GetRawValue"
     },
     {
       "url": "reactivenested",
-      "topicid": 2,
-      "title": "Nested Objects",
-      "component": "ReactiveNestedComponent",
-      "visible": true,
-      "sortOrder": 5
+      "title": "Nested Objects"
     },
     {
       "url": "formarray",
-      "topicid": 4,
-      "title": "FormArray",
-      "component": "FormArrayComponent",
-      "visible": true,
-      "sortOrder": 6
+      "title": "FormArray"
     },
     {
       "url": "cascade",
-      "topicid": 3,
-      "title": "Cascad Controls",
-      "component": "ReactiveCascadeComponent",
-      "visible": true,
-      "sortOrder": 8
+      "title": "Cascad Controls"
     },
     {
       "url": "valuecontrol",
-      "topicid": 3,
-      "title": "ControlValueAccessor",
-      "component": "ControlValueAccessorComponent",
-      "visible": true,
-      "sortOrder": 8
+      "title": "ControlValueAccessor"
     },
     {
       "url": "validation-typed",
-      "topicid": 4,
-      "title": "Validation Intro",
-      "component": "ReactiveTypedValidatonComponent",
-      "visible": true,
-      "sortOrder": 6
+      "title": "Validation Intro"
     },
     {
       "url": "validation",
-      "topicid": 4,
-      "title": "Form State & Validators",
-      "component": "ReactiveValidationComponent",
-      "visible": true,
-      "sortOrder": 6
+      "title": "Form State & Validators"
     },
     {
       "url": "form-errors",
-      "topicid": 4,
-      "title": "Form Errors",
-      "component": "FormErrorsComponent",
-      "visible": true,
-      "sortOrder": 6
-    },    {
+      "title": "Form Errors"
+    },
+    {
       "url": "err-state-matcher",
-      "topicid": 4,
-      "title": "ErrorStateMatcher",
-      "component": "ErrStateMatcherComponent",
-      "visible": true,
-      "sortOrder": 6
+      "title": "ErrorStateMatcher"
     },
     {
       "url": "container-presenter",
-      "topicid": 3,
-      "title": "Container & Required Inputs",
-      "component": "ContainerPresenterComponent",
-      "visible": true,
-      "sortOrder": 8
+      "title": "Container & Required Inputs"
     }
   ],
   "skills": [
@@ -215,7 +124,7 @@
       "imgUrl": "/assets/images/cleo.png",
       "email": "cleothewhippet@sighthounds.at",
       "wealth": "rich",
-      "address":{
+      "address": {
         "street": "Stairway to heaven",
         "city": "Better place",
         "postalCode": "1000"

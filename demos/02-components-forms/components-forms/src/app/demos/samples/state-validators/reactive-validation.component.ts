@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, inject } from '@angular/core';
 import { FormBuilder, FormControl, Validators } from '@angular/forms';
 import { Observable } from 'rxjs';
 import { delay } from 'rxjs/operators';
@@ -12,6 +12,9 @@ import { AsyncMailExistsValidator } from './asyncMailExistsValidator';
   styleUrls: ['./reactive-validation.component.scss'],
 })
 export class ReactiveValidationComponent {
+  fb: FormBuilder = inject(FormBuilder);
+  ps: PersonService = inject(PersonService);
+  mailExistsValidator: AsyncMailExistsValidator = inject(AsyncMailExistsValidator);
   person: Person = new Person();
   wealthOpts = wealthOptsValues;
 
@@ -40,12 +43,6 @@ export class ReactiveValidationComponent {
     ],
     wealth: [this.person.wealth],
   });
-
-  constructor(
-    private fb: FormBuilder,
-    private ps: PersonService,
-    private mailExistsValidator: AsyncMailExistsValidator //Sample for custom Async Validator
-  ) { }
 
   ngOnInit() {
     this.ps

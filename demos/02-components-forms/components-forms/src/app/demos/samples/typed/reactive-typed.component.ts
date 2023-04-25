@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, inject } from '@angular/core';
 import { FormControl, FormGroup, NgForm, Validators } from '@angular/forms';
 import { Person, wealthOptsValues } from '../person/person.model';
 import { PersonService } from '../person/person.service';
@@ -9,6 +9,7 @@ import { PersonService } from '../person/person.service';
   styleUrls: ['./reactive-typed.component.scss'],
 })
 export class ReactiveTypedComponent implements OnInit {
+  ps: PersonService = inject(PersonService);
   person: Person = new Person();
   wealthOpts = wealthOptsValues;
 
@@ -23,7 +24,7 @@ export class ReactiveTypedComponent implements OnInit {
     wealth: new FormControl(this.person.wealth),
   });
 
-  constructor(private ps: PersonService) {
+  constructor() {
     this.personForm.controls.age.valueChanges.subscribe((value) => {
       console.log('Age changed:', value);
     });

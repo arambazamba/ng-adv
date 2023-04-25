@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, inject } from '@angular/core';
 import {
   FormBuilder,
   FormControl,
@@ -12,6 +12,7 @@ import {
   styleUrls: ['./control-value-accessor.component.scss'],
 })
 export class ControlValueAccessorComponent implements OnInit {
+  fb: FormBuilder = inject(FormBuilder);
   shoppingForm: FormGroup<{
     itemName: FormControl<string | null>;
     quantity: FormControl<number | null>;
@@ -22,7 +23,7 @@ export class ControlValueAccessorComponent implements OnInit {
 
   cartItem = { itemName: 'sunflower oil', quantity: 4 };
 
-  constructor(private fb: FormBuilder) {
+  constructor() {
     this.shoppingForm.controls.quantity.valueChanges.subscribe((value) => {
       console.log('Quantity changed:', value);
     });

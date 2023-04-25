@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, inject } from '@angular/core';
 import { FormGroup, FormControl, Validators, NgForm } from '@angular/forms';
 import { Person, wealthOptsValues } from '../person/person.model';
 import { PersonService } from '../person/person.service';
@@ -9,6 +9,7 @@ import { PersonService } from '../person/person.service';
   styleUrls: ['./reactive-explicit-typed.component.scss'],
 })
 export class ReactiveExplicitTypedComponent implements OnInit {
+  ps: PersonService = inject(PersonService);
   person: Person = new Person();
   wealthOpts = wealthOptsValues;
 
@@ -20,7 +21,7 @@ export class ReactiveExplicitTypedComponent implements OnInit {
     wealth: FormControl<string | null>;
   }>;
 
-  constructor(private ps: PersonService) {
+  constructor() {
     this.personForm = new FormGroup({
       name: new FormControl(this.person.name, Validators.required),
       age: new FormControl(this.person.age),

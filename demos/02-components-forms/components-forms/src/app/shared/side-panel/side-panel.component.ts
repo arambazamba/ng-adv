@@ -1,24 +1,19 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, inject } from '@angular/core';
 import { SnackbarService } from '../snackbar/snackbar.service';
-import { SidePanelService } from './sidepanel.service';
-import { SidebarActions } from './sidebar.actions';
 import { ThemeService } from '../theme/theme.service';
+import { SidebarActions } from './sidebar.actions';
+import { SidePanelService } from './sidepanel.service';
 
 @Component({
   selector: 'app-side-panel',
   templateUrl: './side-panel.component.html',
   styleUrls: ['./side-panel.component.scss'],
 })
-export class SidePanelComponent implements OnInit {
-  constructor(
-    private sns: SnackbarService,
-    private eb: SidePanelService,
-    private ts: ThemeService
-  ) {}
-
+export class SidePanelComponent {
+  sns: SnackbarService = inject(SnackbarService);
+  eb: SidePanelService = inject(SidePanelService);
+  ts: ThemeService = inject(ThemeService);
   editorDisplayed: boolean = false;
-
-  ngOnInit() {}
 
   toggleTheme() {
     this.ts.toggleTheme();

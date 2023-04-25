@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, inject } from '@angular/core';
 import { FormControl } from '@angular/forms';
 import { combineLatest, Observable } from 'rxjs';
 import { map, startWith } from 'rxjs/operators';
@@ -11,8 +11,7 @@ import { DemoService } from '../../demo-base/demo.service';
   styleUrls: ['./action-streams.component.scss'],
 })
 export class ActionStreamsComponent implements OnInit {
-  constructor(private ds: DemoService) {}
-
+  ds: DemoService = inject(DemoService);
   // Data Stream
   demosData$: Observable<DemoItem[]> = this.ds.getItems();
   // Action Stream
@@ -28,11 +27,11 @@ export class ActionStreamsComponent implements OnInit {
       console.log(demos);
       return filter != null && filter !== ''
         ? demos.filter((d) =>
-            d.title.toLowerCase().includes(filter.toLowerCase())
-          )
+          d.title.toLowerCase().includes(filter.toLowerCase())
+        )
         : demos;
     })
   );
 
-  ngOnInit() {}
+  ngOnInit() { }
 }

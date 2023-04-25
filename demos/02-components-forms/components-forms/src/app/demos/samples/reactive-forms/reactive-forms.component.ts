@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, inject } from '@angular/core';
 import {
   FormControl,
   FormGroup,
@@ -15,6 +15,7 @@ import { NgForm } from '@angular/forms';
   styleUrls: ['./reactive-forms.component.scss'],
 })
 export class ReactiveFormsComponent implements OnInit {
+  ps: PersonService = inject(PersonService);
   person: Person = new Person();
   wealthOpts = wealthOptsValues;
   personForm = new FormGroup({
@@ -28,8 +29,6 @@ export class ReactiveFormsComponent implements OnInit {
     gender: new FormControl(this.person.gender),
     wealth: new FormControl(this.person.wealth),
   });
-
-  constructor(private ps: PersonService) { }
 
   ngOnInit() {
     this.initForm();

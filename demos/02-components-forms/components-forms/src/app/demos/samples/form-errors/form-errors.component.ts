@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, inject } from '@angular/core';
 import {
   FormArray,
   FormBuilder,
@@ -13,8 +13,9 @@ import { map, Observable } from 'rxjs';
   templateUrl: './form-errors.component.html',
   styleUrls: ['./form-errors.component.scss'],
 })
-export class FormErrorsComponent implements OnInit {
-  public skillForm = this.fb.group({
+export class FormErrorsComponent {
+  fb: FormBuilder = inject(FormBuilder);
+  skillForm = this.fb.group({
     name: [
       '',
       [Validators.required, Validators.minLength(4), Validators.maxLength(15)],
@@ -23,22 +24,16 @@ export class FormErrorsComponent implements OnInit {
     skillsGrp: this.fb.array([]),
   });
 
-  errors$: Observable<ValidationErrors[]> | undefined;
-
-  constructor(private fb: FormBuilder) { }
-
-  ngOnInit() {
-    this.errors$ = this.skillForm.valueChanges.pipe(
-      map(() => {
-        const errors: ValidationErrors[] = [];
-        Object.keys(this.skillForm.controls).forEach((key) => {
-          let err = this.skillForm.get(key)?.errors;
-          if (err) errors.push(err);
-        });
-        return errors;
-      })
-    );
-  }
+  validationErrors = this.skillForm.valueChanges.pipe(
+    map(() => {
+      const errors: ValidationErrors[] = [];
+      Object.keys(this.skillForm.controls).forEach((key) => {
+        let err = this.skillForm.get(key)?.errors;
+        if (err) errors.push(err);
+      });
+      return errors;
+    })
+  );
 
   addSkill() {
     const skillsGrp = this.skillForm.controls.skillsGrp as FormArray;
