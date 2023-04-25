@@ -49,7 +49,7 @@ import { ContainerPresenterComponent } from './samples/container-presenter/conta
 import { PresenterListComponent } from './samples/container-presenter/presenter-list/presenter-list.component';
 import { PresenterEditComponent } from './samples/container-presenter/presenter-edit/presenter-edit.component';
 import { StandaloneComponent } from './samples/standalone/standalone.component';
-import { ColumnDirective, RowDirective } from './samples/directive-composition/flex-replacements';
+import { ColumnDirective, RowDirective } from './samples/directive-composition/flex-layout-replacements';
 
 
 const appearance: MatFormFieldDefaultOptions = {
