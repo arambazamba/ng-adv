@@ -10,7 +10,7 @@
       (ngSubmit)="savePerson(personForm)"
       role="form"
       novalidate
-      fxLayout="column"
+      column
     >
       <input matInput type="text" formControlName="id"  class="hidden"/>
       <mat-form-field>
@@ -51,7 +51,7 @@
           opt
         }}</mat-radio-button>
       </mat-radio-group>
-      <div formGroupName="address" fxLayout="column" class="border">
+      <div formGroupName="address" column>
         <h3>Address</h3>
         <mat-form-field>
           <mat-label>Street</mat-label>

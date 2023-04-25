@@ -7,7 +7,7 @@
         [formGroup]="personForm"
         (ngSubmit)="savePerson()"
         novalidate
-        fxLayout="column"
+        column
       >
       <mat-form-field>
         <mat-label>Name</mat-label>
@@ -36,7 +36,7 @@
           <mat-option value="female">Female</mat-option>
         </mat-select>
       </mat-form-field>
-  
+
         <mat-radio-group name="wealth" formControlName="wealth">
           <mat-label>Wealth:</mat-label>
           <mat-radio-button *ngFor="let opt of wealthOpts" value="{{ opt }}">{{
@@ -47,4 +47,3 @@
       </form>
     </mat-card-content>
   </mat-card>
-  

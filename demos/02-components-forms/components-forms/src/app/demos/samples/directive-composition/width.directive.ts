@@ -8,5 +8,4 @@ import { HeightDirective } from './height.directive';
   standalone: true,
 })
 export class WidthDirective {
-  constructor() {}
 }
