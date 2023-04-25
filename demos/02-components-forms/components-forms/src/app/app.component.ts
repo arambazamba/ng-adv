@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, inject } from '@angular/core';
 import { Title } from '@angular/platform-browser';
 import { environment } from 'src/environments/environment';
 import { ThemeService } from './shared/theme/theme.service';
@@ -9,14 +9,17 @@ import { ThemeService } from './shared/theme/theme.service';
   styleUrls: ['./app.component.scss'],
 })
 export class AppComponent {
-  constructor(private titleService: Title, private ts: ThemeService) {}
+  titleService: Title = inject(Title);
+  themeService: ThemeService = inject(ThemeService);
+
+  constructor() { }
 
   title: string = environment.title;
   selectedTheme: string = 'default';
 
   ngOnInit() {
     this.titleService.setTitle(this.title);
-    this.ts.getTheme().subscribe((t) => {
+    this.themeService.getTheme().subscribe((t) => {
       this.selectedTheme = t;
     });
   }

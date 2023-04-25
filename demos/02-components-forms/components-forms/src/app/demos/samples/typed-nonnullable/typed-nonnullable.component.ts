@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, inject } from '@angular/core';
 import { FormControl, FormGroup } from '@angular/forms';
 import { Person, wealthOptsValues } from '../person/person.model';
 import { PersonService } from '../person/person.service';
@@ -9,6 +9,7 @@ import { PersonService } from '../person/person.service';
   styleUrls: ['./typed-nonnullable.component.scss'],
 })
 export class TypedNonnullableComponent implements OnInit {
+  ps: PersonService = inject(PersonService);
   person: Person = new Person();
   wealthOpts = wealthOptsValues;
 
@@ -20,7 +21,7 @@ export class TypedNonnullableComponent implements OnInit {
     wealth: new FormControl(this.person.wealth),
   });
 
-  constructor(private ps: PersonService) {}
+  constructor() { }
 
   ngOnInit() {
     this.ps.getPerson().subscribe((p) => {

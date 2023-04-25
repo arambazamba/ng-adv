@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, inject } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Person, wealthOptsValues } from '../person/person.model';
 import { PersonService } from '../person/person.service';
@@ -9,26 +9,24 @@ import { PersonService } from '../person/person.service';
   styleUrls: ['./reactive-nested.component.scss'],
 })
 export class ReactiveNestedComponent {
+  fb: FormBuilder = inject(FormBuilder);
+  ps: PersonService = inject(PersonService);
   person: Person = new Person();
   wealthOpts = wealthOptsValues;
-  personForm: FormGroup;
-
-  constructor(private fb: FormBuilder, private ps: PersonService) {
-    this.personForm = this.fb.group({
-      id: [this.person.name],
-      name: [this.person.name, Validators.required],
-      lastname: [this.person.lastname, Validators.required],
-      age: [this.person.age],
-      gender: [this.person.gender],
-      email: [this.person.email],
-      wealth: [this.person.wealth],
-      address: this.fb.group({
-        street: [this.person.address?.street],
-        city: [this.person.address?.city],
-        postalCode: [this.person.address?.postalCode],
-      }),
-    });
-  }
+  personForm = this.fb.group({
+    id: [this.person.id],
+    name: [this.person.name, Validators.required],
+    lastname: [this.person.lastname, Validators.required],
+    age: [this.person.age],
+    gender: [this.person.gender],
+    email: [this.person.email],
+    wealth: [this.person.wealth],
+    address: this.fb.group({
+      street: [this.person.address?.street],
+      city: [this.person.address?.city],
+      postalCode: [this.person.address?.postalCode],
+    }),
+  });
 
   ngOnInit() {
     this.ps.getPerson().subscribe((p) => {

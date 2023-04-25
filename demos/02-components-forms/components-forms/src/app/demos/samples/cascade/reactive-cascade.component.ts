@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, inject } from '@angular/core';
 import { FormBuilder } from '@angular/forms';
 
 @Component({
@@ -7,6 +7,7 @@ import { FormBuilder } from '@angular/forms';
   styleUrls: ['./reactive-cascade.component.scss'],
 })
 export class ReactiveCascadeComponent {
+  fb: FormBuilder = inject(FormBuilder);
   readonly selectValues = [
     { type: 'Frameworks', values: ['Angular', 'React', '.NET Core', 'Spring'] },
     {
@@ -29,11 +30,11 @@ export class ReactiveCascadeComponent {
     skills: this.fb.array([this.skillsGrp]),
   });
 
-  constructor(private fb: FormBuilder) {
+  constructor() {
     this.selects = [];
   }
 
-  ngOnInit(): void {}
+  ngOnInit(): void { }
 
   saveProfileForm() {
     console.log(this.profileForm.value);
