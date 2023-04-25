@@ -194,7 +194,7 @@
     {
       "url": "container-presenter",
       "topicid": 3,
-      "title": "Container / Presenter",
+      "title": "Container & Required Inputs",
       "component": "ContainerPresenterComponent",
       "visible": true,
       "sortOrder": 8

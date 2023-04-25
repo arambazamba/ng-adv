@@ -14,5 +14,4 @@ import { CenteredDirective } from './centered.directive';
   ],
 })
 export class BoxedDirective {
-  constructor() {}
 }

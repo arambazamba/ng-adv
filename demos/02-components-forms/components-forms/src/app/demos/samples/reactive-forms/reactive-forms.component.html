@@ -10,8 +10,8 @@
       [formGroup]="personForm"
       (ngSubmit)="savePerson(personForm)"
       novalidate
-      fxLayout="column"
-    >      
+      column
+    >
       <input matInput type="text" formControlName="id"  class="hidden"/>
       <mat-form-field>
         <mat-label>Name</mat-label>

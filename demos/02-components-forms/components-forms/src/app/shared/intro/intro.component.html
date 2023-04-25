@@ -3,12 +3,12 @@
       <mat-card-title>{{ title }}</mat-card-title>
       <mat-card-subtitle>{{ subtitle }}</mat-card-subtitle>
     </mat-card-header>
-    <mat-card-content fxLayout="column" fxLayoutAlign="center center">
-      <div class="showcase" fxLayout="column" fxLayoutAlign="center center">
+    <mat-card-content>
+      <div class="showcase" column centered>
         <img src="assets/images/{{img}}" alt="">
       </div>
       <div class="instructions">
-        <ng-content select=".instructions"></ng-content>    
+        <ng-content select=".instructions"></ng-content>
       </div>
     </mat-card-content>
     <mat-card-actions>

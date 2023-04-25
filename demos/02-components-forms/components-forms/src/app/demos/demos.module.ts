@@ -1,7 +1,6 @@
 import { CommonModule } from '@angular/common';
 import { HttpClientModule } from '@angular/common/http';
 import { NgModule } from '@angular/core';
-import { FlexLayoutModule } from '@angular/flex-layout';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import {
   MatFormFieldDefaultOptions,
@@ -50,6 +49,7 @@ import { ContainerPresenterComponent } from './samples/container-presenter/conta
 import { PresenterListComponent } from './samples/container-presenter/presenter-list/presenter-list.component';
 import { PresenterEditComponent } from './samples/container-presenter/presenter-edit/presenter-edit.component';
 import { StandaloneComponent } from './samples/standalone/standalone.component';
+import { ColumnDirective, RowDirective } from './samples/directive-composition/flex-replacements';
 
 
 const appearance: MatFormFieldDefaultOptions = {
@@ -104,10 +104,11 @@ const appearance: MatFormFieldDefaultOptions = {
     ReactiveFormsModule,
     DemoRoutingModule,
     MaterialModule,
-    FlexLayoutModule,
     HttpClientModule,
     MdRendererModule,
-    StandaloneComponent
+    StandaloneComponent,
+    ColumnDirective,
+    RowDirective
   ],
   providers: [
     {

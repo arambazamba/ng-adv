@@ -3,8 +3,7 @@
     <mat-card-title>Title</mat-card-title>
   </mat-card-header>
   <mat-card-content>
-    <div fxLayout="row" fxLayout.lt-md="column" fxFlexFill>
-
+    <div column>
       <mat-form-field fxFlex="1 1 auto">
         <mat-label>Name</mat-label>
         <input matInput type="text" placeholder="Name" [formControl]="name" />
@@ -23,7 +22,6 @@
           Max Lenght for city is 15 characters
         </mat-error>
       </mat-form-field>
-
     </div>
   </mat-card-content>
   <mat-card-actions align="end">

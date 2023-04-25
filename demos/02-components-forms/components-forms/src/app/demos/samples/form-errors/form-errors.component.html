@@ -44,7 +44,7 @@
           formArrayName="skillsGrp"
           *ngFor="let skill of getElementsInFormArray(); let i = index"
         >
-          <div [formGroupName]="i" fxLayout="row" fxLayoutGap="10px">
+          <div [formGroupName]="i" row>
             <mat-form-field>
               <input
                 matInput
