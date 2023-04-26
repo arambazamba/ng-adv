@@ -1,6 +1,24 @@
-# Rounting & App Init
+# Advanced Routing and App Initialization
 
 [Animations Explorer](https://williamjuan027.github.io/angular-animations-explorer/)
+
+## Demos
+
+- Dependency Injection in Depth: Resolution modifiers and Dependency providers
+- Using Constructor vs inject for DI
+- APP_INITIALIZER, Injection & forwardRef
+- Implementing Global Error Handling and Retry-Patterns
+- Modules & Code Splitting
+- Introduction to @ngrx/router-store
+- Routing using NgRx Actions
+- Binding Router-Params to Component Inputs
+- Integrating Route Guards & Interceptors with NgRx
+- Functional Route Guards & Interceptors
+- Chaining Route Guards & Interceptors
+- Auxiliary Routes: Common use cases
+- Preloading Component Data from NgRx using Functional Resolvers
+- Router Animations & Anchor Scrolling
+- Introduction to Visual Feedback (Loading-, Saving-, ...-Indicator)
 
 ## Routing and NgRx
 

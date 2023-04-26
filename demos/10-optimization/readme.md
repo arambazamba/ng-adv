@@ -1,9 +1,17 @@
 # Building & Optimizing Applications
 
-- Using Linting and Autoformat with Prettier
 - Using Chrome Dev Tools & Lighthouse for Performance Optimization
+- Analysing and Optimizing Bundles & Modules
 - Understanding & Using Page Traces
-- Advanced Angular Debugging using @angular/core/global
-- Analyzing and Optimizing Bundles & Modules
-- Code-Splitting and Module Pre-Loading
-- Server Side Rendering using Angular Universal
+- Optimizing Images using NgOptimizedImage 
+- Logging NgRx to custom destinations using Meta-Reducers 
+- Virtual- & Infinite Scrolling
+- Understanding, Profiling & Optimizing Angular Change Detection
+- Optimize Change Detection using ngrxPush, ChangeDetectioRef
+- Change Detection and Signals
+- Using Linting and Autoformat with Prettier
+- Accessibility A11y: Best Practices & Linting
+- Introduction to Server Side Rendering (SSR) using Angular 16+
+- Why Server Side Rendering
+- Non-destructive hydration
+- Configure Server Side Rendering & prerender static pages

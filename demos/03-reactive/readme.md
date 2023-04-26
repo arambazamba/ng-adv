@@ -1,4 +1,4 @@
-# Mastering Reactive Programming using Signals & RxJs
+# Mastering Reactive Programming using Signals & RxJS
 
 [RxJS Api Reference](https://rxjs-dev.firebaseapp.com/api)
 
@@ -12,22 +12,24 @@
 
 [Testing RxJS Code with Marble Diagrams](https://rxjs.dev/guide/testing/marble-testing)
 
-## Mastering Reactive Programming using Signals & RxJs
+## Demos
 
 - Imperative vs Functional Programming
 - Immutability & Pure Functions
-- Introduction to RxJs
+- Introduction to RxJS
 - Observables, Observers & Use Cases
 - Data- vs Action-Streams
 - Mouse & DOM Events as Observables
+- Implementing Side Effects using tap
+- Base Operators: Mapping, Filtering, Merging, Scanning, ...
 - Unsubscribing (takeUntil, DestroyRef, takeUntilDestroyed)
 - Introduction to Signals
 - Imperative vs Declarative Reactive Programming
-- Signals vs Observables: Syncronous & Asynchronous Reactive Probgramming
+- Signals vs Observables: Synchronous  & Asynchronous Reactive Programming
 - Understanding Marble Diagrams & Debugging Observables
-- Implementing Side Effects using tap
-- Marble-testing RxJs
-- Base Operators: Mapping, Filtering, Merging, Scanning, ...
+- Marble-testing RxJS
 - Combination & Transformation Operators
 - Retry & Error Handling Strategies
 - Implementing & Testing Custom Observable Operators
+- Communication between using Event Bus Pattern
+- Statefull Services using Behaviour Subjects and Signals

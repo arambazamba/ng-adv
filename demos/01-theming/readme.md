@@ -1,4 +1,4 @@
-# Building an Reusable Angular Theme
+# Theming Angular Apps
 
 [Angular Material](https://material.angular.io/)
 
@@ -13,10 +13,11 @@
 ## Demos
 
 - Style inheritance and View Encapsulation
-- Material Themeing Overview
-- Define Primary, Accent and Warning Colors
+- Comparing Angular Material & Bootstrap
+- Material Theming  Overview
+- Using Material Colours to define Primary, Accent and Warning Colours
 - Building a Reusable Material Theme
 - Define Alternative Themes
-- Use Fore- and Backcolor
-- Use Theme Mixins
-- Theming Custom Components
+- Theming Custom Components and override Material Components
+- Material Design Migration to MDC
+- Using Bootstrap with Angular
