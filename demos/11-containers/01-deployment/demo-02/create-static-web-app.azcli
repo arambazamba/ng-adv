@@ -1,0 +1,8 @@
+grp=ng-adv
+loc=westeurope
+app=ng-static-web-app
+
+az group create -n $grp -l $loc
+az staticwebapp create -n $app -g $grp
+token=$(az staticwebapp secrets list --name $app --query "properties.apiKey")
+echo "Deployment Token: $token"
