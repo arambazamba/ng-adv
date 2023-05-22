@@ -9,7 +9,6 @@ import {
   retryWhen,
   tap,
 } from 'rxjs/operators';
-import { SubSink } from 'subsink';
 import { DemoService } from '../../demo-base/demo.service';
 import { Voucher } from '../../vouchers/voucher.model';
 import { VouchersService } from '../../vouchers/voucher.service';
@@ -19,12 +18,9 @@ import { VouchersService } from '../../vouchers/voucher.service';
   templateUrl: './err-handling.component.html',
   styleUrls: ['./err-handling.component.scss'],
 })
-export class ErrHandlingComponent implements OnInit {
+export class ErrHandlingComponent {
   constructor(private vs: VouchersService, private ds: DemoService) { }
 
-  sub: SubSink = new SubSink();
-
-  ngOnInit() { }
 
   whereToHandle() {
     const obs = of('cleo', 'flora', 'giro', 'soi', 3);
@@ -48,7 +44,7 @@ export class ErrHandlingComponent implements OnInit {
   setLabel = (v: Voucher) => ({ ...v, Label: `${v.Text} costs € ${v.Amount}` });
 
   tryCatchAlike() {
-    this.sub.sink = this.vs
+    this.vs
       .getVouchers()
       .pipe(
         tap((data) => console.log('logged by tap(): ', data)),
@@ -63,7 +59,7 @@ export class ErrHandlingComponent implements OnInit {
   }
 
   fallbackValue() {
-    this.sub.sink = this.ds
+    this.ds
       .getItems()
       .pipe(
         catchError((err) => {

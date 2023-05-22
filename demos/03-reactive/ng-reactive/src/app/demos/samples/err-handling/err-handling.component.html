@@ -1,34 +1,28 @@
 <mat-card appearance="outlined">
   <mat-card-header>
-    <mat-card-title>
-      Error handling
-    </mat-card-title>
+    <mat-card-title> Error handling </mat-card-title>
   </mat-card-header>
 
-  <mat-card-content
-    fxLayout="row wrap"
-    fxLayoutAlign="center start"
-    class="cmdItems"
-  >
-    <a mat-raised-button color="accent" (click)="whereToHandle()"
-      >Where to handle an error</a
-    >
-    <a mat-raised-button color="accent" (click)="tryCatchAlike()"
-      >catchError()</a
-    >
-    <a mat-raised-button color="accent" (click)="fallbackValue()">Fallback instead of err</a>
+  <mat-card-content class="cmdItems">
+    <button mat-raised-button color="accent" (click)="whereToHandle()">
+      Where to handle an error
+    </button>
+    <button mat-raised-button color="accent" (click)="tryCatchAlike()">
+      catchError()
+    </button>
+    <button mat-raised-button color="accent" (click)="fallbackValue()">
+      Fallback instead of err
+    </button>
 
-    <a mat-raised-button color="accent" (click)="useRetry()">Retry()</a>
+    <button mat-raised-button color="accent" (click)="useRetry()">
+      Retry()
+    </button>
   </mat-card-content>
 </mat-card>
 
-<mat-card appearance="outlined" fxLayout="column" fxLayoutGap="10px">
+<mat-card appearance="outlined">
   <mat-card-header>
-    <mat-card-title>
-      Result
-    </mat-card-title>
+    <mat-card-title> Result </mat-card-title>
   </mat-card-header>
-  <mat-card-content>
-    See Console for output
-  </mat-card-content>
+  <mat-card-content> See Console for output </mat-card-content>
 </mat-card>

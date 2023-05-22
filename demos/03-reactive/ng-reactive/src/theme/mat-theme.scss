@@ -31,6 +31,7 @@ $theme: mat.define-light-theme((
   --color-warn: #{mat-color($warn)};
   --color-fg: #{mat-color($fg)};
   --color-bg: #{mat-color($bg)};
+  --color-font: white;
 
   --gap-small: 0.5rem;
   --gap-medium: 0.8rem;

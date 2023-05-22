@@ -2,118 +2,83 @@
   "demos": [
     {
       "url": "langfeatures",
-      "topicid": 2,
-      "title": "Language Features",
-      "component": "LangFeaturesComponent",
-      "visible": true,
-      "sortOrder": 1
+      "title": "Language Features"
     },
     {
       "url": "asyncpipe",
-      "title": "Async Pipe",
-      "component": "AsyncPipeComponent"
+      "title": "Async Pipe"
     },
     {
       "url": "debounced",
-      "title": "Debounced Search",
-      "component": "DebouncedSearchComponent"
+      "title": "Debounced Search"
     },
     {
       "url": "actionstreams",
-      "title": "Action Streams",
-      "component": "ActionStreamsComponent"
+      "title": "Action Streams"
     },
     {
       "url": "mousedomobs",
-      "title": "Mouse & DOM Events",
-      "component": "MouseDomObservablesComponent"
+      "title": "Mouse & DOM Events"
     },
     {
       "url": "creating",
-      "topicid": 2,
-      "title": "Creating Observables",
-      "component": "CreatingObservableComponent",
-      "visible": true,
-      "sortOrder": 2
+      "title": "Creating Observables"
     },
     {
       "url": "operators",
-      "title": "Base Operators",
-      "component": "OperatorsComponent"
+      "title": "Base Operators"
     },
     {
       "url": "unsubscribe",
-      "topicid": 3,
-      "title": "Unsubscribing",
-      "component": "UnsubscribingComponent",
-      "visible": true
+      "title": "Unsubscribing"
     },
     {
       "url": "imperative",
-      "topicid": 3,
-      "title": "Imperative Reactivity",
-      "component": "ImperativeComponent",
-      "visible": true
+      "title": "Imperative Reactivity"
     },
     {
       "url": "reactive",
-      "topicid": 3,
-      "title": "Declarative Reactivity",
-      "component": "ImperativeComponent",
-      "visible": true
+      "title": "Declarative Reactivity"
     },
     {
       "url": "subjects",
-      "topicid": 2,
-      "title": "Subjects",
-      "component": "SubjectsComponent",
-      "visible": true,
-      "sortOrder": "sdf"
+      "title": "Subjects"
     },
     {
       "url": "statefull",
-      "title": "Statefull Service",
-      "component": "StatefullComponent"
+      "title": "Statefull Service"
     },
     {
       "url": "ebus",
-      "title": "EventBus",
-      "component": "EventbusComponent",
-      "id": 1,
-      "topicid": 1,
-      "visible": true,
-      "sortOrder": 3
+      "title": "EventBus"
     },
     {
-      "url": "signal-basics",
-      "title": "Signal Basics",
-      "component": "SignalsBasicsComponent"
+      "url": "signals-basics",
+      "title": "Signals Basics"
     },
-
+    {
+      "url": "signals-eventbus",
+      "title": "Signals EventBus"
+    },
     {
       "url": "marble-testing",
-      "title": "Marble Testing",
-      "component": "MarbleTestingComponent"
+      "title": "Marble Testing"
     },
     {
       "url": "errhandling",
-      "title": "Error Handling",
-      "component": "ErrHandlingComponent"
+      "title": "Error Handling"
     },
     {
       "url": "combining",
-      "title": "Combination",
-      "component": "CombiningComponent"
+      "title": "Combination"
     },
     {
       "url": "transformation",
-      "title": "Transformation",
-      "component": "TransformationComponent"
+      "title": "Transformation"
     },
     {
       "url": "customops",
-      "title": "Custom Operators",
-      "component": "CustomOperatorsComponent"
+      "title": "Custom Operators"
     }
   ],
   "skills": [

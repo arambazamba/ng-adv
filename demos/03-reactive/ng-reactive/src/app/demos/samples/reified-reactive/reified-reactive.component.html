@@ -1,22 +1,20 @@
 <app-markdown-renderer [md]="'reactive'"></app-markdown-renderer>
 <mat-card appearance="outlined">
-    <mat-card-header>
-      <mat-card-title> Reified Reactive Programming  </mat-card-title>
-    </mat-card-header>
-    <mat-card-content>
-      <div fxLayout="row">
-        <mat-form-field>
-          <mat-label>Filter</mat-label>
-          <input matInput type="text" [formControl]="filter$" />
-        </mat-form-field>
-      </div>
-      <div>
-        <h2>Skills</h2>
-        <ul>
-          <li *ngFor="let skill of skills$ | async">
-            {{ skill | json }}
-          </li>
-        </ul>
-      </div>
-    </mat-card-content>
-  </mat-card>
+  <mat-card-header>
+    <mat-card-title> Reified Reactive Programming </mat-card-title>
+  </mat-card-header>
+  <mat-card-content>
+    <mat-form-field>
+      <mat-label>Filter</mat-label>
+      <input matInput type="text" [formControl]="filter$" />
+    </mat-form-field>
+    <div>
+      <h2>Skills</h2>
+      <ul>
+        <li *ngFor="let skill of skills$ | async">
+          {{ skill | json }}
+        </li>
+      </ul>
+    </div>
+  </mat-card-content>
+</mat-card>

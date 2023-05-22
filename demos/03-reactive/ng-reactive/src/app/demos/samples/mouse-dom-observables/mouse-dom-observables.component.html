@@ -2,14 +2,12 @@
   <mat-card-header>
     <mat-card-title> Subscribe Mouse Evt </mat-card-title>
   </mat-card-header>
-  <mat-card-content fxLayout="column" fxLayoutGap="10px">
-    <button mat-raised-button color="accent" (click)="subscribeMouse()">
-      Capture Mouse Events as Observable in the SignPad - Press mouse to paint
-    </button>
+  <mat-card-content class="content cmdItems">
     <canvas #signPad class="signPad"></canvas>
-    <div>signPad - Mouse Moved at X: {{ result.X }} Y: {{ result.Y }}</div>
-    <button mat-raised-button color="accent" (click)="unsubscribeMouseEvt()">
-      Unsubscribe Mouse Events
+    <button mat-raised-button color="accent" (click)="subscribeMouse()">
+      Capture Mouse Events
     </button>
+
+    <div>signPad - Mouse Moved at X: {{ result.X }} Y: {{ result.Y }}</div>
   </mat-card-content>
 </mat-card>

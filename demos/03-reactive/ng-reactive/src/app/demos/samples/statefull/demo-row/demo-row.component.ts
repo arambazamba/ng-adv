@@ -1,5 +1,5 @@
 import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
-import { DemoItem } from '../demo-item.model';
+import { DemoItem } from '../../../demo-item.model';
 
 @Component({
   selector: 'app-demo-row',

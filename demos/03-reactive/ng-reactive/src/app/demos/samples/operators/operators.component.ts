@@ -21,7 +21,7 @@ import { Person } from './person';
   styleUrls: ['./operators.component.scss'],
 })
 export class OperatorsComponent implements OnInit {
-  @ViewChild('btnSwitchMap', { static: true }) btnSwitchMap: ElementRef;
+  @ViewChild('btnSwitchMap', { static: true }) btnSwitchMap: ElementRef | undefined;
   vs = inject(VouchersService);
   response: any;
 
@@ -29,7 +29,7 @@ export class OperatorsComponent implements OnInit {
   vouchers$ = this.vs.getVouchers();
 
   // Imperative Pattern
-  vouchers: Voucher[];
+  vouchers: Voucher[] = [];
 
   ngOnInit() {
     //Classic Subscribe (Imperative) Pattern -> Unsbscribe

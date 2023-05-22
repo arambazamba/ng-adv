@@ -13,7 +13,7 @@ export class AsyncPipeComponent implements OnInit {
   constructor(private ts: TaskService) { }
 
   // Classic subscribe Pattern
-  tasks: TaskItem[];
+  tasks: TaskItem[] = [];
 
   // Reactive declarative Approach using async pipe
   tasks$ = this.ts.getTasks().pipe(tap((data) => console.log("getting data from service:", data)));

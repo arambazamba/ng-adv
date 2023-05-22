@@ -1,44 +1,53 @@
-:host-context{
-    display: flex;
-    flex-direction: row;
-    justify-content: center;
-    align-items: center;
-    min-height: 80vh;
+:host-context {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  min-height: 80vh;
 }
 
-/* TODO(mdc-migration): The following rule targets internal classes of card that may no longer apply for the MDC version. */
-mat-card{
-    min-width: 500px;    
+mat-card {
+  min-width: 500px;
 }
 
-/* TODO(mdc-migration): The following rule targets internal classes of card that may no longer apply for the MDC version. */
 mat-card-header {
-    display: flex;
-    flex-direction: row;
-    justify-content: center;
-    height: var(--toolbar-big);
-    padding-top: 0.5rem;
-    background-color: var(--color-primary);
-    color: var(--color-fg);;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  height: var(--toolbar-xl);
+  padding-top: 0.5rem;
+  background-color: var(--color-primary);
+  color: var(--color-fg);
+}
+
+mat-card-title {
+  color: var(--color-font);
+}
+
+mat-card-subtitle {
+  color: var(--color-font) !important;
 }
 
 .mat-mdc-card-subtitle {
-    color: var(--color-fg);;
-    font-size: 1.2rem;
-    text-align: center;
+  color: var(--color-fg);
+  font-size: 1.2rem;
+  text-align: center;
 }
 
-/* TODO(mdc-migration): The following rule targets internal classes of card that may no longer apply for the MDC version. */
-mat-card-actions{
-    display: flex;
-    flex-direction: row;
-    justify-content: center; 
+mat-card-actions {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
 }
 
-.instructions{
-    margin-top: 1rem;
+.instructions {
+  margin-top: 1rem;
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
 }
 
-.showcase{
-    min-height: 300px;
+.showcase {
+  min-height: 300px;
 }

@@ -9,10 +9,10 @@ import { map } from 'rxjs/operators';
   providedIn: 'root',
 })
 export class VouchersService {
-  constructor(private httpClient: HttpClient) {}
+  constructor(private httpClient: HttpClient) { }
 
   getVouchers(): Observable<Voucher[]> {
-    return this.httpClient.get<Voucher[]>(`${environment.apiUrl}vouchers`);
+    return this.httpClient.get<Voucher[]>(`${environment.api}vouchers`);
   }
 
   getVoucher(id: number) {

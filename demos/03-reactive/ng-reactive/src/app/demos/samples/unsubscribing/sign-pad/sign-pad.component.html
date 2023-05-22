@@ -1,10 +1,10 @@
-<div fxLayout="column" fxLayoutGap="10px">
+<div class="centered cmdItems">
   <canvas #signPad class="signPad"></canvas>
+  <button mat-raised-button color="accent" (click)="subscribeMouseEvts()">
+    Subscribe Mouse Events
+  </button>
+  <button mat-raised-button color="accent" (click)="unsubscribeMouseEvts()">
+    Unsubscribe Mouse Events
+  </button>
   <div>signPad - Mouse Moved at X: {{ result.X }} Y: {{ result.Y }}</div>
-  <a mat-raised-button color="accent" (click)="subscribeMouseEvts()"
-    >Subscribe Mouse Events</a
-  >
-  <a mat-raised-button color="accent" (click)="unsubscribeMouseEvts()"
-    >Unsubscribe Mouse Events</a
-  >
 </div>

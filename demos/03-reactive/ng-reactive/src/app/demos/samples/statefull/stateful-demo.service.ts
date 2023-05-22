@@ -18,7 +18,7 @@ export class StatefulDemoService {
 
   private initData() {
     this.httpClient
-      .get<DemoItem[]>(`${environment.apiUrl}demos`)
+      .get<DemoItem[]>(`${environment.api}demos`)
       .subscribe((data) => {
         let trimmed = data.slice(0, 3);
         this.demos.next(trimmed);

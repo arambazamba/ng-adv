@@ -1,8 +1,8 @@
 import { VoucherDetail } from './voucher-details.model';
 
-export class Account {
-  ID: number;
-  Name: string;
-  Expense: boolean;
-  VoucherDetails: VoucherDetail[];
+export class BalanceAccount {
+  ID: number = 0;
+  Name: string = '';
+  Expense: boolean = false;
+  VoucherDetails: VoucherDetail[] = new Array();
 }

@@ -98,3 +98,13 @@ mat-header-row {
   color: var(--color-fg);
 }
 
+// list
+.mat-nav-list .mat-mdc-list-item:hover,
+.mat-nav-list .mat-list-item:focus {
+  background: var(--color-bg);
+}
+
+mat-list-item {
+  border-bottom: 1px solid var(--color-bg);
+  border-top: 1px solid var(--color-bg);
+}

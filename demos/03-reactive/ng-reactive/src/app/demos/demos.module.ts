@@ -19,7 +19,6 @@ import { SharedModule } from '../shared/shared.module';
 import { LangFeaturesComponent } from './samples/lang-features/lang-features.component';
 import { DebouncedSearchComponent } from './samples/debounced-search/debounced-search.component';
 import { TransformationComponent } from './samples/transformation/transformation.component';
-import { FlexLayoutModule } from '@angular/flex-layout';
 import { DemoContainerComponent } from './demo-container/demo-container.component';
 import { MarbleTestingComponent } from './samples/marble-testing/marble-testing.component';
 import { SignPadComponent } from './samples/unsubscribing/sign-pad/sign-pad.component';
@@ -29,14 +28,14 @@ import { StatefullComponent } from './samples/statefull/statefull.component';
 import { EventbusComponent } from './samples/eventbus/eventbus.component';
 import { ListComponent } from './samples/statefull/list/list.component';
 import { KpiComponent } from './samples/statefull/kpi/kpi.component';
-import { DemoRowComponent } from './demo-row/demo-row.component';
+import { DemoRowComponent } from './samples/statefull/demo-row/demo-row.component';
 import { MarkdownEditorComponent } from '../shared/markdown-editor/markdown-editor.component';
 import { SignalsBasicsComponent } from './samples/signals-basics/signals-basics.component';
-import { SignalsEventBusComponent } from './signals-event-bus/signals-event-bus.component';
-import { SignalsMenuComponent } from './signals-menu/signals-menu.component';
+import { SignalsEventBusComponent } from './samples/signals-event-bus/signals-event-bus.component';
 import { FormControlComponent } from './samples/form-control/form-control.component';
 import { DestroyRefComponent } from './samples/destroy-ref/destroy-ref.component';
 import { TakeUntilDestroyedComponent } from './samples/take-until-destroyed/take-until-destroyed.component';
+import { MarkdownRendererModule } from '../shared/markdown-renderer/markdown-renderer.module';
 
 const demoRoutes: Routes = [
   {
@@ -63,6 +62,8 @@ const demoRoutes: Routes = [
       { path: 'marble-testing', component: MarbleTestingComponent },
       { path: 'statefull', component: StatefullComponent },
       { path: 'ebus', component: EventbusComponent },
+      { path: 'signals-basics', component: SignalsBasicsComponent },
+      { path: 'signals-eventbus', component: SignalsEventBusComponent },
     ],
   },
 ];
@@ -95,9 +96,9 @@ const demoRoutes: Routes = [
     DemoRowComponent,
     SignalsBasicsComponent,
     SignalsEventBusComponent,
-    SignalsMenuComponent,
     DestroyRefComponent,
-    TakeUntilDestroyedComponent
+    TakeUntilDestroyedComponent,
+    SignalsEventBusComponent
   ],
   imports: [
     CommonModule,
@@ -106,11 +107,8 @@ const demoRoutes: Routes = [
     ReactiveFormsModule,
     RouterModule.forChild(demoRoutes),
     MaterialModule,
-    FlexLayoutModule,
     HttpClientModule,
-    MarkdownModule.forRoot({
-      loader: HttpClient,
-    }),
+    MarkdownRendererModule,
     MarkdownEditorComponent
   ],
   providers: [],

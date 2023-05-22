@@ -1,5 +1,5 @@
 export class Topic {
-  id: number;
-  title: string;
-  sortOrder: number;
+  id: number = 0;
+  title: string = '';
+  sortOrder: number = 0;
 }

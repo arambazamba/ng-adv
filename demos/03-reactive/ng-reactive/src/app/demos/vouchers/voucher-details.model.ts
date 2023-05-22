@@ -1,11 +1,11 @@
-import { Account } from './account.model';
+import { BalanceAccount } from './account.model';
 
 export class VoucherDetail {
-  ID: number;
-  VoucherID: number;
-  AccountID: number;
-  Account: Account;
-  Text: string;
-  Amount: number;
-  Comment: string;
+  ID: number = 0;
+  VoucherID: number = 0;
+  AccountID: number = 0;
+  Account: BalanceAccount | null = null;
+  Text: string = '';
+  Amount: number = 0;
+  Comment: string = '';
 }

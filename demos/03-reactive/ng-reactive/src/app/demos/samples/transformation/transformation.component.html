@@ -3,8 +3,7 @@
   <mat-card-header>
     <mat-card-title> Transformation </mat-card-title>
   </mat-card-header>
-  <mat-card-content>
-    <div fxLayout="row wrap" fxLayoutAlign="center start" class="cmdItems">
+  <mat-card-content class="cmdItems">
       <button mat-raised-button color="accent" (click)="useSwitchMap()">
         switchMap()
       </button>
@@ -17,11 +16,10 @@
       <button mat-raised-button color="accent" (click)="useExhaustMap()">
         exhaustMap()
       </button>
-    </div>
   </mat-card-content>
 </mat-card>
 
-<mat-card appearance="outlined" fxLayout="column" fxLayoutGap="10px">
+<mat-card appearance="outlined">
   <mat-card-header>
     <mat-card-title> Result </mat-card-title>
   </mat-card-header>

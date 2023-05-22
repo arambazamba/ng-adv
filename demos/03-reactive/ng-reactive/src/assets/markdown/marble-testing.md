@@ -11,4 +11,4 @@ it('test with operator', () => {
 });
 ```
 
-![marbles](assets/images/marbles.jpg)
+<div alt="marble testing" style="width: 100%;text-align: center;"><img src="assets/images/marbles.jpg"></div>
