@@ -51,8 +51,6 @@ button.mat-mdc-raised-button{
 }
 
 //mat-dialog
-/*TODO(mdc-migration): The following rule targets internal classes of dialog that may no longer apply for the MDC version.*/
-/*TODO(mdc-migration): The following rule targets internal classes of dialog that may no longer apply for the MDC version.*/
 mat-dialog-container {
   .form-container {
     padding: 0 10px;
@@ -107,4 +105,10 @@ mat-header-row {
 mat-list-item {
   border-bottom: 1px solid var(--color-bg);
   border-top: 1px solid var(--color-bg);
+}
+
+//mat-sidenav
+.mat-drawer-container {
+  background-color: var(--color-fg);
+  color: var(--color-darkfont);
 }

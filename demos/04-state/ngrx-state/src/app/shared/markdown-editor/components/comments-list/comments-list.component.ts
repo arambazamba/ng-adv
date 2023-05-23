@@ -11,8 +11,6 @@ export class CommentsListComponent {
   @Output() onCommentEdit = new EventEmitter<CommentItem>();
   @Output() onCommentDelete = new EventEmitter<CommentItem>();
 
-  constructor() {}
-
   editComment(item: CommentItem) {
     this.onCommentEdit.emit(item);
   }

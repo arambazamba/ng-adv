@@ -1,9 +1,25 @@
-.foodrow {
+.row {
+  display: flex;
+  flex-direction: row;
+  gap: var(--gap-medium);
   cursor: pointer;
-  margin: 0.2rem;
-  border-bottom: solid 1px black;
+  margin: var(--gap-small);
+  border-bottom: solid 1px var(--color-accent);
 
   &:hover {
     text-decoration: underline;
   }
+}
+
+.name{
+  flex: 4;
+}
+
+.rating{
+  flex: 2;
+}
+
+.cmd{
+  flex: 1;
+  text-align: right;
 }

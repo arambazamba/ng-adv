@@ -9,6 +9,7 @@ import { NavItem } from './navitem.model';
 })
 export class NavbarService {
   service = inject(HttpClient);
+
   getTopItems(): Observable<NavItem[]> {
     return this.service.get<NavItem[]>(`${environment.apiUrl}top-links`);
   }

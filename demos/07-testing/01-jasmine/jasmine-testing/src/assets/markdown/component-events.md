@@ -1,0 +1,1 @@
+- Examine `component-events.component.ts` to learn about component events.

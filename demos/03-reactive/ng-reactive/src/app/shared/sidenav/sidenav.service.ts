@@ -11,7 +11,6 @@ import { environment } from '../../../environments/environment';
   providedIn: 'root',
 })
 export class SideNavService {
-
   http = inject(HttpClient);
   breakpointObserver = inject(BreakpointObserver);
 

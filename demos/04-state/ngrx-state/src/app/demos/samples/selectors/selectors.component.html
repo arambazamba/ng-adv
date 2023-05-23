@@ -1,15 +1,15 @@
 <app-markdown-renderer [md]="'selectors'"></app-markdown-renderer>
 
 <mat-card appearance="outlined">
-    <mat-card-header>
-      <mat-card-title>
-        Using Selectors and dispatching actions
-      </mat-card-title>
-    </mat-card-header>
-    <mat-card-content>
-      <div>
-        User is currently authenticated: {{ isMockAuthenticated | async }}
-      </div>
-      <button mat-raised-button  color="primary" (click)="toggleAuth()">Toggle Auth</button>
-    </mat-card-content>
-  </mat-card>
+  <mat-card-header>
+    <mat-card-title> Using Selectors & Dispatching Actions </mat-card-title>
+  </mat-card-header>
+  <mat-card-content>
+    User is currently authenticated: {{ isMockAuthenticated | async }}
+  </mat-card-content>
+  <mat-card-actions align="end">
+    <button mat-raised-button color="accent" (click)="toggleAuth()">
+      Toggle Auth
+    </button>
+  </mat-card-actions>
+</mat-card>

@@ -12,8 +12,8 @@ import { DirectiveHostComponent } from './samples/directive/directive-host/direc
 import { HttpTestsBsComponent } from './samples/http-tests-bs/http-tests-bs.component';
 import { HttpTestsComponent } from './samples/http-tests/http-tests.component';
 import { UnitTestingComponent } from './samples/intro-unit-testing/unit-testing.component';
-import { MaterialAsyncComponent } from './samples/material-async/material-async.component';
-import { MaterialComponent } from './samples/material/material.component';
+import { MaterialAsyncComponent } from './samples/component-material-async/material-async.component';
+import { MaterialComponent } from './samples/component-material/material.component';
 import { MockStoreComponent } from './samples/mock-store/mock-store.component';
 import { MockHostComponent } from './samples/component-mocking/mock-host/mock-host.component';
 import { SpyHostComponent } from './samples/component-mocking/spy-host/spy-host.component';

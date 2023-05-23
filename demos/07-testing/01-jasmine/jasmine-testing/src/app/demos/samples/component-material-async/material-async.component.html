@@ -10,8 +10,10 @@
         <ng-template mat-tab-label>
             {{ ut.name }}
         </ng-template>
+       <div class="content">
         {{ ut.name }} was born on {{ ut.created | date: 'MM/dd/yyyy' }}.
         {{ut.description}}
+       </div>
       </mat-tab>
     </mat-tab-group>
   </mat-card-content>

@@ -1,4 +1,3 @@
-
 import { Injectable, inject } from '@angular/core';
 import { Actions, createEffect, ofType } from '@ngrx/effects';
 import { of } from 'rxjs';
@@ -13,13 +12,13 @@ export class CustomerEffects {
 
   loadCustomers$ = createEffect(() =>
     this.actions$.pipe(
-      ofType(CustomersActions.loadcustomers),
+      ofType(CustomersActions.loadCustomers),
       mergeMap(() =>
         this.service.getCustomers().pipe(
           map((customers) =>
-            CustomersActions.loadcustomerssuccess({ items: customers })
+            CustomersActions.loadCustomersSuccess({ items: customers })
           ),
-          catchError((err) => of(CustomersActions.loadcustomersfailure({ err })))
+          catchError((err) => of(CustomersActions.loadCustomersFailure({ err })))
         )
       )
     )

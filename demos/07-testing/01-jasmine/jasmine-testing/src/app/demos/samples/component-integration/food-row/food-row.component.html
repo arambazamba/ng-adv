@@ -1,10 +1,10 @@
-<div class="foodrow" fxLayout="row" fxLayoutGap="10px">
-  <div id="itemName" fxFlex="3 1 300">{{ food?.name }}:</div>
-  <div id="rating" fxFlex="2 1 100">{{ food!=null ? food.rating : "" }}</div>
-  <div fxFlex="1 1 60" (click)="deleteFood()" id="deleteFld">
+<div class="row">
+  <div id="itemName" class="name">{{ food?.name }}:</div>
+  <div id="rating" class="rating">{{ food!=null ? food.rating : "" }}</div>
+  <div class="cmd" (click)="deleteFood()" id="deleteFld">
     <mat-icon fxFlexAlign="center" class="cmdIcon">delete</mat-icon>
   </div>
-  <div fxFlex="1 1 auto" (click)="editFood()" id="editFld">
+  <div class="cmd" (click)="editFood()" id="editFld">
     <mat-icon fxFlexAlign="center" class="cmdIcon">edit</mat-icon>
   </div>
 </div>

@@ -15,7 +15,7 @@ export class CustomersComponent implements OnInit {
   customers: Customer[] = [];
 
   ngOnInit(): void {
-    this.store.dispatch(CustomersActions.loadcustomers());
+    this.store.dispatch(CustomersActions.loadCustomers());
     this.store.select(getCustomers).subscribe((customer: Customer[]) => this.customers = customer);
   }
 }

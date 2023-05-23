@@ -12,11 +12,11 @@ export class DemosEffects {
 
   loadDemos$ = createEffect(() =>
     this.actions$.pipe(
-      ofType(DemoActions.loaddemos),
+      ofType(DemoActions.loadDemos),
       mergeMap(() =>
         this.service.getItems().pipe(
-          map((demos) => DemoActions.loaddemossuccess({ items: demos })),
-          catchError((err) => of(DemoActions.loaddemosfailure({ err })))
+          map((demos) => DemoActions.loadDemosSuccess({ items: demos })),
+          catchError((err) => of(DemoActions.loadDemosFailure({ err })))
         )
       )
     )
@@ -24,11 +24,11 @@ export class DemosEffects {
 
   addDemos$ = createEffect(() =>
     this.actions$.pipe(
-      ofType(DemoActions.adddemo),
+      ofType(DemoActions.addDemo),
       mergeMap((action) =>
         this.service.addItem(action.item).pipe(
-          map((demos) => DemoActions.adddemosuccess({ item: demos })),
-          catchError((err) => of(DemoActions.adddemofailure({ err })))
+          map((demos) => DemoActions.addDemoSuccess({ item: demos })),
+          catchError((err) => of(DemoActions.addDemoFailure({ err })))
         )
       )
     )
@@ -36,11 +36,11 @@ export class DemosEffects {
 
   updateDemos$ = createEffect(() =>
     this.actions$.pipe(
-      ofType(DemoActions.updatedemo),
+      ofType(DemoActions.updateDemo),
       mergeMap((action) =>
         this.service.updateItem(action.item).pipe(
-          map((demos) => DemoActions.updatedemosuccess({ item: demos })),
-          catchError((err) => of(DemoActions.updatedemofailure({ err })))
+          map((demos) => DemoActions.updateDemoSuccess({ item: demos })),
+          catchError((err) => of(DemoActions.updateDemoFailure({ err })))
         )
       )
     )
@@ -48,11 +48,11 @@ export class DemosEffects {
 
   deleteDemo$ = createEffect(() =>
     this.actions$.pipe(
-      ofType(DemoActions.deletedemo),
+      ofType(DemoActions.deleteDemo),
       mergeMap((action) =>
         this.service.deleteItem(action.item.id).pipe(
-          map(() => DemoActions.deletedemosuccess({ item: action.item })),
-          catchError((err) => of(DemoActions.deletedemofailure({ err })))
+          map(() => DemoActions.deleteDemoSuccess({ item: action.item })),
+          catchError((err) => of(DemoActions.deleteDemoFailure({ err })))
         )
       )
     )
