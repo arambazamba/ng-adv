@@ -13,11 +13,11 @@ export const initialAppState: CustomersState = {
 };
 
 export const customerReducer = createReducer(initialAppState,
-  on(CustomersActions.loadcustomerssuccess, (state, action) => ({
+  on(CustomersActions.loadCustomersSuccess, (state, action) => ({
     ...state,
     customers: action.items,
   })),
-  on(CustomersActions.loadcustomersfailure, (state, action) => ({
+  on(CustomersActions.loadCustomersFailure, (state, action) => ({
     ...state,
   })),
 );

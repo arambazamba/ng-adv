@@ -3,8 +3,8 @@ import { Store } from '@ngrx/store';
 import { take } from 'rxjs/operators';
 import { DemoItem } from '../demo-base/demo-item.model';
 import { getAllDemos, getFilter, getSelected, hasLoaded } from './demo.selectors';
-import { DemoState } from './demos.reducer';
 import { DemoActions } from './demos.actions';
+import { DemoState } from './demos.reducer';
 
 @Injectable({
   providedIn: 'root',
@@ -14,7 +14,7 @@ export class DemoFacade {
   init() {
     this.hasLoaded().subscribe((loaded) => {
       if (!loaded) {
-        this.store.dispatch(DemoActions.loaddemos());
+        this.store.dispatch(DemoActions.loadDemos());
       }
     });
   }
@@ -32,23 +32,23 @@ export class DemoFacade {
   }
 
   deleteDemo(item: DemoItem) {
-    this.store.dispatch(DemoActions.deletedemo({ item }));
+    this.store.dispatch(DemoActions.deleteDemo({ item }));
   }
 
   addDemo(item: DemoItem) {
-    this.store.dispatch(DemoActions.adddemo({ item }));
+    this.store.dispatch(DemoActions.addDemo({ item }));
   }
 
   updateDemo(item: DemoItem) {
-    this.store.dispatch(DemoActions.updatedemo({ item }));
+    this.store.dispatch(DemoActions.updateDemo({ item }));
   }
 
   selectDemo(item: DemoItem) {
-    this.store.dispatch(DemoActions.setselected({ item }));
+    this.store.dispatch(DemoActions.setSelected({ item }));
   }
 
   setFilter(filter: string) {
-    this.store.dispatch(DemoActions.applyfilter({ filter }));
+    this.store.dispatch(DemoActions.applyFilter({ filter }));
   }
 
   getFilter() {

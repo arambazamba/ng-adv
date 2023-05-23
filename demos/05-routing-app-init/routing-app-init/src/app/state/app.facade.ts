@@ -1,4 +1,4 @@
-import { Injectable } from '@angular/core';
+import { Injectable, inject } from '@angular/core';
 import { Store } from '@ngrx/store';
 import { AppState } from './app.reducer';
 import { toggleLoggedIn, togglePrimeMember } from './app.actions';
@@ -8,7 +8,7 @@ import { getUser, isLoggedIn, isPrimeMember } from './app.selectors';
   providedIn: 'root',
 })
 export class AppFacade {
-  constructor(private state: Store<AppState>) {}
+  state = inject(Store<AppState>)
 
   getIsLoggedIn() {
     return this.state.select(isLoggedIn);

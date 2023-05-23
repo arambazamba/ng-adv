@@ -1,6 +1,6 @@
 <app-markdown-renderer [md]="'inject'"></app-markdown-renderer>
 
-<div class="box">
-  <h3>Demos</h3>
-  <div *ngFor="let d of demos | async" class="entry">{{d.title}}</div>
+<div>
+  <h3 border centered>Demos</h3>
+  <div border *ngFor="let d of demos | async" class="entry">{{d.title}}</div>
 </div>

@@ -13,13 +13,13 @@ export class CustomerEffects {
 
   loadCustomers$ = createEffect(() =>
     this.actions$.pipe(
-      ofType(CustomersActions.loadcustomers),
+      ofType(CustomersActions.loadCustomers),
       mergeMap(() =>
         this.service.getCustomers().pipe(
           map((customers) =>
-            CustomersActions.loadcustomerssuccess({ items: customers })
+            CustomersActions.loadCustomersSuccess({ items: customers })
           ),
-          catchError((err) => of(CustomersActions.loadcustomersfailure({ err })))
+          catchError((err) => of(CustomersActions.loadCustomersFailure({ err })))
         )
       )
     )

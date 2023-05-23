@@ -32,7 +32,13 @@ import { metaReducers, reducers } from './state';
 // import { RetryInterceptorService } from './interceptors/retry-interceptor.service';
 
 @NgModule({
-  declarations: [AppComponent, HomeComponent, ErrPageComponent, CustomersComponent, CustomerEditComponent],
+  declarations: [
+    AppComponent,
+    HomeComponent,
+    ErrPageComponent,
+    CustomersComponent,
+    CustomerEditComponent
+  ],
   imports: [
     BrowserModule,
     AppRoutingModule,

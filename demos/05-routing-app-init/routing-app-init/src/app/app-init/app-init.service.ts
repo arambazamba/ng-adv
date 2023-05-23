@@ -14,7 +14,7 @@ export class AppInitService {
   store = inject(Store<CustomersState>)
 
   loadData() {
-    this.store.dispatch(CustomersActions.loadcustomers());
+    this.store.dispatch(CustomersActions.loadCustomers());
     console.log("dispatched loadcustomers")
   }
 }

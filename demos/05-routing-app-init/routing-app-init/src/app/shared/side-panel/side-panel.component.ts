@@ -1,36 +1,28 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, inject } from '@angular/core';
 import { SnackbarService } from '../snackbar/snackbar.service';
-import { SidePanelService } from './sidepanel.service';
 import { SidebarActions } from './sidebar.actions';
-import { ThemeService } from '../theme/theme.service';
+import { SidePanelService } from './sidepanel.service';
 
 @Component({
   selector: 'app-side-panel',
   templateUrl: './side-panel.component.html',
   styleUrls: ['./side-panel.component.scss'],
 })
-export class SidePanelComponent implements OnInit {
-  constructor(
-    private sns: SnackbarService,
-    private eb: SidePanelService,
-    private ts: ThemeService
-  ) {}
-
-  editorDisplayed: boolean;
-
-  ngOnInit() {
-    this.editorDisplayed = false;
-  }
-
-  toggleTheme() {
-    this.ts.toggleTheme();
-  }
+export class SidePanelComponent {
+  sns: SnackbarService = inject(SnackbarService);
+  eb: SidePanelService = inject(SidePanelService);
+  editorDisplayed: boolean = false;
 
   toggleEditor() {
-    this.sns.displayAlert('Mock', 'Show Editor');
+    if (this.editorDisplayed) {
+      this.eb.triggerCmd(SidebarActions.HIDE_MARKDOWN);
+    } else {
+      this.eb.triggerCmd(SidebarActions.SHOW_MARKDOWN);
+    }
+    this.editorDisplayed = !this.editorDisplayed;
   }
 
   showUpload() {
-    this.sns.displayAlert('Mock', 'Uploading to Cloud');
+    this.sns.displayAlert('Info', 'Not implemented - just a Demo');
   }
 }

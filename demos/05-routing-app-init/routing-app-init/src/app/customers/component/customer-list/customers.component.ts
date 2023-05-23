@@ -5,7 +5,6 @@ import { CustomersActions } from '../../state/customers.actions';
 import { CustomersState } from '../../state/customers.reducer';
 import { getCustomers } from '../../state/customers.selector';
 
-
 @Component({
   selector: 'app-customers',
   templateUrl: './customers.component.html',
@@ -16,7 +15,7 @@ export class CustomersComponent implements OnInit {
 
   constructor(public state: Store<CustomersState>) { }
   ngOnInit(): void {
-    this.state.dispatch(CustomersActions.loadcustomers());
+    this.state.dispatch(CustomersActions.loadCustomers());
     this.state.select(getCustomers).subscribe((customer: Customer[]) => this.customers = customer);
   }
 }

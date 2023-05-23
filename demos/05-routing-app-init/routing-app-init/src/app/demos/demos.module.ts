@@ -32,6 +32,8 @@ import { AuxilaryRoutesComponent } from './samples/auxilary-routes/auxilary-rout
 import { DiInjectComponent } from './samples/di-inject/di-inject.component';
 import { onlyPrimeMembersGuard } from './samples/multi-guard/only-prime-members.guard';
 import { RouterBindingComponent } from './samples/router-binding/router-binding.component';
+import { MarkdownRendererModule } from '../shared/markdown-renderer/markdown-renderer.module';
+import { BorderDirective, CenteredDirective } from '../shared/formatting/formatting-directives';
 
 const demoRoutes: Routes = [
   {
@@ -124,7 +126,7 @@ const demoRoutes: Routes = [
     CodeSplittingComponent,
     AuxilaryRoutesComponent,
     DiInjectComponent,
-    RouterBindingComponent,
+    RouterBindingComponent
   ],
   imports: [
     CommonModule,
@@ -134,12 +136,12 @@ const demoRoutes: Routes = [
     RouterModule.forChild(demoRoutes),
     MaterialModule,
     HttpClientModule,
-    MarkdownModule.forRoot({
-      loader: HttpClient,
-    }),
+    MarkdownRendererModule,
     SharedModule,
     StoreModule.forFeature(demosFeatureKey, demoReducer),
     EffectsModule.forFeature([DemosEffects]),
+    BorderDirective,
+    CenteredDirective
   ],
   providers: [],
 })

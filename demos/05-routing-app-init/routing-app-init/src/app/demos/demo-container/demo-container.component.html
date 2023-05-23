@@ -28,7 +28,7 @@
         <app-loading *ngIf="isLoading"></app-loading>
       </div>
       <div class="gdWorkbench"><router-outlet></router-outlet></div>
-      <div class="gdEditor" *ngIf="showMdEditor | async">
+      <div class="gdEditor" *ngIf="showMdEditor">
         <app-editor-container></app-editor-container>
       </div>
       <div class="gdSidebar">

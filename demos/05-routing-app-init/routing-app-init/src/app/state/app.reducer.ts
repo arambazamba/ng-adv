@@ -31,7 +31,7 @@ export const initialAppState: AppState = customerAdapter.getInitialState({
 
 export const appReducer = createReducer(
   initialAppState,
-  on(CustomersActions.loadcustomerssuccess, (state, action) => {
+  on(CustomersActions.loadCustomersSuccess, (state, action) => {
     return customerAdapter.setAll(action.items, { ...state });
   }),
   on(toggleLoggedIn, (state, action) => {

@@ -1,0 +1,9 @@
+<div *ngFor="let c of Comments" class="row">
+  <div>{{ c.title }}</div>
+  <button mat-raised-button (click)="deleteComment(c)" color="primary">
+    Delete
+  </button>
+  <button mat-raised-button (click)="editComment(c)" color="primary">
+    Edit
+  </button>
+</div>
