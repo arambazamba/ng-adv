@@ -1,19 +1,12 @@
-.form-group {
-  margin-bottom: var(--gap-medium);
+.hidden{
+  visibility: hidden;
 }
 
-.form-group {
-  display: flex;
-  flex: 0 0 auto;
-  flex-flow: row wrap;
-  align-items: center;
-  margin-bottom: 0;
+mat-form-field {
+  width: 100%;
 }
 
-.clickable {
-  cursor: pointer;
-}
-
-.result{
-  min-height: 10rem;
+.cmdItems button {
+  width: calc(50% - 3em);
+  margin: 1em;
 }

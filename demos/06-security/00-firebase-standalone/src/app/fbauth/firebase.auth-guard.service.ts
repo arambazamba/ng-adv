@@ -1,14 +1,5 @@
 import { Injectable } from '@angular/core';
-import {
-  ActivatedRouteSnapshot,
-  CanActivate,
-  CanLoad,
-  Route,
-  Router,
-  RouterStateSnapshot,
-  UrlSegment,
-  UrlTree,
-} from '@angular/router';
+import { ActivatedRouteSnapshot, Route, Router, RouterStateSnapshot, UrlSegment, UrlTree } from '@angular/router';
 import { map, Observable } from 'rxjs';
 import { environment } from '../../environments/environment';
 import { FirebaseAuthService } from './firebase-auth.service';
@@ -16,7 +7,7 @@ import { FirebaseAuthService } from './firebase-auth.service';
 @Injectable({
   providedIn: 'root',
 })
-export class FirebaseAuthGuard implements CanActivate, CanLoad {
+export class FirebaseAuthGuard  {
   constructor(private router: Router, private as: FirebaseAuthService) {}
 
   user = this.as.getUser();

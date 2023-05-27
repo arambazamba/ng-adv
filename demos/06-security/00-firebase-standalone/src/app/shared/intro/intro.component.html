@@ -3,7 +3,7 @@
     <mat-card-title>{{ title }}</mat-card-title>
     <mat-card-subtitle>{{ subtitle }}</mat-card-subtitle>
   </mat-card-header>
-  <mat-card-content fxLayout="column" fxLayoutAlign="center center">
+  <mat-card-content centered>
     <div class="showcase" fxLayout="column" fxLayoutAlign="center center">
       <img src="assets/images/{{ img }}" alt="" />
     </div>
@@ -12,12 +12,12 @@
     </div>
   </mat-card-content>
   <mat-card-actions>
-    <div *ngIf="authEnabled | async">
+    <div *ngIf="authEnabled | async" class="actions" centered>
       <button mat-raised-button routerLink="/demos" color="primary">
         Proceed
       </button>
     </div>
-    <div *ngIf="(authEnabled | async)==false">
+    <div *ngIf="(authEnabled | async)==false" class="actions cmdItems">
       <button
         mat-raised-button
         (click)="logIn()"

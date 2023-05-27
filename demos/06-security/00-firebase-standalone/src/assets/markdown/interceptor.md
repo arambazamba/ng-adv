@@ -1,4 +1,4 @@
-Examine the intercept method in `firebase.interceptor.ts`:
+Examine the intercept method in `firebase.interceptor.ts` which is registered in `demos.module.ts`.  The interceptor adds the Bearer token to the request header if the token is not empty.  The token is taken from `firebase-auth.service.ts`
 
 ```typescript
 public intercept(

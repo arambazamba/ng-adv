@@ -11,12 +11,14 @@ import { SkillsEntityService } from './skills-entity.service';
 import { SkillsKpiComponent } from './skills-kpi/skills-kpi.component';
 import { entityMetadata } from './skills.metadata';
 import { SkillsRoutingModule } from './skills.routing.module';
+import { SkillsEditComponent } from './skills-edit/skills-edit.component';
 
 @NgModule({
   declarations: [
     SkillsContainerComponent,
     SkillsKpiComponent,
     SkillRowComponent,
+    SkillsEditComponent
   ],
   imports: [
     CommonModule,

@@ -8,7 +8,6 @@ import {
 import { MatDialog } from '@angular/material/dialog';
 import { Router } from '@angular/router';
 import { combineLatestWith, map } from 'rxjs/operators';
-import { environment } from '../../../environments/environment';
 import { FirebaseAuthService } from '../../fbauth/firebase-auth.service';
 
 @Component({
@@ -28,9 +27,9 @@ export class IntroComponent implements OnInit {
     private dialog: MatDialog,
     private as: FirebaseAuthService,
     private router: Router
-  ) {}
+  ) { }
 
-  ngOnInit(): void {}
+  ngOnInit(): void { }
 
   logIn() {
     this.dialog

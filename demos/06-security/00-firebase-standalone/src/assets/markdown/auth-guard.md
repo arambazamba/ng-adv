@@ -11,12 +11,6 @@ const routes: Routes = [
     loadChildren: () =>
       import('./demos/demos.module').then((m) => m.DemosModule),
     canLoad: [FirebaseAuthGuard],
-  },
-  {
-    path: 'skills',
-    loadChildren: () =>
-      import('./skills/skills.module').then((m) => m.SkillsModule),
-    canLoad: [FirebaseAuthGuard],
-  },
+  }
 ];
 ```

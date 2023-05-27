@@ -1,4 +1,4 @@
-import { Injectable } from '@angular/core';
+import { Injectable, inject } from '@angular/core';
 import { Store } from '@ngrx/store';
 import { toggleMockAuthenticated } from './app.actions';
 import { AppState } from './app.reducer';
@@ -8,7 +8,7 @@ import { getIsMockAuthenticated } from './app.selector';
   providedIn: 'root',
 })
 export class AppFacade {
-  constructor(private state: Store<AppState>) {}
+  state = inject(Store<AppState>)
 
   getIsMockAuthenticated() {
     return this.state.select(getIsMockAuthenticated);

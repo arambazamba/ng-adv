@@ -1,8 +1,9 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, inject } from '@angular/core';
 import { Title } from '@angular/platform-browser';
 import { Observable, of, tap } from 'rxjs';
 import { environment } from 'src/environments/environment';
 import { FirebaseAuthService } from './fbauth/firebase-auth.service';
+import { ThemeService } from './shared/theme/theme.service';
 
 @Component({
   selector: 'app-root',
@@ -10,11 +11,12 @@ import { FirebaseAuthService } from './fbauth/firebase-auth.service';
   styleUrls: ['./app.component.scss'],
 })
 export class AppComponent implements OnInit {
-  isAuthenticated: Observable<boolean> = of(false);
-
-  constructor(private titleService: Title, private auth: FirebaseAuthService) {}
-
+  titleService: Title = inject(Title);
+  auth: FirebaseAuthService = inject(FirebaseAuthService);
+  themeService: ThemeService = inject(ThemeService);
   title: string = environment.title;
+  selectedTheme: string = 'default';
+  isAuthenticated: Observable<boolean> = of(false);
 
   ngOnInit() {
     this.titleService.setTitle(this.title);

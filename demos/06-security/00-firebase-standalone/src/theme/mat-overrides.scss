@@ -14,14 +14,15 @@
 
 .mat-mdc-card-title{
   margin-top: var(--gap-small);
+  color: var(--color-font);
 }
 
 .mat-mdc-card-subtitle{
-  color: var(--color-fg);
+  color: var(--color-font);
 }
 
 .mat-mdc-card-content {
-  padding: var(--gap-medium);
+  padding: var(--gap-medium) !important;
   margin-bottom: 0 !important;
 }
 
@@ -43,18 +44,15 @@ button.mat-mdc-raised-button{
 //mat-snackbar
 .app-snackbar{
   background-color: var(--color-primary);
-  color: var(--color-fg);
+  color: var(--color-font);
   position: relative;
   top: -1rem;
 }
 
 //mat-dialog
-/*TODO(mdc-migration): The following rule targets internal classes of dialog that may no longer apply for the MDC version.*/
-/*TODO(mdc-migration): The following rule targets internal classes of dialog that may no longer apply for the MDC version.*/
-mat-dialog-container { 
+mat-dialog-container {
   .form-container {
     padding: 0 10px;
-    /*TODO(mdc-migration): The following rule targets internal classes of form-field that may no longer apply for the MDC version.*/
     .mat-form-field-flex:first-child {
       padding-top: 10px;
     }
@@ -64,16 +62,16 @@ mat-dialog-container {
 //mat-expansion-panel
 mat-expansion-panel {
   margin-bottom: 0.5rem;
-  border-radius: 0px !important; 
+  border-radius: 0px !important;
 }
 
 mat-expansion-panel-header:hover{
-  background-color: var(--color-primary);  
+  background-color: var(--color-primary);
 }
 
 mat-expansion-panel-header {
   height: var(--toolbar-medium);
-  background-color: var(--color-primary) !important;  
+  background-color: var(--color-primary) !important;
 }
 
 .mat-expansion-panel-header.mat-expanded {
@@ -82,10 +80,26 @@ mat-expansion-panel-header {
 }
 
 .mat-expansion-panel-header-title{
-  color: var(--color-fg);
+  color: var(--color-font);
   font-size: 20px;
 }
 
 .mat-expansion-panel-header-description, .mat-expansion-indicator::after {
-  color: var(--color-fg);
+  color: var(--color-font);
+}
+
+//mat-table
+mat-header-row {
+  background-color: var(--color-primary);
+  color: var(--color-font);
+}
+
+//mat-sidenav
+.mat-sidenav {
+  width: 250px;
+  background-color: var(--color-fg);
+}
+
+.mat-drawer-container {
+  color: var(--color-darkfont);
 }

@@ -9,13 +9,13 @@ import { FirebaseAuthService } from '../../firebase-auth.service';
   styleUrls: ['./login.component.scss'],
 })
 export class LoginComponent {
-  constructor(private as: FirebaseAuthService) {}
+  constructor(private as: FirebaseAuthService) { }
 
   loginForm = new FormGroup({
     email: new FormControl('', [Validators.required, Validators.email]),
     password: new FormControl('', [
       Validators.required,
-      Validators.minLength(4),
+      Validators.minLength(6),
     ]),
   });
 

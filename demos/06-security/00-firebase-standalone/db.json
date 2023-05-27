@@ -1,4 +1,51 @@
 {
+  "demos":[
+    {
+      "url": "http-client",
+      "title": "Http Client",
+      "component": "HttpClientComponent"
+    },
+    {
+      "url": "interceptor",
+      "title": "Auth Interceptor",
+      "component": "InterceptorComponent"
+    },
+    {
+      "url": "firebase",
+      "title": "Firebase Authentication",
+      "component": "FirebaseComponent"
+    },
+    {
+      "url": "app-auth",
+      "title": "App Authentication",
+      "component": "AppAuthComponent"
+    },
+    {
+      "url": "secured-api",
+      "title": "Secured Api",
+      "component": "ProtectedApiComponent"
+    },
+    {
+      "url": "auth-guard",
+      "title": "Auth Guard",
+      "component": "AuthGuardComponent"
+    },
+    {
+      "url": "publish",
+      "title": "Publishing",
+      "component": "PublishComponent"
+    }
+  ],
+  "top-links": [
+    {
+      "label": "Home",
+      "url": ""
+    },
+    {
+      "label": "Demos",
+      "url": "demos"
+    }
+  ],
   "vouchers": [
     {
       "ID": 2,
@@ -121,10 +168,9 @@
   "skills": [
     {
       "id": 1,
-      "name": "Custom Theme",
+      "name": "Custom Angular Theme",
       "hours": 4,
-      "completed": true,
-      "dueDate": "2020-08-06T15:18:22.9829481"
+      "completed": true
     },
     {
       "id": 2,
@@ -132,6 +178,12 @@
       "hours": 3,
       "completed": false,
       "dueDate": "2020-07-06T15:18:22.9848654"
+    },
+    {
+      "name": "Cooking Pad Krapao",
+      "hours": 1,
+      "completed": false,
+      "id": 3
     }
   ]
 }

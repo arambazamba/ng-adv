@@ -13,7 +13,7 @@ import {
   styleUrls: ['./register.component.scss'],
 })
 export class RegisterComponent {
-  constructor(private as: FirebaseAuthService) {}
+  constructor(private as: FirebaseAuthService) { }
 
   registerForm = new FormGroup({
     email: new FormControl('', [Validators.required, Validators.email]),
@@ -21,7 +21,7 @@ export class RegisterComponent {
       {
         password: new FormControl('', [
           Validators.required,
-          Validators.minLength(4),
+          Validators.minLength(6),
         ]),
         passwordRepeat: new FormControl('', [Validators.required]),
       },

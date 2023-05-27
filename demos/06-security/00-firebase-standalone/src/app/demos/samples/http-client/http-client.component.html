@@ -1,0 +1,24 @@
+<app-markdown-renderer [md]="'http-client'"></app-markdown-renderer>
+
+<mat-card appearance="outlined">
+  <mat-card-header>
+    <mat-card-title> Make sure json-server is running run </mat-card-title>
+  </mat-card-header>
+  <mat-card-content class="cmdItems">
+    <button mat-raised-button (click)="observeResponse()" color="accent">
+      Observe Response HttpClient
+    </button>
+    <button mat-raised-button (click)="usingHeadersHttpClient()" color="accent">
+      Using Headers in HttpClient
+    </button>
+  </mat-card-content>
+</mat-card>
+
+<mat-card appearance="outlined">
+  <mat-card-header>
+    <mat-card-title>Result</mat-card-title>
+  </mat-card-header>
+  <mat-card-content class="result">
+    <pre>{{ result | json }}</pre>
+  </mat-card-content>
+</mat-card>

@@ -1,54 +1,44 @@
-//Provides Theme funcitonality
+//Provides theme functionality
 @use '@angular/material' as mat;
-@import "@angular/material/theming";
-// TODO(v15): As of v15 mat.legacy-core no longer includes default typography styles.
-//  The following line adds:
-//    1. Default typography styles for all components
-//    2. Styles for typography hierarchy classes (e.g. .mat-headline-1)
-//  If you specify typography styles for the components you use elsewhere, you should delete this line.
-//  If you don't need the default component typographies but still want the hierarchy styles,
-//  you can delete this line and instead use:
-//    `@include mat.legacy-typography-hierarchy(mat.define-typography-config());`
-@include mat.all-component-typographies();
 @include mat.core();
+@import '@angular/material/theming';
 
-//Mixin for common material styles
-// TODO(v15): As of v15 mat.legacy-core no longer includes default typography styles.
-//  The following line adds:
-//    1. Default typography styles for all components
-//    2. Styles for typography hierarchy classes (e.g. .mat-headline-1)
-//  If you specify typography styles for the components you use elsewhere, you should delete this line.
-//  If you don't need the default component typographies but still want the hierarchy styles,
-//  you can delete this line and instead use:
-//    `@include mat.legacy-typography-hierarchy(mat.define-typography-config());`
-@include mat.all-component-typographies();
-@include mat.core();
-
-//Pick colors here: https://material.io/resources/color/
-$app-primary: mat.define-palette(mat.$brown-palette, 400);
-$app-accent: mat.define-palette(mat.$grey-palette, 400);
-$app-warn: mat.define-palette(mat.$red-palette);
-$app-fg: mat.define-palette(mat.$grey-palette, 100);
-$app-bg: mat.define-palette(mat.$blue-grey-palette,100);
+//Pick colors here: https://m2.material.io/design/color/the-color-system.html#tools-for-picking-colors
+$primary: mat.define-palette(mat.$blue-palette, 600);
+$accent: mat.define-palette(mat.$grey-palette, 400);
+$warn: mat.define-palette(mat.$red-palette);
+$fg: mat.define-palette(mat.$grey-palette, 100);
+$bg: mat.define-palette(mat.$blue-grey-palette, 100);
 
 //Build theme
-$app-theme: mat.define-light-theme($app-primary, $app-accent, $app-warn);
+$theme: mat.define-light-theme(
+  (
+    color: (
+      primary: $primary,
+      accent: $accent,
+      warn: $warn,
+    ),
+    typography: mat.define-typography-config(),
+    density: 0,
+  )
+);
 
 //Include theme
-@include angular-material-theme($app-theme);
+@include angular-material-theme($theme);
 
 //Export global vars from design system for easy use
 :root {
-  --color-primary: #{mat-color($app-primary)};
-  --color-accent: #{mat-color($app-accent)};
-  --color-warn: #{mat-color($app-warn)};
-  --color-fg: #{mat-color($app-fg)};
-  --color-bg: #{mat-color($app-bg)};
-  --color-clear: #FFFFFF;
-  --color-darkfont: #000;
+  --color-primary: #{mat-color($primary)};
+  --color-accent: #{mat-color($accent)};
+  --color-warn: #{mat-color($warn)};
+  --color-fg: #{mat-color($fg)};
+  --color-bg: #{mat-color($bg)};
+  --color-font: white;
+
   --gap-small: 0.5rem;
   --gap-medium: 0.8rem;
   --gap-big: 1.1rem;
+  --toolbar-xl: 85px;
   --toolbar-big: 70px;
   --toolbar-medium: 40px;
   --toolbar-small: 35px;

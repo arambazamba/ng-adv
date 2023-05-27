@@ -1,26 +1,22 @@
 import { CommonModule } from '@angular/common';
-import { HttpClient } from '@angular/common/http';
 import { NgModule } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { RouterModule } from '@angular/router';
-import { MarkdownModule } from 'ngx-markdown';
+import { FirebaseAuthModule } from '../fbauth/fbauth.module';
 import { MaterialModule } from '../material.module';
-import { FooterComponent } from './footer/footer.component';
-import { MarkdownRendererComponent } from './markdown-renderer/markdown-renderer.component';
-import { NavbarComponent } from './navbar/navbar.component';
-import { SidePanelComponent } from './side-panel/side-panel.component';
 import { IntroComponent } from './intro/intro.component';
 import { LoadingComponent } from './loading/loading.component';
-import { FlexLayoutModule } from '@angular/flex-layout';
-import { FirebaseAuthModule } from '../fbauth/fbauth.module';
+import { MarkdownEditorComponent } from './markdown-editor/markdown-editor.component';
+import { NavbarComponent } from './navbar/navbar.component';
+import { SidePanelComponent } from './side-panel/side-panel.component';
+import { CenteredDirective, RowDirective } from './formatting-directives';
 
 const mods = [
   NavbarComponent,
   SidePanelComponent,
-  FooterComponent,
-  MarkdownRendererComponent,
   IntroComponent,
   LoadingComponent,
+  MarkdownEditorComponent
 ];
 
 @NgModule({
@@ -29,13 +25,11 @@ const mods = [
     FormsModule,
     RouterModule,
     MaterialModule,
-    FlexLayoutModule,
-    MarkdownModule.forRoot({
-      loader: HttpClient,
-    }),
     FirebaseAuthModule,
+    CenteredDirective,
+    RowDirective
   ],
   declarations: mods,
   exports: mods,
 })
-export class SharedModule {}
+export class SharedModule { }

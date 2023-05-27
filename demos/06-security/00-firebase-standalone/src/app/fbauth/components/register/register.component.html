@@ -13,7 +13,7 @@
           formControlName="email"
         />
         <mat-error *ngIf="registerForm.get('email')?.errors != undefined"
-          >Keine oder ungültige E-Mail-Adresse
+          >Invalid e-mail
         </mat-error>
       </mat-form-field>
 
@@ -28,7 +28,7 @@
           />
           <mat-error
             *ngIf="registerForm.get('passwords.password')?.errors != undefined"
-            >Min 4 Zeichen
+            >Min length 6
           </mat-error>
         </mat-form-field>
 
@@ -51,7 +51,7 @@
         </mat-error>
       </div>
     </mat-card-content>
-    <mat-card-actions align="end">
+    <mat-card-actions class="cmdItems">
       <button mat-raised-button mat-dialog-close color="primary">CANCEL</button>
       <button mat-raised-button mat-dialog-close type="submit" [disabled]="registerForm.invalid" color="primary">
         Register

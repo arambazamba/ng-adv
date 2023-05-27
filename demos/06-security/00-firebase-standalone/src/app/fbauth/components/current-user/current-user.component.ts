@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, inject } from '@angular/core';
 import { FirebaseAuthService } from '../../firebase-auth.service';
 
 @Component({
@@ -7,9 +7,6 @@ import { FirebaseAuthService } from '../../firebase-auth.service';
   styleUrls: ['./current-user.component.scss'],
 })
 export class CurrentUserComponent {
+  as = inject(FirebaseAuthService);
   currentUser = this.as.getUser();
-
-  constructor(public as: FirebaseAuthService) {}
-
-  ngOnInit(): void {}
 }

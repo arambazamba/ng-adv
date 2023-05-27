@@ -17,7 +17,6 @@ export const demoRoutes: Routes = [
   {
     path: '',
     component: DemoContainerComponent,
-
     children: [
       { path: 'app-state', component: AppStateComponent, title: 'Demos - App State' },
       { path: 'ngrx-entity', component: NgrxEntityComponent },

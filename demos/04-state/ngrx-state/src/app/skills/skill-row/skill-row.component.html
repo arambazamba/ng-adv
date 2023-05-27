@@ -1,16 +1,13 @@
-<div fxLayout="row" fxLayoutAlign="space-between center" fxFill class="row">
-  <div fxFlex="3 1 auto" style="padding-left: 2rem;">{{ skill.name }}</div>
-  <div fxFlex="1 1 140px">
-    <mat-slide-toggle
+<div class="skillrow">
+  <div class="name">{{ skill.name }}</div>
+  <div class="completed">completed: {{ skill.completed }}</div>
+  <div class="cmd">
+    <button
+      mat-raised-button
       color="primary"
-      (change)="toggleItemCompleted(skill)"
-      [checked]="skill.completed"
-      >Completed</mat-slide-toggle
+      [routerLink]="['/skills', skill.id]"
     >
-  </div>
-  <div fxFlex="1 1 80px">
-    <button mat-stroked-button color="primary" (click)="deleteItem(skill)">
-      <mat-icon>delete</mat-icon>
+      <mat-icon>edit</mat-icon>
     </button>
   </div>
 </div>

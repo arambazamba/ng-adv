@@ -1,19 +1,10 @@
 <mat-toolbar color="primary">
-  <mat-toolbar-row fxLayoutGap="10px">
-    <div
-      fxHide.gt-xs
-      (click)="toggleMenu()"
-      class="clickable"
-    >
+  <mat-toolbar-row>
+    <div (click)="toggleMenu()" class="hamburgerMenu">
       <mat-icon color="accent">menu</mat-icon>
     </div>
     <div><img width="50px" src="/assets/images/angular.svg" /></div>
-    <div
-      fxFlex="1 1 auto"
-      fxLayout="row"
-      fxLayoutAlign="start center"
-      fxLayoutGap="25px"
-    >
+    <div class="menuContainer">
       <div
         *ngFor="let mi of menuItems | async"
         routerLink="{{ '/' + mi.url }}"
@@ -24,8 +15,9 @@
         {{ mi.label }}
       </div>
     </div>
-    
-    <app-current-user></app-current-user>
-    <app-logout-btn></app-logout-btn>
+    <div row>
+      <app-current-user></app-current-user>
+      <app-logout-btn></app-logout-btn>
+    </div>
   </mat-toolbar-row>
 </mat-toolbar>

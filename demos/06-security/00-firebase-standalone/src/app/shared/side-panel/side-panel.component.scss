@@ -1,5 +1,11 @@
 
 mat-toolbar{
   height: 100%;
-  padding-top: 3rem;
+  padding-top: 3rem !important;
+}
+
+mat-toolbar-row{
+  display: flex;
+  flex-direction: column;
+  gap: var(--gap-big);
 }

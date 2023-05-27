@@ -9,7 +9,7 @@ import { Skill } from './skill.model';
   providedIn: 'root',
 })
 export class SkillsService {
-  constructor(private httpClient: HttpClient) {}
+  constructor(private httpClient: HttpClient) { }
 
   private url = `${environment.api}skills`;
 
@@ -28,6 +28,10 @@ export class SkillsService {
   }
 
   deleteSkill(skill: Skill): Observable<any> {
-    return this.httpClient.delete(this.url);
+    return this.httpClient.delete(`${this.url}/${skill.id}`);
+  }
+
+  updateSkill(skill: Skill) {
+    return this.httpClient.put<Skill>(`${this.url}/${skill.id}`, skill);
   }
 }

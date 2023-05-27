@@ -1,18 +1,21 @@
-import { Injectable } from '@angular/core';
-import { AngularFireAuth } from '@angular/fire/compat/auth';
+import { inject, Injectable } from '@angular/core';
+import { Auth, authState, createUserWithEmailAndPassword, signInWithEmailAndPassword } from '@angular/fire/auth';
 import { Router } from '@angular/router';
-import { concatMap, map, mergeMap, Observable, switchMap, tap } from 'rxjs';
+import { map, Observable, switchMap, tap } from 'rxjs';
 import { environment } from '../../environments/environment';
 
 @Injectable({
   providedIn: 'root',
 })
 export class FirebaseAuthService {
-  private user = this.fireAuth.authState.pipe(
-    tap((state) => console.log('auth state: ', state))
+  fireAuth = inject(Auth);
+  authState$ = authState(this.fireAuth);
+  router = inject(Router);
+  user$ = this.authState$.pipe(
+    tap((state) => console.log('authState changed: ', state))
   );
 
-  private token = this.fireAuth.authState.pipe(
+  private token = this.authState$.pipe(
     switchMap((user) => {
       if (user) {
         return user.getIdToken();
@@ -21,6 +24,7 @@ export class FirebaseAuthService {
       }
     }),
     tap((token) => {
+      // redirect to entry page if auth is enabled and user is not logged in
       // stay on the same route if auth is not enabled
       if (token == '' && environment.authEnabled) {
         this.router.navigate(['/']);
@@ -28,10 +32,8 @@ export class FirebaseAuthService {
     })
   );
 
-  constructor(private fireAuth: AngularFireAuth, private router: Router) {}
-
   getUser() {
-    return this.user;
+    return this.user$;
   }
 
   getToken() {
@@ -39,7 +41,7 @@ export class FirebaseAuthService {
   }
 
   isAuthenticated(): Observable<boolean> {
-    return this.user.pipe(
+    return this.user$.pipe(
       map((user) => {
         let authEnabled = environment.authEnabled;
         return authEnabled == false || user != null ? true : false;
@@ -47,33 +49,29 @@ export class FirebaseAuthService {
     );
   }
 
-  createUser(
-    email: string,
-    password: string
-  ): Promise<firebase.default.auth.UserCredential> {
-    return this.fireAuth
-      .createUserWithEmailAndPassword(email, password)
-      .catch((err) => {
-        console.log('Error creating User', err);
-        return err;
-      });
+  createUser(email: string, password: string) {
+    createUserWithEmailAndPassword(this.fireAuth, email, password).then((userCredential) => {
+      // you could take the user from here
+      const user = userCredential.user;
+    });
   }
 
   logIn(
     email: string,
     password: string
-  ): Promise<firebase.default.auth.UserCredential> {
-    return this.fireAuth
-      .signInWithEmailAndPassword(email, password)
-      .catch((err) => {
-        console.log('Error logging in', err);
-        return err;
-      });
+  ) {
+    signInWithEmailAndPassword(this.fireAuth, email, password).then((userCredential) => {
+      // you could take the user from here
+      const user = userCredential.user;
+    });
   }
 
   logOut() {
     this.fireAuth
       .signOut()
-      .catch((err) => console.log('Error in signOut', err));
+      .then(() => {
+        this.router.navigate(['/']);
+      })
+      .catch((err: any) => console.log('Error in signOut', err));
   }
 }

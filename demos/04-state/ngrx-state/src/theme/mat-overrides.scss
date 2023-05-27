@@ -36,6 +36,7 @@
 //buttons
 button.mat-mdc-raised-button{
   margin: var(--gap-small) 0;
+  color: var(--color-fg)!important;
   :hover{
     text-decoration: underline;
   }

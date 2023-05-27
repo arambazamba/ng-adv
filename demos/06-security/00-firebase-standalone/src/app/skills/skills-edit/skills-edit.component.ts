@@ -28,10 +28,10 @@ export class SkillsEditComponent implements OnInit {
 
   getSkill(id: number) {
     this.service.getSkill(id).subscribe((data) => {
-      if (data != null) {
+      if (data) {
         this.skill = data;
+        console.log('setting skill: ', data);
       }
-      console.log('setting skill: ', data);
     });
   }
 
@@ -62,7 +62,6 @@ export class SkillsEditComponent implements OnInit {
     // id param
     this.route.paramMap.subscribe((params) => {
       console.log('paramMap:', params);
-      // const id = + params.get('id');
     });
     // query params
     this.route.queryParamMap.subscribe((qpm) => {

@@ -13,7 +13,7 @@ export class ProtectedApiComponent implements OnInit {
   currentUser: firebase.default.User | null = null;
   resp: any;
 
-  constructor(private httpClient: HttpClient, public as: FirebaseAuthService) {}
+  constructor(private httpClient: HttpClient, public as: FirebaseAuthService) { }
 
   ngOnInit() {
     this.as.getUser().subscribe((user: any) => {
@@ -23,7 +23,7 @@ export class ProtectedApiComponent implements OnInit {
 
   callCoreApi() {
     this.httpClient
-      .get(`${environment.api}demo`)
+      .get(`${environment.netapi}demo`)
       .pipe(
         map((data) => {
           this.resp = data;
