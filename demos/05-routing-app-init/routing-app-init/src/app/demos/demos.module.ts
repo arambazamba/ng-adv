@@ -34,6 +34,7 @@ import { onlyPrimeMembersGuard } from './samples/multi-guard/only-prime-members.
 import { RouterBindingComponent } from './samples/router-binding/router-binding.component';
 import { MarkdownRendererModule } from '../shared/markdown-renderer/markdown-renderer.module';
 import { BorderDirective, CenteredDirective } from '../shared/formatting/formatting-directives';
+import { FormattingModule } from '../shared/formatting/formatting.module';
 
 const demoRoutes: Routes = [
   {
@@ -140,8 +141,7 @@ const demoRoutes: Routes = [
     SharedModule,
     StoreModule.forFeature(demosFeatureKey, demoReducer),
     EffectsModule.forFeature([DemosEffects]),
-    BorderDirective,
-    CenteredDirective
+    FormattingModule,
   ],
   providers: [],
 })

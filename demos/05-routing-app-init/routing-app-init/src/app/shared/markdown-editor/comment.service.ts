@@ -8,7 +8,7 @@ import { CommentItem } from './comment.model';
 })
 export class CommentService {
   http = inject(HttpClient);
-  url = environment.apiUrl + 'comments';
+  url = environment.api + 'comments';
 
   saveComment(item: CommentItem) {
     if (item.id === undefined || item.id === 0) {

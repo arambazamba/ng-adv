@@ -9,9 +9,9 @@ import { Skill } from './skill.model';
   providedIn: 'root',
 })
 export class SkillsService {
-  constructor(private httpClient: HttpClient) {}
+  constructor(private httpClient: HttpClient) { }
 
-  private url = `${environment.apiUrl}skills`;
+  private url = `${environment.api}skills`;
 
   getSkills(): Observable<Skill[]> {
     return this.httpClient.get<Skill[]>(this.url);

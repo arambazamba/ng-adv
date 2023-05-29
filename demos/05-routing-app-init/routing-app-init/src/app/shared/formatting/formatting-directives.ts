@@ -58,3 +58,41 @@ export class CenteredDirective {
 })
 export class BorderDirective {
 }
+
+@Directive({
+  selector: '[bold]',
+  host: { 'style': 'font-weight:bold;' },
+  standalone: true
+})
+export class FontBoldDirective {
+}
+
+@Directive({
+  selector: '[height-medium]',
+  host: { 'style': 'height:100px;' },
+  standalone: true,
+  hostDirectives: [BorderDirective]
+})
+export class HeightDirective {
+}
+
+@Directive({
+  selector: '[full-width]',
+  host: { style: 'width:100%;' },
+  hostDirectives: [HeightDirective],
+  standalone: true,
+})
+export class WidthDirective {
+}
+
+@Directive({
+  selector: '[boxed]',
+  standalone: true,
+  hostDirectives: [
+    FontBoldDirective,
+    WidthDirective,
+    BorderDirective
+  ],
+})
+export class BoxedDirective {
+}

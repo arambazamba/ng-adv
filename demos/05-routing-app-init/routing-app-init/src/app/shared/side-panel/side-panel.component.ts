@@ -2,6 +2,7 @@ import { Component, inject } from '@angular/core';
 import { SnackbarService } from '../snackbar/snackbar.service';
 import { SidebarActions } from './sidebar.actions';
 import { SidePanelService } from './sidepanel.service';
+import { SideNavService } from '../sidenav/sidenav.service';
 
 @Component({
   selector: 'app-side-panel',
@@ -9,9 +10,11 @@ import { SidePanelService } from './sidepanel.service';
   styleUrls: ['./side-panel.component.scss'],
 })
 export class SidePanelComponent {
-  sns: SnackbarService = inject(SnackbarService);
-  eb: SidePanelService = inject(SidePanelService);
-  editorDisplayed: boolean = false;
+  sns = inject(SnackbarService);
+  eb = inject(SidePanelService);
+  editorDisplayed = false;
+  sidenav = inject(SideNavService);
+  icon = "create";
 
   toggleEditor() {
     if (this.editorDisplayed) {
@@ -20,6 +23,11 @@ export class SidePanelComponent {
       this.eb.triggerCmd(SidebarActions.SHOW_MARKDOWN);
     }
     this.editorDisplayed = !this.editorDisplayed;
+    this.icon = this.editorDisplayed ? "close" : "create";
+  }
+
+  toogleSideNav() {
+    this.sidenav.toggleMenuVisibility();
   }
 
   showUpload() {

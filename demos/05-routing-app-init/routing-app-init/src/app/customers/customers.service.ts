@@ -7,9 +7,9 @@ import { environment } from '../../environments/environment';
   providedIn: 'root',
 })
 export class CustomersService {
-  constructor(private http: HttpClient) {}
+  constructor(private http: HttpClient) { }
 
   getCustomers() {
-    return this.http.get<Customer[]>(environment.apiUrl + 'customers');
+    return this.http.get<Customer[]>(environment.api + 'customers');
   }
 }

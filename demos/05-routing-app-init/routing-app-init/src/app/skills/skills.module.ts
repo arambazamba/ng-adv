@@ -1,36 +1,33 @@
 import { CommonModule } from '@angular/common';
+import { HttpClientModule } from '@angular/common/http';
 import { NgModule } from '@angular/core';
-import { FormsModule } from '@angular/forms';
-import {
-  EntityDataService,
-  EntityDefinitionService,
-  HttpUrlGenerator,
-} from '@ngrx/data';
+import { ReactiveFormsModule } from '@angular/forms';
+import { EntityDataService, EntityDefinitionService } from '@ngrx/data';
 import { MaterialModule } from '../material.module';
-import { CustomurlHttpGenerator } from './custom-url-generator';
 import { SkillRowComponent } from './skill-row/skill-row.component';
-import { SkillResolver } from './skill.resolver';
+import { SkillsContainerComponent } from './skills-container/skills-container.component';
 import { SkillsDataService } from './skills-data.service';
-import { SkillsEditComponent } from './skills-edit/skills-edit.component';
 import { SkillsEntityService } from './skills-entity.service';
-import { SkillsListComponent } from './skills-list/skills-list.component';
-import { SkillsRoutingModule } from './skills-routing.module';
+import { SkillsKpiComponent } from './skills-kpi/skills-kpi.component';
 import { entityMetadata } from './skills.metadata';
-import { SkillsResolver } from './skills.resolver';
+import { SkillsRoutingModule } from './skills.routing.module';
+import { SkillsEditComponent } from './skills-edit/skills-edit.component';
 
 @NgModule({
-  declarations: [SkillsListComponent, SkillsEditComponent, SkillRowComponent],
-  imports: [CommonModule, SkillsRoutingModule, MaterialModule, FormsModule],
-  providers: [
-    SkillsEntityService,
-    SkillsDataService,
-    {
-      provide: HttpUrlGenerator,
-      useClass: CustomurlHttpGenerator,
-    },
-    SkillsResolver,
-    SkillResolver,
+  declarations: [
+    SkillsContainerComponent,
+    SkillsKpiComponent,
+    SkillRowComponent,
+    SkillsEditComponent
   ],
+  imports: [
+    CommonModule,
+    SkillsRoutingModule,
+    MaterialModule,
+    ReactiveFormsModule,
+    HttpClientModule,
+  ],
+  providers: [SkillsEntityService, SkillsDataService],
 })
 export class SkillsModule {
   constructor(
