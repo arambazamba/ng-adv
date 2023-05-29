@@ -4,5 +4,5 @@ export const environment = {
   title: 'ngReactiveForms',
   logChangeDetection: true,
   markdownPath: '/assets/markdown/',
-  apiUrl: 'http://localhost:3000/',
+  api: 'http://localhost:3000/',
 };

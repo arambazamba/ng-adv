@@ -16,4 +16,4 @@ import { MatExpansionModule } from '@angular/material/expansion';
     MatExpansionModule,
   ],
 })
-export class MdRendererModule {}
+export class MarkdownRendererModule { }

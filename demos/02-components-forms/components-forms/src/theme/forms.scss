@@ -1,7 +1,12 @@
-.hidden{
-  visibility: hidden;
+.result{
+  min-height: 10rem;
 }
 
-mat-form-field {
-  width: 100%;
+.cmdItems button {
+  width: calc(50% - 3em);
+  margin: 1em;
+}
+
+.hidden{
+  visibility: hidden;
 }

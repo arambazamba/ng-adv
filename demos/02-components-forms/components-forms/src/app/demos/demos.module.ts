@@ -7,7 +7,7 @@ import {
   MAT_FORM_FIELD_DEFAULT_OPTIONS,
 } from '@angular/material/form-field';
 import { MaterialModule } from '../material.module';
-import { MdRendererModule } from '../shared/markdown-renderer/md-renderer.module';
+import { MarkdownRendererModule } from '../shared/markdown-renderer/markdown-renderer.module';
 import { SharedModule } from '../shared/shared.module';
 import { DemoContainerComponent } from './demo-container/demo-container.component';
 import { DemoRoutingModule } from './demo.routing.module';
@@ -18,7 +18,6 @@ import { ContentChildComponent } from './samples/content-child/content-child.com
 import { ProjectorComponent } from './samples/content-child/projector/projector.component';
 import { ControlValueAccessorComponent } from './samples/control-value-accessor/control-value-accessor.component';
 import { NumberPickerComponent } from './samples/control-value-accessor/number-picker/number-picker.component';
-import { BoxedDirective } from './samples/directive-composition/boxed.directive';
 import { DirectiveCompositionComponent } from './samples/directive-composition/directive-composition.component';
 import { ErrStateMatcherComponent } from './samples/err-state-matcher/err-state-matcher.component';
 import { ReactiveExplicitTypedComponent } from './samples/explicit-typed/reactive-explicit-typed.component';
@@ -49,8 +48,8 @@ import { ContainerPresenterComponent } from './samples/container-presenter/conta
 import { PresenterListComponent } from './samples/container-presenter/presenter-list/presenter-list.component';
 import { PresenterEditComponent } from './samples/container-presenter/presenter-edit/presenter-edit.component';
 import { StandaloneComponent } from './samples/standalone/standalone.component';
-import { ColumnDirective, RowDirective } from './samples/directive-composition/flex-layout-replacements';
 import { DynamicComponentsComponent } from './samples/dynamic-components/dynamic-components.component';
+import { FormattingModule } from '../shared/formatting/formatting.module';
 
 
 const appearance: MatFormFieldDefaultOptions = {
@@ -90,7 +89,6 @@ const appearance: MatFormFieldDefaultOptions = {
     FormErrorsComponent,
     ErrStateMatcherComponent,
     DirectiveCompositionComponent,
-    BoxedDirective,
     uxSplitComponent,
     uxButtonComponent,
     SplitPopupComponent,
@@ -107,10 +105,9 @@ const appearance: MatFormFieldDefaultOptions = {
     DemoRoutingModule,
     MaterialModule,
     HttpClientModule,
-    MdRendererModule,
+    MarkdownRendererModule,
     StandaloneComponent,
-    ColumnDirective,
-    RowDirective
+    FormattingModule
   ],
   providers: [
     {

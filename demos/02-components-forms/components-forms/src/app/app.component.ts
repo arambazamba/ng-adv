@@ -12,8 +12,6 @@ export class AppComponent {
   titleService: Title = inject(Title);
   themeService: ThemeService = inject(ThemeService);
 
-  constructor() { }
-
   title: string = environment.title;
   selectedTheme: string = 'default';
 

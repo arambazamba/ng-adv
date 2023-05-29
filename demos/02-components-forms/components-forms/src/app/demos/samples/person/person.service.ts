@@ -10,14 +10,14 @@ import { environment } from 'src/environments/environment';
   providedIn: 'root',
 })
 export class PersonService {
-  constructor(private http: HttpClient) {}
+  constructor(private http: HttpClient) { }
 
   getPersons() {
-    return this.http.get<Person[]>(`${environment.apiUrl}persons`);
+    return this.http.get<Person[]>(`${environment.api}persons`);
   }
 
   getPerson() {
-    return this.http.get<Person>(`${environment.apiUrl}persons/1`);
+    return this.http.get<Person>(`${environment.api}persons/1`);
   }
 
   save(form: NgForm) {
