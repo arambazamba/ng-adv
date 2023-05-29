@@ -9,21 +9,21 @@ export class DemoService {
   http = inject(HttpClient);
 
   getItems(): Observable<DemoItem[]> {
-    return this.http.get<DemoItem[]>(`${environment.apiUrl}demos`);
+    return this.http.get<DemoItem[]>(`${environment.api}demos`);
   }
 
   addItem(item: DemoItem): Observable<DemoItem> {
-    return this.http.post<DemoItem>(`${environment.apiUrl}demos`, item);
+    return this.http.post<DemoItem>(`${environment.api}demos`, item);
   }
 
   updateItem(item: DemoItem): Observable<DemoItem> {
     return this.http.put<DemoItem>(
-      `${environment.apiUrl}demos/${item.id}`,
+      `${environment.api}demos/${item.id}`,
       item
     );
   }
 
   deleteItem(id: number): Observable<any> {
-    return this.http.delete(`${environment.apiUrl}demos/${id}`);
+    return this.http.delete(`${environment.api}demos/${id}`);
   }
 }

@@ -1,6 +1,6 @@
-import { Component, OnInit, effect, inject } from '@angular/core';
+import { Component, DestroyRef, OnInit, effect, inject } from '@angular/core';
 import { ActivatedRoute, NavigationEnd, Router } from '@angular/router';
-import { Subject } from 'rxjs';
+import { takeUntilDestroyed } from '@angular/core/rxjs-interop';
 import { filter, map, takeUntil } from 'rxjs/operators';
 import { SidebarActions } from 'src/app/shared/side-panel/sidebar.actions';
 import { SidePanelService } from 'src/app/shared/side-panel/sidepanel.service';
@@ -15,6 +15,7 @@ import { DemoFacade } from '../state/demo.facade';
   styleUrls: ['./demo-container.component.scss'],
 })
 export class DemoContainerComponent implements OnInit {
+  destroyRef = inject(DestroyRef);
   router = inject(Router);
   route = inject(ActivatedRoute);
   df = inject(DemoFacade);
@@ -22,7 +23,6 @@ export class DemoContainerComponent implements OnInit {
   ls = inject(LoadingService);
   eb = inject(SidePanelService);
 
-  destroy$ = new Subject();
   title: string = environment.title;
   header = 'Please select a demo';
   demos = this.df.getDemos();
@@ -43,19 +43,14 @@ export class DemoContainerComponent implements OnInit {
       this.showMdEditor = this.currentCMD() === SidebarActions.HIDE_MARKDOWN ? false : true;
     });
 
-    this.ls.getLoading().pipe(takeUntil(this.destroy$)).subscribe((value) => {
-      Promise.resolve(null).then(() => (this.isLoading = value));
+    this.ls.getLoading().pipe(takeUntilDestroyed(this.destroyRef)).subscribe((value) => {
+      Promise.resolve(null).then(() => { this.isLoading = value });
     });
   }
 
   ngOnInit() {
     this.df.init();
     this.setComponentMetadata();
-  }
-
-  ngOnDestroy() {
-    this.destroy$.next(true);
-    this.destroy$.complete();
   }
 
   rootRoute(route: ActivatedRoute): ActivatedRoute {
@@ -66,13 +61,12 @@ export class DemoContainerComponent implements OnInit {
   }
 
   setComponentMetadata() {
-    this.router.events
-      .pipe(
-        takeUntil(this.destroy$),
-        filter((event) => event instanceof NavigationEnd),
-        map(() => this.rootRoute(this.route)),
-        filter((route: ActivatedRoute) => route.outlet === 'primary')
-      )
+    this.router.events.pipe(
+      takeUntilDestroyed(this.destroyRef),
+      filter((event) => event instanceof NavigationEnd),
+      map(() => this.rootRoute(this.route)),
+      filter((route: ActivatedRoute) => route.outlet === 'primary')
+    )
       .subscribe((route: ActivatedRoute) => {
         this.header =
           route.component != null

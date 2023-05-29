@@ -5,5 +5,5 @@ export const environment = {
   logChangeDetection: false,
   logChanges: false,
   markdownPath: '/assets/markdown/',
-  apiUrl: 'http://localhost:3000/'
+  api: 'http://localhost:3000/'
 };

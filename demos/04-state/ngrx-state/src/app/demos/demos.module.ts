@@ -30,6 +30,7 @@ import { NgrxEntityComponent } from './samples/ngrx-entity/ngrx-entity.component
 import { SelectorsComponent } from './samples/selectors/selectors.component';
 import { DemosEffects } from './state/demos.effects';
 import { demoReducer, demosFeatureKey } from './state/demos.reducer';
+import { FormattingModule } from '../shared/formatting/formatting.module';
 
 @NgModule({
   declarations: [
@@ -63,6 +64,7 @@ import { demoReducer, demosFeatureKey } from './state/demos.reducer';
     MarkdownRendererModule,
     SharedModule,
     MarkdownEditorModule,
+    FormattingModule,
     StoreModule.forFeature(demosFeatureKey, demoReducer),
     EffectsModule.forFeature([DemosEffects]),
   ],

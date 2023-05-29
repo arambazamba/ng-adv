@@ -10,6 +10,6 @@ export class CustomersService {
   http = inject(HttpClient);
 
   getCustomers() {
-    return this.http.get<Customer[]>(environment.apiUrl + 'customers');
+    return this.http.get<Customer[]>(environment.api + 'customers');
   }
 }
