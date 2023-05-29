@@ -26,6 +26,7 @@ import { SecondChildComponent } from './samples/style-inheritance/second-child/s
 import { StyleInheritanceComponent } from './samples/style-inheritance/style-inheritance.component';
 import { TableComponent } from './samples/table/table.component';
 import { VisualFeedbackComponent } from './samples/visual-feedback/visual-feedback.component';
+import { FormattingModule } from '../shared/formatting/formatting.module';
 
 @NgModule({
   declarations: [
@@ -59,7 +60,8 @@ import { VisualFeedbackComponent } from './samples/visual-feedback/visual-feedba
     UxModule,
     HttpClientModule,
     MarkdownRendererModule,
-    MarkdownEditorComponent
+    MarkdownEditorComponent,
+    FormattingModule
   ],
   providers: [],
 })
