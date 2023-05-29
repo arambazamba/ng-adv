@@ -1,7 +1,7 @@
 import { CommonModule } from '@angular/common';
 import { NgModule } from '@angular/core';
-import { AuthModule } from '@angular/fire/auth';
-import { AngularFireModule } from '@angular/fire/compat';
+import { initializeApp, provideFirebaseApp } from '@angular/fire/app';
+import { getAuth, provideAuth } from '@angular/fire/auth';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { EffectsModule } from '@ngrx/effects';
 import { StoreModule } from '@ngrx/store';
@@ -12,7 +12,7 @@ import { CurrentUserComponent } from './components/current-user/current-user.com
 import { LogoutButtonComponent } from './components/logout-button/logout-button.component';
 import { FBAuthRoutingModule } from './fbauth-routing.module';
 import { AuthEffects } from './state/auth.effects';
-import { authFeatureKey, reducer as AuthReducer } from './state/auth.reducer';
+import { reducer as AuthReducer, authFeatureKey } from './state/auth.reducer';
 
 const comps = [AuthComponent, LogoutButtonComponent, CurrentUserComponent];
 
@@ -23,12 +23,12 @@ const comps = [AuthComponent, LogoutButtonComponent, CurrentUserComponent];
     CommonModule,
     FormsModule,
     ReactiveFormsModule,
-    AngularFireModule.initializeApp(environment.firebaseConfig),
-    AuthModule,
+    provideFirebaseApp(() => initializeApp(environment.firebaseConfig)),
+    provideAuth(() => getAuth()),
     MaterialModule,
     FBAuthRoutingModule,
     StoreModule.forFeature(authFeatureKey, AuthReducer),
     EffectsModule.forFeature([AuthEffects]),
   ],
 })
-export class FBAuthModule {}
+export class FBAuthModule { }

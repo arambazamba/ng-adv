@@ -1,9 +1,15 @@
-<ng-container *ngIf="(user$ | async | json) ==  ({} | json)">
-    <app-register></app-register>
-    <app-login></app-login>
-</ng-container>
+<app-markdown-renderer [md]="'firebase-auth'"></app-markdown-renderer>
 
-<ng-container *ngIf="(user$ | async | json) !=  ({} | json)">
-    <app-current-user></app-current-user>
-    <app-logout-button></app-logout-button>
-</ng-container>
+<mat-card appearance="outlined">
+  <mat-card-header>
+    <mat-card-title> Using Firebase Auth </mat-card-title>
+  </mat-card-header>
+  <mat-card-actions class="cmdItems">
+    <button mat-raised-button color="accent">
+      Register
+    </button>
+    <button mat-raised-button color="accent">
+      Login
+    </button>
+  </mat-card-actions>
+</mat-card>

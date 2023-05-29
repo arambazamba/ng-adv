@@ -1,45 +1,18 @@
-import { props } from '@ngrx/store';
+import { createActionGroup, emptyProps, props } from '@ngrx/store';
 import { LoginCredentials } from '../credential.model';
+export const AuthActions = createActionGroup({
+  source: 'Auth',
+  events: {
+    registerUser: props<{ credentials: LoginCredentials }>(),
+    registerUserSuccess: props<{ user: any }>(),
+    registerUserFailure: props<{ err: Error }>(),
+    logIn: props<{ credentials: LoginCredentials }>(),
+    logInSuccess: props<{ user: any }>(),
+    logInFailure: props<{ err: Error }>(),
+    logOut: emptyProps(),
+    logOutComplete: emptyProps(),
+    setUser: props<{ user: any; token: string }>(),
+    redirectToLogin: emptyProps(),
+  }
+});
 
-import { createAction } from '@ngrx/store';
-
-export const registerUser = createAction(
-  '[auth] register User',
-  props<{ credentials: LoginCredentials }>()
-);
-
-export const registerUserSuccess = createAction(
-  '[auth] registerUser Success',
-  props<{ user: any }>()
-);
-
-export const registerUserFailure = createAction(
-  '[auth] registerUser Failure',
-  props<{ err: Error }>()
-);
-
-export const logIn = createAction(
-  '[auth] logIn',
-  props<{ credentials: LoginCredentials }>()
-);
-
-export const logInSuccess = createAction(
-  '[auth] logInSuccess',
-  props<{ user: any }>()
-);
-
-export const logInFailure = createAction(
-  '[auth] logIn Failure',
-  props<{ err: Error }>()
-);
-
-export const logOut = createAction('[auth] logOut');
-
-export const logOutComplete = createAction('[auth] logOutComplete');
-
-export const setUser = createAction(
-  '[auth] setUser',
-  props<{ user: any; token: string }>()
-);
-
-export const redirectToLogin = createAction('[auth] redirectToLogin');

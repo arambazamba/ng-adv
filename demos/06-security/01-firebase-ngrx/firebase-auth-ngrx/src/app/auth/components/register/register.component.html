@@ -1,9 +1,9 @@
 <form [formGroup]="registerForm" (ngSubmit)="registerUser(registerForm)">
   <mat-card appearance="outlined">
-    <mat-card-header fxLayoutAlign="center center">
+    <mat-card-header>
       <mat-card-title>Register User</mat-card-title>
     </mat-card-header>
-    <mat-card-content fxLayout="column">
+    <mat-card-content class="column">
       <mat-form-field>
         <input
           type="text"
@@ -17,43 +17,44 @@
         </mat-error>
       </mat-form-field>
 
-      <div formGroupName="passwords" fxLayout="column">
-        <mat-form-field>
-          <input
-            type="password"
-            matInput
-            id="password"
-            placeholder="Password"
-            formControlName="password"
-          />
-          <mat-error
-            *ngIf="registerForm.get('passwords.password')?.errors != undefined"
-            >Min 4 Zeichen
-          </mat-error>
-        </mat-form-field>
-
-        <mat-form-field>
-          <input
-            type="password"
-            matInput
-            placeholder="Re-Enter Password"
-            formControlName="passwordRepeat"
-          />
-        </mat-form-field>
+      <mat-form-field>
+        <input
+          type="password"
+          matInput
+          id="password"
+          placeholder="Password"
+          formControlName="password"
+        />
         <mat-error
-          *ngIf="
-            registerForm.get(['passwords', 'passwordRepeat'])?.touched &&
-            registerForm.get(['passwords', 'password'])?.value !=
-              registerForm.get(['passwords', 'passwordRepeat'])?.value &&
-            registerForm.get(['passwords', 'passwordRepeat'])?.value != null
-          "
-          >Password does not match
+          *ngIf="registerForm.get('passwords.password')?.errors != undefined"
+          >Min 4 Zeichen
         </mat-error>
-      </div>
+      </mat-form-field>
+
+      <mat-form-field>
+        <input
+          type="password"
+          matInput
+          placeholder="Re-Enter Password"
+          formControlName="passwordRepeat"
+        />
+      </mat-form-field>
+      <mat-error
+        *ngIf="
+          registerForm.get(['passwords', 'passwordRepeat'])?.touched &&
+          registerForm.get(['passwords', 'password'])?.value !=
+            registerForm.get(['passwords', 'passwordRepeat'])?.value &&
+          registerForm.get(['passwords', 'passwordRepeat'])?.value != null
+        "
+        >Password does not match
+      </mat-error>
     </mat-card-content>
     <mat-card-actions align="end">
-      <button mat-raised-button type="submit" [disabled]="registerForm.invalid" color="accent">
-        Register
+      <button mat-raised-button
+        type="submit"
+        [disabled]="registerForm.invalid"
+        color="primary">
+        REGISTER
       </button>
     </mat-card-actions>
   </mat-card>

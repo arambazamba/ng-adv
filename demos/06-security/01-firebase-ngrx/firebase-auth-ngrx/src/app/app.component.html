@@ -1,16 +1,9 @@
-<div
-  gdAreas="navbar | main"
-  gdGap="5px"
-  gdRows="70px auto"
-  gdColumns="auto"
-  gdColumns.lt-md="100%"
-  class="grid"
->
-  <div gdArea="navbar">
-    <app-navbar *ngIf="isAuthenticated | async"></app-navbar>
+<div class="grid">
+  <div class="gdNavbar" *ngIf="isAuthenticated | async">
+    <app-navbar></app-navbar>
   </div>
-  <div gdArea="main">
+  <div class="gdMainrow">
     <router-outlet></router-outlet>
-    <router-outlet name="actions"></router-outlet>
+    <router-outlet name="auth-actions"></router-outlet>
   </div>
 </div>

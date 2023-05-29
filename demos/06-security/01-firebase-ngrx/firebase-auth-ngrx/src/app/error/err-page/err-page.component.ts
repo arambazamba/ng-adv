@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component } from '@angular/core';
 declare var window: Window;
 
 @Component({
@@ -6,11 +6,7 @@ declare var window: Window;
   templateUrl: './err-page.component.html',
   styleUrls: ['./err-page.component.scss'],
 })
-export class ErrPageComponent implements OnInit {
-  constructor() {}
-
-  ngOnInit(): void {}
-
+export class ErrPageComponent {
   getErr(): string {
     return window.history.state;
   }

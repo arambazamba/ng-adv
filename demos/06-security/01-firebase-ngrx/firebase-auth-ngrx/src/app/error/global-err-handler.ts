@@ -1,4 +1,4 @@
-import { Injectable, Injector, ErrorHandler } from '@angular/core';
+import { Injectable, Injector, ErrorHandler, inject } from '@angular/core';
 import { Router } from '@angular/router';
 import { HttpErrorResponse } from '@angular/common/http';
 
@@ -6,7 +6,7 @@ import { HttpErrorResponse } from '@angular/common/http';
   providedIn: 'root',
 })
 export class GlobalErrService implements ErrorHandler {
-  constructor(private injector: Injector) {}
+  injector = inject(Injector);
   handleError(error: Error | HttpErrorResponse) {
     const router = this.injector.get(Router);
     console.warn('An error occurred:', error);

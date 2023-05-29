@@ -1,8 +1,7 @@
 import { Injectable } from '@angular/core';
 import { Store } from '@ngrx/store';
-import { map, combineLatestWith } from 'rxjs/operators';
+import { map, combineLatestWith, startWith, tap } from 'rxjs/operators';
 import { LoginCredentials } from '../credential.model';
-import { logIn, redirectToLogin, registerUser, setUser } from './auth.actions';
 import { AuthState } from './auth.reducer';
 import {
   getAuthEnabled,
@@ -10,13 +9,13 @@ import {
   getUser,
   hasToken,
 } from './auth.selectors';
-import { logOut } from './auth.actions';
+import { AuthActions } from './auth.actions';
 
 @Injectable({
   providedIn: 'root',
 })
 export class AuthFacade {
-  constructor(private store: Store<AuthState>) {}
+  constructor(private store: Store<AuthState>) { }
 
   get User() {
     return this.store.select(getUser);
@@ -27,8 +26,8 @@ export class AuthFacade {
       combineLatestWith(this.store.select(getAuthEnabled)),
       map(([loggedIn, authEnabled]) => {
         return authEnabled == false || loggedIn;
-      })
-    );
+      }),
+    ).pipe(tap((x) => console.log('isAuthenticated', x)));
   }
 
   hasToken() {
@@ -36,25 +35,25 @@ export class AuthFacade {
   }
 
   signIn(login: LoginCredentials) {
-    this.store.dispatch(logIn({ credentials: login }));
+    this.store.dispatch(AuthActions.logIn({ credentials: login }));
   }
 
   signOut() {
-    this.store.dispatch(logOut());
+    this.store.dispatch(AuthActions.logOut());
   }
 
   register(login: LoginCredentials) {
-    this.store.dispatch(registerUser({ credentials: login }));
+    this.store.dispatch(AuthActions.registerUser({ credentials: login }));
   }
 
   redirectToLogin() {
-    this.store.dispatch(redirectToLogin());
+    this.store.dispatch(AuthActions.redirectToLogin());
   }
 
   userChanged(user: any) {
-    if (user)
-      user
-        .getIdToken()
-        .then((token: string) => this.store.dispatch(setUser({ user, token })));
+    if (user) {
+      user.getIdToken().then(
+        (token: string) => this.store.dispatch(AuthActions.setUser({ user, token })));
+    }
   }
 }

@@ -1,4 +1,4 @@
-import { Component, TemplateRef, ViewChild } from '@angular/core';
+import { Component, TemplateRef, ViewChild, inject } from '@angular/core';
 import {
   AbstractControl,
   FormControl,
@@ -8,7 +8,6 @@ import {
 import { MatDialog } from '@angular/material/dialog';
 import { Router } from '@angular/router';
 import { combineLatestWith, map } from 'rxjs/operators';
-import { FBAuthService } from '../../fbauth.service';
 import { AuthFacade } from '../../state/auth.facade';
 
 @Component({
@@ -17,14 +16,10 @@ import { AuthFacade } from '../../state/auth.facade';
   styleUrls: ['./register.component.scss'],
 })
 export class RegisterComponent {
-  @ViewChild('dialog')
-  template!: TemplateRef<any>;
-
-  constructor(
-    private af: AuthFacade,
-    private dialog: MatDialog,
-    private router: Router
-  ) { }
+  @ViewChild('dialog') template!: TemplateRef<any>;
+  af = inject(AuthFacade);
+  dialog = inject(MatDialog);
+  router = inject(Router);
 
   ngAfterViewInit() {
     this.dialog

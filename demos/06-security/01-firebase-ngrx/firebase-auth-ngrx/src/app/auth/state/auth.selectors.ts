@@ -1,5 +1,6 @@
 import { createFeatureSelector, createSelector } from '@ngrx/store';
 import { authFeatureKey, AuthState } from './auth.reducer';
+import { FirebaseUser } from './firebase-user';
 
 export const getAuthState = createFeatureSelector<AuthState>(authFeatureKey);
 
@@ -10,7 +11,7 @@ export const getUser = createSelector(
 
 export const getEMail = createSelector(
   getUser,
-  (user: firebase.default.User) => user.email
+  (user: FirebaseUser) => user.email
 );
 
 export const getToken = createSelector(
@@ -20,7 +21,7 @@ export const getToken = createSelector(
 
 export const getLoggedIn = createSelector(
   getAuthState,
-  (state: AuthState) => state.user.email
+  (state: AuthState) => state.user?.email
 );
 
 export const hasToken = createSelector(

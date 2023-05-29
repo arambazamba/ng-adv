@@ -1,10 +1,9 @@
-import { Component, TemplateRef, ViewChild } from '@angular/core';
+import { Component, TemplateRef, ViewChild, inject } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { MatDialog } from '@angular/material/dialog';
 import { Router } from '@angular/router';
 import { combineLatestWith, map } from 'rxjs/operators';
 import { LoginCredentials } from '../../credential.model';
-import { FBAuthService } from '../../fbauth.service';
 import { AuthFacade } from '../../state/auth.facade';
 
 @Component({
@@ -13,14 +12,10 @@ import { AuthFacade } from '../../state/auth.facade';
   styleUrls: ['./login.component.scss'],
 })
 export class LoginComponent {
-  @ViewChild('dialog')
-  template!: TemplateRef<any>;
-
-  constructor(
-    private af: AuthFacade,
-    private dialog: MatDialog,
-    private router: Router
-  ) { }
+  @ViewChild('dialog') template!: TemplateRef<any>;
+  af = inject(AuthFacade);
+  dialog = inject(MatDialog);
+  router = inject(Router);
 
   ngAfterViewInit() {
     this.dialog

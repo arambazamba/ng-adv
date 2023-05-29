@@ -1,41 +1,24 @@
-import { Component, OnInit } from '@angular/core';
-import { Route, Router } from '@angular/router';
-import { Observable } from 'rxjs';
-import { MenuService } from '../menu/menu.service';
-import { MenuItem } from '../menu/MenuItem';
+import { Component, inject } from '@angular/core';
+import { SideNavService } from '../sidenav/sidenav.service';
 import { SnackbarService } from '../snackbar/snackbar.service';
+import { NavbarService } from './navbar.service';
 
 @Component({
   selector: 'app-navbar',
   templateUrl: './navbar.component.html',
   styleUrls: ['./navbar.component.scss'],
 })
-export class NavbarComponent implements OnInit {
-  constructor(
-    private router: Router,
-    private ms: MenuService,
-    private sns: SnackbarService
-  ) {}
-
-  title = 'Advanced Angular Development';
-  editorDisplayed: boolean = false;
-  rootRoutes: Route[] = [];
-  menuItems: Observable<MenuItem[]> | null = null;
-
-  ngOnInit() {
-    this.editorDisplayed = false;
-    this.menuItems = this.ms.getTopItems();
-  }
+export class NavbarComponent {
+  nav = inject(SideNavService);
+  ms = inject(NavbarService);
+  sns = inject(SnackbarService);
+  menuItems = this.ms.getTopItems();
 
   toggleMenu() {
-    this.ms.toggleMenu();
+    this.nav.toggleMenuVisibility();
   }
 
   toggleApps() {
     this.sns.displayAlert('Apps', 'Not implemented - just a mock');
-  }
-
-  showUpload() {
-    this.router.navigate(['', { outlets: { sidebarOutlet: 'upload' } }]);
   }
 }

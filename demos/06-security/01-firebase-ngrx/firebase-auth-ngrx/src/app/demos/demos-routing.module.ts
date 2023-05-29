@@ -11,12 +11,16 @@ const routes: Routes = [
     component: DemoContainerComponent,
     children: [
       {
-        path: 'fb-auth-basics',
+        path: 'firebase-auth',
         component: FirebaseAuthComponent,
       },
       {
         path: 'register',
         component: RegisterComponent,
+      },
+      {
+        path: 'logout',
+        component: LoginComponent,
       },
     ],
   },
@@ -26,4 +30,4 @@ const routes: Routes = [
   imports: [RouterModule.forChild(routes)],
   exports: [RouterModule],
 })
-export class DemosRoutingModule {}
+export class DemosRoutingModule { }

@@ -1,4 +1,4 @@
-import { Component, Input } from '@angular/core';
+import { Component, Input, inject } from '@angular/core';
 import { AuthFacade } from '../../state/auth.facade';
 
 @Component({
@@ -8,7 +8,7 @@ import { AuthFacade } from '../../state/auth.facade';
 })
 export class LogoutButtonComponent {
   @Input() defaultButton = true;
-  constructor(private af: AuthFacade) {}
+  af = inject(AuthFacade);
 
   logOut() {
     this.af.signOut();

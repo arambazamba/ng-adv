@@ -17,6 +17,7 @@ import { HomeComponent } from './home/home.component';
 import { MaterialModule } from './material.module';
 import { SharedModule } from './shared/shared.module';
 import { metaReducers, reducers } from './state';
+import { IntroComponent } from './shared/intro/intro.component';
 
 @NgModule({
   declarations: [AppComponent, HomeComponent, ErrPageComponent],
@@ -28,6 +29,7 @@ import { metaReducers, reducers } from './state';
     HttpClientModule,
     SharedModule,
     FBAuthModule,
+    IntroComponent,
     StoreModule.forRoot(reducers, {
       metaReducers,
       runtimeChecks: {

@@ -1,5 +1,4 @@
-import { Component, OnInit } from '@angular/core';
-import { of } from 'rxjs';
+import { Component, inject } from '@angular/core';
 import { AuthFacade } from '../../state/auth.facade';
 
 @Component({
@@ -7,10 +6,7 @@ import { AuthFacade } from '../../state/auth.facade';
   templateUrl: './current-user.component.html',
   styleUrls: ['./current-user.component.scss'],
 })
-export class CurrentUserComponent implements OnInit {
+export class CurrentUserComponent {
+  af = inject(AuthFacade);
   user = this.af.User;
-
-  constructor(private af: AuthFacade) {}
-
-  ngOnInit(): void {}
 }

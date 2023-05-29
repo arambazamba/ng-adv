@@ -1,24 +1,22 @@
-import { Injectable } from '@angular/core';
+import { Injectable, inject } from '@angular/core';
 import { Actions, createEffect, ofType } from '@ngrx/effects';
 import { of } from 'rxjs';
 import { catchError, map, mergeMap } from 'rxjs/operators';
 import { DemoService } from '../demo-base/demo.service';
-import * as demoActions from './demos.actions';
+import { DemoActions } from './demos.actions';
 
 @Injectable()
 export class DemosEffects {
-  constructor(private actions$: Actions, private service: DemoService) {}
+  actions$ = inject(Actions);
+  service = inject(DemoService);
 
   loadDemos$ = createEffect(() =>
     this.actions$.pipe(
-      ofType(demoActions.loadDemos),
+      ofType(DemoActions.loadDemos),
       mergeMap(() =>
         this.service.getItems().pipe(
-          map((demos) => ({
-            type: '[Demos] loadDemos Success',
-            items: demos,
-          })),
-          catchError((err) => of(demoActions.loadDemosFailure({ err })))
+          map((demos) => DemoActions.loadDemosSuccess({ items: demos })),
+          catchError((err) => of(DemoActions.loadDemosFailure({ err })))
         )
       )
     )
@@ -26,14 +24,11 @@ export class DemosEffects {
 
   addDemos$ = createEffect(() =>
     this.actions$.pipe(
-      ofType(demoActions.addDemo),
+      ofType(DemoActions.addDemo),
       mergeMap((action) =>
         this.service.addItem(action.item).pipe(
-          map((demos) => ({
-            type: '[Demos] addDemo Success',
-            items: demos,
-          })),
-          catchError((err) => of(demoActions.addDemoFailure({ err })))
+          map((demos) => DemoActions.addDemoSuccess({ item: demos })),
+          catchError((err) => of(DemoActions.addDemoFailure({ err })))
         )
       )
     )
@@ -41,14 +36,11 @@ export class DemosEffects {
 
   updateDemos$ = createEffect(() =>
     this.actions$.pipe(
-      ofType(demoActions.updateDemo),
+      ofType(DemoActions.updateDemo),
       mergeMap((action) =>
         this.service.updateItem(action.item).pipe(
-          map((demos) => ({
-            type: '[Demos] updateDemo Success',
-            items: demos,
-          })),
-          catchError((err) => of(demoActions.updateDemoFailure({ err })))
+          map((demos) => DemoActions.updateDemoSuccess({ item: demos })),
+          catchError((err) => of(DemoActions.updateDemoFailure({ err })))
         )
       )
     )
@@ -56,14 +48,11 @@ export class DemosEffects {
 
   deleteDemo$ = createEffect(() =>
     this.actions$.pipe(
-      ofType(demoActions.deleteDemo),
+      ofType(DemoActions.deleteDemo),
       mergeMap((action) =>
         this.service.deleteItem(action.item.id).pipe(
-          map(() => ({
-            type: '[Demos] deleteDemo Success',
-            item: action.item,
-          })),
-          catchError((err) => of(demoActions.deleteDemoFailure({ err })))
+          map(() => DemoActions.deleteDemoSuccess({ item: action.item })),
+          catchError((err) => of(DemoActions.deleteDemoFailure({ err })))
         )
       )
     )

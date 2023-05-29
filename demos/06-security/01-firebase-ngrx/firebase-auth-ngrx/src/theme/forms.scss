@@ -1,33 +1,12 @@
-.form-group {
-  margin-bottom: var(--gap-medium);
-}
-
-.form-group {
-  display: flex;
-  flex: 0 0 auto;
-  flex-flow: row wrap;
-  align-items: center;
-  margin-bottom: 0;
-}
-
-.clickable {
-  cursor: pointer;
-}
-
 .result{
   min-height: 10rem;
 }
 
-ul {
-	list-style: disc;
-  padding-left: 1rem !important
+.hidden{
+  visibility: hidden;
 }
 
-.box {
-  padding: 0 var(--gap-small);
-  border-bottom: solid 1px var(--color-bg);
-  color: var(--color-fg);
-  cursor: move;
-  background: var(--color-accent);
-  font-size: 1rem;
+.cmdItems button {
+  width: calc(50% - 3em);
+  margin: 1em;
 }

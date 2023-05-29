@@ -8,7 +8,7 @@ const routes: Routes = [
     component: AuthComponent,
     children: [
       {
-        path: 'log-in',
+        path: 'login',
         loadChildren: () =>
           import('./components/login/login.module').then((m) => m.LogInModule),
       },
@@ -31,4 +31,4 @@ const routes: Routes = [
   imports: [RouterModule.forChild(routes)],
   exports: [RouterModule],
 })
-export class FBAuthRoutingModule {}
+export class FBAuthRoutingModule { }
