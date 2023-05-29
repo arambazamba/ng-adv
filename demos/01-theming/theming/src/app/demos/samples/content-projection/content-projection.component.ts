@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, inject } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
 import { SplitSampleComponent } from './split-sample/split-sample.component';
 
@@ -7,10 +7,8 @@ import { SplitSampleComponent } from './split-sample/split-sample.component';
   templateUrl: './content-projection.component.html',
   styleUrls: ['./content-projection.component.scss'],
 })
-export class ContentProjectionComponent implements OnInit {
-  constructor(public dialog: MatDialog) {}
-
-  ngOnInit() {}
+export class ContentProjectionComponent {
+  dialog = inject(MatDialog);
 
   openPopup(): void {
     const dialogRef = this.dialog.open(SplitSampleComponent, {

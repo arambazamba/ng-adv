@@ -17,11 +17,11 @@ mat-card-header {
     height: var(--toolbar-big);
     padding-top: 0.5rem;
     background-color: var(--color-primary);
-    color: var(--color-font);;
+    color: var(--color-fg);;
 }
 
 .mat-mdc-card-subtitle {
-    color: var(--color-font);
+    color: var(--color-fg);
     font-size: 1.2rem;
     text-align: center;
 }

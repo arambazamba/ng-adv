@@ -13,7 +13,7 @@ import { MatExpansionModule } from '@angular/material/expansion';
     MarkdownModule.forRoot({
       loader: HttpClient,
     }),
-    MatExpansionModule
+    MatExpansionModule,
   ],
 })
 export class MarkdownRendererModule { }

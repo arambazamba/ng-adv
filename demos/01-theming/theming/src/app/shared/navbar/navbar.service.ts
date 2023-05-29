@@ -8,7 +8,6 @@ import { NavItem } from './navitem.model';
   providedIn: 'root'
 })
 export class NavbarService {
-
   service = inject(HttpClient);
 
   getTopItems(): Observable<NavItem[]> {

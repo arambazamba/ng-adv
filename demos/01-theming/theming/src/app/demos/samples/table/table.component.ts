@@ -16,7 +16,7 @@ export class TableComponent implements OnInit {
   constructor(private http: HttpClient) { }
 
   ngOnInit() {
-    this.http.get<Voucher[]>(`${environment.apiUrl}vouchers`).subscribe((data) => {
+    this.http.get<Voucher[]>(`${environment.api}vouchers`).subscribe((data) => {
       this.dataSource = new MatTableDataSource(data);
     });
   }

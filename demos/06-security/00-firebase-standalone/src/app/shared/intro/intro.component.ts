@@ -1,9 +1,9 @@
 import {
   Component,
   Input,
-  OnInit,
   TemplateRef,
   ViewChild,
+  inject
 } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
 import { Router } from '@angular/router';
@@ -15,21 +15,17 @@ import { FirebaseAuthService } from '../../fbauth/firebase-auth.service';
   templateUrl: './intro.component.html',
   styleUrls: ['./intro.component.scss'],
 })
-export class IntroComponent implements OnInit {
+export class IntroComponent {
+  dialog = inject(MatDialog);
+  as = inject(FirebaseAuthService);
+  router = inject(Router);
+
   @ViewChild('register') registerTemplate!: TemplateRef<any>;
   @ViewChild('login') loginTemplate!: TemplateRef<any>;
   @Input() title: string = '';
   @Input() subtitle: string = '';
   @Input() img: string = '';
   authEnabled = this.as.isAuthenticated();
-
-  constructor(
-    private dialog: MatDialog,
-    private as: FirebaseAuthService,
-    private router: Router
-  ) { }
-
-  ngOnInit(): void { }
 
   logIn() {
     this.dialog

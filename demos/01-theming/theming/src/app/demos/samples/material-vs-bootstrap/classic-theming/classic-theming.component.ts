@@ -1,15 +1,8 @@
-import { Component, OnInit } from '@angular/core';
+import { Component } from '@angular/core';
 
 @Component({
   selector: 'app-classic-theming',
   templateUrl: './classic-theming.component.html',
   styleUrls: ['./classic-theming.component.scss']
 })
-export class ClassicThemingComponent implements OnInit {
-
-  constructor() { }
-
-  ngOnInit(): void {
-  }
-
-}
+export class ClassicThemingComponent { }

@@ -5,10 +5,6 @@ import { Component, OnInit } from "@angular/core";
   templateUrl: "./split-sample.component.html",
   styleUrls: ["./split-sample.component.scss"]
 })
-export class SplitSampleComponent implements OnInit {
-  constructor() {}
-
+export class SplitSampleComponent {
   isDisabled: boolean = true;
-
-  ngOnInit() {}
 }

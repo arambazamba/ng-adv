@@ -4,7 +4,7 @@ import { NgModule } from '@angular/core';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { MaterialModule } from '../material.module';
 import { MarkdownEditorComponent } from '../shared/markdown-editor/markdown-editor.component';
-import { MarkdownRendererModule } from '../shared/markdown-renderer/md-renderer.module';
+import { MarkdownRendererModule } from '../shared/markdown-renderer/markdown-renderer.module';
 import { SharedModule } from '../shared/shared.module';
 import { UxModule } from '../shared/ux/ux.module';
 import { DemoContainerComponent } from './demo-container/demo-container.component';
