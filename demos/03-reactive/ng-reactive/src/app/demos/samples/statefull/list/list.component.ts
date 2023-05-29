@@ -1,9 +1,9 @@
 import { CdkDragDrop, moveItemInArray } from '@angular/cdk/drag-drop';
-import { Component } from '@angular/core';
-import { UntypedFormControl } from '@angular/forms';
-import { combineLatest, Observable } from 'rxjs';
+import { Component, inject } from '@angular/core';
+import { FormControl } from '@angular/forms';
+import { Observable, combineLatest } from 'rxjs';
 import { map, startWith } from 'rxjs/operators';
-import { DemoItem } from 'src/app/demos/demo-base/demo-item.model';
+import { DemoItem } from '../../../demo-base/demo-item.model';
 import { StatefulDemoService } from '../stateful-demo.service';
 
 @Component({
@@ -12,13 +12,12 @@ import { StatefulDemoService } from '../stateful-demo.service';
   styleUrls: ['./list.component.scss'],
 })
 export class ListComponent {
-  constructor(private ds: StatefulDemoService) { }
+  ds = inject(StatefulDemoService);
 
   // Data Stream
   demosData$: Observable<DemoItem[]> = this.ds.getDemos();
-
   // Action Stream
-  filter = new UntypedFormControl('');
+  filter = new FormControl<string>('');
 
   // Stream to bind the view to
   demos$ = combineLatest([
@@ -26,8 +25,7 @@ export class ListComponent {
     this.filter.valueChanges.pipe(startWith('')),
   ]).pipe(
     map(([demos, filter]) => {
-      console.log(demos);
-      return filter !== ''
+      return filter && filter !== ''
         ? demos.filter((d) =>
           d.title.toLowerCase().includes(filter.toLowerCase())
         )

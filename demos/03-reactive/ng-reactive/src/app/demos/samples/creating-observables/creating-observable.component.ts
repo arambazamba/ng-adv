@@ -8,30 +8,16 @@ import { delay } from 'rxjs/operators';
   templateUrl: './creating-observable.component.html',
   styleUrls: ['./creating-observable.component.scss'],
 })
-export class CreatingObservableComponent implements OnInit {
-  constructor() { }
-
+export class CreatingObservableComponent {
   onErr = (err: any) => console.log(err);
   onComplete = () => console.log('complete');
 
-  ngOnInit() { }
-
   useOf() {
     of(2, 5, 9, 12, 22).subscribe((data) => console.log('of(): ', data));
-
-    of([2, 5, 9, 12, 22]).subscribe((data) => console.log('of(): ', data));
   }
 
   useObsFrom() {
     let arr = [2, 5, 9, 12, 22];
-
-    //this overload of subscribe is depricated
-    from(arr).subscribe(
-      //emit each item from the array after the other
-      (data: number) => console.log('from(): ', data),
-      this.onErr,
-      this.onComplete
-    );
 
     //use this pattern when subscribing and handling complete and error case
     let observer = {} as any;
@@ -40,11 +26,6 @@ export class CreatingObservableComponent implements OnInit {
     observer.complete = this.onComplete;
 
     from(arr).subscribe(observer);
-  }
-
-  useOfwithSpread() {
-    //don't use this pattern, it's just for demo purpose to show the difference between of and from
-    of(...[2, 5, 9, 12, 22]).subscribe((data) => console.log(data));
   }
 
   useNewObs() {

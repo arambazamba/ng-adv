@@ -7,11 +7,9 @@ import { fromEvent, map, Subscription, tap } from 'rxjs';
   styleUrls: ['./sign-pad.component.scss'],
 })
 export class SignPadComponent implements OnDestroy {
-  @ViewChild('signPad', { static: true }) canvas: ElementRef | undefined;
+  @ViewChild('signPad', { static: true }) canvas: ElementRef | null = null;
 
-  constructor() { }
-
-  subMouseEvents: Subscription | undefined;
+  subMouseEvents: Subscription | null = null;
   result: { X: number; Y: number } = { X: 0, Y: 0 };
 
   ngOnDestroy() {

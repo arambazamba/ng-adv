@@ -1,5 +1,5 @@
 import { Component, EventEmitter, Input, Output } from '@angular/core';
-import { DemoItem } from '../../../demo-item.model';
+import { DemoItem } from '../../../demo-base/demo-item.model';
 
 @Component({
   selector: 'app-demo-row',
@@ -7,7 +7,7 @@ import { DemoItem } from '../../../demo-item.model';
   styleUrls: ['./demo-row.component.scss'],
 })
 export class DemoRowComponent {
-  @Input() item: DemoItem = new DemoItem();
+  @Input() item = new DemoItem();
   @Output() onDelete = new EventEmitter<DemoItem>();
   @Output() onSelect = new EventEmitter<DemoItem>();
   @Output() onChangeVisibility = new EventEmitter<DemoItem>();

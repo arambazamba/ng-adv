@@ -3,6 +3,7 @@ import { SnackbarService } from '../snackbar/snackbar.service';
 import { ThemeService } from '../theme/theme.service';
 import { SidebarActions } from './sidebar.actions';
 import { SidePanelService } from './sidepanel.service';
+import { SideNavService } from '../sidenav/sidenav.service';
 
 @Component({
   selector: 'app-side-panel',
@@ -10,23 +11,29 @@ import { SidePanelService } from './sidepanel.service';
   styleUrls: ['./side-panel.component.scss'],
 })
 export class SidePanelComponent {
-  sns: SnackbarService = inject(SnackbarService);
-  eb: SidePanelService = inject(SidePanelService);
-  ts: ThemeService = inject(ThemeService);
-  editorDisplayed: boolean = false;
+  sns = inject(SnackbarService);
+  eb = inject(SidePanelService);
+  ts = inject(ThemeService);
+  editorDisplayed = false;
+  sidenav = inject(SideNavService);
+  icon = "create";
 
   toggleTheme() {
     this.ts.toggleTheme();
   }
 
   toggleEditor() {
+    if (this.editorDisplayed) {
+      this.eb.triggerCmd(SidebarActions.HIDE_MARKDOWN);
+    } else {
+      this.eb.triggerCmd(SidebarActions.SHOW_MARKDOWN);
+    }
     this.editorDisplayed = !this.editorDisplayed;
-    this.eb.triggerCmd(
-      this.editorDisplayed
-        ? SidebarActions.SHOW_MARKDOWN
-        : SidebarActions.HIDE_MARKDOWN
-    );
-    this.editorDisplayed = !this.editorDisplayed;
+    this.icon = this.editorDisplayed ? "close" : "create";
+  }
+
+  toogleSideNav() {
+    this.sidenav.toggleMenuVisibility();
   }
 
   showUpload() {

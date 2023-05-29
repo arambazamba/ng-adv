@@ -16,9 +16,9 @@ import { takeUntilDestroyed } from '@angular/core/rxjs-interop';
   styleUrls: ['./demo-container.component.scss'],
 })
 export class DemoContainerComponent {
+  destroyRef = inject(DestroyRef);
   router = inject(Router);
   route = inject(ActivatedRoute);
-  destroyRef = inject(DestroyRef);
   ds = inject(DemoService);
   nav = inject(SideNavService);
   ls = inject(LoadingService);
