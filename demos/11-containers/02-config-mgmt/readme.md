@@ -1,4 +1,4 @@
 # Configuration Management
 
-- Config Injection using environment variables
-- Config Injection using a ConfigService
+- Inject Configuration into a conatainer using environment variables
+- Load config using a ConfigService

@@ -1,4 +1,4 @@
-## Inject Configuration using a Config Service - Optional
+## Load config using a ConfigService - Optional
 
 This is a simple Angular app that loads it's configuration from a `config.json` file. The configuration is injected into the app using a Config Service.
 
