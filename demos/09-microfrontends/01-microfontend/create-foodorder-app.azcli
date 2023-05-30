@@ -1,5 +1,5 @@
 env=$RANDOM
-grp=ng-adv-foodorders-$env
+grp=ng-adv
 loc=westeurope
 storage=foodorders$env
 app=foodorders-$env
