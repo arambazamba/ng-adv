@@ -1,24 +1,30 @@
 import { CommonModule } from '@angular/common';
-import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
+import { HTTP_INTERCEPTORS, HttpClientModule } from '@angular/common/http';
 import { NgModule } from '@angular/core';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { RouterModule, Routes } from '@angular/router';
-import { FirebaseAuthModule } from '../fbauth/fbauth.module';
-import { MaterialModule } from '../material.module';
-import { SharedModule } from '../shared/shared.module';
-import { DemoContainerComponent } from './demo-container/demo-container.component';
-import { FirebaseComponent } from './samples/firebase/firebase.component';
-import { DemoService } from './demo-base/demo.service';
-import { LoadingService } from '../shared/loading/loading.service';
-import { LoadingInterceptor } from '../shared/loading/loading-interceptor';
-import { PublishComponent } from './samples/publish/publish.component';
+import { FirebaseAuthUtilModule } from '../fbauth/fbauth.module';
 import { FirebaseAuthInterceptor } from '../fbauth/firebase-auth.interceptor';
+import { MaterialModule } from '../material.module';
+import { FormattingModule } from '../shared/formatting/formatting.module';
+import { LoadingInterceptor } from '../shared/loading/loading-interceptor';
+import { LoadingService } from '../shared/loading/loading.service';
+import { MarkdownEditorModule } from '../shared/markdown-editor/markdown-editor.module';
+import { MarkdownRendererModule } from '../shared/markdown-renderer/markdown-renderer.module';
+import { SharedModule } from '../shared/shared.module';
+import { DemoService } from './demo-base/demo.service';
+import { DemoContainerComponent } from './demo-container/demo-container.component';
 import { AppAuthComponent } from './samples/app-auth/app-auth.component';
 import { AuthGuardComponent } from './samples/auth-guard/auth-guard.component';
+import { FirebaseComponent } from './samples/firebase/firebase.component';
+import { HttpClientComponent } from './samples/http-client/http-client.component';
 import { InterceptorComponent } from './samples/interceptor/interceptor.component';
 import { ProtectedApiComponent } from './samples/protected-api/protected-api.component';
-import { MarkdownRendererModule } from '../shared/markdown-renderer/markdown-renderer.module';
-import { HttpClientComponent } from './samples/http-client/http-client.component';
+import { PublishComponent } from './samples/publish/publish.component';
+import { EffectsModule } from '@ngrx/effects';
+import { StoreModule } from '@ngrx/store';
+import { DemosEffects } from './state/demos.effects';
+import { demosFeatureKey, demoReducer } from './state/demos.reducer';
 
 const demoRoutes: Routes = [
   {
@@ -56,18 +62,18 @@ const demoRoutes: Routes = [
     MaterialModule,
     HttpClientModule,
     SharedModule,
-    FirebaseAuthModule,
-    MarkdownRendererModule
+    FirebaseAuthUtilModule,
+    MarkdownRendererModule,
+    MarkdownEditorModule,
+    FormattingModule,
+    StoreModule.forFeature(demosFeatureKey, demoReducer),
+    EffectsModule.forFeature([DemosEffects]),
   ],
   providers: [
     DemoService,
     LoadingService,
     { provide: HTTP_INTERCEPTORS, useClass: LoadingInterceptor, multi: true },
-    {
-      provide: HTTP_INTERCEPTORS,
-      useClass: FirebaseAuthInterceptor,
-      multi: true,
-    },
+    { provide: HTTP_INTERCEPTORS, useClass: FirebaseAuthInterceptor, multi: true },
   ],
 })
 export class DemosModule { }

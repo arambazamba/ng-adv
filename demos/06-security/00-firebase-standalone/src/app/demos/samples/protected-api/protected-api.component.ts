@@ -3,6 +3,7 @@ import { Component, OnInit } from '@angular/core';
 import { FirebaseAuthService } from '../../../fbauth/firebase-auth.service';
 import { environment } from '../../../../environments/environment';
 import { map, catchError } from 'rxjs';
+import { FirebaseUser } from 'src/app/fbauth/firebase-user';
 
 @Component({
   selector: 'app-protected-api',
@@ -10,7 +11,7 @@ import { map, catchError } from 'rxjs';
   styleUrls: ['./protected-api.component.scss'],
 })
 export class ProtectedApiComponent implements OnInit {
-  currentUser: firebase.default.User | null = null;
+  currentUser: FirebaseUser | null = null;
   resp: any;
 
   constructor(private httpClient: HttpClient, public as: FirebaseAuthService) { }

@@ -48,7 +48,6 @@ import { metaReducers, reducers } from './state';
     SharedModule,
     StoreModule.forRoot(reducers, {
       metaReducers,
-      // Needed to avoid TypeError: Cannot freeze with firebase lib
       runtimeChecks: {
         strictStateImmutability: false,
         strictActionImmutability: false,
@@ -57,7 +56,7 @@ import { metaReducers, reducers } from './state';
     EffectsModule.forRoot([CustomerEffects]),
     EntityDataModule.forRoot({}),
     StoreDevtoolsModule.instrument({
-      name: 'ng-demo-app',
+      name: 'routing-app-init',
       maxAge: 25,
       logOnly: environment.production,
     }),

@@ -1,6 +1,5 @@
 import { Component, inject } from '@angular/core';
 import { SnackbarService } from '../snackbar/snackbar.service';
-import { ThemeService } from '../theme/theme.service';
 import { SidebarActions } from './sidebar.actions';
 import { SidePanelService } from './sidepanel.service';
 import { SideNavService } from '../sidenav/sidenav.service';
@@ -13,14 +12,9 @@ import { SideNavService } from '../sidenav/sidenav.service';
 export class SidePanelComponent {
   sns = inject(SnackbarService);
   eb = inject(SidePanelService);
-  ts = inject(ThemeService);
   editorDisplayed = false;
   sidenav = inject(SideNavService);
   icon = "create";
-
-  toggleTheme() {
-    this.ts.toggleTheme();
-  }
 
   toggleEditor() {
     if (this.editorDisplayed) {

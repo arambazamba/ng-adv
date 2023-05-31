@@ -1,3 +1,4 @@
+import { CommonModule } from '@angular/common';
 import {
   Component,
   Input,
@@ -5,15 +6,21 @@ import {
   ViewChild,
   inject
 } from '@angular/core';
+import { MatButtonModule } from '@angular/material/button';
+import { MatCardModule } from '@angular/material/card';
 import { MatDialog } from '@angular/material/dialog';
 import { Router } from '@angular/router';
 import { combineLatestWith, map } from 'rxjs/operators';
+import { FirebaseAuthUtilModule } from '../../fbauth/fbauth.module';
 import { FirebaseAuthService } from '../../fbauth/firebase-auth.service';
+import { ColumnDirective } from '../formatting/formatting-directives';
 
 @Component({
   selector: 'app-intro',
   templateUrl: './intro.component.html',
   styleUrls: ['./intro.component.scss'],
+  standalone: true,
+  imports: [CommonModule, MatCardModule, MatButtonModule, FirebaseAuthUtilModule, ColumnDirective]
 })
 export class IntroComponent {
   dialog = inject(MatDialog);
@@ -59,5 +66,9 @@ export class IntroComponent {
         })
       )
       .subscribe();
+  }
+
+  goToDemos() {
+    this.router.navigate(['demos']);
   }
 }

@@ -1,6 +1,7 @@
 import { Component, OnInit, TemplateRef, ViewChild } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
 import { FirebaseAuthService } from '../../../fbauth/firebase-auth.service';
+import { FirebaseUser } from 'src/app/fbauth/firebase-user';
 
 @Component({
   selector: 'app-firebase',
@@ -10,9 +11,9 @@ import { FirebaseAuthService } from '../../../fbauth/firebase-auth.service';
 export class FirebaseComponent implements OnInit {
   @ViewChild('register') registerTemplate!: TemplateRef<any>;
   @ViewChild('login') loginTemplate!: TemplateRef<any>;
-  constructor(private dialog: MatDialog, public as: FirebaseAuthService) {}
+  constructor(private dialog: MatDialog, public as: FirebaseAuthService) { }
 
-  currentUser: firebase.default.User | null = null;
+  currentUser: FirebaseUser | null = null;
 
   ngOnInit() {
     this.as.getUser().subscribe((user: any) => {

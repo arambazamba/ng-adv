@@ -16,6 +16,7 @@ import { DemosRoutingModule } from './demos-routing.module';
 import { FirebaseAuthComponent } from './samples/firebase-auth/firebase-auth.component';
 import { DemosEffects } from './state/demos.effects';
 import { demoReducer, demosFeatureKey } from './state/demos.reducer';
+import { FormattingModule } from '../shared/formatting/formatting.module';
 
 @NgModule({
   declarations: [
@@ -34,6 +35,7 @@ import { demoReducer, demosFeatureKey } from './state/demos.reducer';
     HttpClientModule,
     MarkdownRendererModule,
     MarkdownEditorModule,
+    FormattingModule,
     SharedModule,
     StoreModule.forFeature(demosFeatureKey, demoReducer),
     EffectsModule.forFeature([DemosEffects]),

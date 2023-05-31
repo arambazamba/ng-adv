@@ -31,14 +31,16 @@ mat-card-actions{
     justify-content: center;
 }
 
-.instructions{
+.instructions {
     margin-top: 1rem;
-}
-
-.showcase{
+    text-align: center;
+  }
+  
+  .showcase {
     min-height: 300px;
-}
-
-.actions{
-  width: 100%;
-}
+  }
+  
+  .actions {
+    width: 100%;
+    text-align: center;
+  }

@@ -20,4 +20,4 @@ const comps = [
   imports: [CommonModule, ReactiveFormsModule, MaterialModule],
   providers: [],
 })
-export class FirebaseAuthModule {}
+export class FirebaseAuthUtilModule { }
