@@ -7,16 +7,16 @@ describe('template spec', () => {
 
   describe('Left Menu', () => {
     it('Shows the menu when clicked', () => {
-      cy.get('#hamburger').first().click();
+      cy.get('.hamburgerMenu').first().click();
     });
 
     it('Has 4 options in Testing menu', () => {
-      cy.get('#hamburger').first().click();
-      cy.get('.demoitem').should('have.length', 4);
+      cy.get('.hamburgerMenu').first().click();
+      cy.get('.mat-mdc-list-item').should('have.length', 4);
     });
 
     it('Shows the correct content when clicking test pipe', () => {
-      cy.get('#hamburger').first().click();
+      cy.get('.hamburgerMenu').first().click();
       cy.contains('Into Unit Testing').click({ force: true });
       cy.contains('Test Pipe');
     });
