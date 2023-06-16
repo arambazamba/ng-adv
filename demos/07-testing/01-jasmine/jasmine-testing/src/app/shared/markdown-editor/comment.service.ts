@@ -1,18 +1,17 @@
 import { HttpClient } from '@angular/common/http';
-import { Injectable } from '@angular/core';
+import { Injectable, inject } from '@angular/core';
+import { environment } from 'src/environments/environment';
 import { CommentItem } from './comment.model';
-import { environment } from '../../../environments/environment.prod';
 
 @Injectable({
   providedIn: 'root',
 })
 export class CommentService {
-  url = environment.apiUrl + 'comments';
-
-  constructor(private http: HttpClient) { }
+  http = inject(HttpClient);
+  url = environment.api + 'comments';
 
   saveComment(item: CommentItem) {
-    if (item.id === undefined) {
+    if (item.id === undefined || item.id === 0) {
       return this.http.post<CommentItem>(this.url, item);
     } else {
       return this.http.put<CommentItem>(`${this.url}/${item.id}`, item);

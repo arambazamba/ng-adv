@@ -2,7 +2,7 @@
   <mat-card-header>
     <mat-card-title>Mock Markdown Editor</mat-card-title>
   </mat-card-header>
-  <mat-card-content fxLayout="column">
+  <mat-card-content column>
     <app-comments-list
       [Comments]="comments | async"
       (onCommentEdit)="editComment($event)"
@@ -30,6 +30,6 @@
       <button mat-raised-button (click)="addComment()" color="primary">
         Add
       </button>
-    </ng-container>    
+    </ng-container>
   </mat-card-actions>
 </mat-card>

@@ -1,10 +1,10 @@
-import { Component, OnInit, inject } from '@angular/core';
+import { Component, OnInit, effect, inject } from '@angular/core';
 import { ActivatedRoute, NavigationEnd, Router } from '@angular/router';
 import { Subject } from 'rxjs';
 import { filter, map, takeUntil } from 'rxjs/operators';
 import { SidebarActions } from 'src/app/shared/side-panel/sidebar.actions';
 import { SidePanelService } from 'src/app/shared/side-panel/sidepanel.service';
-import { MenuFacade } from 'src/app/state/menu.facade';
+import { SideNavService } from 'src/app/shared/sidenav/sidenav.service';
 import { environment } from 'src/environments/environment';
 import { LoadingService } from '../../shared/loading/loading.service';
 import { DemoFacade } from '../state/demo.facade';
@@ -18,7 +18,7 @@ export class DemoContainerComponent implements OnInit {
   router = inject(Router);
   route = inject(ActivatedRoute);
   df = inject(DemoFacade);
-  menuFacade = inject(MenuFacade);
+  nav = inject(SideNavService);
   ls = inject(LoadingService);
   eb = inject(SidePanelService);
 
@@ -29,19 +29,20 @@ export class DemoContainerComponent implements OnInit {
 
   isLoading = false;
 
-  sidenavMode = this.menuFacade.getSideNavPosition();
-  sidenavVisible = this.menuFacade.getSideNavVisible();
+  sidenavMode = this.nav.getSideNavPosition();
+  sidenavVisible = this.nav.getSideNavVisible();
   workbenchMargin = this.sidenavVisible.pipe(
     map(visible => { return visible ? { 'margin-left': '5px' } : {} })
   );
 
-  showMdEditor = this.eb
-    .getCommands()
-    .pipe(
-      map((action) => (action === SidebarActions.HIDE_MARKDOWN ? false : true))
-    );
+  currentCMD = this.eb.getCommands();
+  showMdEditor: boolean = false;
 
   constructor() {
+    effect(() => {
+      this.showMdEditor = this.currentCMD() === SidebarActions.HIDE_MARKDOWN ? false : true;
+    });
+
     this.ls.getLoading().pipe(takeUntil(this.destroy$)).subscribe((value) => {
       Promise.resolve(null).then(() => (this.isLoading = value));
     });

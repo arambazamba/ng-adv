@@ -7,21 +7,21 @@ export const editorFeatureKey = 'mdeditor';
 
 export interface EditorState {
   comments: CommentItem[];
-  hasLoaded: boolean;
+  loaded: boolean;
 }
 
 export const initialEditorState: EditorState = {
   comments: [],
-  hasLoaded: false,
+  loaded: false,
 };
 
 // Reducer
 export const editorReducer = createReducer(
   initialEditorState,
-  on(MarkdownEditorActions.loadcommentssuccess, (state, action) => {
-    return { ...state, comments: action.items, hasLoaded: true };
+  on(MarkdownEditorActions.loadCommentsSuccess, (state, action) => {
+    return { ...state, comments: action.items, loaded: true };
   }),
-  on(MarkdownEditorActions.savecommentssuccess, (state, action) => {
+  on(MarkdownEditorActions.saveCommentsSuccess, (state, action) => {
     //Notice to clone an Array we use [] instead of {}
     const clone = Object.assign([], state.comments) as Array<CommentItem>;
     let idx = clone.findIndex((c) => c.id == action.item.id);
@@ -32,7 +32,7 @@ export const editorReducer = createReducer(
     }
     return { ...state, comments: clone };
   }),
-  on(MarkdownEditorActions.deletecommentssuccess, (state, action) => {
+  on(MarkdownEditorActions.deleteCommentsSuccess, (state, action) => {
     const clone = Object.assign(
       [],
       state.comments.filter((c) => c.id != action.item.id)
@@ -40,8 +40,9 @@ export const editorReducer = createReducer(
     return { ...state, comments: clone };
   }),
   on(
-    MarkdownEditorActions.loadcommentsfailure,
-    MarkdownEditorActions.savecommentsfailure,
+    MarkdownEditorActions.loadCommentsFailure,
+    MarkdownEditorActions.saveCommentsFailure,
+    MarkdownEditorActions.deleteCommentsFailure,
     (state, action) => {
       return { ...state };
     }

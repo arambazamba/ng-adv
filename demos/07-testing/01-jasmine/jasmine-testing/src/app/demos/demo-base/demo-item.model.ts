@@ -3,8 +3,5 @@ export class DemoItem {
   url: string = '';
   title: string = '';
   visible: boolean = true;
-  topicid: number = 0;
   sortOrder: number = 0;
-  component: string = '';
-  markdown?: string;
 }

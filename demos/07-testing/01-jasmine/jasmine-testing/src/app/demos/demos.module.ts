@@ -22,7 +22,6 @@ import { FoodListComponent } from './samples/component-integration/food-list/foo
 import { FoodRowComponent } from './samples/component-integration/food-row/food-row.component';
 import { IntegrationTestComponent } from './samples/component-integration/integration-test.component';
 import { MarblesComponent } from './samples/component-marbles/marbles.component';
-
 import { ComponentTestComponent } from './samples/component-test/component-test.component';
 import { SimpleFoodComponent } from './samples/component-test/simple-food/simple-food.component';
 import { ComponentWriteComponent } from './samples/component-write/component-write.component';
@@ -111,11 +110,11 @@ import { FoodMenuComponent } from './samples/component-async/food-menu/food-menu
     ReactiveFormsModule,
     RouterModule.forChild(demoRoutes),
     MaterialModule,
-    FlexLayoutModule,
     HttpClientModule,
     MarkdownModule.forRoot({
       loader: HttpClient,
     }),
+    FormattingModule,
     SharedModule,
     MarkdownEditorModule,
     StoreModule.forFeature(demosFeatureKey, demoReducer),
