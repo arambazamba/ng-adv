@@ -21,10 +21,6 @@
       "title": "Content Projection"
     },
     {
-      "url": "template-vs-container",
-      "title": "ng-template / ng-content"
-    },
-    {
       "url": "viewchild",
       "title": "ViewChild / Children"
     },
@@ -35,14 +31,6 @@
     {
       "url": "hostbinding",
       "title": "Hostbinding / Listener"
-    },
-    {
-      "url": "hostbinding",
-      "title": "Hostbinding / Listener"
-    },
-    {
-      "url": "dynamic-components",
-      "title": "Dynamic Components"
     },
     {
       "url": "formcontrol",

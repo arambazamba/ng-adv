@@ -22,14 +22,13 @@ export class EditorFacade implements OnDestroy {
   ) {
     //Could be used to respond to effects completion to trigger an action in the UI
     //As an alternative you could also hook into the loading indicator
-    //TODO: Refactor to Reactive approach
     this.subs = this.actions
       .pipe(
         ofType(
-          MarkdownEditorActions.savecommentssuccess,
-          MarkdownEditorActions.savecommentsfailure,
-          MarkdownEditorActions.deletecommentssuccess,
-          MarkdownEditorActions.deletecommentsfailure
+          MarkdownEditorActions.saveCommentsSuccess,
+          MarkdownEditorActions.saveCommentsFailure,
+          MarkdownEditorActions.deleteCommentsSuccess,
+          MarkdownEditorActions.deleteCommentsFailure
         )
       )
       .subscribe((data) => {
@@ -43,7 +42,7 @@ export class EditorFacade implements OnDestroy {
   }
 
   init() {
-    this.store.dispatch(MarkdownEditorActions.loadcomments());
+    this.store.dispatch(MarkdownEditorActions.loadComments());
   }
 
   hasLoaded() {
@@ -55,10 +54,10 @@ export class EditorFacade implements OnDestroy {
   }
 
   saveComment(item: CommentItem) {
-    this.store.dispatch(MarkdownEditorActions.savecomments({ item }));
+    this.store.dispatch(MarkdownEditorActions.saveComments({ item }));
   }
 
   deleteComment(item: CommentItem) {
-    this.store.dispatch(MarkdownEditorActions.deletecomments({ item }));
+    this.store.dispatch(MarkdownEditorActions.deleteComments({ item }));
   }
 }

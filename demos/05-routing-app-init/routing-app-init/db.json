@@ -3,101 +3,57 @@
         {
       "url": "inject",
       "title": "Inject",
-      "component": "DiInjectComponent",
-      "id": 63,
-      "topicid": 1,
-      "visible": true,
-      "sortOrder": 0
+      "id": 63
     },
     {
       "url": "app-init",
       "title": "App Init",
-      "component": "AppInitComponent",
-      "id": 1,
-      "topicid": 1,
-      "visible": true,
-      "sortOrder": 0
+      "id": 1
     },
         {
       "url": "code-splitting",
       "title": "Code Splitting",
-      "component": "CodeSplittingComponent",
-      "id": 91,
-      "topicid": 1,
-      "visible": true,
-      "sortOrder": 0
+      "id": 91
     },
     {
       "url": "multi-guard",
       "title": "Route Guards",
-      "component": "MultiGuardComponent",
-      "id": 7,
-      "topicid": 1,
-      "visible": true,
-      "sortOrder": 0
+      "id": 7
     },
     {
       "url": "locationsrv",
       "title": "Location Service",
-      "component": "LocServiceComponent",
-      "id": 77,
-      "topicid": 1,
-      "visible": true,
-      "sortOrder": 0
+      "id": 77
     },
     {
       "url": "multi-interceptor",
       "title": "Interceptors",
-      "component": "MultiInterceptorComponent",
-      "id": 8,
-      "topicid": 1,
-      "visible": true,
-      "sortOrder": 0
+      "id": 8
     },
     {
       "url": "global-errors",
       "title": "Global Errors",
-      "component": "GlobalErrorsComponent",
-      "id": 9,
-      "topicid": 1,
-      "visible": true,
-      "sortOrder": 0
+      "id": 9
     },
     {
       "url": "http-errors",
       "title": "Http Errors",
-      "component": "HttpErrorsComponent",
-      "id": 13,
-      "topicid": 1,
-      "visible": true,
-      "sortOrder": 0
+      "id": 13
     },
     {
       "url": "router-bindings",
       "title": "Router Bindings",
-      "component": "RouterBindingComponent",
-      "id": 44,
-      "topicid": 1,
-      "visible": true,
-      "sortOrder": 0
+      "id": 44
     },
     {
       "url": "routing",
       "title": "Routing NgRx",
-      "component": "RoutingComponent",
-      "id": 1,
-      "topicid": 1,
-      "visible": true,
-      "sortOrder": 0
+      "id": 1
     },
     {
       "url": "preload-ngrx",
       "title": "NgRx Preloading",
-      "component": "PreloadingNgrxComponent",
-      "id": 311,
-      "topicid": 1,
-      "visible": true,
-      "sortOrder": 0
+      "id": 311
     }
   ],
   "skills":[

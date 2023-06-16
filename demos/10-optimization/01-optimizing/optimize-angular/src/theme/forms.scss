@@ -1,23 +1,8 @@
-.form-group {
-  margin-bottom: var(--gap-medium);
-}
-
-.form-group {
-  display: flex;
-  flex: 0 0 auto;
-  flex-flow: row wrap;
-  align-items: center;
-  margin-bottom: 0;
-}
-
-.clickable {
-  cursor: pointer;
-}
-
 .result{
   min-height: 10rem;
 }
 
-.hidden{
-  visibility: hidden;
+.cmdItems button {
+  width: calc(50% - 3em);
+  margin: 1em;
 }

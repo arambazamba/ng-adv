@@ -10,7 +10,6 @@ import { MaterialVsBootstrapComponent } from './samples/material-vs-bootstrap/ma
 import { MultiThemeComponent } from './samples/multi-theme/multi-theme.component';
 import { VisualFeedbackComponent } from './samples/visual-feedback/visual-feedback.component';
 import { MdcMigrationComponent } from './samples/mdc-migration/mdc-migration.component';
-import { NgOptimizedImageComponent } from './samples/ng-optimized-image/ng-optimized-image.component';
 
 const demoRoutes: Routes = [
   {
@@ -26,8 +25,7 @@ const demoRoutes: Routes = [
       { path: 'bootstrap', component: MaterialVsBootstrapComponent },
       { path: 'multi-theme', component: MultiThemeComponent },
       { path: 'feedback', component: VisualFeedbackComponent },
-      { path: 'mdc-migration', component: MdcMigrationComponent },
-      { path: 'ngoptimizedimg', component: NgOptimizedImageComponent },
+      { path: 'mdc-migration', component: MdcMigrationComponent }
     ],
   },
 ];

@@ -2,84 +2,47 @@
   "demos": [
     {
       "url": "app-state",
-      "title": "App State",
-      "component": "AppStateComponent",
-      "id": 3,
-      "topicid": 1,
-      "visible": false,
-      "sortOrder": 3
+      "title": "App State"
     },
     {
       "url": "selectors",
       "title": "Selectors",
-      "component": "SelectorsComponent",
-      "id": 9,
-      "topicid": 1,
-      "visible": false,
-      "sortOrder": 3
+      "id": 2
     },
     {
       "url": "facades",
       "title": "Facades",
-      "component": "FacadesComponent",
-      "id": 15,
-      "topicid": 1,
-      "visible": true,
-      "sortOrder": 3
+      "id": 15
     },
     {
       "url": "effects",
       "title": "Effects",
-      "component": "EffectsComponent",
-      "id": 16,
-      "topicid": 1,
-      "visible": true,
-      "sortOrder": 3
+      "id": 16
     },
     {
       "url": "feature-modules-state",
       "title": "Feature Module State",
-      "component": "DemoListHostComponent",
-      "id": 5,
-      "topicid": 1,
-      "visible": true,
-      "sortOrder": 4
+      "id": 5
     },
     {
       "url": "ngrx-entity",
       "title": "@ngrx/entity",
-      "component": "DemosStateComponent",
-      "id": 4,
-      "topicid": 1,
-      "visible": true,
-      "sortOrder": 4
+      "id": 4
     },
     {
       "url": "ngrx-data",
       "title": "@ngrx/data",
-      "component": "NgrxDataComponent",
-      "id": 6,
-      "topicid": 1,
-      "visible": true,
-      "sortOrder": 3
+      "id": 6
     },
     {
       "url": "presenter-ngrx",
       "title": "Container Presenter NgRx",
-      "component": "ContainerPresenterNgrxComponent",
-      "id": 13,
-      "topicid": 1,
-      "visible": true,
-      "sortOrder": 3
+      "id": 13
     },
     {
       "url": "component-store",
       "title": "@ngrx/component-store",
-      "component": "ComponentStoreComponent",
-      "id": 44,
-      "topicid": 1,
-      "visible": true,
-      "sortOrder": 3
+      "id": 44
     }
   ],
   "skills": [

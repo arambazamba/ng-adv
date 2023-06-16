@@ -1,54 +1,47 @@
+import { MatDrawerMode } from '@angular/material/sidenav';
+import { createEntityAdapter, EntityAdapter, EntityState } from '@ngrx/entity';
 import { createReducer, on } from '@ngrx/store';
-import {
-  changeSideNavPosition,
-  changeSideNavVisible,
-  changeTitle,
-  setSideNavEnabled,
-  toggleMockAuthenticated,
-  toggleSideNav,
-} from './app.actions';
+import { Customer } from '../customers/customer.model';
+import { CustomersActions } from '../customers/state/customers.actions';
+import { changeSideNavPosition, changeSideNavVisible, toggleLoggedIn, togglePrimeMember, toggleSideNav } from './app.actions';
 
 export const appFeatureKey = 'app';
 
-export interface AppState {
-  title: string;
-  sideNavEnabled: boolean;
+export interface AppState extends EntityState<Customer> {
   sideNavVisible: boolean;
-  sideNavPosition: string;
-  IsMockAuthenticated: boolean;
+  sideNavPosition: MatDrawerMode;
+  title: string;
 }
 
-export const initialAppState: AppState = {
+export const customerAdapter: EntityAdapter<Customer> =
+  createEntityAdapter<Customer>();
+
+export const initialAppState: AppState = customerAdapter.getInitialState({
   title: 'Advanced Angular Development',
-  sideNavEnabled: true,
+  user: {
+    name: 'Giro the Galgo',
+    isLoggedIn: false,
+    isPrimeMember: false
+  },
   sideNavVisible: true,
   sideNavPosition: 'side',
-  IsMockAuthenticated: false,
-};
+});
 
 export const appReducer = createReducer(
   initialAppState,
-  on(changeTitle, (state, action) => {
-    return { ...state, title: action.title };
-  }),
-  on(toggleMockAuthenticated, (state, action) => {
-    return { ...state, IsMockAuthenticated: !state.IsMockAuthenticated };
+  on(CustomersActions.loadCustomersSuccess, (state, action) => {
+    return customerAdapter.setAll(action.items, { ...state });
   }),
   on(toggleSideNav, (state) => ({
     ...state,
     sideNavVisible: !state.sideNavVisible,
   })),
-  on(setSideNavEnabled, (state, action) => ({
+  on(changeSideNavVisible, (state, action) => ({
     ...state,
-    sideNavEnabled: action.enabled,
-    sideNavVisible: action.enabled,
-  })),
-  on(changeSideNavVisible, (state) => ({
-    ...state,
-    sideNavVisible: !state.sideNavVisible,
+    sideNavVisible: action.visible,
   })),
   on(changeSideNavPosition, (state, action) => ({
     ...state,
-    sideNavPosition: action.position,
-  }))
+    sideNavPosition: action.position as MatDrawerMode,
+  })),
 );

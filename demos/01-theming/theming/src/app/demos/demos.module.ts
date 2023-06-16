@@ -17,7 +17,6 @@ import { ClassicThemingComponent } from './samples/material-vs-bootstrap/classic
 import { MaterialVsBootstrapComponent } from './samples/material-vs-bootstrap/material-vs-bootstrap.component';
 import { MdcMigrationComponent } from './samples/mdc-migration/mdc-migration.component';
 import { MultiThemeComponent } from './samples/multi-theme/multi-theme.component';
-import { NgOptimizedImageComponent } from './samples/ng-optimized-image/ng-optimized-image.component';
 import { PopupContainerComponent } from './samples/popup-container/popup-container.component';
 import { PopupComponent } from './samples/popup-container/popup/popup.component';
 import { FirstChildComponent } from './samples/style-inheritance/first-child/first-child.component';
@@ -47,7 +46,6 @@ import { FormattingModule } from '../shared/formatting/formatting.module';
     ClassicThemingComponent,
     AlternativeThemingComponent,
     MdcMigrationComponent,
-    NgOptimizedImageComponent,
   ],
   imports: [
     CommonModule,

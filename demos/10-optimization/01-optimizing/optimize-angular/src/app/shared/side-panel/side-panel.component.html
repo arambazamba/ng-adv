@@ -1,13 +1,13 @@
 <mat-toolbar color="accent">
-  <div fxLayout="column" fxFlexAlign="start" fxLayoutGap="15px">
-    <button mat-mini-fab (click)="showUpload()" matTooltip="Mock Upload Button">
-      <mat-icon fxFlexAlign="center" class="cmdIcon">cloud_upload</mat-icon>
+  <mat-toolbar-row >
+    <button mat-mini-fab (click)="toogleSideNav()">
+      <mat-icon>menu</mat-icon>
     </button>
-    <button mat-mini-fab (click)="toggleEditor()" matTooltip="Mardown Editor">
-      <mat-icon fxFlexAlign="center" class="cmdIcon">create</mat-icon>
+    <button mat-mini-fab (click)="showUpload()">
+      <mat-icon>cloud_upload</mat-icon>
     </button>
-    <button mat-mini-fab matTooltip="Add Demo">
-      <mat-icon fxFlexAlign="center" class="cmdIcon">add</mat-icon>
+    <button mat-mini-fab (click)="toggleEditor()">
+      <mat-icon>{{icon}}</mat-icon>
     </button>
-  </div>
+  </mat-toolbar-row>
 </mat-toolbar>

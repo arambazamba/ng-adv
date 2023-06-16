@@ -1,7 +1,6 @@
 import { CommonModule } from '@angular/common';
 import { HttpClientModule } from '@angular/common/http';
 import { NgModule } from '@angular/core';
-import { FlexLayoutModule } from '@angular/flex-layout';
 import { ReactiveFormsModule } from '@angular/forms';
 import { EntityDataService, EntityDefinitionService } from '@ngrx/data';
 import { MaterialModule } from '../material.module';
@@ -12,18 +11,19 @@ import { SkillsEntityService } from './skills-entity.service';
 import { SkillsKpiComponent } from './skills-kpi/skills-kpi.component';
 import { entityMetadata } from './skills.metadata';
 import { SkillsRoutingModule } from './skills.routing.module';
+import { SkillsEditComponent } from './skills-edit/skills-edit.component';
 
 @NgModule({
   declarations: [
     SkillsContainerComponent,
     SkillsKpiComponent,
     SkillRowComponent,
+    SkillsEditComponent
   ],
   imports: [
     CommonModule,
     SkillsRoutingModule,
     MaterialModule,
-    FlexLayoutModule,
     ReactiveFormsModule,
     HttpClientModule,
   ],

@@ -1,5 +1,5 @@
 <div *ngFor="let c of Comments" class="row">
-  <div>{{ c.title }}</div>
+  <div class="title">{{ c.title }}</div>
   <button mat-raised-button (click)="deleteComment(c)" color="primary">
     Delete
   </button>

@@ -9,9 +9,9 @@
 .mat-mdc-card-header {
   background-color: var(--color-primary);
   color: var(--color-fg);
-  height: var(--toolbar-small);
-  padding: 8px 16px;
-  margin-bottom: var(--gap-medium);
+  height: var(--toolbar-medium);
+  padding-top: 0px;
+  margin-bottom: var(--gap-medium) ;
 }
 
 .mat-mdc-card-title{
@@ -51,9 +51,7 @@ button.mat-mdc-raised-button{
 }
 
 //mat-dialog
-/*TODO(mdc-migration): The following rule targets internal classes of dialog that may no longer apply for the MDC version.*/
-/*TODO(mdc-migration): The following rule targets internal classes of dialog that may no longer apply for the MDC version.*/
-mat-dialog-container { 
+mat-dialog-container {
   .form-container {
     padding: 0 10px;
     /*TODO(mdc-migration): The following rule targets internal classes of form-field that may no longer apply for the MDC version.*/
@@ -66,16 +64,16 @@ mat-dialog-container {
 //mat-expansion-panel
 mat-expansion-panel {
   margin-bottom: 0.5rem;
-  border-radius: 0px !important; 
+  border-radius: 0px !important;
 }
 
 mat-expansion-panel-header:hover{
-  background-color: var(--color-primary);  
+  background-color: var(--color-primary);
 }
 
 mat-expansion-panel-header {
   height: var(--toolbar-medium);
-  background-color: var(--color-primary) !important;  
+  background-color: var(--color-primary) !important;
 }
 
 .mat-expansion-panel-header.mat-expanded {
@@ -98,3 +96,19 @@ mat-header-row {
   color: var(--color-fg);
 }
 
+// list
+.mat-nav-list .mat-mdc-list-item:hover,
+.mat-nav-list .mat-list-item:focus {
+  background: var(--color-bg);
+}
+
+mat-list-item {
+  border-bottom: 1px solid var(--color-bg);
+  border-top: 1px solid var(--color-bg);
+}
+
+//mat-sidenav
+.mat-drawer-container {
+  background-color: var(--color-fg);
+  color: var(--color-darkfont);
+}

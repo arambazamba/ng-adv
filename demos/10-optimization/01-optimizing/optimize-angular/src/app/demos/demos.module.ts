@@ -1,22 +1,24 @@
 import { CommonModule } from '@angular/common';
-import { HttpClient, HttpClientModule } from '@angular/common/http';
+import { HttpClientModule } from '@angular/common/http';
 import { NgModule } from '@angular/core';
-import { FlexLayoutModule } from '@angular/flex-layout';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { RouterModule } from '@angular/router';
 import { EffectsModule } from '@ngrx/effects';
 import { StoreModule } from '@ngrx/store';
-import { MarkdownModule } from 'ngx-markdown';
+import { LoggerModule, NgxLoggerLevel } from "ngx-logger";
 import { MaterialModule } from '../material.module';
 import { MarkdownEditorModule } from '../shared/markdown-editor/markdown-editor.module';
+import { MarkdownRendererModule } from '../shared/markdown-renderer/markdown-renderer.module';
 import { SharedModule } from '../shared/shared.module';
 import { DemoContainerComponent } from './demo-container/demo-container.component';
 import { demoRoutes } from './demo.routing.module';
+import { A11yComponent } from './samples/a11y/a11y.component';
 import { BundlesComponent } from './samples/bundles/bundles.component';
 import { ConsoleComponent } from './samples/console/console.component';
 import { DebugStatementsComponent } from './samples/debug-statements/debug-statements.component';
 import { DynamicLoadingComponent } from './samples/dynamic-loading/dynamic-loading.component';
 import { SimpleComponent } from './samples/dynamic-loading/simple.component';
+import { EslintComponent } from './samples/eslint/eslint.component';
 import { InjectConfigComponent } from './samples/inject-config/inject-config.component';
 import { LighthouseComponent } from './samples/lighthouse/lighthouse.component';
 import { LoggerComponent } from './samples/logger/logger.component';
@@ -25,9 +27,8 @@ import { NgrxpushComponent } from './samples/ngrxpush/ngrxpush.component';
 import { VirtualScrollComponent } from './samples/virtual-scroll/virtual-scroll.component';
 import { DemosEffects } from './state/demos.effects';
 import { demoReducer, demosFeatureKey } from './state/demos.reducer';
-import { A11yComponent } from './samples/a11y/a11y.component';
-import { LoggerModule, NgxLoggerLevel } from "ngx-logger";
-import { EslintComponent } from './samples/eslint/eslint.component';
+import { EsbuildComponent } from './samples/esbuild/esbuild.component';
+import { NgOptimizedImageComponent } from './samples/ng-optimized-image/ng-optimized-image.component';
 
 @NgModule({
   declarations: [
@@ -45,6 +46,8 @@ import { EslintComponent } from './samples/eslint/eslint.component';
     SimpleComponent,
     A11yComponent,
     EslintComponent,
+    EsbuildComponent,
+    NgOptimizedImageComponent
   ],
   imports: [
     CommonModule,
@@ -52,12 +55,9 @@ import { EslintComponent } from './samples/eslint/eslint.component';
     ReactiveFormsModule,
     RouterModule.forChild(demoRoutes),
     MaterialModule,
-    FlexLayoutModule,
     HttpClientModule,
-    MarkdownModule.forRoot({
-      loader: HttpClient,
-    }),
     SharedModule,
+    MarkdownRendererModule,
     MarkdownEditorModule,
     StoreModule.forFeature(demosFeatureKey, demoReducer),
     EffectsModule.forFeature([DemosEffects]),

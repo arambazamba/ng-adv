@@ -1,11 +1,5 @@
-<div
-  *ngFor="let c of Comments"
-  fxLayout="row"
-  fxLayoutGap="16px"
-  fxFlexFill
-  class="row"
->
-  <div fxFlex="5 1 auto">{{ c.title }}</div>
+<div *ngFor="let c of Comments" class="row">
+  <div>{{ c.title }}</div>
   <button mat-raised-button (click)="deleteComment(c)" color="primary">
     Delete
   </button>

@@ -37,11 +37,9 @@ export const defaultDemoItemState: DemoState = {
   selected: {
     id: 0,
     title: '',
-    component: '',
     sortOrder: 0,
     visible: true,
     url: '',
-    topicid: 1,
   },
 };
 

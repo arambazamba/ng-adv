@@ -2,84 +2,47 @@
   "demos": [
     {
       "url": "lighthouse",
-      "title": "Lighthose",
-      "component": "LighthouseComponent",
-      "id": 1,
-      "topicid": 1,
-      "visible": true,
-      "sortOrder": 0
+      "title": "Lighthose"
     },
     {
       "url": "debug-statements",
-      "title": "Debug Statements",
-      "component": "DebugStatementsComponent",
-      "id": 5,
-      "topicid": 1,
-      "visible": true,
-      "sortOrder": 0
+      "title": "Debug Statements"
     },
     {
       "url": "bundles",
-      "title": "Bundle Analyzer",
-      "component": "BundlesComponent",
-      "id": 2,
-      "topicid": 1,
-      "visible": true,
-      "sortOrder": 0
+      "title": "Bundle Analyzer"
     },
     {
       "url": "logger",
-      "title": "Logging",
-      "component": "LoggerComponent",
-      "id": 3,
-      "topicid": 1,
-      "visible": true,
-      "sortOrder": 0
+      "title": "Logging"
     },
     {
       "url": "dynamic-loading",
-      "title": "Dynamic Components",
-      "component": "DynamicLoadingComponent",
-      "id": 14,
-      "topicid": 1,
-      "visible": true,
-      "sortOrder": 0
+      "title": "Dynamic Components"
     },
     {
       "url": "ngfor",
-      "title": "Optimized *ngFor",
-      "component": "NgforComponent",
-      "id": 10,
-      "topicid": 1,
-      "visible": true,
-      "sortOrder": 0
+      "title": "Optimized *ngFor"
     },
     {
       "url": "vscroll",
-      "title": "Virtual Scroll",
-      "component": "VirtualScrollComponent",
-      "id": 6,
-      "topicid": 1,
-      "visible": true,
-      "sortOrder": 0
+      "title": "Virtual Scroll"
+    },
+    {
+      "url": "ngoptimizedimg",
+      "title": "NgOptimizedImage"
     },
     {
       "url": "a11y",
-      "title": "a11y",
-      "component": "A11yComponent",
-      "id": 66,
-      "topicid": 1,
-      "visible": true,
-      "sortOrder": 0
+      "title": "a11y"
     },
     {
       "url": "eslint",
-      "title": "ESLint",
-      "component": "EslintComponent",
-      "id": 68,
-      "topicid": 1,
-      "visible": true,
-      "sortOrder": 0
+      "title": "ESLint"
+    },
+    {
+      "url": "esbuild",
+      "title": "ES Build"
     }
   ],
   "food": [
@@ -142,6 +105,19 @@
       "completed": true
     }
   ],
-  "logs": [
-  ]
+  "top-links": [
+    {
+      "label": "Home",
+      "url": ""
+    },
+    {
+      "label": "Demos",
+      "url": "demos"
+    },
+    {
+      "label": "Skills",
+      "url": "skills"
+    }
+  ],
+  "logs": []
 }
