@@ -14,10 +14,18 @@ mat-card-header {
   display: flex;
   flex-direction: row;
   justify-content: center;
-  height: var(--toolbar-big);
+  height: var(--toolbar-xl);
   padding-top: 0.5rem;
   background-color: var(--color-primary);
   color: var(--color-fg);
+}
+
+mat-card-title {
+  color: var(--color-font);
+}
+
+mat-card-subtitle {
+  color: var(--color-font) !important;
 }
 
 .mat-mdc-card-subtitle {
@@ -28,19 +36,18 @@ mat-card-header {
 
 mat-card-actions {
   display: flex;
+  flex-direction: row;
   justify-content: center;
 }
 
 .instructions {
   margin-top: 1rem;
-  text-align: center;
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
 }
 
 .showcase {
   min-height: 300px;
-}
-
-.actions {
-  width: 100%;
-  text-align: center;
 }

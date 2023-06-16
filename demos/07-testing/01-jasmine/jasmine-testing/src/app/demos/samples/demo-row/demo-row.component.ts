@@ -1,4 +1,4 @@
-import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
+import { Component, EventEmitter, Input, Output } from '@angular/core';
 import { DemoItem } from '../../demo-base/demo-item.model';
 
 @Component({
@@ -10,10 +10,6 @@ export class DemoRowComponent {
   @Input() item: DemoItem | null = null;
   @Output() onDelete: EventEmitter<DemoItem> = new EventEmitter();
   @Output() onSlide: EventEmitter<DemoItem> = new EventEmitter();
-
-  constructor() { }
-
-  ngOnInit() { }
 
   delete() {
     if (this.item != null) this.onDelete.emit(this.item);

@@ -1,11 +1,11 @@
+import { CdkDragDrop, moveItemInArray } from '@angular/cdk/drag-drop';
 import { Component, OnInit } from '@angular/core';
 import { Store } from '@ngrx/store';
 import { Observable } from 'rxjs';
-import { CdkDragDrop, moveItemInArray } from '@angular/cdk/drag-drop';
 import { DemoItem } from '../../demo-base/demo-item.model';
 import { getAllDemos } from '../../state/demo.selectors';
-import { DemoState } from '../../state/demos.reducer';
 import { DemoActions } from '../../state/demos.actions';
+import { DemoState } from '../../state/demos.reducer';
 
 @Component({
   selector: 'app-demo-list',
@@ -40,6 +40,6 @@ export class DemoListComponent implements OnInit {
   }
 
   selectItem(item: DemoItem) {
-    this.store.dispatch(DemoActions.setselected({ item }));
+    this.store.dispatch(DemoActions.setSelected({ item }));
   }
 }

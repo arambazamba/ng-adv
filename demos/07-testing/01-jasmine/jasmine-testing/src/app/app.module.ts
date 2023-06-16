@@ -11,7 +11,6 @@ import { HomeComponent } from './home/home.component';
 import { MaterialModule } from './material.module';
 import { SharedModule } from './shared/shared.module';
 import { reducers } from './state';
-import { FlexLayoutModule } from '@angular/flex-layout';
 import { LoadingInterceptor } from './shared/loading/loading-interceptor';
 import { LoadingService } from './shared/loading/loading.service';
 import { EntityDataModule } from '@ngrx/data';
@@ -24,7 +23,6 @@ import { environment } from '../environments/environment.prod';
     AppRoutingModule,
     BrowserAnimationsModule,
     MaterialModule,
-    FlexLayoutModule,
     HttpClientModule,
     SharedModule,
     StoreModule.forRoot(reducers),

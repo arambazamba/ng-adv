@@ -35,11 +35,9 @@ export const defaultDemoItemState: DemoState = {
   selected: {
     id: 0,
     title: '',
-    component: '',
     sortOrder: 0,
     visible: true,
     url: '',
-    topicid: 1,
   },
 };
 
@@ -48,31 +46,31 @@ export const initialState = demosAdapter.getInitialState(defaultDemoItemState);
 // Reducer
 export const demoReducer = createReducer(
   initialState,
-  on(DemoActions.loaddemossuccess, (state, action) => {
+  on(DemoActions.loadDemosSuccess, (state, action) => {
     return demosAdapter.setAll(action.items, {
       ...state,
       loaded: true,
     });
   }),
-  on(DemoActions.updatedemosuccess, (state, action) => {
+  on(DemoActions.updateDemoSuccess, (state, action) => {
     const item: Update<DemoItem> = {
       id: action.item.id,
       changes: { visible: action.item.visible },
     };
     return demosAdapter.updateOne(item, { ...state });
   }),
-  on(DemoActions.deletedemosuccess, (state, action) => {
+  on(DemoActions.deleteDemoSuccess, (state, action) => {
     return demosAdapter.removeOne(action.item.id, {
       ...state,
     });
   }),
-  on(DemoActions.setselected, (state, action) => {
+  on(DemoActions.setSelected, (state, action) => {
     return { ...state, selected: action.item };
   }),
-  on(DemoActions.applyfilter, (state, action) => {
+  on(DemoActions.applyFilter, (state, action) => {
     return { ...state, filter: action.filter };
   }),
-  on(DemoActions.updatedemofailure, DemoActions.deletedemofailure, DemoActions.loaddemosfailure, (state, action) => {
+  on(DemoActions.updateDemoFailure, DemoActions.deleteDemoFailure, DemoActions.loadDemosFailure, (state, action) => {
     return { ...state };
   }),
 );

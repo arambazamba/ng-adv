@@ -208,5 +208,19 @@
       "name": "TypeScript",
       "completed": true
     }
-  ]
+  ],
+  "top-links": [
+    {
+        "label": "Home",
+        "url": ""
+    },
+    {
+        "label": "Demos",
+        "url": "demos"
+    },
+    {
+        "label": "Skills",
+        "url": "skills"
+    }
+]
 }

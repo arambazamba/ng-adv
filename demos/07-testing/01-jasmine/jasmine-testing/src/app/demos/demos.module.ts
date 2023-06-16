@@ -1,18 +1,18 @@
 import { CommonModule } from '@angular/common';
-import { HttpClient, HttpClientModule } from '@angular/common/http';
+import { HttpClientModule } from '@angular/common/http';
 import { NgModule } from '@angular/core';
-import { FlexLayoutModule } from '@angular/flex-layout';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { RouterModule } from '@angular/router';
 import { EffectsModule } from '@ngrx/effects';
 import { StoreModule } from '@ngrx/store';
-import { MarkdownModule } from 'ngx-markdown';
 import { MaterialModule } from '../material.module';
 import { MarkdownEditorModule } from '../shared/markdown-editor/markdown-editor.module';
+import { MarkdownRendererModule } from '../shared/markdown-renderer/markdown-renderer.module';
 import { SharedModule } from '../shared/shared.module';
 import { DemoContainerComponent } from './demo-container/demo-container.component';
 import { demoRoutes } from './demo.routing.module';
 import { AsyncComponent } from './samples/component-async/async.component';
+import { FoodMenuComponent } from './samples/component-async/food-menu/food-menu.component';
 import { SimpleAuthWhenStableComponent } from './samples/component-async/simple-auth-async-when-stable/simple-auth-when-stable.component';
 import { SimpleAuthDoneComponent } from './samples/component-async/simple-auth-done/simple-auth-done.component';
 import { SimpleAuthFakeAsyncComponent } from './samples/component-async/simple-auth-fake-async/simple-auth-fake-async.component';
@@ -22,6 +22,12 @@ import { FoodListComponent } from './samples/component-integration/food-list/foo
 import { FoodRowComponent } from './samples/component-integration/food-row/food-row.component';
 import { IntegrationTestComponent } from './samples/component-integration/integration-test.component';
 import { MarblesComponent } from './samples/component-marbles/marbles.component';
+import { MaterialAsyncComponent } from './samples/component-material-async/material-async.component';
+import { MaterialComponent } from './samples/component-material/material.component';
+import { MockHostComponent } from './samples/component-mocking/mock-host/mock-host.component';
+import { SpyHostComponent } from './samples/component-mocking/spy-host/spy-host.component';
+import { UseMockComponent } from './samples/component-mocking/use-mock/use-mock.component';
+import { UseSpyComponent } from './samples/component-mocking/use-spy/use-spy.component';
 import { ComponentTestComponent } from './samples/component-test/component-test.component';
 import { SimpleFoodComponent } from './samples/component-test/simple-food/simple-food.component';
 import { ComponentWriteComponent } from './samples/component-write/component-write.component';
@@ -36,26 +42,20 @@ import { DirectiveComponent } from './samples/directive/directive.component';
 import { HttpTestsBsComponent } from './samples/http-tests-bs/http-tests-bs.component';
 import { HttpTestsComponent } from './samples/http-tests/http-tests.component';
 import { UnitTestingComponent } from './samples/intro-unit-testing/unit-testing.component';
-import { MaterialAsyncComponent } from './samples/component-material-async/material-async.component';
-import { MaterialComponent } from './samples/component-material/material.component';
 import { MockStoreComponent } from './samples/mock-store/mock-store.component';
-import { MockHostComponent } from './samples/component-mocking/mock-host/mock-host.component';
-import { SpyHostComponent } from './samples/component-mocking/spy-host/spy-host.component';
-import { UseMockComponent } from './samples/component-mocking/use-mock/use-mock.component';
-import { UseSpyComponent } from './samples/component-mocking/use-spy/use-spy.component';
+import { MockstoreComponent } from './samples/ngrx-mockstore/mockstore/mockstore.component';
 import { NgrxMockstoreComponent } from './samples/ngrx-mockstore/ngrx-mockstore.component';
 import { NgrxReducersComponent } from './samples/ngrx-reducers/ngrx-reducers.component';
+import { ReducersComponent } from './samples/ngrx-reducers/reducers/reducers.component';
 import { NgrxSelectorsComponent } from './samples/ngrx-selectors/ngrx-selectors.component';
+import { SelectorsComponent } from './samples/ngrx-selectors/selectors/selectors.component';
 import { PhonenumberPipe } from './samples/pipe/phonenumber.pipe';
 import { RatingPipe } from './samples/pipe/rating.pipe';
 import { TestPipeComponent } from './samples/pipe/test-pipe.component';
 import { SimpleServiceComponent } from './samples/simple-service/simple-service.component';
 import { DemosEffects } from './state/demos.effects';
 import { demoReducer, demosFeatureKey } from './state/demos.reducer';
-import { MockstoreComponent } from './samples/ngrx-mockstore/mockstore/mockstore.component';
-import { SelectorsComponent } from './samples/ngrx-selectors/selectors/selectors.component';
-import { ReducersComponent } from './samples/ngrx-reducers/reducers/reducers.component';
-import { FoodMenuComponent } from './samples/component-async/food-menu/food-menu.component';
+import { FormattingModule } from '../shared/formatting/formatting.module';
 
 @NgModule({
   declarations: [
@@ -111,12 +111,10 @@ import { FoodMenuComponent } from './samples/component-async/food-menu/food-menu
     RouterModule.forChild(demoRoutes),
     MaterialModule,
     HttpClientModule,
-    MarkdownModule.forRoot({
-      loader: HttpClient,
-    }),
     FormattingModule,
     SharedModule,
     MarkdownEditorModule,
+    MarkdownRendererModule,
     StoreModule.forFeature(demosFeatureKey, demoReducer),
     EffectsModule.forFeature([DemosEffects]),
   ],

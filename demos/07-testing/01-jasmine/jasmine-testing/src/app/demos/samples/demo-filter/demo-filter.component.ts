@@ -21,7 +21,7 @@ export class DemoFilterComponent implements OnInit {
 
   handleFilterChange() {
     this.fcFilter.valueChanges.pipe(debounceTime(350)).subscribe((filter) => {
-      this.store.dispatch(DemoActions.applyfilter(filter));
+      this.store.dispatch(DemoActions.applyFilter(filter));
     });
   }
 }
