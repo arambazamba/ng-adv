@@ -5,7 +5,8 @@ storage=foodorders$env
 app=foodorders-$env
 signalrhub=foodhub-$env
 topic=foodevents-$env
-ngurl=http://localhost:4200
+ngUrl=http://localhost:4200
+containerUrl=http://localhost:5052
 
 az group create -n $grp -l $loc
 
@@ -25,7 +26,7 @@ az monitor app-insights component create --app $app --location $loc --kind web -
 az storage account  create -n $storage -g $grp 
 fxid=$(az functionapp create -n $app -g $grp -s $storage --consumption-plan-location $loc --runtime dotnet --functions-version 4 --app-insights $app --query id -o tsv)
 az functionapp config appsettings set -n $app -g $grp --settings "AzureSignalRConnectionString=$conStrSignalR"
-az functionapp cors add -g $grp -n $app --allowed-origins $ngurl
+az functionapp cors add -g $grp -n $app --allowed-origins $ngUrl $containerUrl
 az resource update --ids $fxid/config/web --set properties.cors.supportCredentials="true"
 funcWebhookEP=$(az functionapp show -n $app -g $grp --query "hostNames" --output tsv)
 
