@@ -5,6 +5,5 @@ declare global {
 }
 
 export const environment = {
-  production: true,
-  funcEP: window['env'].FUNC_EP,
+  funcWebhookEP: window['env'].FUNC_EP,
 };

@@ -57,7 +57,7 @@ export class OrdersComponent {
   connectSignalR() {
     // Create connection
     this.hubConnection = new SignalR.HubConnectionBuilder()
-      .withUrl(environment.funcEP)
+      .withUrl(environment.funcWebhookEP)
       .build();
 
     // Start connection. This will call negotiate endpoint

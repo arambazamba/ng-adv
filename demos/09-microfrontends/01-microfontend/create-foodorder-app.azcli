@@ -15,6 +15,8 @@ conStrSignalR=$(az signalr key list --name $signalrhub -g $grp --query primaryCo
 
 # eventgrid
 topicid=$(az eventgrid topic create -g $grp -n $topic -l $loc --input-schema cloudeventschemav1_0 --query id -o tsv)
+topicurl=$(az eventgrid topic show -n $topic -g $grp --query "endpoint" --output tsv)
+topickey=$(az eventgrid topic key list -n $topic -g $grp --query "key1" --output tsv)
 
 # app insights
 az monitor app-insights component create --app $app --location $loc --kind web -g $grp --application-type web --retention-time 30
@@ -25,7 +27,7 @@ fxid=$(az functionapp create -n $app -g $grp -s $storage --consumption-plan-loca
 az functionapp config appsettings set -n $app -g $grp --settings "AzureSignalRConnectionString=$conStrSignalR"
 az functionapp cors add -g $grp -n $app --allowed-origins $ngurl
 az resource update --ids $fxid/config/web --set properties.cors.supportCredentials="true"
-webhookEP=$(az functionapp show -n $app -g $grp --query "hostNames" --output tsv)
+funcWebhookEP=$(az functionapp show -n $app -g $grp --query "hostNames" --output tsv)
 
 # Deploy food-orders-func to az function app
 cd food-orders-func
@@ -33,16 +35,10 @@ func azure functionapp publish $app --csharp
 cd ..
 
 # subscribe event grid topc
-az eventgrid event-subscription create --name $app --source-resource-id $topicid --endpoint https://$webhookEP/api/orderSubscription --endpoint-type webhook --event-delivery-schema cloudeventschemav1_0
+az eventgrid event-subscription create --name $app --source-resource-id $topicid --endpoint https://$funcWebhookEP/api/orderSubscription --endpoint-type webhook --event-delivery-schema cloudeventschemav1_0
 
-# status
-fxEndpoint=$(az functionapp list --query "[?name=='$app'].{defaultHostName:defaultHostName}[0].defaultHostName" -o tsv)
-
-topicurl=$(az eventgrid topic show -n $topic -g $grp --query "endpoint" --output tsv)
-topickey=$(az eventgrid topic key list -n $topic -g $grp --query "key1" --output tsv)
-
-echo "*** Update vars food-orders-ui"
-echo "*** funcEP: " $fxEndpoint
+echo "*** Update vars food-orders-dashboard"
+echo "*** funcWebhookEP: " $funcWebhookEP
 
 echo "*** Update vars in post-order.http"
 echo "*** Topic Url: "$topicurl
