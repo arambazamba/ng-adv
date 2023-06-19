@@ -24,7 +24,7 @@ npm i -g nx
 Create a workspace tutorial-app-ws using the Angular preset:
 
 ```typescript
-npx create-nx-workspace tutorial-ws --preset=angular-monorepo --standaloneApi false --nxCloud false --appName tutorialApp --routing true --style scss
+npx create-nx-workspace nx-mono-repo --preset=angular-monorepo --standaloneApi false --nxCloud false --appName tutorial-app --routing true --style scss
 ```
 
 ![nx-scaffold](_images/nx-scaffold.jpg)
@@ -45,12 +45,6 @@ Test the app using Jest (default)
 
 ```
 nx test tutorial-app
-```
-
-Run the app:
-
-```
-nx s -o tutorial-app
 ```
 
 ## Controls library
@@ -74,12 +68,10 @@ npx nx graph --watch
 Add a split component. Notice that Nx registeres the component in the module 
 
 ```typescript
-nx g @nrwl/angular:component uxSplit --project ux-controls --export --selector ux-split
+nx g @nrwl/angular:component ux-split --project ux-controls --export --selector ux-split --style scss
 ```
 
-> Note: You might have to fix the import path in `ux-controls.module.ts`
-
-Use the component in the main app. In app.module.ts import the `UxControlsModule`:
+Use the app.component.ts in the main app. In app.module.ts import the `UxControlsModule`:
 
 ```typescript
 @NgModule({
