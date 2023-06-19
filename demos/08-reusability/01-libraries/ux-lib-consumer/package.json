@@ -5,7 +5,7 @@
     "email": "alexander.pajer@integrations.at",
     "url": "https://www.integrations.at"
   },
-  "version": "15.0.0",
+  "version": "16.0.0",
   "scripts": {
     "ng": "ng",
     "start": "ng serve",
