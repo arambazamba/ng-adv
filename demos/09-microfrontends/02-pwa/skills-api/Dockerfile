@@ -13,14 +13,14 @@ COPY --from=build /app .
 ENTRYPOINT ["dotnet", "SkillsApi.dll"]
 
 # Build Image
-# docker build --rm -f "Dockerfile" -t skillsservice .
+# docker build --rm -f "Dockerfile" -t skills-api .
 
 # Run Image
-# docker run -it --rm -p 5051:80 skillsservice
+# docker run -it --rm -p 5051:80 skills-api
 
 # Browse using: 
 # http://localhost:5051/api/skills
 
 # Publish Image to dockerhub
-# docker tag skillsservice arambazamba/skillsservice
-# docker push arambazamba/skillsservice
+# docker tag skills-api arambazamba/skills-api
+# docker push arambazamba/skills-api

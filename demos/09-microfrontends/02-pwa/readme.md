@@ -38,17 +38,20 @@ ngrok config add-authtoken 3XjdFZdf4PgB2898gcdbu_4Rukvv4BYtU1w7WaTZE75
 ### Skills Api
 
 - Requires [.NET 6 SDK](https://dotnet.microsoft.com/download/dotnet/6.0).
+
+- Go to folder where `*.csproj` is located, open console and run:
+
+  `dotnet restore` and then  
+  `dotnet run`
+
+  >Note: A container for running Skills Api is available at [Docker Hub](https://hub.docker.com/repository/docker/arambazamba/skills-api/general)
+
+- For device testing it might be helpful to enable remote access - by default the .Net Core API is only available using `http://localhost:PORT/` and is not listening to the ip of your dev machine.
+
+  `dotnet run --urls http://0.0.0.0:5000` or
+  `dotnet run --urls https://0.0.0.0:5001`
+
 - If you want to use another db engine change connection string in appsettings.json.
-
-Go to folder where `*.csproj` is located, open console and run:
-
-`dotnet restore` and then  
-`dotnet run`
-
-For device testing it might be helpful to enable remote access - by default the .Net Core API is only available using `http://localhost:PORT/` and is not listening to the ip of your dev machine.
-
-`dotnet run --urls http://0.0.0.0:5000` or
-`dotnet run --urls https://0.0.0.0:5001`
 
 ---
 ### Skills PWA

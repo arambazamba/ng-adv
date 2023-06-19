@@ -1,3 +1,9 @@
+declare global {
+  interface Window {
+    env: any;
+  }
+}
+
 export const environment = {
-    api: 'https://localhost:5001/api/'
+  api: window['env']["API_URL"] || 'https://localhost:5001/api/'
 };
