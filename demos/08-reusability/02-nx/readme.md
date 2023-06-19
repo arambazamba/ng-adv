@@ -29,6 +29,13 @@ npx create-nx-workspace nx-mono-repo --preset=angular-monorepo --standaloneApi f
 
 ![nx-scaffold](_images/nx-scaffold.jpg)
 
+Update tutorial-app/src/app/app.component.html:
+
+```html
+<div>
+  <h3>First Nx Monorepo App</h3>
+</div>
+```
 
 Build & run the app `tutorial-app`:
 
@@ -47,15 +54,26 @@ Test the app using Jest (default)
 nx test tutorial-app
 ```
 
+Update the app.component.spec.ts to allow the test to pass and re-run the test:
+
+```typescript
+it('should render title', () => {
+  const fixture = TestBed.createComponent(AppComponent);
+  fixture.detectChanges();
+  const compiled = fixture.nativeElement as HTMLElement;
+  expect(compiled.querySelector('h3')?.textContent).toContain(
+    'First Nx Monorepo App'
+  );
+});
+```
+
 ## Controls library
 
 Add a library project from the root of the nx workspace:
 
 ```typescript
-nx g @nrwl/angular:lib ux-controls 
+nx g @nrwl/angular:lib ux-helpers --style scss
 ```
-
-> Note: you can replace `arambazamba` with your own npm or github scope
 
 Show a project graph in from separate terminal and keep it open:
 
@@ -63,12 +81,14 @@ Show a project graph in from separate terminal and keep it open:
 npx nx graph --watch
 ```
 
+At the moment the graph is empty, even if you select the `tutorial-app` and `ux-helpers` lib. Next we will add a component to the library and the use it in the app.
+
 ### Split component
 
 Add a split component. Notice that Nx registeres the component in the module 
 
 ```typescript
-nx g @nrwl/angular:component ux-split --project ux-controls --export --selector ux-split --style scss
+nx g @nrwl/angular:component ux-split --project ux-helpers --export --selector ux-split --style scss
 ```
 
 Use the app.component.ts in the main app. In app.module.ts import the `UxControlsModule`:
@@ -79,7 +99,7 @@ Use the app.component.ts in the main app. In app.module.ts import the `UxControl
   imports: [
     BrowserModule,
     RouterModule.forRoot(appRoutes, { initialNavigation: 'enabledBlocking' }),
-    UxControlsModule
+    UxHelpersModule
   ],
   providers: [],
   bootstrap: [AppComponent],

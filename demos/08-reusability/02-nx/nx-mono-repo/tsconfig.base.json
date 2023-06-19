@@ -15,7 +15,8 @@
     "skipDefaultLibCheck": true,
     "baseUrl": ".",
     "paths": {
-      "@nx-mono-repo/ux-controls": ["libs/ux-controls/src/index.ts"]
+      "@nx-mono-repo/ux-controls": ["libs/ux-controls/src/index.ts"],
+      "@nx-mono-repo/ux-helpers": ["libs/ux-helpers/src/index.ts"]
     }
   },
   "exclude": ["node_modules", "tmp"]

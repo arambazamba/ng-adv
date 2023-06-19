@@ -4,14 +4,14 @@ import { RouterModule } from '@angular/router';
 import { AppComponent } from './app.component';
 import { appRoutes } from './app.routes';
 import { NxWelcomeComponent } from './nx-welcome.component';
-import { UxControlsModule } from '@nx-mono-repo/ux-controls';
+import { UxHelpersModule } from '../../../../libs/ux-helpers/src/lib/ux-helpers.module';
 
 @NgModule({
   declarations: [AppComponent, NxWelcomeComponent],
   imports: [
     BrowserModule,
     RouterModule.forRoot(appRoutes, { initialNavigation: 'enabledBlocking' }),
-    UxControlsModule
+    UxHelpersModule
   ],
   providers: [],
   bootstrap: [AppComponent],
