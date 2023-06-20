@@ -9,9 +9,9 @@ export class UxButtonComponent {
   @Input() disabled = false;
   @Input() label = '';
   @Input() icon = '';
-  @Output() click = new EventEmitter<void>();
+  @Output() click = new EventEmitter<string>();
 
   buttonClicked() {
-    this.click.emit();
+    this.click.emit("you clicked the button");
   }
 }
