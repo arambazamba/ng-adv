@@ -5,6 +5,4 @@ import { Component } from '@angular/core';
   templateUrl: './ux-split.component.html',
   styleUrls: ['./ux-split.component.scss'],
 })
-export class UxSplitComponent {
-    toolbar = '100px';
-}
+export class UxSplitComponent {}

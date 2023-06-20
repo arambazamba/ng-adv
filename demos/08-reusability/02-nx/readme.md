@@ -29,7 +29,7 @@ npx create-nx-workspace nx-mono-repo --preset=angular-monorepo --standaloneApi f
 
 ![nx-scaffold](_images/nx-scaffold.jpg)
 
-Update tutorial-app/src/app/app.component.html:
+Update `apps/tutorial-app/src/app/app.component.html`:
 
 ```html
 <div>
@@ -54,7 +54,7 @@ Test the app using Jest (default)
 nx test tutorial-app
 ```
 
-Update the app.component.spec.ts to allow the test to pass and re-run the test:
+Update the `apps/tutorial-app/src/appapp.component.spec.ts` to allow the test to pass and re-run the test:
 
 ```typescript
 it('should render title', () => {
@@ -67,12 +67,12 @@ it('should render title', () => {
 });
 ```
 
-## Controls library
+## Using libraries
 
 Add a library project from the root of the nx workspace:
 
 ```typescript
-nx g @nrwl/angular:lib ux-helpers --style scss
+nx g @nrwl/angular:lib ux-lib --style scss
 ```
 
 Show a project graph in from separate terminal and keep it open:
@@ -81,17 +81,23 @@ Show a project graph in from separate terminal and keep it open:
 npx nx graph --watch
 ```
 
-At the moment the graph is empty, even if you select the `tutorial-app` and `ux-helpers` lib. Next we will add a component to the library and the use it in the app.
+Check the tutorial-app and ux-lib project in the graph.
 
-### Split component
+![nx-graph](_images/nx-graph.jpg)
 
-Add a split component. Notice that Nx registeres the component in the module 
+At the moment the graph is empty, even if you select the `tutorial-app` and `ux-helpers` lib. In the next setep we will add the content from `Module 02 - Components` to the library and the use it in the app. Navigate to app/shared/ux-lib and examine the split component. 
+
+Next we will create a component in the nx-mono-repo:
 
 ```typescript
-nx g @nrwl/angular:component ux-split --project ux-helpers --export --selector ux-split --style scss
+nx g @nrwl/angular:component ux-split --project ux-lib --export --selector ux-split --style scss
 ```
 
-Use the app.component.ts in the main app. In app.module.ts import the `UxControlsModule`:
+Notice that Nx registeres the component in the `ux-lib.module.ts` and exports it in the index.ts. You can now copy the content of `Module 02 - Components` from `ux-split.component.ts` and `ux-split.component.html` and `*.scss` files. 
+
+>Note: You will have to replace the variables in the scss files with concrete values. In a real project you would provides an *scss file with default values for the variables.
+
+Use the app.component.ts in the main app. In app.module.ts import the `UxLibModule` and notice how the dependency graph is updated:
 
 ```typescript
 @NgModule({
@@ -99,7 +105,7 @@ Use the app.component.ts in the main app. In app.module.ts import the `UxControl
   imports: [
     BrowserModule,
     RouterModule.forRoot(appRoutes, { initialNavigation: 'enabledBlocking' }),
-    UxHelpersModule
+    UxLibModule
   ],
   providers: [],
   bootstrap: [AppComponent],
@@ -110,13 +116,22 @@ export class AppModule {}
 In app.component.html delete the default content and use the component:
 
 ```html
-<ux-split></ux-split>
+<div>
+  <h3>First Nx Monorepo App</h3>
+</div>
+<ux-split>
+  <div class="title">The Popup</div>
+  <div class="main">I don't like green watermelons</div>
+  <div class="sidebar">
+    
+  </div>
+</ux-split>
 ```
 
-Add Angular Material to the workspace to use it in the `ux-controls` project:
+Add Angular Material to the workspace to use it in the `ux-lib` project:
 
 ```
-npm i -S @angular/material @angular/cdk
+npx nx g @angular/material:ng-add --project=ux-lib 
 ```
 
 Add Material to tutorial-app. Select a theme of your choice, enable typography and disable animations:

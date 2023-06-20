@@ -1,7 +1,7 @@
 {
-  "name": "ux-helpers",
+  "name": "ux-lib",
   "$schema": "../../node_modules/nx/schemas/project-schema.json",
-  "sourceRoot": "libs/ux-helpers/src",
+  "sourceRoot": "libs/ux-lib/src",
   "prefix": "nx-mono-repo",
   "tags": [],
   "projectType": "library",
@@ -10,7 +10,7 @@
       "executor": "@nx/jest:jest",
       "outputs": ["{workspaceRoot}/coverage/{projectRoot}"],
       "options": {
-        "jestConfig": "libs/ux-helpers/jest.config.ts",
+        "jestConfig": "libs/ux-lib/jest.config.ts",
         "passWithNoTests": true
       },
       "configurations": {
@@ -24,10 +24,7 @@
       "executor": "@nx/linter:eslint",
       "outputs": ["{options.outputFile}"],
       "options": {
-        "lintFilePatterns": [
-          "libs/ux-helpers/**/*.ts",
-          "libs/ux-helpers/**/*.html"
-        ]
+        "lintFilePatterns": ["libs/ux-lib/**/*.ts", "libs/ux-lib/**/*.html"]
       }
     }
   }
