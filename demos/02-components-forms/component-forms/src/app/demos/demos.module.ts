@@ -7,9 +7,9 @@ import {
   MatFormFieldDefaultOptions,
 } from '@angular/material/form-field';
 import { MaterialModule } from '../material.module';
-import { FormattingModule } from '../shared/formatting/formatting.module';
 import { MarkdownRendererModule } from '../shared/markdown-renderer/markdown-renderer.module';
 import { SharedModule } from '../shared/shared.module';
+import { UxLibModule } from '../shared/ux-lib/ux-lib.module';
 import { DemoContainerComponent } from './demo-container/demo-container.component';
 import { DemoRoutingModule } from './demo.routing.module';
 import { ActionStreamsComponent } from './samples/action-streams/action-streams.component';
@@ -22,8 +22,6 @@ import { ContentChildComponent } from './samples/content-child/content-child.com
 import { ProjectorComponent } from './samples/content-child/projector/projector.component';
 import { ContentProjectionComponent } from './samples/content-projection/content-projection.component';
 import { SplitPopupComponent } from './samples/content-projection/split-popup/split-popup.component';
-import { uxButtonComponent } from './samples/content-projection/ux-button/ux-button.component';
-import { uxSplitComponent } from './samples/content-projection/ux-split/ux-split.component';
 import { ControlValueAccessorComponent } from './samples/control-value-accessor/control-value-accessor.component';
 import { NumberPickerComponent } from './samples/control-value-accessor/number-picker/number-picker.component';
 import { DirectiveCompositionComponent } from './samples/directive-composition/directive-composition.component';
@@ -50,7 +48,6 @@ import { TypedNonnullableComponent } from './samples/typed-nonnullable/typed-non
 import { ReactiveTypedComponent } from './samples/typed/reactive-typed.component';
 import { ReactiveTypedValidatonComponent } from './samples/validaton-intro/reactive-typed-validaton.component';
 import { ViewChildComponent } from './samples/view-child/view-child.component';
-
 
 const appearance: MatFormFieldDefaultOptions = {
   appearance: 'outline',
@@ -89,8 +86,6 @@ const appearance: MatFormFieldDefaultOptions = {
     FormErrorsComponent,
     ErrStateMatcherComponent,
     DirectiveCompositionComponent,
-    uxSplitComponent,
-    uxButtonComponent,
     SplitPopupComponent,
     ContainerPresenterComponent,
     PresenterListComponent,
@@ -107,7 +102,7 @@ const appearance: MatFormFieldDefaultOptions = {
     HttpClientModule,
     MarkdownRendererModule,
     StandaloneComponent,
-    FormattingModule
+    UxLibModule
   ],
   providers: [
     {
