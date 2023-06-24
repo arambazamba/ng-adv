@@ -42,7 +42,6 @@ const demoRoutes: Routes = [
   {
     path: '',
     component: DemoContainerComponent,
-
     children: [
       { path: 'responsive-screen', component: ResponsiveScreenComponent },
       { path: 'langfeatures', component: LangFeaturesComponent },

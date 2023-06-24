@@ -7,7 +7,6 @@ import { of, startWith } from 'rxjs';
   styleUrls: ['./signals-basics.component.scss']
 })
 export class SignalsBasicsComponent {
-
   totalAmount = signal<number>(0);
   runningAmount = signal<number>(10);
   amountSignal: Signal<number | undefined>;

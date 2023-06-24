@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, inject } from '@angular/core';
 import { interval, of, throwError } from 'rxjs';
 import {
   catchError,
@@ -19,12 +19,13 @@ import { VouchersService } from '../../vouchers/voucher.service';
   styleUrls: ['./err-handling.component.scss'],
 })
 export class ErrHandlingComponent {
-  constructor(private vs: VouchersService, private ds: DemoService) { }
+  vs = inject(VouchersService);
+  ds = inject(DemoService);
 
 
   whereToHandle() {
     const obs = of('cleo', 'flora', 'giro', 'soi', 3);
-    // handle exceptions here???
+    // handle exceptions in the source / service
     obs.pipe(
       map((dogname) => dogname.toString().toUpperCase()),
       catchError((err) => {
@@ -33,7 +34,7 @@ export class ErrHandlingComponent {
       })
     );
 
-    // or here???
+    // or in the subscriber / component
     obs.subscribe(
       (val) => console.log(val),
       (err) => console.log('handled in subscribe-error', err)
@@ -43,7 +44,7 @@ export class ErrHandlingComponent {
   // Used in tryCatchAlike
   setLabel = (v: Voucher) => ({ ...v, Label: `${v.Text} costs € ${v.Amount}` });
 
-  tryCatchAlike() {
+  rethrowErr() {
     this.vs
       .getVouchers()
       .pipe(
