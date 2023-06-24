@@ -31,6 +31,7 @@ import { SelectorsComponent } from './samples/selectors/selectors.component';
 import { DemosEffects } from './state/demos.effects';
 import { demoReducer, demosFeatureKey } from './state/demos.reducer';
 import { FormattingModule } from '../shared/formatting/formatting.module';
+import { NgrxSignalsComponent } from './samples/ngrx-signals/ngrx-signals.component';
 
 @NgModule({
   declarations: [
@@ -53,6 +54,7 @@ import { FormattingModule } from '../shared/formatting/formatting.module';
     NgrxDataComponent,
     FeatureModuleStateComponent,
     NgrxEntityComponent,
+    NgrxSignalsComponent,
   ],
   imports: [
     CommonModule,

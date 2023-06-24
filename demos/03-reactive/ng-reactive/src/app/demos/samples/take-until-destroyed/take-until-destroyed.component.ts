@@ -8,7 +8,7 @@ import { FormControl, Validators } from '@angular/forms';
   styleUrls: ['./take-until-destroyed.component.scss']
 })
 export class TakeUntilDestroyedComponent {
-  private destroyRef = inject(DestroyRef);
+  destroyRef = inject(DestroyRef);
   name = new FormControl('',
     [Validators.required, Validators.minLength(3)],
     []);

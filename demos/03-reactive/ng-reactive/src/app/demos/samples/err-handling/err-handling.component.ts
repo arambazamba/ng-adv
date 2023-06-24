@@ -1,13 +1,11 @@
-import { Component, OnInit, inject } from '@angular/core';
-import { interval, of, throwError } from 'rxjs';
+import { Component, inject } from '@angular/core';
+import { EMPTY, Observable, interval, of, throwError } from 'rxjs';
 import {
   catchError,
-  delay,
   finalize,
-  retry,
   map,
-  retryWhen,
-  tap,
+  retry,
+  tap
 } from 'rxjs/operators';
 import { DemoService } from '../../demo-base/demo.service';
 import { Voucher } from '../../vouchers/voucher.model';
@@ -22,15 +20,13 @@ export class ErrHandlingComponent {
   vs = inject(VouchersService);
   ds = inject(DemoService);
 
-
-  whereToHandle() {
-    const obs = of('cleo', 'flora', 'giro', 'soi', 3);
+  completeStream() {
     // handle exceptions in the source / service
-    obs.pipe(
-      map((dogname) => dogname.toString().toUpperCase()),
+    const obs = (of(4, 6, 8, 'soi') as Observable<any>).pipe(
+      map((nbr) => nbr / 2),
       catchError((err) => {
         console.log('handled in catchError', err);
-        return of('');
+        return EMPTY;
       })
     );
 

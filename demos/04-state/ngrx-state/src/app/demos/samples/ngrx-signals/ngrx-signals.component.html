@@ -1,0 +1,8 @@
+<app-markdown-renderer [md]="'ngrx-signals'"></app-markdown-renderer>
+
+<div border>
+  <h3>Customers</h3>
+  <div *ngFor="let d of customers()">
+    {{ d.name }}
+  </div>
+</div>

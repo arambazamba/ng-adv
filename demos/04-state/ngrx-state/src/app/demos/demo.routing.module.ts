@@ -12,6 +12,7 @@ import { FeatureModuleStateComponent } from './samples/feature-module-state/feat
 import { NgrxDataComponent } from './samples/ngrx-data/ngrx-data.component';
 import { NgrxEntityComponent } from './samples/ngrx-entity/ngrx-entity.component';
 import { SelectorsComponent } from './samples/selectors/selectors.component';
+import { NgrxSignalsComponent } from './samples/ngrx-signals/ngrx-signals.component';
 
 export const demoRoutes: Routes = [
   {
@@ -19,19 +20,21 @@ export const demoRoutes: Routes = [
     component: DemoContainerComponent,
     children: [
       { path: 'app-state', component: AppStateComponent, title: 'Demos - App State' },
-      { path: 'ngrx-entity', component: NgrxEntityComponent },
-      { path: 'feature-modules-state', component: FeatureModuleStateComponent },
+      { path: 'ngrx-entity', component: NgrxEntityComponent, title: 'Demos - Ngrx Entity' },
+      { path: 'feature-modules-state', component: FeatureModuleStateComponent, title: 'Demos - Feature Modules State' },
       { path: 'selectors', component: SelectorsComponent, title: 'Demos - Selectors' },
       { path: 'effects', component: EffectsComponent, title: 'Demos - Effects' },
       { path: 'facades', component: FacadesComponent, title: 'Demos - Facades' },
-      { path: 'ngrx-data', component: NgrxDataComponent },
-      { path: 'cd-intro', component: ChangeDetectionComponent },
-      { path: 'cd-profile', component: ChangeDetectionProfileComponent },
-      { path: 'component-store', component: ComponentStoreComponent },
-      { path: 'presenter-ngrx', component: ContainerPresenterNgrxComponent },
+      { path: 'ngrx-data', component: NgrxDataComponent, title: 'Demos - Ngrx Data' },
+      { path: 'ngrx-signals', component: NgrxSignalsComponent, title: 'Demos - Ngrx Signals' },
+      { path: 'cd-intro', component: ChangeDetectionComponent, title: 'Demos - Change Detection' },
+      { path: 'cd-profile', component: ChangeDetectionProfileComponent, title: 'Demos - Change Detection Profile' },
+      { path: 'component-store', component: ComponentStoreComponent, title: 'Demos - Component Store' },
+      { path: 'presenter-ngrx', component: ContainerPresenterNgrxComponent, title: 'Demos - Container Presenter Ngrx' },
       {
         path: 'change-detector-ref',
         component: ChangeDetectorRefComponent,
+        title: 'Demos - Change Detector Ref',
       }
     ],
   },
