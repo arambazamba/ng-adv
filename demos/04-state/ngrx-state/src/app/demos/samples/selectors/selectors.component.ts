@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, inject } from '@angular/core';
 import { Store } from '@ngrx/store';
 import { toggleMockAuthenticated } from 'src/app/state/app.actions';
 import { AppState } from '../../../state/app.reducer';
@@ -10,8 +10,7 @@ import { getIsMockAuthenticated } from '../../../state/app.selector';
   styleUrls: ['./selectors.component.scss'],
 })
 export class SelectorsComponent {
-  constructor(private state: Store<AppState>) {}
-
+  state = inject(Store) as Store<AppState>;
   isMockAuthenticated = this.state.select(getIsMockAuthenticated);
 
   toggleAuth() {

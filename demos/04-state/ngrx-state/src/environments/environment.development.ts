@@ -1,9 +1,9 @@
 export const environment = {
   authEnabled: false,
-  title: 'ngReactiveForms',
-  logChangeDetection: true,
+  title: 'State & NgRx',
+  logChangeDetection: false,
   logChanges: false,
-  logLoading: false,
+  logLoading: true,
   markdownPath: '/assets/markdown/',
   api: 'http://localhost:3000/'
 };

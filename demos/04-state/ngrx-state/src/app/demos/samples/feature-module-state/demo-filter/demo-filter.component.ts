@@ -1,5 +1,5 @@
-import { Component, OnInit } from '@angular/core';
-import { UntypedFormControl } from '@angular/forms';
+import { Component, OnInit, inject } from '@angular/core';
+import { FormControl } from '@angular/forms';
 import { debounceTime } from 'rxjs/operators';
 import { DemoFacade } from '../../../state/demo.facade';
 
@@ -9,9 +9,8 @@ import { DemoFacade } from '../../../state/demo.facade';
   styleUrls: ['./demo-filter.component.scss'],
 })
 export class DemoFilterComponent implements OnInit {
-  constructor(private df: DemoFacade) {}
-
-  fcFilter = new UntypedFormControl();
+  df = inject(DemoFacade);
+  fcFilter = new FormControl();
 
   ngOnInit() {
     this.fcFilter.valueChanges.pipe(debounceTime(350)).subscribe((filter) => {

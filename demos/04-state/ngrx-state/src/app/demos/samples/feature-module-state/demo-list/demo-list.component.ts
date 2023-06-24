@@ -1,5 +1,5 @@
 import { CdkDragDrop, moveItemInArray } from '@angular/cdk/drag-drop';
-import { Component, EventEmitter, OnInit, Output } from '@angular/core';
+import { Component, EventEmitter, OnInit, Output, inject } from '@angular/core';
 import { combineLatest } from 'rxjs';
 import { map } from 'rxjs/operators';
 import { DemoItem } from '../../../demo-base/demo-item.model';
@@ -10,10 +10,9 @@ import { DemoFacade } from '../../../state/demo.facade';
   templateUrl: './demo-list.component.html',
   styleUrls: ['./demo-list.component.scss'],
 })
-export class DemoListComponent implements OnInit {
+export class DemoListComponent {
+  df = inject(DemoFacade);
   @Output() onSelectDemo: EventEmitter<null> = new EventEmitter();
-
-  constructor(private df: DemoFacade) { }
 
   demos$ = this.df.getDemos();
   filter$ = this.df.getFilter();
@@ -27,8 +26,6 @@ export class DemoListComponent implements OnInit {
         : demos;
     })
   );
-
-  ngOnInit() { }
 
   drop(event: CdkDragDrop<DemoItem[]>) {
     this.demos$.subscribe((arr) => {

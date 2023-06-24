@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, inject } from '@angular/core';
 import { AppFacade } from '../../../state/app.facade';
 
 @Component({
@@ -7,8 +7,7 @@ import { AppFacade } from '../../../state/app.facade';
   styleUrls: ['./facades.component.scss'],
 })
 export class FacadesComponent {
-  constructor(private af: AppFacade) {}
-
+  af = inject(AppFacade);
   isMockAuthenticated = this.af.getIsMockAuthenticated();
 
   toggleAuth() {

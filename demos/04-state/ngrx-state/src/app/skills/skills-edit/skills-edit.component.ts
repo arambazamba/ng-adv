@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, inject } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { Skill } from '../skill.model';
 import { SnackbarService } from '../../shared/snackbar/snackbar.service';
@@ -9,13 +9,10 @@ import { SnackbarService } from '../../shared/snackbar/snackbar.service';
   styleUrls: ['./skills-edit.component.scss'],
 })
 export class SkillsEditComponent implements OnInit {
+  route = inject(ActivatedRoute);
+  router = inject(Router);
+  sns = inject(SnackbarService);
   skill: Skill = new Skill();
-
-  constructor(
-    private route: ActivatedRoute,
-    private router: Router,
-    private sns: SnackbarService
-  ) { }
 
   ngOnInit(): void {
     this.readParamUsingSnapshot();

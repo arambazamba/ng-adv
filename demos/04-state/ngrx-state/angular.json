@@ -20,7 +20,9 @@
             "outputPath": "dist/ngrx-state",
             "index": "src/index.html",
             "main": "src/main.ts",
-            "polyfills": "src/polyfills.ts",
+            "polyfills": [
+              "zone.js"
+            ],
             "tsConfig": "tsconfig.app.json",
             "inlineStyleLanguage": "scss",
             "assets": [
@@ -56,12 +58,6 @@
                   "maximumError": "4kb"
                 }
               ],
-              "fileReplacements": [
-                {
-                  "replace": "src/environments/environment.ts",
-                  "with": "src/environments/environment.prod.ts"
-                }
-              ],
               "outputHashing": "all"
             },
             "development": {
@@ -70,7 +66,13 @@
               "vendorChunk": true,
               "extractLicenses": false,
               "sourceMap": true,
-              "namedChunks": true
+              "namedChunks": true,
+              "fileReplacements": [
+                {
+                  "replace": "src/environments/environment.ts",
+                  "with": "src/environments/environment.development.ts"
+                }
+              ]
             }
           },
           "defaultConfiguration": "production"
@@ -96,10 +98,11 @@
         "test": {
           "builder": "@angular-devkit/build-angular:karma",
           "options": {
-            "main": "src/test.ts",
-            "polyfills": "src/polyfills.ts",
+            "polyfills": [
+              "zone.js",
+              "zone.js/testing"
+            ],
             "tsConfig": "tsconfig.spec.json",
-            "karmaConfig": "karma.conf.js",
             "inlineStyleLanguage": "scss",
             "assets": [
               "src/favicon.ico",
@@ -107,8 +110,7 @@
             ],
             "styles": [
               "src/styles.scss",
-              "node_modules/prismjs/themes/prism-okaidia.min.css",
-              "node_modules/prismjs/plugins/line-highlight/prism-line-highlight.min.css"
+              "node_modules/prismjs/themes/prism-okaidia.min.css"
             ],
             "stylePreprocessorOptions": {
               "includePaths": ["src/theme"]
@@ -118,18 +120,11 @@
               "node_modules/prismjs/prism.js",
               "node_modules/prismjs/components/prism-csharp.min.js",
               "node_modules/prismjs/components/prism-typescript.min.js",
-              "node_modules/prismjs/components/prism-css.min.js",
-              "node_modules/prismjs/plugins/line-highlight/prism-line-highlight.min.js"
+              "node_modules/prismjs/components/prism-css.min.js"
             ]
           }
         }
       }
-    }
-  },
-  "cli": {
-    "analytics": "9c057ce0-a02e-414c-b3c0-f33f626d3b71",
-    "cache": {
-      "enabled": false
     }
   }
 }

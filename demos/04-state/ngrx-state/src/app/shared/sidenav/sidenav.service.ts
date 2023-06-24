@@ -18,7 +18,6 @@ export class SideNavService {
       .observe([Breakpoints.XSmall, Breakpoints.Small])
       .pipe(
         tap((matchesBreakpoint) => {
-          console.log(matchesBreakpoint);
           this.visible$.next(matchesBreakpoint.matches ? false : true);
           this.position$.next(matchesBreakpoint.matches ? 'over' : 'side');
         })

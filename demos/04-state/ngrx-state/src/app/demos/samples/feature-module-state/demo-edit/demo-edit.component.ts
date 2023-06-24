@@ -1,5 +1,5 @@
-import { Component, OnInit } from '@angular/core';
-import { UntypedFormControl } from '@angular/forms';
+import { Component, OnInit, inject } from '@angular/core';
+import { FormControl } from '@angular/forms';
 import { DemoItem } from '../../../demo-base/demo-item.model';
 import { DemoFacade } from '../../../state/demo.facade';
 
@@ -9,15 +9,13 @@ import { DemoFacade } from '../../../state/demo.facade';
   styleUrls: ['./demo-edit.component.scss'],
 })
 export class DemoEditComponent implements OnInit {
-  constructor(private df: DemoFacade) {}
-
+  df = inject(DemoFacade);
   item = this.df.getSelectedDemo();
-
-  fcName = new UntypedFormControl('');
+  fcName = new FormControl('');
 
   ngOnInit() {
     this.item.subscribe((val: DemoItem) => this.fcName.setValue(val.title));
   }
 
-  saveItem() {}
+  saveItem() { }
 }

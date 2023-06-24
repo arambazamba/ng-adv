@@ -7,5 +7,4 @@ import { Component } from '@angular/core';
 })
 export class DetectorChildComponent {
   childData = 'I like Thai food';
-
 }

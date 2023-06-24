@@ -2,7 +2,8 @@ import {
   AfterViewInit,
   ChangeDetectorRef,
   Component,
-  ViewChild
+  ViewChild,
+  inject
 } from '@angular/core';
 import { DetectorChildComponent } from './detector-child/detector-child.component';
 
@@ -12,12 +13,11 @@ import { DetectorChildComponent } from './detector-child/detector-child.componen
   styleUrls: ['./change-detector-ref.component.scss'],
 })
 export class ChangeDetectorRefComponent implements AfterViewInit {
+  cd = inject(ChangeDetectorRef);
   @ViewChild(DetectorChildComponent) child: DetectorChildComponent | null =
     null;
   produceErr = true;
   handleErr = true;
-
-  constructor(private cd: ChangeDetectorRef) { }
 
   ngAfterViewInit(): void {
     let childVal = this.child?.childData;
@@ -26,6 +26,4 @@ export class ChangeDetectorRefComponent implements AfterViewInit {
     }
     console.log('childVal', childVal);
   }
-
-  ngOnInit(): void { }
 }

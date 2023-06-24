@@ -30,9 +30,7 @@ import { CustomerEffects } from './customers/state/customers.effects';
     StoreModule.forRoot(reducers, { metaReducers }),
     EffectsModule.forRoot([CustomerEffects]),
     EntityDataModule.forRoot({}),
-    StoreDevtoolsModule.instrument({
-      logOnly: environment.production,
-    }),
+    StoreDevtoolsModule.instrument({}),
   ],
   providers: [
     LoadingService,
