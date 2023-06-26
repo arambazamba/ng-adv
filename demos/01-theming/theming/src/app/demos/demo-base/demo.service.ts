@@ -1,6 +1,5 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable, inject } from '@angular/core';
-import { Observable } from 'rxjs';
 import { environment } from '../../../environments/environment';
 import { DemoItem } from './demo-item.model';
 
@@ -8,22 +7,22 @@ import { DemoItem } from './demo-item.model';
 export class DemoService {
   httpClient = inject(HttpClient);
 
-  getItems(): Observable<DemoItem[]> {
+  getItems() {
     return this.httpClient.get<DemoItem[]>(`${environment.api}demos`);
   }
 
-  addItem(item: DemoItem): Observable<DemoItem> {
+  addItem(item: DemoItem) {
     return this.httpClient.post<DemoItem>(`${environment.api}demos`, item);
   }
 
-  updateItem(item: DemoItem): Observable<DemoItem> {
+  updateItem(item: DemoItem) {
     return this.httpClient.put<DemoItem>(
       `${environment.api}demos/${item.id}`,
       item
     );
   }
 
-  deleteItem(id: number): Observable<any> {
+  deleteItem(id: number) {
     return this.httpClient.delete(`${environment.api}demos/${id}`);
   }
 }

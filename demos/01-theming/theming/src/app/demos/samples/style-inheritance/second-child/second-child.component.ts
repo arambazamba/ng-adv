@@ -1,4 +1,4 @@
-import { Component, OnInit, ViewEncapsulation } from '@angular/core';
+import { Component, ViewEncapsulation } from '@angular/core';
 
 //TODO: Add ViewEncapsulation.ShadowDom here
 @Component({
@@ -6,16 +6,12 @@ import { Component, OnInit, ViewEncapsulation } from '@angular/core';
   template: ` <div class="divclass">Second Child</div> `,
   styles: [
     `
-           .divclass {
-             border: green 4px solid;
-           }
-         `,
+    .divclass {
+      border: green 4px solid;
+    }
+    `,
   ],
   // encapsulation:ViewEncapsulation.Emulated
   // encapsulation:ViewEncapsulation.None
 })
-export class SecondChildComponent implements OnInit {
-  constructor() {}
-
-  ngOnInit(): void {}
-}
+export class SecondChildComponent { }

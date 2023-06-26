@@ -1,8 +1,8 @@
-import { Component, OnInit } from '@angular/core';
 import { CommonModule } from '@angular/common';
+import { Component } from '@angular/core';
+import { RouterModule } from '@angular/router';
 import { MarkdownModule } from 'ngx-markdown';
 import { MarkdownRendererModule } from 'src/app/shared/markdown-renderer/markdown-renderer.module';
-import { RouterModule } from '@angular/router';
 
 @Component({
   selector: 'app-lazy-standalone',
@@ -12,5 +12,4 @@ import { RouterModule } from '@angular/router';
   styleUrls: ['./lazy-standalone.component.scss'],
 })
 export class LazyStandaloneComponent {
-  constructor() { }
 }

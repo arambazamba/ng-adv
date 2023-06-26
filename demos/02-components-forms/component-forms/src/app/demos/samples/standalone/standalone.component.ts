@@ -1,5 +1,5 @@
-import { Component, OnInit } from '@angular/core';
 import { CommonModule } from '@angular/common';
+import { Component } from '@angular/core';
 import { MarkdownModule } from 'ngx-markdown';
 import { MarkdownRendererModule } from '../../../shared/markdown-renderer/markdown-renderer.module';
 
@@ -10,8 +10,5 @@ import { MarkdownRendererModule } from '../../../shared/markdown-renderer/markdo
   templateUrl: './standalone.component.html',
   styleUrls: ['./standalone.component.scss'],
 })
-export class StandaloneComponent implements OnInit {
-  constructor() { }
+export class StandaloneComponent { }
 
-  ngOnInit(): void { }
-}
