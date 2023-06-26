@@ -21,8 +21,6 @@ export class TypedNonnullableComponent implements OnInit {
     wealth: new FormControl(this.person.wealth),
   });
 
-  constructor() { }
-
   ngOnInit() {
     this.ps.getPerson().subscribe((p) => {
       // Could be setValue if model is implemented with all props in form

@@ -47,6 +47,6 @@ export class GetRawValueComponent implements OnInit {
   }
 
   getRawValue(): void {
-    console.log('Getting raw value of id:', this.personForm.getRawValue().id);
+    console.log('Getting raw value the whole form:', this.personForm.getRawValue());
   }
 }

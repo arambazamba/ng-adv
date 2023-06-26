@@ -1,10 +1,14 @@
-.container{
-    width: 150px;
-    display: flex;
-    flex-direction: row;
-    justify-content: space-between;
+.container {
+  width: 160px;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
 }
 
-mat-icon{
-    margin: 0 0.5rem;
+mat-icon {
+  margin: 0 0.5rem;
+}
+
+div{
+  width: 20px;
 }

@@ -27,13 +27,12 @@ import {
 })
 export class NumberPickerComponent implements ControlValueAccessor, Validator {
   quantity = 0;
-
   @Input() increment: number = 1;
   @Input() label: string = '';
 
-  private onChange: Function = (quantity: number) => {};
+  private onChange: Function = (quantity: number) => { };
 
-  private onTouched: Function = () => {};
+  private onTouched: Function = () => { };
 
   touched = false;
 

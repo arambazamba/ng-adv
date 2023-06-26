@@ -7,8 +7,6 @@ import { UntypedFormControl, Validators, FormControl } from '@angular/forms';
   styleUrls: ['./form-control.component.scss'],
 })
 export class FormControlComponent implements OnInit {
-  constructor() { }
-
   name = new FormControl('',
     [Validators.required, Validators.minLength(3)],
     []);
@@ -26,6 +24,10 @@ export class FormControlComponent implements OnInit {
     this.name.statusChanges.subscribe((data) =>
       console.log('Form status changed', data)
     );
+  }
+
+  logName() {
+    console.log("current name:", this.name.value);
   }
 
   updateName() {

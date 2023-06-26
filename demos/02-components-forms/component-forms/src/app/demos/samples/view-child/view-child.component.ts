@@ -19,7 +19,7 @@ export class ViewChildComponent {
 
   ngAfterViewInit(): void {
     // notice the use of ViewChildren
-    console.log(this.inputs);
+    console.log("viewchildren:", this.inputs);
   }
 
   calculateCost() {
