@@ -13,7 +13,9 @@ export class CreatingObservableComponent {
   onComplete = () => console.log('complete');
 
   useOf() {
-    of(2, 5, 9, 12, 22).subscribe((data) => console.log('of(): ', data));
+    of(2, 5, 9, 12, 22).subscribe(
+      data => console.log('current marble: ', data)
+    );
   }
 
   useObsFrom() {
@@ -21,11 +23,12 @@ export class CreatingObservableComponent {
 
     //use this pattern when subscribing and handling complete and error case
     let observer = {} as any;
-    observer.next = (data: number) => console.log('from(): ', data);
+    observer.next = (data: number) => console.log('output: ', data);
     observer.error = this.onErr;
     observer.complete = this.onComplete;
 
-    from(arr).subscribe(observer);
+    from(arr).subscribe(observer); // -> 5 marbles
+    of(arr).subscribe(observer); // -> 1 marble
   }
 
   useNewObs() {

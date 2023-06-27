@@ -5,6 +5,4 @@ import { Component } from '@angular/core';
   templateUrl: './statefull.component.html',
   styleUrls: ['./statefull.component.scss'],
 })
-export class StatefullComponent {
-  constructor() {}
-}
+export class StatefullComponent { }

@@ -1,21 +1,41 @@
-import { Component, OnInit } from '@angular/core';
+import { Component } from '@angular/core';
 import * as _ from 'lodash';
 import { combineLatest, of } from 'rxjs';
-import { map, tap } from 'rxjs/operators';
+import { map } from 'rxjs/operators';
 
 @Component({
   selector: 'app-lang-features',
   templateUrl: './lang-features.component.html',
   styleUrls: ['./lang-features.component.scss'],
 })
-export class LangFeaturesComponent implements OnInit {
-  constructor() { }
+export class LangFeaturesComponent {
 
-  ngOnInit() { }
+  impureFunction() {
+    let name = 'Sandra';
+
+    function greet() {
+      name += ', how are you today?';
+      console.log(name);
+    }
+
+    greet();
+    name = 'Heinz';
+    greet();
+  }
+
+  pureFunction() {
+    function greet(name: string) {
+      return `${name}, how are you today`;
+    }
+
+    console.log(greet('Sandra'));
+    console.log(greet('Heinz'));
+  }
 
   shallowClone() {
     //Spread operator on objects
     const simplePerson = { name: 'Sepp' };
+    const languages = ['German', 'English', 'French'];
     const father = {
       birth: new Date(),
       job: 'Dev Dude',
@@ -25,20 +45,18 @@ export class LangFeaturesComponent implements OnInit {
       ],
     };
 
+    //does this create a shallow copy or a deep copy?
     const spreadClonedPerson = { ...father };
+    spreadClonedPerson.children[0].name = 'Giro';
+    console.log('After Change:', father.children[0].name);
+
     const copiedPerson = Object.assign(father);
-    const clonedPerson = Object.assign({}, father);
+    //object composition
+    const clonedPerson = Object.assign({}, father, languages);
 
     const arr = [1, 2, 3];
+    const notAnArray = { ...arr };
     const clonedArray = [...arr];
-
-    console.log('Spreaded Person:', spreadClonedPerson);
-
-    father.children[0].name = 'Giro';
-    console.log('After Change:', spreadClonedPerson);
-
-    const person = { ...simplePerson, ...father };
-    console.log('Spread combined Person:', person);
   }
 
   deepCloning() {
@@ -58,28 +76,23 @@ export class LangFeaturesComponent implements OnInit {
     console.log('After Change:', copiedPerson);
   }
 
-  impureFunction() {
-    let name = 'Sandra';
-
-    function greet() {
-      name += ', how are you today?';
-      console.log(name);
-    }
-
-    greet();
-    greet();
-  }
-
-  pureFunction() {
-    function greet(name: string) {
-      return `${name}, how are you today`;
-    }
-
-    console.log(greet('Sandra'));
-    console.log(greet('Heinz'));
-  }
-
   useDestructuring() {
+    //object destructuring
+    const father = {
+      birth: new Date(),
+      job: 'Dev Dude',
+      children: [
+        { name: 'David', age: 12 },
+        { name: 'Soi', age: 7 },
+      ],
+    };
+
+    //destructuring helps us to initialize variables with the values of an object
+    const { birth, job, children } = father;
+    console.log('birth:', birth);
+    console.log('job:', job);
+    console.log('children:', children);
+
     const chrs$ = of(['a', 'b', 'c']);
     const nbrs$ = of([1, 2, 3]);
 
@@ -92,19 +105,7 @@ export class LangFeaturesComponent implements OnInit {
         })
       )
       .subscribe();
-
-    //object destructuring
-    const father = {
-      birth: new Date(),
-      job: 'Dev Dude',
-      children: [
-        { name: 'David', age: 12 },
-        { name: 'Soi', age: 7 },
-      ],
-    };
-
-    const { birth, job } = father;
-    console.log('birth:', birth);
-    console.log('job:', job);
   }
+
+  explainChangeDetection() { }
 }

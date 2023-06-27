@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, inject } from '@angular/core';
 import { FormControl, UntypedFormControl } from '@angular/forms';
 import { combineLatest } from 'rxjs';
 import { map, startWith } from 'rxjs/operators';
@@ -10,13 +10,12 @@ import { DemoService } from '../../demo-base/demo.service';
   styleUrls: ['./action-streams.component.scss']
 })
 export class ActionStreamsComponent {
-  constructor(private ds: DemoService) { }
-
-  demosData$ = this.ds.getItems();
+  ds = inject(DemoService);
+  demos$ = this.ds.getItems();
   filter$ = new FormControl<string>('', { nonNullable: true });
 
-  demos$ = combineLatest([
-    this.demosData$,
+  vm$ = combineLatest([
+    this.demos$,
     this.filter$.valueChanges.pipe(startWith('')),
   ]).pipe(
     map(([demos, filter]) => {

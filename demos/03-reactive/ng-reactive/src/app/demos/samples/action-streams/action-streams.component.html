@@ -16,7 +16,7 @@
     <mat-card-title> Demos </mat-card-title>
   </mat-card-header>
   <mat-card-content>
-    <div *ngFor="let d of demos$ | async" class="row">
+    <div *ngFor="let d of vm$ | async" class="row">
       <div>{{ d.title }}</div>
     </div>
   </mat-card-content>

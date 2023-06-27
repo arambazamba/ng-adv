@@ -31,9 +31,11 @@ export class ErrHandlingComponent {
     );
 
     // or in the subscriber / component
-    obs.subscribe(
-      (val) => console.log(val),
-      (err) => console.log('handled in subscribe-error', err)
+    obs.subscribe({
+      next: (val: number) => console.log(val),
+      error: (err: Error) => console.log('handled in handler-error', err),
+      complete: () => console.log('completed'),
+    }
     );
   }
 

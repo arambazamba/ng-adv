@@ -14,6 +14,7 @@ import {
 import { Voucher } from '../../vouchers/voucher.model';
 import { VouchersService } from '../../vouchers/voucher.service';
 import { Person } from './person';
+import { sum } from 'lodash';
 
 @Component({
   selector: 'app-operators',
@@ -79,7 +80,9 @@ export class OperatorsComponent implements OnInit {
   // JavaScript Array.find - not an observable operator
   useFindArr() {
     this.vouchers$
-      .pipe(map((vs) => vs.find((v: Voucher) => v.ID === 3)))
+      .pipe(
+        map((vs) => vs.find((v: Voucher) => v.ID === 3))
+      )
       .subscribe((data) => this.log('getByID - using find()', data));
   }
 
@@ -96,7 +99,9 @@ export class OperatorsComponent implements OnInit {
   // JavaScript Array.filter - not an observable operator
   useFilterArr() {
     this.vouchers$
-      .pipe(map((vs) => vs.filter((v: Voucher) => v.Paid)))
+      .pipe(
+        map((vs) => vs.filter((v: Voucher) => v.Paid))
+      )
       .subscribe((data) => this.log('useFilter', data));
   }
 
@@ -132,6 +137,11 @@ export class OperatorsComponent implements OnInit {
     from(arr)
       .pipe(reduce((acc, curr) => acc + curr, 0))
       .subscribe((d) => console.log(d));
+
+    this.vouchers$.pipe(
+      mergeMap((vouchers: Voucher[]) => vouchers),
+      reduce((acc, curr) => { acc = acc + curr.Amount; return acc }, 0)
+    ).subscribe(sum => console.log("sum", sum));
   }
 
   usePluck() {

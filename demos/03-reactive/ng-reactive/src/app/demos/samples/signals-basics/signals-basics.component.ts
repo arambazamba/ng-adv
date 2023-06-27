@@ -8,7 +8,7 @@ import { of, startWith } from 'rxjs';
 })
 export class SignalsBasicsComponent {
   totalAmount = signal<number>(0);
-  runningAmount = signal<number>(10);
+  runningAmount = signal(10);
   amountSignal: Signal<number | undefined>;
   amount$ = of(10).pipe(startWith(0));
 
