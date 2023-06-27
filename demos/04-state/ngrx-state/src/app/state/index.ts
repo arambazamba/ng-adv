@@ -1,8 +1,6 @@
 import { ActionReducerMap, MetaReducer } from '@ngrx/store';
-import { environment } from '../../environments/environment';
-import { appReducer, AppState } from './app.reducer';
 import { CustomersState, customerReducer } from '../customers/state/customers.reducer';
-
+import { AppState, appReducer } from './app.reducer';
 
 export interface State {
   app: AppState;
