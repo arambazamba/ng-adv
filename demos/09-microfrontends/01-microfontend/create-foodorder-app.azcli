@@ -1,5 +1,5 @@
 env=$RANDOM
-grp=ng-adv
+grp=ng-adv-$env
 loc=westeurope
 storage=foodorders$env
 app=foodorders-$env
@@ -36,7 +36,8 @@ func azure functionapp publish $app --csharp
 cd ..
 
 # subscribe event grid topc
-az eventgrid event-subscription create --name $app --source-resource-id $topicid --endpoint https://$funcWebhookEP/api/orderSubscription --endpoint-type webhook --event-delivery-schema cloudeventschemav1_0
+az eventgrid event-subscription create --name $app --source-resource-id $topicid --endpoint \
+ https://$funcWebhookEP/api/orderSubscription --endpoint-type webhook --event-delivery-schema cloudeventschemav1_0
 
 echo "*** Update vars food-orders-dashboard"
 echo "*** funcWebhookEP: " $funcWebhookEP
