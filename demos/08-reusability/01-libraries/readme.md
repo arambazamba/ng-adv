@@ -169,7 +169,7 @@ import { UxControlsModule} from "ux-controls"
 export class AppModule { }
 ```
 
-Add it to `app.component.ts` and run `ng s -o`:
+Add it to `app.component.html` and run `ng s -o`:
 
 ```html
 <ux-split>
@@ -185,7 +185,7 @@ Test the component:
 ng serve -o --project ux-lib
 ```
 ---
-## Publish Library to GitHub Packages
+## Publish Library to GitHub Packages (Optional)
 
 In your GitHub Account go to `Settings/Developer settings`, create an new token with `write:packages` and `delete:packages` and copy it afterwards:
 
