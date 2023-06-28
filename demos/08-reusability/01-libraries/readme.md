@@ -73,17 +73,14 @@ Update PeerDependencies in `package.json` of the library:
 split.component.ts:
 
 ```typescript
-import { Component, OnInit } from '@angular/core';
+import { Component } from '@angular/core';
 
 @Component({
   selector: 'ux-split',
   templateUrl: './split.component.html',
   styleUrls: ['./split.component.scss'],
 })
-export class SplitComponent  {
-  toolbar = '100px';
-  constructor() {}
-}
+export class SplitComponent {}
 ```
 
 split.component.html
