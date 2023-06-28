@@ -325,9 +325,7 @@ export class AppComponent {
 }
 ```
 
-
 Import the `UxLibModule` in the standalone component:
-
 
 ```typescript
 @Component({
