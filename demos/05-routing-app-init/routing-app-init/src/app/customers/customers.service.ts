@@ -10,6 +10,7 @@ export class CustomersService {
   constructor(private http: HttpClient) { }
 
   getCustomers() {
+    console.log("getCustomers");
     return this.http.get<Customer[]>(environment.api + 'customers');
   }
 }

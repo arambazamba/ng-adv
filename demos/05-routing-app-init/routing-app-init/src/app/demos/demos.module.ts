@@ -77,7 +77,9 @@ const demoRoutes: Routes = [
           {
             path: 'members',
             component: MembersComponent,
-            canActivate: [OnlyAuthenticatedGuard],
+            canActivate: [
+              OnlyAuthenticatedGuard
+            ],
           },
           {
             path: 'prime',

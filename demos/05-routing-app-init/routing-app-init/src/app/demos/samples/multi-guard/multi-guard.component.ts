@@ -14,4 +14,11 @@ export class MultiGuardComponent {
   allowToggleMember = this.af.getIsLoggedIn()
     .pipe(map((loggedin) => !loggedin));
 
+  toggleLoggedIn() {
+    this.af.toggleLoggedIn()
+  }
+
+  togglePrimeMember() {
+    this.af.togglePrimeMember()
+  }
 }

@@ -7,14 +7,14 @@
     <button
       mat-raised-button
       color="primary"
-      (click)="this.af.toggleLoggedIn()"
+      (click)="toggleLoggedIn()"
     >
       Toggle LoggedIn
     </button>
     <button
       mat-raised-button
       color="primary"
-      (click)="this.af.togglePrimeMember()"
+      (click)="togglePrimeMember()"
       [disabled]="allowToggleMember | async"
     >
       Toggle Prime Member
@@ -33,6 +33,4 @@
   </mat-card-content>
 </mat-card>
 
-<!-- <ng-container> -->
 <router-outlet></router-outlet>
-<!-- </ng-container> -->
