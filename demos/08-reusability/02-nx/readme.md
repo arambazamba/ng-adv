@@ -296,7 +296,7 @@ nx generate @nrwl/angular:app ng-otherapp --routing --style=scss
 
 >Note: Choose to use a standalone component and delete app.component.html
 
-Update app.component.ts:
+Import the `UxLibModule` in the standalone component and update app.component.ts:
 
 ```typescript 
 import { Component } from '@angular/core';
@@ -321,26 +321,6 @@ export class AppComponent {
 
   clicked(evt: any) {
     console.log('msg from the button in other app:', evt);
-  }
-}
-```
-
-Import the `UxLibModule` in the standalone component:
-
-```typescript
-@Component({
-  selector: 'ux-button',
-  templateUrl: './ux-button.component.html',
-  styleUrls: ['./ux-button.component.scss'],
-})
-export class UxButtonComponent {
-  @Input() disabled = false;
-  @Input() label = '';
-  @Input() icon = '';
-  @Output() onClicked = new EventEmitter<string>();
-
-  buttonClicked() {
-    this.onClicked.emit("you clicked the button");
   }
 }
 ```
