@@ -61,10 +61,10 @@ Update PeerDependencies in `package.json` of the library:
 
 ```typescript
 "peerDependencies": {
-    "@angular/common": "^15.2.0",
-    "@angular/core": "^15.2.0",
-    "@angular/animations": "^15.2.0",
-    "@angular/material": "^15.2.0"
+    "@angular/common": "^16.1.1",
+    "@angular/core": "^16.1.1",
+    "@angular/animations": "^16.1.1",
+    "@angular/material": "^16.1.1"
   },
 ```
 

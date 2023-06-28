@@ -8,12 +8,12 @@ export const environment = {
   logChangeDetection: false,
   logChanges: false,
   firebaseConfig: {
-    apiKey: "AIzaSyBwZepJAqUZHwiuu5WZ7KqBlYFtMyinCEE",
-    authDomain: "auth-test-910e6.firebaseapp.com",
-    projectId: "auth-test-910e6",
-    storageBucket: "auth-test-910e6.appspot.com",
-    messagingSenderId: "978916591507",
-    appId: "1:978916591507:web:a6cca82e4bf1ce2f804a66",
-    measurementId: "G-XLKCLQP019"
+    apiKey: "AIzaSyBDZlA5Inq9ngFIyxj0L_--ojZbNGbyNqo",
+    authDomain: "ng-adv-3156c.firebaseapp.com",
+    projectId: "ng-adv-3156c",
+    storageBucket: "ng-adv-3156c.appspot.com",
+    messagingSenderId: "917374484498",
+    appId: "1:917374484498:web:b4fa1e7ceb52f186f858cb",
+    measurementId: "G-GECR93RSTR"
   },
 };
