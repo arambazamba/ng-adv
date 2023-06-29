@@ -1,7 +1,5 @@
 # Food App - Testing
 
-![test-explorer](_images/test-explorer.jpg)
-
 Tools Setup:
 
 - Install [Wallaby.js](https://marketplace.visualstudio.com/items?itemName=WallabyJs.wallaby-vscode) and get your [trial licence](https://wallabyjs.com/download/) - (optional) 
