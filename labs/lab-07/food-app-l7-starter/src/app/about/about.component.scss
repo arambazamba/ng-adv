@@ -1,19 +1,15 @@
-
-/* TODO(mdc-migration): The following rule targets internal classes of card that may no longer apply for the MDC version. */
-mat-card-subtitle{
-    color: white;
+mat-card-subtitle {
+  color: white;
 }
 
-/* TODO(mdc-migration): The following rule targets internal classes of card that may no longer apply for the MDC version. */
-mat-card{
-    margin-bottom: 1rem;
+mat-card {
+  margin-bottom: 1rem;
 }
 
-/* TODO(mdc-migration): The following rule targets internal classes of card that may no longer apply for the MDC version. */
-mat-card-content{
-    padding-left: 1rem;
+mat-card-content {
+  padding-left: 1rem;
 }
 
-div{
-    margin-bottom: 0.5rem;
+div {
+  margin: 1rem 0;
 }

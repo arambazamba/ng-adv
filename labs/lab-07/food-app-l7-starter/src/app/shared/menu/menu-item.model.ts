@@ -1,4 +1,4 @@
 export class MenuItem {
-  label: string;
-  url: string;
+  label: string = '';
+  url: string = '';
 }

@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, inject, ChangeDetectorRef, AfterContentChecked } from '@angular/core';
 import { MatDrawerMode } from '@angular/material/sidenav';
 import { MenuService } from './shared/menu/menu.service';
 import { LoadingService } from './shared/loading/loading.service';
@@ -11,9 +11,17 @@ import { LoadingService } from './shared/loading/loading.service';
 export class AppComponent {
   title = 'Food App';
   mode: MatDrawerMode = 'side';
+  ms = inject(MenuService);
+  ls = inject(LoadingService);
+  changeDetector = inject(ChangeDetectorRef);
+  isLoading = this.ls.getLoading();
 
-  constructor(public ms: MenuService, public ls: LoadingService) {
-    ms.sideNavPosition.subscribe((m) => (this.mode = m));
+  constructor() {
+    this.ms.sideNavPosition.subscribe((currentMode) => { this.mode = currentMode });
+  }
+
+  ngAfterContentChecked(): void {
+    this.changeDetector.detectChanges();
   }
 
   getWorbenchStyle() {
@@ -21,11 +29,10 @@ export class AppComponent {
     this.ms.sideNavVisible.subscribe((visible) => {
       result = visible
         ? {
-            'padding-left': '10px',
-          }
+          'padding-left': '10px',
+        }
         : {};
     });
-    console.log('style:', result);
     return result;
   }
 }

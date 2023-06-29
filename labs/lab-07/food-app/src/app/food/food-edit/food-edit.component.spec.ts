@@ -1,3 +1,4 @@
+import { CommonModule } from '@angular/common';
 import { SimpleChange } from '@angular/core';
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 import { ReactiveFormsModule } from '@angular/forms';
@@ -5,7 +6,6 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MaterialModule } from '../../material.module';
 import { foodEmptyItem, foodSingleItem } from '../food.mocks';
 import { FoodEditComponent } from './food-edit.component';
-import { CommonModule } from '@angular/common';
 
 describe('FoodEditComponent', () => {
   let fixture: ComponentFixture<FoodEditComponent>;

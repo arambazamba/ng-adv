@@ -8,17 +8,17 @@ import { FoodService } from '../food.service';
   styleUrls: ['./food-container.component.scss'],
 })
 export class FoodContainerComponent implements OnInit {
-  food: FoodItem[];
-  selected: FoodItem | null;
+  food: FoodItem[] = [];
+  selected: FoodItem | null = null;
 
-  constructor(private fs: FoodService) {}
+  constructor(private fs: FoodService) { }
 
   ngOnInit() {
     this.fs.getFood().subscribe((data) => (this.food = data));
   }
 
-  addFood() {
-    this.selected = { id: 0, name: '', price: 0, calories: 0 } as FoodItem;
+  addFood(item: FoodItem) {
+    this.selected = item;
   }
 
   selectFood(f: FoodItem) {
@@ -33,7 +33,7 @@ export class FoodContainerComponent implements OnInit {
     });
   }
 
-  saveFood(f: FoodItem) {
+  foodSaved(f: FoodItem) {
     if (f.id) {
       this.fs.updateFood(f).subscribe((result) => {
         let existing = this.food.find((f) => f.id == result.id);
@@ -48,5 +48,6 @@ export class FoodContainerComponent implements OnInit {
         this.food = [...this.food];
       });
     }
+    this.selected = null;
   }
 }

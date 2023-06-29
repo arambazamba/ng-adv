@@ -1,8 +1,9 @@
 import {
   Component,
-  EventEmitter,
+  OnInit,
   Input,
   Output,
+  EventEmitter,
   SimpleChanges,
 } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
@@ -13,11 +14,7 @@ import { FoodItem } from '../food.model';
   templateUrl: './food-edit.component.html',
   styleUrls: ['./food-edit.component.scss'],
 })
-export class FoodEditComponent {
-  @Input() food: FoodItem;
-  @Output() saveFood: EventEmitter<FoodItem> = new EventEmitter();
-  form: FormGroup;
-
+export class FoodEditComponent implements OnInit {
   constructor(private fb: FormBuilder) {
     this.form = this.fb.group({
       id: 0,
@@ -26,6 +23,13 @@ export class FoodEditComponent {
       calories: 0,
     });
   }
+
+  @Input() food: FoodItem = new FoodItem();
+  @Output() saveFood: EventEmitter<FoodItem> = new EventEmitter();
+
+  form: FormGroup;
+
+  ngOnInit() { }
 
   ngOnChanges(changes: SimpleChanges): void {
     if (changes['food']) {

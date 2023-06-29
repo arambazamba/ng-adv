@@ -24,12 +24,12 @@ export class FoodEditComponent implements OnInit {
     });
   }
 
-  @Input() food: FoodItem;
+  @Input() food: FoodItem = new FoodItem();
   @Output() saveFood: EventEmitter<FoodItem> = new EventEmitter();
 
   form: FormGroup;
 
-  ngOnInit() {}
+  ngOnInit() { }
 
   ngOnChanges(changes: SimpleChanges): void {
     if (changes['food']) {

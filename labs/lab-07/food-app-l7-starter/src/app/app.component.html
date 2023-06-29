@@ -1,22 +1,19 @@
-<div
-  gdAreas="navbar | mainrow"
-  gdAreas.lt-md="navbar  | mainrow"
-  gdGap="0.5rem"
-  gdRows="80px auto"
-  gdColumns="auto"
-  class="grid"
->
-  <div gdArea="navbar"><app-navbar></app-navbar></div>
-  <div gdArea="mainrow" class="main">
+<div class="grid">
+  <div class="gd-navbar">
+    <app-navbar></app-navbar></div>
+  <div class="gd-loading">
+    <app-loading *ngIf="isLoading | async"></app-loading>
+  </div>
+  <div class="gd-mainrow">
     <mat-sidenav-container>
-      <mat-sidenav  #sidenav
+      <mat-sidenav #sidenav class="sidenav"
       [opened]="ms.sideNavVisible | async"
-      [mode]="ms.sideNavPosition | async">
-        <app-sidebar></app-sidebar>
+      [mode]="mode">
+        <app-sidemenu></app-sidemenu>
       </mat-sidenav>
       <mat-sidenav-content [ngStyle]="getWorbenchStyle()">
         <router-outlet></router-outlet>
       </mat-sidenav-content>
     </mat-sidenav-container>
-  </div> 
+  </div>
 </div>
