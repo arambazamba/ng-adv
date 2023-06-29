@@ -1,42 +1,53 @@
 import { Component, OnInit } from '@angular/core';
 import { FoodItem } from '../food.model';
-import { FoodState } from '../store/reducers/food.reducer';
-import { Store } from '@ngrx/store';
-import { LoadFoods, SelectFood } from '../store/actions/food.actions';
-import { Observable } from 'rxjs';
-import { tap } from 'rxjs/operators';
-import { getAllFood, getSelected } from '../store/selectors/food.selectors';
+import { FoodService } from '../food.service';
 
 @Component({
   selector: 'app-food-container',
   templateUrl: './food-container.component.html',
-  styleUrls: ['./food-container.component.scss']
+  styleUrls: ['./food-container.component.scss'],
 })
 export class FoodContainerComponent implements OnInit {
-  constructor(private store: Store<FoodState>) {}
+  food: FoodItem[] = [];
+  selected: FoodItem | null = null;
 
-  food$: Observable<Array<FoodItem>> = this.store
-    .select(getAllFood)
-    .pipe(tap(data => console.log('data received from store', data)));
-
-  selected$: Observable<FoodItem> = this.store.select(getSelected);
+  constructor(private fs: FoodService) { }
 
   ngOnInit() {
-    this.store.dispatch(new LoadFoods());
+    this.fs.getFood().subscribe((data) => (this.food = data));
+  }
+
+  addFood(item: FoodItem) {
+    this.selected = item;
   }
 
   selectFood(f: FoodItem) {
-    this.store.dispatch(new SelectFood(f));
+    this.selected = { ...f };
   }
 
   deleteFood(f: FoodItem) {
-    console.log('deleteing ', f);
-    // this.food = this.food.filter(item => item.id != f.id);
+    this.fs.deleteFood(f.id).subscribe(() => {
+      let deleted = this.food.filter((item) => item.id != f.id);
+      this.food = [...deleted];
+      this.selected = null;
+    });
   }
 
   foodSaved(f: FoodItem) {
-    // this.food = this.food.filter(item => item.id != f.id);
-    // this.food.push(f);
-    // this.selected = null;
+    if (f.id) {
+      this.fs.updateFood(f).subscribe((result) => {
+        let existing = this.food.find((f) => f.id == result.id);
+        if (existing) {
+          Object.assign(existing, result);
+          this.food = [...this.food];
+        }
+      });
+    } else {
+      this.fs.addFood(f).subscribe((result) => {
+        this.food.push(result);
+        this.food = [...this.food];
+      });
+    }
+    this.selected = null;
   }
 }

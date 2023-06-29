@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-import { NavItem } from './navItem';
-import { MenuFacade } from '../../store/facades/menu.facade';
+import { MenuService } from '../menu/menu.service';
+import { NavbarService } from './navbar.service';
+import { NavItem } from './nav-item.model';
 
 @Component({
   selector: 'app-navbar',
@@ -8,19 +9,18 @@ import { MenuFacade } from '../../store/facades/menu.facade';
   styleUrls: ['./navbar.component.scss'],
 })
 export class NavbarComponent implements OnInit {
-  constructor(public mf: MenuFacade) {}
+  constructor(public ns: NavbarService, public ms: MenuService) { }
 
-  items: NavItem[];
+  navItems: NavItem[] = [];
 
   ngOnInit() {
-    this.items = [
-      { title: 'Home', url: '/' },
-      { title: 'Products', url: '/products' },
-      { title: 'About', url: '/about' },
-    ];
+    this.ns.getItems().subscribe((data) => {
+      this.navItems = data;
+    });
   }
 
   toggleMenu() {
-    this.mf.toggleMenuVisibility();
+    this.ms.toggleMenuVisibility();
   }
 }
+

@@ -5,28 +5,24 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { NavbarComponent } from './shared/navbar/navbar.component';
-import { SidebarComponent } from './shared/sidebar/sidebar.component';
 import { MainComponent } from './main/main.component';
 import { HomeComponent } from './home/home.component';
 import { AboutComponent } from './about/about.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MaterialModule } from './material.module';
-import { StoreModule } from '@ngrx/store';
-import { reducers, metaReducers } from './store';
-import { EffectsModule } from '@ngrx/effects';
-import { environment } from 'src/environments/environment';
-import { StoreDevtoolsModule } from '@ngrx/store-devtools';
-import { FoodModule } from './food/food.module';
-import { FlexLayoutModule } from '@angular/flex-layout';
+import { SidemenuComponent } from './shared/sidemenu/sidemenu.component';
+import { LoadingComponent } from './shared/loading/loading.component';
+import { CenteredDirective } from './shared/formatting/formatting-directives';
 
 @NgModule({
   declarations: [
     AppComponent,
     NavbarComponent,
-    SidebarComponent,
+    SidemenuComponent,
     MainComponent,
     HomeComponent,
     AboutComponent,
+    LoadingComponent,
   ],
   imports: [
     BrowserModule,
@@ -35,20 +31,10 @@ import { FlexLayoutModule } from '@angular/flex-layout';
     FormsModule,
     ReactiveFormsModule,
     BrowserAnimationsModule,
-    FlexLayoutModule,
     MaterialModule,
-    FoodModule,
-    StoreModule.forRoot(reducers, {
-      metaReducers,
-      runtimeChecks: {
-        strictStateImmutability: true,
-        strictActionImmutability: true,
-      },
-    }),
-    EffectsModule.forRoot([]),
-    !environment.production ? StoreDevtoolsModule.instrument() : [],
+    CenteredDirective
   ],
   providers: [],
   bootstrap: [AppComponent],
 })
-export class AppModule {}
+export class AppModule { }

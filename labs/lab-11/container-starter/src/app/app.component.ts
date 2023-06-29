@@ -1,5 +1,7 @@
-import { Component } from '@angular/core';
-import { MenuFacade } from './store/facades/menu.facade';
+import { Component, inject, ChangeDetectorRef, AfterContentChecked } from '@angular/core';
+import { MatDrawerMode } from '@angular/material/sidenav';
+import { MenuService } from './shared/menu/menu.service';
+import { LoadingService } from './shared/loading/loading.service';
 
 @Component({
   selector: 'app-root',
@@ -8,8 +10,29 @@ import { MenuFacade } from './store/facades/menu.facade';
 })
 export class AppComponent {
   title = 'Food App';
-  menuVisible$ = this.mf.sideNavVisible;
-  menuPosition$ = this.mf.sideNavPosition;
+  mode: MatDrawerMode = 'side';
+  ms = inject(MenuService);
+  ls = inject(LoadingService);
+  changeDetector = inject(ChangeDetectorRef);
+  isLoading = this.ls.getLoading();
 
-  constructor(public mf: MenuFacade) { }
+  constructor() {
+    this.ms.sideNavPosition.subscribe((currentMode) => { this.mode = currentMode });
+  }
+
+  ngAfterContentChecked(): void {
+    this.changeDetector.detectChanges();
+  }
+
+  getWorbenchStyle() {
+    let result = {};
+    this.ms.sideNavVisible.subscribe((visible) => {
+      result = visible
+        ? {
+          'padding-left': '10px',
+        }
+        : {};
+    });
+    return result;
+  }
 }
