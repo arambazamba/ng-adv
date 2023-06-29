@@ -22,14 +22,14 @@
             "main": "src/main.ts",
             "polyfills": "src/polyfills.ts",
             "tsConfig": "tsconfig.app.json",
-            "assets": ["src/favicon.ico", "src/assets"],
+            "assets": [
+              "src/favicon.ico",
+              "src/assets"
+            ],
             "styles": [
               "./node_modules/@angular/material/prebuilt-themes/pink-bluegrey.css",
               "src/styles.scss"
             ],
-            "stylePreprocessorOptions": {
-              "includePaths": ["src/theme"]
-            },
             "scripts": [],
             "vendorChunk": true,
             "extractLicenses": false,
@@ -65,8 +65,7 @@
                 }
               ]
             }
-          },
-          "defaultConfiguration": ""
+          }
         },
         "serve": {
           "builder": "@angular-devkit/build-angular:dev-server",
@@ -92,14 +91,14 @@
             "polyfills": "src/polyfills.ts",
             "tsConfig": "tsconfig.spec.json",
             "karmaConfig": "karma.conf.js",
-            "assets": ["src/favicon.ico", "src/assets"],
+            "assets": [
+              "src/favicon.ico",
+              "src/assets"
+            ],
             "styles": [
               "./node_modules/@angular/material/prebuilt-themes/pink-bluegrey.css",
               "src/styles.scss"
             ],
-            "stylePreprocessorOptions": {
-              "includePaths": ["src/theme"]
-            },
             "scripts": []
           }
         },
@@ -119,7 +118,7 @@
     }
   },
   "cli": {
-    "analytics": false,
+    "analytics": "b2e4028f-1bf5-44dc-987d-af0e16f10dc0",
     "cache": {
       "enabled": false
     }

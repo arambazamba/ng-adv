@@ -6,65 +6,54 @@ import {
   EventEmitter,
   SimpleChanges,
   OnChanges,
-} from '@angular/core';
-import { FoodItem } from 'src/app/food/foodItem';
-import { MatTableDataSource } from '@angular/material/table';
+} from "@angular/core";
+import { MatTableDataSource } from "@angular/material/table";
+import { FoodItem } from "../food.model";
 
 @Component({
-  selector: 'app-food-list',
-  templateUrl: './food-list.component.html',
-  styleUrls: ['./food-list.component.scss'],
+  selector: "app-food-list",
+  templateUrl: "./food-list.component.html",
+  styleUrls: ["./food-list.component.scss"],
 })
 export class FoodListComponent implements OnInit, OnChanges {
   constructor() {}
 
-  @Input()
-  food: FoodItem[];
+  @Input() food: FoodItem[] = [];
+  @Output() foodSelected: EventEmitter<FoodItem> = new EventEmitter<FoodItem>();
   @Output()
-  editSelected: EventEmitter<FoodItem> = new EventEmitter();
+  foodDeleted: EventEmitter<FoodItem> = new EventEmitter<FoodItem>();
   @Output()
-  deleteSelected: EventEmitter<FoodItem> = new EventEmitter();
+  foodAdding: EventEmitter<FoodItem> = new EventEmitter<FoodItem>();
 
   displayedColumns: string[] = [
-    'id',
-    'name',
-    'price',
-    'calories',
-    'deleteItem',
-    'editItem',
+    "id",
+    "name",
+    "price",
+    "calories",
+    "deleteItem",
+    "editItem",
   ];
-  dataSource: MatTableDataSource<FoodItem> = new MatTableDataSource([]);
+  dataSource = new MatTableDataSource([]);
 
   ngOnInit() {}
 
   ngOnChanges(changes: SimpleChanges) {
-    console.log(changes.food.currentValue);
-    this.dataSource = new MatTableDataSource(changes.food.currentValue);
+    this.dataSource = new MatTableDataSource(changes["food"].currentValue);
   }
 
   applyFilter(filterValue: string) {
     this.dataSource.filter = filterValue.trim().toLowerCase();
   }
 
-  addFood() {
-    console.log(this.getNextId());
-    this.editSelected.emit({
-      id: this.getNextId(),
-      name: '',
-      price: 0,
-      calories: 0,
-    });
-  }
-
-  getNextId(): number {
-    return this.food.reduce((acc, f) => (acc = acc > f.id ? acc : f.id), 0) + 1;
-  }
-
   selectFood(p: FoodItem) {
-    this.editSelected.emit(p);
+    this.foodSelected.emit(p);
   }
 
-  deleteFood(p: FoodItem) {
-    this.deleteSelected.emit(p);
+  deleteFood(item: FoodItem) {
+    this.foodDeleted.emit(item);
+  }
+
+  addFood() {
+    this.foodAdding.emit(new FoodItem());
   }
 }

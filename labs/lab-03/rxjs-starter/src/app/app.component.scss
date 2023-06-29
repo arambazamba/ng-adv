@@ -1,22 +1,24 @@
-.navbar {
-  background-color: lightblue;
-  height: 10vh;
+.grid {
+  display: grid;
+  height: 100%;
+  width: 100%;
+  gap: 0.5rem;
+  grid-template-rows: 80px auto;
+  grid-template-columns: 180px auto;
+  grid-template-areas:
+    "navbar navbar"
+    "sidemenu maincontent";
 }
 
-.sidebar {
-  background-color: lightgrey;
-  width: 20vw;
+.gd-navbar {
+  grid-area: navbar;
 }
 
-.main {
-  width: 80vw;
-  margin-left: 2rem;
-  margin-right: 2rem;
-  margin-bottom: 2rem;
+.gd-sidemenu {
+  grid-area: sidemenu;
+  background: lightgrey;
 }
 
-.mainrow {
-  display: flex;
-  flex-direction: row;
-  height: 90vh;
+.gd-maincontent {
+  grid-area: maincontent;
 }
