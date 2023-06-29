@@ -1,5 +1,7 @@
 export class SimpleClass {
-  static sayHelloWorld(): string {
+  constructor() { }
+
+  sayHelloWorld(): string {
     return 'Hello World!';
   }
 }

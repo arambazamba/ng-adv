@@ -1,6 +1,6 @@
 import { CommonModule } from '@angular/common';
 import { HttpClientModule } from '@angular/common/http';
-import { Component } from '@angular/core';
+import { Component, inject } from '@angular/core';
 import { FormControl, ReactiveFormsModule } from '@angular/forms';
 import { MatButtonModule } from '@angular/material/button';
 import { MatCardModule } from '@angular/material/card';
@@ -31,25 +31,25 @@ import { OrdersStore } from './orders.store';
   providers: [OrdersStore],
 })
 export class OrdersComponent {
-
+  private store = inject(OrdersStore);
   private hubConnection: SignalR.HubConnection | null = null;
 
   showAll = new FormControl(false);
 
   view = this.store.orders$.pipe(
-    tap((events) => localStorage.setItem('orders', JSON.stringify(events))),
+    tap((orders) => localStorage.setItem('orders', JSON.stringify(orders))),
     combineLatestWith(this.showAll.valueChanges.pipe(startWith(false))),
-    map(([events, showAll]) =>
+    map(([orders, showAll]) =>
       showAll
-        ? events
-        : events.filter(
+        ? orders
+        : orders.filter(
           (evt) =>
             evt.data?.status == 'incoming' || evt.data?.status == 'preparing'
         )
     )
   );
 
-  constructor(private store: OrdersStore) {
+  constructor() {
     this.store.init();
     this.connectSignalR();
   }
@@ -63,7 +63,7 @@ export class OrdersComponent {
     // Start connection. This will call negotiate endpoint
     this.hubConnection.start();
 
-    // Handle incoming events for the specific target
+    // Handle incoming orders for the specific target
     this.hubConnection.on('foodapp.order', (event: string) => {
       let evt = JSON.parse(event) as CloudEvent<FoodOrder>;
       this.store.addOrder(evt);

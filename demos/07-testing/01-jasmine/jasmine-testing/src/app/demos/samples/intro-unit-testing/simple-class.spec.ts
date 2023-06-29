@@ -1,11 +1,17 @@
 import { SimpleClass } from './simple-class';
 
 describe('Class - Hello world Test', () => {
+  let sc: SimpleClass;
+
+  beforeEach(() => {
+    sc = new SimpleClass();
+  });
+
   it('contains 12 charactes', () => {
-    debugger;
-    expect(SimpleClass.sayHelloWorld().length).toEqual(12)
+    expect(sc.sayHelloWorld().length).toEqual(12)
   });
 
   it('says Hello World!', () =>
-    expect(SimpleClass.sayHelloWorld()).toEqual('Hello World!'));
+    expect(sc.sayHelloWorld()).toEqual('Hello World!'));
 });
+

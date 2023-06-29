@@ -1,4 +1,4 @@
-import { fakeAsync, flush, TestBed } from '@angular/core/testing';
+import { fakeAsync, flush, TestBed, ComponentFixture } from '@angular/core/testing';
 
 import { FormsModule } from '@angular/forms';
 import { MatCardModule } from '@angular/material/card';
@@ -8,19 +8,21 @@ import { NoopAnimationsModule } from '@angular/platform-browser/animations';
 import { ComponentWriteComponent } from './component-write.component';
 
 describe('ComponentWriteComponent', () => {
+  let fixture: ComponentFixture<ComponentWriteComponent>;
+
   beforeEach(() => {
     TestBed.configureTestingModule({
       imports: [FormsModule, MatCardModule, MatInputModule, NoopAnimationsModule],
       declarations: [ComponentWriteComponent],
     });
+    fixture = TestBed.createComponent(ComponentWriteComponent);
   });
 
   it('should be display the written Value', fakeAsync(() => {
     const whippet = 'Soi the Whippet';
     const giro = 'Giro the Hunter from Spain';
-    const fixture = TestBed.createComponent(ComponentWriteComponent);
-    fixture.autoDetectChanges();
 
+    fixture.autoDetectChanges();
     const input = fixture.debugElement.query(By.css('input'));
     const el = input.nativeElement;
     flush();

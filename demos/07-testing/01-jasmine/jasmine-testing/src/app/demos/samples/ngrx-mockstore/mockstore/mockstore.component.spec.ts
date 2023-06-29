@@ -1,9 +1,9 @@
-import { ComponentFixture, TestBed, fakeAsync } from '@angular/core/testing';
-import { provideMockStore, MockStore } from '@ngrx/store/testing';
-import { MockstoreComponent } from './mockstore.component';
-import { DemoState } from '../../../state/demos.reducer';
-import { mockstoreData } from './mockstore.data';
+import { ComponentFixture, TestBed } from '@angular/core/testing';
 import { By } from '@angular/platform-browser';
+import { MockStore, provideMockStore } from '@ngrx/store/testing';
+import { DemoState } from '../../../state/demos.reducer';
+import { MockstoreComponent } from './mockstore.component';
+import { mockstoreData } from './mockstore.data';
 
 
 describe('MockstoreComponent', () => {

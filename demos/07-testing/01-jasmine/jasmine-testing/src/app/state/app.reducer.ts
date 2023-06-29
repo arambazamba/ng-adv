@@ -34,7 +34,6 @@ export const appReducer = createReducer(initialAppState,
     ...state,
     sideNavPosition: action.position as MatDrawerMode,
   })),
-  on(toggleMockAuthenticated, (state, action) => {
-    return { ...state, IsMockAuthenticated: !state.IsMockAuthenticated };
-  }),
+  on(toggleMockAuthenticated, (state, action) => ({ ...state, IsMockAuthenticated: !state.IsMockAuthenticated }))
+
 );

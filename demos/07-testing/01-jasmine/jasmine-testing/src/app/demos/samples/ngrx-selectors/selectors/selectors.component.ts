@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, inject } from '@angular/core';
 import { Store } from '@ngrx/store';
 import { DemoState } from '../../../state/demos.reducer';
 import { getVisibleDemos } from '../../../state/demo.selectors';
@@ -9,7 +9,6 @@ import { getVisibleDemos } from '../../../state/demo.selectors';
   styleUrls: ['./selectors.component.scss']
 })
 export class SelectorsComponent {
+  store = inject(Store<DemoState>)
   demos = this.store.select(getVisibleDemos);
-
-  constructor(private store: Store<DemoState>) { }
 }

@@ -6,6 +6,8 @@ import { Injectable } from '@angular/core';
 export class AuthService {
   private isAuth = false;
 
+  useAzureAD = false;
+
   isAuthenticated(): boolean {
     return this.isAuth;
   }
