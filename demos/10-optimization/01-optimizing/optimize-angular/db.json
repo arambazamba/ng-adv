@@ -119,5 +119,18 @@
       "url": "skills"
     }
   ],
-  "logs": []
+  "logs": [
+    {
+      "level": 5,
+      "additional": [
+        "Error Details"
+      ],
+      "message": "Error",
+      "timestamp": "2023-06-30T10:15:26.582Z",
+      "fileName": "demos.module-QQUE26WP.js",
+      "lineNumber": 6895,
+      "columnNumber": 17,
+      "id": 1
+    }
+  ]
 }
