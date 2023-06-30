@@ -93,7 +93,7 @@ env.js:
 ```javascript
 (function (window) {
   window["env"] = window["env"] || {};
-  window["env"].API_URL = "http://localhost:3000";
+  window["env"].API_URL = "http://localhost:3000/";
 })(this);
 ```
 
@@ -128,5 +128,5 @@ CMD ["/bin/sh",  "-c",  "envsubst < /usr/share/nginx/html/assets/env.template.js
 Rebuild the contaienr and run it again by providing the environment variable for ENV_API_URL:
 
 ```bash
-docker run -d --rm -p 5052:80 --env ENV_API_URL="http://localhost:5051/api" food-app
+docker run -d --rm -p 5052:80 --env ENV_API_URL="http://localhost:5051/" food-app
 ```
