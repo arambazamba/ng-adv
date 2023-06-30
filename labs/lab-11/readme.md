@@ -22,7 +22,7 @@ COPY --from=node /app/dist/food-app /usr/share/nginx/html
 COPY ./config/nginx.conf /etc/nginx/conf.d/default.conf
 ```
 
-Add the nginx config file `nginx.conf` to a config folder that you create in the root of the project:
+Add the nginx config file `nginx.conf` to a config folder that you create in the root of the project. It provides URL rewriting for the Angular app:
 
 ```nginx
 server {
@@ -57,7 +57,7 @@ docker build -t food-app .
 Run the container using the following command:
 
 ```bash
-docker run -d --rm -p 5052:80
+docker run -d --rm -p 5052:80 food-app
 ```
 
 Connect to the container by navigation to http://localhost:5052/
