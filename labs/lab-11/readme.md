@@ -1,6 +1,6 @@
-# Injecting Configurations into Docker Containers
+# Injecting Configuration into Docker Containers
 
-## Config from Environments Vars
+## Build the container
 
 Open project `container-starter` and add the following `Dockerfile`:
 
@@ -22,6 +22,32 @@ COPY --from=node /app/dist/food-app /usr/share/nginx/html
 COPY ./config/nginx.conf /etc/nginx/conf.d/default.conf
 ```
 
+Add the nginx config file `nginx.conf` to a config folder that you create in the root of the project:
+
+```nginx
+server {
+    listen 0.0.0.0:80;
+    listen [::]:80;
+    default_type application/octet-stream;
+
+    gzip                    on;
+    gzip_comp_level         6;
+    gzip_vary               on;
+    gzip_min_length         1000;
+    gzip_proxied            any;
+    gzip_types              text/plain text/css application/json application/x-javascript text/xml application/xml application/xml+rss text/javascript;
+    gzip_buffers            16 8k;
+    client_max_body_size    256M;
+
+    root /usr/share/nginx/html;
+
+    location / {
+        try_files $uri $uri/ /index.html =404;
+    }
+}
+```
+
+
 Build the container using the following command:
 
 ```bash
@@ -36,7 +62,7 @@ docker run -d --rm -p 5052:80
 
 Connect to the container by navigation to http://localhost:5052/
 
-## Config from Config Files
+## Inject config from environment variables
 
 Starte an existing .NET Api as a container:
 
