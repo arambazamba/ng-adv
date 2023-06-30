@@ -106,6 +106,19 @@ env.template.js:
 })(this);
 ```
 
+Reference the env.js file in the index.html:
+
+```html
+<head>
+  <meta charset="utf-8">
+  <title>Food App</title>
+  <base href="/">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  ...
+  <script src="assets/env.js"></script>
+</head>
+```
+
 Add the following line to the end of the dockerfile:
   
 ```dockerfile 
