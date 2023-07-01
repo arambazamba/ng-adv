@@ -1,0 +1,10 @@
+[
+  {
+    "title": "Angular",
+    "completed": true
+  },
+  {
+    "title": "Standalone Components",
+    "completed": false
+  }
+]

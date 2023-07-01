@@ -1,18 +1,16 @@
 import { CommonModule } from '@angular/common';
 import { Component } from '@angular/core';
+import { RouterOutlet } from '@angular/router';
+import { BoxedDirective } from './shared/formatting/formatting-directives';
+import { SidebarComponent } from './shared/sidebar/sidebar.component';
 
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.scss'],
   standalone: true,
-  imports: [CommonModule],
+  imports: [CommonModule, RouterOutlet, BoxedDirective, SidebarComponent],
 })
 export class AppComponent {
-  title = 'boostrap-standalone';
-
-  skills = [
-    { id: '123', name: 'rxjs from api', completed: true },
-    { id: '456', name: 'ngrx from api', completed: false },
-  ];
+  title = 'Standalone Skills App';
 }

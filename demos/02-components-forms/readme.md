@@ -44,8 +44,3 @@ if (environment.production) {
 }
 bootstrapApplication(AppComponent).catch((err) => console.error(err));
 ```
-## Readings
-
-[Dynamic Forms: ngx-formly](https://github.com/ngx-formly/ngx-formly)
-
-[Configuration based reactive Angular Forms with ngx-formly](https://egghead.io/playlists/configuration-based-reactive-angular-forms-with-ngx-formly-465f)
