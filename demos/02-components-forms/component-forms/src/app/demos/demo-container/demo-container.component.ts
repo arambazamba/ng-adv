@@ -1,7 +1,7 @@
 import { Component, DestroyRef, OnInit, inject } from '@angular/core';
 import { takeUntilDestroyed } from '@angular/core/rxjs-interop';
 import { ActivatedRoute, NavigationEnd, Router } from '@angular/router';
-import { filter, map } from 'rxjs/operators';
+import { filter, map, mergeMap, tap } from 'rxjs/operators';
 import { SidebarActions } from 'src/app/shared/side-panel/sidebar.actions';
 import { SidePanelService } from 'src/app/shared/side-panel/sidepanel.service';
 import { environment } from 'src/environments/environment';
@@ -14,7 +14,7 @@ import { DemoService } from '../demo-base/demo.service';
   templateUrl: './demo-container.component.html',
   styleUrls: ['./demo-container.component.scss'],
 })
-export class DemoContainerComponent implements OnInit {
+export class DemoContainerComponent {
   destroyRef = inject(DestroyRef);
   router = inject(Router);
   route = inject(ActivatedRoute);
@@ -24,7 +24,6 @@ export class DemoContainerComponent implements OnInit {
   eb = inject(SidePanelService);
 
   title: string = environment.title;
-  header = 'Please select a demo';
   demos = this.ds.getItems();
 
   isLoading = false;
@@ -34,6 +33,18 @@ export class DemoContainerComponent implements OnInit {
   workbenchMargin = this.sidenavVisible.pipe(
     map((visible: boolean) => { return visible ? { 'margin-left': '5px' } : {} })
   );
+
+  header = this.router.events
+    .pipe(
+      takeUntilDestroyed(this.destroyRef),
+      filter((event) => event instanceof NavigationEnd),
+      map(() => this.rootRoute(this.route)),
+      filter((route: ActivatedRoute) => route.outlet === 'primary'),
+      map((route: ActivatedRoute) => route.component != null
+        ? `Component: ${route.component.name.substring(1)}`
+        : 'Please select a demo'),
+      tap((header) => console.log(header)
+      ));
 
   showMdEditor = this.eb
     .getCommands()
@@ -47,32 +58,10 @@ export class DemoContainerComponent implements OnInit {
     });
   }
 
-  ngOnInit() {
-    this.setComponentMetadata();
-  }
-
   rootRoute(route: ActivatedRoute): ActivatedRoute {
     while (route.firstChild) {
       route = route.firstChild;
     }
     return route;
-  }
-
-  setComponentMetadata() {
-    this.router.events
-      .pipe(
-        takeUntilDestroyed(this.destroyRef),
-        filter((event) => event instanceof NavigationEnd),
-        map(() => this.rootRoute(this.route)),
-        filter((route: ActivatedRoute) => route.outlet === 'primary')
-      )
-      .subscribe((route: ActivatedRoute) => {
-        this.header =
-          route.component != null
-            ? `Component: ${route.component
-              .toString()
-              .substring(6, route.component.toString().indexOf('{') - 1)}`
-            : '';
-      });
   }
 }
