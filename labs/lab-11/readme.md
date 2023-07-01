@@ -60,11 +60,11 @@ Run the container using the following command:
 docker run -d --rm -p 5052:80 food-app
 ```
 
-Connect to the container by navigation to http://localhost:5052/
+Connect to the container by navigating to http://localhost:5052/
 
 ## Inject config from environment variables
 
-Starte an existing .NET Api as a container:
+Download and start an existing .NET Api as a container:
 
 ```bash
 docker run -d --rm -p 5051:80 arambazamba/food-catalog-api:1.1.0
@@ -86,7 +86,7 @@ export const environment = {
 };
 ```
 
-The environments vars will be produced by two files located in the assets folder:
+The container environments variables that you will provide will be processed by two files located in the assets folder:
 
 env.js:
 
@@ -106,7 +106,7 @@ env.template.js:
 })(this);
 ```
 
-Reference the env.js file in the index.html:
+Reference env.js file in the index.html:
 
 ```html
 <head>
@@ -119,7 +119,7 @@ Reference the env.js file in the index.html:
 </head>
 ```
 
-Add the following line to the end of the dockerfile:
+Add the following line to the end of the dockerfile. It will trigger processing of the injected environment variables:
   
 ```dockerfile 
 CMD ["/bin/sh",  "-c",  "envsubst < /usr/share/nginx/html/assets/env.template.js > /usr/share/nginx/html/assets/env.js && exec nginx -g 'daemon off;'"]
