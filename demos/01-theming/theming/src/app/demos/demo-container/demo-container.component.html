@@ -22,20 +22,18 @@
     </mat-nav-list>
   </mat-sidenav>
   <mat-sidenav-content>
-    <div class="gdSidenavContent" [ngStyle]="workbenchMargin | async">
+    <div class="gdSidenavContent" [ngStyle]="workbenchLeftMargin | async">
       <div class="gdToolbar">
         <mat-toolbar color="accent">
           <mat-toolbar-row>
-            <h4>{{ header }}</h4>
+            <h4>{{ header | async }}</h4>
           </mat-toolbar-row>
         </mat-toolbar>
       </div>
       <div class="gdLoading">
-        <app-loading *ngIf="isLoading"></app-loading>
+        <app-loading *ngIf="isLoading | async"></app-loading>
       </div>
-      <div class="gdWorkbench">
-        <router-outlet></router-outlet>
-      </div>
+      <div class="gdWorkbench"><router-outlet></router-outlet></div>
       <div class="gdEditor" *ngIf="showMdEditor | async">
         <app-markdown-editor></app-markdown-editor>
       </div>
