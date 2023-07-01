@@ -1,7 +1,6 @@
 import { Component, DestroyRef, inject } from '@angular/core';
-import { takeUntilDestroyed } from '@angular/core/rxjs-interop';
 import { ActivatedRoute, NavigationEnd, Router } from '@angular/router';
-import { filter, map, tap } from 'rxjs/operators';
+import { filter, map } from 'rxjs/operators';
 import { SidebarActions } from 'src/app/shared/side-panel/sidebar.actions';
 import { SidePanelService } from 'src/app/shared/side-panel/sidepanel.service';
 import { environment } from 'src/environments/environment';
@@ -27,29 +26,11 @@ export class DemoContainerComponent {
   demos = this.ds.getItems();
   sidenavMode = this.nav.getSideNavPosition();
   sidenavVisible = this.nav.getSideNavVisible();
-  isLoading = this.ls.getLoading().pipe(takeUntilDestroyed(this.destroyRef)).pipe(map((value) => value));
+  isLoading = this.ls.getLoading();
 
   workbenchLeftMargin = this.sidenavVisible.pipe(
     map((visible: boolean) => { return visible ? { 'margin-left': '5px' } : {} })
   );
-
-  header = this.router.events
-    .pipe(
-      takeUntilDestroyed(this.destroyRef),
-      filter((event) => event instanceof NavigationEnd),
-      map(() => this.rootRoute(this.route)),
-      filter((route: ActivatedRoute) => route.outlet === 'primary'),
-      map((route: ActivatedRoute) => route.component != null
-        ? `Component: ${route.component.name.substring(1)}`
-        : 'Please select a demo'),
-      tap((header) => console.log(header)
-      ));
-
-  showMdEditor = this.eb
-    .getCommands()
-    .pipe(
-      map((action: SidebarActions) => (action === SidebarActions.HIDE_MARKDOWN ? false : true))
-    );
 
   rootRoute(route: ActivatedRoute): ActivatedRoute {
     while (route.firstChild) {
@@ -57,4 +38,20 @@ export class DemoContainerComponent {
     }
     return route;
   }
+
+  header = this.router.events
+    .pipe(
+      filter((event) => event instanceof NavigationEnd),
+      map(() => this.rootRoute(this.route)),
+      filter((route: ActivatedRoute) => route.outlet === 'primary'),
+      map((route: ActivatedRoute) => route.component != null
+        ? `Component: ${route.component.name.substring(1)}`
+        : 'Please select a demo')
+    );
+
+  showMdEditor = this.eb
+    .getCommands()
+    .pipe(
+      map((action: SidebarActions) => (action === SidebarActions.HIDE_MARKDOWN ? false : true))
+    );
 }
