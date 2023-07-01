@@ -16,8 +16,6 @@ import { A11yComponent } from './samples/a11y/a11y.component';
 import { BundlesComponent } from './samples/bundles/bundles.component';
 import { ConsoleComponent } from './samples/console/console.component';
 import { DebugStatementsComponent } from './samples/debug-statements/debug-statements.component';
-import { DynamicLoadingComponent } from './samples/dynamic-loading/dynamic-loading.component';
-import { SimpleComponent } from './samples/dynamic-loading/simple.component';
 import { EslintComponent } from './samples/eslint/eslint.component';
 import { InjectConfigComponent } from './samples/inject-config/inject-config.component';
 import { LighthouseComponent } from './samples/lighthouse/lighthouse.component';
@@ -42,8 +40,6 @@ import { NgOptimizedImageComponent } from './samples/ng-optimized-image/ng-optim
     LighthouseComponent,
     VirtualScrollComponent,
     NgforComponent,
-    DynamicLoadingComponent,
-    SimpleComponent,
     A11yComponent,
     EslintComponent,
     EsbuildComponent,

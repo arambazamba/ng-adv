@@ -17,10 +17,6 @@
       "title": "Logging"
     },
     {
-      "url": "dynamic-loading",
-      "title": "Dynamic Components"
-    },
-    {
       "url": "ngfor",
       "title": "Optimized *ngFor"
     },

@@ -3,7 +3,6 @@ import { DemoContainerComponent } from './demo-container/demo-container.componen
 import { A11yComponent } from './samples/a11y/a11y.component';
 import { BundlesComponent } from './samples/bundles/bundles.component';
 import { DebugStatementsComponent } from './samples/debug-statements/debug-statements.component';
-import { DynamicLoadingComponent } from './samples/dynamic-loading/dynamic-loading.component';
 import { EsbuildComponent } from './samples/esbuild/esbuild.component';
 import { EslintComponent } from './samples/eslint/eslint.component';
 import { LighthouseComponent } from './samples/lighthouse/lighthouse.component';
@@ -27,10 +26,6 @@ export const demoRoutes: Routes = [
       { path: 'ngfor', component: NgforComponent, title: 'Demos - NgFor' },
       { path: 'a11y', component: A11yComponent, title: 'Demos - A11y' },
       { path: 'eslint', component: EslintComponent, title: 'Demos - ESLint' },
-      {
-        path: 'dynamic-loading',
-        component: DynamicLoadingComponent,
-      },
       { path: 'ngoptimizedimg', component: NgOptimizedImageComponent },
     ],
   },
