@@ -1,7 +1,7 @@
-import { Component, DestroyRef, OnInit, inject } from '@angular/core';
+import { Component, DestroyRef, inject } from '@angular/core';
 import { takeUntilDestroyed } from '@angular/core/rxjs-interop';
 import { ActivatedRoute, NavigationEnd, Router } from '@angular/router';
-import { filter, map, mergeMap, tap } from 'rxjs/operators';
+import { filter, map, tap } from 'rxjs/operators';
 import { SidebarActions } from 'src/app/shared/side-panel/sidebar.actions';
 import { SidePanelService } from 'src/app/shared/side-panel/sidepanel.service';
 import { environment } from 'src/environments/environment';
@@ -25,12 +25,11 @@ export class DemoContainerComponent {
 
   title: string = environment.title;
   demos = this.ds.getItems();
-
-  isLoading = false;
-
   sidenavMode = this.nav.getSideNavPosition();
   sidenavVisible = this.nav.getSideNavVisible();
-  workbenchMargin = this.sidenavVisible.pipe(
+  isLoading = this.ls.getLoading().pipe(takeUntilDestroyed(this.destroyRef)).pipe(map((value) => value));
+
+  workbenchLeftMargin = this.sidenavVisible.pipe(
     map((visible: boolean) => { return visible ? { 'margin-left': '5px' } : {} })
   );
 
@@ -51,12 +50,6 @@ export class DemoContainerComponent {
     .pipe(
       map((action: SidebarActions) => (action === SidebarActions.HIDE_MARKDOWN ? false : true))
     );
-
-  constructor() {
-    this.ls.getLoading().pipe(takeUntilDestroyed(this.destroyRef)).subscribe((value) => {
-      Promise.resolve(null).then(() => (this.isLoading = value));
-    });
-  }
 
   rootRoute(route: ActivatedRoute): ActivatedRoute {
     while (route.firstChild) {
