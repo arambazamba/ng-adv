@@ -1,15 +1,16 @@
-
-/* TODO(mdc-migration): The following rule targets internal classes of radio that may no longer apply for the MDC version. */
 mat-radio-button {
-    margin-left: 1rem;
-  }
-  
-  /* TODO(mdc-migration): The following rule targets internal classes of radio that may no longer apply for the MDC version. */
-  mat-radio-group {
-    margin-bottom: 1rem;
-  }
+  margin-left: 1rem;
+}
 
-  .border{
-    border: 1px dotted var(--color-primary);
-    padding: 0.5rem;
-  }
+mat-radio-group {
+  margin-bottom: 1rem;
+}
+
+.border {
+  border: 1px dotted var(--color-primary);
+  padding: 0.5rem;
+}
+
+h3 {
+  padding: var(--gap-medium);
+}
