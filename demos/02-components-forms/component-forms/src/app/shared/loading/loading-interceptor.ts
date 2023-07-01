@@ -5,7 +5,7 @@ import {
   HttpRequest,
   HttpResponse,
 } from '@angular/common/http';
-import { Injectable } from '@angular/core';
+import { Injectable, inject } from '@angular/core';
 import { Observable } from 'rxjs';
 import { LoadingService } from './loading.service';
 import { SnackbarService } from '../snackbar/snackbar.service';
@@ -13,11 +13,8 @@ import { SnackbarService } from '../snackbar/snackbar.service';
 @Injectable()
 export class LoadingInterceptor implements HttpInterceptor {
   private requests: HttpRequest<any>[] = [];
-
-  constructor(
-    private loaderService: LoadingService,
-    private sbs: SnackbarService
-  ) {}
+  ls = inject(LoadingService);
+  sbs = inject(SnackbarService);
 
   removeRequest(req: HttpRequest<any>) {
     const i = this.requests.indexOf(req);
@@ -25,7 +22,7 @@ export class LoadingInterceptor implements HttpInterceptor {
       console.log('removing request from queue: ', req.url);
       this.requests.splice(i, 1);
     }
-    this.loaderService.setLoading(this.requests.length > 0);
+    this.ls.setLoading(this.requests.length > 0);
   }
 
   intercept(
@@ -38,7 +35,7 @@ export class LoadingInterceptor implements HttpInterceptor {
     );
     this.requests.push(req);
 
-    this.loaderService.setLoading(true);
+    this.ls.setLoading(true);
     return Observable.create((observer: any) => {
       const subscription = next.handle(req).subscribe(
         (event) => {

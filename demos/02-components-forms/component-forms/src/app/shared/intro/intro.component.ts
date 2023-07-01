@@ -6,7 +6,7 @@ import { Component, Input } from '@angular/core';
   styleUrls: ['./intro.component.scss'],
 })
 export class IntroComponent {
-  @Input() title: string = '';
-  @Input() subtitle: string = '';
-  @Input() img: string = '';
+  @Input({ required: true }) title = '';
+  @Input({ required: true }) subtitle = '';
+  @Input({ required: true }) img = '';
 }

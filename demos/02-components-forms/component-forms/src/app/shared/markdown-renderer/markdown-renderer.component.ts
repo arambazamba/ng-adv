@@ -7,7 +7,7 @@ import { environment } from 'src/environments/environment';
   styleUrls: ['./markdown-renderer.component.scss'],
 })
 export class MarkdownRendererComponent {
-  @Input() md: string = '';
+  @Input({ required: true }) md = '';
   panelOpenState = true;
 
   getMarkdown(): string {
