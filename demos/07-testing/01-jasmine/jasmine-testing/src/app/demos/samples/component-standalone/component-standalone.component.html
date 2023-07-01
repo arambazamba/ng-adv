@@ -1,0 +1,8 @@
+<h3 boxed>The Skills:</h3>
+<div class="skill" *ngFor="let sk of skills | async" (click)="showSkill(sk)" boxed>
+  {{ sk.name}}
+</div>
+
+<div class="selection" *ngIf="skill" boxed>
+  You selected: {{ skill.name }}
+</div>

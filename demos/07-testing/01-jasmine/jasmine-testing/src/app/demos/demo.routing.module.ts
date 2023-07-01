@@ -50,6 +50,7 @@ export const demoRoutes: Routes = [
       { path: 'ngrx-mock-store', component: NgrxMockstoreComponent },
       { path: 'ngrx-selectors', component: NgrxSelectorsComponent },
       { path: 'ngrx-reducers', component: NgrxReducersComponent },
+      { path: 'standalone-dom', loadComponent: () => import('./samples/component-standalone/component-standalone.component').then(m => m.ComponentStandaloneComponent) }
     ],
   },
 ];

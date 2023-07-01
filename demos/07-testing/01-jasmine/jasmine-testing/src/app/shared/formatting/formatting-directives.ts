@@ -71,7 +71,6 @@ export class FontBoldDirective {
   selector: '[height-medium]',
   host: { 'style': 'height:100px;' },
   standalone: true,
-  hostDirectives: [BorderDirective]
 })
 export class HeightDirective {
 }
@@ -79,7 +78,6 @@ export class HeightDirective {
 @Directive({
   selector: '[full-width]',
   host: { style: 'width:100%;' },
-  hostDirectives: [HeightDirective],
   standalone: true,
 })
 export class WidthDirective {

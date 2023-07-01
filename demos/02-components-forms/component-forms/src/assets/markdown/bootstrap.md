@@ -1,4 +1,4 @@
-Examine sample `boostrap-standalone` in this modules folder. Do not forget to examine `main.ts`:
+Examine sample `standalone-component-app` in this modules folder. Do not forget to examine `main.ts`:
 
 ```typescript
 ...

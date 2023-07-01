@@ -21,26 +21,10 @@
 - Typed Forms Validation & Custom Validators
 - Handling FormErrors & ErrorStateMatcher
 
-## Standalone Components
+## Convert App to Standalone Components
 
 Existing apps can be migrated to Standalone Components using Schematics:
 
 ```
 ng g @angular/core:standalone
-```
-
-### Bootstrapping
-
-Update main.ts:
-
-```typescript
-import { enableProdMode } from '@angular/core';
-import { bootstrapApplication } from '@angular/platform-browser';
-import { AppComponent } from './app/app.component';ö
-import { environment } from './environments/environment';
-
-if (environment.production) {
-  enableProdMode();
-}
-bootstrapApplication(AppComponent).catch((err) => console.error(err));
 ```

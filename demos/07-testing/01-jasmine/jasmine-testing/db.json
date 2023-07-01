@@ -52,8 +52,13 @@
     },
     {
       "url": "component-write",
-      "title": "Comp Write / Read",
+      "title": "Comp Write / Read DOM",
       "id": 63
+    },
+    {
+      "url": "standalone-dom",
+      "title": "Standalone Comp. DOM",
+      "id": 69
     },
     {
       "url": "component-events",
