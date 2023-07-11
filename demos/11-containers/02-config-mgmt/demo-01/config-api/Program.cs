@@ -1,11 +1,17 @@
 using System;
 using Microsoft.AspNetCore.Builder;
+using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using Microsoft.OpenApi.Models;
 
 // Configure Services
 WebApplicationBuilder builder = WebApplication.CreateBuilder(args);
+
+var configuration = new ConfigurationBuilder()
+  .AddJsonFile("appsettings.json")
+  .AddEnvironmentVariables()
+  .Build();
 
 // Add services to the container.
 builder.Services.AddControllers();
