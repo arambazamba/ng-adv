@@ -9,7 +9,6 @@ WebApplicationBuilder builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
 builder.Services.AddControllers();
-
 builder.Services.AddCors(o => o.AddPolicy("nocors", builder =>
 {
     builder
@@ -23,7 +22,7 @@ builder.Services.AddCors(o => o.AddPolicy("nocors", builder =>
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen(c =>
 {
-    c.SwaggerDoc("v1", new OpenApiInfo { Title = "Food-Catalog-Api", Version = "v1" });
+    c.SwaggerDoc("v1", new OpenApiInfo { Title = "Food-Api", Version = "v1" });
 });
 
 var app = builder.Build();
@@ -43,10 +42,6 @@ app.UseSwaggerUI(c =>
    }
 );
 
-// app.UseHttpsRedirection();
-
 app.UseAuthorization();
-
 app.MapControllers();
-
 app.Run();
