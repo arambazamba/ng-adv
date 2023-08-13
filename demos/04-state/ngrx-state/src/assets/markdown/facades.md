@@ -1,18 +1,18 @@
-- Facades which is basicalla a service, allow you to use NgRx in Components just like Stateful Services. 
+- Facades are optional ngrx-artifacts that a decoupling ngrx from your components. They are implemented as a service. 
 
 ```typescript
 @Injectable({
   providedIn: 'root',
 })
 export class AppFacade {
-  constructor(private state: Store<AppState>) {}
+  state = inject(Store<AppState>)
 
   getIsMockAuthenticated() {
-    return this.state.select(getIsMockAuthenticated);
+    return this.state.select(appState.selectIsMockAuthenticated);
   }
 
   toggleAuth() {
-    this.state.dispatch(toggleMockAuthenticated());
+    this.state.dispatch(appActions.toggleMockAuthenticated());
   }
 }
 ```

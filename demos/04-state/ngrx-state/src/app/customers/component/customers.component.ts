@@ -1,9 +1,7 @@
 import { Component, OnInit, inject } from '@angular/core';
 import { Store } from '@ngrx/store';
-import { Customer } from '../customer.model';
 import { CustomersActions } from '../state/customers.actions';
-import { CustomersState } from '../state/customers.reducer';
-import { getCustomers } from '../state/customers.selector';
+import { CustomersState, customerState } from '../state/customers.state';
 
 @Component({
   selector: 'app-customers',
@@ -12,10 +10,9 @@ import { getCustomers } from '../state/customers.selector';
 })
 export class CustomersComponent implements OnInit {
   store = inject(Store<CustomersState>)
-  customers: Customer[] = [];
+  customers = this.store.select(customerState.selectCustomers);
 
   ngOnInit(): void {
     this.store.dispatch(CustomersActions.loadCustomers());
-    this.store.select(getCustomers).subscribe((customer: Customer[]) => this.customers = customer);
   }
 }

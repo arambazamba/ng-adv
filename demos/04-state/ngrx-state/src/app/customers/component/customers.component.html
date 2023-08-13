@@ -1,4 +1,4 @@
 <h3>Customers</h3>
-<div *ngFor="let c of customers">
-  {{c.name}}
+<div *ngFor="let c of customers | async">
+  {{ c.name }}
 </div>
