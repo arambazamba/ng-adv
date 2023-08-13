@@ -1,36 +1,41 @@
-- Examine root state in /app/state/* and explain `AppState` and `ActionReducerMap`:
+- Explain the AppState in `app.state`:
 
 ```typescript
 export interface AppState {
-  ...
+  IsMockAuthenticated: boolean;
   sideNavVisible: boolean;
-  sideNavPosition: string;
+  sideNavPosition: MatDrawerMode;
 }
-export const reducers: ActionReducerMap<State> = {app: appReducer};
+export const initialAppState: AppState = {
+  IsMockAuthenticated: false,
+  sideNavVisible: true,
+  sideNavPosition: 'side',
+};
 ```
 
-- Explain Action Creators and  the other artifacts:
+- Explain Action Creators:
 
 ```typescript
-import { createAction, props } from '@ngrx/store';
-export const toggleSideNav = createAction('[Menu] toggleSideNavVisible');
-export const changeSideNavVisible = createAction('[Menu] changeSideNavVisible',props<{ visible: boolean }>());
-export const changeSideNavPosition = createAction('[Menu] changeSideNavPosition',props<{ position: string }>());
+export const appActions = createActionGroup({
+  source: 'App',
+  events: {
+    toggleMockAuthenticated: emptyProps(),
+    toggleSideNav: emptyProps(),
+    changeSideNavPosition: props<{ position: string }>(),
+    changeSideNavVisible: props<{ visible: boolean }>(),
+  }
+});
 ```
 
-- Explain the reducer:
+- Examine root state in /app/state/index.ts and explain `State` and `ActionReducerMap`:
 
 ```typescript
-export const appReducer = createReducer(initialAppState,
-  on(toggleSideNav, (state) => ({
-    ...state,
-    sideNavVisible: !state.sideNavVisible,
-  })),
-  on(changeSideNavVisible, (state, action) => ({
-    ...state,
-    sideNavVisible: action.visible,
-  })),
-  ...
+export interface State {
+  app: AppState;
+  customers: CustomersState
+}
+export const reducers: ActionReducerMap<State> = {
+  app: appState.reducer,
+  customers: customerReducer,
+};
 ```
-
-- In a live demo replace menu.service.ts with menu.facade.ts in `demo-container.component.ts` and `navbar.component.ts`

@@ -11,8 +11,8 @@ import { FacadesComponent } from './samples/facades/facades.component';
 import { FeatureModuleStateComponent } from './samples/feature-module-state/feature-module-state.component';
 import { NgrxDataComponent } from './samples/ngrx-data/ngrx-data.component';
 import { NgrxEntityComponent } from './samples/ngrx-entity/ngrx-entity.component';
-import { SelectorsComponent } from './samples/selectors/selectors.component';
 import { NgrxSignalsComponent } from './samples/ngrx-signals/ngrx-signals.component';
+import { CreateFeatureComponent } from './samples/create-feature/create-feature.component';
 
 export const demoRoutes: Routes = [
   {
@@ -22,7 +22,7 @@ export const demoRoutes: Routes = [
       { path: 'app-state', component: AppStateComponent, title: 'Demos - App State' },
       { path: 'ngrx-entity', component: NgrxEntityComponent, title: 'Demos - Ngrx Entity' },
       { path: 'feature-modules-state', component: FeatureModuleStateComponent, title: 'Demos - Feature Modules State' },
-      { path: 'selectors', component: SelectorsComponent, title: 'Demos - Selectors' },
+      { path: 'create-feature', component: CreateFeatureComponent, title: 'Demos - createFeature' },
       { path: 'effects', component: EffectsComponent, title: 'Demos - Effects' },
       { path: 'facades', component: FacadesComponent, title: 'Demos - Facades' },
       { path: 'ngrx-data', component: NgrxDataComponent, title: 'Demos - Ngrx Data' },

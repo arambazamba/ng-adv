@@ -7,7 +7,7 @@ import {
   changeSideNavVisible,
   toggleSideNav
 } from './app.actions';
-import { AppState } from './app.reducer';
+import { AppState } from './app.state';
 import { getSideNavVisible, getSideNavPosition } from './app.selector';
 
 

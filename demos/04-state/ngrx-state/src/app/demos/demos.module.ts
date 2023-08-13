@@ -27,11 +27,11 @@ import { DemoRowComponent } from './samples/feature-module-state/demo-row/demo-r
 import { FeatureModuleStateComponent } from './samples/feature-module-state/feature-module-state.component';
 import { NgrxDataComponent } from './samples/ngrx-data/ngrx-data.component';
 import { NgrxEntityComponent } from './samples/ngrx-entity/ngrx-entity.component';
-import { SelectorsComponent } from './samples/selectors/selectors.component';
 import { DemosEffects } from './state/demos.effects';
 import { demoReducer, demosFeatureKey } from './state/demos.reducer';
 import { FormattingModule } from '../shared/formatting/formatting.module';
 import { NgrxSignalsComponent } from './samples/ngrx-signals/ngrx-signals.component';
+import { CreateFeatureComponent } from './samples/create-feature/create-feature.component';
 
 @NgModule({
   declarations: [
@@ -42,7 +42,6 @@ import { NgrxSignalsComponent } from './samples/ngrx-signals/ngrx-signals.compon
     DemoListComponent,
     AppStateComponent,
     NgrxEntityComponent,
-    SelectorsComponent,
     FacadesComponent,
     EffectsComponent,
     ChangeDetectionComponent,
@@ -55,6 +54,7 @@ import { NgrxSignalsComponent } from './samples/ngrx-signals/ngrx-signals.compon
     FeatureModuleStateComponent,
     NgrxEntityComponent,
     NgrxSignalsComponent,
+    CreateFeatureComponent,
   ],
   imports: [
     CommonModule,

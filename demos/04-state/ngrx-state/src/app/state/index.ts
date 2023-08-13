@@ -1,6 +1,6 @@
 import { ActionReducerMap, MetaReducer } from '@ngrx/store';
 import { CustomersState, customerReducer } from '../customers/state/customers.reducer';
-import { AppState, appReducer } from './app.reducer';
+import { AppState, appState } from './app.state';
 
 export interface State {
   app: AppState;
@@ -8,7 +8,7 @@ export interface State {
 }
 
 export const reducers: ActionReducerMap<State> = {
-  app: appReducer,
+  app: appState.reducer,
   customers: customerReducer,
 };
 
