@@ -6,7 +6,7 @@ import { Subject } from 'rxjs';
 import { take } from 'rxjs/operators';
 import { CommentItem } from '../comment.model';
 import { MarkdownEditorActions } from './editor.actions';
-import { EditorState, editorState } from './editor.reducer';
+import { EditorState, editorState } from './editor.state';
 
 @Injectable({
   providedIn: 'root',

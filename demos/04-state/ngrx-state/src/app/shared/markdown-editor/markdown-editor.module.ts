@@ -9,7 +9,7 @@ import { EditorContainerComponent } from './components/editor-container/editor-c
 import { CommentsListComponent } from './components/comments-list/comments-list.component';
 import { CommentEditComponent } from './components/comment-edit/comment-edit.component';
 import { ColumnDirective, RowDirective } from '../formatting/formatting-directives';
-import { editorState } from './state/editor.reducer';
+import { editorState } from './state/editor.state';
 
 const comps = [
   EditorContainerComponent,
