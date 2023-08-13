@@ -28,7 +28,7 @@ import { FeatureModuleStateComponent } from './samples/feature-module-state/feat
 import { NgrxDataComponent } from './samples/ngrx-data/ngrx-data.component';
 import { NgrxEntityComponent } from './samples/ngrx-entity/ngrx-entity.component';
 import { DemosEffects } from './state/demos.effects';
-import { demoReducer, demosFeatureKey } from './state/demos.reducer';
+import { demoReducer, demosFeatureKey } from './state/demos.state';
 import { FormattingModule } from '../shared/formatting/formatting.module';
 import { NgrxSignalsComponent } from './samples/ngrx-signals/ngrx-signals.component';
 import { CreateFeatureComponent } from './samples/create-feature/create-feature.component';

@@ -1,5 +1,5 @@
 import { createFeatureSelector, createSelector } from '@ngrx/store';
-import { DemoState, demosFeatureKey, demosAdapter } from './demos.reducer';
+import { DemoState, demosFeatureKey, demosAdapter } from './demos.state';
 
 export const getDemoState = createFeatureSelector<DemoState>(demosFeatureKey);
 

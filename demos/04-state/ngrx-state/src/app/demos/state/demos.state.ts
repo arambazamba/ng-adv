@@ -4,9 +4,10 @@ import {
   EntityState,
   Update,
 } from '@ngrx/entity';
-import { createReducer, on } from '@ngrx/store';
+import { createFeature, createReducer, on } from '@ngrx/store';
 import { DemoItem } from '../demo-base/demo-item.model';
 import { DemoActions } from './demos.actions';
+import { reducers } from '../../state/index';
 
 
 // State

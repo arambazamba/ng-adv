@@ -4,7 +4,7 @@ import { take } from 'rxjs/operators';
 import { DemoItem } from '../demo-base/demo-item.model';
 import { getAllDemos, getFilter, getSelected, hasLoaded } from './demo.selectors';
 import { DemoActions } from './demos.actions';
-import { DemoState } from './demos.reducer';
+import { DemoState } from './demos.state';
 
 @Injectable({
   providedIn: 'root',

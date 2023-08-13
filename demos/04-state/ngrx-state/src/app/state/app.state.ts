@@ -29,8 +29,8 @@ export const appState = createFeature({
       ...state,
       sideNavPosition: action.position as MatDrawerMode,
     })),
-    on(appActions.toggleMockAuthenticated, (state, action) => {
-      return { ...state, IsMockAuthenticated: !state.IsMockAuthenticated };
-    }),
+    on(appActions.toggleMockAuthenticated, (state, action) => ({
+      ...state, IsMockAuthenticated: !state.IsMockAuthenticated
+    }))
   )
 })
