@@ -5,11 +5,11 @@ import { EffectsModule } from '@ngrx/effects';
 import { StoreModule } from '@ngrx/store';
 import { MaterialModule } from '../../material.module';
 import { EditorEffects } from './state/editor.effects';
-import { editorFeatureKey, editorReducer } from './state/editor.reducer';
 import { EditorContainerComponent } from './components/editor-container/editor-container.component';
 import { CommentsListComponent } from './components/comments-list/comments-list.component';
 import { CommentEditComponent } from './components/comment-edit/comment-edit.component';
 import { ColumnDirective, RowDirective } from '../formatting/formatting-directives';
+import { editorState } from './state/editor.reducer';
 
 const comps = [
   EditorContainerComponent,
@@ -24,7 +24,7 @@ const comps = [
     CommonModule,
     MaterialModule,
     FormsModule,
-    StoreModule.forFeature(editorFeatureKey, editorReducer),
+    StoreModule.forFeature(editorState),
     EffectsModule.forFeature([EditorEffects]),
     ColumnDirective,
     RowDirective

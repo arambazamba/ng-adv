@@ -1,13 +1,12 @@
-import { DestroyRef, Injectable, OnDestroy, inject } from '@angular/core';
+import { DestroyRef, Injectable, inject } from '@angular/core';
+import { takeUntilDestroyed } from '@angular/core/rxjs-interop';
 import { ofType } from '@ngrx/effects';
 import { ActionsSubject, Store } from '@ngrx/store';
-import { Subject, Subscription } from 'rxjs';
+import { Subject } from 'rxjs';
 import { take } from 'rxjs/operators';
 import { CommentItem } from '../comment.model';
 import { MarkdownEditorActions } from './editor.actions';
-import { EditorState } from './editor.reducer';
-import { getComments, hasLoaded } from './editor.selectors';
-import { takeUntilDestroyed } from '@angular/core/rxjs-interop';
+import { EditorState, editorState } from './editor.reducer';
 
 @Injectable({
   providedIn: 'root',
@@ -19,24 +18,19 @@ export class EditorFacade {
   callCompletedSub = new Subject<boolean>();
   callCompleted$ = this.callCompletedSub.asObservable();
 
-  constructor(
-  ) {
-    //Could be used to respond to effects completion to trigger an action in the UI
-    //As an alternative you could also hook into the loading indicator
-    this.actions
-      .pipe(
-        takeUntilDestroyed(this.destroyRef),
-        ofType(
-          MarkdownEditorActions.saveCommentsSuccess,
-          MarkdownEditorActions.saveCommentsFailure,
-          MarkdownEditorActions.deleteCommentsSuccess,
-          MarkdownEditorActions.deleteCommentsFailure
-        )
+  constructor() {
+    this.actions.pipe(
+      takeUntilDestroyed(this.destroyRef),
+      ofType(
+        MarkdownEditorActions.saveCommentsSuccess,
+        MarkdownEditorActions.saveCommentsFailure,
+        MarkdownEditorActions.deleteCommentsSuccess,
+        MarkdownEditorActions.deleteCommentsFailure
       )
-      .subscribe((data) => {
-        console.log('action complete', data);
-        this.callCompletedSub.next(true);
-      });
+    ).subscribe((data) => {
+      console.log('action complete', data);
+      this.callCompletedSub.next(true);
+    });
   }
 
   init() {
@@ -44,11 +38,11 @@ export class EditorFacade {
   }
 
   hasLoaded() {
-    return this.store.select(hasLoaded).pipe(take(1));
+    return this.store.select(editorState.selectLoaded).pipe(take(1));
   }
 
   getComments() {
-    return this.store.select(getComments);
+    return this.store.select(editorState.selectComments);
   }
 
   saveComment(item: CommentItem) {
