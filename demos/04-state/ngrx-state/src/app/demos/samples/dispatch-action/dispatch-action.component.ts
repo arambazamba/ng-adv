@@ -1,14 +1,14 @@
 import { Component, inject } from '@angular/core';
-import { AppState, appState } from 'src/app/state/app.state';
 import { Store } from '@ngrx/store';
-import { appActions } from 'src/app/state/app.actions';
+import { AppState, appState } from '../../../state/app.state';
+import { appActions } from '../../../state/app.actions';
 
 @Component({
-  selector: 'app-facades',
-  templateUrl: './facades.component.html',
-  styleUrls: ['./facades.component.scss'],
+  selector: 'app-dispatch-action',
+  templateUrl: './dispatch-action.component.html',
+  styleUrls: ['./dispatch-action.component.scss']
 })
-export class FacadesComponent {
+export class DispatchActionComponent {
   store = inject(Store<AppState>);
   isMockAuthenticated = this.store.select(appState.selectIsMockAuthenticated);
 

@@ -13,6 +13,8 @@ import { NgrxDataComponent } from './samples/ngrx-data/ngrx-data.component';
 import { NgrxEntityComponent } from './samples/ngrx-entity/ngrx-entity.component';
 import { NgrxSignalsComponent } from './samples/ngrx-signals/ngrx-signals.component';
 import { CreateFeatureComponent } from './samples/create-feature/create-feature.component';
+import { DispatchActionComponent } from './samples/dispatch-action/dispatch-action.component';
+import { RespondToEffectsComponent } from './samples/respond-to-effects/respond-to-effects.component';
 
 export const demoRoutes: Routes = [
   {
@@ -20,6 +22,8 @@ export const demoRoutes: Routes = [
     component: DemoContainerComponent,
     children: [
       { path: 'app-state', component: AppStateComponent, title: 'Demos - App State' },
+      { path: 'dispatch-action', component: DispatchActionComponent, title: 'Demos - Dispatch Action' },
+      { path: 'respond-effects', component: RespondToEffectsComponent, title: 'Demos - Respond Effects' },
       { path: 'ngrx-entity', component: NgrxEntityComponent, title: 'Demos - Ngrx Entity' },
       { path: 'feature-modules-state', component: FeatureModuleStateComponent, title: 'Demos - Feature Modules State' },
       { path: 'create-feature', component: CreateFeatureComponent, title: 'Demos - createFeature' },

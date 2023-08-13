@@ -2,7 +2,8 @@
   "demos": [
     {
       "url": "app-state",
-      "title": "App State"
+      "title": "App State",
+      "id": 1
     },
     {
       "url": "create-feature",
@@ -10,9 +11,14 @@
       "id": 2
     },
     {
-      "url": "facades",
-      "title": "Facades",
-      "id": 15
+      "url": "dispatch-action",
+      "title": "Dispatch Action",
+      "id": 3
+    },
+    {
+      "url": "feature-modules-state",
+      "title": "Feature Module State",
+      "id": 5
     },
     {
       "url": "effects",
@@ -20,9 +26,14 @@
       "id": 16
     },
     {
-      "url": "feature-modules-state",
-      "title": "Feature Module State",
-      "id": 5
+      "url": "respond-effects",
+      "title": "Respond to Effects",
+      "id": 18
+    },
+    {
+      "url": "facades",
+      "title": "Facades",
+      "id": 15
     },
     {
       "url": "ngrx-entity",
@@ -120,10 +131,12 @@
   ],
   "customers": [
     {
-      "id": 1, "name": "Fritzi"
+      "id": 1,
+      "name": "Fritzi"
     },
     {
-      "id": 2, "name": "Mimi"
+      "id": 2,
+      "name": "Mimi"
     }
   ],
   "top-links": [

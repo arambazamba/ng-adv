@@ -32,6 +32,8 @@ import { demoReducer, demosFeatureKey } from './state/demos.reducer';
 import { FormattingModule } from '../shared/formatting/formatting.module';
 import { NgrxSignalsComponent } from './samples/ngrx-signals/ngrx-signals.component';
 import { CreateFeatureComponent } from './samples/create-feature/create-feature.component';
+import { DispatchActionComponent } from './samples/dispatch-action/dispatch-action.component';
+import { RespondToEffectsComponent } from './samples/respond-to-effects/respond-to-effects.component';
 
 @NgModule({
   declarations: [
@@ -55,6 +57,8 @@ import { CreateFeatureComponent } from './samples/create-feature/create-feature.
     NgrxEntityComponent,
     NgrxSignalsComponent,
     CreateFeatureComponent,
+    DispatchActionComponent,
+    RespondToEffectsComponent,
   ],
   imports: [
     CommonModule,
