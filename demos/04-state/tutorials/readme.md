@@ -54,7 +54,7 @@ export interface Skill {
 }
 ```
 
-Create skills metadata in `skills/entity-metadata.ts`:
+Create skills metadata in `skills/skills.metadata.ts`:
 
 ```typescript
 import { EntityMetadataMap, EntityDataModuleConfig } from '@ngrx/data';

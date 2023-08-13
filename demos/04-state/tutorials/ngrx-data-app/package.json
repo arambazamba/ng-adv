@@ -1,6 +1,10 @@
 {
   "name": "ngrx-data-app",
-  "version": "0.0.0",
+  "version": "16.0.0",
+  "author": {
+    "name": "Alexander Pajer",
+    "email": "alexander.pajer@integrations.at"
+  },
   "scripts": {
     "ng": "ng",
     "start": "ng serve",

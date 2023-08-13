@@ -16,14 +16,6 @@ export class SkillsComponent implements OnInit {
   skills$: Observable<Skill[]>;
   skillsService: EntityCollectionService<Skill>;
 
-  // skills-entity.service.ts could also be spared by directly creating the entity
-  // service in the constuctor of the component using serviceFactory
-
-  // constructor(private factory: EntityCollectionServiceFactory) {
-  //   this.skillsService = this.factory.create<Skill>('Skill');
-  //   this.skills$ = this.skillsService.entities$;
-  // }
-
   constructor(es: SkillsEntityService) {
     this.skillsService = es;
     this.skills$ = this.skillsService.entities$;

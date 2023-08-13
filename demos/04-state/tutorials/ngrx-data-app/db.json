@@ -21,21 +21,6 @@
       "completed": true
     },
     {
-      "id": 5,
-      "name": "@ngrx/data",
-      "completed": false
-    },
-    {
-      "id": 6,
-      "name": "@ngrx/data",
-      "completed": false
-    },
-    {
-      "id": 7,
-      "name": "@ngrx/data",
-      "completed": false
-    },
-    {
       "id": 8,
       "name": "@ngrx/data",
       "completed": false

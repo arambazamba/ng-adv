@@ -1,21 +1,23 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 
+import { CommonModule } from '@angular/common';
+import { HttpClientModule } from '@angular/common/http';
+import { FormsModule } from '@angular/forms';
+import { EntityDataModule, HttpUrlGenerator } from '@ngrx/data';
+import { EffectsModule } from '@ngrx/effects';
+import { StoreModule } from '@ngrx/store';
+import { StoreDevtoolsModule } from '@ngrx/store-devtools';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { EntityDataModule } from '@ngrx/data';
-import { entityConfig } from './entity-metadata';
-import { CommonModule } from '@angular/common';
-import { FormsModule } from '@angular/forms';
-import { HttpClientModule } from '@angular/common/http';
-import { StoreModule } from '@ngrx/store';
-import { EffectsModule } from '@ngrx/effects';
-import { environment } from '../../ngrx-data/ngrx-data-base-entity-service/src/environments/environment';
-import { StoreDevtoolsModule } from '@ngrx/store-devtools';
+import { CustomurlHttpGenerator } from './skills/custom-url-generator';
+import { SkillsComponent } from './skills/components/skills.component';
+import { entityConfig } from './skills/skills.metadata';
 
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
+    SkillsComponent
   ],
   imports: [
     CommonModule,
@@ -23,12 +25,17 @@ import { StoreDevtoolsModule } from '@ngrx/store-devtools';
     HttpClientModule,
     BrowserModule,
     AppRoutingModule,
-    StoreModule.forRoot({}, {}),
+    StoreModule.forRoot({}),
     EffectsModule.forRoot([]),
     EntityDataModule.forRoot(entityConfig),
-    environment.production ? [] : StoreDevtoolsModule.instrument(),
+    StoreDevtoolsModule.instrument(),
   ],
-  providers: [],
+  providers: [
+    {
+      provide: HttpUrlGenerator,
+      useClass: CustomurlHttpGenerator,
+    },
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
