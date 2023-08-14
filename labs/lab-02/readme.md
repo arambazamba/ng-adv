@@ -138,3 +138,6 @@ export class FoodService {
 
 - Convert the project to use standalone components:    
 
+    ```bash
+    ng g @angular/core:standalone
+    ```
