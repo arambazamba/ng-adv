@@ -1,12 +1,2 @@
-@import "reset.scss";
-@import "theme.scss";
-@import "mat-overrides";
-
-html,
-body {
-  height: 100%;
-}
-body {
-  margin: 0;
-  font-family: Roboto, "Helvetica Neue", sans-serif;
-}
+html, body { height: 100%; }
+body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }

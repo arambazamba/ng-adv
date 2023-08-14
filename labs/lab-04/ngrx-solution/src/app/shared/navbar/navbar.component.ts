@@ -1,26 +1,24 @@
-import { Component, OnInit } from '@angular/core';
-import { MenuFacade } from '../../state/sidenav.facade';
-import { NavItem } from './nav-item.model';
+import { AsyncPipe, NgFor } from '@angular/common';
+import { Component, inject } from '@angular/core';
+import { MatIconModule } from '@angular/material/icon';
+import { MatToolbarModule } from '@angular/material/toolbar';
+import { RouterLink } from '@angular/router';
+import { SideNavService } from '../sidenav/sidenav.service';
+import { NavbarService } from './navbar.service';
 
 @Component({
   selector: 'app-navbar',
   templateUrl: './navbar.component.html',
   styleUrls: ['./navbar.component.scss'],
+  standalone: true,
+  imports: [MatToolbarModule, MatIconModule, RouterLink, NgFor, AsyncPipe],
 })
-export class NavbarComponent implements OnInit {
-  constructor(private ms: MenuFacade) { }
-
-  items: NavItem[];
-
-  ngOnInit() {
-    this.items = [
-      { title: 'Home', url: '/' },
-      { title: 'Products', url: '/products' },
-      { title: 'About', url: '/about' },
-    ];
-  }
+export class NavbarComponent {
+  ns = inject(NavbarService);
+  nav = inject(SideNavService);
+  items = this.ns.getTopItems();
 
   toggleMenu() {
-    this.ms.toggleMenuVisibility();
+    this.nav.toggleMenuVisibility();
   }
 }

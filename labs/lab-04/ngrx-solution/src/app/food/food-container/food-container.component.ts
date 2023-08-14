@@ -1,34 +1,60 @@
-import { Component, OnInit } from '@angular/core';
-import { FoodService } from 'src/app/food/food.service';
-import { FoodItem } from 'src/app/food/food-item.model';
+import { NgIf } from '@angular/common';
+import { Component, OnInit, inject } from '@angular/core';
+import { MatButtonModule } from '@angular/material/button';
+import { MatToolbarModule } from '@angular/material/toolbar';
+import { FoodItem } from 'src/app/food/food.model';
+import { FoodEditComponent } from '../food-edit/food-edit.component';
+import { FoodListComponent } from '../food-list/food-list.component';
+import { FoodService } from '../food.service';
 
 @Component({
   selector: 'app-food-container',
   templateUrl: './food-container.component.html',
   styleUrls: ['./food-container.component.scss'],
+  standalone: true,
+  imports: [
+    MatToolbarModule,
+    MatButtonModule,
+    FoodListComponent,
+    NgIf,
+    FoodEditComponent,
+  ],
 })
 export class FoodContainerComponent implements OnInit {
-  food: FoodItem[];
-  selected: FoodItem;
+  fs = inject(FoodService);
+  food: FoodItem[] = [];
+  selected: FoodItem | undefined = undefined;
 
-  constructor(private fs: FoodService) { }
-
-  ngOnInit() {
-    this.fs.getFood().subscribe((data) => (this.food = data));
+  ngOnInit(): void {
+    this.fs.getFood().subscribe((food) => {
+      this.food = food;
+    });
   }
 
   selectFood(f: FoodItem) {
     this.selected = { ...f };
   }
 
-  deleteFood(f: FoodItem) {
-    console.log('deleting ', f);
-    this.food = this.food.filter((item) => item.id != f.id);
+  addFood() {
+    this.selected = new FoodItem();
   }
 
-  foodSaved(f: FoodItem) {
-    this.food = this.food.filter((item) => item.id != f.id);
-    this.food.push(f);
-    this.selected = null;
+  saveFood(f: FoodItem) {
+    let arr = [...this.food]
+
+    if (f.id == 0) {
+      this.fs.addFood(f).subscribe((food) => {
+        arr.push(food);
+        this.food = arr;
+        this.selected = undefined;
+      });
+    } else {
+      this.fs.updateFood(f).subscribe((food) => {
+        const index = arr.findIndex((f) => f.id === food.id);
+        arr[index] = food;
+        this.food = arr;
+        this.selected = undefined;
+      });
+    }
   }
 }
