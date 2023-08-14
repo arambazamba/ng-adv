@@ -1,14 +1,14 @@
-<div>
-  <app-food-list
-    [food]="food"
-    (foodSelected)="selectFood($event)"
-    (foodDeleted)="deleteFood($event)"
-    (foodAdding)="addFood($event)"
-  ></app-food-list>
+<mat-toolbar>
+  <button mat-raised-button (click)="addFood()" color="primary">Add</button>
+</mat-toolbar>
 
-  <app-food-edit
-    *ngIf="selected"
-    [food]="selected"
-    (saveFood)="foodSaved($event)"
-  ></app-food-edit>
-</div>
+<app-food-list
+  [food]="food"
+  (onFoodSelected)="selectFood($event)"
+></app-food-list>
+
+<app-food-edit
+  *ngIf="selected"
+  [food]="selected"
+  (onFoodSaved)="saveFood($event)"
+></app-food-edit>

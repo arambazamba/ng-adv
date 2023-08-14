@@ -1,44 +1,34 @@
 import {
   Component,
-  OnInit,
-  Input,
-  Output,
   EventEmitter,
-  SimpleChanges,
+  Input,
   OnChanges,
-} from "@angular/core";
-import { MatTableDataSource } from "@angular/material/table";
-import { FoodItem } from "../food.model";
+  Output,
+  SimpleChanges
+} from '@angular/core';
+import { MatTableDataSource, MatTableModule } from '@angular/material/table';
+import { FoodItem } from 'src/app/food/food.model';
+import { MatCardModule } from '@angular/material/card';
 
 @Component({
-  selector: "app-food-list",
-  templateUrl: "./food-list.component.html",
-  styleUrls: ["./food-list.component.scss"],
+    selector: 'app-food-list',
+    templateUrl: './food-list.component.html',
+    styleUrls: ['./food-list.component.scss'],
+    standalone: true,
+    imports: [MatCardModule, MatTableModule],
 })
-export class FoodListComponent implements OnInit, OnChanges {
-  constructor() {}
+export class FoodListComponent implements OnChanges {
+  @Input() food: FoodItem[] | null = [];
+  @Output() onFoodSelected: EventEmitter<FoodItem> = new EventEmitter<FoodItem>();
 
-  @Input() food: FoodItem[] = [];
-  @Output() foodSelected: EventEmitter<FoodItem> = new EventEmitter<FoodItem>();
-  @Output()
-  foodDeleted: EventEmitter<FoodItem> = new EventEmitter<FoodItem>();
-  @Output()
-  foodAdding: EventEmitter<FoodItem> = new EventEmitter<FoodItem>();
-
-  displayedColumns: string[] = [
-    "id",
-    "name",
-    "price",
-    "calories",
-    "deleteItem",
-    "editItem",
-  ];
-  dataSource = new MatTableDataSource([]);
-
-  ngOnInit() {}
+  displayedColumns: string[] = ['id', 'name', 'price', 'calories'];
+  dataSource: MatTableDataSource<FoodItem> = new MatTableDataSource<FoodItem>([]);
 
   ngOnChanges(changes: SimpleChanges) {
-    this.dataSource = new MatTableDataSource(changes["food"].currentValue);
+    if (changes['food']) {
+      console.log('ngOnChanges', changes['food'].currentValue);
+      this.dataSource = new MatTableDataSource(changes['food'].currentValue);
+    }
   }
 
   applyFilter(filterValue: string) {
@@ -46,14 +36,6 @@ export class FoodListComponent implements OnInit, OnChanges {
   }
 
   selectFood(p: FoodItem) {
-    this.foodSelected.emit(p);
-  }
-
-  deleteFood(item: FoodItem) {
-    this.foodDeleted.emit(item);
-  }
-
-  addFood() {
-    this.foodAdding.emit(new FoodItem());
+    this.onFoodSelected.emit(p);
   }
 }

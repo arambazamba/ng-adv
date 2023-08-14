@@ -1,12 +1,6 @@
 <mat-toolbar color="primary">
   <mat-toolbar-row>
-    <div
-      class="navItem"
-      *ngFor="let item of navItems"
-      [routerLink]="[item.url]"
-      routerLinkActive="navLinkActive"
-      [routerLinkActiveOptions]="{ exact: true }"
-    >
+    <div *ngFor="let item of items | async" [routerLink]="[item.url]">
       {{ item.title }}
     </div>
   </mat-toolbar-row>

@@ -1,29 +1,22 @@
-.grid {
-  display: grid;
-  height: 100vh;
+.navbar {
+  background-color: lightblue;
+  height: 10vh;
+}
+
+.sidebar {
+  background-color: lightgrey;
+  width: 180px;
+}
+
+.main {
+  min-width: 80vw;
+  flex-grow: 1;
+  margin: 0 2rem;
+}
+
+.mainrow {
+  display: flex;
+  flex-direction: row;
   width: 100%;
-  gap: 0.5rem;
-  grid-template-rows: 70px 10px calc(100vh - 100px);
-  grid-template-columns: auto;
-  grid-template-areas:
-    "navbar"
-    "loading"
-    "mainrow";
-}
-
-.gd-navbar {
-  grid-area: navbar;
-}
-
-.gd-loading {
-  grid-area: loading;
-}
-
-.gd-mainrow {
-  grid-area: mainrow;
-  background-color: lightgray;
-}
-
-.sidenav{
-  height: 80vh;
+  height: 90vh;
 }

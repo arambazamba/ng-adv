@@ -1,7 +1,5 @@
-button {
+.mat-toolbar-single-row {
   margin-bottom: 1rem;
-}
-
-div {
-  margin-right: 0.5rem;
+  display: flex;
+  justify-content: flex-end;
 }

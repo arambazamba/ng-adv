@@ -1,15 +1,9 @@
-import { Component, OnInit } from '@angular/core';
-import { environment } from 'src/environments/environment';
+import { Component } from '@angular/core';
 
 @Component({
   selector: 'app-about',
   templateUrl: './about.component.html',
   styleUrls: ['./about.component.scss'],
+  standalone: true
 })
-export class AboutComponent implements OnInit {
-  config = environment;
-
-  constructor() {}
-
-  ngOnInit() {}
-}
+export class AboutComponent { }
