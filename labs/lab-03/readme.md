@@ -4,11 +4,37 @@
 
 ## Implement a responsive Side Menu:
 
-- Implement a menu.service.ts as a Stateful Service using BehaviorSubjects with the two properties:
+- Implement a sidenav.service.ts as a Stateful Service using BehaviorSubjects with the two properties:
 
     - sideNavVisible: boolean
     - sideNavPosition: over | side
 
+    ```typescript
+    sideNavVisible: BehaviorSubject<boolean> = new BehaviorSubject<boolean>(true);
+    sideNavPosition: BehaviorSubject<MatDrawerMode> = new BehaviorSubject<MatDrawerMode>('side');
+    ```
+- Inject BreakpointObserver in the sidenav.service.ts and use it to toggle the sideNavPosition property.
+
+  ```typescript
+  constructor() {
+    this.watchScreen.subscribe();
+  }
+
+  watchScreen = this.breakpointObserver
+    .observe([Breakpoints.XSmall, Breakpoints.Small])
+    .pipe(
+      tap((matchesBreakpoint) => {
+        console.log(matchesBreakpoint);
+        this.sideNavVisible.next(matchesBreakpoint.matches ? false : true);
+        this.sideNavPosition.next(matchesBreakpoint.matches ? 'over' : 'side');
+      })
+    );
+
+  toggleMenuVisibility() {
+    const visible = !this.sideNavVisible.getValue();
+    this.sideNavVisible.next(visible);
+  }
+  ```
 - Add a Material Sidenav to app.component.html    
 
   ```html
