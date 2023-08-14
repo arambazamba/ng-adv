@@ -1,11 +1,26 @@
 import { Component, EventEmitter, Input, OnChanges, Output, SimpleChanges } from '@angular/core';
-import { FormBuilder, FormGroup, Validators } from '@angular/forms';
-import { FoodItem } from 'src/app/food/foodItem';
+import { FormBuilder, FormGroup, Validators, FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { FoodItem } from '../food.model';
+import { MatButtonModule } from '@angular/material/button';
+import { NgIf } from '@angular/common';
+import { MatInputModule } from '@angular/material/input';
+import { MatFormFieldModule } from '@angular/material/form-field';
+import { MatCardModule } from '@angular/material/card';
 
 @Component({
-  selector: 'app-food-edit',
-  templateUrl: './food-edit.component.html',
-  styleUrls: ['./food-edit.component.scss'],
+    selector: 'app-food-edit',
+    templateUrl: './food-edit.component.html',
+    styleUrls: ['./food-edit.component.scss'],
+    standalone: true,
+    imports: [
+        MatCardModule,
+        FormsModule,
+        ReactiveFormsModule,
+        MatFormFieldModule,
+        MatInputModule,
+        NgIf,
+        MatButtonModule,
+    ],
 })
 export class FoodEditComponent implements OnChanges {
   @Input() food: FoodItem = new FoodItem();
@@ -27,8 +42,8 @@ export class FoodEditComponent implements OnChanges {
     }
   }
 
-  saveForm() {
+  saveForm(): void {
     console.log('food to save', this.foodForm.value);
-    this.saveFood.emit(this.foodForm.value);
+    this.onFoodSaved.emit(this.foodForm.value);
   }
 }

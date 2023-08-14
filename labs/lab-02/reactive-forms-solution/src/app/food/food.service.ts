@@ -1,29 +1,27 @@
 import { HttpClient } from '@angular/common/http';
-import { Injectable } from '@angular/core';
-import { environment } from 'src/environments/environment';
-import { FoodItem } from './foodItem';
+import { Injectable, inject } from '@angular/core';
+import { environment } from '../../environments/environment';
+import { FoodItem } from './food.model';
 
 @Injectable({
-  providedIn: "root",
+  providedIn: 'root',
 })
 export class FoodService {
-  private url = `${environment.api}food`;
-
-  constructor(private httpClient: HttpClient) { }
+  http = inject(HttpClient);
 
   getFood() {
-    return this.httpClient.get<FoodItem[]>(this.url);
+    return this.http.get<FoodItem[]>(`${environment.api}/food`);
   }
 
   addFood(food: FoodItem) {
-    return this.httpClient.post<FoodItem>(this.url, food);
+    return this.http.post<FoodItem>(`${environment.api}/food`, food);
   }
 
   updateFood(food: FoodItem) {
-    return this.httpClient.put<FoodItem>(`${this.url}/${food.id}`, food);
+    return this.http.put<FoodItem>(`${environment.api}/food/${food.id}`, food);
   }
 
   deleteFood(id: number) {
-    return this.httpClient.delete<FoodItem>(`${this.url}/${id}`);
+    return this.http.delete<FoodItem>(`${environment.api}/food/${id}`);
   }
 }

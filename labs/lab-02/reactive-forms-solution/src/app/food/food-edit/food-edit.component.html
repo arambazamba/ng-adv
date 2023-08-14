@@ -3,16 +3,10 @@
     <mat-card-title>Edit</mat-card-title>
   </mat-card-header>
   <mat-card-content>
-    <form
-      [formGroup]="foodForm"
-      (ngSubmit)="saveForm()"
-      fxLayout="column"
-      fxLayoutAlign="center start"
-      novalidate
-    >
-    <mat-form-field>
-      <input matInput type ="number" formControlName="id"  >
-    </mat-form-field>
+    <form [formGroup]="foodForm" novalidate class="column">
+      <mat-form-field>
+        <input matInput type="number" formControlName="id" />
+      </mat-form-field>
       <mat-form-field>
         <input matInput type="text" placeholder="Name" formControlName="name" />
       </mat-form-field>
@@ -51,6 +45,6 @@
     </form>
   </mat-card-content>
   <mat-card-actions align="end">
-    <button mat-raised-button color="accent" (click)="saveForm()">Save</button>
+    <button mat-raised-button color="primary" (click)="saveForm()">Save</button>
   </mat-card-actions>
 </mat-card>

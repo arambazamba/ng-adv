@@ -14,9 +14,23 @@
     },
     {
       "id": 3,
-      "name": "Blini with Salmon",
+      "name": "Wiener Schnitzel",
       "price": 8.3,
       "calories": 600
+    }
+  ],
+  "top-links": [
+    {
+      "title": "Home",
+      "url": "/"
+    },
+    {
+      "title": "Food",
+      "url": "/food"
+    },
+    {
+      "title": "About",
+      "url": "/about"
     }
   ]
 }
