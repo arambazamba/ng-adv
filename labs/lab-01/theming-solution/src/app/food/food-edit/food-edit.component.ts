@@ -1,21 +1,17 @@
-import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
-import { FoodItem } from 'src/app/food/foodItem';
+import { Component, EventEmitter, Input, Output } from '@angular/core';
+import { FoodItem } from '../food.model';
 
 @Component({
   selector: 'app-food-edit',
   templateUrl: './food-edit.component.html',
   styleUrls: ['./food-edit.component.scss'],
 })
-export class FoodEditComponent implements OnInit {
-  constructor() {}
+export class FoodEditComponent {
+  @Input() food = new FoodItem();
+  @Output() onFoodSaved: EventEmitter<FoodItem> = new EventEmitter<FoodItem>();
 
-  @Input() food: FoodItem;
-  @Output() saveFood: EventEmitter<FoodItem> = new EventEmitter();
-
-  ngOnInit() {}
-
-  doSave() {
+  saveFood() {
     console.log('food to save', this.food);
-    this.saveFood.emit(this.food);
+    this.onFoodSaved.emit(this.food);
   }
 }

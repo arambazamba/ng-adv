@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { MenuFacade } from './state/menu.facade';
+import { MenuFacade } from './state/sidenav.facade';
 
 @Component({
   selector: 'app-root',

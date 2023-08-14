@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { MenuFacade } from '../../state/menu.facade';
-import { NavItem } from './navItem';
+import { MenuFacade } from '../../state/sidenav.facade';
+import { NavItem } from './nav-item.model';
 
 @Component({
   selector: 'app-navbar',

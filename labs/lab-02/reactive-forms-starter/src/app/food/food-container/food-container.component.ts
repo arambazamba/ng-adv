@@ -1,5 +1,5 @@
-import { Component, OnInit } from '@angular/core';
-import { FoodItem } from 'src/app/food/foodItem';
+import { Component, OnInit, inject } from '@angular/core';
+import { FoodItem } from 'src/app/food/food.model';
 import { FoodService } from '../food.service';
 
 @Component({
@@ -8,22 +8,39 @@ import { FoodService } from '../food.service';
   styleUrls: ['./food-container.component.scss'],
 })
 export class FoodContainerComponent implements OnInit {
-  food: FoodItem[];
-  selected: FoodItem;
+  fs = inject(FoodService);
+  food: FoodItem[] = [];
+  selected: FoodItem | undefined = undefined;
 
-  constructor(private fs: FoodService) {}
-
-  ngOnInit() {
-    this.fs.getFood().subscribe((data) => (this.food = data));
+  ngOnInit(): void {
+    this.fs.getFood().subscribe((food) => {
+      this.food = food;
+    });
   }
 
   selectFood(f: FoodItem) {
     this.selected = { ...f };
   }
 
-  foodSaved(f: FoodItem) {
-    this.food = this.food.filter((item) => item.id != f.id);
-    this.food.push(f);
-    this.selected = null;
+  addFood() {
+    this.selected = new FoodItem();
+  }
+
+  saveFood(f: FoodItem) {
+    let arr = [...this.food]
+    if (f.id = 0) {
+      this.fs.addFood(f).subscribe((food) => {
+        arr.push(food);
+        this.food = arr;
+        this.selected = undefined;
+      });
+    } else {
+      this.fs.updateFood(f).subscribe((food) => {
+        const index = arr.findIndex((f) => f.id === food.id);
+        arr[index] = food;
+        this.food = arr;
+        this.selected = undefined;
+      });
+    }
   }
 }

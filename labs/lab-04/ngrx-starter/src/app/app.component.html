@@ -2,12 +2,11 @@
   <app-navbar></app-navbar>
 </div>
 <div class="mainrow">
-
   <mat-sidenav-container style="width: 100%">
     <mat-sidenav
       #sidenav
-      [opened]="ms.visible$ | async"
-      [mode]="ms.position$ | async"
+      [opened]="nav.visible$ | async"
+      [mode]="nav.position$ | async"
       class="sidebar"
     >
       Sidenav content

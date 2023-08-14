@@ -1,5 +1,5 @@
-import { Component } from '@angular/core';
-import { MenuService } from './menu/menu.service';
+import { Component, inject } from '@angular/core';
+import { SideNavService } from './sidenav/sidenav.service';
 
 @Component({
   selector: 'app-root',
@@ -8,6 +8,5 @@ import { MenuService } from './menu/menu.service';
 })
 export class AppComponent {
   title = 'Food App';
-
-  constructor(public ms: MenuService) { }
+  nav = inject(SideNavService);
 }

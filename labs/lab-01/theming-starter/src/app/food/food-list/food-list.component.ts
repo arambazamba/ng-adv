@@ -7,30 +7,27 @@ import {
   SimpleChanges,
   OnChanges,
 } from '@angular/core';
-import { FoodItem } from 'src/app/food/foodItem';
+import { FoodItem } from 'src/app/food/food.model';
 import { MatTableDataSource } from '@angular/material/table';
+import { FormControl } from '@angular/forms';
 
 @Component({
   selector: 'app-food-list',
   templateUrl: './food-list.component.html',
   styleUrls: ['./food-list.component.scss'],
 })
-export class FoodListComponent implements OnInit, OnChanges {
-  constructor() {}
-
-  @Input()
-  food: FoodItem[];
-  @Output()
-  foodSelected: EventEmitter<FoodItem> = new EventEmitter();
+export class FoodListComponent implements OnChanges {
+  @Input() food: FoodItem[] | null = [];
+  @Output() onFoodSelected: EventEmitter<FoodItem> = new EventEmitter<FoodItem>();
 
   displayedColumns: string[] = ['id', 'name', 'price', 'calories'];
-  dataSource: MatTableDataSource<FoodItem> = new MatTableDataSource([]);
-
-  ngOnInit() {}
+  dataSource: MatTableDataSource<FoodItem> = new MatTableDataSource<FoodItem>([]);
 
   ngOnChanges(changes: SimpleChanges) {
-    console.log(changes.food.currentValue);
-    this.dataSource = new MatTableDataSource(changes.food.currentValue);
+    if (changes['food']) {
+      console.log('ngOnChanges', changes['food'].currentValue);
+      this.dataSource = new MatTableDataSource(changes['food'].currentValue);
+    }
   }
 
   applyFilter(filterValue: string) {
@@ -38,6 +35,6 @@ export class FoodListComponent implements OnInit, OnChanges {
   }
 
   selectFood(p: FoodItem) {
-    this.foodSelected.emit(p);
+    this.onFoodSelected.emit(p);
   }
 }

@@ -7,9 +7,6 @@ import { AppComponent } from "./app.component";
 import { NavbarComponent } from "./shared/navbar/navbar.component";
 import { SidebarComponent } from "./shared/sidebar/sidebar.component";
 import { MainComponent } from "./main/main.component";
-import { FoodContainerComponent } from "./food/food-container/food-container.component";
-import { FoodListComponent } from "./food/food-list/food-list.component";
-import { FoodEditComponent } from "./food/food-edit/food-edit.component";
 import { HomeComponent } from "./home/home.component";
 import { AboutComponent } from "./about/about.component";
 import { BrowserAnimationsModule } from "@angular/platform-browser/animations";
@@ -21,9 +18,6 @@ import { MaterialModule } from "./material.module";
     NavbarComponent,
     SidebarComponent,
     MainComponent,
-    FoodContainerComponent,
-    FoodListComponent,
-    FoodEditComponent,
     HomeComponent,
     AboutComponent
   ],
@@ -38,4 +32,4 @@ import { MaterialModule } from "./material.module";
   providers: [],
   bootstrap: [AppComponent]
 })
-export class AppModule {}
+export class AppModule { }
