@@ -1,24 +1,24 @@
-import { Component, OnInit, inject } from '@angular/core';
-import { FoodItem } from 'src/app/food/food.model';
-import { FoodService } from '../food.service';
-import { FoodEditComponent } from '../food-edit/food-edit.component';
 import { NgIf } from '@angular/common';
-import { FoodListComponent } from '../food-list/food-list.component';
+import { Component, OnInit, inject } from '@angular/core';
 import { MatButtonModule } from '@angular/material/button';
 import { MatToolbarModule } from '@angular/material/toolbar';
+import { FoodItem } from 'src/app/food/food.model';
+import { FoodEditComponent } from '../food-edit/food-edit.component';
+import { FoodListComponent } from '../food-list/food-list.component';
+import { FoodService } from '../food.service';
 
 @Component({
-    selector: 'app-food-container',
-    templateUrl: './food-container.component.html',
-    styleUrls: ['./food-container.component.scss'],
-    standalone: true,
-    imports: [
-        MatToolbarModule,
-        MatButtonModule,
-        FoodListComponent,
-        NgIf,
-        FoodEditComponent,
-    ],
+  selector: 'app-food-container',
+  templateUrl: './food-container.component.html',
+  styleUrls: ['./food-container.component.scss'],
+  standalone: true,
+  imports: [
+    MatToolbarModule,
+    MatButtonModule,
+    FoodListComponent,
+    NgIf,
+    FoodEditComponent,
+  ],
 })
 export class FoodContainerComponent implements OnInit {
   fs = inject(FoodService);

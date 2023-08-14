@@ -1,26 +1,26 @@
-import { Component, EventEmitter, Input, OnChanges, Output, SimpleChanges } from '@angular/core';
-import { FormBuilder, FormGroup, Validators, FormsModule, ReactiveFormsModule } from '@angular/forms';
-import { FoodItem } from '../food.model';
-import { MatButtonModule } from '@angular/material/button';
 import { NgIf } from '@angular/common';
-import { MatInputModule } from '@angular/material/input';
-import { MatFormFieldModule } from '@angular/material/form-field';
+import { Component, EventEmitter, Input, OnChanges, Output, SimpleChanges } from '@angular/core';
+import { FormBuilder, FormGroup, FormsModule, ReactiveFormsModule, Validators } from '@angular/forms';
+import { MatButtonModule } from '@angular/material/button';
 import { MatCardModule } from '@angular/material/card';
+import { MatFormFieldModule } from '@angular/material/form-field';
+import { MatInputModule } from '@angular/material/input';
+import { FoodItem } from '../food.model';
 
 @Component({
-    selector: 'app-food-edit',
-    templateUrl: './food-edit.component.html',
-    styleUrls: ['./food-edit.component.scss'],
-    standalone: true,
-    imports: [
-        MatCardModule,
-        FormsModule,
-        ReactiveFormsModule,
-        MatFormFieldModule,
-        MatInputModule,
-        NgIf,
-        MatButtonModule,
-    ],
+  selector: 'app-food-edit',
+  templateUrl: './food-edit.component.html',
+  styleUrls: ['./food-edit.component.scss'],
+  standalone: true,
+  imports: [
+    MatCardModule,
+    FormsModule,
+    ReactiveFormsModule,
+    MatFormFieldModule,
+    MatInputModule,
+    NgIf,
+    MatButtonModule,
+  ],
 })
 export class FoodEditComponent implements OnChanges {
   @Input() food: FoodItem = new FoodItem();

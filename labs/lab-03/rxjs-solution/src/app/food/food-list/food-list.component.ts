@@ -6,16 +6,16 @@ import {
   Output,
   SimpleChanges
 } from '@angular/core';
+import { MatCardModule } from '@angular/material/card';
 import { MatTableDataSource, MatTableModule } from '@angular/material/table';
 import { FoodItem } from 'src/app/food/food.model';
-import { MatCardModule } from '@angular/material/card';
 
 @Component({
-    selector: 'app-food-list',
-    templateUrl: './food-list.component.html',
-    styleUrls: ['./food-list.component.scss'],
-    standalone: true,
-    imports: [MatCardModule, MatTableModule],
+  selector: 'app-food-list',
+  templateUrl: './food-list.component.html',
+  styleUrls: ['./food-list.component.scss'],
+  standalone: true,
+  imports: [MatCardModule, MatTableModule],
 })
 export class FoodListComponent implements OnChanges {
   @Input() food: FoodItem[] | null = [];

@@ -1,10 +1,10 @@
 import { AsyncPipe, NgFor } from '@angular/common';
 import { Component, inject } from '@angular/core';
+import { MatIconModule } from '@angular/material/icon';
 import { MatToolbarModule } from '@angular/material/toolbar';
 import { RouterLink } from '@angular/router';
-import { NavbarService } from './navbar.service';
-import { MatIconModule } from '@angular/material/icon';
 import { SideNavService } from '../sidenav/sidenav.service';
+import { NavbarService } from './navbar.service';
 
 @Component({
   selector: 'app-navbar',
