@@ -6,30 +6,26 @@ import { AppRoutingModule } from "./app-routing.module";
 import { AppComponent } from "./app.component";
 import { NavbarComponent } from "./shared/navbar/navbar.component";
 import { SidebarComponent } from "./shared/sidebar/sidebar.component";
-import { MainComponent } from "./main/main.component";
 import { HomeComponent } from "./home/home.component";
 import { AboutComponent } from "./about/about.component";
 import { BrowserAnimationsModule } from "@angular/platform-browser/animations";
 import { MaterialModule } from "./material.module";
 
 @NgModule({
-  declarations: [
-    AppComponent,
-    NavbarComponent,
-    SidebarComponent,
-    MainComponent,
-    HomeComponent,
-    AboutComponent
-  ],
-  imports: [
-    BrowserModule,
-    AppRoutingModule,
-    HttpClientModule,
-    FormsModule,
-    BrowserAnimationsModule,
-    MaterialModule
-  ],
-  providers: [],
-  bootstrap: [AppComponent]
+    declarations: [AppComponent],
+    imports: [
+        BrowserModule,
+        AppRoutingModule,
+        HttpClientModule,
+        FormsModule,
+        BrowserAnimationsModule,
+        MaterialModule,
+        NavbarComponent,
+        SidebarComponent,
+        HomeComponent,
+        AboutComponent
+    ],
+    providers: [],
+    bootstrap: [AppComponent]
 })
 export class AppModule { }

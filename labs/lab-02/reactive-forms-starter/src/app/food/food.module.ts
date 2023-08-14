@@ -8,17 +8,15 @@ import { FoodListComponent } from './food-list/food-list.component';
 import { FoodRoutingModule } from './food-routing.module';
 
 @NgModule({
-  declarations: [
-    FoodContainerComponent,
-    FoodListComponent,
-    FoodEditComponent,
-  ],
-  imports: [
-    CommonModule,
-    MaterialModule,
-    FormsModule,
-    ReactiveFormsModule,
-    FoodRoutingModule
-  ]
+    imports: [
+        CommonModule,
+        MaterialModule,
+        FormsModule,
+        ReactiveFormsModule,
+        FoodRoutingModule,
+        FoodContainerComponent,
+        FoodListComponent,
+        FoodEditComponent
+    ]
 })
 export class FoodModule { }

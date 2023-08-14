@@ -141,3 +141,7 @@ export class FoodService {
     ```bash
     ng g @angular/core:standalone
     ```
+
+- On the first run select: Convert all components, directives and pipes to standalone
+
+- On the second run select: Remove unnecessary NgModule classes
