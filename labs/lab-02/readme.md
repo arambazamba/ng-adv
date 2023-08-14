@@ -168,4 +168,6 @@ export class FoodService {
 
 - Manually remove the following items:
 
-food.module.ts
+    - app-routing.module.ts
+    - food.module.ts
+    - food-routing.module.ts    
