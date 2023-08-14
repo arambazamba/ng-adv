@@ -1,21 +1,20 @@
 import {
   Component,
-  EventEmitter,
+  OnInit,
   Input,
-  OnChanges,
   Output,
-  SimpleChanges
+  EventEmitter,
+  SimpleChanges,
+  OnChanges,
 } from '@angular/core';
-import { MatTableDataSource, MatTableModule } from '@angular/material/table';
 import { FoodItem } from 'src/app/food/food.model';
-import { MatCardModule } from '@angular/material/card';
+import { MatTableDataSource } from '@angular/material/table';
+import { FormControl } from '@angular/forms';
 
 @Component({
-    selector: 'app-food-list',
-    templateUrl: './food-list.component.html',
-    styleUrls: ['./food-list.component.scss'],
-    standalone: true,
-    imports: [MatCardModule, MatTableModule],
+  selector: 'app-food-list',
+  templateUrl: './food-list.component.html',
+  styleUrls: ['./food-list.component.scss'],
 })
 export class FoodListComponent implements OnChanges {
   @Input() food: FoodItem[] | null = [];

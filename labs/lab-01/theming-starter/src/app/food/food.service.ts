@@ -13,15 +13,7 @@ export class FoodService {
     return this.http.get<FoodItem[]>(`${environment.api}/food`);
   }
 
-  addFood(food: FoodItem) {
-    return this.http.post<FoodItem>(`${environment.api}/food`, food);
-  }
+  addFood(food: FoodItem) { }
 
-  updateFood(food: FoodItem) {
-    return this.http.put<FoodItem>(`${environment.api}/food/${food.id}`, food);
-  }
-
-  deleteFood(id: number) {
-    return this.http.delete<FoodItem>(`${environment.api}/food/${id}`);
-  }
+  updateFood(food: FoodItem) { }
 }
