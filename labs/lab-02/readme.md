@@ -17,8 +17,6 @@
 
 ## Guide
 
-
-
 -   Add the following db.json to the root of the project:
 
 ```json
@@ -46,7 +44,7 @@
 }
 ```
 
--   Start the json-server with `json-server --watch db.json`
+-   Start the json-server with `json-server db.json --watch`
 
 -   Add the following property to environment.ts:
 
