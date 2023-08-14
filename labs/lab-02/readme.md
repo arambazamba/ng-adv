@@ -1,4 +1,4 @@
-# Food App Project - Reactive Forms
+# Food App Project - Components & Forms
 
 - Add Api support using [json-server](https://github.com/typicode/json-server)
 
