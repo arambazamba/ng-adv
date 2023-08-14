@@ -1,15 +1,13 @@
 import {
   Component,
-  OnInit,
-  Input,
-  Output,
   EventEmitter,
-  SimpleChanges,
+  Input,
   OnChanges,
+  Output,
+  SimpleChanges
 } from '@angular/core';
-import { FoodItem } from 'src/app/food/food.model';
 import { MatTableDataSource } from '@angular/material/table';
-import { FormControl } from '@angular/forms';
+import { FoodItem } from 'src/app/food/food.model';
 
 @Component({
   selector: 'app-food-list',

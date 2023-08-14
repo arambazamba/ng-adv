@@ -28,7 +28,8 @@ export class FoodContainerComponent implements OnInit {
 
   saveFood(f: FoodItem) {
     let arr = [...this.food]
-    if (f.id = 0) {
+
+    if (f.id == 0) {
       this.fs.addFood(f).subscribe((food) => {
         arr.push(food);
         this.food = arr;

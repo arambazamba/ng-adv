@@ -9,7 +9,7 @@ import { FoodItem } from 'src/app/food/foodItem';
 })
 export class FoodEditComponent implements OnChanges {
   @Input() food: FoodItem = new FoodItem();
-  @Output() saveFood: EventEmitter<FoodItem> = new EventEmitter();
+  @Output() onFoodSaved: EventEmitter<FoodItem> = new EventEmitter<FoodItem>();
   foodForm: FormGroup;
 
   constructor(private fb: FormBuilder) {

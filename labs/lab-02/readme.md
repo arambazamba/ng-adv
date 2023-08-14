@@ -1,13 +1,23 @@
 # Food App Project - Reactive Forms
 
--   Refactor `food-edit.component` to be implemented as a Reactive Form using FormBuilder.
--   Implement Validation for the name filed to be required with min lenght of 3 and the price filed to be positive
+- Add Api support using [json-server](https://github.com/typicode/json-server)
+
+- Refactor `food-edit.component` to be implemented as a Reactive Form using FormBuilder.
+
+    Note: You can take the following components as a [reference](https://github.com/arambazamba/ng-adv/tree/main/demos/02-components-forms/component-forms/src/app/demos/samples/forms-builder):
+
+- Implement Validation for the name filed to be required with min lenght of 3 and the price filed to be positive
 
     ![edit-form](_images/edit-form.png)
 
-> Note: You can take the following components as a reference: https://github.com/arambazamba/ng-adv/tree/v16/demos/02-components-forms/components-forms/src/app/demos/samples/container-presenter    
+    > Note: You can take the following components as a [reference](https://github.com/arambazamba/ng-adv/tree/main/demos/02-components-forms/component-forms/src/app/demos/samples/validaton-intro):
+
+
+- Convert the project to a standalone app
 
 ## Guide
+
+
 
 -   Add the following db.json to the root of the project:
 
@@ -90,20 +100,43 @@ export class FoodService {
 -   Add the following ngOnChanges method to food-edit.component.ts
 
     ```typescript
-    ngOnChanges(changes: SimpleChanges) {
-        if (changes.food) {
-        this.foodForm.patchValue(changes.food.currentValue);
-        }
+    ngOnChanges(changes: SimpleChanges): void {
+    if (changes['food']) {
+      this.foodForm.setValue(changes['food'].currentValue);
     }
+  }
     ```
 
 -   Implement the onSubmit method in food-edit.component.ts
 
     ```typescript
-    saveForm() {
-        console.log('food to save', this.foodForm.value);
-        this.saveFood.emit(this.foodForm.value);
+    saveForm(): void {
+      console.log('food to save', this.foodForm.value);
+      this.onFoodSaved.emit(this.foodForm.value);
     }
     ```
 
-- In time permits you can complete the saving and updating of the food items.
+-   Add the following `saveFood-method`to food-container.component.ts:
+
+    ```typescript
+    saveFood(f: FoodItem) {
+        let arr = [...this.food]
+        if (f.id == 0) {
+            this.fs.addFood(f).subscribe((food) => {
+            arr.push(food);
+            this.food = arr;
+            this.selected = undefined;
+            });
+        } else {
+            this.fs.updateFood(f).subscribe((food) => {
+            const index = arr.findIndex((f) => f.id === food.id);
+            arr[index] = food;
+            this.food = arr;
+            this.selected = undefined;
+            });
+        }
+    }
+    ```
+
+- Convert the project to use standalone components:    
+
