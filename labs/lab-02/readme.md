@@ -13,7 +13,7 @@
     > Note: You can take the following components as a [reference](https://github.com/arambazamba/ng-adv/tree/main/demos/02-components-forms/component-forms/src/app/demos/samples/validaton-intro):
 
 
-- Convert the project to a standalone app
+- Convert the project to bootstrap and use standalone components
 
 ## Guide
 
@@ -136,12 +136,36 @@ export class FoodService {
     }
     ```
 
-- Convert the project to use standalone components:    
+## Convert the project to bootstrap and use standalone components
+
+>Note: You might want to commit your changes between the different steps
+
+- Convert the project to use standalone components by running the following command two times:    
 
     ```bash
     ng g @angular/core:standalone
     ```
 
-- On the first run select: Convert all components, directives and pipes to standalone
+    - On the first run select: Convert all components, directives and pipes to standalone
 
-- On the second run select: Bootstrap the application using standalone APIs
+    - On the second run select: Bootstrap the application using standalone APIs
+
+- Open `main.ts` and use `Visual Studio Code - Organize Imports` to clean up the imports
+
+- To add the routing configuration create a new file `routes.ts` and add the following content:
+
+    ```typescript
+    import { Routes } from '@angular/router';
+    import { HomeComponent } from './home/home.component';
+    import { AboutComponent } from './about/about.component';
+
+    export const routes: Routes = [
+        { path: "", component: HomeComponent },
+        { path: "food", loadComponent: () => import('./food/food-container/food-container.component').then(m => m.FoodContainerComponent) },
+        { path: "about", component: AboutComponent }
+    ];
+    ```
+
+- Manually remove the following items:
+
+food.module.ts
