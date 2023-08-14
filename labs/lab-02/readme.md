@@ -144,4 +144,4 @@ export class FoodService {
 
 - On the first run select: Convert all components, directives and pipes to standalone
 
-- On the second run select: Remove unnecessary NgModule classes
+- On the second run select: Bootstrap the application using standalone APIs
