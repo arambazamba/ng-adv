@@ -210,11 +210,30 @@ export const entityConfig = {
 };
 ```
 
-Add the following code to `app.config.ts`:
+Because we are using a non-default url for the backend, we need to configure the default data service. Create `food-data-service.config.ts`:
+
+```typescript
+import { DefaultDataServiceConfig } from '@ngrx/data';
+import { environment } from '../../../environments/environment';
+
+export const foodDataServiceConfig: DefaultDataServiceConfig = {
+    root: `${environment.api}/`,
+    timeout: 3000,
+    entityHttpResourceUrls: {
+        Food: {
+            entityResourceUrl: `${environment.api}/food/`,
+            collectionResourceUrl: `${environment.api}/food`
+        },
+    }
+}
+```
+
+Add the following code to `app.config.ts` in order to configure the entity data service:
 
 ```typescript 
 providers: [
   ...
+  { provide: DefaultDataServiceConfig, useValue: foodDataServiceConfig },
   provideEffects(),
   provideEntityData(entityConfig, withEffects())
   ...
