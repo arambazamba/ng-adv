@@ -140,34 +140,38 @@ Run the app and check the [Redux DevTools](https://chrome.google.com/webstore/de
 
 ![Redux DevTools](_images/redux-dev-tools.png)
 
-Open `navbar.component.ts` and inject the MenuFacade insted of the MenuService:
+Open `navbar.component.ts` and inject the SideNavFacade instead of the SideNavService:
 
 ```typescript
-constructor(private ms: MenuFacade) { }
+export class NavbarComponent {
+  ns = inject(NavbarService);
+  nav = inject(SideNavFacade);
+  items = this.ns.getTopItems();
 
-...
-
-toggleMenu() {
-    this.ms.toggleMenuVisibility();
+  toggleMenu() {
+    this.nav.toggleMenuVisibility();
+  }
 }
 ```
 
-Open `app.component.ts` and inject the MenuFacade insted of the MenuService:
+Open `app.component.ts` and inject the SideNavFacade instead of the SideNavService. Also, update the code to use the new facade:
 
 ```typescript
-constructor(private ms: MenuFacade) { }
+nav = inject(SideNavFacade);
+...
+sidenavMode = this.nav.getSideNavPosition();
+sidenavVisible = this.nav.getSideNavVisible();
 ```
 
 Update the code in in app.component.html:
 
 ```html
 <mat-sidenav
-    #sidenav
-    [opened]="ms.getSideNavVisible() | async"
-    [mode]="ms.getSideNavPosition() | async"
-    class="sidebar">
-    Sidenav content
+    #sidenav class="sidebar"
+    [opened]="sidenavVisible | async" 
+    [mode]="(sidenavMode | async) ?? 'side'">
+    ...    
 </mat-sidenav>
 ```
 
-Congratulations! You have successfully migrated the responsive side menu to NgRx.
+Congratulations! You have successfully migrated the responsive SideNav to NgRx.
