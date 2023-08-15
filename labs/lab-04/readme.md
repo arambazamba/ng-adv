@@ -3,6 +3,7 @@
 ## Tasks
 
 - Migrate SideNavService to use NgRx. You can take the demo app as a reference or use the guide below
+- Replace FoodService with NgRx Data
 
 ### Migrate SideNavService to use NgRx
 
@@ -175,3 +176,65 @@ Update the code in in app.component.html:
 ```
 
 Congratulations! You have successfully migrated the responsive SideNav to NgRx.
+
+### Replace FoodService with NgRx Data
+
+NgRx Data is a library that provides a single API for all CRUD operations. It is based on NgRx and uses the Entity pattern.
+
+NgRx Data installation:
+
+```bash
+npm i -S @ngrx/data
+```
+
+Define the entity metadata in `food.metadata.ts`:
+
+```typescript
+import { EntityMetadataMap } from '@ngrx/data';
+import { FoodItem } from '../food.model';
+
+export function sortByName(a: FoodItem, b: FoodItem): number {
+  let comp = a.name.localeCompare(b.name);
+  return comp;
+}
+
+export const entityMetadata: EntityMetadataMap = {
+  Food: {
+    selectId: (food: FoodItem) => food.id,
+    sortComparer: sortByName,
+  },
+};
+
+export const entityConfig = {
+  entityMetadata,
+};
+```
+
+Add the following code to `app.config.ts`:
+
+```typescript 
+providers: [
+  ...
+  provideEffects(),
+  provideEntityData(entityConfig, withEffects())
+  ...
+  ]
+```
+
+Create `food/state/food-entity.service.ts`:
+
+```typescript
+import { Injectable } from '@angular/core';
+import { EntityCollectionServiceBase, EntityCollectionServiceElementsFactory} from '@ngrx/data';
+import { FoodItem } from '../food.model';
+
+@Injectable({
+  providedIn: 'root',
+})
+export class FoodEntityService extends EntityCollectionServiceBase<FoodItem> {
+  constructor(serviceElementsFactory: EntityCollectionServiceElementsFactory) {
+    super('Food', serviceElementsFactory);
+  }
+}
+```
+
