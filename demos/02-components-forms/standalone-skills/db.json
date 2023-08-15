@@ -1,0 +1,14 @@
+{
+  "skills": [
+    {
+      "id": "123",
+      "name": "Standalone Components",
+      "completed": true
+    },
+    {
+      "id": "456",
+      "name": "NgRx Data",
+      "completed": false
+    }
+  ]
+}

@@ -1,0 +1,22 @@
+.container {
+  margin: 1rem;
+}
+
+.menu{
+  margin-bottom: 0.5rem;
+  text-decoration: underline;
+
+  &:hover{
+    background-color: aqua;
+    border: 1px solid black;
+    text-decoration: none;
+  }
+}
+
+h3 {
+  margin-bottom: 1rem;
+}
+
+div {
+  cursor: pointer;
+}
