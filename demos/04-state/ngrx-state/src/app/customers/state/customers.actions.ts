@@ -6,6 +6,7 @@ export const CustomersActions = createActionGroup({
   events: {
     loadCustomers: emptyProps(),
     loadCustomersSuccess: props<{ items: Customer[] }>(),
-    loadCustomersFailure: props<{ err: Error }>()
+    loadCustomersFailure: props<{ err: Error }>(),
+    setFilter: props<{ filter: string }>(),
   }
 })

@@ -132,11 +132,19 @@
   "customers": [
     {
       "id": 1,
-      "name": "Fritzi"
+      "name": "Cleo"
     },
     {
       "id": 2,
-      "name": "Mimi"
+      "name": "Soi"
+    },
+    {
+      "id": 3,
+      "name": "Giro"
+    },
+    {
+      "id": 4,
+      "name": "Flora"
     }
   ],
   "top-links": [

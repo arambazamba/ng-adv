@@ -1,4 +1,12 @@
-<h3>Customers</h3>
+<mat-toolbar>
+  <mat-toolbar-row>
+    <input
+    matInput
+    [formControl]="fcFilter"
+    placeholder="Filter"
+  />
+  </mat-toolbar-row>
+</mat-toolbar>
 <div *ngFor="let c of customers | async">
   {{ c.name }}
 </div>
