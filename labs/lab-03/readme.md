@@ -92,7 +92,7 @@
   }
   ```
 
-- Take the [demo.container](.../../../../demos/07-rxjs-state/ng-reactive/src/app/demos/demo-container/) and the [sidenav.service.ts](.../../../../demos/07-rxjs-state/ng-reactive/src/app/shared/sidenav/sidenav.service.ts) as a reference.
+- Take the [demo.container](.../../../../demos/04-state/ngrx-state/src/app/demos/demo-container/demo-container.component.ts) and the [sidenav.service.ts](.../../../../demos/04-state/ngrx-state/src/app/shared/sidenav/sidenav.service.ts) as a reference.
 
 ## Implement a global loading inicator (Advanced Optional):
 
