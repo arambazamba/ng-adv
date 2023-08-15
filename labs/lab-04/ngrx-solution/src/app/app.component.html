@@ -7,8 +7,8 @@
   <div class="gd-mainrow">
     <mat-sidenav-container>
       <mat-sidenav #sidenav class="sidenav"
-      [opened]="ms.sideNavVisible | async"
-      [mode]="mode">
+      [opened]="sidenavVisible | async" 
+      [mode]="(sidenavMode | async) ?? 'side'">
         <app-sidebar></app-sidebar>
       </mat-sidenav>
       <mat-sidenav-content [ngStyle]="getWorbenchStyle()">

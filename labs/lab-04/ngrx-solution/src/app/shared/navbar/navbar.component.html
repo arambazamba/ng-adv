@@ -3,7 +3,7 @@
     <div class="hamburgerMenu" (click)="toggleMenu()" >
       <mat-icon color="accent">menu</mat-icon>
     </div>
-    <div *ngFor="let item of items | async" [routerLink]="[item.url]">
+    <div *ngFor="let item of items | async" [routerLink]="[item.url]" class="menuItem">
       {{ item.title }}
     </div>
   </mat-toolbar-row>

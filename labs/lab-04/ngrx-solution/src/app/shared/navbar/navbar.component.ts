@@ -3,7 +3,7 @@ import { Component, inject } from '@angular/core';
 import { MatIconModule } from '@angular/material/icon';
 import { MatToolbarModule } from '@angular/material/toolbar';
 import { RouterLink } from '@angular/router';
-import { SideNavService } from '../sidenav/sidenav.service';
+import { SideNavFacade } from 'src/app/state/sidenav.facade';
 import { NavbarService } from './navbar.service';
 
 @Component({
@@ -15,7 +15,7 @@ import { NavbarService } from './navbar.service';
 })
 export class NavbarComponent {
   ns = inject(NavbarService);
-  nav = inject(SideNavService);
+  nav = inject(SideNavFacade);
   items = this.ns.getTopItems();
 
   toggleMenu() {

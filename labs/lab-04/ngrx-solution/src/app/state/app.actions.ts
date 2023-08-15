@@ -1,3 +1,4 @@
+import { MatDrawerMode } from '@angular/material/sidenav';
 import { createActionGroup, emptyProps, props } from '@ngrx/store';
 
 export const appActions = createActionGroup(
@@ -6,7 +7,7 @@ export const appActions = createActionGroup(
     events: {
       toggleSideNav: emptyProps(),
       changeSideNavVisible: props<{ visible: boolean }>(),
-      changeSideNavPosition: props<{ position: string }>(),
+      changeSideNavPosition: props<{ position: MatDrawerMode }>(),
     },
   }
 );

@@ -2,23 +2,33 @@
 
 ## Tasks
 
-- Refactor the "food"-folder to be a lazy loaded feature module 
-- Refactor MenuService to use NgRx. You can take the demo app as a reference or use the guide below
+- Migrate SideNavService to use NgRx. You can take the demo app as a reference or use the guide below
 
-## Guide: Getting Started with NgRx
+### Migrate SideNavService to use NgRx
 
 NgRx installation:
 
 ```
-npm i @ngrx/store @ngrx/effects @ngrx/entity @ngrx/data -S
-npm i @ngrx/store-devtools -D
+ng add @ngrx/store
+ng add @ngrx/store-devtools
 ```
 
-## Guide: Migrate MenuServie to NgRx
+Make sure that app.config.ts matches the following code:
 
-### 1. Create the store
+```typescript
+export const appConfig: ApplicationConfig = {
+    providers: [
+        provideRouter(routes),
+        provideHttpClient(withInterceptorsFromDi()),
+        provideAnimations(),
+        provideStore(),
+        provideState(appState),
+        provideStoreDevtools({ maxAge: 25, logOnly: !isDevMode() })
+    ],
+};
+```
 
-Create a new folder called state inside the root folder and add the following code to index.ts:
+Create a folder `app/state` and add the following code to index.ts:
 
 ```typescript
 import { ActionReducerMap, MetaReducer } from '@ngrx/store';
@@ -38,107 +48,63 @@ export const metaReducers: MetaReducer<State>[] = !environment.production
   : [];
 ```
 
->Note: You might have an import error as the appReducer is not yet created. We will create it in the next steps.
+>Note: You might have an import error as the `app.state.ts` is not yet created. We will create it in the next steps.
 
 Create the actions in `app.actions.ts`:
 
 ```typescript   
-import { createAction, props } from '@ngrx/store';
-
-export const toggleSideNav = createAction('[Menu] toggleSideNavVisible');
-
-export const changeSideNavVisible = createAction(
-  '[Menu] changeSideNavVisible',
-  props<{ visible: boolean }>()
-);
-
-export const changeSideNavPosition = createAction(
-  '[Menu] changeSideNavPosition',
-  props<{ position: string }>()
+export const appActions = createActionGroup(
+  {
+    source: 'app',
+    events: {
+      toggleSideNav: emptyProps(),
+      changeSideNavVisible: props<{ visible: boolean }>(),
+      changeSideNavPosition: props<{ position: string }>(),
+    },
+  }
 );
 ```
 
-Create the reducer in `app.reducer.ts`:
+Create the state in `app.state.ts`:
 
 ```typescript
-import { createReducer, on } from '@ngrx/store';
-import {
-  changeSideNavPosition,
-  changeSideNavVisible,
-  toggleSideNav,
-} from './app.actions';
-
-export const appFeatureKey = 'app';
-
 export interface AppState {
   sideNavVisible: boolean;
-  sideNavPosition: string;
+  sideNavPosition: MatDrawerMode;
 }
 
 export const initialAppState: AppState = {
   sideNavVisible: true,
-  sideNavPosition: 'side',
+  sideNavPosition: 'side'
 };
 
-export const appReducer = createReducer(
-  initialAppState,
-  on(toggleSideNav, (state) => ({
-    ...state,
-    sideNavVisible: !state.sideNavVisible,
-  })),
- on(changeSideNavVisible, (state, action) => ({
-    ...state,
-    sideNavVisible: action.visible,
-  })),
-  on(changeSideNavPosition, (state, action) => ({
-    ...state,
-    sideNavPosition: action.position,
-  }))
-);
+export const appState = createFeature({
+  name: 'app',
+  reducer: createReducer(
+    initialAppState,
+    on(appActions.toggleSideNav, (state) => ({
+      ...state,
+      sideNavVisible: !state.sideNavVisible,
+    })),
+    on(appActions.changeSideNavVisible, (state) => ({
+      ...state,
+      sideNavVisible: !state.sideNavVisible,
+    })),
+    on(appActions.changeSideNavPosition, (state, action) => ({
+      ...state,
+      sideNavPosition: action.position as MatDrawerMode,
+    }))
+  )
+})
 ```
 
-Create the selectors in `app.selectors.ts`:
+Create a sidenav.facades.ts which is responsible to provide the responsive sidenav container. We decided to use a facades to encapsulate the BreakpointObserver logic, and thereby keep the component as simple as possible. 
 
 ```typescript
-import { createFeatureSelector, createSelector } from '@ngrx/store';
-import { appFeatureKey, AppState } from './app.reducer';
-
-export const getAppState = createFeatureSelector<AppState>(appFeatureKey);
-
-export const getSideNavVisible = createSelector(
-  getAppState,
-  (state: AppState) => state.sideNavVisible
-);
-
-export const getSideNavPosition = createSelector(
-  getAppState,
-  (state: AppState) => state.sideNavPosition
-);
-```
-
-Create a menu.facades.ts file and add the following code:
-
-```typescript
-import { Injectable, inject } from '@angular/core';
-import { Store } from '@ngrx/store';
-
-import { BreakpointObserver, Breakpoints } from '@angular/cdk/layout';
-import { tap } from 'rxjs/operators';
-import {
-  changeSideNavPosition,
-  changeSideNavVisible,
-  toggleSideNav
-} from './app.actions';
-import { AppState } from './app.reducer';
-import {
-  getSideNavPosition, getSideNavVisible
-} from './app.selectors';
-
 @Injectable({
   providedIn: 'root',
 })
-export class MenuFacade {
-
+export class SideNavFacade {
   breakpointObserver = inject(BreakpointObserver);
   store = inject(Store<AppState>);
 
@@ -148,42 +114,26 @@ export class MenuFacade {
       .pipe(
         tap((matchesBreakpoints) => {
           console.log("matchesBreakpoint: ", matchesBreakpoints.matches);
-          const position = matchesBreakpoints.matches ? 'over' : 'side';
+          const position: MatDrawerMode = matchesBreakpoints.matches ? 'over' : 'side';
           const visible = matchesBreakpoints.matches ? false : true;
-          this.store.dispatch(changeSideNavVisible({ visible }));
-          this.store.dispatch(changeSideNavPosition({ position }));
+          this.store.dispatch(appActions.changeSideNavVisible({ visible }));
+          this.store.dispatch(appActions.changeSideNavPosition({ position }));
         })
       ).subscribe();
   }
 
   getSideNavVisible() {
-    return this.store.select(getSideNavVisible);
+    return this.store.select(appState.selectSideNavVisible);
   }
 
   getSideNavPosition() {
-    return this.store.select(getSideNavPosition);
+    return this.store.select(appState.selectSideNavPosition);
   }
 
   toggleMenuVisibility() {
-    this.store.dispatch(toggleSideNav());
+    this.store.dispatch(appActions.toggleSideNav());
   }
 }
-```
-
-Add the following modules and imports to `app.module.ts`:
-
-```typescript
-import { StoreModule } from '@ngrx/store';
-import { StoreDevtoolsModule } from '@ngrx/store-devtools';
-import { reducers } from './state';
-import { environment } from 'src/environments/environment';
-
-...
-
-StoreModule.forRoot(reducers),
-StoreDevtoolsModule.instrument({
-    logOnly: environment.production,
-}),
 ```
 
 Run the app and check the [Redux DevTools](https://chrome.google.com/webstore/detail/redux-devtools/lmhkpmbekcpmknklioeibfkpmmfibljd). You should see the initial state of the app.

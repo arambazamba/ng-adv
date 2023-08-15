@@ -1,14 +1,15 @@
 import { createFeature, createReducer, on } from '@ngrx/store';
 import { appActions } from './app.actions';
+import { MatDrawerMode } from '@angular/material/sidenav';
 
 export interface AppState {
   sideNavVisible: boolean;
-  sideNavPosition: string;
+  sideNavPosition: MatDrawerMode;
 }
 
 export const initialAppState: AppState = {
   sideNavVisible: true,
-  sideNavPosition: 'side',
+  sideNavPosition: 'side'
 };
 
 export const appState = createFeature({
@@ -25,7 +26,7 @@ export const appState = createFeature({
     })),
     on(appActions.changeSideNavPosition, (state, action) => ({
       ...state,
-      sideNavPosition: action.position,
+      sideNavPosition: action.position as MatDrawerMode,
     }))
   )
 })
