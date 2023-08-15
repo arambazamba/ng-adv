@@ -27,8 +27,13 @@ export class FoodContainerComponent implements OnInit {
   selected: FoodItem | undefined = undefined;
 
   ngOnInit(): void {
-    this.fs.getAll();
+    this.fs.loaded$.subscribe((loaded) => {
+      if (!loaded) {
+        this.fs.getAll();
+      }
+    })
   }
+
 
   selectFood(f: FoodItem) {
     this.selected = { ...f };
