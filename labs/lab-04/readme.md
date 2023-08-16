@@ -29,28 +29,6 @@ export const appConfig: ApplicationConfig = {
 };
 ```
 
-Create a folder `app/state` and add the following code to index.ts:
-
-```typescript
-import { ActionReducerMap, MetaReducer } from '@ngrx/store';
-import { environment } from '../../environments/environment';
-import { appReducer, AppState } from './app.reducer';
-
-export interface State {
-  app: AppState;
-}
-
-export const reducers: ActionReducerMap<State> = {
-  app: appReducer,
-};
-
-export const metaReducers: MetaReducer<State>[] = !environment.production
-  ? []
-  : [];
-```
-
->Note: You might have an import error as the `app.state.ts` is not yet created. We will create it in the next steps.
-
 Create the actions in `app.actions.ts`:
 
 ```typescript   
@@ -97,6 +75,26 @@ export const appState = createFeature({
     }))
   )
 })
+```
+
+Create a folder `app/state` and add the following code to index.ts:
+
+```typescript
+import { ActionReducerMap, MetaReducer } from '@ngrx/store';
+import { environment } from '../../environments/environment';
+import { appReducer, AppState } from './app.reducer';
+
+export interface State {
+  app: AppState;
+}
+
+export const reducers: ActionReducerMap<State> = {
+  app: appReducer,
+};
+
+export const metaReducers: MetaReducer<State>[] = !environment.production
+  ? []
+  : [];
 ```
 
 Create a sidenav.facades.ts which is responsible to provide the responsive sidenav container. We decided to use a facades to encapsulate the BreakpointObserver logic, and thereby keep the component as simple as possible. 
@@ -277,11 +275,7 @@ fs = inject(FoodEntityService);
   }
 
   saveFood(f: FoodItem) {
-    if (f.id == 0) {
-      this.fs.add(f);
-    } else {
-      this.fs.update(f);
-    }
+    f.id == 0 ? this.fs.add(f) : this.fs.update(f);
   }
 ```
 

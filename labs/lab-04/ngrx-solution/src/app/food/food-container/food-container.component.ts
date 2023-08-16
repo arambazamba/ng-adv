@@ -13,12 +13,12 @@ import { FoodEntityService } from '../state/food-entity.service';
   styleUrls: ['./food-container.component.scss'],
   standalone: true,
   imports: [
+    NgIf,
+    AsyncPipe,
     MatToolbarModule,
     MatButtonModule,
     FoodListComponent,
-    NgIf,
-    FoodEditComponent,
-    AsyncPipe
+    FoodEditComponent
   ],
 })
 export class FoodContainerComponent implements OnInit {
@@ -34,7 +34,6 @@ export class FoodContainerComponent implements OnInit {
     })
   }
 
-
   selectFood(f: FoodItem) {
     this.selected = { ...f };
   }
@@ -44,10 +43,6 @@ export class FoodContainerComponent implements OnInit {
   }
 
   saveFood(f: FoodItem) {
-    if (f.id == 0) {
-      this.fs.add(f);
-    } else {
-      this.fs.update(f);
-    }
+    f.id == 0 ? this.fs.add(f) : this.fs.update(f);
   }
 }

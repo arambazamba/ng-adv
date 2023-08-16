@@ -18,25 +18,3 @@ export const loadCustomers$ = createEffect((actions$ = inject(Actions), service 
     )
   )
 }, { functional: true });
-
-// class based effect
-
-// @Injectable()
-// export class CustomerEffects {
-//   actions$ = inject(Actions);
-//   service = inject(CustomersService);
-
-//   loadCustomers$ = createEffect(() =>
-//     this.actions$.pipe(
-//       ofType(CustomersActions.loadCustomers),
-//       mergeMap(() =>
-//         this.service.getCustomers().pipe(
-//           map((customers) =>
-//             CustomersActions.loadCustomersSuccess({ items: customers })
-//           ),
-//           catchError((err) => of(CustomersActions.loadCustomersFailure({ err })))
-//         )
-//       )
-//     )
-//   );
-// }  
