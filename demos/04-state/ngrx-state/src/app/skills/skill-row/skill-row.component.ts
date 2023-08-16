@@ -3,12 +3,11 @@ import {
   Component,
   EventEmitter,
   Input,
-  OnInit,
   Output,
-  SimpleChanges,
+  SimpleChanges
 } from '@angular/core';
-import { Skill } from '../skill.model';
 import { environment } from 'src/environments/environment';
+import { Skill } from '../skill.model';
 
 @Component({
   selector: 'app-skill-row',
@@ -16,14 +15,10 @@ import { environment } from 'src/environments/environment';
   styleUrls: ['./skill-row.component.scss'],
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
-export class SkillRowComponent implements OnInit {
+export class SkillRowComponent {
   @Input() skill: Skill = new Skill();
-  @Output() itemDeleted: EventEmitter<Skill> = new EventEmitter();
-  @Output() itemCompleted: EventEmitter<Skill> = new EventEmitter();
-
-  constructor() {}
-
-  ngOnInit(): void {}
+  @Output() itemDeleted: EventEmitter<Skill> = new EventEmitter<Skill>();
+  @Output() itemCompleted: EventEmitter<Skill> = new EventEmitter<Skill>();
 
   ngDoCheck(): void {
     if (environment.logChangeDetection) {
