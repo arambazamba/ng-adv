@@ -117,15 +117,15 @@
     {
       "id": 1,
       "url": "",
-      "title": "Test",
-      "comment": "abc",
+      "title": "Using @ngrx/store",
+      "comment": "To use @ngrx/store, we need to install it first.",
       "saved": "2020-09-16T20:10:06.925Z"
     },
     {
       "id": 2,
       "url": "",
-      "title": "Other Placeholder",
-      "comment": "abc",
+      "title": "Optimizing change detection",
+      "comment": "In order to optimize change detection, we need to use OnPush strategy.",
       "saved": "2020-09-16T20:10:06.925Z"
     }
   ],

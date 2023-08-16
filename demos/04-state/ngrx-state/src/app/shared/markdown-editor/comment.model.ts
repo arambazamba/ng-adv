@@ -1,7 +1,7 @@
 export class CommentItem {
-  id: number = 0;
-  url: string = '';
-  title: string = '';
-  comment: string = '';
+  id = 0;
+  url = '';
+  title = '';
+  comment = '';
   saved?: Date;
 }

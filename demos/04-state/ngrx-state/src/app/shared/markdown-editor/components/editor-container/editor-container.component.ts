@@ -21,7 +21,7 @@ export class EditorContainerComponent implements OnInit {
     });
 
     //respond to effect completion and toggle view
-    this.ef.callCompleted$.subscribe(() => {
+    this.ef.effectCompleted$.subscribe(() => {
       this.editorEdit = false;
     });
   }

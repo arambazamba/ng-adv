@@ -8,7 +8,7 @@ import { ColumnDirective, RowDirective } from '../formatting/formatting-directiv
 import { CommentEditComponent } from './components/comment-edit/comment-edit.component';
 import { CommentsListComponent } from './components/comments-list/comments-list.component';
 import { EditorContainerComponent } from './components/editor-container/editor-container.component';
-import { EditorEffects } from './state/editor.effects';
+import * as editorEffects from './state/editor.effects';
 import { editorState } from './state/editor.state';
 
 const comps = [
@@ -25,7 +25,7 @@ const comps = [
     MaterialModule,
     FormsModule,
     StoreModule.forFeature(editorState),
-    EffectsModule.forFeature([EditorEffects]),
+    EffectsModule.forFeature([editorEffects]),
     ColumnDirective,
     RowDirective
   ],

@@ -1,60 +1,48 @@
-import { Injectable, inject } from '@angular/core';
+import { inject } from '@angular/core';
 import { Actions, createEffect, ofType } from '@ngrx/effects';
 import { of } from 'rxjs';
 import { catchError, map, mergeMap } from 'rxjs/operators';
 import { CommentService } from '../comment.service';
 import { MarkdownEditorActions } from './editor.actions';
 
-@Injectable()
-export class EditorEffects {
-  actions$ = inject(Actions);
-  service = inject(CommentService);
-
-  loadComments$ = createEffect(() =>
-    this.actions$.pipe(
-      ofType(MarkdownEditorActions.loadComments),
-      mergeMap(() =>
-        this.service.getComments().pipe(
-          map((comments) =>
-            MarkdownEditorActions.loadCommentsSuccess({ items: comments })
-          ),
-          catchError((err) =>
-            of(MarkdownEditorActions.loadCommentsFailure({ err }))
-          )
-        )
+export const loadComments$ = createEffect((actions$ = inject(Actions), service = inject(CommentService)) => {
+  return actions$.pipe(
+    ofType(MarkdownEditorActions.loadComments),
+    mergeMap(() =>
+      service.getComments().pipe(
+        map((comments) =>
+          MarkdownEditorActions.loadCommentsSuccess({ items: comments })
+        ),
+        catchError((err) => of(MarkdownEditorActions.loadCommentsFailure({ err })))
       )
     )
-  );
+  )
+}, { functional: true });
 
-  saveComment$ = createEffect(() =>
-    this.actions$.pipe(
-      ofType(MarkdownEditorActions.saveComments),
-      mergeMap((action) =>
-        this.service.saveComment(action.item).pipe(
-          map((comment) =>
-            MarkdownEditorActions.saveCommentsSuccess({ item: comment })
-          ),
-          catchError((err) =>
-            of(MarkdownEditorActions.saveCommentsFailure({ err }))
-          )
-        )
+export const saveComment$ = createEffect((actions$ = inject(Actions), service = inject(CommentService)) => {
+  return actions$.pipe(
+    ofType(MarkdownEditorActions.saveComment),
+    mergeMap((action) =>
+      service.saveComment(action.item).pipe(
+        map((comment) =>
+          MarkdownEditorActions.saveCommentSuccess({ item: comment })
+        ),
+        catchError((err) => of(MarkdownEditorActions.saveCommentFailure({ err })))
       )
     )
-  );
+  )
+}, { functional: true });
 
-  deleteComment$ = createEffect(() =>
-    this.actions$.pipe(
-      ofType(MarkdownEditorActions.deleteComments),
-      mergeMap((action) =>
-        this.service.deleteComment(action.item).pipe(
-          map(() =>
-            MarkdownEditorActions.deleteCommentsSuccess({ item: action.item })
-          ),
-          catchError((err) =>
-            of(MarkdownEditorActions.deleteCommentsFailure({ err }))
-          )
-        )
+export const deleteComment$ = createEffect((actions$ = inject(Actions), service = inject(CommentService)) => {
+  return actions$.pipe(
+    ofType(MarkdownEditorActions.deleteComment),
+    mergeMap((action) =>
+      service.deleteComment(action.item).pipe(
+        map((comment) =>
+          MarkdownEditorActions.deleteCommentSuccess({ item: comment })
+        ),
+        catchError((err) => of(MarkdownEditorActions.deleteCommentFailure({ err })))
       )
     )
-  );
-}
+  )
+}, { functional: true });

@@ -15,21 +15,20 @@ export class EditorFacade {
   store = inject(Store) as Store<EditorState>;
   actions = inject(ActionsSubject);
   destroyRef = inject(DestroyRef);
-  callCompletedSub = new Subject<boolean>();
-  callCompleted$ = this.callCompletedSub.asObservable();
+  effectCompleted = new Subject<boolean>();
+  effectCompleted$ = this.effectCompleted.asObservable();
 
   constructor() {
     this.actions.pipe(
       takeUntilDestroyed(this.destroyRef),
       ofType(
-        MarkdownEditorActions.saveCommentsSuccess,
-        MarkdownEditorActions.saveCommentsFailure,
-        MarkdownEditorActions.deleteCommentsSuccess,
-        MarkdownEditorActions.deleteCommentsFailure
+        MarkdownEditorActions.saveCommentSuccess,
+        MarkdownEditorActions.saveCommentFailure,
+        MarkdownEditorActions.deleteCommentSuccess,
+        MarkdownEditorActions.deleteCommentFailure
       )
-    ).subscribe((data) => {
-      console.log('action complete', data);
-      this.callCompletedSub.next(true);
+    ).subscribe(() => {
+      this.effectCompleted.next(true);
     });
   }
 
@@ -46,10 +45,10 @@ export class EditorFacade {
   }
 
   saveComment(item: CommentItem) {
-    this.store.dispatch(MarkdownEditorActions.saveComments({ item }));
+    this.store.dispatch(MarkdownEditorActions.saveComment({ item }));
   }
 
   deleteComment(item: CommentItem) {
-    this.store.dispatch(MarkdownEditorActions.deleteComments({ item }));
+    this.store.dispatch(MarkdownEditorActions.deleteComment({ item }));
   }
 }
