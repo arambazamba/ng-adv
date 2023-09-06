@@ -25,10 +25,6 @@
       "title": "Multi Theme"
     },
     {
-      "url": "feedback",
-      "title": "Visual Feedback"
-    },
-    {
       "url": "mdc-migration",
       "title": "MDC Migration"
     }

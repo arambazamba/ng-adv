@@ -30,9 +30,9 @@
           </mat-toolbar-row>
         </mat-toolbar>
       </div>
-      <div class="gdLoading">
+      <!-- <div class="gdLoading">
         <app-loading *ngIf="isLoading | async"></app-loading>
-      </div>
+      </div> -->
       <div class="gdWorkbench"><router-outlet></router-outlet></div>
       <div class="gdEditor" *ngIf="showMdEditor | async">
         <app-markdown-editor></app-markdown-editor>

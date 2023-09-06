@@ -1,5 +1,5 @@
 import { CommonModule } from '@angular/common';
-import { HttpClientModule } from '@angular/common/http';
+import { HTTP_INTERCEPTORS, HttpClientModule } from '@angular/common/http';
 import { NgModule } from '@angular/core';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { MaterialModule } from '../material.module';
@@ -26,6 +26,8 @@ import { StyleInheritanceComponent } from './samples/style-inheritance/style-inh
 import { TableComponent } from './samples/table/table.component';
 import { VisualFeedbackComponent } from './samples/visual-feedback/visual-feedback.component';
 import { FormattingModule } from '../shared/formatting/formatting.module';
+import { LoadingInterceptor } from '../shared/loading/loading-interceptor';
+import { LoadingService } from '../shared/loading/loading.service';
 
 @NgModule({
   declarations: [
@@ -61,6 +63,9 @@ import { FormattingModule } from '../shared/formatting/formatting.module';
     MarkdownEditorComponent,
     FormattingModule
   ],
-  providers: [],
+  providers: [
+    LoadingService,
+    { provide: HTTP_INTERCEPTORS, useClass: LoadingInterceptor, multi: true }
+  ],
 })
 export class DemosModule { }
