@@ -34,6 +34,7 @@ import { NgrxSignalsComponent } from './samples/ngrx-signals/ngrx-signals.compon
 import { CreateFeatureComponent } from './samples/create-feature/create-feature.component';
 import { DispatchActionComponent } from './samples/dispatch-action/dispatch-action.component';
 import { RespondToEffectsComponent } from './samples/respond-to-effects/respond-to-effects.component';
+import { CustomersModule } from '../customers/customers.module';
 
 @NgModule({
   declarations: [
@@ -73,6 +74,7 @@ import { RespondToEffectsComponent } from './samples/respond-to-effects/respond-
     FormattingModule,
     StoreModule.forFeature(demosFeatureKey, demoReducer),
     EffectsModule.forFeature([DemosEffects]),
+    CustomersModule
   ],
   providers: [],
 })

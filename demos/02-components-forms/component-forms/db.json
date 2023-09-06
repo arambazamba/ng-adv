@@ -25,14 +25,6 @@
       "title": "ViewChild / Children"
     },
     {
-      "url": "contentchild",
-      "title": "ContentChild / Children"
-    },
-    {
-      "url": "hostbinding",
-      "title": "HostBinding / -Listener"
-    },
-    {
       "url": "formcontrol",
       "title": "FormControl"
     },

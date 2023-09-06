@@ -28,7 +28,10 @@ import { LoadingService } from './shared/loading/loading.service';
       loader: HttpClient,
     }),
   ],
-  providers: [],
+  providers: [
+    LoadingService,
+    { provide: HTTP_INTERCEPTORS, useClass: LoadingInterceptor, multi: true }
+  ],
   bootstrap: [AppComponent],
 })
 export class AppModule { }

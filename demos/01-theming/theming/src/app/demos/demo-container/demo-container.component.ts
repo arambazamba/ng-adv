@@ -1,5 +1,5 @@
-import { Component, DestroyRef, inject } from '@angular/core';
-import { takeUntilDestroyed } from '@angular/core/rxjs-interop';
+import { AfterViewInit, ChangeDetectorRef, Component, DestroyRef, inject } from '@angular/core';
+import { takeUntilDestroyed, toSignal } from '@angular/core/rxjs-interop';
 import { ActivatedRoute, NavigationEnd, Router } from '@angular/router';
 import { filter, map, tap } from 'rxjs/operators';
 import { SidebarActions } from 'src/app/shared/side-panel/sidebar.actions';
@@ -22,12 +22,13 @@ export class DemoContainerComponent {
   nav = inject(SideNavService);
   ls = inject(LoadingService);
   eb = inject(SidePanelService);
+  cd = inject(ChangeDetectorRef);
 
   title: string = environment.title;
   demos = this.ds.getItems();
   sidenavMode = this.nav.getSideNavPosition();
   sidenavVisible = this.nav.getSideNavVisible();
-  isLoading = this.ls.getLoading().pipe(takeUntilDestroyed(this.destroyRef)).pipe(map((value) => value));
+  isLoading = this.ls.getLoading().pipe(takeUntilDestroyed(this.destroyRef), map((loading) => { Promise.resolve(loading) }));
 
   workbenchLeftMargin = this.sidenavVisible.pipe(
     map((visible: boolean) => { return visible ? { 'margin-left': '5px' } : {} })

@@ -64,8 +64,7 @@ import { LoadingService } from '../shared/loading/loading.service';
     FormattingModule
   ],
   providers: [
-    LoadingService,
-    { provide: HTTP_INTERCEPTORS, useClass: LoadingInterceptor, multi: true }
+
   ],
 })
 export class DemosModule { }
