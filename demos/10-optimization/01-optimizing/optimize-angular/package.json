@@ -32,7 +32,7 @@
     "@ngrx/entity": "^16.0.1",
     "@ngrx/router-store": "^16.0.1",
     "@ngrx/store": "^16.0.1",
-    "marked": "^4.3.0",
+    "marked": "^8.0.1",
     "moment": "^2.29.4",
     "ngx-logger": "^5.0.12",
     "ngx-markdown": "^16.0.0",
