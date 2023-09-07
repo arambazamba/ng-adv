@@ -1,25 +1,27 @@
 import { CommonModule } from '@angular/common';
-import { HttpClientModule } from '@angular/common/http';
+import { provideHttpClient } from '@angular/common/http';
 import { NgModule } from '@angular/core';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { RouterModule, Routes } from '@angular/router';
 import { EffectsModule } from '@ngrx/effects';
 import { StoreModule } from '@ngrx/store';
 import { MaterialModule } from '../material.module';
+import { FormattingModule } from '../shared/formatting/formatting.module';
+import { MarkdownEditorModule } from '../shared/markdown-editor/markdown-editor.module';
+import { MarkdownRendererModule } from '../shared/markdown-renderer/markdown-renderer.module';
 import { SharedModule } from '../shared/shared.module';
 import { UxModule } from '../ux/ux.module';
 import { DemoContainerComponent } from './demo-container/demo-container.component';
-import { GlobalErrorsComponent } from './samples/global-errors/global-errors.component';
-import { LocServiceComponent } from './samples/loc-service/loc-service.component';
-import { MembersComponent } from './samples/multi-guard/members/members.component';
-import { MultiGuardComponent } from './samples/multi-guard/multi-guard.component';
-import { onlyAuthenticatedGuard } from './samples/multi-guard/only-authenticated.guard';
-import { FormattingModule } from '../shared/formatting/formatting.module';
 import { AppInitComponent } from './samples/app-init/app-init.component';
 import { AuxilaryRoutesComponent } from './samples/auxilary-routes/auxilary-routes.component';
 import { CodeSplittingComponent } from './samples/code-splitting/code-splitting.component';
 import { DiInjectComponent } from './samples/di-inject/di-inject.component';
+import { GlobalErrorsComponent } from './samples/global-errors/global-errors.component';
 import { HttpErrorsComponent } from './samples/http-errors/http-errors.component';
+import { LocServiceComponent } from './samples/loc-service/loc-service.component';
+import { MembersComponent } from './samples/multi-guard/members/members.component';
+import { MultiGuardComponent } from './samples/multi-guard/multi-guard.component';
+import { onlyAuthenticatedGuard } from './samples/multi-guard/only-authenticated.guard';
 import { onlyPrimeMembersGuard } from './samples/multi-guard/only-prime-members.guard';
 import { PrimeComponent } from './samples/multi-guard/prime/prime.component';
 import { MultiInterceptorComponent } from './samples/multi-interceptor/multi-interceptor.component';
@@ -30,8 +32,6 @@ import { RoutingTargetComponent } from './samples/routing/routing-target/routing
 import { RoutingComponent } from './samples/routing/routing/routing.component';
 import { DemosEffects } from './state/demos.effects';
 import { demoReducer, demosFeatureKey } from './state/demos.reducer';
-import { MarkdownRendererModule } from '../shared/markdown-renderer/markdown-renderer.module';
-import { MarkdownEditorModule } from '../shared/markdown-editor/markdown-editor.module';
 
 const demoRoutes: Routes = [
   {
@@ -135,7 +135,6 @@ const demoRoutes: Routes = [
     ReactiveFormsModule,
     RouterModule.forChild(demoRoutes),
     MaterialModule,
-    HttpClientModule,
     MarkdownRendererModule,
     MarkdownEditorModule,
     SharedModule,
@@ -143,6 +142,8 @@ const demoRoutes: Routes = [
     EffectsModule.forFeature([DemosEffects]),
     FormattingModule,
   ],
-  providers: [],
+  providers: [
+    provideHttpClient()
+  ],
 })
 export class DemosModule { }

@@ -1,4 +1,4 @@
-import { HttpClientModule } from '@angular/common/http';
+import { provideHttpClient, withInterceptors, withInterceptorsFromDi } from '@angular/common/http';
 import { APP_INITIALIZER, NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
@@ -24,12 +24,7 @@ import { HomeComponent } from './home/home.component';
 import { MaterialModule } from './material.module';
 import { SharedModule } from './shared/shared.module';
 import { metaReducers, reducers } from './state';
-// import { GlobalErrService } from './error/global-err-handler';
-// import { HttpErrorInterceptor } from './error/globle-http-err-handler';
-// import { FBAuthInterceptor } from './auth/fbauth.interceptor';
-// import { AuthInterceptorService } from './interceptors/auth-interceptor.service';
-// import { FormatInterceptorService } from './interceptors/format-interceptor.service';
-// import { RetryInterceptorService } from './interceptors/retry-interceptor.service';
+import { retryInterceptor } from './interceptors/retry-interceptor.service';
 
 @NgModule({
   declarations: [
@@ -44,7 +39,6 @@ import { metaReducers, reducers } from './state';
     AppRoutingModule,
     BrowserAnimationsModule,
     MaterialModule,
-    HttpClientModule,
     SharedModule,
     StoreModule.forRoot(reducers, {
       metaReducers,
@@ -65,6 +59,11 @@ import { metaReducers, reducers } from './state';
     }),
   ],
   providers: [
+    provideHttpClient(
+      withInterceptors([
+        retryInterceptor({ count: 5, delay: 1000 })
+      ])
+    ),
     {
       provide: APP_INITIALIZER,
       useValue: () => {
@@ -90,7 +89,7 @@ import { metaReducers, reducers } from './state';
     // },
     // {
     //   provide: HTTP_INTERCEPTORS,
-    //   useClass: AuthInterceptorService,
+    //   useClass: authInterceptor,
     //   multi: true,
     // },
     // {
@@ -102,11 +101,6 @@ import { metaReducers, reducers } from './state';
     // {
     //   provide: HTTP_INTERCEPTORS,
     //   useClass: HttpErrorInterceptor,
-    //   multi: true,
-    // },
-    // {
-    //   provide: HTTP_INTERCEPTORS,
-    //   useClass: RetryInterceptorService,
     //   multi: true,
     // },
   ],

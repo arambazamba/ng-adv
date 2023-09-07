@@ -10,18 +10,19 @@ import { DemoService } from '../../demo-base/demo.service';
 export class MultiInterceptorComponent {
   ds = inject(DemoService);
   http = inject(HttpClient);
-  data1: string = '';
-  data2: string = '';
+  data1 = '';
+  data2 = '';
 
   httpCall(): void {
-    this.ds.getItems().subscribe();
+    this.ds.getItems().subscribe((res) => console.log(res));
   }
 
   requestData() {
     this.http
       .get('https://jsonplaceholder.typicode.com/todos/1')
       .subscribe((body) => {
-        console.log(body), (this.data1 = JSON.stringify(body));
+        console.log(body);
+        this.data1 = JSON.stringify(body);
       });
   }
   requestXMLData() {

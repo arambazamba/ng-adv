@@ -1,5 +1,4 @@
 import { CommonModule } from '@angular/common';
-import { HttpClientModule } from '@angular/common/http';
 import { NgModule } from '@angular/core';
 import { ReactiveFormsModule } from '@angular/forms';
 import { EntityDataService, EntityDefinitionService } from '@ngrx/data';
@@ -12,6 +11,7 @@ import { SkillsKpiComponent } from './skills-kpi/skills-kpi.component';
 import { entityMetadata } from './skills.metadata';
 import { SkillsRoutingModule } from './skills.routing.module';
 import { SkillsEditComponent } from './skills-edit/skills-edit.component';
+import { provideHttpClient } from '@angular/common/http';
 
 @NgModule({
   declarations: [
@@ -25,9 +25,12 @@ import { SkillsEditComponent } from './skills-edit/skills-edit.component';
     SkillsRoutingModule,
     MaterialModule,
     ReactiveFormsModule,
-    HttpClientModule,
   ],
-  providers: [SkillsEntityService, SkillsDataService],
+  providers: [
+    provideHttpClient(),
+    SkillsEntityService,
+    SkillsDataService
+  ],
 })
 export class SkillsModule {
   constructor(

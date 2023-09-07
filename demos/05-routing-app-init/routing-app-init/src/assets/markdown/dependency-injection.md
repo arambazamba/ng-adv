@@ -11,3 +11,13 @@
     demos = this.service.getItems();
   }
   ```
+
+- Examine the registration of the `HttpClient` in `demo.module.ts`. It does not import the HttpClientModule. Instead it used on of the many provideXY() functions which is the basis of being able to use function based interceptors. If you do not used Interceptors, you can skip it.
+
+  ```typescript
+  providers: [
+      provideHttpClient(
+        withInterceptorsFromDi()
+      ),
+  ],
+  ```

@@ -6,5 +6,5 @@ import { Injectable } from '@angular/core';
 export class SimpleAuthTwoService {
   isAuthenticated = false;
   authToken =
-    'RandomTextdffasdhfkjfwqq1452fdsafas34fdsafadfasf55459tewvadf941sfhasdkjfhwkjh';
+    'dffasdhfkjfwqq1452fdsafas34fdsafadfasf55459tewvadf941sfhasdkjfhwkjh';
 }

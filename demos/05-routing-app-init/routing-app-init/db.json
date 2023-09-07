@@ -2,7 +2,7 @@
   "demos": [
         {
       "url": "inject",
-      "title": "Inject",
+      "title": "DI: Inject & provide",
       "id": 63
     },
     {
@@ -19,11 +19,6 @@
       "url": "multi-guard",
       "title": "Route Guards",
       "id": 7
-    },
-    {
-      "url": "locationsrv",
-      "title": "Location Service",
-      "id": 77
     },
     {
       "url": "multi-interceptor",
@@ -49,6 +44,11 @@
       "url": "routing",
       "title": "Routing NgRx",
       "id": 1
+    },
+    {
+      "url": "locationsrv",
+      "title": "Location Service",
+      "id": 77
     },
     {
       "url": "preload-ngrx",
