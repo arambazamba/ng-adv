@@ -42,7 +42,7 @@ import { CustomerEditComponent } from './customers/component/customer-edit/custo
     EffectsModule.forRoot([CustomerEffects]),
     EntityDataModule.forRoot({}),
     StoreDevtoolsModule.instrument({
-      name: 'ng-demo-app',
+      name: 'firebase-auth',
       maxAge: 25,
       logOnly: environment.production,
     }),
