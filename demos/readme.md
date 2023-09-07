@@ -1,21 +1,48 @@
-# Topics
+# Advanced Angular Development - Modules
+
+Im Seminar "Advanced Angular Development" bringen wir Ihre Angular Kenntnisse auf Enterprise Level. Großes Augenmerk legen wir darauf, die Demos & Labs auf aktuellen Stand zu halten und aktuelle Coding-Styles zu verwenden. Dazu zählen aktuell Standalone Components, Signals, inject, sowie funktionale Implementierung von Angular Bausteinen. Wir besprechen mögliche Refactorings & Schematics für die Migration bestehender Lösungen und setzen dies fallweise in Form von Live-Coding um.
+
+Reactive Programming & State Management mit NgRX, Advanced Routing, Testing & Security, Optimierung von Angular Apps. Configurationsmanagement, Containerisierung und Deployment von Angular Apps in die Cloud runden das Seminar ab.
+
+Nach Abschluss des Kurses haben die Teilnehmer Kenntnisse zu folgenden Themen:
+
+Theming Angular Apps
+Standalone Components: Concepts & Migration
+Components & Forms Deep Dive
+Mastering Reactive Programming using Signals & RxJs
+Advanced State Management using NgRx
+Advanced Routing and App Initialization
+Securing Angular using Cloud Identities
+Advanced Testing with Jasmine, Jest, Cypress and NgRx
+Reusability with Libraries, Schematics, Nx & Angular Elements
+Optimizing Applications & Server Side Rendering & A11y
+Implementing Real Time connected Microfrontends
+Publishing Angular App using Containers and Config Injection
+
+Neue Themengebiete werden anhand von Folien und Demos erarbeitet. Am Ende der Module werden die erlernten Inhalte als Lab in eine durchgängige Anwendung integriert, welches am Ende in die Cloud publiziert werden kann. 
 
 ## Theming Angular Apps
 
 - Style inheritance and View Encapsulation
 - Comparing Angular Material & Bootstrap
 - Material Theming  Overview
-- Using Material Colours to define Primary, Accent and Warning Colours
+- Using Material Colors to define Primary, Accent and Warning Colors
 - Building a Reusable Material Theme
 - Define Alternative Themes
 - Theming Custom Components and override Material Components
 - Material Design Migration to MDC
 - Using Bootstrap with Angular
 
-## Components & Forms Deep Dive
+## Standalone Components: Concepts & Migration
 
 - Standalone Components vs Modules
-- Standalone Components: Creation, Lazy Loading, Bootstrapping
+- Creation, Bootstrapping 
+- Providers & Dependency Injection
+- Routing & Lazy Loading
+- Migration of an existing Project to Standalone Components
+
+## Components & Forms Deep Dive
+
 - Standalone Directives & Directives Composition Api
 - Components and Required Inputs
 - Content Projection 
@@ -24,7 +51,7 @@
 - ViewChild, -Children, ContentChild, -Children
 - HostBinding & HostListener
 - Recap Reactive Forms Revisited (FormGroup, Form Builder, FormControl, FormArray)
-- Dynamic Component Loading & Databinding
+- Dynamic Component Loading & DataBinding
 - Untyped Forms vs Typed Forms 
 - Typed Forms Nullability, NonNullableFormBuilder, GetRawValue
 - Partial Values, Optional Controls, Dynamic Groups and FormRecord
@@ -53,16 +80,17 @@
 - Retry & Error Handling Strategies
 - Implementing & Testing Custom Observable Operators
 - Communication between using Event Bus Pattern
-- Statefull Services using Behaviour Subjects and Signals
+- Stateful Services using Behavior Subjects and Signals
 
 ## Advanced State Management using NgRx
 
 - Overview State Management Patterns
 - Introduction to the Redux Pattern & NgRx
 - Feature State and ActionReducerMap
-- Using Store, Reducers, Selectors, Actions & createActionGroup
+- Implementing NgRx Store, Reducers & Selectors using createFeature
+- Actions & createActionGroup
 - Debugging NgRx using Redux Dev Tools
-- Effects, Facades, @ngrx/enitity adapters
+- Effects, Facades, @ngrx/entity adapters
 - Simplifying Data Access with @ngrx/data
 - NgRx Container Presenter Best Practices
 - NgRx and Signals Interoperability
@@ -79,8 +107,8 @@
 - Introduction to @ngrx/router-store
 - Routing using NgRx Actions
 - Binding Router-Params to Component Inputs
-- Integrating Route Guards & Interceptors with NgRx
 - Functional Route Guards & Interceptors
+- Integrating Route Guards & Interceptors with NgRx
 - Chaining Route Guards & Interceptors
 - Auxiliary Routes: Common use cases
 - Preloading Component Data from NgRx using Functional Resolvers
@@ -91,13 +119,13 @@
 
 - Recap Jwt, OAuth 2.0 & OpenID Connect
 - Token based Authentication in Angular with NgRx
-- Impelmenting an AuthModule using a Facade Service, Components, Guards & Interceptors
-- Optimizing Application Flow for Authetication
+- Implementing an AuthModule using a Facade Service, Components, Guards & Interceptors
+- Optimizing Application Flow for Authentication
 - Authentication using Microsoft Identity, Azure AD and @azure/msal-angular
 
 ## Advanced Testing with Jasmine, Jest, Cypress and NgRx
 
-- Introdcution Angular Testing Tools (Jasmine, Karma, Jest & Cypress)
+- Introduction Angular Testing Tools (Jasmine, Karma, Jest & Cypress)
 - Testing Classes, Pipes, Directives
 - Testing Services using HttpClientTestingModule & HttpTestingController
 - Mocking vs Spies
@@ -122,10 +150,10 @@
 - Understanding and Implementing Schematics
 - Implementing Web Components using Angular Elements
 
-## Implementing Real Time connected Microfrontends
+## Implementing a Real Time connected Micro-Frontend as a Progressive Web App
 
-- Introduction to Microfrontends and Event Driven Architecture (EDA)
-- Implementing a Real Time connected Microfrontend listening to Cloud Events
+- Introduction to Micro-Frontend and Event Driven Architecture (EDA)
+- Implementing a Real Time connected Micro-Frontend listening to Cloud Events
 - Using `@ngrx/component-store`
 - Introduction to Progressive Web Apps
 - Understanding and Configuring Service Workers & Manifests
@@ -135,7 +163,7 @@
 ## Optimizing Applications
 
 - Using Chrome Dev Tools & Lighthouse for Performance Optimization
-- Analysing and Optimizing Bundles & Modules
+- Analyzing and Optimizing Bundles & Modules
 - Understanding & Using Page Traces
 - Optimizing Images using NgOptimizedImage 
 - Logging NgRx to custom destinations using Meta-Reducers 
@@ -145,15 +173,14 @@
 - Change Detection and Signals
 - Using Linting and Autoformat with Prettier
 - Accessibility A11y: Best Practices & Linting
-- Introduction to Server Side Rendering (SSR) using Angular 16+
+- Introduction to Server Side Rendering (SSR) and Non-destructive hydration
 - Why Server Side Rendering
-- Non-destructive hydration
-- Configure Server Side Rendering & prerender static pages
+- Configure Server Side Rendering & Pre-rendering
 
 ## Publishing Angular App using Containers and Config Injection
 
 - Deployment Overview & Cloud Hosting Options
-  -  Using ng deploy to publish to Firebasee
+  -  Using ng deploy to publish to Firebase
   -  Deploy to Azure Static Webapp 
 - Configuration Management and Config Injection Options
   - Using a config service
