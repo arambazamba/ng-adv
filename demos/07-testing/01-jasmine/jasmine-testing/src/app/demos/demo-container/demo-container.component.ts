@@ -78,7 +78,7 @@ export class DemoContainerComponent implements OnInit {
           route.component != null
             ? `Component: ${route.component
               .toString()
-              .substring(6, route.component.toString().indexOf('{') - 1)}`
+              .substring(7, route.component.toString().indexOf('{') - 1)}`
             : '';
       });
   }
