@@ -13,8 +13,7 @@ import { GlobalErrorsComponent } from './samples/global-errors/global-errors.com
 import { LocServiceComponent } from './samples/loc-service/loc-service.component';
 import { MembersComponent } from './samples/multi-guard/members/members.component';
 import { MultiGuardComponent } from './samples/multi-guard/multi-guard.component';
-import { OnlyAuthenticatedGuard } from './samples/multi-guard/only-authenticated.guard';
-// import { OnlyPrimeMembersGuard } from './samples/multi-guard/only-prime-members.guard';
+import { onlyAuthenticatedGuard } from './samples/multi-guard/only-authenticated.guard';
 import { FormattingModule } from '../shared/formatting/formatting.module';
 import { AppInitComponent } from './samples/app-init/app-init.component';
 import { AuxilaryRoutesComponent } from './samples/auxilary-routes/auxilary-routes.component';
@@ -76,14 +75,14 @@ const demoRoutes: Routes = [
             path: 'members',
             component: MembersComponent,
             canActivate: [
-              OnlyAuthenticatedGuard
+              onlyAuthenticatedGuard
             ],
           },
           {
             path: 'prime',
             component: PrimeComponent,
             canActivate: [
-              OnlyAuthenticatedGuard,
+              onlyAuthenticatedGuard,
               onlyPrimeMembersGuard
             ],
           },
