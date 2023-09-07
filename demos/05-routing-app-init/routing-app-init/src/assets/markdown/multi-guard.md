@@ -1,4 +1,5 @@
-Examine routing config in `demo.module.ts` and the use of guards. OnlyPrimeMembersGuard is implemented in a functional pattern.
+Examine routing config in `demo.module.ts` and the use of guards. OnlyPrimeMembersGuard is implemented in a functional pattern which should be the preferred approach:
+
 ```typescript
 { path: 'multi-guard',
   component: MultiGuardComponent,
@@ -13,8 +14,7 @@ Toggle values in `mock-auth.service.ts` using the buttons below and access route
 
 ```typescript
 export class MockAuthService {
-  constructor(private af: AppFacade) {}
-  ...
+  af = inject(AppFacade);
   isLoggedIn() {return this.af.getIsLoggedIn();}
   hasPrimeSubscription() {return this.af.getPrimeMember();}
 }
