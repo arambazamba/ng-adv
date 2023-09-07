@@ -1,5 +1,4 @@
-import { Component } from '@angular/core';
-import { Observable } from 'rxjs';
+import { Component, inject } from '@angular/core';
 import { AuthService } from '../auth/auth.service';
 
 @Component({
@@ -8,11 +7,6 @@ import { AuthService } from '../auth/auth.service';
   styleUrls: ['./home.component.scss'],
 })
 export class HomeComponent {
-  isAuthenticated: Observable<boolean>;
-
-  constructor(private as: AuthService) {}
-
-  ngOnInit(): void {
-    this.isAuthenticated = this.as.isAuthenticated();
-  }
+  as = inject(AuthService);
+  isAuthenticated = this.as.isAuthenticated();
 }

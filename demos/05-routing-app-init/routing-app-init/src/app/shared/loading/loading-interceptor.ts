@@ -12,9 +12,9 @@ import { SnackbarService } from '../snackbar/snackbar.service';
 
 @Injectable()
 export class LoadingInterceptor implements HttpInterceptor {
+  private requests: HttpRequest<any>[] = [];
   ls = inject(LoadingService);
   sbs = inject(SnackbarService);
-  requests: HttpRequest<any>[] = [];
 
   removeRequest(req: HttpRequest<any>) {
     const i = this.requests.indexOf(req);
@@ -46,7 +46,7 @@ export class LoadingInterceptor implements HttpInterceptor {
         },
         (err) => {
           console.log('Interceptor error', err);
-          this.sbs.displayAlert('erro', 'open console for details');
+          this.sbs.displayAlert('error', 'open console for details');
           this.removeRequest(req);
           observer.error(err);
         },

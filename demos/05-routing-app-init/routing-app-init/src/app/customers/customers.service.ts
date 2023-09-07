@@ -1,4 +1,4 @@
-import { APP_INITIALIZER, Injectable } from '@angular/core';
+import { APP_INITIALIZER, Injectable, inject } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Customer } from './customer.model';
 import { environment } from '../../environments/environment';
@@ -7,7 +7,7 @@ import { environment } from '../../environments/environment';
   providedIn: 'root',
 })
 export class CustomersService {
-  constructor(private http: HttpClient) { }
+  http = inject(HttpClient);
 
   getCustomers() {
     console.log("getCustomers");

@@ -9,9 +9,9 @@ import { of } from 'rxjs';
   providedIn: 'root',
 })
 export class ConfigService {
-  cfg: AppConfig;
+  cfg: AppConfig = new AppConfig();
 
-  constructor(private httpClient: HttpClient, private sbs: SnackbarService) {}
+  constructor(private httpClient: HttpClient, private sbs: SnackbarService) { }
 
   loadConfig() {
     return this.httpClient
@@ -23,8 +23,8 @@ export class ConfigService {
         })
       )
       .toPromise()
-      .then((config: AppConfig) => {
-        this.cfg = config;
-      });
+    // .then((config: AppConfig) => {
+    //   this.cfg = config;
+    // });
   }
 }

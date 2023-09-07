@@ -10,7 +10,7 @@ import { getCustomers } from '../../state/customers.selector';
   styleUrls: ['./customer-edit.component.scss']
 })
 export class CustomerEditComponent {
-  @Input({ required: true }) id: number;
+  @Input({ required: true }) id: number = 0;
   @Input() readonly?: boolean;
 
   store = inject(Store<CustomersState>) as Store<CustomersState>;

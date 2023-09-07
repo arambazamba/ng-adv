@@ -1,5 +1,4 @@
 import { Component } from '@angular/core';
-import { Title } from '@angular/platform-browser';
 import { environment } from 'src/environments/environment';
 
 @Component({
@@ -8,16 +7,13 @@ import { environment } from 'src/environments/environment';
   styleUrls: ['./app.component.scss'],
 })
 export class AppComponent {
-  constructor(private titleService: Title) {
+
+  constructor() {
     console.log('AppComponent constructor');
   }
 
   title: string = environment.title;
   selectedTheme: string = 'default';
-
-  ngOnInit() {
-    this.titleService.setTitle(this.title);
-  }
 
   toggleTheme() {
     this.selectedTheme = this.selectedTheme == 'default' ? 'dark' : 'default';

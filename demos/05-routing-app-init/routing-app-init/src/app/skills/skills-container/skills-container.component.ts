@@ -21,7 +21,7 @@ export class SkillsContainerComponent {
   );
 
   ngOnInit(): void {
-    this.service.loaded$.subscribe((loaded) => {
+    this.service.loaded$.subscribe((loaded: boolean) => {
       if (!loaded) {
         this.service.getAll();
       }

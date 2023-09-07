@@ -16,14 +16,10 @@ import { environment } from 'src/environments/environment';
   styleUrls: ['./skill-row.component.scss'],
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
-export class SkillRowComponent implements OnInit {
+export class SkillRowComponent {
   @Input() skill: Skill = new Skill();
   @Output() itemDeleted: EventEmitter<Skill> = new EventEmitter();
-  @Output() itemCompleted: EventEmitter<Skill> = new EventEmitter();
-
-  constructor() {}
-
-  ngOnInit(): void {}
+  @Output() itemCompleted: EventEmitter<Skill> = new EventEmitter()
 
   ngDoCheck(): void {
     if (environment.logChangeDetection) {

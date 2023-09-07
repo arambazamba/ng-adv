@@ -1,5 +1,5 @@
-import { Component, OnInit } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
+import { Component, inject } from '@angular/core';
 import { DemoService } from '../../demo-base/demo.service';
 
 @Component({
@@ -7,13 +7,11 @@ import { DemoService } from '../../demo-base/demo.service';
   templateUrl: './multi-interceptor.component.html',
   styleUrls: ['./multi-interceptor.component.scss'],
 })
-export class MultiInterceptorComponent implements OnInit {
-  data1;
-  data2;
-
-  constructor(private ds: DemoService, private http: HttpClient) {}
-
-  ngOnInit(): void {}
+export class MultiInterceptorComponent {
+  ds = inject(DemoService);
+  http = inject(HttpClient);
+  data1: string = '';
+  data2: string = '';
 
   httpCall(): void {
     this.ds.getItems().subscribe();

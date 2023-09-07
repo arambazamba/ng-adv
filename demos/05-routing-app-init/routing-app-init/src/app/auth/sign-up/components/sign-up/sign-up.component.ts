@@ -4,6 +4,7 @@ import {
   Component,
   TemplateRef,
   ViewChild,
+  inject
 } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
 import { Router } from '@angular/router';
@@ -15,18 +16,20 @@ import { Router } from '@angular/router';
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class SignUpComponent implements AfterViewInit {
-  @ViewChild('dialog') template: TemplateRef<any>;
-
-  constructor(private dialog: MatDialog, private router: Router) {}
+  router = inject(Router);
+  dialog = inject(MatDialog);
+  @ViewChild('dialog') template: TemplateRef<any> | null = null;
 
   ngAfterViewInit() {
-    const ref = this.dialog.open(this.template, {
-      width: '350px',
-    });
+    if (this.template) {
+      const ref = this.dialog.open(this.template, {
+        width: '350px',
+      });
 
-    ref.afterClosed().subscribe(() => {
-      this.router.navigate(['demos']);
-      this.dialog.closeAll();
-    });
+      ref.afterClosed().subscribe(() => {
+        this.router.navigate(['demos']);
+        this.dialog.closeAll();
+      });
+    }
   }
 }

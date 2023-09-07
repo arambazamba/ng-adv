@@ -6,11 +6,13 @@ import { MaterialModule } from '../material.module';
 import { IntroComponent } from './intro/intro.component';
 import { NavbarComponent } from './navbar/navbar.component';
 import { SidePanelComponent } from './side-panel/side-panel.component';
+import { LoadingComponent } from './loading/loading.component';
 
 const comps = [
   NavbarComponent,
   IntroComponent,
   SidePanelComponent,
+  LoadingComponent
 ];
 
 @NgModule({

@@ -1,18 +1,17 @@
 import { Injectable } from '@angular/core';
 import { BehaviorSubject, of } from 'rxjs';
 import { combineLatestWith, map } from 'rxjs/operators';
-import { environment } from '../../environments/environment.prod';
+import { environment } from '../../environments/environment';
 
 @Injectable({
   providedIn: 'root',
 })
 export class AuthService {
-  constructor() {}
 
   private authenticated: BehaviorSubject<boolean> =
     new BehaviorSubject<boolean>(false);
 
-  private user: BehaviorSubject<string | null> = new BehaviorSubject<string>(
+  private user: BehaviorSubject<string | null> = new BehaviorSubject<string | null>(
     null
   );
 

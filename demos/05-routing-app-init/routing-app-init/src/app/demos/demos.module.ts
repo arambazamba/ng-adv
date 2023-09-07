@@ -1,11 +1,10 @@
 import { CommonModule } from '@angular/common';
-import { HttpClient, HttpClientModule } from '@angular/common/http';
+import { HttpClientModule } from '@angular/common/http';
 import { NgModule } from '@angular/core';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { RouterModule, Routes } from '@angular/router';
 import { EffectsModule } from '@ngrx/effects';
 import { StoreModule } from '@ngrx/store';
-import { MarkdownModule } from 'ngx-markdown';
 import { MaterialModule } from '../material.module';
 import { SharedModule } from '../shared/shared.module';
 import { UxModule } from '../ux/ux.module';
@@ -16,25 +15,24 @@ import { MembersComponent } from './samples/multi-guard/members/members.componen
 import { MultiGuardComponent } from './samples/multi-guard/multi-guard.component';
 import { OnlyAuthenticatedGuard } from './samples/multi-guard/only-authenticated.guard';
 // import { OnlyPrimeMembersGuard } from './samples/multi-guard/only-prime-members.guard';
+import { FormattingModule } from '../shared/formatting/formatting.module';
+import { AppInitComponent } from './samples/app-init/app-init.component';
+import { AuxilaryRoutesComponent } from './samples/auxilary-routes/auxilary-routes.component';
+import { CodeSplittingComponent } from './samples/code-splitting/code-splitting.component';
+import { DiInjectComponent } from './samples/di-inject/di-inject.component';
+import { HttpErrorsComponent } from './samples/http-errors/http-errors.component';
+import { onlyPrimeMembersGuard } from './samples/multi-guard/only-prime-members.guard';
 import { PrimeComponent } from './samples/multi-guard/prime/prime.component';
 import { MultiInterceptorComponent } from './samples/multi-interceptor/multi-interceptor.component';
+import { PreloadingNgrxComponent } from './samples/preloading-ngrx/preloading-ngrx.component';
+import { RouterAnimationsComponent } from './samples/router-animations/router-animations.component';
+import { RouterBindingComponent } from './samples/router-binding/router-binding.component';
 import { RoutingTargetComponent } from './samples/routing/routing-target/routing-target.component';
 import { RoutingComponent } from './samples/routing/routing/routing.component';
-import { HttpErrorsComponent } from './samples/http-errors/http-errors.component';
-import { demosFeatureKey } from './state/demos.reducer';
 import { DemosEffects } from './state/demos.effects';
-import { demoReducer } from './state/demos.reducer';
-import { RouterAnimationsComponent } from './samples/router-animations/router-animations.component';
-import { AppInitComponent } from './samples/app-init/app-init.component';
-import { PreloadingNgrxComponent } from './samples/preloading-ngrx/preloading-ngrx.component';
-import { CodeSplittingComponent } from './samples/code-splitting/code-splitting.component';
-import { AuxilaryRoutesComponent } from './samples/auxilary-routes/auxilary-routes.component';
-import { DiInjectComponent } from './samples/di-inject/di-inject.component';
-import { onlyPrimeMembersGuard } from './samples/multi-guard/only-prime-members.guard';
-import { RouterBindingComponent } from './samples/router-binding/router-binding.component';
+import { demoReducer, demosFeatureKey } from './state/demos.reducer';
 import { MarkdownRendererModule } from '../shared/markdown-renderer/markdown-renderer.module';
-import { BorderDirective, CenteredDirective } from '../shared/formatting/formatting-directives';
-import { FormattingModule } from '../shared/formatting/formatting.module';
+import { MarkdownEditorModule } from '../shared/markdown-editor/markdown-editor.module';
 
 const demoRoutes: Routes = [
   {
@@ -140,6 +138,7 @@ const demoRoutes: Routes = [
     MaterialModule,
     HttpClientModule,
     MarkdownRendererModule,
+    MarkdownEditorModule,
     SharedModule,
     StoreModule.forFeature(demosFeatureKey, demoReducer),
     EffectsModule.forFeature([DemosEffects]),

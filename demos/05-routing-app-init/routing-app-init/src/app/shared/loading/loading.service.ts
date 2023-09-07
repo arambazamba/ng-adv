@@ -8,7 +8,7 @@ export class LoadingService {
   private isLoading = new BehaviorSubject(false);
 
   getLoading() {
-    return this.isLoading;
+    return this.isLoading.asObservable();
   }
 
   setLoading(loading: boolean) {

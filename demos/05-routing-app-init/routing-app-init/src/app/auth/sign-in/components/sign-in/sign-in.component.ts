@@ -4,6 +4,7 @@ import {
   Component,
   TemplateRef,
   ViewChild,
+  inject,
 } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
 import { Router } from '@angular/router';
@@ -16,22 +17,21 @@ import { AuthService } from '../../../auth.service';
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class SignInComponent implements AfterViewInit {
-  @ViewChild('dialog') template: TemplateRef<any>;
-
-  constructor(
-    private dialog: MatDialog,
-    private router: Router,
-    private as: AuthService
-  ) {}
+  router = inject(Router);
+  dialog = inject(MatDialog);
+  as = inject(AuthService);
+  @ViewChild('dialog') template: TemplateRef<any> | null = null;
 
   ngAfterViewInit() {
-    const ref = this.dialog.open(this.template, {
-      width: '350px',
-    });
+    if (this.template) {
+      const ref = this.dialog.open(this.template, {
+        width: '350px',
+      });
 
-    ref.afterClosed().subscribe(() => {
-      this.router.navigate(['demos']);
-    });
+      ref.afterClosed().subscribe(() => {
+        this.router.navigate(['demos']);
+      });
+    }
   }
 
   signIn() {

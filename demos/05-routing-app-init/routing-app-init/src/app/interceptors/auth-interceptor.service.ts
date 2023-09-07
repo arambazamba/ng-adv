@@ -1,4 +1,4 @@
-import { Injectable } from '@angular/core';
+import { Injectable, inject } from '@angular/core';
 import { HttpRequest, HttpHandler, HttpEvent } from '@angular/common/http';
 import { Observable } from 'rxjs';
 import { SimpleAuthTwoService } from './simple-auth-two.service';
@@ -8,10 +8,9 @@ import { SnackbarService } from '../shared/snackbar/snackbar.service';
   providedIn: 'root',
 })
 export class AuthInterceptorService {
-  constructor(
-    public auth: SimpleAuthTwoService,
-    private sns: SnackbarService
-  ) {}
+  auth = inject(SimpleAuthTwoService);
+  sns = inject(SnackbarService);
+
   intercept(
     request: HttpRequest<any>,
     next: HttpHandler
