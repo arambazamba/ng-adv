@@ -1,8 +1,14 @@
 # Advanced Angular Development - Modules
 
-Im Seminar "Advanced Angular Development" bringen wir Ihre Angular Kenntnisse auf Enterprise Level. Großes Augenmerk legen wir darauf, die Demos & Labs auf aktuellen Stand zu halten und aktuelle Coding-Styles zu verwenden. Dazu zählen aktuell Standalone Components, Signals, inject, sowie funktionale Implementierung von Angular Bausteinen. Wir besprechen mögliche Refactorings & Schematics für die Migration bestehender Lösungen und setzen dies fallweise in Form von Live-Coding um.
+Im Seminar "Advanced Angular Development" bringen wir Ihre Angular Kenntnisse auf Experten-Level. Großes Augenmerk legen wir darauf, in den Demos & Labs aktuelle Coding-Styles & Patterns zu verwenden. Wir besprechen mögliche Refactorings & Schematics für die Migration bestehender Lösungen und setzen dies fallweise in Form von Live-Coding um.
 
-Reactive Programming & State Management mit NgRX, Advanced Routing, Testing & Security, Optimierung von Angular Apps. Configurationsmanagement, Containerisierung und Deployment von Angular Apps in die Cloud runden das Seminar ab.
+Wir beginnen mit der Implementierung eines Angular Material Themes und lernen dabei die Kurs-Demo-App kennen, welche wir im Laufe des Kurses erweitern. Standalone Components sowie, deren Konzepte und Migration bilden den Einstieg ins Module Components & Forms Deep Dive. 
+
+Ein Schwerpunkt des Kurses ist der Themenblock Reactive Programming mit RxJs und State Management mit NgRx, sowie Advanced Routing und App Initialization. 
+
+Wir diskutieren die Implementierung von Authentifizierung mit Cloud Identities und Tests mit Jasmine, Jest, Cypress. Zusätzlich behandeln wir die Themen Reusability mit Libraries, Schematics, Nx & Angular Elements und Optimierung von Anwendungen, Server Side Rendering, sowie A11y.
+
+Zum Abschluss implementieren wir ein Real Time connected Mikro-Frontend als Progressive Web App und publizieren Angular Apps in die Cloud mittels Containern und Config Injection.
 
 Nach Abschluss des Kurses haben die Teilnehmer Kenntnisse zu folgenden Themen:
 
@@ -16,8 +22,8 @@ Securing Angular using Cloud Identities
 Advanced Testing with Jasmine, Jest, Cypress and NgRx
 Reusability with Libraries, Schematics, Nx & Angular Elements
 Optimizing Applications & Server Side Rendering & A11y
-Implementing Real Time connected Microfrontends
-Publishing Angular App using Containers and Config Injection
+Implementing & publishing a Real Time connected Micro-Frontend as a Progressive Web App
+Publishing Angular Apps to the Cloud using Containers and Config Injection
 
 Neue Themengebiete werden anhand von Folien und Demos erarbeitet. Am Ende der Module werden die erlernten Inhalte als Lab in eine durchgängige Anwendung integriert, welches am Ende in die Cloud publiziert werden kann. 
 
