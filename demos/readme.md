@@ -118,6 +118,7 @@ Neue Themengebiete werden anhand von Folien und Demos erarbeitet. Am Ende der Mo
 - Chaining Route Guards & Interceptors
 - Auxiliary Routes: Common use cases
 - Preloading Component Data from NgRx using Functional Resolvers
+- Using Preloading Strategies
 - Router Animations & Anchor Scrolling
 - Introduction to Visual Feedback (Loading-, Saving-, ...-Indicator)
 

@@ -21,7 +21,7 @@ Add a base Layout:
 
 Add the following html to appshell.component.html:
 
-Creat two Auto code splitted modules:
+Create two Auto code splitted modules:
 
 ```
 ng g module skills --route skills --module appshell
@@ -50,11 +50,3 @@ const routes: Routes = [
   },
 ];
 ```
-
-## Preloading
-
-[ngx-quicklink](https://github.com/mgechev/ngx-quicklink)
-
-Add Quicklink and investigate load times:
-
-![quicklink](_images/quicklink.png)

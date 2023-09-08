@@ -31,13 +31,6 @@ export class AppComponent {
 
   getWorbenchStyle() {
     let result = {};
-    // this.nav.sideNavVisible.subscribe((visible) => {
-    //   result = visible
-    //     ? {
-    //       'padding-left': '10px',
-    //     }
-    //     : {};
-    // });
     return result;
   }
 }
