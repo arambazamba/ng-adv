@@ -11,17 +11,19 @@ import { foodDataServiceConfig } from './food/state/food-data.service.config';
 import { entityConfig } from './food/state/food.metadata';
 import { FlagBasedPreloadingStrategy } from './preloading-strategy';
 import { appState } from './state/app.state';
+import { provideRouterStore } from '@ngrx/router-store';
 
 export const appConfig: ApplicationConfig = {
     providers: [
-        provideRouter(routes, withPreloading(FlagBasedPreloadingStrategy)),
-        provideHttpClient(withInterceptorsFromDi()),
-        provideAnimations(),
-        provideStore(),
-        provideState(appState),
-        provideEffects(),
-        { provide: DefaultDataServiceConfig, useValue: foodDataServiceConfig },
-        provideEntityData(entityConfig, withEffects()),
-        provideStoreDevtools({ maxAge: 25, logOnly: !isDevMode() }),
-    ],
+    provideRouter(routes, withPreloading(FlagBasedPreloadingStrategy)),
+    provideHttpClient(withInterceptorsFromDi()),
+    provideAnimations(),
+    provideStore(),
+    provideState(appState),
+    provideEffects(),
+    { provide: DefaultDataServiceConfig, useValue: foodDataServiceConfig },
+    provideEntityData(entityConfig, withEffects()),
+    provideStoreDevtools({ maxAge: 25, logOnly: !isDevMode() }),
+    provideRouterStore()
+],
 };

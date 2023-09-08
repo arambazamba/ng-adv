@@ -1,6 +1,6 @@
 import { Component, inject } from '@angular/core';
 import { map } from 'rxjs/operators';
-import { AppFacade } from '../../../state/app.facade';
+import { AuthFacade } from 'src/app/auth/state/auth.facade';
 
 @Component({
   selector: 'app-multi-guard',
@@ -8,10 +8,10 @@ import { AppFacade } from '../../../state/app.facade';
   styleUrls: ['./multi-guard.component.scss'],
 })
 export class MultiGuardComponent {
-  title = 'Using multible Auth Guards';
-  af = inject(AppFacade);
+  title = 'Using multiple Auth Guards';
+  af = inject(AuthFacade);
   user = this.af.getUser();
-  allowToggleMember = this.af.getIsLoggedIn()
+  allowToggleMember = this.af.isAuthenticated()
     .pipe(map((loggedin) => !loggedin));
 
   toggleLoggedIn() {

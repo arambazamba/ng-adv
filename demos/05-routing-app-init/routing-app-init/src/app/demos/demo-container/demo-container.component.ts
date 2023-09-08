@@ -1,7 +1,7 @@
 import { Component, DestroyRef, effect, inject } from '@angular/core';
 import { takeUntilDestroyed } from '@angular/core/rxjs-interop';
 import { ActivatedRoute, NavigationEnd, Router } from '@angular/router';
-import { filter, map } from 'rxjs/operators';
+import { filter, map, tap } from 'rxjs/operators';
 import { SidebarActions } from 'src/app/shared/side-panel/sidebar.actions';
 import { SidePanelService } from 'src/app/shared/side-panel/sidepanel.service';
 import { environment } from 'src/environments/environment';
@@ -37,6 +37,18 @@ export class DemoContainerComponent {
 
   currentCMD = this.eb.getCommands()
   showMdEditor: boolean = false;
+
+  header = this.router.events
+    .pipe(
+      takeUntilDestroyed(this.destroyRef),
+      filter((event) => event instanceof NavigationEnd),
+      map(() => this.rootRoute(this.route)),
+      filter((route: ActivatedRoute) => route.outlet === 'primary'),
+      map((route: ActivatedRoute) => route.component != null
+        ? `Component: ${route.component.name.substring(1)}`
+        : 'Please select a demo'),
+      tap((header) => console.log(header)
+      ));
 
   constructor() {
     effect(() => {

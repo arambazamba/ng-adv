@@ -8,7 +8,7 @@ import {
 } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
 import { Router } from '@angular/router';
-import { AuthService } from '../../../auth.service';
+import { AuthFacade } from 'src/app/auth/state/auth.facade';
 
 @Component({
   selector: 'sign-in',
@@ -19,7 +19,7 @@ import { AuthService } from '../../../auth.service';
 export class SignInComponent implements AfterViewInit {
   router = inject(Router);
   dialog = inject(MatDialog);
-  as = inject(AuthService);
+  as = inject(AuthFacade);
   @ViewChild('dialog') template: TemplateRef<any> | null = null;
 
   ngAfterViewInit() {
@@ -35,7 +35,7 @@ export class SignInComponent implements AfterViewInit {
   }
 
   signIn() {
-    this.as.signIn('mockUser');
+    this.as.signIn('mockUser', 'mockPassword');
     this.dialog.closeAll();
   }
 }

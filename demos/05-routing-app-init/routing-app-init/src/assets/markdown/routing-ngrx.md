@@ -1,2 +1,3 @@
-Show Router State in NgRx
-Explain CustomRouterSerializer and its Effect to the Heading in Demos Title and the removal of the 'dirty' setMetadata()-function
+- Show Router State in NgRx in `routing.component.html`
+- Explain CustomRouterSerializer and its Effect to the `header` in `demo-container.component.ts` 
+- Explain `auth.service.ts` which mocks an authentication service. Show the implementation of the LoginRedirect and Logout actions in `auth.actions.ts` and `auth.effects.ts`

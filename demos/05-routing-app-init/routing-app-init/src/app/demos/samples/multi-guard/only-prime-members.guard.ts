@@ -1,10 +1,10 @@
 import { inject } from '@angular/core';
 import { tap } from 'rxjs/operators';
 import { SnackbarService } from '../../../shared/snackbar/snackbar.service';
-import { MockAuthService } from './mock-auth.service';
+import { AuthFacade } from 'src/app/auth/state/auth.facade';
 
 export const onlyPrimeMembersGuard = () => {
-  const as = inject(MockAuthService);
+  const as = inject(AuthFacade);
   const sns = inject(SnackbarService);
   return as.hasPrimeSubscription().pipe(
     tap((hasSubscription) => {

@@ -1,5 +1,5 @@
 import { Component, inject } from '@angular/core';
-import { AuthService } from '../auth/auth.service';
+import { AuthFacade } from '../auth/state/auth.facade';
 
 @Component({
   selector: 'app-home',
@@ -7,6 +7,6 @@ import { AuthService } from '../auth/auth.service';
   styleUrls: ['./home.component.scss'],
 })
 export class HomeComponent {
-  as = inject(AuthService);
+  as = inject(AuthFacade);
   isAuthenticated = this.as.isAuthenticated();
 }

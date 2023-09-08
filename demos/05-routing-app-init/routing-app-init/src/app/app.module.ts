@@ -25,6 +25,7 @@ import { MaterialModule } from './material.module';
 import { SharedModule } from './shared/shared.module';
 import { metaReducers, reducers } from './state';
 import { retryInterceptor } from './interceptors/retry-interceptor.service';
+import { AuthModule } from './auth/auth.module';
 
 @NgModule({
   declarations: [
@@ -57,6 +58,7 @@ import { retryInterceptor } from './interceptors/retry-interceptor.service';
     StoreRouterConnectingModule.forRoot({
       routerState: RouterState.Full,
     }),
+    AuthModule
   ],
   providers: [
     provideHttpClient(

@@ -10,12 +10,13 @@ Examine routing config in `demo.module.ts` and the use of guards. OnlyPrimeMembe
       canActivate: [OnlyAuthenticatedGuard, OnlyPrimeMembersGuard]},
 ```
 
-Toggle values in `mock-auth.service.ts` using the buttons below and access routes. Mock member state is kept in NgRx:
+Toggle values in `auth.state.ts` using the buttons below and access routes. Mock member state is kept in NgRx:
 
 ```typescript
-export class MockAuthService {
-  af = inject(AppFacade);
-  isLoggedIn() {return this.af.getIsLoggedIn();}
-  hasPrimeSubscription() {return this.af.getPrimeMember();}
-}
+export const initialState: AuthState = {
+    user: null,
+    token: '',
+    authEnabled: environment.authEnabled,
+    isPrimeMember: false,
+};
 ```

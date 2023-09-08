@@ -3,8 +3,7 @@ import { createEntityAdapter, EntityAdapter, EntityState } from '@ngrx/entity';
 import { createReducer, on } from '@ngrx/store';
 import { Customer } from '../customers/customer.model';
 import { CustomersActions } from '../customers/state/customers.actions';
-import { User } from '../user/user.model';
-import { changeSideNavPosition, changeSideNavVisible, toggleLoggedIn, togglePrimeMember, toggleSideNav } from './app.actions';
+import { changeSideNavPosition, changeSideNavVisible, toggleSideNav } from './app.actions';
 
 export const appFeatureKey = 'app';
 
@@ -12,7 +11,6 @@ export interface AppState extends EntityState<Customer> {
   sideNavVisible: boolean;
   sideNavPosition: MatDrawerMode;
   title: string;
-  user: User;
 }
 
 export const customerAdapter: EntityAdapter<Customer> =
@@ -20,11 +18,6 @@ export const customerAdapter: EntityAdapter<Customer> =
 
 export const initialAppState: AppState = customerAdapter.getInitialState({
   title: 'Advanced Angular Development',
-  user: {
-    name: 'Giro the Galgo',
-    isLoggedIn: false,
-    isPrimeMember: false
-  },
   sideNavVisible: true,
   sideNavPosition: 'side',
 });
@@ -33,18 +26,6 @@ export const appReducer = createReducer(
   initialAppState,
   on(CustomersActions.loadCustomersSuccess, (state, action) => {
     return customerAdapter.setAll(action.items, { ...state });
-  }),
-  on(toggleLoggedIn, (state, action) => {
-    return {
-      ...state,
-      user: { ...state.user, isLoggedIn: !state.user.isLoggedIn },
-    };
-  }),
-  on(togglePrimeMember, (state, action) => {
-    return {
-      ...state,
-      user: { ...state.user, isPrimeMember: !state.user.isPrimeMember },
-    };
   }),
   on(toggleSideNav, (state) => ({
     ...state,

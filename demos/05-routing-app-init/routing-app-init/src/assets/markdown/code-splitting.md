@@ -4,4 +4,4 @@ Lazy Loaded modules can be created using the Code Splitting Pattern:
 ng g module [NAME] --route [ROUTE] --module [PARENT-MODULE]
 ```
 
-There is a tutorial in `tutorials/code-splitting`. It also contains `bundle preloading`.
+There is a tutorial in `tutorials/code-splitting`. 

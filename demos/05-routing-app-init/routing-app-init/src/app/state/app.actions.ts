@@ -1,9 +1,5 @@
 import { createAction, props } from '@ngrx/store';
 
-export const toggleLoggedIn = createAction('[App] toggleLoggedIn');
-
-export const togglePrimeMember = createAction('[App] togglePrimeMember');
-
 export const toggleSideNav = createAction('[Menu] toggleSideNavVisible');
 
 export const changeSideNavVisible = createAction(
