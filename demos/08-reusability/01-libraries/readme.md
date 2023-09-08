@@ -2,7 +2,7 @@
 
 [Angular Library Docs](https://angular.io/guide/libraries)
 
-[Multible Projects - Angular File Structure](https://angular.io/guide/file-structure)
+[Multiple Projects - Angular File Structure](https://angular.io/guide/file-structure)
 
 ## Getting Started
 

@@ -46,7 +46,7 @@ nx serve --project tutorial-app -o
 nx serve tutorial-app -o
 ```
 
-> Note: Keep the tutorital-app running in the background, just like you would do when using Angular CLI.
+> Note: Keep the tutorial-app running in the background, just like you would do when using Angular CLI.
 
 Test the app using Jest (default)
 
@@ -85,7 +85,7 @@ Check the tutorial-app and ux-lib project in the graph.
 
 ![nx-graph](_images/nx-graph.jpg)
 
-At the moment the graph is empty, even if you select the `tutorial-app` and `ux-helpers` lib. In the next setep we will add the content from `Module 02 - Components` to the library and the use it in the app. Navigate to app/shared/ux-lib and examine the split component. 
+At the moment the graph is empty, even if you select the `tutorial-app` and `ux-helpers` lib. In the next step we will add the content from `Module 02 - Components` to the library and the use it in the app. Navigate to app/shared/ux-lib and examine the split component. 
 
 Next we will create a component in the nx-mono-repo:
 
@@ -93,7 +93,7 @@ Next we will create a component in the nx-mono-repo:
 nx g @nrwl/angular:component ux-split --project ux-lib --export --selector ux-split --style scss
 ```
 
-Notice that Nx registeres the component in the `ux-lib.module.ts` and exports it in the index.ts. You can now copy the content of `Module 02 - Components` from `ux-split.component.ts` and `ux-split.component.html` and `*.scss` files. 
+Notice that Nx registers the component in the `ux-lib.module.ts` and exports it in the index.ts. You can now copy the content of `Module 02 - Components` from `ux-split.component.ts` and `ux-split.component.html` and `*.scss` files. 
 
 >Note: You will have to replace the variables in the scss files with concrete values. In a real project you would provides an *scss file with default values for the variables.
 

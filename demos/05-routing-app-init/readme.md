@@ -12,8 +12,8 @@
 - Introduction to @ngrx/router-store
 - Routing using NgRx Actions
 - Binding Router-Params to Component Inputs
-- Integrating Route Guards & Interceptors with NgRx
 - Functional Route Guards & Interceptors
+- Integrating Route Guards & Interceptors with NgRx
 - Chaining Route Guards & Interceptors
 - Auxiliary Routes: Common use cases
 - Preloading Component Data from NgRx using Functional Resolvers

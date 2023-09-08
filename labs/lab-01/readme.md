@@ -116,7 +116,7 @@
 
 - Implement a `getTopItems()` method that returns the top-links from the api
 
-- Consume the `getTopItems()` method and reeplace the content of `navbar.component.html` with the following:
+- Consume the `getTopItems()` method and replace the content of `navbar.component.html` with the following:
 
   ```html
   <mat-toolbar color="primary">

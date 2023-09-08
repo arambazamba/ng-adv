@@ -1,13 +1,13 @@
 # Authentication using NgRx - Lab 4
 
-- Implement Firbase Auth using NgRx - Option A
+- Implement Firebase Auth using NgRx - Option A
 - Implement Azure AD Auth using NgRx - Option B
 
-## Implement Firbase Auth using NgRx
+## Implement Firebase Auth using NgRx
 
 - Extend environment.ts to provide the Firebase Config and the ability to turn off authentication
 - Implement Firebase Loging & Register
-- Modifiy `app.component.ts` to show a Login-Splash or the app
+- Modify `app.component.ts` to show a Login-Splash or the app
 
 Example:
 

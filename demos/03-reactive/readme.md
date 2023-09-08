@@ -32,4 +32,4 @@
 - Retry & Error Handling Strategies
 - Implementing & Testing Custom Observable Operators
 - Communication between using Event Bus Pattern
-- Statefull Services using Behaviour Subjects and Signals
+- Stateful Services using Behavior Subjects and Signals

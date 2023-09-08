@@ -1,43 +1,43 @@
 # Kubernetes
 
-Use `arambazamba/ng-config-env`-image created earlier this module.
+Use `<your-docker-id>/config-ui`-image created earlier this module.
 
 ## Demos
 
-- Kubernetes - Explain ng-config-env.yaml
+- Kubernetes - Explain config-ui.yaml
 - Use Kubernetes ConfigMap to inject config into Angular UI
 - Deploy to Azure Kubernetes Services using Azure CLI Script `create-aks-cluster.sh`
 
-ng-config-env.yaml:
+config-ui.yaml:
 ```yaml
 kind: ConfigMap 
 apiVersion: v1 
 metadata:
-  name: ng-configmap 
+  name: config-ui 
 data:
   ENV_API_URL: https://food-api-staging-4591.azurewebsites.net
 ---
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: ng-config-env
+  name: config-ui
 spec:
   replicas: 1
   selector:
     matchLabels:
-      app: ng-config-env
+      app: config-ui
   template:
     metadata:
       labels:
-        app: ng-config-env                 
+        app: config-ui                 
     spec:
       containers:
-      - name: ng-config-env
-        image: arambazamba/ng-config-env
+      - name: config-ui
+        image: <your-docker-id>/config-ui
         imagePullPolicy: Always
         envFrom:
         - configMapRef:
-            name: ng-configmap
+            name: config-ui-map
         ports:
         - containerPort: 80        
         resources:
@@ -48,14 +48,14 @@ spec:
 apiVersion: v1
 kind: Service
 metadata:
-  name: ng-config-env-lb
+  name: config-ui-lb
 spec:
   type: LoadBalancer
   ports:
   - port: 8081
     targetPort: 80
   selector:
-    app: ng-config-env
+    app: config-ui
 ---
 ```
 

@@ -166,7 +166,7 @@ Neue Themengebiete werden anhand von Folien und Demos erarbeitet. Am Ende der Mo
 - Installing & Updating Progressive Web Apps
 - Introduction to Module Federation
 
-## Optimizing Applications
+## Building & Optimizing Applications
 
 - Using Chrome Dev Tools & Lighthouse for Performance Optimization
 - Analyzing and Optimizing Bundles & Modules

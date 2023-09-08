@@ -12,7 +12,7 @@
 
 [Performance Budget Calculator](https://perf-budget-calculator.firebaseapp.com/)
 
-[ngx-quickling - preloading](https://github.com/mgechev/ngx-quicklink)
+[ngx-quicklink - preloading](https://github.com/mgechev/ngx-quicklink)
 
 ## Accessibilty
 

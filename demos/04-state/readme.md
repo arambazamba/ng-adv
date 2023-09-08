@@ -9,14 +9,13 @@
 - Overview State Management Patterns
 - Introduction to the Redux Pattern & NgRx
 - Feature State and ActionReducerMap
-- Using Store, Reducers, Selectors, Actions & createActionGroup
+- Implementing NgRx Store, Reducers & Selectors using createFeature
+- Actions & createActionGroup
 - Debugging NgRx using Redux Dev Tools
-- Effects, Facades, @ngrx/enitity adapters
+- Effects, Facades, @ngrx/entity adapters
 - Simplifying Data Access with @ngrx/data
 - NgRx Container Presenter Best Practices
-- NgRx and Signals Ineroperability
-- Understanding, Profiling & Optimizing Angular Change Detection
-- Optimize Change Detection using ngrxPush, ChangeDetectioRef
+- NgRx and Signals Interoperability
 - @ngrx/component-store vs classic NgRx Store
 - Using @ngrx/component-store
 

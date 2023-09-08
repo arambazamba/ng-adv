@@ -2,7 +2,7 @@
 
 ## Demos
 
-- Introdcution Angular Testing Tools (Jasmine, Karma, Jest & Cypress)
+- Introduction Angular Testing Tools (Jasmine, Karma, Jest & Cypress)
 - Testing Classes, Pipes, Directives
 - Testing Services using HttpClientTestingModule & HttpTestingController
 - Mocking vs Spies

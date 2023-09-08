@@ -1,7 +1,7 @@
 ## Publish & Configure Angular App using Containers
 
 - Deployment Overview & Cloud Hosting Options
-  -  Using ng deploy to publish to Firebasee
+  -  Using ng deploy to publish to Firebase
   -  Deploy to Azure Static Webapp 
 - Configuration Management and Config Injection Options
   - Using a config service

@@ -4,7 +4,7 @@
 
     Note: You can take the following components as a [reference](https://github.com/arambazamba/ng-adv/tree/main/demos/02-components-forms/component-forms/src/app/demos/samples/forms-builder):
 
-- Implement Validation for the name filed to be required with min lenght of 3 and the price filed to be positive
+- Implement Validation for the name filed to be required with min length of 3 and the price filed to be positive
 
     ![edit-form](_images/edit-form.png)
 
@@ -17,7 +17,7 @@
 
 -   Add ReactiveFormsModule to app.module.ts
 
--   Inject FormBuilder to the constructor of `food-edit.component.ts` and initalize the `foodForm : FormGroup`. Add a `minLength` validator to the name field and a min validator to the price field.
+-   Inject FormBuilder to the constructor of `food-edit.component.ts` and initialize the `foodForm : FormGroup`. Add a `minLength` validator to the name field and a min validator to the price field.
 
 -   Initialize `@Input()` food with a `new FoodItem()` in `food-edit.component.ts`
 

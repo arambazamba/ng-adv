@@ -36,6 +36,18 @@
     docker run -it --rm -p 5051:80 config-api -e "App:UseEnv=true" 
     ```    
 
+- Tag container using:
+
+    ```bash
+    docker tag config-ui <your-docker-id>/config-api
+    ```
+
+- Push container using:
+
+    ```bash
+    docker push <your-docker-id>/config-api
+    ```      
+
 ## Angular UI
 
 - Examine `env.js` and `env.template.js` in `src/assets/`. These files are used to substitutes environment variables
@@ -65,3 +77,15 @@
     ```bash
     docker run -d --rm -p 5052:80 --env ENV_API_URL="https://localhost:5051" config-ui
     ```
+
+- Tag container using:
+
+    ```bash
+    docker tag config-ui <your-docker-id>/config-ui
+    ```
+
+- Push container using:
+
+    ```bash
+    docker push <your-docker-id>/config-ui
+    ```        

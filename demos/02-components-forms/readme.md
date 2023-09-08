@@ -1,9 +1,12 @@
-# Components & Forms Deep Dive
+# Standalone Components, Components & Forms Deep Dive
 
 ## Demos
 
 - Standalone Components vs Modules
-- Standalone Components: Creation, Lazy Loading, Bootstrapping
+- Creation, Bootstrapping 
+- Providers & Dependency Injection
+- Routing & Lazy Loading
+- Migration of an existing Project to Standalone Components
 - Standalone Directives & Directives Composition Api
 - Components and Required Inputs
 - Content Projection 
@@ -12,7 +15,7 @@
 - ViewChild, -Children, ContentChild, -Children
 - HostBinding & HostListener
 - Recap Reactive Forms Revisited (FormGroup, Form Builder, FormControl, FormArray)
-- Dynamic Component Loading & Databinding
+- Dynamic Component Loading & DataBinding
 - Untyped Forms vs Typed Forms 
 - Typed Forms Nullability, NonNullableFormBuilder, GetRawValue
 - Partial Values, Optional Controls, Dynamic Groups and FormRecord

@@ -1,6 +1,6 @@
 # Real-time connected Angular Microfrontend that is a part of an Event Driven Architecture (EDA)
 
-Food Orders Dashboard `food-orders-dashboard` implemented as Angular Microfronend using `@ngrx/component-store` displaying orders in real-time using SignalR. The orders are sent to the dashboard using an Event Grid Topic that is triggered by a CloudEvent. The CloudEvent is sent by a function app that is triggered by an HTTP request. The function app communicates with the SignalR service using a SignalR client.
+Food Orders Dashboard `food-orders-dashboard` implemented as Angular Micro-Frontend using `@ngrx/component-store` displaying orders in real-time using SignalR. The orders are sent to the dashboard using an Event Grid Topic that is triggered by a CloudEvent. The CloudEvent is sent by a function app that is triggered by an HTTP request. The function app communicates with the SignalR service using a SignalR client.
 
 ![architecture](_images/architecture.png)
 
@@ -21,7 +21,7 @@ Food Orders Dashboard `food-orders-dashboard` implemented as Angular Microfronen
 
 -   Install the [Azure Functions Core Tools](https://docs.microsoft.com/en-us/azure/azure-functions/functions-run-local#v2) and [Azure CLI](https://docs.microsoft.com/en-us/cli/azure/install-azure-cli?view=azure-cli-latest) and login to your [Azure tenant](https://azure.microsoft.com/en-us/free/).
 
--   Execute `create-foodorder-app.azcli` in [wsl bash](https://learn.microsoft.com/en-us/windows/wsl/install) to provision the environment and deploy the function app. Navigate to the Azure portal and check that the ressources have been created.
+-   Execute `create-foodorder-app.azcli` in [wsl bash](https://learn.microsoft.com/en-us/windows/wsl/install) to provision the environment and deploy the function app. Navigate to the Azure portal and check that the resources have been created.
 
     ![azure](_images/azure.png)
 
@@ -36,7 +36,7 @@ Food Orders Dashboard `food-orders-dashboard` implemented as Angular Microfronen
     };
     ```
 
--   Start the microfrontend using `ng serve` in `food-orders-ui` and open [http://localhost:4200](http://localhost:4200). Open the F12 Dev tools and check that the SignalR connection is established.
+-   Start the Micro-Frontends using `ng serve` in `food-orders-ui` and open [http://localhost:4200](http://localhost:4200). Open the F12 Dev tools and check that the SignalR connection is established.
 
     ![websocket](_images/websocket.png)
 
@@ -52,9 +52,5 @@ Food Orders Dashboard `food-orders-dashboard` implemented as Angular Microfronen
 
     { ...
     ```
-
-
-https://user-images.githubusercontent.com/16348023/201038870-7420343a-f847-443d-9b25-2df2f71c44e5.mp4
-
 
 > Credits: The demo is an updated and modernized version of [https://github.com/DavidGSola/serverless-eventgrid-viewer](https://github.com/DavidGSola/serverless-eventgrid-viewer)
