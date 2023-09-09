@@ -2,7 +2,7 @@ import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 import { SkillsContainerComponent } from './skills-container/skills-container.component';
 import { SkillsEditComponent } from './skills-edit/skills-edit.component';
-import { skillsResolver } from './skills.resolver';
+import { skillResolver, skillsResolver } from './skills.resolver';
 
 const routes: Routes = [
   {
@@ -13,7 +13,7 @@ const routes: Routes = [
   {
     path: 'edit/:id',
     component: SkillsEditComponent,
-    resolve: { skills: skillsResolver },
+    resolve: { skills: skillResolver },
   },
 ];
 

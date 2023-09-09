@@ -18,3 +18,19 @@ export const skillsResolver: ResolveFn<any> = (route: ActivatedRouteSnapshot, st
   );
 
 };
+
+
+export const skillResolver: ResolveFn<any> = (route: ActivatedRouteSnapshot, state: RouterStateSnapshot): Observable<any> => {
+  const skillsService = inject(SkillsEntityService);
+
+  return skillsService.loaded$.pipe(
+    tap((loaded) => {
+      if (!loaded) {
+        var skill = skillsService.getByKey(route.params['id']);
+      }
+    }),
+    filter((loaded) => !!loaded),
+    first()
+  );
+
+};

@@ -13,7 +13,7 @@ import { SharedModule } from '../shared/shared.module';
 import { UxModule } from '../ux/ux.module';
 import { DemoContainerComponent } from './demo-container/demo-container.component';
 import { AppInitComponent } from './samples/app-init/app-init.component';
-import { AuxilaryRoutesComponent } from './samples/auxilary-routes/auxilary-routes.component';
+import { AuxiliaryRoutesComponent } from './samples/auxilary-routes/auxiliary-routes.component';
 import { CodeSplittingComponent } from './samples/code-splitting/code-splitting.component';
 import { DiInjectComponent } from './samples/di-inject/di-inject.component';
 import { GlobalErrorsComponent } from './samples/global-errors/global-errors.component';
@@ -32,6 +32,7 @@ import { RoutingTargetComponent } from './samples/routing/routing-target/routing
 import { RoutingComponent } from './samples/routing/routing/routing.component';
 import { DemosEffects } from './state/demos.effects';
 import { demoReducer, demosFeatureKey } from './state/demos.reducer';
+import { NgrxRouterActionsComponent } from './samples/ngrx-router-actions/ngrx-router-actions.component';
 
 const demoRoutes: Routes = [
   {
@@ -47,11 +48,15 @@ const demoRoutes: Routes = [
         component: AppInitComponent,
       },
       {
+        path: 'auxiliary-routes',
+        component: AuxiliaryRoutesComponent,
+      },
+      {
         path: 'code-splitting',
         component: CodeSplittingComponent,
       },
       {
-        path: 'routing',
+        path: 'ngrx-routing',
         component: RoutingComponent,
         children: [{ path: ':id', component: RoutingTargetComponent }],
       },
@@ -64,8 +69,12 @@ const demoRoutes: Routes = [
         component: RouterBindingComponent,
       },
       {
-        path: 'preload-ngrx',
+        path: 'ngrx-resolver',
         component: PreloadingNgrxComponent,
+      },
+      {
+        path: 'ngrx-router-actions',
+        component: NgrxRouterActionsComponent,
       },
       {
         path: 'multi-guard',
@@ -124,9 +133,10 @@ const demoRoutes: Routes = [
     AppInitComponent,
     PreloadingNgrxComponent,
     CodeSplittingComponent,
-    AuxilaryRoutesComponent,
+    AuxiliaryRoutesComponent,
     DiInjectComponent,
-    RouterBindingComponent
+    RouterBindingComponent,
+    NgrxRouterActionsComponent
   ],
   imports: [
     CommonModule,

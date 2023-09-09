@@ -37,23 +37,33 @@
     },
     {
       "url": "router-bindings",
-      "title": "Router Bindings",
+      "title": "Component Input Bindings",
       "id": 44
     },
     {
-      "url": "routing",
-      "title": "Routing NgRx",
+      "url": "auxiliary-routes",
+      "title": "Auxiliary Routes",
+      "id": 114
+    },
+    {
+      "url": "ngrx-routing",
+      "title": "NgRx Router State",
       "id": 1
+    },
+    {
+      "url": "ngrx-resolver",
+      "title": "NgRx Resolver",
+      "id": 311
+    },
+    {
+      "url": "ngrx-router-actions",
+      "title": "NgRx Router Actions",
+      "id": 211
     },
     {
       "url": "locationsrv",
       "title": "Location Service",
       "id": 77
-    },
-    {
-      "url": "preload-ngrx",
-      "title": "NgRx Preloading",
-      "id": 311
     }
   ],
   "skills":[
