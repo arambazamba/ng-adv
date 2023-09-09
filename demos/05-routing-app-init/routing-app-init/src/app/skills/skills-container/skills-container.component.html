@@ -11,11 +11,7 @@
 </mat-toolbar>
 
 <div *ngFor="let sk of skills | async" class="item">
-  <app-skill-row
-    [skill]="sk"
-    (itemDeleted)="deleteItem($event)"
-    (itemCompleted)="toggleItemComplete($event)"
-  ></app-skill-row>
+  <app-skill-row [skill]="sk"></app-skill-row>
 </div>
 
 <app-skills-kpi></app-skills-kpi>

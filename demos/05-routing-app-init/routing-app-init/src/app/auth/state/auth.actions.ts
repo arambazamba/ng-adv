@@ -20,4 +20,3 @@ export const authActions = createActionGroup({
     toggleLoggedIn: emptyProps(),
   }
 });
-

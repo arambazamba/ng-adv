@@ -6,9 +6,11 @@ import {
   OnInit,
   Output,
   SimpleChanges,
+  inject,
 } from '@angular/core';
 import { Skill } from '../skill.model';
 import { environment } from 'src/environments/environment';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-skill-row',
@@ -17,9 +19,8 @@ import { environment } from 'src/environments/environment';
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class SkillRowComponent {
+  router = inject(Router);
   @Input() skill: Skill = new Skill();
-  @Output() itemDeleted: EventEmitter<Skill> = new EventEmitter();
-  @Output() itemCompleted: EventEmitter<Skill> = new EventEmitter()
 
   ngDoCheck(): void {
     if (environment.logChangeDetection) {
@@ -33,11 +34,9 @@ export class SkillRowComponent {
     }
   }
 
-  deleteItem(item: Skill): void {
-    this.itemDeleted.emit(item);
+  goToSkill() {
+    console.log('goToSkill');
+    this.router.navigate(['/skills/edit', this.skill.id]);
   }
 
-  toggleItemCompleted(item: Skill): void {
-    this.itemCompleted.emit(item);
-  }
 }

@@ -1,27 +1,20 @@
-import { Injectable } from '@angular/core';
-import { ActivatedRouteSnapshot, RouterStateSnapshot } from '@angular/router';
+import { inject } from '@angular/core';
+import { ActivatedRouteSnapshot, ResolveFn, RouterStateSnapshot } from '@angular/router';
 import { Observable } from 'rxjs';
 import { filter, first, tap } from 'rxjs/operators';
 import { SkillsEntityService } from './skills-entity.service';
 
-@Injectable({
-  providedIn: 'root',
-})
-export class SkillsResolver  {
-  constructor(private skillsService: SkillsEntityService) {}
+export const skillsResolver: ResolveFn<any> = (route: ActivatedRouteSnapshot, state: RouterStateSnapshot): Observable<any> => {
+  const skillsService = inject(SkillsEntityService);
 
-  resolve(
-    route: ActivatedRouteSnapshot,
-    state: RouterStateSnapshot
-  ): Observable<boolean> {
-    return this.skillsService.loaded$.pipe(
-      tap((loaded) => {
-        if (!loaded) {
-          this.skillsService.getAll();
-        }
-      }),
-      filter((loaded) => !!loaded),
-      first()
-    );
-  }
-}
+  return skillsService.loaded$.pipe(
+    tap((loaded) => {
+      if (!loaded) {
+        skillsService.getAll();
+      }
+    }),
+    filter((loaded) => !!loaded),
+    first()
+  );
+
+};

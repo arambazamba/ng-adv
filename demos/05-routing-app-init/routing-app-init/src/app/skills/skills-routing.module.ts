@@ -1,20 +1,18 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
-import { SkillResolver } from './skill.resolver';
 import { SkillsEditComponent } from './skills-edit/skills-edit.component';
-import { SkillsListComponent } from './skills-list/skills-list.component';
-import { SkillsResolver } from './skills.resolver';
+import { skillsResolver } from './skills.resolver';
+import { SkillsContainerComponent } from './skills-container/skills-container.component';
 
 const routes: Routes = [
   {
     path: '',
-    component: SkillsListComponent,
-    resolve: { skills: SkillsResolver },
+    component: SkillsContainerComponent,
+    resolve: { skills: skillsResolver },
   },
   {
-    path: ':id',
+    path: 'edit/:id',
     component: SkillsEditComponent,
-    resolve: { skill: SkillResolver },
   },
 ];
 
@@ -22,4 +20,4 @@ const routes: Routes = [
   imports: [RouterModule.forChild(routes)],
   exports: [RouterModule],
 })
-export class SkillsRoutingModule {}
+export class SkillsRoutingModule { }
