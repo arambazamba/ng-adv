@@ -7,16 +7,14 @@
     <button
       mat-raised-button
       color="primary"
-      (click)="toggleLoggedIn()"
-    >
+      (click)="toggleLoggedIn()">
       Toggle LoggedIn
     </button>
     <button
       mat-raised-button
       color="primary"
       (click)="togglePrimeMember()"
-      [disabled]="allowToggleMember | async"
-    >
+      [disabled]="btnTogglePrimeEnabled | async">
       Toggle Prime Member
     </button>
     <button mat-raised-button [routerLink]="['members']" color="primary">

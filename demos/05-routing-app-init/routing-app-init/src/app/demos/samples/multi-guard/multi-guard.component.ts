@@ -11,8 +11,9 @@ export class MultiGuardComponent {
   title = 'Using multiple Auth Guards';
   af = inject(AuthFacade);
   user = this.af.getUser();
-  allowToggleMember = this.af.isAuthenticated()
-    .pipe(map((loggedin) => !loggedin));
+
+  btnTogglePrimeEnabled = this.af.isAuthenticated()
+    .pipe(map((LoggedIn) => !LoggedIn));
 
   toggleLoggedIn() {
     this.af.toggleLoggedIn()

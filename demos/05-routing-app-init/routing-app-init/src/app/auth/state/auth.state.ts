@@ -49,7 +49,7 @@ export const authState = createFeature({
         on(authActions.toggleLoggedIn, (state) => {
             return {
                 ...state,
-                user: state.user == null ? 'test user' : null,
+                user: state.user == null ? 'Giro the galgo' : null,
             };
         }),
         on(authActions.togglePrimeMember, (state) => {

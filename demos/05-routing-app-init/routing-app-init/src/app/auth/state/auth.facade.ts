@@ -23,7 +23,9 @@ export class AuthFacade {
     }
 
     getUser() {
-        return this.store.select(authState.selectUser);
+        return this.store.select(authState.selectUser).pipe(map((user) => {
+            return user == null ? 'Anonymous' : user;
+        }));
     }
 
     signIn(username: string, password: string) {
