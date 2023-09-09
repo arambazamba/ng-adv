@@ -1,6 +1,6 @@
 export const environment = {
   production: false,
-  authEnabled: false,
+  authEnabled: true,
   title: 'Routing & App Init',
   logChangeDetection: false,
   logChanges: false,

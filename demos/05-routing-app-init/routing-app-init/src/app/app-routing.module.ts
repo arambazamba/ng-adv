@@ -4,6 +4,7 @@ import { ErrPageComponent } from './error/err-page/err-page.component';
 import { HomeComponent } from './home/home.component';
 import { CustomerEditComponent } from './customers/component/customer-edit/customer-edit.component';
 import { CustomersComponent } from './customers/component/customer-list/customers.component';
+import { authGuard } from './auth/auth.guard';
 
 const routes: Routes = [
   {
@@ -19,6 +20,7 @@ const routes: Routes = [
     path: 'skills',
     loadChildren: () =>
       import('./skills/skills.module').then((m) => m.SkillsModule),
+    canLoad: [authGuard],
   },
   {
     path: 'customers',

@@ -36,6 +36,11 @@
       "id": 13
     },
     {
+      "url": "locationsrv",
+      "title": "Location Service",
+      "id": 77
+    },
+    {
       "url": "router-bindings",
       "title": "Component Input Bindings",
       "id": 44
@@ -59,11 +64,6 @@
       "url": "ngrx-router-actions",
       "title": "NgRx Router Actions",
       "id": 211
-    },
-    {
-      "url": "locationsrv",
-      "title": "Location Service",
-      "id": 77
     }
   ],
   "skills":[
