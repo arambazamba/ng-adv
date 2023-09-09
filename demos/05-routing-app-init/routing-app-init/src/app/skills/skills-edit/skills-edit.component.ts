@@ -2,6 +2,7 @@ import { Component, OnInit, inject } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { Skill } from '../skill.model';
 import { SnackbarService } from '../../shared/snackbar/snackbar.service';
+import { FormControl, Validators } from '@angular/forms';
 
 @Component({
   selector: 'app-skills-edit',
@@ -14,58 +15,13 @@ export class SkillsEditComponent implements OnInit {
   sns = inject(SnackbarService);
   skill: Skill = new Skill();
 
+  name = new FormControl(this.skill.name, [Validators.required, Validators.minLength(3)]);
+  id = new FormControl(this.skill.id, [Validators.required]);
+  completed = new FormControl(this.skill.completed, [Validators.required]);
+
   ngOnInit(): void {
-    this.readParamUsingSnapshot();
-    // this.readParamUsingParamMap();
     // this.readParamUsingResolver();
-    // this.readParamUsingResolverObs();
-  }
-
-  getSkill(id: number) {
-    // this.service.getSkill(id).subscribe((data) => {
-    //   if (data) {
-    //     this.skill = data;
-    //     console.log('setting skill: ', data);
-    //   }
-    // });
-  }
-
-  readParamUsingSnapshot() {
-    // id param
-    const id = this.route.snapshot.params['id'];
-    this.getSkill(id);
-    // query params
-    const readonly = this.route.snapshot.queryParams['readonly'];
-    if (readonly != null) {
-      console.log(`Page is readonly: ${readonly}`);
-    }
-    // fragments
-    const fragments = this.route.snapshot.fragment;
-    if (fragments != undefined) {
-      console.log(`Section to navigate to: ${fragments}`);
-    }
-    //state
-    const state = history.state.data;
-    if (state != null) {
-      console.log('state: ', state);
-    }
-  }
-
-  readParamUsingParamMap() {
-    // id param
-    this.route.paramMap.subscribe((params) => {
-      console.log('paramMap:', params);
-    });
-    // query params
-    this.route.queryParamMap.subscribe((qpm) => {
-      console.log('paramMap:', qpm);
-      const readonly = qpm.get('readonly') === 'true';
-    });
-    // fragments
-    this.route.fragment.subscribe((fr) => {
-      console.log('paramMap:', fr);
-      const fragment = fr;
-    });
+    this.readParamUsingResolverObs();
   }
 
   readParamUsingResolver() {

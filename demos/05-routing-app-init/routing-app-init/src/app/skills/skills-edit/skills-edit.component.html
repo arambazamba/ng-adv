@@ -4,12 +4,12 @@
   </mat-card-header>
   <mat-card-content>
     <mat-form-field>
-      <input matInput type="text" placeholder="Name" formControlName="name" />
+      <input matInput type="text" placeholder="Name" [formControl]="name" />
     </mat-form-field>
     <mat-form-field>
-      <input matInput type="number" placeholder="id" formControlName="id" readonly="true"/>
+      <input matInput type="number" placeholder="id" [formControl]="id" readonly="true"/>
     </mat-form-field>
-    <mat-slide-toggle  formControlName="completed">Complete</mat-slide-toggle>
+    <mat-slide-toggle  [formControl]="completed">Complete</mat-slide-toggle>
   </mat-card-content>
   <mat-card-actions align="end">
     <button mat-button (click)="doCancel()">Cancel</button>

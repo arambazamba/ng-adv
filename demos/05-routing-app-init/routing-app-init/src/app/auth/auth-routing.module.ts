@@ -17,10 +17,10 @@ const routes: Routes = [
         loadChildren: () =>
           import('./sign-up/sign-up.module').then((m) => m.SignUpModule),
       },
-      {
-        path: '**',
-        redirectTo: 'sign-in',
-      },
+      // {
+      //   path: '**',
+      //   redirectTo: 'sign-in',
+      // },
     ],
   },
 ];
@@ -29,4 +29,4 @@ const routes: Routes = [
   imports: [RouterModule.forChild(routes)],
   exports: [RouterModule],
 })
-export class AuthRoutingModule {}
+export class AuthRoutingModule { }

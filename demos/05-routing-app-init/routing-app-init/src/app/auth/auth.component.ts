@@ -7,6 +7,4 @@ import { Component } from '@angular/core';
   `,
   styles: []
 })
-export class AuthComponent  {
-
-}
+export class AuthComponent { }
