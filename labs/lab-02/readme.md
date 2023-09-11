@@ -28,7 +28,7 @@
 
     >Note: When converting projects `app.routes.ts` and `app.config.ts` are not created automatically. You have to do this manually.
 
-- Open `main.ts` and use `Visual Studio Code - Organize Imports` to clean up the imports
+- Open `main.ts` and use `F1: Visual Studio Code - Organize Imports` to clean up the imports
 
 - To add the routing configuration create a new file `app/app.routes.ts` and add the following content:
 
