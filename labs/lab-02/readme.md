@@ -74,9 +74,9 @@
     
 ## Refactor `food-edit.component` to be implemented as a Reactive Form using FormBuilder
 
--   Add ReactiveFormsModule to app.module.ts
+-   Import `ReactiveFormsModule` to `food-edit.component.ts`
 
--   Inject FormBuilder to the constructor of `food-edit.component.ts` and initialize the `foodForm : FormGroup`. Add a `minLength` validator to the name field and a min validator to the price field.
+-   Inject FormBuilder to `food-edit.component.ts` using the `inject()` token and initialize the `foodForm : FormGroup`. Add a `minLength` validator to the name field and a min validator to the price field.
 
 -   Initialize `@Input()` food with a `new FoodItem()` in `food-edit.component.ts`
 
