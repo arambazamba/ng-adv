@@ -4,11 +4,10 @@ import { ActivatedRoute, NavigationEnd, Router } from '@angular/router';
 import { filter, map } from 'rxjs/operators';
 import { SidebarActions } from 'src/app/shared/side-panel/sidebar.actions';
 import { SidePanelService } from 'src/app/shared/side-panel/sidepanel.service';
-import { SideNavService } from 'src/app/shared/sidenav/sidenav.service';
+import { SideNavFacade } from 'src/app/state/sidenav.facade';
 import { environment } from 'src/environments/environment';
 import { LoadingService } from '../../shared/loading/loading.service';
 import { DemoFacade } from '../state/demo.facade';
-import { SideNavFacade } from 'src/app/state/sidenav.facade';
 
 @Component({
   selector: 'app-demo-container',

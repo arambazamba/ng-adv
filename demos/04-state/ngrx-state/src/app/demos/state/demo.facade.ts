@@ -4,7 +4,7 @@ import { take } from 'rxjs/operators';
 import { DemoItem } from '../demo-base/demo-item.model';
 // import { getAllDemos, getFilter, getSelected, hasLoaded } from './demo.selectors';
 import { DemoActions } from './demos.actions';
-import { DemoState, demoState } from './demos.state';
+import { DemoState, demoState, getAllDemos } from './demos.state';
 
 @Injectable({
   providedIn: 'root',
@@ -24,7 +24,7 @@ export class DemoFacade {
   }
 
   getDemos() {
-    return this.store.select(demoState.selectEntities);
+    return this.store.select(getAllDemos);
   }
 
   getSelectedDemo() {
