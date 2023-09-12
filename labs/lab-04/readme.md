@@ -294,3 +294,40 @@ Navigate to the About page and back to the Food page. Notice that the `@ngrx/dat
 ```
 
 You can now delete `food.service.ts` as it is no longer needed. If you need to override individual methods you could implement a custom data service. See the [documentation](https://ngrx.io/guide/data/entity-dataservice) for more details.
+
+If you want to add your own implementation of the data service, you can register it in app.config.ts using:
+
+```bash
+{
+    provide: ENVIRONMENT_INITIALIZER,
+    useValue() {
+        const entityDataService = inject(EntityDataService);
+        const foodDataService = inject(FoodDataService);
+        entityDataService.registerService('Food', foodDataService);
+    },
+    multi: true,
+},
+```
+
+A typical implementation of a custom data service looks like this:
+
+```typescript
+@Injectable({
+  providedIn: 'root'
+})
+export class FoodDataService extends DefaultDataService<FoodItem>{
+
+  constructor(http: HttpClient, httpUrlGenerator: HttpUrlGenerator) {
+    super('Food', http, httpUrlGenerator);
+  }
+
+  override add(food: FoodItem): Observable<FoodItem> {
+    console.log('overriding add');
+    return this.http.post<FoodItem>(`${environment.api}/food`, food).pipe(
+      map((data) => {
+        return { ...food, id: data.id };
+      })
+    );
+  }
+}
+```
