@@ -8,6 +8,7 @@ import { SideNavService } from 'src/app/shared/sidenav/sidenav.service';
 import { environment } from 'src/environments/environment';
 import { LoadingService } from '../../shared/loading/loading.service';
 import { DemoFacade } from '../state/demo.facade';
+import { SideNavFacade } from 'src/app/state/sidenav.facade';
 
 @Component({
   selector: 'app-demo-container',
@@ -19,7 +20,7 @@ export class DemoContainerComponent implements OnInit {
   router = inject(Router);
   route = inject(ActivatedRoute);
   df = inject(DemoFacade);
-  nav = inject(SideNavService);
+  nav = inject(SideNavFacade);
   ls = inject(LoadingService);
   eb = inject(SidePanelService);
 
