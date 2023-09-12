@@ -1,5 +1,5 @@
 import { Component, EventEmitter, Input, OnChanges, Output, SimpleChanges, inject } from '@angular/core';
-import { FormBuilder, FormGroup, Validators, FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { FormBuilder, FormGroup, Validators, FormsModule, ReactiveFormsModule, NonNullableFormBuilder } from '@angular/forms';
 import { FoodItem } from '../food.model';
 import { MatButtonModule } from '@angular/material/button';
 import { NgIf } from '@angular/common';
@@ -26,16 +26,13 @@ export class FoodEditComponent implements OnChanges {
   fb = inject(FormBuilder);
   @Input() food: FoodItem = new FoodItem();
   @Output() onFoodSaved: EventEmitter<FoodItem> = new EventEmitter<FoodItem>();
-  foodForm: FormGroup;
 
-  constructor() {
-    this.foodForm = this.fb.group({
-      id: [this.food.id],
-      name: [this.food.name, [Validators.required, Validators.minLength(3)]],
-      price: [this.food.price, [Validators.required, Validators.min(1)]],
-      calories: this.food.calories,
-    });
-  }
+  foodForm = this.fb.nonNullable.group({
+    id: [this.food.id, [Validators.required]],
+    name: [this.food.name, [Validators.required, Validators.minLength(3)]],
+    price: [this.food.price, [Validators.required, Validators.min(1)]],
+    calories: this.food.calories,
+  })
 
   ngOnChanges(changes: SimpleChanges): void {
     if (changes['food']) {
@@ -45,6 +42,6 @@ export class FoodEditComponent implements OnChanges {
 
   saveForm(): void {
     console.log('food to save', this.foodForm.value);
-    this.onFoodSaved.emit(this.foodForm.value);
+    this.onFoodSaved.emit(this.foodForm.getRawValue());
   }
 }
