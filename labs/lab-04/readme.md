@@ -14,7 +14,7 @@ ng add @ngrx/store
 ng add @ngrx/store-devtools
 ```
 
-Make sure that app.config.ts matches the following code:
+Make sure that `app/app.config.ts` matches the following code:
 
 ```typescript
 export const appConfig: ApplicationConfig = {
@@ -29,7 +29,7 @@ export const appConfig: ApplicationConfig = {
 };
 ```
 
-Create the actions in `app.actions.ts`:
+Create the actions in `app/state/app.actions.ts`:
 
 ```typescript   
 export const appActions = createActionGroup(
@@ -65,9 +65,9 @@ export const appState = createFeature({
       ...state,
       sideNavVisible: !state.sideNavVisible,
     })),
-    on(appActions.changeSideNavVisible, (state) => ({
+    on(appActions.changeSideNavVisible, (state, action) => ({
       ...state,
-      sideNavVisible: !state.sideNavVisible,
+      sideNavVisible: action.visible,
     })),
     on(appActions.changeSideNavPosition, (state, action) => ({
       ...state,
@@ -97,7 +97,7 @@ export const metaReducers: MetaReducer<State>[] = !environment.production
   : [];
 ```
 
-Create a sidenav.facades.ts which is responsible to provide the responsive sideNav container. We decided to use a facades to encapsulate the BreakpointObserver logic, and thereby keep the component as simple as possible. 
+Create a `app/state/sidenav.facades.ts` which is responsible to provide the responsive sideNav container. We decided to use a facades to encapsulate the BreakpointObserver logic, and thereby keep the component as simple as possible. 
 
 ```typescript
 @Injectable({
