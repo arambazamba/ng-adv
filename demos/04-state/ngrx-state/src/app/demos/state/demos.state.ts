@@ -7,7 +7,6 @@ import {
 import { createFeature, createReducer, on } from '@ngrx/store';
 import { DemoItem } from '../demo-base/demo-item.model';
 import { DemoActions } from './demos.actions';
-import { reducers } from '../../state/index';
 
 
 // State
@@ -38,37 +37,73 @@ export const defaultDemoItemState: DemoState = {
 
 export const initialState = demosAdapter.getInitialState(defaultDemoItemState);
 
-// Reducer
-export const demoReducer = createReducer(
-  initialState,
-  on(DemoActions.loadDemosSuccess, (state, action) => {
-    return demosAdapter.setAll(action.items, {
-      ...state,
-      loaded: true,
-    });
-  }),
-  on(DemoActions.updateDemoSuccess, (state, action) => {
-    const item: Update<DemoItem> = {
-      id: action.item.id,
-      changes: { visible: action.item.visible },
-    };
-    return demosAdapter.updateOne(item, { ...state });
-  }),
-  on(DemoActions.deleteDemoSuccess, (state, action) => {
-    return demosAdapter.removeOne(action.item.id, {
-      ...state,
-    });
-  }),
-  on(DemoActions.setSelected, (state, action) => {
-    return { ...state, selected: action.item };
-  }),
-  on(DemoActions.applyFilter, (state, action) => {
-    return { ...state, filter: action.filter };
-  }),
-  on(
-    DemoActions.updateDemoFailure,
-    DemoActions.deleteDemoFailure,
-    DemoActions.loadDemosFailure, (state, action) => {
-      return { ...state };
+export const demoState = createFeature({
+  name: demosFeatureKey,
+  reducer: createReducer(
+    initialState,
+    on(DemoActions.loadDemosSuccess, (state, action) => {
+      return demosAdapter.setAll(action.items, {
+        ...state,
+        loaded: true,
+      });
     }),
-);
+    on(DemoActions.updateDemoSuccess, (state, action) => {
+      const item: Update<DemoItem> = {
+        id: action.item.id,
+        changes: { visible: action.item.visible },
+      };
+      return demosAdapter.updateOne(item, { ...state });
+    }),
+    on(DemoActions.deleteDemoSuccess, (state, action) => {
+      return demosAdapter.removeOne(action.item.id, {
+        ...state,
+      });
+    }),
+    on(DemoActions.setSelected, (state, action) => {
+      return { ...state, selected: action.item };
+    }),
+    on(DemoActions.applyFilter, (state, action) => {
+      return { ...state, filter: action.filter };
+    }),
+    on(
+      DemoActions.updateDemoFailure,
+      DemoActions.deleteDemoFailure,
+      DemoActions.loadDemosFailure, (state, action) => {
+        return { ...state };
+      }))
+});
+
+// // Reducer
+// export const demoReducer = createReducer(
+//   initialState,
+//   on(DemoActions.loadDemosSuccess, (state, action) => {
+//     return demosAdapter.setAll(action.items, {
+//       ...state,
+//       loaded: true,
+//     });
+//   }),
+//   on(DemoActions.updateDemoSuccess, (state, action) => {
+//     const item: Update<DemoItem> = {
+//       id: action.item.id,
+//       changes: { visible: action.item.visible },
+//     };
+//     return demosAdapter.updateOne(item, { ...state });
+//   }),
+//   on(DemoActions.deleteDemoSuccess, (state, action) => {
+//     return demosAdapter.removeOne(action.item.id, {
+//       ...state,
+//     });
+//   }),
+//   on(DemoActions.setSelected, (state, action) => {
+//     return { ...state, selected: action.item };
+//   }),
+//   on(DemoActions.applyFilter, (state, action) => {
+//     return { ...state, filter: action.filter };
+//   }),
+//   on(
+//     DemoActions.updateDemoFailure,
+//     DemoActions.deleteDemoFailure,
+//     DemoActions.loadDemosFailure, (state, action) => {
+//       return { ...state };
+//     }),
+// );
