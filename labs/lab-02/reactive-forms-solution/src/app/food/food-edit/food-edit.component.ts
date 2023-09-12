@@ -42,6 +42,6 @@ export class FoodEditComponent implements OnChanges {
 
   saveForm(): void {
     console.log('food to save', this.foodForm.value);
-    this.onFoodSaved.emit(this.foodForm.getRawValue());
+    this.onFoodSaved.emit(this.foodForm.value as FoodItem);
   }
 }
