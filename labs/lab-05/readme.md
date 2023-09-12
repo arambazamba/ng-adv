@@ -80,14 +80,14 @@ Use the following code and the demo app as sample to navigate to login and error
 
 ```typescript
 redirectToError$ = createEffect(() =>
-    this.actions$.pipe(
-      ofType(DemoActions.redirectToError),
-      exhaustMap(() => {
-        this.router.navigate(['/error']);
-        return EMPTY.pipe(
-          map(() => ({ type: 'Redirected to Error' }))
-        );
-      })
-    )
-  );
+  this.actions$.pipe(
+    ofType(DemoActions.redirectToError),
+    exhaustMap(() => {
+      this.router.navigate(['/error']);
+      return EMPTY.pipe(
+        map(() => ({ type: 'Redirected to Error' }))
+      );
+    })
+  )
+);
 ```
