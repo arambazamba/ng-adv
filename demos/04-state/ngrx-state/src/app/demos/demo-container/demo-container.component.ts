@@ -1,7 +1,7 @@
 import { Component, DestroyRef, OnInit, effect, inject } from '@angular/core';
-import { ActivatedRoute, NavigationEnd, Router } from '@angular/router';
 import { takeUntilDestroyed } from '@angular/core/rxjs-interop';
-import { filter, map, takeUntil } from 'rxjs/operators';
+import { ActivatedRoute, NavigationEnd, Router } from '@angular/router';
+import { filter, map } from 'rxjs/operators';
 import { SidebarActions } from 'src/app/shared/side-panel/sidebar.actions';
 import { SidePanelService } from 'src/app/shared/side-panel/sidepanel.service';
 import { SideNavService } from 'src/app/shared/sidenav/sidenav.service';

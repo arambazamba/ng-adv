@@ -74,7 +74,6 @@ import { CustomersModule } from '../customers/customers.module';
     FormattingModule,
     StoreModule.forFeature(demosFeatureKey, demoReducer),
     EffectsModule.forFeature([DemosEffects]),
-    CustomersModule
   ],
   providers: [],
 })
