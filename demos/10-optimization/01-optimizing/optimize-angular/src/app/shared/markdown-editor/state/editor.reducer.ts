@@ -24,7 +24,7 @@ export const editorReducer = createReducer(
   on(MarkdownEditorActions.saveCommentsSuccess, (state, action) => {
     //Notice to clone an Array we use [] instead of {}
     const clone = Object.assign([], state.comments) as Array<CommentItem>;
-    let idx = clone.findIndex((c) => c.id == action.item.id);
+    const idx = clone.findIndex((c) => c.id == action.item.id);
     if (idx > -1) {
       clone[idx] = action.item;
     } else {

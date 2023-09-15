@@ -1,4 +1,8 @@
-# Angular Universal
+# Optimizing Angular Apps
+## Accessibility
+
+[Lab: Angular A11y](https://codelabs.developers.google.com/angular-a11y)
+## Server Side Rendering (SSR) with Angular Universal
 
 Create project and add Universal:
 
@@ -41,7 +45,7 @@ Use Universal watch mode:
 npm run dev:ssr
 ```
 
-## Use Prerendering
+## Use Pre-rendering
 
 Create `routes.txt` in the root folder. It defines routes to pre-render:
 
@@ -50,7 +54,7 @@ Create `routes.txt` in the root folder. It defines routes to pre-render:
 /food/2
 /food/3
 ```
-Create prerendered pages:
+Create pre-rendered pages:
 
 ```bash
 ng run foodlist-ssr:prerender --routes-file routes.txt

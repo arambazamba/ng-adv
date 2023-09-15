@@ -8,13 +8,7 @@
 
 [Airbnb Style Guide](https://github.com/webdev-tools/tslint-airbnb-styleguide)
 
-## Analyzing Bundles
-
-[Performance Budget Calculator](https://perf-budget-calculator.firebaseapp.com/)
-
-[ngx-quicklink - preloading](https://github.com/mgechev/ngx-quicklink)
-
-## Accessibilty
+## Accessibility
 
 [Accessible Rich Internet Applications - ARIA](https://developer.mozilla.org/en-US/docs/Web/Accessibility/ARIA)
 
@@ -32,7 +26,7 @@ Parts of the slides are taken from:
 
 Enable Angular Debug Tools in `main.ts`:
 
-```
+```typescript
 platformBrowserDynamic()
   .bootstrapModule(AppModule)
   .then(moduleRef => {

@@ -17,7 +17,7 @@ export function logNgRX(reducer: ActionReducer<any>): ActionReducer<any> {
   return function (state, action) {
     console.log('ngrx logging:', action);
     if (environment.appInsights) {
-      var ai = AILoggerService.getInstance()
+      const ai = AILoggerService.getInstance()
       ai.trackEvent({ name: 'ngrx logging', properties: { action: action.type, state: state } });
 
     }

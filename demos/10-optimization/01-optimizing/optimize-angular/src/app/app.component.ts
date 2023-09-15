@@ -13,7 +13,7 @@ export class AppComponent {
   }
 
   title: string = environment.title;
-  selectedTheme: string = 'default';
+  selectedTheme = 'default';
 
   ngOnInit() {
     this.titleService.setTitle(this.title);

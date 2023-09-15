@@ -36,7 +36,7 @@ export class DemoContainerComponent {
   );
 
   currentCMD = this.eb.getCommands()
-  showMdEditor: boolean = false;
+  showMdEditor = false;
 
   constructor() {
     effect(() => {

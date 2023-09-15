@@ -1,12 +1,11 @@
-import { Component, OnInit } from '@angular/core';
+import { Component } from '@angular/core';
 
 @Component({
   selector: 'app-ngfor',
   templateUrl: './ngfor.component.html',
   styleUrls: ['./ngfor.component.scss'],
 })
-export class NgforComponent implements OnInit {
-  constructor() {}
+export class NgforComponent {
 
   array = [
     {
@@ -25,8 +24,6 @@ export class NgforComponent implements OnInit {
       name: 'Boyer Stanley',
     },
   ];
-
-  ngOnInit(): void {}
 
   trackElement(index: number, element: any) {
     return element ? element.guid : null;

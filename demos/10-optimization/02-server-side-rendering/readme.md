@@ -4,7 +4,7 @@
 
 [Angular Universal](https://angular.io/guide/universal)
 
-[Prerendering](https://angular.io/guide/prerendering)
+[Pre-rendering](https://angular.io/guide/prerendering)
 
 ## Configure Angular Universal
 
@@ -51,14 +51,14 @@ npm run dev:ssr
 
 ## Use Prerendering
 
-Create `routes.txt` in the root folder. It defines routes to prerender:
+Create `routes.txt` in the root folder. It defines routes to pre-render:
 
 ```
 /food/1
 /food/2
 /food/3
 ```
-Create prerendered pages:
+Create pre-rendered pages:
 
 ```bash
 ng run foodlist-ssr:prerender --routes-file routes.txt

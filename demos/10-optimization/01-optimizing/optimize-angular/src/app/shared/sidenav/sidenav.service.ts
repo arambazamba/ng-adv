@@ -34,7 +34,7 @@ export class SideNavService {
   }
 
   toggleMenuVisibility() {
-    let status = !this.visible$.getValue();
+    const status = !this.visible$.getValue();
     this.visible$.next(status);
   }
 }
