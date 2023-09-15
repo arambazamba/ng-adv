@@ -8,7 +8,7 @@
 Create project and add Universal:
 
 ```
-ng new ng-universal
+ng new foodlist-ssr
 cd ng-universal
 ng add @nguniversal/express-engine
 ```
