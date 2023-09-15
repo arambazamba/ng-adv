@@ -1,5 +1,7 @@
 # Food App Project - Lab Theming
 
+In this lab we will create a simple Food App using Angular. We will use the `@angular/material` package to add Material Design support to our Angular app. We will also use `json-server` to serve our api and test the app. Finally we will use `Angular Material Theming` to customize the look and feel of our app.
+
 - Add Api support using [json-server](https://github.com/typicode/json-server)
 
 - Implement a Custom Material Theme with a Custom Color Scheme of your choice

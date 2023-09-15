@@ -1,5 +1,7 @@
 # Injecting Configuration into Docker Containers
 
+In this lab we will create a simple Angular app and containerize it using Docker. We will also inject configuration from environment variables into the container.
+
 ## Build the container
 
 Open project `container-starter` and add the following `Dockerfile`:
