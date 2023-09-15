@@ -1,5 +1,9 @@
 # Progressive Web Apps
 
+In this lab we will create a simple PWA using Angular and .NET Core. We will use the `@angular/pwa` package to add PWA support to our Angular app. We will also use `ngrok` to serve our app over https and test the PWA functionality. Finally we will use `Docker` to containerize our .NET Core skills service and serve it from a container.
+
+## Implementation
+
 Allow Chrome to use self signed localhost certs:
 
 ```
@@ -64,7 +68,7 @@ Test the app - see if it works
 
 ---
 
-### Serving your app using ngrok & install the PWA
+## Serving your app using ngrok & install the PWA
 
 To serve the build you need an http-server. Use `angular-http-server` or `http-server`
 
