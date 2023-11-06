@@ -129,9 +129,9 @@ Neue Themengebiete werden anhand von Folien und Demos erarbeitet. Am Ende der Mo
 - Token based Authentication in Angular with NgRx
 - Implementing an AuthModule using a Facade Service, Components, Guards & Interceptors
 - Optimizing Application Flow for Authentication
-- Authentication using Microsoft Identity, Azure AD and @azure/msal-angular
+- Authentication using Microsoft Entra ID
 
-## Advanced Testing with Jasmine, Jest, Cypress and NgRx
+## Advanced Testing with Jest, Cypress and NgRx
 
 - Introduction Angular Testing Tools (Jasmine, Karma, Jest & Cypress)
 - Testing Classes, Pipes, Directives
@@ -148,7 +148,7 @@ Neue Themengebiete werden anhand von Folien und Demos erarbeitet. Am Ende der Mo
 - Introduction to End-2-End Testing using Cypress
 - Cypress Component Tests
 
-## Reusability with Libraries, Schematics, Nx & Angular Elements
+## Reusability with Libraries, Nx, Schematics & Angular Elements
 
 - Angular Building Blocks: Workspace, Apps, Libraries
 - Reusable Artifacts using Angular Libraries
