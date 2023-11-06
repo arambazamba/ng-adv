@@ -49,6 +49,7 @@ Neue Themengebiete werden anhand von Folien und Demos erarbeitet. Am Ende der Mo
 
 ## Components & Forms Deep Dive
 
+- Using & Migrating to Control Flow Syntax
 - Standalone Directives & Directives Composition Api
 - Components and Required Inputs
 - Content Projection 
@@ -171,6 +172,7 @@ Neue Themengebiete werden anhand von Folien und Demos erarbeitet. Am Ende der Mo
 
 - Using Chrome Dev Tools & Lighthouse for Performance Optimization
 - Analyzing and Optimizing Bundles & Modules
+- Deferred Loading
 - Understanding & Using Page Traces
 - Optimizing Images using NgOptimizedImage 
 - Logging NgRx to custom destinations using Meta-Reducers 
