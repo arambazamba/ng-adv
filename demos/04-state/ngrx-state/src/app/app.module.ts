@@ -27,7 +27,7 @@ import { EffectsModule } from '@ngrx/effects';
     StoreModule.forRoot(reducers, { metaReducers }),
     EffectsModule.forRoot([]),
     EntityDataModule.forRoot({}),
-    StoreDevtoolsModule.instrument({}),
+    StoreDevtoolsModule.instrument({connectInZone: true}),
   ],
   providers: [
     LoadingService,
