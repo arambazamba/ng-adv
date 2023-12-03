@@ -5,7 +5,7 @@ import {
   Pluralizer,
 } from '@ngrx/data';
 @Injectable()
-export class CustomurlHttpGenerator extends DefaultHttpUrlGenerator {
+export class CustomUrlHttpGenerator extends DefaultHttpUrlGenerator {
   constructor(pluralizer: Pluralizer) {
     super(pluralizer);
   }

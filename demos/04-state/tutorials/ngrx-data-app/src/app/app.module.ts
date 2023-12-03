@@ -10,7 +10,7 @@ import { StoreModule } from '@ngrx/store';
 import { StoreDevtoolsModule } from '@ngrx/store-devtools';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { CustomurlHttpGenerator } from './skills/custom-url-generator';
+import { CustomUrlHttpGenerator } from './skills/custom-url-generator';
 import { SkillsComponent } from './skills/components/skills.component';
 import { entityConfig } from './skills/skills.metadata';
 
@@ -33,7 +33,7 @@ import { entityConfig } from './skills/skills.metadata';
   providers: [
     {
       provide: HttpUrlGenerator,
-      useClass: CustomurlHttpGenerator,
+      useClass: CustomUrlHttpGenerator,
     },
   ],
   bootstrap: [AppComponent]

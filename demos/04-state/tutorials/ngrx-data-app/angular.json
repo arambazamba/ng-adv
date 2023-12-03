@@ -71,10 +71,10 @@
           "builder": "@angular-devkit/build-angular:dev-server",
           "configurations": {
             "production": {
-              "browserTarget": "ngrx-data-app:build:production"
+              "buildTarget": "ngrx-data-app:build:production"
             },
             "development": {
-              "browserTarget": "ngrx-data-app:build:development"
+              "buildTarget": "ngrx-data-app:build:development"
             }
           },
           "defaultConfiguration": "development"
@@ -82,7 +82,7 @@
         "extract-i18n": {
           "builder": "@angular-devkit/build-angular:extract-i18n",
           "options": {
-            "browserTarget": "ngrx-data-app:build"
+            "buildTarget": "ngrx-data-app:build"
           }
         },
         "test": {
@@ -105,6 +105,11 @@
           }
         }
       }
+    }
+  },
+  "cli": {
+    "cache": {
+      "enabled": false
     }
   }
 }
