@@ -4,7 +4,7 @@ Im Seminar "Advanced Angular Development" bringen wir Ihre Angular Kenntnisse au
 
 Wir beginnen mit der Implementierung eines Angular Material Themes und lernen dabei die Kurs-Demo-App kennen, welche wir im Laufe des Kurses erweitern. Standalone Components sowie, deren Konzepte und Migration bilden den Einstieg ins Module Components & Forms Deep Dive. 
 
-Ein Schwerpunkt des Kurses ist der Themenblock Reactive Programming mit RxJs und State Management mit NgRx, sowie Advanced Routing und App Initialization. 
+Ein Schwerpunkt des Kurses ist der Themenblock Reactive Programming mit RxJs und State Management mit NgRx & Signals, sowie Advanced Routing und App Initialization. 
 
 Wir diskutieren die Implementierung von Authentifizierung mit Cloud Identities und Tests mit Jasmine, Jest, Cypress. Zusätzlich behandeln wir die Themen Reusability mit Libraries, Schematics, Nx & Angular Elements und Optimierung von Anwendungen, Server Side Rendering, sowie A11y.
 
@@ -12,11 +12,11 @@ Zum Abschluss implementieren wir ein Real Time connected Mikro-Frontend als Prog
 
 Nach Abschluss des Kurses haben die Teilnehmer Kenntnisse zu folgenden Themen:
 
-Theming Angular Apps
 Standalone Components: Concepts & Migration
 Components & Forms Deep Dive
-Mastering Reactive Programming using Signals & RxJs
+Mastering Reactive Programming using RxJs
 Advanced State Management using NgRx
+Mastering Signals
 Advanced Routing and App Initialization
 Securing Angular using Cloud Identities
 Advanced Testing with Jasmine, Jest, Cypress and NgRx
@@ -27,29 +27,19 @@ Publishing Angular Apps to the Cloud using Containers and Config Injection
 
 Neue Themengebiete werden anhand von Folien und Demos erarbeitet. Am Ende der Module werden die erlernten Inhalte als Lab in eine durchgängige Anwendung integriert, welches am Ende in die Cloud publiziert werden kann. 
 
-## Theming Angular Apps
-
-- Style inheritance and View Encapsulation
-- Comparing Angular Material & Bootstrap
-- Material Theming  Overview
-- Using Material Colors to define Primary, Accent and Warning Colors
-- Building a Reusable Material Theme
-- Define Alternative Themes
-- Theming Custom Components and override Material Components
-- Material Design Migration to MDC
-- Using Bootstrap with Angular
 
 ## Standalone Components: Concepts & Migration
 
 - Standalone Components vs Modules
 - Creation, Bootstrapping 
-- Providers & Dependency Injection
+- Registering Providers & Dependency Injection
 - Routing & Lazy Loading
-- Migration of an existing Project to Standalone Components
+- Migration to Standalone Components
 
 ## Components & Forms Deep Dive
 
 - Using & Migrating to Control Flow Syntax
+- Deferred Loading
 - Standalone Directives & Directives Composition Api
 - Components and Required Inputs
 - Content Projection 
@@ -67,7 +57,7 @@ Neue Themengebiete werden anhand von Folien und Demos erarbeitet. Am Ende der Mo
 - Typed Forms Validation & Custom Validators
 - Handling FormErrors & ErrorStateMatcher
 
-## Mastering Reactive Programming using Signals & RxJS
+## Mastering Reactive Programming using RxJS
 
 - Imperative vs Functional Programming
 - Immutability & Pure Functions
@@ -99,10 +89,19 @@ Neue Themengebiete werden anhand von Folien und Demos erarbeitet. Am Ende der Mo
 - Debugging NgRx using Redux Dev Tools
 - Effects, Facades, @ngrx/entity adapters
 - Simplifying Data Access with @ngrx/data
+- Implementing a reactive View Model
 - NgRx Container Presenter Best Practices
-- NgRx and Signals Interoperability
-- @ngrx/component-store vs classic NgRx Store
 - Using @ngrx/component-store
+- Optimize Change Detection
+
+## Mastering Signals
+
+- Introduction to Signals (Writable, Computed, Effects)
+- Working with Arrays
+- Signals vs Observables: Synchronous  & Asynchronous Reactive Programming
+- Signals & Ngrx Interoperability
+- Creating a Signals Store using @ngrx/signals
+- Local Change Detection using Signals
 
 ## Advanced Routing and App Initialization
 
@@ -115,8 +114,7 @@ Neue Themengebiete werden anhand von Folien und Demos erarbeitet. Am Ende der Mo
 - Routing using NgRx Actions
 - Binding Router-Params to Component Inputs
 - Functional Route Guards & Interceptors
-- Integrating Route Guards & Interceptors with NgRx
-- Chaining Route Guards & Interceptors
+- View Transition Api
 - Auxiliary Routes: Common use cases
 - Preloading Component Data from NgRx using Functional Resolvers
 - Using Preloading Strategies
@@ -153,16 +151,14 @@ Neue Themengebiete werden anhand von Folien und Demos erarbeitet. Am Ende der Mo
 - Angular Building Blocks: Workspace, Apps, Libraries
 - Reusable Artifacts using Angular Libraries
 - Implementing, Publishing and Consuming Libraries to / from GitHub Packages
-- Understanding Monorepos: Pro / Cons
 - Introduction to Nx Workspaces
 - Understanding and Implementing Schematics
-- Implementing Web Components using Angular Elements
+- Implementing Web Components using Angular Elements and Standalone Components
 
 ## Implementing a Real Time connected Micro-Frontend as a Progressive Web App
 
 - Introduction to Micro-Frontend and Event Driven Architecture (EDA)
 - Implementing a Real Time connected Micro-Frontend listening to Cloud Events
-- Using `@ngrx/component-store`
 - Introduction to Progressive Web Apps
 - Understanding and Configuring Service Workers & Manifests
 - Installing & Updating Progressive Web Apps
@@ -178,8 +174,6 @@ Neue Themengebiete werden anhand von Folien und Demos erarbeitet. Am Ende der Mo
 - Logging NgRx to custom destinations using Meta-Reducers 
 - Virtual- & Infinite Scrolling
 - Understanding, Profiling & Optimizing Angular Change Detection
-- Optimize Change Detection using ngrxPush, ChangeDetectioRef
-- Change Detection and Signals
 - Using Linting and Autoformat with Prettier
 - Accessibility A11y: Best Practices & Linting
 - Introduction to Server Side Rendering (SSR) and Non-destructive hydration
