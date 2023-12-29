@@ -6,5 +6,7 @@
 
 <div class="box">
   Person Log:
-  <div class="entry" *ngFor="let p of personLog">{{p}}</div>
+  @for (p of personLog; track p) {
+    <div class="entry">{{p}}</div>
+  }
 </div>

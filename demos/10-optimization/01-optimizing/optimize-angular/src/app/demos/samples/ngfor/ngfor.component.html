@@ -1,6 +1,8 @@
 <app-markdown-renderer [md]="'ngfor'"></app-markdown-renderer>
 <ul>
-  <li *ngFor="let element of array; trackBy: trackElement">
-    {{ element.name }}
-  </li>
+  @for (element of array; track trackElement($index, element)) {
+    <li>
+      {{ element.name }}
+    </li>
+  }
 </ul>

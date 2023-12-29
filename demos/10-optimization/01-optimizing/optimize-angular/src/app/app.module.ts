@@ -32,7 +32,7 @@ import { metaReducers } from './state/index';
     EntityDataModule.forRoot({}),
     StoreDevtoolsModule.instrument({
       logOnly: environment.production,
-    })
+    connectInZone: true})
   ],
   providers: [
     LoadingService,

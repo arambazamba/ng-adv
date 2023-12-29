@@ -6,7 +6,7 @@
         mat-raised-button
         [routerLink]="['/skills', 0]"
         color="primary"
-      >
+        >
         Add
       </button>
     </div>
@@ -15,8 +15,10 @@
 
 <mat-card appearance="outlined">
   <mat-card-content fxLayout="column">
-    <div *ngFor="let sk of skills | async" class="item">
-      <app-skill-row [skill]="sk"></app-skill-row>
-    </div>
+    @for (sk of skills | async; track sk) {
+      <div class="item">
+        <app-skill-row [skill]="sk"></app-skill-row>
+      </div>
+    }
   </mat-card-content>
 </mat-card>

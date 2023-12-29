@@ -12,36 +12,40 @@
             placeholder="E-Mail"
             id="username"
             formControlName="email"
-          />
-          <mat-error *ngIf="loginForm.get('email')?.errors != undefined"
-            >Keine oder ungültige E-Mail-Adresse
-          </mat-error>
-        </mat-form-field>
+            />
+            @if (loginForm.get('email')?.errors != undefined) {
+              <mat-error
+                >Keine oder ungültige E-Mail-Adresse
+              </mat-error>
+            }
+          </mat-form-field>
 
-        <mat-form-field>
-          <input
-            matInput
-            type="password"
-            id="password"
-            autocomplete="true"
-            placeholder="Password"
-            formControlName="password"
-          />
-          <mat-error *ngIf="loginForm.get('email')?.errors != undefined"
-            >Min 4 Zeichen
-          </mat-error>
-        </mat-form-field>
-      </mat-card-content>
-      <mat-card-actions>
-        <button
-          mat-raised-button
-          type="submit"
-          [disabled]="loginForm.invalid"
-          color="primary"
-        >
-          LOGIN
-        </button>
-      </mat-card-actions>
-    </mat-card>
-  </form>
-</ng-template>
+          <mat-form-field>
+            <input
+              matInput
+              type="password"
+              id="password"
+              autocomplete="true"
+              placeholder="Password"
+              formControlName="password"
+              />
+              @if (loginForm.get('email')?.errors != undefined) {
+                <mat-error
+                  >Min 4 Zeichen
+                </mat-error>
+              }
+            </mat-form-field>
+          </mat-card-content>
+          <mat-card-actions>
+            <button
+              mat-raised-button
+              type="submit"
+              [disabled]="loginForm.invalid"
+              color="primary"
+              >
+              LOGIN
+            </button>
+          </mat-card-actions>
+        </mat-card>
+      </form>
+    </ng-template>

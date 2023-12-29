@@ -7,6 +7,8 @@
     Click here to select
     <div>{{ msg }}</div>
 
-    <div *ngFor="let item of items">{{ item }}</div>
+    @for (item of items; track item) {
+      <div>{{ item }}</div>
+    }
   </mat-card-content>
 </mat-card>

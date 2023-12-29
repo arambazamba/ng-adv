@@ -11,15 +11,16 @@
       fxLayout="column"
       fxLayoutGap="5px"
       class="list"
-    >
-      <app-demo-row
-        *ngFor="let d of demos$ | async"
-        [item]="d"
-        (onDelete)="deleteItem($event)"
-        (dblclick)="selectItem(d)"
-        cdkDrag
-        class="box"
-      ></app-demo-row>
+      >
+      @for (d of demos$ | async; track d) {
+        <app-demo-row
+          [item]="d"
+          (onDelete)="deleteItem($event)"
+          (dblclick)="selectItem(d)"
+          cdkDrag
+          class="box"
+        ></app-demo-row>
+      }
     </div>
   </mat-card-content>
 </mat-card>

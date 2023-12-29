@@ -1,6 +1,8 @@
 <div class="democontainer">
   <h3>Demos</h3>
-  <div *ngFor="let demo of demos | async">
-    <div class="underlined">{{ demo.title }}</div>
-  </div>
+  @for (demo of demos | async; track demo) {
+    <div>
+      <div class="underlined">{{ demo.title }}</div>
+    </div>
+  }
 </div>

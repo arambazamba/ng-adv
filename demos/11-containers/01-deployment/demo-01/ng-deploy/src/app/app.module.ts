@@ -43,7 +43,7 @@ import { IntroComponent } from './shared/intro/intro.component';
       name: 'ng-demo-app',
       maxAge: 25,
       logOnly: environment.production,
-    }),
+    connectInZone: true}),
     StoreRouterConnectingModule.forRoot({
       routerState: RouterState.Full,
     }),

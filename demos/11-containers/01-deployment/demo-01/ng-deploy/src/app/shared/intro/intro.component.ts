@@ -1,4 +1,4 @@
-import { CommonModule } from '@angular/common';
+
 import {
   Component,
   Input,
@@ -22,7 +22,7 @@ import { environment } from 'src/environments/environment';
   templateUrl: './intro.component.html',
   styleUrls: ['./intro.component.scss'],
   standalone: true,
-  imports: [CommonModule, MatCardModule, MatButtonModule, FBAuthModule, LogInModule, RegisterModule],
+  imports: [MatCardModule, MatButtonModule, FBAuthModule, LogInModule, RegisterModule],
 })
 export class IntroComponent {
   dialog = inject(MatDialog);

@@ -12,27 +12,31 @@
     </div>
   </mat-card-content>
   <mat-card-actions>
-    <div *ngIf="authEnabled==false" class="actions" centered>
-      <button mat-raised-button (click)="goToDemos()" color="primary">
-        Proceed
-      </button>
-    </div>
-    <div *ngIf="authEnabled" class="actions cmdItems">
-      <button
-        mat-raised-button
-        (click)="logIn()"
-        color="primary"
-      >
-        Log In
-      </button>
-      <button
-        mat-raised-button
-        (click)="registerUser()"
-        color="primary"
-      >
-        Register
-      </button>
-    </div>
+    @if (authEnabled==false) {
+      <div class="actions" centered>
+        <button mat-raised-button (click)="goToDemos()" color="primary">
+          Proceed
+        </button>
+      </div>
+    }
+    @if (authEnabled) {
+      <div class="actions cmdItems">
+        <button
+          mat-raised-button
+          (click)="logIn()"
+          color="primary"
+          >
+          Log In
+        </button>
+        <button
+          mat-raised-button
+          (click)="registerUser()"
+          color="primary"
+          >
+          Register
+        </button>
+      </div>
+    }
   </mat-card-actions>
 </mat-card>
 

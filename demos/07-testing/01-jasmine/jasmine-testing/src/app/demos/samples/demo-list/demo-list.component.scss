@@ -1,7 +1,5 @@
 @use '@angular/material' as mat;
 
-@import "mat-theme.scss";
-
 .list {
   background: var(--color-primary);
   min-height: 60px;

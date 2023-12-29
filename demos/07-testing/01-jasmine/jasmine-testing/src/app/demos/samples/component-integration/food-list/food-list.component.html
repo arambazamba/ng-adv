@@ -3,10 +3,11 @@
     <mat-card-title>Food List Component - Click to remove</mat-card-title>
   </mat-card-header>
   <mat-card-content>
-    <app-food-row
-      *ngFor="let f of food"
-      [food]="f"
-      (delete)="deleteFood($event)"
-    ></app-food-row>
+    @for (f of food; track f) {
+      <app-food-row
+        [food]="f"
+        (delete)="deleteFood($event)"
+      ></app-food-row>
+    }
   </mat-card-content>
 </mat-card>

@@ -30,7 +30,7 @@ import { environment } from '../environments/environment.prod';
     EntityDataModule.forRoot({}),
     StoreDevtoolsModule.instrument({
       logOnly: environment.production,
-    }),
+    connectInZone: true}),
   ],
   providers: [
     LoadingService,

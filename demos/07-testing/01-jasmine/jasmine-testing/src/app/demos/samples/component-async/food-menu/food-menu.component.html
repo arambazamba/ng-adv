@@ -1,6 +1,8 @@
 <div class="democontainer">
   <h3>Food Menu</h3>
-  <div *ngFor="let f of food | async">
-    <div class="underlined">{{ f.name }}</div>
-  </div>
+  @for (f of food | async; track f) {
+    <div>
+      <div class="underlined">{{ f.name }}</div>
+    </div>
+  }
 </div>

@@ -83,10 +83,10 @@
           "builder": "@angular-devkit/build-angular:dev-server",
           "configurations": {
             "production": {
-              "browserTarget": "firebase-auth-ngrx:build:production"
+              "buildTarget": "firebase-auth-ngrx:build:production"
             },
             "development": {
-              "browserTarget": "firebase-auth-ngrx:build:development"
+              "buildTarget": "firebase-auth-ngrx:build:development"
             }
           },
           "defaultConfiguration": "development"
@@ -94,7 +94,7 @@
         "extract-i18n": {
           "builder": "@angular-devkit/build-angular:extract-i18n",
           "options": {
-            "browserTarget": "firebase-auth-ngrx:build"
+            "buildTarget": "firebase-auth-ngrx:build"
           }
         },
         "test": {

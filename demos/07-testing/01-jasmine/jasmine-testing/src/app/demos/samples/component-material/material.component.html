@@ -12,7 +12,7 @@
       </div>
       <div>
         <mat-slider min="1"
-        max="100">
+          max="100">
           <input matSliderThumb formControlName="slider">
         </mat-slider>
       </div>
@@ -22,7 +22,7 @@
           color="accent"
           (click)="resetSlider()"
           type="button"
-        >
+          >
           Reset
         </button>
       </div>
@@ -32,28 +32,40 @@
         </button>
       </div>
 
-      <div *ngIf="sliderForm.invalid">
-        slider has <b><i>invalid </i> </b> value and choose value greater than
-        10.
-      </div>
-      <div *ngIf="sliderForm.valid">
-        Slider has a <b><i>valid </i> </b> value {{ value }}.
-      </div>
-      <div *ngIf="sliderForm.pristine">
-        Slider having state <b><i>pristine.</i></b> Slider value not yet changed
-        by user.
-      </div>
-      <div *ngIf="sliderForm.dirty">
-        Slider having state <b><i>dirty.</i> </b> Slider value changed by user.
-      </div>
-      <div *ngIf="sliderForm.untouched">
-        Slider having state <b><i>untouched.</i></b> Slider has not visited by
-        user.
-      </div>
-      <div *ngIf="sliderForm.touched">
-        Slider having state <b><i>touched.</i> </b> Slider has been visited by
-        user.
-      </div>
+      @if (sliderForm.invalid) {
+        <div>
+          slider has <b><i>invalid </i> </b> value and choose value greater than
+          10.
+        </div>
+      }
+      @if (sliderForm.valid) {
+        <div>
+          Slider has a <b><i>valid </i> </b> value {{ value }}.
+        </div>
+      }
+      @if (sliderForm.pristine) {
+        <div>
+          Slider having state <b><i>pristine.</i></b> Slider value not yet changed
+          by user.
+        </div>
+      }
+      @if (sliderForm.dirty) {
+        <div>
+          Slider having state <b><i>dirty.</i> </b> Slider value changed by user.
+        </div>
+      }
+      @if (sliderForm.untouched) {
+        <div>
+          Slider having state <b><i>untouched.</i></b> Slider has not visited by
+          user.
+        </div>
+      }
+      @if (sliderForm.touched) {
+        <div>
+          Slider having state <b><i>touched.</i> </b> Slider has been visited by
+          user.
+        </div>
+      }
     </form>
   </mat-card-content>
 </mat-card>
