@@ -1,12 +1,7 @@
-# Standalone Components, Components & Forms Deep Dive
+# Components & Forms Deep Dive
 
 ## Demos
 
-- Standalone Components vs Modules
-- Creation, Bootstrapping 
-- Providers & Dependency Injection
-- Routing & Lazy Loading
-- Migration of an existing Project to Standalone Components
 - Standalone Directives & Directives Composition Api
 - Components and Required Inputs
 - Content Projection 
@@ -23,11 +18,3 @@
 - Implementing Custom Controls using ControlValueAccessor
 - Typed Forms Validation & Custom Validators
 - Handling FormErrors & ErrorStateMatcher
-
-## Convert App to Standalone Components
-
-Existing apps can be migrated to Standalone Components using Schematics:
-
-```
-ng g @angular/core:standalone
-```
