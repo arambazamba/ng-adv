@@ -45,7 +45,7 @@ import { CustomerEditComponent } from './customers/component/customer-edit/custo
       name: 'firebase-auth',
       maxAge: 25,
       logOnly: environment.production,
-    }),
+    connectInZone: true}),
     provideFirebaseApp(() => initializeApp(environment.firebaseConfig)),
     provideAuth(() => getAuth()),
     AuthModule,
