@@ -56,7 +56,7 @@ import { GlobalErrService } from './error/global-err-handler';
       name: 'routing-app-init',
       maxAge: 25,
       logOnly: environment.production,
-    }),
+    connectInZone: true}),
     StoreRouterConnectingModule.forRoot({
       routerState: RouterState.Full,
     }),
