@@ -1,4 +1,4 @@
-import { CommonModule } from '@angular/common';
+
 import { Component } from '@angular/core';
 import { MarkdownModule } from 'ngx-markdown';
 import { MarkdownRendererModule } from '../../../shared/markdown-renderer/markdown-renderer.module';
@@ -6,7 +6,7 @@ import { MarkdownRendererModule } from '../../../shared/markdown-renderer/markdo
 @Component({
   selector: 'app-standalone',
   standalone: true,
-  imports: [CommonModule, MarkdownModule, MarkdownRendererModule],
+  imports: [MarkdownModule, MarkdownRendererModule],
   templateUrl: './standalone.component.html',
   styleUrls: ['./standalone.component.scss'],
 })

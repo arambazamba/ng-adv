@@ -1,6 +1,8 @@
 <div class="grid">
   <div class="gdNavbar">
-    <app-navbar *ngIf="isAuthenticated | async"></app-navbar>
+    @if (isAuthenticated | async) {
+      <app-navbar></app-navbar>
+    }
   </div>
   <div class="gdMainrow">
     <router-outlet></router-outlet>

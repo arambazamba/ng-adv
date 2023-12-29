@@ -1,4 +1,6 @@
-<app-markdown-renderer [md]="'imperative'" *ngIf="showMD"></app-markdown-renderer>
+@if (showMD) {
+  <app-markdown-renderer [md]="'imperative'"></app-markdown-renderer>
+}
 
 <mat-card appearance="outlined">
   <mat-card-header>
@@ -6,17 +8,19 @@
   </mat-card-header>
   <mat-card-content>
 
-      <mat-form-field>
-        <mat-label>Filter</mat-label>
-        <input matInput type="text" [formControl]="filter$" />
-      </mat-form-field>
+    <mat-form-field>
+      <mat-label>Filter</mat-label>
+      <input matInput type="text" [formControl]="filter$" />
+    </mat-form-field>
 
     <div>
       <h2>Skills</h2>
       <ul>
-        <li *ngFor="let skill of view">
-          {{ skill | json }}
-        </li>
+        @for (skill of view; track skill) {
+          <li>
+            {{ skill | json }}
+          </li>
+        }
       </ul>
     </div>
   </mat-card-content>

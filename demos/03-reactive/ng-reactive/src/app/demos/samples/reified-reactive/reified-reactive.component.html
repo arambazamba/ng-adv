@@ -11,9 +11,11 @@
     <div>
       <h2>Skills</h2>
       <ul>
-        <li *ngFor="let skill of skills$ | async">
-          {{ skill | json }}
-        </li>
+        @for (skill of skills$ | async; track skill) {
+          <li>
+            {{ skill | json }}
+          </li>
+        }
       </ul>
     </div>
   </mat-card-content>

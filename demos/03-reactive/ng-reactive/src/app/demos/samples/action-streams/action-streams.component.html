@@ -6,18 +6,20 @@
         type="text"
         placeholder="Enter Demo Partial to filter"
         [formControl]="filter$"
-      />
-    </mat-form-field>
-  </mat-toolbar-row>
-</mat-toolbar>
+        />
+      </mat-form-field>
+    </mat-toolbar-row>
+  </mat-toolbar>
 
-<mat-card appearance="outlined">
-  <mat-card-header>
-    <mat-card-title> Demos </mat-card-title>
-  </mat-card-header>
-  <mat-card-content>
-    <div *ngFor="let d of vm$ | async" class="row">
-      <div>{{ d.title }}</div>
-    </div>
-  </mat-card-content>
-</mat-card>
+  <mat-card appearance="outlined">
+    <mat-card-header>
+      <mat-card-title> Demos </mat-card-title>
+    </mat-card-header>
+    <mat-card-content>
+      @for (d of vm$ | async; track d) {
+        <div class="row">
+          <div>{{ d.title }}</div>
+        </div>
+      }
+    </mat-card-content>
+  </mat-card>

@@ -1,4 +1,6 @@
 <h3>The Skills:</h3>
-<div *ngFor="let sk of skills | async">
-  {{ sk.name}}
-</div>
+@for (sk of skills | async; track sk) {
+  <div>
+    {{ sk.name}}
+  </div>
+}

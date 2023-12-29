@@ -1,4 +1,4 @@
-import { CommonModule } from '@angular/common';
+
 import { Component } from '@angular/core';
 import { RouterModule } from '@angular/router';
 import { MarkdownModule } from 'ngx-markdown';
@@ -7,7 +7,7 @@ import { MarkdownRendererModule } from 'src/app/shared/markdown-renderer/markdow
 @Component({
   selector: 'app-lazy-standalone',
   standalone: true,
-  imports: [CommonModule, MarkdownModule, MarkdownRendererModule, RouterModule],
+  imports: [MarkdownModule, MarkdownRendererModule, RouterModule],
   templateUrl: './lazy-standalone.component.html',
   styleUrls: ['./lazy-standalone.component.scss'],
 })

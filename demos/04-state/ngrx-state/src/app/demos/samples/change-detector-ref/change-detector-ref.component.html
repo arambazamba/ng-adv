@@ -1,8 +1,8 @@
 <app-markdown-renderer [md]="'detector-ref'"></app-markdown-renderer>
-
 <div class="container">
-    <h2>Parent: ChangeDetectorRefComponent</h2>
-    <h2 *ngIf="produceErr">ViewChild Value: {{ child?.childData}}</h2>
-    <app-detector-child></app-detector-child>
+  <h2>Parent: ChangeDetectorRefComponent</h2>
+  @if (produceErr) {
+    <h2>ViewChild Value: {{ child?.childData}}</h2>
+  }
+  <app-detector-child></app-detector-child>
 </div>
-

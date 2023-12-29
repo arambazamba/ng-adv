@@ -3,7 +3,7 @@
     #sidenav
     [opened]="ms.visible$ | async"
     [mode]="ms.position$ | async"
-  >
+    >
     <mat-toolbar color="accent">
       <mat-toolbar-row>
         Administration
@@ -11,14 +11,15 @@
     </mat-toolbar>
 
     <div class="menu">
-      <button
-        mat-raised-button
-        color="accent"
-        *ngFor="let item of links"
-        [routerLink]="['./' + item.url]"
-      >
-        {{ item.title }}
-      </button>
+      @for (item of links; track item) {
+        <button
+          mat-raised-button
+          color="accent"
+          [routerLink]="['./' + item.url]"
+          >
+          {{ item.title }}
+        </button>
+      }
     </div>
   </mat-sidenav>
   <mat-sidenav-content>
@@ -27,7 +28,7 @@
       gdRows="70px auto 200px"
       class="workbench"
       [ngStyle]="getWorbenchStyle()"
-    >
+      >
       <mat-toolbar gdArea="toolbar" color="accent">
         <mat-toolbar-row>
           <h4></h4>

@@ -5,8 +5,9 @@
   (personSelected)="onPersonSelected($event)"
 ></app-presenter-list>
 
-<app-presenter-edit
-  *ngIf="current"
-  [person]="current"
-  (savePerson)="onPersonSaved($event)"
-></app-presenter-edit>
+@if (current) {
+  <app-presenter-edit
+    [person]="current"
+    (savePerson)="onPersonSaved($event)"
+  ></app-presenter-edit>
+}

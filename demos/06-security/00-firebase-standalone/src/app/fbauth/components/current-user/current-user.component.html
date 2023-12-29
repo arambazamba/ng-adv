@@ -1,3 +1,5 @@
-<div class="user" *ngIf="currentUser | async as user">
-  {{ user?.email }}
-</div>
+@if (currentUser | async; as user) {
+  <div class="user">
+    {{ user?.email }}
+  </div>
+}

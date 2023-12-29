@@ -78,10 +78,10 @@
           "builder": "@angular-devkit/build-angular:dev-server",
           "configurations": {
             "production": {
-              "browserTarget": "standalone-skills:build:production"
+              "buildTarget": "standalone-skills:build:production"
             },
             "development": {
-              "browserTarget": "standalone-skills:build:development"
+              "buildTarget": "standalone-skills:build:development"
             }
           },
           "defaultConfiguration": "development"
@@ -89,7 +89,7 @@
         "extract-i18n": {
           "builder": "@angular-devkit/build-angular:extract-i18n",
           "options": {
-            "browserTarget": "standalone-skills:build"
+            "buildTarget": "standalone-skills:build"
           }
         },
         "test": {

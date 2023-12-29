@@ -5,10 +5,12 @@
     <button (click)="addSkill()">Add Skill</button>
   </div>
 
-  <div *ngFor="let sk of skills$ | async">
-    <div class="row">
-      <div class="label">{{ sk.name }}</div>
-      <button (click)="deleteSkill(sk)">Delete</button>
+  @for (sk of skills$ | async; track sk) {
+    <div>
+      <div class="row">
+        <div class="label">{{ sk.name }}</div>
+        <button (click)="deleteSkill(sk)">Delete</button>
+      </div>
     </div>
-  </div>
+  }
 </div>

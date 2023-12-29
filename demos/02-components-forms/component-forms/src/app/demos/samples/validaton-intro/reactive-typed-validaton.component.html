@@ -3,7 +3,7 @@
   [formGroup]="registerForm"
   (ngSubmit)="registerUser(registerForm)"
   #form="ngForm"
->
+  >
   <mat-card appearance="outlined">
     <mat-card-header>
       <mat-card-title>Validation Intro - Register Form</mat-card-title>
@@ -16,11 +16,13 @@
           placeholder="Email Address"
           id="username"
           formControlName="email"
-        />
-        <mat-error *ngIf="registerForm.controls.email.hasError('email')"
-          >Keine oder ungültige E-Mail-Adresse
-        </mat-error>
-      </mat-form-field>
+          />
+          @if (registerForm.controls.email.hasError('email')) {
+            <mat-error
+              >Keine oder ungültige E-Mail-Adresse
+            </mat-error>
+          }
+        </mat-form-field>
 
         <mat-form-field>
           <input
@@ -29,48 +31,51 @@
             id="password"
             placeholder="Password"
             formControlName="password"
-          />
-          <mat-error
-            *ngIf="registerForm.controls.password.hasError('minlength')"
-            >Min 4 Zeichen
-          </mat-error>
-        </mat-form-field>
+            />
+            @if (registerForm.controls.password.hasError('minlength')) {
+              <mat-error
+                >Min 4 Zeichen
+              </mat-error>
+            }
+          </mat-form-field>
 
-        <mat-form-field>
-          <input
-            type="password"
-            matInput
-            placeholder="Re-Enter Password"
-            formControlName="passwordRepeat"
-          />
-        </mat-form-field>
-        <!-- form is coming from the local ref on top. Is has some props that the FormGroup does not have -->
-        <mat-error *ngIf="(registerForm.controls.passwordRepeat.dirty || form.submitted) && registerForm.errors'passwordMismatch'">
-          Password does not match
-        </mat-error>
-    </mat-card-content>
-    <mat-card-actions align="end">
-      <button mat-raised-button type="submit" color="primary" >
-        Register
-      </button>
-    </mat-card-actions>
-  </mat-card>
-</form>
+          <mat-form-field>
+            <input
+              type="password"
+              matInput
+              placeholder="Re-Enter Password"
+              formControlName="passwordRepeat"
+              />
+            </mat-form-field>
+            <!-- form is coming from the local ref on top. Is has some props that the FormGroup does not have -->
+            @if ((registerForm.controls.passwordRepeat.dirty || form.submitted) && registerForm.errors'passwordMismatch') {
+              <mat-error>
+                Password does not match
+              </mat-error>
+            }
+          </mat-card-content>
+          <mat-card-actions align="end">
+            <button mat-raised-button type="submit" color="primary" >
+              Register
+            </button>
+          </mat-card-actions>
+        </mat-card>
+      </form>
 
-<mat-card appearance="outlined">
-  <mat-card-header>
-      <mat-card-title>FormControl Validation Erros - password</mat-card-title>
-  </mat-card-header>
-  <mat-card-content>
-      {{this.registerForm.controls.password.errors | json}}
-  </mat-card-content>
-</mat-card>
+      <mat-card appearance="outlined">
+        <mat-card-header>
+          <mat-card-title>FormControl Validation Erros - password</mat-card-title>
+        </mat-card-header>
+        <mat-card-content>
+          {{this.registerForm.controls.password.errors | json}}
+        </mat-card-content>
+      </mat-card>
 
-<mat-card appearance="outlined">
-    <mat-card-header>
-        <mat-card-title>Form Validation Erros</mat-card-title>
-    </mat-card-header>
-    <mat-card-content>
-        {{this.registerForm.errors | json}}
-    </mat-card-content>
-</mat-card>
+      <mat-card appearance="outlined">
+        <mat-card-header>
+          <mat-card-title>Form Validation Erros</mat-card-title>
+        </mat-card-header>
+        <mat-card-content>
+          {{this.registerForm.errors | json}}
+        </mat-card-content>
+      </mat-card>

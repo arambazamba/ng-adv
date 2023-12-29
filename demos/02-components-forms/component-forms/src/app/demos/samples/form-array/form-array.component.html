@@ -11,33 +11,37 @@
           type="text"
           formControlName="name"
           placeholder="Enter Name:"
-        />
-      </mat-form-field>
-      <div *ngIf="skillForm.controls.name.value" class="border">
-        <h3>Skills:</h3>
-        <div
-          formArrayName="skillsGrp"
-          *ngFor="let skill of skillForm.controls.skillsGrp.controls; let i = index"
-        >
-          <div [formGroupName]="i" rowgap>
-            <mat-form-field>
-              <input
-                matInput
-                placeholder="Skill Name"
-                formControlName="skillname"
-              />
-            </mat-form-field>
-
-            <mat-form-field>
-              <input matInput placeholder="Years" formControlName="years" />
-            </mat-form-field>
-          </div>
-        </div>
-      </div>
-    </mat-card-content>
-    <mat-card-actions align="end">
-      <button mat-raised-button *ngIf="skillForm.controls.name.value" (click)="addSkill()" color="accent">Add Skill</button>
-      <button mat-raised-button (click)="saveForm()" color="accent">Save</button>
-    </mat-card-actions>
-  </mat-card>
-</div>
+          />
+        </mat-form-field>
+        @if (skillForm.controls.name.value) {
+          <div class="border">
+            <h3>Skills:</h3>
+            @for (skill of skillForm.controls.skillsGrp.controls; track skill; let i = $index) {
+              <div
+                formArrayName="skillsGrp"
+                >
+                <div [formGroupName]="i" rowgap>
+                  <mat-form-field>
+                    <input
+                      matInput
+                      placeholder="Skill Name"
+                      formControlName="skillname"
+                      />
+                    </mat-form-field>
+                    <mat-form-field>
+                      <input matInput placeholder="Years" formControlName="years" />
+                    </mat-form-field>
+                  </div>
+                </div>
+              }
+            </div>
+          }
+        </mat-card-content>
+        <mat-card-actions align="end">
+          @if (skillForm.controls.name.value) {
+            <button mat-raised-button (click)="addSkill()" color="accent">Add Skill</button>
+          }
+          <button mat-raised-button (click)="saveForm()" color="accent">Save</button>
+        </mat-card-actions>
+      </mat-card>
+    </div>

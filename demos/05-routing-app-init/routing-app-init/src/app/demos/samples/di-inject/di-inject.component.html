@@ -2,5 +2,7 @@
 
 <div>
   <h3 border centered>Demos</h3>
-  <div border *ngFor="let d of demos | async" class="entry">{{d.title}}</div>
+  @for (d of demos | async; track d) {
+    <div border class="entry">{{d.title}}</div>
+  }
 </div>

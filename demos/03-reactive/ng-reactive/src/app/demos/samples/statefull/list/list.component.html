@@ -4,14 +4,15 @@
   </mat-card-header>
   <mat-card-content>
     <div cdkDropList (cdkDropListDropped)="drop($event)" class="list">
-      <app-demo-row
-        *ngFor="let d of vm$ | async"
-        [item]="d"
-        (onDelete)="deleteItem($event)"
-        (onChangeVisibility)="changeVisibility($event)"
-        cdkDrag
-        class="box"
-      ></app-demo-row>
+      @for (d of vm$ | async; track d) {
+        <app-demo-row
+          [item]="d"
+          (onDelete)="deleteItem($event)"
+          (onChangeVisibility)="changeVisibility($event)"
+          cdkDrag
+          class="box"
+        ></app-demo-row>
+      }
     </div>
   </mat-card-content>
 </mat-card>
