@@ -2,12 +2,12 @@ export const environment = {
   production: false,
   authEnabled: true,
   firebaseConfig: {
-    apiKey: 'AIzaSyBX2RrBnZnf08NZqrHCzaZeMOYdOVD3Arg',
-    authDomain: 'github-auth-d1033.firebaseapp.com',
-    projectId: 'github-auth-d1033',
-    storageBucket: 'github-auth-d1033.appspot.com',
-    messagingSenderId: '357489682920',
-    appId: '1:357489682920:web:e32602b09d5239a8149c5d',
-    measurementId: 'G-6PF00XJ7H6',
+    apiKey: "AIzaSyCzvn-o8iO1XCF4G42KrnrSZCAmGAcUiPs",
+    authDomain: "sdfasdf-b0744.firebaseapp.com",
+    projectId: "sdfasdf-b0744",
+    storageBucket: "sdfasdf-b0744.appspot.com",
+    messagingSenderId: "777176653081",
+    appId: "1:777176653081:web:361f6da9ea7fdcb03d3988",
+    measurementId: "G-23V4W9SQ2B"
   },
 };

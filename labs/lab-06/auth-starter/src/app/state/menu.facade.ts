@@ -1,9 +1,8 @@
-import { Injectable } from '@angular/core';
-import { MediaChange, MediaObserver } from '@angular/flex-layout';
+import { Injectable, inject } from '@angular/core';
 import { Store } from '@ngrx/store';
 
 import { combineLatest } from 'rxjs';
-import { filter, map } from 'rxjs/operators';
+import { filter, map, tap } from 'rxjs/operators';
 import {
   changeSideNavPosition,
   changeSideNavVisible,
@@ -14,63 +13,35 @@ import { AppState } from './app.reducer';
 import {
   getSideNavEnabled, getSideNavPosition, getSideNavVisible
 } from './app.selector';
+import { BreakpointObserver, Breakpoints } from '@angular/cdk/layout';
 
 @Injectable({
   providedIn: 'root',
 })
 export class MenuFacade {
-  constructor(
-    private mediaObserver: MediaObserver,
-    private store: Store<AppState>
-  ) {
-    this.init();
+  breakpointObserver = inject(BreakpointObserver);
+  store = inject(Store<AppState>);
+
+  constructor() {
+    this.breakpointObserver
+      .observe([Breakpoints.XSmall, Breakpoints.Small])
+      .pipe(
+        tap((matchesBreakpoints) => {
+          console.log("matchesBreakpoint: ", matchesBreakpoints.matches);
+          const position = matchesBreakpoints.matches ? 'over' : 'side';
+          const visible = matchesBreakpoints.matches ? false : true;
+          this.store.dispatch(changeSideNavVisible({ visible }));
+          this.store.dispatch(changeSideNavPosition({ position }));
+        })
+      ).subscribe();
   }
 
-  get sideNavEnabled() {
-    return this.store.select(getSideNavEnabled);
-  }
-
-  get sideNavVisible() {
+  getSideNavVisible() {
     return this.store.select(getSideNavVisible);
   }
 
-  get sideNavPosition() {
+  getSideNavPosition() {
     return this.store.select(getSideNavPosition);
-  }
-
-  private init() {
-    combineLatest([
-      this.mediaObserver.asObservable().pipe(
-        filter((changes: MediaChange[]) => changes.length > 0),
-        map((changes: MediaChange[]) => changes[0])
-      ),
-      this.sideNavEnabled,
-    ]).subscribe(([change, enabled]) => {
-      const visible = this.adjustSidenavToScreen(change.mqAlias);
-      const position = this.adjustSidenavToScreen(change.mqAlias)
-        ? 'side'
-        : 'over';
-
-      this.store.dispatch(changeSideNavPosition({ position }));
-      this.store.dispatch(changeSideNavVisible({ visible }));
-    });
-  }
-
-  setSideNavEnabled(enabled: boolean) {
-    this.store.dispatch(setSideNavEnabled({ enabled }));
-  }
-
-  adjustSidenavToScreen(mq: string): boolean {
-    switch (mq) {
-      case 'xs':
-        return false;
-      case 'sm':
-        return false;
-      case 'md':
-        return false;
-      default:
-        return true;
-    }
   }
 
   toggleMenuVisibility() {

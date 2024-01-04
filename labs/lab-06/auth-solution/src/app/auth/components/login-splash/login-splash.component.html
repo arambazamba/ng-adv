@@ -1,34 +1,24 @@
 <mat-card>
   <mat-card-header>
     <mat-card-title>Food App</mat-card-title>
-    <mat-card-subtitle>Where taste is @home</mat-card-subtitle>
+    <mat-card-subtitle>Where taste is &#64;home</mat-card-subtitle>
   </mat-card-header>
 
   <ng-container [ngSwitch]="view">
     <div *ngSwitchCase="'entry'" class="switch">
       <img matCardImage src="{{ entryPic }}" />
     </div>
-    <div
-      *ngSwitchCase="'login'"
-      class="switch"
-      fxLayout="column"
-      fxLayoutAlign="center center"
-    >
+    <div *ngSwitchCase="'login'" class="switch">
       <ng-content select=".login"></ng-content>
     </div>
-    <div
-      *ngSwitchCase="'register'"
-      class="switch"
-      fxLayout="column"
-      fxLayoutAlign="center center"
-    >
+    <div *ngSwitchCase="'register'" class="switch">
       <ng-content select=".register"></ng-content>
     </div>
   </ng-container>
 </mat-card>
 
 <mat-card class="actionCard" *ngIf="view == 'entry'">
-  <mat-card-content fxLayout="row" fxLayoutAlign="space-between center">
+  <mat-card-content class="centeredrow">
     <button mat-raised-button (click)="view = 'login'" color="primary">
       Login
     </button>

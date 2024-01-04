@@ -1,5 +1,29 @@
+//Provides theme functionality
+@use '@angular/material' as mat;
+@include mat.core();
+
+//Pick colors here: https://material.io/resources/color/
+$primary: mat.define-palette(mat.$brown-palette, 400);
+$accent: mat.define-palette(mat.$grey-palette, 400);
+$warn: mat.define-palette(mat.$red-palette);
+$fg: mat.define-palette(mat.$grey-palette, 100);
+$bg: mat.define-palette(mat.$blue-grey-palette, 100);
+
+//Build theme
+$theme: mat.define-light-theme((
+ color: (
+   primary: $primary,
+   accent: $accent,
+   warn: $warn,
+ ),
+ typography: mat.define-typography-config(),
+ density: 0,
+));
+
+//Include theme
+@include mat.all-component-themes($theme);
+
 @import "reset.scss";
-@import "theme.scss";
 @import "mat-overrides";
 
 html,
@@ -9,4 +33,22 @@ body {
 body {
   margin: 0;
   font-family: Roboto, "Helvetica Neue", sans-serif;
+}
+
+//Export global vars from design system for easy use
+:root {
+  --color-primary: #8D6E63;
+  --color-accent: #B0BEC5;
+  --color-warn: red;
+
+  --gap-small: 0.5rem;
+  --gap-medium: 0.8rem;
+  --gap-big: 1.1rem;
+  --toolbar-xl: 85px;
+  --toolbar-big: 70px;
+  --toolbar-medium: 40px;
+  --toolbar-small: 35px;
+  --font-small: 0.9rem;
+  --font-medium: 1.2rem;
+  --font-big: 1.4rem;
 }
