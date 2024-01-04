@@ -23,7 +23,7 @@ export const appConfig: ApplicationConfig = {
     provideEffects(),
     { provide: DefaultDataServiceConfig, useValue: foodDataServiceConfig },
     provideEntityData(entityConfig, withEffects()),
-    provideStoreDevtools({ maxAge: 25, logOnly: !isDevMode() }),
+    provideStoreDevtools({ maxAge: 25, logOnly: !isDevMode() , connectInZone: true}),
     provideRouterStore()
 ],
 };

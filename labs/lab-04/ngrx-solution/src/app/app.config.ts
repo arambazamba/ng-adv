@@ -31,6 +31,6 @@ export const appConfig: ApplicationConfig = {
             },
             multi: true,
         },
-        provideStoreDevtools({ maxAge: 25, logOnly: !isDevMode() })
+        provideStoreDevtools({ maxAge: 25, logOnly: !isDevMode() , connectInZone: true})
     ],
 };
