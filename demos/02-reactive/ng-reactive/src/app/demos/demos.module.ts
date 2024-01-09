@@ -99,7 +99,6 @@ const demoRoutes: Routes = [
     SignalsEventBusComponent,
     DestroyRefComponent,
     TakeUntilDestroyedComponent,
-    SignalsEventBusComponent,
     ResponsiveScreenComponent,
   ],
   imports: [

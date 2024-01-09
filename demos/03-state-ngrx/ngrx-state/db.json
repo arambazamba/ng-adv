@@ -61,11 +61,6 @@
       "id": 41
     },
     {
-      "url": "ngrx-signals",
-      "title": "NgRx Signals",
-      "id": 43
-    },
-    {
       "url": "component-store",
       "title": "@ngrx/component-store",
       "id": 44
