@@ -1,74 +1,19 @@
 {
   "demos": [
     {
-      "url": "app-state",
-      "title": "App State",
+      "url": "signals-basics",
+      "title": "Signals Basics",
       "id": 1
     },
     {
-      "url": "create-feature",
-      "title": "createFeature",
+      "url": "signals-eventbus",
+      "title": "Signals EventBus",
       "id": 2
-    },
-    {
-      "url": "dispatch-action",
-      "title": "Dispatch Action",
-      "id": 3
-    },
-    {
-      "url": "feature-modules-state",
-      "title": "Feature Module State",
-      "id": 5
-    },
-    {
-      "url": "effects",
-      "title": "Effects",
-      "id": 16
-    },
-    {
-      "url": "respond-effects",
-      "title": "Respond to Effects",
-      "id": 18
-    },
-    {
-      "url": "facades",
-      "title": "Facades",
-      "id": 15
-    },
-    {
-      "url": "ngrx-entity",
-      "title": "@ngrx/entity",
-      "id": 4
-    },
-    {
-      "url": "ngrx-data",
-      "title": "@ngrx/data",
-      "id": 6
-    },
-    {
-      "url": "presenter-ngrx",
-      "title": "Container Presenter NgRx",
-      "id": 13
-    },
-    {
-      "url": "cd-intro",
-      "title": "Change Detection Intro",
-      "id": 42
-    },
-    {
-      "url": "cd-profile",
-      "title": "Profile Change Detection",
-      "id": 41
     },
     {
       "url": "ngrx-signals",
       "title": "NgRx Signals",
       "id": 43
-    },
-    {
-      "url": "component-store",
-      "title": "@ngrx/component-store",
-      "id": 44
     }
   ],
   "skills": [

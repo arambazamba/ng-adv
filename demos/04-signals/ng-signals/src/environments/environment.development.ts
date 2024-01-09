@@ -1,6 +1,6 @@
 export const environment = {
   authEnabled: false,
-  title: 'State & NgRx',
+  title: 'Signals',
   logChangeDetection: false,
   logChanges: false,
   logLoading: true,
