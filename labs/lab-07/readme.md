@@ -1,31 +1,55 @@
-# Food App - Testing
+# Authentication using NgRx - Lab 4
 
-Tools Setup:
+- Implement Firebase Auth using NgRx - Option A
+- Implement Azure AD Auth using NgRx - Option B
 
-- Install [Wallaby.js](https://marketplace.visualstudio.com/items?itemName=WallabyJs.wallaby-vscode) and get your [trial licence](https://wallabyjs.com/download/) - (optional) 
+## Implement Firebase Auth using NgRx
 
-```bash
-code --install-extension wallabyjs.wallaby-vscode
+- Extend environment.ts to provide the Firebase Config and the ability to turn off authentication
+- Implement Firebase Login & Register
+- Modify `app.component.ts` to show a Login-Splash or the app
+
+Example:
+
+```html
+<div *ngIf="(loggedIn$ | async) == true">
+  <div>
+    <app-navbar></app-navbar>
+  </div>
+  <div class="mainrow">
+    <mat-sidenav-container style="width: 100%">
+      <mat-sidenav
+        #sidenav
+        [opened]="menuVisible$ | async"
+        [mode]="menuPosition$ | async"
+        class="sidebar"
+      >
+        Sidenav content
+      </mat-sidenav>
+      <mat-sidenav-content class="workbench">
+        <router-outlet></router-outlet>
+      </mat-sidenav-content>
+    </mat-sidenav-container>
+  </div>
+</div>
+
+<div
+  *ngIf="(loggedIn$ | async) == false"
+  fxLayout="column"
+  fxLayoutAlign="center center"
+  class="loginsplash"
+>
+  <app-login-splash>
+    <div class="login">
+      <app-login></app-login>
+    </div>
+    <div class="register">
+      <app-register></app-register>
+    </div>
+  </app-login-splash>
+</div>
 ```
 
-- Get your [Wallaby-Trial-Key](https://wallabyjs.com/download/) and apply your Licence key press `F1 -> Wallaby.js: Manage License Key` and enter your key.
+Sample Login Splash:
 
-- Activate Wallaby using `F1 -> Wallaby.js: Start`
-
-Notice the Wallaby indicator on the right bottom of Visual Studio Code
-
-![wallaby](_images/wallaby.png)
-
-Testing:
-
-> Note: Mock data is provided in `food.mocks.ts`
-
-- Complete the pending tests in the following files:
-
-    - food.service.spec.ts
-    - navbar.component.spec.ts
-    - food-list.component.spec.ts
-    - food-edit.component.spec.ts
-    - food-container.component.spec.ts
-
-- Try to reach a [code coverage](https://angular.io/guide/testing-code-coverage) of more than 80%
+![login-splash](_images/login-splash.png)
