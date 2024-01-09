@@ -1,0 +1,15 @@
+<app-markdown-renderer [md]="'facades'"></app-markdown-renderer>
+
+<mat-card appearance="outlined">
+  <mat-card-header>
+    <mat-card-title> Using Facades </mat-card-title>
+  </mat-card-header>
+  <mat-card-content>
+    User is currently authenticated: {{ isMockAuthenticated | async }}
+  </mat-card-content>
+  <mat-card-actions align="end">
+    <button mat-raised-button color="accent" (click)="toggleAuth()">
+      Toggle Auth
+    </button>
+  </mat-card-actions>
+</mat-card>
