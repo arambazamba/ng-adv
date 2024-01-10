@@ -6,6 +6,11 @@
       "id": 1
     },
     {
+      "url": "rxjs-interop",
+      "title": "RxJS Interop",
+      "id": 3
+    },
+    {
       "url": "signals-eventbus",
       "title": "Signals EventBus",
       "id": 2

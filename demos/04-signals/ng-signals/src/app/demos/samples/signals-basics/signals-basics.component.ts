@@ -15,6 +15,7 @@ export class SignalsBasicsComponent {
   constructor() {
     effect(() => {
       console.log('totalAmount changed', this.netAmount());
+      console.log('grossAmount changed', this.grossAmount());
     });
   }
 

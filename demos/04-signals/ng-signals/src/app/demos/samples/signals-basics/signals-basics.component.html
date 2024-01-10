@@ -5,26 +5,24 @@
     <mat-card-title> Signals Basics </mat-card-title>
   </mat-card-header>
 
-  <mat-card-content
-    class="cmdItems"
-  >
+  <mat-card-content class="cmdItems">
     <button mat-raised-button color="accent" (click)="updateAmount()">
       Update Net amount
     </button>
     <button mat-raised-button color="accent" (click)="addAmount()">
       Add to Net amount
-    </button>    
+    </button>
     <button mat-raised-button color="accent" (click)="logLikes()">
       Log likes
-    </button> 
+    </button>
     <button mat-raised-button color="accent" (click)="likeTopic()">
       Like topic
-    </button> 
+    </button>
   </mat-card-content>
 </mat-card>
 
 <div border centered>
-  <div>Net Amount {{ netAmount() }} </div>
-  <div>Gross Amount {{ grossAmount() }} </div>
-  <div>Likes {{ topic().likes }} </div>
+  <div>Net Amount {{ netAmount() }}</div>
+  <div>Gross Amount {{ grossAmount() }}</div>
+  <div>Likes {{ topic().likes }}</div>
 </div>
