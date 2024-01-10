@@ -8,17 +8,22 @@
     {
       "url": "rxjs-interop",
       "title": "RxJS Interop",
-      "id": 3
+      "id": 2
     },
     {
       "url": "signals-eventbus",
       "title": "Signals EventBus",
-      "id": 2
+      "id": 3
+    },
+    {
+      "url": "select-signal",
+      "title": "NgRx Interop",
+      "id": 4
     },
     {
       "url": "ngrx-signals",
-      "title": "NgRx Signals",
-      "id": 43
+      "title": "@ngrx/signals",
+      "id": 5
     }
   ],
   "skills": [

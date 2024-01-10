@@ -1,6 +1,2 @@
-NgRx provides a selectSignal-method to allow fetching NgRx State as Signals. This is available for classix NgRx as well as NgRx Component Store
-
-```typescript
-store = inject(Store) as Store<CustomersState>;
-customers = this.store.selectSignal(getCustomers);
-```
+- SignalState is contained in the local demos.
+- SignalStore is provided in the lab as step by step guide. The solution will be used to explain the concepts.

@@ -12,8 +12,6 @@ import { MarkdownRendererModule } from 'src/app/shared/markdown-renderer/markdow
   styleUrl: './rxjs-interop.component.scss'
 })
 export class RxjsInteropComponent {
-
   amount$ = of(10).pipe(startWith(0));
-  amount = toSignal<number>(this.amount$);
-
+  amount = toSignal(this.amount$, { initialValue: 0 });
 }
