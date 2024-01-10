@@ -1,5 +1,4 @@
-import { Component, Signal, computed, effect, signal } from '@angular/core';
-import { toSignal } from '@angular/core/rxjs-interop';
+import { Component, Injector, computed, effect, inject, signal } from '@angular/core';
 import { of, startWith } from 'rxjs';
 @Component({
   selector: 'app-signals-basics',
@@ -7,40 +6,30 @@ import { of, startWith } from 'rxjs';
   styleUrls: ['./signals-basics.component.scss']
 })
 export class SignalsBasicsComponent {
-  totalAmount = signal<number>(0);
-  runningAmount = signal(10);
-  amountSignal: Signal<number | undefined>;
+  injector = inject(Injector)
+  netAmount = signal<number>(0);
+  tax = signal(0.2);
+  grossAmount = computed(() => this.netAmount() * (1 + this.tax()));
+  runningAmount = signal(0);
   amount$ = of(10).pipe(startWith(0));
 
   constructor() {
     effect(() => {
-      console.log('totalAmount changed', this.totalAmount());
+      console.log('totalAmount changed', this.netAmount());
     });
+  }
+
+  logValue() {
     effect(() => {
-      console.log(this.amountSignal());
-    });
-    this.amountSignal = toSignal(this.amount$);
+      console.log('totalAmount changed - logValue', this.netAmount());
+    }, { injector: this.injector });
   }
 
-  OnInit() {
-    effect(() => {
-      console.log('runningAmount changed', this.runningAmount());
-    });
+  updateAmount() {
+    this.netAmount.set(100);
   }
 
-  signalBasics() {
-    const amount = signal(10);
-    const tax = signal(0.2);
-    const total = computed(() => amount() * (1 + tax()));
-    this.totalAmount.set(total());
-    console.log('total', total());
-  }
-
-  signalTyped() {
-    const amount = signal<number>(20);
-    const tax = signal<number>(0.2);
-    const total = computed<number>(() => amount() * (1 + tax()));
-    this.runningAmount.update(curr => curr + total());
-    console.log('total', total());
+  addAmount() {
+    this.netAmount.update(curr => curr + 10);
   }
 }

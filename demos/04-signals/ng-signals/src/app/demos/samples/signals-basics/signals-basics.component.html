@@ -8,16 +8,19 @@
   <mat-card-content
     class="cmdItems"
   >
-    <button mat-raised-button color="accent" (click)="signalBasics()">
-      Signals Basics
+    <button mat-raised-button color="accent" (click)="updateAmount()">
+      Update Net amount
     </button>
-    <button mat-raised-button color="accent" (click)="signalTyped()">
-      Signals Typed
-    </button>
+    <button mat-raised-button color="accent" (click)="addAmount()">
+      Add to Net amount
+    </button>    
+    <button mat-raised-button color="accent" (click)="logValue(  )">
+      Use effect with injector
+    </button> 
   </mat-card-content>
 </mat-card>
 
 <div border centered>
-  <div>Total Amount {{ totalAmount() }} </div>
-  <div>Running Amount {{ runningAmount() }} </div>
+  <div>Net Amount {{ netAmount() }} </div>
+  <div>Gross Amount {{ grossAmount() }} </div>
 </div>
