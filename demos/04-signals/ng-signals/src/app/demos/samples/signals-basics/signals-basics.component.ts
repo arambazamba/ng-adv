@@ -1,5 +1,5 @@
 import { Component, Injector, computed, effect, inject, signal } from '@angular/core';
-import { of, startWith } from 'rxjs';
+import { Topic } from './topic.model';
 @Component({
   selector: 'app-signals-basics',
   templateUrl: './signals-basics.component.html',
@@ -8,10 +8,9 @@ import { of, startWith } from 'rxjs';
 export class SignalsBasicsComponent {
   injector = inject(Injector)
   netAmount = signal<number>(0);
-  tax = signal(0.2);
+  tax = signal(0.2).asReadonly();
   grossAmount = computed(() => this.netAmount() * (1 + this.tax()));
-  runningAmount = signal(0);
-  amount$ = of(10).pipe(startWith(0));
+  topic = signal<Topic>({ name: 'Angular Signals', likes: 0 });
 
   constructor() {
     effect(() => {
@@ -19,9 +18,9 @@ export class SignalsBasicsComponent {
     });
   }
 
-  logValue() {
+  logLikes() {
     effect(() => {
-      console.log('totalAmount changed - logValue', this.netAmount());
+      console.log('there was a like', this.topic());
     }, { injector: this.injector });
   }
 
@@ -31,5 +30,12 @@ export class SignalsBasicsComponent {
 
   addAmount() {
     this.netAmount.update(curr => curr + 10);
+  }
+
+  likeTopic() {
+    this.topic.update(curr => {
+      curr.likes++;
+      return curr;
+    });
   }
 }

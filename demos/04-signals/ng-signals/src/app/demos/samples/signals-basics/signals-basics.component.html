@@ -14,8 +14,11 @@
     <button mat-raised-button color="accent" (click)="addAmount()">
       Add to Net amount
     </button>    
-    <button mat-raised-button color="accent" (click)="logValue(  )">
-      Use effect with injector
+    <button mat-raised-button color="accent" (click)="logLikes()">
+      Log likes
+    </button> 
+    <button mat-raised-button color="accent" (click)="likeTopic()">
+      Like topic
     </button> 
   </mat-card-content>
 </mat-card>
@@ -23,4 +26,5 @@
 <div border centered>
   <div>Net Amount {{ netAmount() }} </div>
   <div>Gross Amount {{ grossAmount() }} </div>
+  <div>Likes {{ topic().likes }} </div>
 </div>
