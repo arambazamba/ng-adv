@@ -16,6 +16,11 @@
       "id": 3
     },
     {
+      "url": "signal-inputs",
+      "title": "Signal Inputs",
+      "id": 6
+    },
+    {
       "url": "select-signal",
       "title": "NgRx Interop",
       "id": 4
