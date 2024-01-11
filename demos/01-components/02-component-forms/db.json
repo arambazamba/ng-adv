@@ -1,6 +1,14 @@
 {
   "demos": [
     {
+      "url": "control-flow",
+      "title": "Control Flow"
+    },
+    {
+      "url": "deferred-loading",
+      "title": "Deferred Loading"
+    },
+    {
       "url": "standalone",
       "title": "Standalone Component"
     },

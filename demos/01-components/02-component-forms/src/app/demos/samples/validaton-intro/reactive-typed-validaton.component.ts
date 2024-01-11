@@ -8,11 +8,11 @@ import {
 } from '@angular/forms';
 
 @Component({
-  selector: 'app-reactive-typed-validaton',
-  templateUrl: './reactive-typed-validaton.component.html',
-  styleUrls: ['./reactive-typed-validaton.component.scss'],
+  selector: 'app-reactive-typed-validation',
+  templateUrl: './reactive-typed-validation.component.html',
+  styleUrls: ['./reactive-typed-validation.component.scss'],
 })
-export class ReactiveTypedValidatonComponent {
+export class ReactiveTypedValidationComponent {
   registerForm = new FormGroup(
     {
       email: new FormControl('', [Validators.required, Validators.email]),
