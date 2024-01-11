@@ -28,7 +28,6 @@ import { ContentProjectionComponent } from './samples/content-projection/content
 import { ContainerPresenterComponent } from './samples/container-presenter/container-presenter.component';
 import { DynamicComponentsComponent } from './samples/dynamic-components/dynamic-components.component';
 import { ControlFlowComponent } from './samples/control-flow/control-flow.component';
-import { DeferredLoadingComponent } from './samples/deferred-loading/deferred-loading.component';
 
 const demoRoutes: Routes = [
   {
@@ -36,7 +35,6 @@ const demoRoutes: Routes = [
     component: DemoContainerComponent,
     children: [
       { path: 'control-flow', component: ControlFlowComponent },
-      { path: 'deferred-loading', component: DeferredLoadingComponent },
       { path: 'standalone', component: StandaloneComponent },
       {
         path: 'lazy-standalone',

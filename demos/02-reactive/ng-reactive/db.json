@@ -57,14 +57,6 @@
       "title": "EventBus"
     },
     {
-      "url": "signals-basics",
-      "title": "Signals Basics"
-    },
-    {
-      "url": "signals-eventbus",
-      "title": "Signals EventBus"
-    },
-    {
       "url": "marble-testing",
       "title": "Marble Testing"
     },
