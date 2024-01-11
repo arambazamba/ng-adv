@@ -19,7 +19,7 @@
           />
           @if (registerForm.controls.email.hasError('email')) {
             <mat-error
-              >Keine oder ungültige E-Mail-Adresse
+              >Invalid Email Address
             </mat-error>
           }
         </mat-form-field>
@@ -47,12 +47,11 @@
               formControlName="passwordRepeat"
               />
             </mat-form-field>
-            <!-- form is coming from the local ref on top. Is has some props that the FormGroup does not have -->
-            @if ((registerForm.controls.passwordRepeat.dirty || form.submitted) && registerForm.errors'passwordMismatch') {
+            <!-- @if ((registerForm.controls.passwordRepeat.dirty || form.submitted) && registerForm.errors'passwordMismatch') {
               <mat-error>
                 Password does not match
               </mat-error>
-            }
+            } -->            
           </mat-card-content>
           <mat-card-actions align="end">
             <button mat-raised-button type="submit" color="primary" >
@@ -64,7 +63,7 @@
 
       <mat-card appearance="outlined">
         <mat-card-header>
-          <mat-card-title>FormControl Validation Erros - password</mat-card-title>
+          <mat-card-title>FormControl Validation Error - password</mat-card-title>
         </mat-card-header>
         <mat-card-content>
           {{this.registerForm.controls.password.errors | json}}
@@ -73,7 +72,7 @@
 
       <mat-card appearance="outlined">
         <mat-card-header>
-          <mat-card-title>Form Validation Erros</mat-card-title>
+          <mat-card-title>Form Validation Error</mat-card-title>
         </mat-card-header>
         <mat-card-content>
           {{this.registerForm.errors | json}}

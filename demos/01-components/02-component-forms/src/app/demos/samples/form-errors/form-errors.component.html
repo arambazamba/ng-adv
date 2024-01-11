@@ -43,7 +43,7 @@
             }
           </mat-form-field>
 
-          @if (skillForm.controls.name?.valid) {
+            @if (skillForm.controls.name.valid) {
             <div class="border">
               <h3>Skills:</h3>
               @for (skill of getElementsInFormArray(); track skill; let i = $index) {

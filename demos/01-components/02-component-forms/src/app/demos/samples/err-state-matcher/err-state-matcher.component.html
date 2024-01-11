@@ -49,11 +49,7 @@
               formControlName="passwordRepeat"
               />
             </mat-form-field>
-            @if (
-              (registerForm.controls.passwordRepeat.dirty || form.submitted) &&
-              registerForm.errors;
-              passwordMismatch
-              ) {
+            @if ((registerForm.controls.passwordRepeat.dirty || form.submitted) && registerForm.errors) {
               <mat-error
                 >
                 Password does not match
