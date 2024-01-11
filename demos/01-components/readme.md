@@ -2,6 +2,8 @@
 
 ## Demos
 
+- Using & Migrating to Control Flow Syntax
+- Deferred Loading
 - Standalone Directives & Directives Composition Api
 - Components and Required Inputs
 - Content Projection 

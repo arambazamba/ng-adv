@@ -25,8 +25,6 @@ import { MarbleTestingComponent } from './samples/marble-testing/marble-testing.
 import { MouseDomObservablesComponent } from './samples/mouse-dom-observables/mouse-dom-observables.component';
 import { OperatorsComponent } from './samples/operators/operators.component';
 import { ReifiedReactiveComponent } from './samples/reified-reactive/reified-reactive.component';
-import { SignalsBasicsComponent } from './samples/signals-basics/signals-basics.component';
-import { SignalsEventBusComponent } from './samples/signals-event-bus/signals-event-bus.component';
 import { DemoRowComponent } from './samples/statefull/demo-row/demo-row.component';
 import { KpiComponent } from './samples/statefull/kpi/kpi.component';
 import { ListComponent } from './samples/statefull/list/list.component';
@@ -45,7 +43,6 @@ const demoRoutes: Routes = [
     children: [
       { path: 'responsive-screen', component: ResponsiveScreenComponent },
       { path: 'langfeatures', component: LangFeaturesComponent },
-      { path: 'signal-basics', component: SignalsBasicsComponent },
       { path: 'subjects', component: SubjectsComponent },
       { path: 'imperative', component: ImperativeComponent },
       { path: 'reactive', component: ReifiedReactiveComponent },
@@ -62,9 +59,7 @@ const demoRoutes: Routes = [
       { path: 'actionstreams', component: ActionStreamsComponent },
       { path: 'marble-testing', component: MarbleTestingComponent },
       { path: 'statefull', component: StatefullComponent },
-      { path: 'ebus', component: EventbusComponent },
-      { path: 'signals-basics', component: SignalsBasicsComponent },
-      { path: 'signals-eventbus', component: SignalsEventBusComponent },
+      { path: 'ebus', component: EventbusComponent }
     ],
   },
 ];
@@ -95,8 +90,6 @@ const demoRoutes: Routes = [
     ListComponent,
     KpiComponent,
     DemoRowComponent,
-    SignalsBasicsComponent,
-    SignalsEventBusComponent,
     DestroyRefComponent,
     TakeUntilDestroyedComponent,
     ResponsiveScreenComponent,

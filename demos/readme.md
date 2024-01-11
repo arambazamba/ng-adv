@@ -77,7 +77,6 @@ Neue Themengebiete werden anhand von Folien und Demos erarbeitet. Am Ende der Mo
 - Retry & Error Handling Strategies
 - Implementing & Testing Custom Observable Operators
 - Communication between using Event Bus Pattern
-- Stateful Services using Behavior Subjects and Signals
 
 ## Advanced State Management using NgRx
 
