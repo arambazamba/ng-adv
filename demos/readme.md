@@ -128,7 +128,7 @@ Neue Themengebiete werden anhand von Folien und Demos erarbeitet. Am Ende der Mo
 - Optimizing Application Flow for Authentication
 - Authentication using Microsoft Entra ID
 
-## Advanced Testing with Jest, Cypress and NgRx
+## Advanced Testing with Jasmine, Cypress and NgRx
 
 - Introduction Angular Testing Tools (Jasmine, Karma, Jest & Cypress)
 - Testing Classes, Pipes, Directives
