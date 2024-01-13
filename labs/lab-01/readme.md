@@ -79,6 +79,31 @@ In this lab we will create a new Angular 17 project and we will create a navbar 
     })
     ```
 
+- Add a MatToolbarModule and a MatListModule to sidebar.component.ts:
+
+    ```typescript
+    @Component({
+    selector: 'app-sidebar',
+    standalone: true,
+    imports: [MatToolbarModule, MatListModule],
+    templateUrl: './sidebar.component.html',
+    styleUrl: './sidebar.component.scss'
+    })
+    export class SidebarComponent {}
+    ```
+
+- Add the MatToolbar and MatList to the sidebar.component.html:
+
+    ```html
+    <mat-toolbar> Mock Submenu </mat-toolbar>
+
+    <mat-list role="list" color="accent">
+    <mat-list-item role="listitem">Item 1</mat-list-item>
+    <mat-list-item role="listitem">Item 2</mat-list-item>
+    <mat-list-item role="listitem">Item 3</mat-list-item>
+    </mat-list>
+    ```
+
 - Run ng s -o to check the result. At this point you should have a navbar and a sidebar in the app component but no content in the main section. Also they do not look very nice.
 
 - In the `shared/navbar` folder create a `nav-item.model.ts`:
