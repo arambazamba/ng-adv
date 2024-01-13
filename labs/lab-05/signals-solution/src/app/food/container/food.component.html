@@ -7,10 +7,8 @@
   </mat-toolbar-row>
 </mat-toolbar>
 
-<div>
-  @for (item of store.food(); track $index) {
-    <div>
-      {{item.name}}
-    </div>
-  }
-</div>
+<app-food-list  [food]="store.food()"></app-food-list>
+
+@if (store.selectedFood()!=null) {
+  <app-food-edit [food]="store.selectedFood()" ></app-food-edit>
+}

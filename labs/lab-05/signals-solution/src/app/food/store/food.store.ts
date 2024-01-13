@@ -5,12 +5,12 @@ import { FoodService } from '../food.service';
 
 type FoodState = {
     food: FoodItem[];
-    selectedFood: FoodItem | undefined;
+    selectedFood: FoodItem | null;
 }
 
 const initialState: FoodState = {
     food: [],
-    selectedFood: undefined,
+    selectedFood: null,
 }
 
 export const foodStore = signalStore(
