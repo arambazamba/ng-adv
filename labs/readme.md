@@ -4,10 +4,11 @@
 - Lab 2: Reactive Forms
 - Lab 3: Reactive Programming
 - Lab 4: Client Side State with NgRx
-- Lab 5: Routing
-- Lab 6: Auth using NgRx   
-- Lab 7: Testing
-- Lab 8: Reusability
-- Lab 9: Progressive Web App
-- Lab 10: Server Side Rendering
-- Lab 11: Container
+- Lab 5: Using Using @ngrx/signal in Angular Apps
+- Lab 6: Routing
+- Lab 7: Auth using NgRx   
+- Lab 8: Testing
+- Lab 9: Reusability
+- Lab 10: Progressive Web App
+- Lab 11: Server Side Rendering
+- Lab 12: Container

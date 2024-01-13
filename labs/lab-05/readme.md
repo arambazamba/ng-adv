@@ -1,4 +1,4 @@
-# Using Signals in Angular Apps
+# Using @ngrx/signal in Angular Apps
 
 ## Tasks
 
@@ -19,10 +19,10 @@
 
     ```typescript
     export class FoodItem {
-    id = 0;
-    name = '';
-    price = 0;
-    calories = 0;
+        id = 0;
+        name = '';
+        price = 0;
+        calories = 0;
     }
     ```
 
