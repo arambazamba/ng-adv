@@ -1,0 +1,16 @@
+<mat-toolbar>
+  <mat-toolbar-row class="addRow">
+    <div>Items in foodStore: {{ store.count() }}</div>
+    <div>
+      <button mat-flat-button color="primary">Add item</button>
+    </div>
+  </mat-toolbar-row>
+</mat-toolbar>
+
+<div>
+  @for (item of store.food(); track $index) {
+    <div>
+      {{item.name}}
+    </div>
+  }
+</div>
