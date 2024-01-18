@@ -3,11 +3,19 @@ import { FormBuilder, FormGroup, ReactiveFormsModule, Validators } from '@angula
 import { MatCardModule } from '@angular/material/card';
 import { MatInputModule } from '@angular/material/input';
 import { FoodItem } from '../food.model';
+import { ColumnDirective } from '../../shared/formatting/formatting-directives';
+import { MatButtonModule } from '@angular/material/button';
 
 @Component({
   selector: 'app-food-edit',
   standalone: true,
-  imports: [MatCardModule, MatInputModule, ReactiveFormsModule,],
+  imports: [
+    MatCardModule,
+    MatInputModule,
+    MatButtonModule,
+    ReactiveFormsModule,
+    ColumnDirective
+  ],
   templateUrl: './food-edit.component.html',
   styleUrl: './food-edit.component.scss'
 })

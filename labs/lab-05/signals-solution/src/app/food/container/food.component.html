@@ -7,8 +7,8 @@
   </mat-toolbar-row>
 </mat-toolbar>
 
-<app-food-list  [food]="store.food()"></app-food-list>
+<app-food-list  [food]="store.food()" (onFoodSelected)="selectFood($event)"></app-food-list>
 
 @if (store.selectedFood()!=null) {
-  <app-food-edit [food]="store.selectedFood()"></app-food-edit>
+  <app-food-edit [food]="store.selectedFood()" (onFoodSaved)="saveFood($event)" ></app-food-edit>
 }

@@ -29,9 +29,10 @@ export const foodStore = signalStore(
             patchState(store, { food: items })
         },
         updateFood: (food: FoodItem) => {
-            const items = store.food().filter((f: FoodItem) => f.id !== food.id);
-            items.push(food);
-            patchState(store, { food: items })
+            const allItems = [...store.food()];
+            const idx = allItems.findIndex((f: FoodItem) => f.id === food.id);
+            allItems[idx] = food;
+            patchState(store, { food: allItems })
         },
         selectFood: (id: number) => {
             const item = store.food().find((f: FoodItem) => f.id === id);
@@ -42,6 +43,9 @@ export const foodStore = signalStore(
                 console.log('items from load', items);
                 patchState(store, { food: items })
             })
+        },
+        clearSelected() {
+            patchState(store, { selectedFood: null })
         }
     })),
     withHooks({
