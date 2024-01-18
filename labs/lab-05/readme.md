@@ -2,15 +2,15 @@
 
 In this lab we will solve the following tasks:
 
--   Take the output from lab-01 and setup a basic `SignalStore`
+-   Take the `standalone app` from `lab-01` and setup a basic `SignalStore`
 -   Re-build the classic Angular solution from `lab-02` to `lab-04`
 -   Provide CRUD and loading for food using `@ngrx/signal`
 -   Implement a `container presenter pattern`
--   Use `rxMethod` to persist data to the server
+-   Enhance our app by using `rxMethod` and persist data to the server
 
 ### Setup a basic signal store
 
--   Install `@ngrx/signal`:
+-   Copy the `signals-starter` and install `@ngrx/signal`:
 
     ```bash
     npm i -S @ngrx/signal
@@ -408,4 +408,46 @@ In this lab we will solve the following tasks:
     }
     ```
 
-### Use `rxMethod` to persist data to the server
+### Enhance our app by using `rxMethod` and persist data to the server
+
+- The loadFood() method works, but the pattern we used to solve it is not very elegant. We can do better by using rxMethod(). 
+
+- Extend the state with a loading flag. Do not forget to update the initial state:
+   
+    ```typescript
+    type FoodState = {
+        food: FoodItem[];
+        selectedFood: FoodItem | null;
+        loading: boolean;
+    }
+    ```   
+
+Let's look at the current implementation:   
+
+    ```typescript   
+    loadFood: () => {
+        patchState(store, { loading: true });
+        service.getFood().subscribe((items) => {
+            patchState(store, { food: items })
+        })
+    }
+    ```
+
+- Replace it with this implementation:
+
+    ```typescript
+    loadFood: rxMethod<void>(
+        pipe(
+            switchMap(() => {
+                patchState(store, { loading: true });
+                return service.getFood().pipe(
+                    tapResponse({
+                        next: (food) => patchState(store, { food }),
+                        error: console.error,
+                        finalize: () => patchState(store, { loading: false }),
+                    })
+                );
+            })
+        )
+    ),
+    ```

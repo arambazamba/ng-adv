@@ -1,16 +1,22 @@
 import { patchState, signalStore, withComputed, withMethods, withState, withHooks } from '@ngrx/signals';
+import { rxMethod } from '@ngrx/signals/rxjs-interop';
 import { FoodItem } from '../food.model';
 import { computed, inject } from '@angular/core';
 import { FoodService } from '../food.service';
+import { switchMap, tap } from 'rxjs/operators';
+import { pipe } from 'rxjs';
+import { tapResponse } from '@ngrx/operators';
 
 type FoodState = {
     food: FoodItem[];
     selectedFood: FoodItem | null;
+    loading: boolean;
 }
 
 const initialState: FoodState = {
     food: [],
     selectedFood: null,
+    loading: false,
 }
 
 export const foodStore = signalStore(
@@ -38,12 +44,19 @@ export const foodStore = signalStore(
             const item = store.food().find((f: FoodItem) => f.id === id);
             patchState(store, { selectedFood: item })
         },
-        loadFood: () => {
-            service.getFood().subscribe((items) => {
-                console.log('items from load', items);
-                patchState(store, { food: items })
-            })
-        },
+        loadFood: rxMethod<void>(
+            pipe(
+                switchMap(() => {
+                    patchState(store, { loading: true });
+                    return service.getFood().pipe(
+                        tapResponse({
+                            next: (food) => patchState(store, { food }),
+                            error: console.error,
+                            finalize: () => patchState(store, { loading: false }),
+                        })
+                    );
+                })
+            )),
         clearSelected() {
             patchState(store, { selectedFood: null })
         }
