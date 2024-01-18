@@ -38,7 +38,6 @@ export class FoodEditComponent {
   }
 
   saveForm(): void {
-    console.log('food to save', this.foodForm.value);
     this.onFoodSaved.emit(this.foodForm.value);
   }
 }
