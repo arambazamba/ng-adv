@@ -422,7 +422,7 @@ In this lab we will solve the following tasks:
     }
     ```   
 
-Let's look at the current implementation:   
+- Let's look at the current implementation:   
 
     ```typescript   
     loadFood: () => {
@@ -432,6 +432,8 @@ Let's look at the current implementation:
         })
     }
     ```
+
+- Execute `npm i -S @ngrx/operators`. The operators library provides some useful operators that are frequently used when managing state and side effects. It adds [tapResponse](https://ngrx.io/guide/operators/operators#tapresponse) which you will have to import and we will use in the next step.
 
 - Replace it with this implementation:
 
