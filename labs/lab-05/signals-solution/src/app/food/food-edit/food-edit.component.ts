@@ -13,14 +13,14 @@ import { FoodItem } from '../food.model';
 })
 export class FoodEditComponent {
   fb = inject(FormBuilder)
-  @Input({ required: true }) food: FoodItem = new FoodItem();
+  @Input({ required: true }) food: FoodItem | null = null;
   @Output() onFoodSaved: EventEmitter<FoodItem> = new EventEmitter<FoodItem>();
 
   foodForm: FormGroup = this.fb.group({
-    id: [this.food.id],
-    name: [this.food.name, [Validators.required, Validators.minLength(3)]],
-    price: [this.food.price, [Validators.required, Validators.min(1)]],
-    calories: this.food.calories,
+    id: [this.food?.id],
+    name: [this.food?.name, [Validators.required, Validators.minLength(3)]],
+    price: [this.food?.price, [Validators.required, Validators.min(1)]],
+    calories: this.food?.calories,
   });
 
   ngOnChanges(changes: SimpleChanges): void {
