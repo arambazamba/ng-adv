@@ -11,5 +11,5 @@ import { SidebarComponent } from './shared/sidebar/sidebar.component';
   styleUrl: './app.component.scss'
 })
 export class AppComponent {
-  title = 'standalone-components-solution';
+  title = 'food-app';
 }
