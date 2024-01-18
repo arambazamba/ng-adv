@@ -453,3 +453,20 @@ In this lab we will solve the following tasks:
         )
     ),
     ```
+
+- In `food.store.ts` try to update the following methods and let the use `rxMethod` and `food.service.ts`. A possible solution will be provided in the next step:
+      
+    -   addFood
+    -   updateFood
+    -   removeFood
+
+    >Note: If you are using @ngrx/data you could also combine the data service with the signal store. 
+
+- Update  `addFood()`:
+
+
+- Update  `updateFood()`:
+
+
+- Update  `removeFood()`:
+
