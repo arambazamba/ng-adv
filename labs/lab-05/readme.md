@@ -5,6 +5,7 @@
 -   Setup a basic signal store
 -   Provide CRUD and loading for food using `@ngrx/signal Signal Store`
 -   Implement a container presenter pattern using signals and `input signals`
+-   Use `rxMethod` to persist data to the server
 
 ### Setup a basic signal store
 
@@ -137,7 +138,7 @@
     })),
     ```
 
-    >Note: With the current implementation we are not persisting the changes to the server. 
+    > Note: With the current implementation we are not persisting the changes to the server.
 
 -   In order to be able to load the initial item from the server, we will need to modify `food.store.ts` and it's withMethods section and add a `loadFood()` method:
 
@@ -164,7 +165,7 @@
     })
     ```
 
-- Just to check add the following to the template and run the app:
+-   Just to check add the following to the template and run the app:
 
     ```html
     <div>
@@ -185,11 +186,11 @@
     ng g c food/food-edit
     ```
 
-- Food list should look like this. You can take the lab from the previous module as a reference: 
+-   Food list should look like this. You can take the lab from the previous module as a reference:
 
     ![Food List](_images/food-list.png)
 
-- Add the following to the `food-list.component.ts`:
+-   Add the following to the `food-list.component.ts`:
 
     ```typescript
     @Component({
@@ -220,9 +221,9 @@
             this.onFoodSelected.emit(p);
         }
     }
-    ```        
+    ```
 
-- Add the following to the `food-list.component.html`:
+-   Add the following to the `food-list.component.html`:
 
     ```html
     <mat-card appearance="outlined">
@@ -258,7 +259,7 @@
     </mat-card>
     ```
 
--  Add the following to the `food-list.component.scss`:
+-   Add the following to the `food-list.component.scss`:
 
     ```css
     mat-card {
@@ -273,12 +274,12 @@
     cursor: pointer;
     }
     ```
-- Food edit should look like this. You can take the lab from the previous module as a reference: 
+
+-   Food edit should look like this. You can take the lab from the previous module as a reference:
 
     ![Food edit](_images/food-edit.png)
 
-
-- Add the following to the `food-edit.component.ts`:
+-   Add the following to the `food-edit.component.ts`:
 
     ```typescript
     @Component({
@@ -318,7 +319,7 @@
     }
     ```
 
-- Add the following to the `food-edit.component.html`:
+-   Add the following to the `food-edit.component.html`:
 
     ```html
     <mat-card appearance="outlined">
@@ -365,7 +366,7 @@
     </mat-card>
     ```
 
-- Last but not least we will hook the container / presenter pattern by replacing the temporary html in `food.component.html`:
+-   Last but not least we will hook the container / presenter pattern by replacing the temporary html in `food.component.html`:
 
     ```html
     <app-food-list  [food]="store.food()" (onFoodSelected)="selectFood($event)"></app-food-list>
@@ -375,7 +376,7 @@
     }
     ```
 
-- Add the following css to `food.component.scss`:
+-   Add the following css to `food.component.scss`:
 
     ```css
     .addRow{
@@ -383,9 +384,9 @@
         flex-direction: row;
         justify-content: space-between;
     }
-    ```    
+    ```
 
-- Add the following code to `food.component.ts`. This time you will have to add the imports by yourself:
+-   Add the following code to `food.component.ts`. This time you will have to add the imports by yourself:
 
     ```typescript
     export class FoodComponent {
@@ -405,3 +406,6 @@
         }
     }
     ```
+
+### Use `rxMethod` to persist data to the server
+
