@@ -422,6 +422,26 @@ In this lab we will solve the following tasks:
     }
     ```   
 
+- Add a Material Progress Bar to the template:
+
+    ```html
+    <div class="progress">
+    @if (store.loading()) {
+        <mat-progress-bar mode="indeterminate"></mat-progress-bar>
+    }
+    </div>
+    ```
+- Add the following css to `food.component.scss`:
+
+    ```css  
+    .progress{
+        height: 1rem;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+    }
+    ```
+
 - Let's look at the current implementation:   
 
     ```typescript   
@@ -465,8 +485,7 @@ In this lab we will solve the following tasks:
     -   addFood()
     -   updateFood()
     -   removeFood()
-
-    >Note: If you are using @ngrx/data you could also combine the data service with the signal store. 
+    > Note: If you are using @ngrx/data you could also combine the data service with the signal store. 
 
 - Update  `addFood()`:
 
