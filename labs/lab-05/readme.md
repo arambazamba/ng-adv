@@ -391,15 +391,15 @@ In this lab we will solve the following tasks:
 
     ```typescript
     export class FoodComponent {
-    store = inject(foodStore)
+        store = inject(foodStore)
 
-    selectFood(item: FoodItem) {
-        this.store.selectFood(item.id);
-    }
+        selectFood(item: FoodItem) {
+            this.store.selectFood(item.id);
+        }
 
-    saveFood(item: FoodItem) {
-        if (item.id) {
-                this.store.updateFood(item);
+        saveFood(item: FoodItem) {
+            if (item.id) {
+                    this.store.updateFood(item);
             } else {
                 this.store.addFood(item);
             }
@@ -456,9 +456,9 @@ In this lab we will solve the following tasks:
 
 - In `food.store.ts` try to update the following methods and let the use `rxMethod` and `food.service.ts`. A possible solution will be provided in the next step:
       
-    -   addFood
-    -   updateFood
-    -   removeFood
+    -   addFood()
+    -   updateFood()
+    -   removeFood()
 
     >Note: If you are using @ngrx/data you could also combine the data service with the signal store. 
 

@@ -1,11 +1,11 @@
-import { patchState, signalStore, withComputed, withMethods, withState, withHooks } from '@ngrx/signals';
-import { rxMethod } from '@ngrx/signals/rxjs-interop';
-import { FoodItem } from '../food.model';
 import { computed, inject } from '@angular/core';
-import { FoodService } from '../food.service';
-import { switchMap, tap } from 'rxjs/operators';
-import { pipe } from 'rxjs';
 import { tapResponse } from '@ngrx/operators';
+import { patchState, signalStore, withComputed, withHooks, withMethods, withState } from '@ngrx/signals';
+import { rxMethod } from '@ngrx/signals/rxjs-interop';
+import { pipe } from 'rxjs';
+import { switchMap } from 'rxjs/operators';
+import { FoodItem } from '../food.model';
+import { FoodService } from '../food.service';
 
 type FoodState = {
     food: FoodItem[];
@@ -19,6 +19,9 @@ const initialState: FoodState = {
     loading: false,
 }
 
+const logError = (error: Error) => console.error("error: ", error);
+
+
 export const foodStore = signalStore(
     { providedIn: 'root' },
     withState(initialState),
@@ -26,20 +29,59 @@ export const foodStore = signalStore(
         count: computed(() => store.food().length),
     })),
     withMethods((store, service = inject(FoodService)) => ({
-        addFood: (food: FoodItem) => {
-            const items = [...store.food(), food];
-            patchState(store, { food: items })
-        },
-        removeFood: (id: number) => {
-            const items = store.food().filter((f: FoodItem) => f.id !== id);
-            patchState(store, { food: items })
-        },
-        updateFood: (food: FoodItem) => {
-            const allItems = [...store.food()];
-            const idx = allItems.findIndex((f: FoodItem) => f.id === food.id);
-            allItems[idx] = food;
-            patchState(store, { food: allItems })
-        },
+        addFood: rxMethod<FoodItem>(
+            pipe(
+                switchMap((food: FoodItem) => {
+                    patchState(store, { loading: true });
+                    return service.addFood(food).pipe(
+                        tapResponse({
+                            next: (food) => {
+                                const items = [...store.food(), food];
+                                patchState(store, { food: items })
+                            },
+                            error: logError,
+                            finalize: () => patchState(store, { loading: false }),
+                        })
+                    );
+                })
+            )
+        ),
+        removeFood: rxMethod<number>(
+            pipe(
+                switchMap((id: number) => {
+                    patchState(store, { loading: true });
+                    return service.deleteFood(id).pipe(
+                        tapResponse({
+                            next: (food) => {
+                                const items = store.food().filter((f: FoodItem) => f.id !== id);
+                                patchState(store, { food: items })
+                            },
+                            error: logError,
+                            finalize: () => patchState(store, { loading: false }),
+                        })
+                    );
+                })
+            )
+        ),
+        updateFood: rxMethod<FoodItem>(
+            pipe(
+                switchMap((food: FoodItem) => {
+                    patchState(store, { loading: true });
+                    return service.updateFood(food).pipe(
+                        tapResponse({
+                            next: (food) => {
+                                const allItems = [...store.food()];
+                                const idx = allItems.findIndex((f: FoodItem) => f.id === food.id);
+                                allItems[idx] = food;
+                                patchState(store, { food: allItems })
+                            },
+                            error: logError,
+                            finalize: () => patchState(store, { loading: false }),
+                        })
+                    );
+                })
+            )
+        ),
         selectFood: (id: number) => {
             const item = store.food().find((f: FoodItem) => f.id === id);
             patchState(store, { selectedFood: item })
@@ -51,7 +93,7 @@ export const foodStore = signalStore(
                     return service.getFood().pipe(
                         tapResponse({
                             next: (food) => patchState(store, { food }),
-                            error: console.error,
+                            error: logError,
                             finalize: () => patchState(store, { loading: false }),
                         })
                     );
