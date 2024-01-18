@@ -1,10 +1,11 @@
 # Using @ngrx/signal in Angular Apps
 
-## Tasks
+In this lab we will solve the following tasks:
 
--   Setup a basic signal store
--   Provide CRUD and loading for food using `@ngrx/signal Signal Store`
--   Implement a container presenter pattern using signals and `input signals`
+-   Take the output from lab-01 and setup a basic `SignalStore`
+-   Re-build the classic Angular solution from `lab-02` to `lab-04`
+-   Provide CRUD and loading for food using `@ngrx/signal`
+-   Implement a `container presenter pattern`
 -   Use `rxMethod` to persist data to the server
 
 ### Setup a basic signal store
@@ -408,4 +409,3 @@
     ```
 
 ### Use `rxMethod` to persist data to the server
-

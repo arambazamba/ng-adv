@@ -1,8 +1,14 @@
 # Food App - State
 
-![menu](_images/menu.jpg)
+In this lab we will solve the following tasks:
+
+- Implement a responsive Side Menu
+
+- Implement a global loading indicator (Advanced Optional)
 
 ## Implement a responsive Side Menu:
+
+![menu](_images/menu.jpg)
 
 - Implement a sidenav.service.ts as a Stateful Service using BehaviorSubjects with the two properties:
 

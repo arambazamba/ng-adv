@@ -1,6 +1,6 @@
 # Migrate Stateful Service to NgRx
 
-## Tasks
+In this lab we will solve the following tasks:
 
 - Migrate SideNavService to use NgRx. You can take the demo app as a reference or use the guide below
 - Replace FoodService with NgRx Data

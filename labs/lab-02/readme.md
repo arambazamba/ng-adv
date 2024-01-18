@@ -1,5 +1,7 @@
 # Food App Project - Components & Forms
 
+In this lab we will solve the following tasks:
+
 - Convert the project to bootstrap and use standalone components
 
 - Refactor `food-edit.component` to be implemented as a Reactive Form using FormBuilder.
