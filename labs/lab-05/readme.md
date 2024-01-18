@@ -454,6 +454,12 @@ In this lab we will solve the following tasks:
     ),
     ```
 
+- Implement a `logError` function:
+
+    ```typescript
+    const logError = (error: Error) => console.error("error: ", error);
+    ```    
+
 - In `food.store.ts` try to update the following methods and let the use `rxMethod` and `food.service.ts`. A possible solution will be provided in the next step:
       
     -   addFood()
@@ -464,9 +470,67 @@ In this lab we will solve the following tasks:
 
 - Update  `addFood()`:
 
-
+    ```typescript
+    addFood: rxMethod<FoodItem>(
+        pipe(
+            switchMap((food: FoodItem) => {
+                patchState(store, { loading: true });
+                return service.addFood(food).pipe(
+                    tapResponse({
+                        next: (food) => {
+                            const items = [...store.food(), food];
+                            patchState(store, { food: items })
+                        },
+                        error: logError,
+                        finalize: () => patchState(store, { loading: false }),
+                    })
+                );
+            })
+        )
+    ),
+    ```
 - Update  `updateFood()`:
 
+    ```typescript
+    updateFood: rxMethod<FoodItem>(
+        pipe(
+            switchMap((food: FoodItem) => {
+                patchState(store, { loading: true });
+                return service.updateFood(food).pipe(
+                    tapResponse({
+                        next: (food) => {
+                            const allItems = [...store.food()];
+                            const idx = allItems.findIndex((f: FoodItem) => f.id === food.id);
+                            allItems[idx] = food;
+                            patchState(store, { food: allItems })
+                        },
+                        error: logError,
+                        finalize: () => patchState(store, { loading: false }),
+                    })
+                );
+            })
+        )
+    ),
+    ```
 
 - Update  `removeFood()`:
 
+    ```typescript
+    removeFood: rxMethod<number>(
+        pipe(
+            switchMap((id: number) => {
+                patchState(store, { loading: true });
+                return service.deleteFood(id).pipe(
+                    tapResponse({
+                        next: (food) => {
+                            const items = store.food().filter((f: FoodItem) => f.id !== id);
+                            patchState(store, { food: items })
+                        },
+                        error: logError,
+                        finalize: () => patchState(store, { loading: false }),
+                    })
+                );
+            })
+        )
+    ),
+    ```
