@@ -231,7 +231,7 @@ ng new ux-lib-consumer --routing --style scss
 Add an .npmrc:
 
 ```
-//npm.pkg.github.com/:_authToken=<TOEKEN>
+//npm.pkg.github.com/:_authToken=<TOKEN>
 @<GITHubUSERNAME>:registry=https://npm.pkg.github.com/
 ```
 

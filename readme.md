@@ -9,12 +9,12 @@ Companion Material for Class Delivery by [Alexander Pajer](https://github.com/ar
 - [Requirements / Tooling](./tooling)
   - [Getting Started with Source Control](./tooling/01-git)
   - [Visual Studio Code Essentials](./tooling/02-vs-code)
-  - [Repo Documentation & Colloboration using Markdown](./tooling/03-markdown)
+  - [Repo Documentation & Collaboration using Markdown](./tooling/03-markdown)
   - [Introduction to Azure CLI](./tooling/04-cli)
 - [Instructor Demos](./demos)
 - [Labs](./labs)
 
-## Recommended Cloud Ressources
+## Recommended Cloud Resources
 
 [Firebase Account](https://firebase.google.com/)
 

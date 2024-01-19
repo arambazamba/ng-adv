@@ -49,7 +49,7 @@ export const environment = {
 };
 ```
 
-Add `HttpClientModule` and `ReactiveFromsModule` to `app.module.ts`:
+Add `HttpClientModule` and `ReactiveFormsModule` to `app.module.ts`:
 
 ```typescript
 

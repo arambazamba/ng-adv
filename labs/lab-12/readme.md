@@ -127,7 +127,7 @@ Add the following line to the end of the dockerfile. It will trigger processing 
 CMD ["/bin/sh",  "-c",  "envsubst < /usr/share/nginx/html/assets/env.template.js > /usr/share/nginx/html/assets/env.js && exec nginx -g 'daemon off;'"]
 ```
 
-Rebuild the contaienr and run it again by providing the environment variable for ENV_API_URL:
+Rebuild the container and run it again by providing the environment variable for ENV_API_URL:
 
 ```bash
 docker run -d --rm -p 5052:80 --env ENV_API_URL="http://localhost:5051/" food-app
