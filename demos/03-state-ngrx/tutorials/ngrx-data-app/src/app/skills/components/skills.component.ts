@@ -1,16 +1,18 @@
+import { AsyncPipe } from '@angular/common';
 import { Component, OnInit } from '@angular/core';
 import {
-  EntityCollectionService,
-  EntityCollectionServiceFactory,
+  EntityCollectionService
 } from '@ngrx/data';
 import { Observable } from 'rxjs';
-import { Skill } from '../skills.model';
 import { SkillsEntityService } from '../skills-entity.service';
+import { Skill } from '../skills.model';
 
 @Component({
   selector: 'app-skills',
   templateUrl: './skills.component.html',
   styleUrls: ['./skills.component.scss'],
+  standalone: true,
+  imports: [AsyncPipe],
 })
 export class SkillsComponent implements OnInit {
   skills$: Observable<Skill[]>;

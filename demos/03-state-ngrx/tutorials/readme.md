@@ -1,11 +1,11 @@
 # NgRx Data
 
-## Scaffold and Preperation
+## Scaffold and Preparation
 
 Create project:
 
 ```bash
-ng new ngrx-data --routing --style=scss
+ng new ngrx-data-app --routing --style=scss
 ```
 
 Add the environments configuration:
@@ -94,7 +94,7 @@ Register NgRx StoreModule and EntityDataModule in `app.module.ts`:
   ],
 ```
 
-@ngrx/data exprects rest urls in the format `/api/{entityName}/{id}`. To change this behavior, you can create a CustomurlHttpGenerator.
+@ngrx/data expects rest urls in the format `/api/{entityName}/{id}`. To change this behavior, you can create a CustomurlHttpGenerator.
 
 Add a custom URL Generator in `skills/custom-urlgenerator.ts`. 
 
