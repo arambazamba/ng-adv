@@ -17,12 +17,6 @@
       "name": "Wiener Schnitzel",
       "price": 8.3,
       "calories": 600
-    },
-    {
-      "id": 4,
-      "name": "Curry",
-      "price": 12,
-      "calories": 22
     }
   ],
   "top-links": [

@@ -15,8 +15,9 @@ import { ClickableDirective } from '../../shared/formatting/formatting-directive
 export class FoodListComponent {
   @Input({ required: true }) food !: FoodItem[];
   @Output() onFoodSelected: EventEmitter<FoodItem> = new EventEmitter<FoodItem>();
+  @Output() onFoodDeleted: EventEmitter<FoodItem> = new EventEmitter<FoodItem>();
 
-  displayedColumns: string[] = ['id', 'name', 'price', 'calories', 'delete', 'edit'];
+  displayedColumns: string[] = ['id', 'name', 'price', 'calories', 'delete', 'select'];
   dataSource: MatTableDataSource<FoodItem> = new MatTableDataSource<FoodItem>([]);
 
   ngOnChanges(changes: SimpleChanges) {
@@ -29,11 +30,11 @@ export class FoodListComponent {
     this.dataSource.filter = filterValue.trim().toLowerCase();
   }
 
-  selectFood(p: FoodItem) {
-    this.onFoodSelected.emit(p);
+  selectFood(food: FoodItem) {
+    this.onFoodSelected.emit(food);
   }
 
-  deleteFood(p: FoodItem) {
-    this.onFoodSelected.emit(p);
+  deleteFood(food: FoodItem) {
+    this.onFoodDeleted.emit(food);
   }
 }

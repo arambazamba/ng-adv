@@ -569,7 +569,7 @@ In this lab we will solve the following tasks:
     export class ClickableDirective {}
     ```
 
-- Implement `addFood()` on your own by using the following nextId() function:
+- Implement `addFood()` on your own by using the following nextId() function. Update the id of the new item before saving:
 
     ```typescript
     nextId: computed(() => store.food().reduce((max, p) => p.id > max ? p.id : max, 0) + 1),
