@@ -7,7 +7,6 @@ In this lab we will solve the following tasks:
 -   Provide CRUD and loading for food using `@ngrx/signal`
 -   Implement a `container presenter pattern`
 -   Enhance our app by using `rxMethod` and persist data to the server
--   Enhance the `container presenter pattern` by using `input signals`
 
 ### Setup a basic Signal Store
 
@@ -587,5 +586,3 @@ In this lab we will solve the following tasks:
       </td>
     </ng-container>
     ```
-
-### Enhance the `container presenter pattern` by using `input signals`
