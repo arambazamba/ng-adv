@@ -9,7 +9,7 @@ In this lab we will solve the following tasks:
 -   Enhance our app by using `rxMethod` and persist data to the server
 -   Enhance the `container presenter pattern` by using `input signals`
 
-### Setup a basic signal store
+### Setup a basic Signal Store
 
 -   Copy the `signals-starter` and install `@ngrx/signal`:
 
@@ -187,7 +187,7 @@ In this lab we will solve the following tasks:
     ng g c food/food-edit
     ```
 
--   Food list should look like this. You can take the lab from the previous module as a reference:
+-   Food list should look like this. You can take the lab result from the previous module as a reference:
 
     ![Food List](_images/food-list.png)
 
@@ -327,36 +327,40 @@ In this lab we will solve the following tasks:
         </mat-card-header>
         <mat-card-content>
             <form [formGroup]="foodForm" novalidate column>
-            <mat-form-field>
-                <input matInput type="number" formControlName="id" />
-            </mat-form-field>
-            <mat-form-field>
-                <input matInput type="text" placeholder="Name" formControlName="name" />
-            </mat-form-field>
-            @if ( foodForm.controls['name'].touched &&
-            foodForm.controls['name'].errors != undefined ) {
-            <mat-error> Name is required & must be more than 3 chars </mat-error>
-            }
-            <mat-form-field>
-                <input
-                matInput
-                type="number"
-                placeholder="Price"
-                formControlName="price"
-                />
-            </mat-form-field>
-            @if ( foodForm.controls['price'].touched &&
-            foodForm.controls['price'].errors != undefined ) {
-            <mat-error> Price must be greater than 1€ </mat-error>
-            }
-            <mat-form-field>
-                <input
-                matInput
-                type="number"
-                placeholder="Calories"
-                formControlName="calories"
-                />
-            </mat-form-field>
+                <mat-form-field>
+                    <mat-label>Id</mat-label>
+                    <input matInput type="number" formControlName="id" />
+                </mat-form-field>
+                <mat-form-field>
+                    <mat-label>Name</mat-label>
+                    <input matInput type="text" placeholder="Name" formControlName="name" />
+                </mat-form-field>
+                @if ( foodForm.controls['name'].touched &&
+                foodForm.controls['name'].errors != undefined ) {
+                    <mat-error> Name is required & must be more than 3 chars </mat-error>
+                }
+                <mat-form-field>
+                    <mat-label>Price</mat-label>
+                    <input
+                    matInput
+                    type="number"
+                    placeholder="Price"
+                    formControlName="price"
+                    />
+                </mat-form-field>
+                @if ( foodForm.controls['price'].touched &&
+                foodForm.controls['price'].errors != undefined ) {
+                    <mat-error> Price must be greater than 1€ </mat-error>
+                }
+                <mat-form-field>
+                    <mat-label>Calories</mat-label>
+                    <input
+                    matInput
+                    type="number"
+                    placeholder="Calories"
+                    formControlName="calories"
+                    />
+                </mat-form-field>
             </form>
         </mat-card-content>
         <mat-card-actions align="end">
@@ -552,6 +556,36 @@ In this lab we will solve the following tasks:
             })
         )
     ),
+    ```
+
+- Add the following standalone directive to the shared/formatting folder and use it for the subsequent steps:   
+
+    ```typescript
+    @Directive({
+        selector: '[clickable]',
+        standalone: true,
+        host: { 'style': 'cursor:pointer;' },
+    })
+    export class ClickableDirective {}
+    ```
+
+- Implement `addFood()` on your own by using the following nextId() function:
+
+    ```typescript
+    nextId: computed(() => store.food().reduce((max, p) => p.id > max ? p.id : max, 0) + 1),
+    ```    
+
+- Implement `deleteFood()` on your own by adding a delete button and an edit button to the food list. Remove selectFood() from the row.
+
+    ```html
+    <ng-container matColumnDef="delete">
+      <th mat-header-cell *matHeaderCellDef></th>
+      <td mat-cell *matCellDef="let element" class="icon-cell">
+        <a (click)="deleteFood(element)">
+          <mat-icon class="mat-18" matTooltip="Delete">delete</mat-icon>
+        </a>
+      </td>
+    </ng-container>
     ```
 
 ### Enhance the `container presenter pattern` by using `input signals`

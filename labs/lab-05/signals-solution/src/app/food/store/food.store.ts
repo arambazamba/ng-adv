@@ -21,12 +21,12 @@ const initialState: FoodState = {
 
 const logError = (error: Error) => console.error("error: ", error);
 
-
 export const foodStore = signalStore(
     { providedIn: 'root' },
     withState(initialState),
     withComputed((store) => ({
         count: computed(() => store.food().length),
+        nextId: computed(() => store.food().reduce((max, p) => p.id > max ? p.id : max, 0) + 1),
     })),
     withMethods((store, service = inject(FoodService)) => ({
         addFood: rxMethod<FoodItem>(
@@ -99,6 +99,9 @@ export const foodStore = signalStore(
                     );
                 })
             )),
+        addNew() {
+            patchState(store, { selectedFood: { id: 0, name: '', price: 0, calories: 0 } })
+        },
         clearSelected() {
             patchState(store, { selectedFood: null })
         }

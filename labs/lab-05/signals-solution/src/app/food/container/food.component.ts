@@ -22,11 +22,21 @@ export class FoodComponent {
   }
 
   saveFood(item: FoodItem) {
-    if (item.id) {
+    if (item.id != 0) {
       this.store.updateFood(item);
     } else {
+      item.id = this.store.nextId();
       this.store.addFood(item);
     }
+    this.store.clearSelected();
+  }
+
+  addFood() {
+    this.store.addNew();
+  }
+
+  deleteFood(item: FoodItem) {
+    this.store.removeFood(item.id);
     this.store.clearSelected();
   }
 }
