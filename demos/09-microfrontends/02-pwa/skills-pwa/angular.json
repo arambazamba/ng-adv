@@ -73,10 +73,10 @@
           "builder": "@angular-devkit/build-angular:dev-server",
           "configurations": {
             "production": {
-              "browserTarget": "skills-pwa:build:production"
+              "buildTarget": "skills-pwa:build:production"
             },
             "development": {
-              "browserTarget": "skills-pwa:build:development"
+              "buildTarget": "skills-pwa:build:development"
             }
           },
           "defaultConfiguration": "development"
@@ -84,7 +84,7 @@
         "extract-i18n": {
           "builder": "@angular-devkit/build-angular:extract-i18n",
           "options": {
-            "browserTarget": "skills-pwa:build"
+            "buildTarget": "skills-pwa:build"
           }
         },
         "test": {

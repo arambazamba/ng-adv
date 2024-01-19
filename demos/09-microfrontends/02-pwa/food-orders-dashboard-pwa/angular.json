@@ -74,10 +74,10 @@
           "builder": "@angular-devkit/build-angular:dev-server",
           "configurations": {
             "production": {
-              "browserTarget": "food-orders-dashboard:build:production"
+              "buildTarget": "food-orders-dashboard:build:production"
             },
             "development": {
-              "browserTarget": "food-orders-dashboard:build:development"
+              "buildTarget": "food-orders-dashboard:build:development"
             }
           },
           "defaultConfiguration": "development"
@@ -85,7 +85,7 @@
         "extract-i18n": {
           "builder": "@angular-devkit/build-angular:extract-i18n",
           "options": {
-            "browserTarget": "food-orders-dashboard:build"
+            "buildTarget": "food-orders-dashboard:build"
           }
         },
         "test": {

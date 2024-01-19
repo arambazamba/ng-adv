@@ -2,7 +2,7 @@
 
 This is a simple Angular app located the the repository [https://github.com/arambazamba/angular-devops](https://github.com/arambazamba/angular-devops) which is used to demonstrate the deployment to Azure Static WebApps.
 
-- It uses URL Rewriting in Angular which is implemented in `src/assests/staticwebapp.config.json`. It contains the configuration for the Azure Static Web App. Examine the URL Rewriting rules:
+- It uses URL Rewriting in Angular which is implemented in `src/assets/staticwebapp.config.json`. It contains the configuration for the Azure Static Web App. Examine the URL Rewriting rules:
 
   ```json
   {
