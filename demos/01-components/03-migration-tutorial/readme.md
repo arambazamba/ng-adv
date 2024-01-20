@@ -8,6 +8,8 @@ In this walkthrough we will migrate an existing application to standalone compon
 
 ## Upgrade the application to Angular 17 and do basic standalone migration
 
+- Copy [component-forms-modules](../02-component-forms-modules/) project to a new folder named `component-forms-standalone` in a location of your choice. [02-component-forms](../02-component-forms/) is the result of this walkthrough.
+
 - If you have not done so execute the following command to upgrade the application to Angular 17:
 
     ```bash
@@ -15,8 +17,6 @@ In this walkthrough we will migrate an existing application to standalone compon
     ```
 
     >Note: If you have other libraries that are not compatible with Angular 17 you might have to update them as well. For example this project was migrated using: `ng update @angular/cli @angular/core @angular/material @angular/cdk @ngrx/store ngx-markdown marked@9.0.0 --allow-dirty --force`. If you are less experienced with Angular migration you should not use the `--allow-dirty` flags and always work with clean repos and commit after each successful step. The `--force` flag sometimes is necessary to force the update of a library that is not compatible with Angular 17 and allow you basic installation in combination with `npm i --force`.   
-
-- Copy component-forms-modules to a new folder named component-forms-standalone
 
 - Execute the migration schematic 
 
@@ -131,6 +131,7 @@ In this walkthrough we will migrate an existing application to standalone compon
     export const appConfig: ApplicationConfig = {
         providers: [
             provideHttpClient(),
+            provideRouter(routes),
             provideAnimations(),
         ],
     };
