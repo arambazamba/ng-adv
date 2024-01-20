@@ -6,7 +6,7 @@ In this walkthrough we will migrate an existing application to standalone compon
 - Implement `app.config.ts` and `app.routes.ts`
 - Cleanup and migrate remaining (lazy loaded) modules
 
-## Upgrade the application to Angular 17 and do basic standalone migration
+## Upgrade the application to Angular 17 and complete a basic standalone migration
 
 - Copy [component-forms-modules](../02-component-forms-modules/) project to a new folder named `component-forms-standalone` in a location of your choice. [component-forms](../02-component-forms/) is the result of this walkthrough.
 
