@@ -2,7 +2,7 @@
 
 In this walkthrough we will migrate an existing application to standalone components. This migration process will consist of the following steps:
 
-- Upgrade the application to Angular 17 and do basic standalone migration
+- Upgrade the application to Angular 17 and complete a basic standalone migration
 - Implement `app.config.ts` and `app.routes.ts`
 - Cleanup and migrate remaining (lazy loaded) modules
 
