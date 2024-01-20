@@ -1,18 +1,33 @@
 import { Component } from '@angular/core';
-import {
-  AbstractControl,
-  FormControl,
-  FormGroup,
-  ValidationErrors,
-  Validators,
-} from '@angular/forms';
+import { AbstractControl, FormControl, FormGroup, ValidationErrors, Validators, FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { CustomStateMatcher } from './custom-state-matcher';
+import { MatButton } from '@angular/material/button';
+import { MatInput } from '@angular/material/input';
+import { MatFormField, MatError } from '@angular/material/form-field';
+import { ColumnDirective } from '../../../shared/ux-lib/formatting/formatting-directives';
+import { MatCard, MatCardHeader, MatCardTitle, MatCardContent, MatCardActions } from '@angular/material/card';
+import { MarkdownRendererComponent } from '../../../shared/markdown-renderer/markdown-renderer.component';
 
 @Component({
-  selector: 'app-err-state-matcher',
-  templateUrl: './err-state-matcher.component.html',
-  styleUrls: ['./err-state-matcher.component.scss'],
-  // providers: [{ provide: ErrorStateMatcher, useClass: CustomStateMatcher }],
+    selector: 'app-err-state-matcher',
+    templateUrl: './err-state-matcher.component.html',
+    styleUrls: ['./err-state-matcher.component.scss'],
+    standalone: true,
+    imports: [
+        MarkdownRendererComponent,
+        FormsModule,
+        ReactiveFormsModule,
+        MatCard,
+        MatCardHeader,
+        MatCardTitle,
+        MatCardContent,
+        ColumnDirective,
+        MatFormField,
+        MatInput,
+        MatError,
+        MatCardActions,
+        MatButton,
+    ],
 })
 export class ErrStateMatcherComponent {
   matcher = new CustomStateMatcher();

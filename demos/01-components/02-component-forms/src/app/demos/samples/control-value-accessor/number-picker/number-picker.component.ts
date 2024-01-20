@@ -7,23 +7,27 @@ import {
   ValidationErrors,
   Validator,
 } from '@angular/forms';
+import { DecimalPipe } from '@angular/common';
+import { MatIcon } from '@angular/material/icon';
 
 @Component({
-  selector: 'app-number-picker',
-  templateUrl: './number-picker.component.html',
-  styleUrls: ['./number-picker.component.scss'],
-  providers: [
-    {
-      provide: NG_VALUE_ACCESSOR,
-      multi: true,
-      useExisting: forwardRef(() => NumberPickerComponent),
-    },
-    {
-      provide: NG_VALIDATORS,
-      multi: true,
-      useExisting: forwardRef(() => NumberPickerComponent),
-    },
-  ],
+    selector: 'app-number-picker',
+    templateUrl: './number-picker.component.html',
+    styleUrls: ['./number-picker.component.scss'],
+    providers: [
+        {
+            provide: NG_VALUE_ACCESSOR,
+            multi: true,
+            useExisting: forwardRef(() => NumberPickerComponent),
+        },
+        {
+            provide: NG_VALIDATORS,
+            multi: true,
+            useExisting: forwardRef(() => NumberPickerComponent),
+        },
+    ],
+    standalone: true,
+    imports: [MatIcon, DecimalPipe],
 })
 export class NumberPickerComponent implements ControlValueAccessor, Validator {
   quantity = 0;

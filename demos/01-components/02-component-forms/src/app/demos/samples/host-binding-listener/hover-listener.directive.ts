@@ -1,7 +1,8 @@
 import { Directive, HostBinding, HostListener } from '@angular/core';
 
 @Directive({
-  selector: '[hoverListener]',
+    selector: '[hoverListener]',
+    standalone: true,
 })
 export class HoverListenerDirective {
   @HostListener('mouseover') onHover() {

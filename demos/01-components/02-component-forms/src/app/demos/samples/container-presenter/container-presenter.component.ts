@@ -1,11 +1,16 @@
 import { Component, OnInit, inject } from '@angular/core';
 import { PersonService } from '../person/person.service';
 import { Person } from '../person/person.model';
+import { PresenterEditComponent } from './presenter-edit/presenter-edit.component';
+import { PresenterListComponent } from './presenter-list/presenter-list.component';
+import { MarkdownRendererComponent } from '../../../shared/markdown-renderer/markdown-renderer.component';
 
 @Component({
-  selector: 'app-container-presenter',
-  templateUrl: './container-presenter.component.html',
-  styleUrls: ['./container-presenter.component.scss']
+    selector: 'app-container-presenter',
+    templateUrl: './container-presenter.component.html',
+    styleUrls: ['./container-presenter.component.scss'],
+    standalone: true,
+    imports: [MarkdownRendererComponent, PresenterListComponent, PresenterEditComponent]
 })
 export class ContainerPresenterComponent implements OnInit {
   ps = inject(PersonService);

@@ -7,9 +7,10 @@ import {
 } from '@angular/core';
 
 @Component({
-  selector: 'app-projector',
-  templateUrl: './projector.component.html',
-  styleUrls: ['./projector.component.scss'],
+    selector: 'app-projector',
+    templateUrl: './projector.component.html',
+    styleUrls: ['./projector.component.scss'],
+    standalone: true,
 })
 export class ProjectorComponent implements AfterContentInit {
   @ContentChild('comment') divComment: ElementRef | null = null;

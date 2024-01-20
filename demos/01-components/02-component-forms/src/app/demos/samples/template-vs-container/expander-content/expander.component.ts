@@ -1,9 +1,10 @@
 import { Component, Input, OnInit } from '@angular/core';
 
 @Component({
-  selector: 'app-expander',
-  templateUrl: './expander.component.html',
-  styleUrls: ['./expander.component.scss'],
+    selector: 'app-expander',
+    templateUrl: './expander.component.html',
+    styleUrls: ['./expander.component.scss'],
+    standalone: true,
 })
 export class ExpanderComponent implements OnInit {
   expanded = false;

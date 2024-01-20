@@ -1,10 +1,13 @@
 import { Component, EventEmitter, Input, Output, SimpleChanges } from '@angular/core';
 import { Person } from '../../person/person.model';
+import { MatCard, MatCardHeader, MatCardTitle } from '@angular/material/card';
 
 @Component({
-  selector: 'app-presenter-list',
-  templateUrl: './presenter-list.component.html',
-  styleUrls: ['./presenter-list.component.scss']
+    selector: 'app-presenter-list',
+    templateUrl: './presenter-list.component.html',
+    styleUrls: ['./presenter-list.component.scss'],
+    standalone: true,
+    imports: [MatCard, MatCardHeader, MatCardTitle]
 })
 export class PresenterListComponent {
 

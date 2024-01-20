@@ -6,11 +6,21 @@ import {
   ViewChild,
   ViewChildren,
 } from '@angular/core';
+import { MatCard, MatCardHeader, MatCardTitle, MatCardContent } from '@angular/material/card';
+import { MarkdownRendererComponent } from '../../../shared/markdown-renderer/markdown-renderer.component';
 
 @Component({
-  selector: 'app-view-child',
-  templateUrl: './view-child.component.html',
-  styleUrls: ['./view-child.component.scss'],
+    selector: 'app-view-child',
+    templateUrl: './view-child.component.html',
+    styleUrls: ['./view-child.component.scss'],
+    standalone: true,
+    imports: [
+        MarkdownRendererComponent,
+        MatCard,
+        MatCardHeader,
+        MatCardTitle,
+        MatCardContent,
+    ],
 })
 export class ViewChildComponent {
   @ViewChild('liters') nbrLiters: ElementRef | null = null;

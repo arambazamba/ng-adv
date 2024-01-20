@@ -1,10 +1,31 @@
 import { Component, OnInit } from '@angular/core';
-import { UntypedFormControl, Validators, FormControl } from '@angular/forms';
+import { UntypedFormControl, Validators, FormControl, FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { MatButton } from '@angular/material/button';
+import { MatInput } from '@angular/material/input';
+import { MatFormField, MatLabel, MatError } from '@angular/material/form-field';
+import { ColumnDirective } from '../../../shared/ux-lib/formatting/formatting-directives';
+import { MatCard, MatCardHeader, MatCardTitle, MatCardContent, MatCardActions } from '@angular/material/card';
 
 @Component({
-  selector: 'app-form-control',
-  templateUrl: './form-control.component.html',
-  styleUrls: ['./form-control.component.scss'],
+    selector: 'app-form-control',
+    templateUrl: './form-control.component.html',
+    styleUrls: ['./form-control.component.scss'],
+    standalone: true,
+    imports: [
+        MatCard,
+        MatCardHeader,
+        MatCardTitle,
+        MatCardContent,
+        ColumnDirective,
+        MatFormField,
+        MatLabel,
+        MatInput,
+        FormsModule,
+        ReactiveFormsModule,
+        MatError,
+        MatCardActions,
+        MatButton,
+    ],
 })
 export class FormControlComponent implements OnInit {
   name = new FormControl('',

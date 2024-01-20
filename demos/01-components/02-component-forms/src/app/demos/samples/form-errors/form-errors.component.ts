@@ -1,17 +1,37 @@
 import { Component, OnInit, inject } from '@angular/core';
-import {
-  FormArray,
-  FormBuilder,
-  FormControl,
-  ValidationErrors,
-  Validators
-} from '@angular/forms';
+import { FormArray, FormBuilder, FormControl, ValidationErrors, Validators, FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { map, Observable } from 'rxjs';
+import { AsyncPipe, JsonPipe } from '@angular/common';
+import { MatButton } from '@angular/material/button';
+import { RowDirective } from '../../../shared/ux-lib/formatting/formatting-directives';
+import { MatInput } from '@angular/material/input';
+import { MatFormField, MatLabel, MatError } from '@angular/material/form-field';
+import { MatCard, MatCardHeader, MatCardTitle, MatCardContent, MatCardActions } from '@angular/material/card';
+import { MarkdownRendererComponent } from '../../../shared/markdown-renderer/markdown-renderer.component';
 
 @Component({
-  selector: 'app-form-errors',
-  templateUrl: './form-errors.component.html',
-  styleUrls: ['./form-errors.component.scss'],
+    selector: 'app-form-errors',
+    templateUrl: './form-errors.component.html',
+    styleUrls: ['./form-errors.component.scss'],
+    standalone: true,
+    imports: [
+        MarkdownRendererComponent,
+        FormsModule,
+        ReactiveFormsModule,
+        MatCard,
+        MatCardHeader,
+        MatCardTitle,
+        MatCardContent,
+        MatFormField,
+        MatLabel,
+        MatInput,
+        MatError,
+        RowDirective,
+        MatCardActions,
+        MatButton,
+        AsyncPipe,
+        JsonPipe,
+    ],
 })
 export class FormErrorsComponent {
   fb: FormBuilder = inject(FormBuilder);
