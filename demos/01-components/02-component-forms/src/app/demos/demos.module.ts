@@ -8,7 +8,6 @@ import {
 } from '@angular/material/form-field';
 
 import { MarkdownRendererModule } from '../shared/markdown-renderer/markdown-renderer.module';
-import { SharedModule } from '../shared/shared.module';
 
 import { DemoContainerComponent } from './demo-container/demo-container.component';
 import { DemoRoutingModule } from './demo.routing.module';
@@ -54,9 +53,8 @@ const appearance: MatFormFieldDefaultOptions = {
 };
 
 @NgModule({
-    imports: [
+  imports: [
     CommonModule,
-    SharedModule,
     FormsModule,
     ReactiveFormsModule,
     DemoRoutingModule,
@@ -99,12 +97,12 @@ const appearance: MatFormFieldDefaultOptions = {
     PresenterListComponent,
     PresenterEditComponent,
     DynamicComponentsComponent
-],
-    providers: [
-        {
-            provide: MAT_FORM_FIELD_DEFAULT_OPTIONS,
-            useValue: appearance,
-        },
-    ],
+  ],
+  providers: [
+    {
+      provide: MAT_FORM_FIELD_DEFAULT_OPTIONS,
+      useValue: appearance,
+    },
+  ],
 })
 export class DemosModule { }

@@ -146,3 +146,10 @@ In this walkthrough we will migrate an existing application to standalone compon
 - Run the application to see if it is still working. 
 
 ## Cleanup and migrate remaining (lazy loaded) modules
+
+- There are some models left in this app:
+
+    - shared.module.ts
+    - demos.module.ts
+
+- As all components in the shared folder have been migrated to standalone components we can remove the `shared.module.ts` file. Remove its import from `demo.module.ts`. Check if the application is still working.
