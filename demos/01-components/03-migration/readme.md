@@ -4,7 +4,7 @@ In this walkthrough we will migrate an existing application to standalone compon
 
 - Upgrade the application to Angular 17 and do basic standalone migration
 - Implement `app.config.ts` and `app.routes.ts`
-- Migration remaining (lazy loaded) modules
+- Cleanup and migrate remaining (lazy loaded) modules
 
 ## Upgrade the application to Angular 17 and do basic standalone migration
 
@@ -14,7 +14,7 @@ In this walkthrough we will migrate an existing application to standalone compon
     ng update @angular/core@17 @angular/cli@17
     ```
 
-    >Note: If you have other libraries that are not compatible with Angular 17 you might have to update them as well. For example this project was migrated using: `ng update @angular/cli @angular/core @angular/material @angular/cdk @ngrx/store ngx-markdown marked@9.0.0 --allow-dirty --force`. If you are less experienced with Angular migration you should not use the `--allow-dirty` flags. The `--force` flag sometimes is necessary to force the update of a library that is not compatible with Angular 17 and allow you basic installation in combination with `npm i --force`.   
+    >Note: If you have other libraries that are not compatible with Angular 17 you might have to update them as well. For example this project was migrated using: `ng update @angular/cli @angular/core @angular/material @angular/cdk @ngrx/store ngx-markdown marked@9.0.0 --allow-dirty --force`. If you are less experienced with Angular migration you should not use the `--allow-dirty` flags and always work with clean repos and commit after each successful step. The `--force` flag sometimes is necessary to force the update of a library that is not compatible with Angular 17 and allow you basic installation in combination with `npm i --force`.   
 
 - Copy component-forms-modules to a new folder named component-forms-standalone
 
@@ -90,7 +90,7 @@ In this walkthrough we will migrate an existing application to standalone compon
 
     ![provider-error](_images/provider-error.png)
 
-- Just to get the app running use `importProvidersFrom(AppRoutingModule)`. This is not our final solution but it will get the app running. `importProvidersFrom(...)` is a pretty powerful function that will import all the providers from the specified module. It is usually not the preferred way to import providers but it is a good starting point that will bring you one step further in the migration process. There are many `provideThisAndThat()` functions that you can use to import providers for Angular base functionality as well as third party libraries such as NgRx.
+- Just to get the app running use `importProvidersFrom(AppRoutingModule)`. This is not our final solution but it will get the app running. `importProvidersFrom(...)` is a pretty powerful function that will import all the providers from the specified module. It is usually not the preferred way to import providers but it is a good starting point that will bring you one step further in the migration process. There are many `provideThisAndThat()` functions that you can use to import providers for Angular base functionality as well as third party libraries such as `Angular Material`, `NgRx` or others.
     
     ```typescript
     bootstrapApplication(AppComponent, {
@@ -106,3 +106,43 @@ In this walkthrough we will migrate an existing application to standalone compon
     ```
 
 ## Implement app.config.ts and app.routes.ts    
+
+- In the src/app folder create a new file named `app.routes.ts` and add the following code:
+
+    ```typescript
+    export const routes: Routes = [
+        {
+            path: '',
+            component: HomeComponent,
+        },
+        {
+            path: 'demos',
+            loadChildren: () =>
+                import('./demos/demos.module').then((m) => m.DemosModule),
+        }
+    ];
+    ```
+
+- In the `src/app` folder create a new file named `app.config.ts` and add the following code to create the base structure of the ApplicationConfig. Depending on your application we will have to add additional providers:
+
+    ```typescript
+    import { ApplicationConfig } from '@angular/core';
+
+    export const appConfig: ApplicationConfig = {
+        providers: [
+            provideHttpClient(),
+            provideAnimations(),
+        ],
+    };
+    ```
+
+- Open `main.ts`, save the current configuration and replace it with the following code:
+
+    ```typescript
+    bootstrapApplication(AppComponent, appConfig)
+        .catch(err => console.error(err));
+    ```
+
+- Run the application to see if it is still working. 
+
+## Cleanup and migrate remaining (lazy loaded) modules
