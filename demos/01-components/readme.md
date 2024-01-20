@@ -20,9 +20,3 @@
 - Implementing Custom Controls using ControlValueAccessor
 - Typed Forms Validation & Custom Validators
 - Handling FormErrors & ErrorStateMatcher
-
-## Control Flow Migration
-
-```bash
-ng g @angular/core:control-flow
-```
