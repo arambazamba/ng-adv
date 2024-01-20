@@ -153,3 +153,5 @@ In this walkthrough we will migrate an existing application to standalone compon
     - demos.module.ts
 
 - As all components in the shared folder have been migrated to standalone components we can remove the `shared.module.ts` file. Remove its import from `demo.module.ts`. Check if the application is still working.
+
+- That is all for now. We will remove the `demos.module.ts` file in the `Routing and App-Init` module.
