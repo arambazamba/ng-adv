@@ -2,43 +2,84 @@
 
 ## Scaffold and Preparation
 
-Create project:
+- Create project:
 
-```bash
-ng new ngrx-data-app --routing --style=scss
+  ```bash
+  ng new ngrx-data-standalone --routing=false --style=scss --ssr=false
+  ```
+
+- Copy `db.json` to the root folder. Make sure json-server is installed globally:
+
+  ```bash
+  npm i -g json-server
+  ```
+
+- Run json-server in a separate terminal:
+
+  ```bash
+  json-server db.json --watch
+  ```    
+
+- Add the environments configuration:
+
+  ```bash
+  ng g environments
+  ```
+
+- Add the default url to environment.ts and environment.development.ts:
+
+  ```typescript
+  export const environment = {
+    url: 'http://localhost:3000',
+  };
+  ```  
+
+- Add support for `HttpClient` to the providers array of `app.config.ts`:
+
+  ```typescript
+  provideHttpClient(),
+  ```
+
+- Add a `skills/skills.component.ts` using the Angular CLI and add it to app.component.html. Add the required imports and styles on your own:
+
+```html
+<div class="container">
+  <h2>The skills:</h2>
+  <app-skills></app-skills>
+</div>
 ```
 
-Add the environments configuration:
-
-```bash
-ng generate environments
-```
-
-Add NgRx:
+- Add the base NgRx modules:
 
 ```bash
 npm i -S @ngrx/store @ngrx/entity @ngrx/effects
 npm i -D @ngrx/store-devtools
-ng add @ngrx/data@latest
 ```
 
-Import the following common modules to `app.module.ts`:
+- Add the basic NgRx setup to to the providers array of `app.config.ts`. Add missing imports. The import for the NgRx Dev tools will be `import { provideStoreDevtools } from '@ngrx/store-devtools';`:
 
-```typescript
-@NgModule({
-  declarations: [AppComponent],
-  imports: [
-    ...
-    CommonModule,
-    FormsModule,
-    HttpClientModule,
-```
+  ```typescript
+  provideStore(),
+  provideEffects(),
+  provideStoreDevtools(),
+  ```
 
-Start json-server:
+  >Note: Make sure that you have the [Redux Dev Tools](https://chromewebstore.google.com/detail/redux-devtools/lmhkpmbekcpmknklioeibfkpmmfibljd?pli=1) installed in your browser. 
 
-```bash
-json-server db.json --watch
-```
+- Commit your changes to your local git repository:
+
+  ```bash
+  git add .
+  git commit -m "Basic scaffold"
+  ```
+
+- Add @ngrx/data:
+
+  ```bash
+  ng add @ngrx/data
+  ```
+
+- Examine the changes made by the schematic in `app.config.ts`
 
 >Note: You can use the db.json located in this folder
 
