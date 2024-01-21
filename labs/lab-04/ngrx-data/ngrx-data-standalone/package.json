@@ -1,6 +1,11 @@
 {
   "name": "ngrx-data-standalone",
-  "version": "0.0.0",
+  "author": {
+    "name": "Alexander Pajer",
+    "email": "alexander.pajer@integrations.at",
+    "url": "https://www.integrations.at"
+  },
+  "version": "17.0.0",
   "scripts": {
     "ng": "ng",
     "start": "ng serve",
