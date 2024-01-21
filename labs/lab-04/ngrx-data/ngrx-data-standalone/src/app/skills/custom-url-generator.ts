@@ -4,6 +4,7 @@ import {
   HttpResourceUrls,
   Pluralizer,
 } from '@ngrx/data';
+import { environment } from '../../environments/environment';
 @Injectable()
 export class CustomUrlHttpGenerator extends DefaultHttpUrlGenerator {
   constructor(pluralizer: Pluralizer) {
@@ -18,8 +19,8 @@ export class CustomUrlHttpGenerator extends DefaultHttpUrlGenerator {
     let resourceURLs = this.knownHttpResourceUrls[entityName];
     if (entityName == 'Skill') {
       resourceURLs = {
-        collectionResourceUrl: 'http://localhost:3000/skills/',
-        entityResourceUrl: 'http://localhost:3000/skills/',
+        collectionResourceUrl: `${environment.url}/skills/`,
+        entityResourceUrl: `${environment.url}/skills/`,
       };
       this.registerHttpResourceUrls({ [entityName]: resourceURLs });
     }

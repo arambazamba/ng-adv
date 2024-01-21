@@ -79,13 +79,10 @@ npm i -D @ngrx/store-devtools
   ng add @ngrx/data
   ```
 
-- Examine the changes made by the schematic in `app.config.ts`
+- Examine the changes made by the schematic in `app.config.ts`. Move `entity-metadata.ts` to the `skills` folder. 
 
->Note: You can use the db.json located in this folder
 
-## Add ngrx/data with a base EntityDataService
-
-Add `skills/skills.model.ts`:
+- Add `skills/skills.model.ts`:
 
 ```typescript
 export interface Skill {
@@ -95,87 +92,26 @@ export interface Skill {
 }
 ```
 
-Create skills metadata in `skills/skills.metadata.ts`:
+- Add a sort function to `entity-metadata.ts`:
 
-```typescript
-import { EntityMetadataMap, EntityDataModuleConfig } from '@ngrx/data';
-import { Skill } from './skills.model';
-
-export function sortByName(a: Skill, b: Skill): number {
-  let comp = a.name.localeCompare(b.name);
-  return comp;
-}
-
-const entityMetadata: EntityMetadataMap = {
-  Skill: {
-    selectId: (skill: Skill) => skill.id,
-    sortComparer: sortByName,
-  },
-};
-
-const pluralNames = {};
-
-export const entityConfig: EntityDataModuleConfig = {
-  entityMetadata,
-  pluralNames,
-};
-```
-
-Register NgRx StoreModule and EntityDataModule in `app.module.ts`:
-
-```typescript
-@NgModule({
-  declarations: [AppComponent],
-  imports: [
-    ...
-    StoreModule.forRoot({}, {}),
-    EffectsModule.forRoot([]),
-    EntityDataModule.forRoot(entityConfig),
-    environment.production ? [] : StoreDevtoolsModule.instrument(),
-  ],
-```
-
-@ngrx/data expects rest urls in the format `/api/{entityName}/{id}`. To change this behavior, you can create a CustomurlHttpGenerator.
-
-Add a custom URL Generator in `skills/custom-urlgenerator.ts`. 
-
-```typescript
-@Injectable()
-export class CustomurlHttpGenerator extends DefaultHttpUrlGenerator {
-  constructor(pluralizer: Pluralizer) {
-    super(pluralizer);
+  ```typescript
+  export function sortByName(a: Skill, b: Skill): number {
+    let comp = a.name.localeCompare(b.name);
+    return comp;
   }
+  ```
 
-  protected override getResourceUrls(
-    entityName: string,
-    root: string,
-    trailingSlashEndpoints?: boolean
-  ): HttpResourceUrls {
-    let resourceURLs = this.knownHttpResourceUrls[entityName];
-    if (entityName == 'Skill') {
-      resourceURLs = {
-        collectionResourceUrl: 'http://localhost:3000/skills/',
-        entityResourceUrl: 'http://localhost:3000/skills/',
-      };
-      this.registerHttpResourceUrls({ [entityName]: resourceURLs });
-    }
-    return resourceURLs;
-  }
-}
-```
+- Define the skill entity metadata in `entity-metadata.ts`:
 
-The custom URL generator needs to be registered in `app.module.ts`:
+  ```typescript
+  export const entityMetadata: EntityMetadataMap = {
+    Skill: {
+      sortComparer: sortByName,
+    },
+  };
+  ```
 
-```typescript
-providers: [
-  {
-    provide: HttpUrlGenerator,
-    useClass: CustomurlHttpGenerator,
-  },
-],
-```
-
-Create the EntityDataService in `skills-entity.service.ts`. If you do not want to override the methods, that is all you will have to do in order to load entity data.
+Create the EntityDataService in `skills/skills-entity.service.ts`. If you do not want to override the methods, that is all you will have to do in order to load entity data.
 
   ```typescript
   @Injectable({
@@ -188,38 +124,38 @@ Create the EntityDataService in `skills-entity.service.ts`. If you do not want t
   }
   ```
 
-Implement the User Interface that uses the SkillsEntityService:
+- Try to implement the User Interface:
 
-![base-ui](_images/base-ui.jpg)
+![base-ui](_images/base-ui.png)
 
-Add the following html to `skills/skills.component.html`:
+- Add the following html to `skills/skills.component.html`:
 
-```html
-<h2>Skills</h2>
-
-<div class="container">
-  <div>
-    <button (click)="addSkill()">Add Skill</button>
-  </div>
-
-  <div *ngFor="let sk of skills$ | async">
-    <div class="row">
-      <div class="label">{{ sk.name }}</div>
-      <button (click)="deleteSkill(sk)">Delete</button>
+  ```html
+  <div class="container">
+    <div class="right">
+      <button (click)="addSkill()">Add</button>
     </div>
+    @for (sk of skills$ | async; track sk) {
+    <div>
+      <div class="row">
+        <div class="label">{{ sk.name }}</div>
+        <button (click)="deleteSkill(sk)">Delete</button>
+      </div>
+    </div>
+    }
   </div>
-</div>
-```
+  ```
 
 Add a `skills/skills.component.ts` using the Angular CLI and add the following code to it:
 
 ```typescript
-export class SkillsComponent implements OnInit {
+export class SkillsComponent {
+  entityService = inject(SkillsEntityService);
   skills$: Observable<Skill[]>;
   skillsService: EntityCollectionService<Skill>;
 
-  constructor(es: SkillsEntityService) {
-    this.skillsService = es;
+  constructor() {
+    this.skillsService = this.entityService;
     this.skills$ = this.skillsService.entities$;
   }
 
@@ -237,10 +173,47 @@ export class SkillsComponent implements OnInit {
 }
 ```
 
-Add the skills component to `app.component.html`:
+- Run the application and check the console for errors. You should see the following error:
 
-```html
-<div class="content" role="main">
-  <app-skills></app-skills>
-</div>
-```
+  ![error](_images/data-error.png)
+
+- @ngrx/data listens on `http://localhost:4200/api/{entity}` by default. To override this, we will implement a `CustomUrlHttpGenerator`:
+
+  ```typescript
+  @Injectable()
+  export class CustomUrlHttpGenerator extends DefaultHttpUrlGenerator {
+    constructor(pluralizer: Pluralizer) {
+      super(pluralizer);
+    }
+
+    protected override getResourceUrls(
+      entityName: string,
+      root: string,
+      trailingSlashEndpoints?: boolean
+    ): HttpResourceUrls {
+      let resourceURLs = this.knownHttpResourceUrls[entityName];
+      if (entityName == 'Skill') {
+        resourceURLs = {
+          collectionResourceUrl: `${environment.url}/skills/`,
+          entityResourceUrl: `${environment.url}/skills/`,
+        };
+        this.registerHttpResourceUrls({ [entityName]: resourceURLs });
+      }
+      return resourceURLs;
+    }
+  }
+  ```
+
+- The custom URL generator needs to be registered in `app.module.ts`:
+
+  ```typescript
+  providers: [
+    ...
+    {
+      provide: HttpUrlGenerator,
+      useClass: CustomUrlHttpGenerator,
+    },
+  ],
+  ```
+
+- Run the application again. You can now test the application and see if it works as expected.
