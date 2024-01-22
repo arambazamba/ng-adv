@@ -8,6 +8,11 @@ In this lab we will create a new Angular 17 project and we will create a navbar 
 
     ![ng-new](_images/ng-new.png)
 
+    >Note: You could skip answering the questions by using the following command:
+
+    ```bash
+    ng new standalone-component-solution --routing --style=scss --ssr=false
+    ```
 - Go to `src/main.ts` and `src/app` and notice the standalone configuration, especially app.config.ts and app.routes.ts. Examine this files. Also notice tha `app.module.ts` is not present. 
 
 - Create a navbar component in the shared folder. Notice that with a project that was create with Angular 17 all components are created as standalone components by default.
