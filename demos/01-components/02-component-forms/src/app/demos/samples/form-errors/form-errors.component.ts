@@ -1,37 +1,37 @@
-import { Component, OnInit, inject } from '@angular/core';
-import { FormArray, FormBuilder, FormControl, ValidationErrors, Validators, FormsModule, ReactiveFormsModule } from '@angular/forms';
-import { map, Observable } from 'rxjs';
 import { AsyncPipe, JsonPipe } from '@angular/common';
+import { Component, inject } from '@angular/core';
+import { FormArray, FormBuilder, FormControl, FormsModule, ReactiveFormsModule, ValidationErrors, Validators } from '@angular/forms';
 import { MatButton } from '@angular/material/button';
-import { RowDirective } from '../../../shared/ux-lib/formatting/formatting-directives';
+import { MatCard, MatCardActions, MatCardContent, MatCardHeader, MatCardTitle } from '@angular/material/card';
+import { MatError, MatFormField, MatLabel } from '@angular/material/form-field';
 import { MatInput } from '@angular/material/input';
-import { MatFormField, MatLabel, MatError } from '@angular/material/form-field';
-import { MatCard, MatCardHeader, MatCardTitle, MatCardContent, MatCardActions } from '@angular/material/card';
+import { map } from 'rxjs';
 import { MarkdownRendererComponent } from '../../../shared/markdown-renderer/markdown-renderer.component';
+import { RowDirective } from '../../../shared/ux-lib/formatting/formatting-directives';
 
 @Component({
-    selector: 'app-form-errors',
-    templateUrl: './form-errors.component.html',
-    styleUrls: ['./form-errors.component.scss'],
-    standalone: true,
-    imports: [
-        MarkdownRendererComponent,
-        FormsModule,
-        ReactiveFormsModule,
-        MatCard,
-        MatCardHeader,
-        MatCardTitle,
-        MatCardContent,
-        MatFormField,
-        MatLabel,
-        MatInput,
-        MatError,
-        RowDirective,
-        MatCardActions,
-        MatButton,
-        AsyncPipe,
-        JsonPipe,
-    ],
+  selector: 'app-form-errors',
+  templateUrl: './form-errors.component.html',
+  styleUrls: ['./form-errors.component.scss'],
+  standalone: true,
+  imports: [
+    MarkdownRendererComponent,
+    FormsModule,
+    ReactiveFormsModule,
+    MatCard,
+    MatCardHeader,
+    MatCardTitle,
+    MatCardContent,
+    MatFormField,
+    MatLabel,
+    MatInput,
+    MatError,
+    RowDirective,
+    MatCardActions,
+    MatButton,
+    AsyncPipe,
+    JsonPipe,
+  ],
 })
 export class FormErrorsComponent {
   fb: FormBuilder = inject(FormBuilder);
@@ -59,7 +59,7 @@ export class FormErrorsComponent {
     const skillsGrp = this.skillForm.controls.skillsGrp as FormArray;
     skillsGrp.push(
       this.fb.group({
-        skillname: '',
+        skillName: '',
         years: '',
       })
     );

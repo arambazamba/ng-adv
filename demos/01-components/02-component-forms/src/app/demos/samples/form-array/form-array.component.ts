@@ -8,38 +8,38 @@ import { MatFormField, MatLabel } from '@angular/material/form-field';
 import { MatCard, MatCardHeader, MatCardTitle, MatCardContent, MatCardActions } from '@angular/material/card';
 
 @Component({
-    selector: 'app-form-array',
-    templateUrl: './form-array.component.html',
-    styleUrls: ['./form-array.component.scss'],
-    standalone: true,
-    imports: [
-        FormsModule,
-        ReactiveFormsModule,
-        MatCard,
-        MatCardHeader,
-        MatCardTitle,
-        MatCardContent,
-        MatFormField,
-        MatLabel,
-        MatInput,
-        GapDirective,
-        MatCardActions,
-        MatButton,
-    ],
+  selector: 'app-form-array',
+  templateUrl: './form-array.component.html',
+  styleUrls: ['./form-array.component.scss'],
+  standalone: true,
+  imports: [
+    FormsModule,
+    ReactiveFormsModule,
+    MatCard,
+    MatCardHeader,
+    MatCardTitle,
+    MatCardContent,
+    MatFormField,
+    MatLabel,
+    MatInput,
+    GapDirective,
+    MatCardActions,
+    MatButton,
+  ],
 })
 export class FormArrayComponent {
   fb: FormBuilder = inject(FormBuilder);
   ps: PersonService = inject(PersonService);
   skillForm = this.fb.group({
     name: '',
-    skillsGrp: this.fb.array([]),
+    skills: this.fb.array([]),
   });
 
   addSkill() {
-    const skillsGrp = this.skillForm.controls.skillsGrp as FormArray;
-    skillsGrp.push(
+    const skills = this.skillForm.controls.skills as FormArray;
+    skills.push(
       this.fb.group({
-        skillname: '',
+        skillName: '',
         years: '',
       })
     );

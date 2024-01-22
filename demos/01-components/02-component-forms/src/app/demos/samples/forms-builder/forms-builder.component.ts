@@ -13,28 +13,28 @@ import { MatCard, MatCardHeader, MatCardTitle, MatCardContent } from '@angular/m
 import { MarkdownRendererComponent } from '../../../shared/markdown-renderer/markdown-renderer.component';
 
 @Component({
-    selector: 'app-forms-builder',
-    templateUrl: './forms-builder.component.html',
-    styleUrls: ['./forms-builder.component.scss'],
-    standalone: true,
-    imports: [
-        MarkdownRendererComponent,
-        MatCard,
-        MatCardHeader,
-        MatCardTitle,
-        MatCardContent,
-        FormsModule,
-        ColumnDirective,
-        ReactiveFormsModule,
-        MatFormField,
-        MatLabel,
-        MatInput,
-        MatSelect,
-        MatOption,
-        MatRadioGroup,
-        MatRadioButton,
-        MatButton,
-    ],
+  selector: 'app-forms-builder',
+  templateUrl: './forms-builder.component.html',
+  styleUrls: ['./forms-builder.component.scss'],
+  standalone: true,
+  imports: [
+    MarkdownRendererComponent,
+    MatCard,
+    MatCardHeader,
+    MatCardTitle,
+    MatCardContent,
+    FormsModule,
+    ColumnDirective,
+    ReactiveFormsModule,
+    MatFormField,
+    MatLabel,
+    MatInput,
+    MatSelect,
+    MatOption,
+    MatRadioGroup,
+    MatRadioButton,
+    MatButton,
+  ],
 })
 export class FormBuilderComponent implements OnInit {
   fb: FormBuilder = inject(FormBuilder);
@@ -44,17 +44,18 @@ export class FormBuilderComponent implements OnInit {
   genderPattern = '^(male|female|diverse)';
 
   personForm = this.fb.group({
-    id: [0],
-    name: ['', { validators: [Validators.required] }],
-    age: [0, { validators: [Validators.min(1)] }],
-    email: ['', { validators: [Validators.email] }],
-    gender: ['', { validators: [Validators.pattern(this.genderPattern)] }],
-    wealth: [''],
+    id: [this.person.id],
+    name: [this.person.name, { validators: [Validators.required] }],
+    age: [this.person.age, { validators: [Validators.min(1)] }],
+    email: [this.person.email, { validators: [Validators.email] }],
+    gender: [this.person.gender, { validators: [Validators.pattern(this.genderPattern)] }],
+    wealth: [this.person.wealth],
   });
 
   ngOnInit() {
     this.ps.getPerson().subscribe((p) => {
-      //Reminder: setValue vs patchValue
+      //Reminder: explain setValue vs patchValue
+      // this.personForm.setValue(p);
       this.personForm.patchValue(p);
       console.log('Data loaded from service', p);
     });

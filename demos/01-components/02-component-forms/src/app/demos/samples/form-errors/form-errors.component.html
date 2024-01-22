@@ -15,7 +15,7 @@
           />
           @if (skillForm.controls.name.hasError('required')) {
             <mat-error>
-              Lastname is required
+              Last name is required
             </mat-error>
           }
           @if (
@@ -55,7 +55,7 @@
                       <input
                         matInput
                         placeholder="Skill Name"
-                        formControlName="skillname"
+                        formControlName="skillName"
                         />
                       </mat-form-field>
                       <mat-form-field>
@@ -84,7 +84,7 @@
 
       <mat-card appearance="outlined">
         <mat-card-header>
-          <mat-card-title>FormControl Validation Erros</mat-card-title>
+          <mat-card-title>FormControl Validation Error</mat-card-title>
         </mat-card-header>
         <mat-card-content>
           <pre>{{ validationErrors | async | json }}</pre>

@@ -8,36 +8,43 @@ import { MatFormField, MatLabel } from '@angular/material/form-field';
 import { MatCard, MatCardHeader, MatCardTitle, MatCardContent } from '@angular/material/card';
 
 @Component({
-    selector: 'app-reactive-cascade',
-    templateUrl: './reactive-cascade.component.html',
-    styleUrls: ['./reactive-cascade.component.scss'],
-    standalone: true,
-    imports: [
-        MatCard,
-        MatCardHeader,
-        MatCardTitle,
-        MatCardContent,
-        FormsModule,
-        ReactiveFormsModule,
-        MatFormField,
-        MatInput,
-        MatLabel,
-        MatSelect,
-        MatOption,
-        MatButton,
-    ],
+  selector: 'app-reactive-cascade',
+  templateUrl: './reactive-cascade.component.html',
+  styleUrls: ['./reactive-cascade.component.scss'],
+  standalone: true,
+  imports: [
+    MatCard,
+    MatCardHeader,
+    MatCardTitle,
+    MatCardContent,
+    FormsModule,
+    ReactiveFormsModule,
+    MatFormField,
+    MatInput,
+    MatLabel,
+    MatSelect,
+    MatOption,
+    MatButton,
+  ],
 })
 export class ReactiveCascadeComponent {
   fb: FormBuilder = inject(FormBuilder);
   readonly selectValues = [
-    { type: 'Frameworks', values: ['Angular', 'React', '.NET Core', 'Spring'] },
+    {
+      type: 'Frameworks',
+      values: ['Angular', 'React', '.NET Core', 'Spring']
+    },
     {
       type: 'Languages',
       values: ['TypeScript', 'JavaScript', 'C#', 'Java', 'Python'],
     },
-    { type: 'Cloud', values: ['Azure', 'AWS', 'Google'] },
+    {
+      type: 'Cloud',
+      values: ['Azure', 'AWS', 'Google']
+    },
   ];
-  selects: string[];
+
+  selects: string[] = [];
 
   // Type the form using type inference
   skillsGrp = this.fb.nonNullable.group({
@@ -50,12 +57,6 @@ export class ReactiveCascadeComponent {
     lastName: [''],
     skills: this.fb.array([this.skillsGrp]),
   });
-
-  constructor() {
-    this.selects = [];
-  }
-
-  ngOnInit(): void { }
 
   saveProfileForm() {
     console.log(this.profileForm.value);
