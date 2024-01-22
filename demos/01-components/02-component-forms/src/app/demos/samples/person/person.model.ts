@@ -5,7 +5,7 @@ export class Person {
   email = '';
   wealth = '';
   gender: 'male' | 'female' | 'not set' = 'not set';
-  lastname?: string;
+  lastName?: string;
   married?: boolean;
   imgUrl?: string;
   address?: Address = { street: '', city: '', postalCode: '' };

@@ -22,18 +22,18 @@
 
       <mat-form-field>
         <mat-label>Last Name</mat-label>
-        <input matInput type="text" placeholder="Lastname" formControlName="lastname" />
-        @if (personForm.controls.lastname.hasError('required')) {
+        <input matInput type="text" placeholder="lastName" formControlName="lastName" />
+        @if (personForm.controls.lastName.hasError('required')) {
           <mat-error>
-            Lastname is required
+            Last name is required
           </mat-error>
         }
-        @if (personForm.controls.lastname.hasError('nameError')) {
+        @if (personForm.controls.lastName.hasError('nameError')) {
           <mat-error>
             This name is not allowed
           </mat-error>
         }
-        @if (personForm.controls.lastname.hasError('lengthError')) {
+        @if (personForm.controls.lastName.hasError('lengthError')) {
           <mat-error>
             Length must be between 4 and 15 characters
           </mat-error>
@@ -44,7 +44,7 @@
       <mat-form-field>
         <mat-label>Age</mat-label>
         <input matInput type="number" placeholder="Age" formControlName="age" />
-        @if (personForm.controls.lastname.hasError('lengthError')) {
+        @if (personForm.controls.lastName.hasError('lengthError')) {
           <mat-error>
             Person must be between 18 and 99
           </mat-error>

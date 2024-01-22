@@ -48,7 +48,7 @@ export class ReactiveFormsComponent implements OnInit {
     // with email we are using an object to supply the validators
     id: new FormControl(this.person.id),
     name: new FormControl(this.person.name, [Validators.required, Validators.minLength(3)], []),
-    lastname: new FormControl(this.person.lastname, Validators.required),
+    lastname: new FormControl(this.person.lastName, Validators.required),
     age: new FormControl(this.person.age),
     email: new FormControl(this.person.email, { updateOn: 'change', validators: [], asyncValidators: [] }),
     gender: new FormControl(this.person.gender),
