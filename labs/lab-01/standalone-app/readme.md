@@ -63,7 +63,7 @@ In this lab we will create a new Angular 17 project and we will create a navbar 
         <app-navbar></app-navbar>
     </div>
     <div class="mainRow">
-        <div class="sidebar">
+        <div class="sideBar">
             <app-sidebar></app-sidebar>
         </div>
         <div class="main">
@@ -75,12 +75,7 @@ In this lab we will create a new Angular 17 project and we will create a navbar 
 -   Add the following to the app.component.scss file:
 
     ```scss
-    .navbar {
-        background-color: lightblue;
-        height: 10vh;
-    }
-
-    .sidebar {
+    .sideBar {
         background-color: lightgrey;
         width: 180px;
     }

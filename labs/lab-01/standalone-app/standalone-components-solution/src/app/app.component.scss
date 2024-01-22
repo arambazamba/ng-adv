@@ -1,9 +1,4 @@
-.navbar {
-  background-color: lightblue;
-  height: 10vh;
-}
-
-.sidebar {
+.sideBar {
   background-color: lightgrey;
   width: 180px;
 }
@@ -14,7 +9,7 @@
   margin: 0 2rem;
 }
 
-.mainrow {
+.mainRow {
   display: flex;
   flex-direction: row;
   width: 100%;
