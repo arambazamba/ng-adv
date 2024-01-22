@@ -250,7 +250,7 @@ In this lab we will create a new Angular 17 project and we will create a navbar 
     ];
     ```
 
--   Open app.config.ts and add the provideHttpClient() to the providers array:
+-   Open `app.config.ts` and add the `provideHttpClient()` to the providers array. Also add the `provideRouter(routes)` and `provideAnimations()`:
 
     ```bash
     export const appConfig: ApplicationConfig = {
