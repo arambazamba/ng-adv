@@ -20,6 +20,11 @@ In this lab we will create a new Angular 17 project and we will create a navbar 
     ```bash
     ng g c shared/navbar
     ```
+- Repeat this step to create a sidebar component in the shared folder.
+
+    ```bash
+    ng g c shared/sidebar
+    ```
 
 - Repeat this steps to create a home component and an about component in the root folder.
 
@@ -29,13 +34,25 @@ In this lab we will create a new Angular 17 project and we will create a navbar 
     ng g c food/food
     ```
 
+- Import the NavBar and Sidebar components to the app.component.ts file. Also add the imports for `RouterOutlet`:
+
+    ```typescript
+    @Component({
+    selector: 'app-root',
+    standalone: true,
+    imports: [RouterOutlet, NavbarComponent, SidebarComponent],
+    templateUrl: './app.component.html',
+    styleUrl: './app.component.scss'
+    })
+    ```
+    
 - Replace the html in app.component.html with the following:
 
     ```html
     <div>
         <app-navbar></app-navbar>
     </div>
-    <div class="mainrow">
+    <div class="mainRow">
         <div class="sidebar">
             <app-sidebar></app-sidebar>
         </div>
@@ -64,24 +81,12 @@ In this lab we will create a new Angular 17 project and we will create a navbar 
     margin: 0 2rem;
     }
 
-    .mainrow {
+    .mainRow {
     display: flex;
     flex-direction: row;
     width: 100%;
     height: 90vh;
     }
-    ```
-
-- Import the NavBar and Sidebar components to the app.component.ts file:
-
-    ```typescript
-    @Component({
-    selector: 'app-root',
-    standalone: true,
-    imports: [CommonModule, RouterOutlet, NavbarComponent, SidebarComponent],
-    templateUrl: './app.component.html',
-    styleUrl: './app.component.scss'
-    })
     ```
 
 - Add a MatToolbarModule and a MatListModule to sidebar.component.ts:
