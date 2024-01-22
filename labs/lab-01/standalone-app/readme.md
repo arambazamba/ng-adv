@@ -240,6 +240,16 @@ In this lab we will create a new Angular 17 project and we will create a navbar 
 
 -   Run ng s -o to check the result. Open the F12 Dev Tools to check the error. You will notice that there is no provider for the HttpClient.
 
+-   Update the route configuration in `app.routes.ts`:
+
+    ```bash
+    export const routes: Routes = [
+        { path: "", component: HomeComponent },
+        { path: "food", component: FoodComponent },
+        { path: "about", component: AboutComponent }
+    ];
+    ```
+
 -   Open app.config.ts and add the provideHttpClient() to the providers array:
 
     ```bash
@@ -250,14 +260,4 @@ In this lab we will create a new Angular 17 project and we will create a navbar 
             provideAnimations()
         ]
     };
-    ```
-
--   Now this error is fixed but we still cannot use the NavBar component. We will have to update the routes in `app.routes.ts`:
-
-    ```bash
-    export const routes: Routes = [
-        { path: "", component: HomeComponent },
-        { path: "food", component: FoodComponent },
-        { path: "about", component: AboutComponent }
-    ];
     ```
