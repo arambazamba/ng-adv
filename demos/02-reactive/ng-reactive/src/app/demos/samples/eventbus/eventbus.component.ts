@@ -1,14 +1,10 @@
-import { Component, OnInit } from '@angular/core';
+import { Component } from '@angular/core';
 
 @Component({
   selector: 'app-eventbus',
   templateUrl: './eventbus.component.html',
   styleUrls: ['./eventbus.component.scss']
 })
-export class EventbusComponent implements OnInit {
-  constructor() {}
-
+export class EventbusComponent {
   mdPath = '/assets/markdown/ebus.md';
-
-  ngOnInit() {}
 }

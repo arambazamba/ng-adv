@@ -6,8 +6,6 @@ import { delay } from 'rxjs/operators';
   providedIn: 'root',
 })
 export class DoublerService {
-  constructor() {}
-
   double(nr: number): Observable<number> {
     const del = Math.floor(Math.random() * Math.floor(2500));
     console.log('delaying for: ', del);

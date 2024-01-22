@@ -21,7 +21,7 @@ export class MouseDomObservablesComponent {
       const canvasEl: HTMLCanvasElement = this.signPad.nativeElement;
       const rect = canvasEl.getBoundingClientRect();
 
-      // set the internal canvas to the corect aspect ratio of the element
+      // set the internal canvas to the correct aspect ratio of the element
       this.cx = canvasEl.getContext('2d');
       if (this.cx) {
         this.cx.canvas.width = rect.width;

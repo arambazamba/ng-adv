@@ -31,7 +31,7 @@ export class SignPadComponent implements OnDestroy {
         map((evt: MouseEvent) => {
           return { X: evt.clientX, Y: evt.clientY };
         }),
-        tap((data: any) => console.log('modfied data', data))
+        tap((data: any) => console.log('modified data', data))
       );
 
       this.subMouseEvents = evtMouse.subscribe((point) => {

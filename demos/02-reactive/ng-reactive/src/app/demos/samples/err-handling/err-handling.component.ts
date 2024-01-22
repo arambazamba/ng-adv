@@ -67,7 +67,7 @@ export class ErrHandlingComponent {
         }),
         finalize(() => console.log('first finalize() block executed')),
         catchError((err) => {
-          console.log('caught rethrown error, providing fallback value', err);
+          console.log('rethrow error, providing fallback value', err);
           return of([
             {
               url: 'langfeatures',

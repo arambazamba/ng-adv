@@ -67,7 +67,7 @@ export class CreatingObservableComponent {
       //original function
       navigator.geolocation.getCurrentPosition(
         (pos: any) => {
-          //emite an element in the callback of the callback based function
+          //emit an element in the callback of the callback based function
           observer.next(pos);
           observer.complete();
         },

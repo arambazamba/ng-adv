@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, inject } from '@angular/core';
 import { FormControl } from '@angular/forms';
 import { combineLatestWith, map, startWith } from 'rxjs';
 import { Skill } from '../../skills/skills';
@@ -10,8 +10,8 @@ import { SkillsService } from '../../skills/skills.service';
   styleUrls: ['./reified-reactive.component.scss'],
 })
 export class ReifiedReactiveComponent {
+  service = inject(SkillsService);
   filter$ = new FormControl('', { nonNullable: true });
-
   skills$ = this.service.getSkills().pipe(
     // initialization: startWith('') will emit an empty string to the stream
     combineLatestWith(this.filter$.valueChanges.pipe(startWith(''))),
@@ -21,6 +21,4 @@ export class ReifiedReactiveComponent {
         : skills.filter((skill: Skill) => skill.name.includes(filter));
     })
   );
-
-  constructor(private service: SkillsService) { }
 }

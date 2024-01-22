@@ -1,8 +1,8 @@
 export class Person {
-  person: string = ''
+  person = ''
   children: Children[] = []
 }
 
 export class Children {
-  name: string = ''
+  name = ''
 }

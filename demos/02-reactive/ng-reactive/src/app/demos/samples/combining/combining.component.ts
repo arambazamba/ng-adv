@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, inject } from '@angular/core';
 import { concat, forkJoin, interval, merge, of, zip } from 'rxjs';
 import { combineLatestWith, map, take, tap } from 'rxjs/operators';
 import { AccountService } from '../../vouchers/account.service';
@@ -10,17 +10,13 @@ import { DoublerService } from '../operators/doubler.service';
   templateUrl: './combining.component.html',
   styleUrls: ['./combining.component.scss'],
 })
-export class CombiningComponent implements OnInit {
-  constructor(
-    private vs: VouchersService,
-    private as: AccountService,
-    private ds: DoublerService
-  ) {}
-
-  ngOnInit(): void {}
+export class CombiningComponent {
+  vs = inject(VouchersService);
+  as = inject(AccountService);
+  ds = inject(DoublerService);
 
   useConcat() {
-    // Create a time that emmits a value from array evey x milliseconds
+    // Create a time that emits a value from array every x milliseconds
     const arrA = [1, 2, 3, 4, 5];
     const sourceA$ = interval(500).pipe(
       take(arrA.length),

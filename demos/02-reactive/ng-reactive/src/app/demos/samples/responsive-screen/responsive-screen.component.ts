@@ -9,7 +9,6 @@ import { map } from 'rxjs';
 })
 export class ResponsiveScreenComponent {
   breakpointObserver = inject(BreakpointObserver);
-
   matches = this.breakpointObserver
     .observe(['(min-width: 600px)'])
 

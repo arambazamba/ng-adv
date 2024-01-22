@@ -26,7 +26,7 @@ export class TransformationComponent {
   }
 
   useConcatMap() {
-    const source = of('Hello', 'Goodbye', 'Nevermind');
+    const source = of('Hello', 'Goodbye', 'Never mind');
 
     //can also be used with promises
     const examplePromise = (val: string) =>

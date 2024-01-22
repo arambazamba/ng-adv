@@ -32,7 +32,7 @@ export class OperatorsComponent implements OnInit {
   vouchers: Voucher[] = [];
 
   ngOnInit() {
-    //Classic Subscribe (Imperative) Pattern -> Unsbscribe
+    //Classic Subscribe (Imperative) Pattern -> Unsubscribe
     this.vs.getVouchers().subscribe((vs) => {
       this.vouchers = vs;
     });

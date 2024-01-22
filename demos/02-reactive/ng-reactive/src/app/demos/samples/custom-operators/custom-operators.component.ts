@@ -1,5 +1,5 @@
 import { HttpClient } from '@angular/common/http';
-import { Component, OnInit, inject } from '@angular/core';
+import { Component, inject } from '@angular/core';
 import { EMPTY, from } from 'rxjs';
 import { catchError } from 'rxjs/operators';
 import { filterOnlyEven } from './filterOnlyEven';

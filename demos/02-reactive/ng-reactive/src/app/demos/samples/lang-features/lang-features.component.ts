@@ -9,7 +9,6 @@ import { map } from 'rxjs/operators';
   styleUrls: ['./lang-features.component.scss'],
 })
 export class LangFeaturesComponent {
-
   impureFunction() {
     let name = 'Sandra';
 
@@ -33,9 +32,11 @@ export class LangFeaturesComponent {
   }
 
   shallowClone() {
-    //Spread operator on objects
-    const simplePerson = { name: 'Sepp' };
-    const languages = ['German', 'English', 'French'];
+    const languages = {
+      js: 'JavaScript',
+      ts: 'TypeScript',
+      ng: 'Angular',
+    };
     const father = {
       birth: new Date(),
       job: 'Dev Dude',
@@ -50,9 +51,14 @@ export class LangFeaturesComponent {
     spreadClonedPerson.children[0].name = 'Giro';
     console.log('After Change:', father.children[0].name);
 
-    const copiedPerson = Object.assign(father);
-    //object composition
+    //object composition -> no change detection
+    const copiedPerson = Object.assign(father, { job: 'Construction Guy' });
+    console.log('After Change:', father);
+    console.log('After Change:', copiedPerson);
+    //shallow copy -> change detection
     const clonedPerson = Object.assign({}, father, languages);
+    console.log('After Change:', father);
+    console.log('After Change:', clonedPerson);
 
     const arr = [1, 2, 3];
     const notAnArray = { ...arr };
@@ -89,6 +95,12 @@ export class LangFeaturesComponent {
 
     //destructuring helps us to initialize variables with the values of an object
     const { birth, job, children } = father;
+
+    //this is the same as
+    const b = father.birth;
+    const j = father.job;
+    const c = father.children;
+
     console.log('birth:', birth);
     console.log('job:', job);
     console.log('children:', children);
@@ -106,6 +118,4 @@ export class LangFeaturesComponent {
       )
       .subscribe();
   }
-
-  explainChangeDetection() { }
 }
