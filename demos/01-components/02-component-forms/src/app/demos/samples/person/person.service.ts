@@ -1,4 +1,4 @@
-import { Injectable } from '@angular/core';
+import { Injectable, inject } from '@angular/core';
 import { of, Observable } from 'rxjs';
 import { Person } from './person.model';
 import { delay } from 'rxjs/operators';
@@ -10,7 +10,7 @@ import { environment } from 'src/environments/environment';
   providedIn: 'root',
 })
 export class PersonService {
-  constructor(private http: HttpClient) { }
+  http = inject(HttpClient);
 
   getPersons() {
     return this.http.get<Person[]>(`${environment.api}persons`);
@@ -22,6 +22,11 @@ export class PersonService {
 
   save(form: NgForm) {
     console.log('ngForm:', form);
+  }
+
+  saveForLater(form: NgForm) {
+    console.log('ngForm saved for later:', form);
+    localStorage.setItem('personForm', JSON.stringify(form));
   }
 
   checkMailExists(email: string): Observable<boolean> {

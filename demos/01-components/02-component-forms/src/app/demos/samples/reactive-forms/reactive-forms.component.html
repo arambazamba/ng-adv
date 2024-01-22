@@ -58,7 +58,10 @@
             }}</mat-radio-button>
           }
         </mat-radio-group>
-        <button mat-raised-button color="accent" type="submit">Submit</button>
+        @if(personForm.valid==false) {
+          <button mat-raised-button color="primary">Save for later</button>
+        }
+        <button mat-raised-button color="primary" type="submit" [disabled]="personForm.valid==false" >Submit</button>
       </form>
     </mat-card-content>
   </mat-card>

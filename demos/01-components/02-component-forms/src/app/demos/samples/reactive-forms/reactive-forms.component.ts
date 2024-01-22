@@ -14,28 +14,28 @@ import { MatCard, MatCardHeader, MatCardTitle, MatCardContent } from '@angular/m
 import { MarkdownRendererComponent } from '../../../shared/markdown-renderer/markdown-renderer.component';
 
 @Component({
-    selector: 'app-reactive-forms',
-    templateUrl: './reactive-forms.component.html',
-    styleUrls: ['./reactive-forms.component.scss'],
-    standalone: true,
-    imports: [
-        MarkdownRendererComponent,
-        MatCard,
-        MatCardHeader,
-        MatCardTitle,
-        MatCardContent,
-        FormsModule,
-        ColumnDirective,
-        ReactiveFormsModule,
-        MatInput,
-        MatFormField,
-        MatLabel,
-        MatSelect,
-        MatOption,
-        MatRadioGroup,
-        MatRadioButton,
-        MatButton,
-    ],
+  selector: 'app-reactive-forms',
+  templateUrl: './reactive-forms.component.html',
+  styleUrls: ['./reactive-forms.component.scss'],
+  standalone: true,
+  imports: [
+    MarkdownRendererComponent,
+    MatCard,
+    MatCardHeader,
+    MatCardTitle,
+    MatCardContent,
+    FormsModule,
+    ColumnDirective,
+    ReactiveFormsModule,
+    MatInput,
+    MatFormField,
+    MatLabel,
+    MatSelect,
+    MatOption,
+    MatRadioGroup,
+    MatRadioButton,
+    MatButton,
+  ],
 })
 export class ReactiveFormsComponent implements OnInit {
   ps: PersonService = inject(PersonService);
@@ -44,8 +44,8 @@ export class ReactiveFormsComponent implements OnInit {
 
   personForm = new FormGroup({
     //include the id even if you do not want to render it to support updated
-    // with name params are supplied using comma as seperator
-    // with emal we are using an object to supply the validators
+    // with name params are supplied using comma as separator
+    // with email we are using an object to supply the validators
     id: new FormControl(this.person.id),
     name: new FormControl(this.person.name, [Validators.required, Validators.minLength(3)], []),
     lastname: new FormControl(this.person.lastname, Validators.required),
@@ -79,7 +79,11 @@ export class ReactiveFormsComponent implements OnInit {
     );
   }
 
-  savePerson(personForm: UntypedFormGroup): void {
+  savePerson(personForm: FormGroup): void {
     this.ps.save(personForm as unknown as NgForm);
+  }
+
+  saveForLater(personForm: FormGroup): void {
+    this.ps.saveForLater(personForm as unknown as NgForm);
   }
 }
