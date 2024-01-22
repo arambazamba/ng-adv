@@ -4,37 +4,39 @@ In this lab we will create a new Angular 17 project and we will create a navbar 
 
 ## Guide
 
-- Create a new project, use scss and do not use server side rendering
+-   Create a new project, use scss and do not use server side rendering
 
     ![ng-new](_images/ng-new.png)
 
-    >Note: You could skip answering the questions by using the following command:
+    > Note: You could skip answering the questions by using the following command:
 
     ```bash
     ng new standalone-component-solution --routing --style=scss --ssr=false
     ```
-- Go to `src/main.ts` and `src/app` and notice the standalone configuration, especially app.config.ts and app.routes.ts. Examine this files. Also notice tha `app.module.ts` is not present. 
 
-- Create a navbar component in the shared folder. Notice that with a project that was create with Angular 17 all components are created as standalone components by default.
+-   Go to `src/main.ts` and `src/app` and notice the standalone configuration, especially app.config.ts and app.routes.ts. Examine this files. Also notice tha `app.module.ts` is not present.
+
+-   Create a navbar component in the shared folder. Notice that with a project that was create with Angular 17 all components are created as standalone components by default.
 
     ```bash
     ng g c shared/navbar
     ```
-- Repeat this step to create a sidebar component in the shared folder.
+
+-   Repeat this step to create a sidebar component in the shared folder.
 
     ```bash
     ng g c shared/sidebar
     ```
 
-- Repeat this steps to create a home component and an about component in the root folder.
+-   Repeat this steps to create a home component and an about component in the root folder.
 
-- Create a food component in the food folder and a sidebar component in the shared folder.
+-   Create a food component in the food folder and a sidebar component in the shared folder.
 
     ```bash
     ng g c food/food
     ```
 
-- Import the NavBar and Sidebar components to the app.component.ts file. Also add the imports for `RouterOutlet`:
+-   Import the NavBar and Sidebar components to the app.component.ts file. Also add the imports for `RouterOutlet`:
 
     ```typescript
     @Component({
@@ -45,8 +47,8 @@ In this lab we will create a new Angular 17 project and we will create a navbar 
     styleUrl: './app.component.scss'
     })
     ```
-    
-- Replace the html in app.component.html with the following:
+
+-   Replace the html in app.component.html with the following:
 
     ```html
     <div>
@@ -62,7 +64,7 @@ In this lab we will create a new Angular 17 project and we will create a navbar 
     </div>
     ```
 
-- Add the following to the app.component.scss file:
+-   Add the following to the app.component.scss file:
 
     ```scss
     .navbar {
@@ -89,7 +91,7 @@ In this lab we will create a new Angular 17 project and we will create a navbar 
     }
     ```
 
-- Add a MatToolbarModule and a MatListModule to sidebar.component.ts:
+-   Add a MatToolbarModule and a MatListModule to sidebar.component.ts:
 
     ```typescript
     @Component({
@@ -102,7 +104,7 @@ In this lab we will create a new Angular 17 project and we will create a navbar 
     export class SidebarComponent {}
     ```
 
-- Add the MatToolbar and MatList to the sidebar.component.html:
+-   Add the MatToolbar and MatList to the sidebar.component.html. Add the imports for MatToolbarModule and MatListModule yourself:
 
     ```html
     <mat-toolbar> Mock Submenu </mat-toolbar>
@@ -114,9 +116,9 @@ In this lab we will create a new Angular 17 project and we will create a navbar 
     </mat-list>
     ```
 
-- Run ng s -o to check the result. At this point you should have a navbar and a sidebar in the app component but no content in the main section. Also they do not look very nice.
+-   Run ng s -o to check the result. At this point you should have a navbar and a sidebar in the app component but no content in the main section. Also they do not look very nice.
 
-- In the `shared/navbar` folder create a `nav-item.model.ts`:
+-   In the `shared/navbar` folder create a `nav-item.model.ts`:
 
     ```bash
     export class NavItem {
@@ -125,11 +127,11 @@ In this lab we will create a new Angular 17 project and we will create a navbar 
     }
     ```
 
-- In the `shared/navbar` folder create a `navbar.service.ts`:
+-   In the `shared/navbar` folder create a `navbar.service.ts`:
 
     ```bash
     @Injectable({
-    providedIn: 'root'
+        providedIn: 'root'
     })
     export class NavbarService {
     http = inject(HttpClient);
@@ -140,13 +142,13 @@ In this lab we will create a new Angular 17 project and we will create a navbar 
     }
     ```
 
-- Add the environment configuration to the project:
+-   Add the environment configuration to the project:
 
     ```bash
     ng g environments
-    ```    
+    ```
 
-- Modify the environment.development.ts file:
+-   Modify the environment.development.ts file:
 
     ```bash
     export const environment = {
@@ -154,13 +156,13 @@ In this lab we will create a new Angular 17 project and we will create a navbar 
     };
     ```
 
-- Install json-server:
+-   Install json-server:
 
     ```bash
     npm i -g json-server
     ```
 
-- Create a db.json file in the root folder:
+-   Create a db.json file in the root folder:
 
     ```bash
     {
@@ -181,13 +183,13 @@ In this lab we will create a new Angular 17 project and we will create a navbar 
     }
     ```
 
-- Run json-server:     
+-   Run json-server:
 
     ```bash
     json-server --watch db.json
-    ```        
+    ```
 
-- Add Angular Material to the project, chose a theme:
+-   Add Angular Material to the project, chose a theme:
 
     ```bash
     ng add @angular/material
@@ -195,7 +197,7 @@ In this lab we will create a new Angular 17 project and we will create a navbar 
 
     ![ng-add-material](_images/ng-add-material.png)
 
-- Inject the `NavbarService` in the `navbar.component.ts`:
+-   Inject the `NavbarService` in the `navbar.component.ts`:
 
     ```bash
     @Component({
@@ -211,9 +213,9 @@ In this lab we will create a new Angular 17 project and we will create a navbar 
     }
     ```
 
-- Modify the `navbar.component.html`:
+-   Modify the `navbar.component.html`:
 
-    ```bash    
+    ```bash
     <mat-toolbar color="primary">
         <mat-toolbar-row>
             @for (item of items | async; track item) {
@@ -225,7 +227,7 @@ In this lab we will create a new Angular 17 project and we will create a navbar 
     </mat-toolbar>
     ```
 
-- Add the following styles to the `navbar.component.scss`:
+-   Add the following styles to the `navbar.component.scss`:
 
     ```bash
     mat-toolbar {
@@ -240,10 +242,10 @@ In this lab we will create a new Angular 17 project and we will create a navbar 
     }
     ```
 
-- Run ng s -o to check the result. Open the F12 Dev Tools to check the error. You will notice that there is no provider for the HttpClient. 
+-   Run ng s -o to check the result. Open the F12 Dev Tools to check the error. You will notice that there is no provider for the HttpClient.
 
-- Open app.config.ts and add the provideHttpClient() to the providers array:
-   
+-   Open app.config.ts and add the provideHttpClient() to the providers array:
+
     ```bash
     export const appConfig: ApplicationConfig = {
         providers: [
@@ -254,7 +256,7 @@ In this lab we will create a new Angular 17 project and we will create a navbar 
     };
     ```
 
-- Now this error is fixed but we still cannot use the NavBar component. We will have to update the routes in `app.routes.ts`:
+-   Now this error is fixed but we still cannot use the NavBar component. We will have to update the routes in `app.routes.ts`:
 
     ```bash
     export const routes: Routes = [
