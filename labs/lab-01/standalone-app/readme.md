@@ -261,3 +261,10 @@ In this lab we will create a new Angular 17 project and we will create a navbar 
         ]
     };
     ```
+
+- Just for your understanding review that `appConfig` is used in `main.ts`:
+
+    ```typescript
+    bootstrapApplication(AppComponent, appConfig)
+    .catch((err) => console.error(err));
+    ```
