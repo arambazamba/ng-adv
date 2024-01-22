@@ -83,13 +83,14 @@ In this lab we will create a new Angular 17 project and we will create a navbar 
     ng g c shared/sidebar
     ```
 
--   Repeat this steps to create a home component and an about component in the root folder.
-
 -   Create a food component in the food folder and a sidebar component in the shared folder.
 
     ```bash
     ng g c food/food
     ```
+
+-   Repeat this steps to create a home component and an about component in the root folder.    
+
 
 -   Import the NavBar and Sidebar components to the app.component.ts file. Also add the imports for `RouterOutlet`:
 
@@ -202,7 +203,7 @@ In this lab we will create a new Angular 17 project and we will create a navbar 
         templateUrl: './navbar.component.html',
         styleUrl: './navbar.component.scss'
     })
-        export class NavbarComponent {
+    export class NavbarComponent {
         ns = inject(NavbarService);
         items = this.ns.getTopItems();
     }
