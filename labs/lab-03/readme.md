@@ -4,8 +4,6 @@ In this lab we will solve the following tasks:
 
 - Implement a responsive Side Menu
 
-- Implement a global loading indicator (Advanced Optional)
-
 ## Implement a responsive Side Menu:
 
 ![menu](_images/menu.jpg)
@@ -98,21 +96,4 @@ In this lab we will solve the following tasks:
   }
   ```
 
-- Take the [demo.container](.../../../../demos/04-state/ngrx-state/src/app/demos/demo-container/demo-container.component.ts) and the [sidenav.service.ts](.../../../../demos/04-state/ngrx-state/src/app/shared/sidenav/sidenav.service.ts) as a reference.
-
-## Implement a global loading indicator (Advanced Optional):
-
-Note: If your time permits you can also a loading indicator using an interceptor. Take this reference from the [Demo App](.../../../../demos/07-rxjs-state/ng-reactive/src/app/shared/loading/).
-
-- Implement a stateful loading service
-
-- Implement an [HttpInterceptor](https://angular.io/guide/http#intercepting-requests-and-responses) to toggle a loading service that is used to show a loading indicator. Keep in mind that there could be multiple request at the same time.
-
-- Register the interceptor in the app.module.ts
-
-  ```typescript
-  providers: [
-    LoadingService,
-    { provide: HTTP_INTERCEPTORS, useClass: LoadingInterceptor, multi: true },
-  ],
-  ```
+- Take the [demo.container](../../demos/03-state-ngrx/ngrx-state/src/app/demos/demo-container/demo-container.component.ts) and the [sidenav.service.ts](../../demos/03-state-ngrx/ngrx-state/src/app/shared/sidenav/sidenav.service.ts) as a reference.
