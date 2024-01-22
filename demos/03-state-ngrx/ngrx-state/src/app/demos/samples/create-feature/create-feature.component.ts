@@ -5,6 +5,4 @@ import { Component } from '@angular/core';
   templateUrl: './create-feature.component.html',
   styleUrls: ['./create-feature.component.scss']
 })
-export class CreateFeatureComponent {
-
-}
+export class CreateFeatureComponent { }

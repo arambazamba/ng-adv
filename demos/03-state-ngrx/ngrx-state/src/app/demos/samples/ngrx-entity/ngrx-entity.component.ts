@@ -5,6 +5,4 @@ import { Component } from '@angular/core';
   templateUrl: './ngrx-entity.component.html',
   styleUrls: ['./ngrx-entity.component.scss']
 })
-export class NgrxEntityComponent {
-
-}
+export class NgrxEntityComponent { }

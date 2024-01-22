@@ -5,6 +5,4 @@ import { Component } from '@angular/core';
   templateUrl: './ngrx-data.component.html',
   styleUrls: ['./ngrx-data.component.scss']
 })
-export class NgrxDataComponent {
-
-}
+export class NgrxDataComponent { }

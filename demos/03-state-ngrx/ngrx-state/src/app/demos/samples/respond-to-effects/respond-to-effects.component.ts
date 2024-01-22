@@ -5,6 +5,4 @@ import { Component } from '@angular/core';
   templateUrl: './respond-to-effects.component.html',
   styleUrls: ['./respond-to-effects.component.scss']
 })
-export class RespondToEffectsComponent {
-
-}
+export class RespondToEffectsComponent { }
