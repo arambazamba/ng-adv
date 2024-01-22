@@ -2,12 +2,12 @@ export const environment = {
   production: false,
   authEnabled: true,
   firebaseConfig: {
-    apiKey: "AIzaSyCzvn-o8iO1XCF4G42KrnrSZCAmGAcUiPs",
-    authDomain: "sdfasdf-b0744.firebaseapp.com",
-    projectId: "sdfasdf-b0744",
-    storageBucket: "sdfasdf-b0744.appspot.com",
-    messagingSenderId: "777176653081",
-    appId: "1:777176653081:web:361f6da9ea7fdcb03d3988",
-    measurementId: "G-23V4W9SQ2B"
+    apiKey: "AIzaSyDhQ_ZFwP2QaoNsQssxGq9eoECR42QrF48",
+    authDomain: "food-app-ap.firebaseapp.com",
+    projectId: "food-app-ap",
+    storageBucket: "food-app-ap.appspot.com",
+    messagingSenderId: "581454033222",
+    appId: "1:581454033222:web:3458f3753fcdcdca6ff547",
+    measurementId: "G-TSCT3YVZLE"
   },
 };

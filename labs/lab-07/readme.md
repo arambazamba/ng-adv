@@ -1,13 +1,27 @@
-# Authentication using NgRx - Lab 4
+# Authentication using NgRx
 
-- Implement Firebase Auth using NgRx - Option A
-- Implement Azure AD Auth using NgRx - Option B
-
-## Implement Firebase Auth using NgRx
-
-- Extend environment.ts to provide the Firebase Config and the ability to turn off authentication
+- Register a Firebase Project
 - Implement Firebase Login & Register
 - Modify `app.component.ts` to show a Login-Splash or the app
+
+## Register a Firebase Project
+
+- Got to [Firebase](https://console.firebase.google.com/) and create a new project (e.g. `food-app-<your-initials>`). Accept the default settings and press continue when prompted.
+
+  ![firebase-create-web-app](_images/create-app.png)
+
+- Create a web app in your project (e.g. `food-app-web-<your-initials>`). Accept the default settings and press `register app` when prompted and then `continue to console`.
+
+  ![project-settings](_images/project-settings.png)
+
+- Copy the app config from the Firebase console into your `environment.ts` file.
+
+  ![app-config](_images/app-config.png)  
+
+- Add an `authEnabled` key with value `true` to your environment file. Also add a `firebaseConfig` and paste the config that you just copied.
+
+- In the Firebase console, expand `Build` and go to `Authentication` and enable `Email/Password` as a sign-in method. Skip the e-mail validation for now.
+
 
 Example:
 
