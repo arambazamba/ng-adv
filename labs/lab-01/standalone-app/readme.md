@@ -4,6 +4,12 @@ In this lab we will create a new Angular 17 project and we will create a navbar 
 
 ## Guide
 
+-   Install json-server:
+
+    ```bash
+    npm i -g json-server
+    ```
+
 -   Create a new project, use scss and do not use server side rendering
 
     ![ng-new](_images/ng-new.png)
@@ -28,18 +34,12 @@ In this lab we will create a new Angular 17 project and we will create a navbar 
     ng g environments
     ```
 
--   Modify the environment.development.ts file:
+-   Modify the environment.development.ts file to reflect the base url of `json-server`:
 
     ```bash
     export const environment = {
         api: 'http://localhost:3000',
     };
-    ```
-
--   Install json-server:
-
-    ```bash
-    npm i -g json-server
     ```
 
 -   Create a db.json file in the root folder:
