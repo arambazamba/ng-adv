@@ -40,11 +40,11 @@ In this lab we will create a new Angular 17 project and we will create a navbar 
 
     ```typescript
     @Component({
-    selector: 'app-root',
-    standalone: true,
-    imports: [RouterOutlet, NavbarComponent, SidebarComponent],
-    templateUrl: './app.component.html',
-    styleUrl: './app.component.scss'
+        selector: 'app-root',
+        standalone: true,
+        imports: [RouterOutlet, NavbarComponent, SidebarComponent],
+        templateUrl: './app.component.html',
+        styleUrl: './app.component.scss'
     })
     ```
 
@@ -68,26 +68,26 @@ In this lab we will create a new Angular 17 project and we will create a navbar 
 
     ```scss
     .navbar {
-    background-color: lightblue;
-    height: 10vh;
+        background-color: lightblue;
+        height: 10vh;
     }
 
     .sidebar {
-    background-color: lightgrey;
-    width: 180px;
+        background-color: lightgrey;
+        width: 180px;
     }
 
     .main {
-    min-width: 80vw;
-    flex-grow: 1;
-    margin: 0 2rem;
+        min-width: 80vw;
+        flex-grow: 1;
+        margin: 0 2rem;
     }
 
     .mainRow {
-    display: flex;
-    flex-direction: row;
-    width: 100%;
-    height: 90vh;
+        display: flex;
+        flex-direction: row;
+        width: 100%;
+        height: 90vh;
     }
     ```
 
@@ -95,11 +95,11 @@ In this lab we will create a new Angular 17 project and we will create a navbar 
 
     ```typescript
     @Component({
-    selector: 'app-sidebar',
-    standalone: true,
-    imports: [MatToolbarModule, MatListModule],
-    templateUrl: './sidebar.component.html',
-    styleUrl: './sidebar.component.scss'
+        selector: 'app-sidebar',
+        standalone: true,
+        imports: [MatToolbarModule, MatListModule],
+        templateUrl: './sidebar.component.html',
+        styleUrl: './sidebar.component.scss'
     })
     export class SidebarComponent {}
     ```
@@ -110,9 +110,9 @@ In this lab we will create a new Angular 17 project and we will create a navbar 
     <mat-toolbar> Mock Submenu </mat-toolbar>
 
     <mat-list role="list" color="accent">
-    <mat-list-item role="listitem">Item 1</mat-list-item>
-    <mat-list-item role="listitem">Item 2</mat-list-item>
-    <mat-list-item role="listitem">Item 3</mat-list-item>
+        <mat-list-item role="listitem">Item 1</mat-list-item>
+        <mat-list-item role="listitem">Item 2</mat-list-item>
+        <mat-list-item role="listitem">Item 3</mat-list-item>
     </mat-list>
     ```
 
@@ -134,11 +134,11 @@ In this lab we will create a new Angular 17 project and we will create a navbar 
         providedIn: 'root'
     })
     export class NavbarService {
-    http = inject(HttpClient);
+        http = inject(HttpClient);
 
-    getTopItems() {
-        return this.http.get<NavItem[]>(`${environment.api}/top-links`);
-        }
+        getTopItems() {
+            return this.http.get<NavItem[]>(`${environment.api}/top-links`);
+            }
     }
     ```
 
