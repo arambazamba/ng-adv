@@ -4,10 +4,10 @@ The options nonNullable or updateOn with Validators or asyncValidators allow you
 email: [
     this.person.email,
     {
-    nonNullable: true,
-    updateOn: 'blur',
-    validators: [Validators.required, Validators.email],
-    asyncValidators: [this.mailExistsValidator],
+        nonNullable: true,
+        updateOn: 'blur',
+        validators: [Validators.required, Validators.email],
+        asyncValidators: [this.mailExistsValidator],
     },
 ],
 ```

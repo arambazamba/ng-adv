@@ -38,7 +38,7 @@ export class FormErrorsComponent {
   skillForm = this.fb.group({
     name: [
       '',
-      [Validators.required, Validators.minLength(4), Validators.maxLength(15)],
+      [Validators.required, Validators.minLength(4), Validators.maxLength(15), this.validateName],
     ],
     age: [0, [Validators.required, Validators.min(18)]],
     skillsGrp: this.fb.array([]),
@@ -73,7 +73,6 @@ export class FormErrorsComponent {
     return (this.skillForm.controls.skillsGrp as FormArray).controls;
   }
 
-  //Sample for custom Validator - name
   validateName(control: FormControl): { [s: string]: boolean } | null {
     if (control.value === 'Hugo') {
       return { nameError: true };

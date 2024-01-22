@@ -6,6 +6,7 @@ import { MatSelect } from '@angular/material/select';
 import { MatInput } from '@angular/material/input';
 import { MatFormField, MatLabel } from '@angular/material/form-field';
 import { MatCard, MatCardHeader, MatCardTitle, MatCardContent } from '@angular/material/card';
+import { BorderDirective } from 'src/app/shared/ux-lib/formatting/formatting-directives';
 
 @Component({
   selector: 'app-reactive-cascade',
@@ -25,10 +26,12 @@ import { MatCard, MatCardHeader, MatCardTitle, MatCardContent } from '@angular/m
     MatSelect,
     MatOption,
     MatButton,
+    BorderDirective
   ],
 })
 export class ReactiveCascadeComponent {
   fb: FormBuilder = inject(FormBuilder);
+
   readonly selectValues = [
     {
       type: 'Frameworks',
@@ -48,8 +51,8 @@ export class ReactiveCascadeComponent {
 
   // Type the form using type inference
   skillsGrp = this.fb.nonNullable.group({
-    selectInput: [''],
-    whereInput: [''],
+    techType: [''],
+    techValues: [''],
   });
 
   profileForm = this.fb.group({
@@ -69,5 +72,9 @@ export class ReactiveCascadeComponent {
 
   saveForm() {
     console.log('form saves:', this.profileForm);
+  }
+
+  addSkill() {
+    this.profileForm.controls.skills.push(this.skillsGrp);
   }
 }
