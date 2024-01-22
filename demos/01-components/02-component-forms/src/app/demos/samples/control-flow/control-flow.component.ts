@@ -7,7 +7,12 @@ import { BoxedDirective } from 'src/app/shared/ux-lib/formatting/formatting-dire
 @Component({
   selector: 'app-control-flow',
   standalone: true,
-  imports: [MarkdownRendererModule, MatSlideToggleModule, ReactiveFormsModule, BoxedDirective],
+  imports: [
+    MarkdownRendererModule,
+    MatSlideToggleModule,
+    ReactiveFormsModule,
+    BoxedDirective
+  ],
   templateUrl: './control-flow.component.html',
   styleUrl: './control-flow.component.scss'
 })
