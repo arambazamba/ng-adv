@@ -22,6 +22,53 @@ In this lab we will create a new Angular 17 project and we will create a navbar 
 
     ![ng-add-material](_images/ng-add-material.png)    
 
+-   Add the environment configuration to the project:
+
+    ```bash
+    ng g environments
+    ```
+
+-   Modify the environment.development.ts file:
+
+    ```bash
+    export const environment = {
+        api: 'http://localhost:3000',
+    };
+    ```
+
+-   Install json-server:
+
+    ```bash
+    npm i -g json-server
+    ```
+
+-   Create a db.json file in the root folder:
+
+    ```bash
+    {
+        "top-links": [
+            {
+                "title": "Home",
+                "url": "/home"
+            },
+            {
+                "title": "About",
+                "url": "/about"
+            },
+            {
+                "title": "Food",
+                "url": "/food"
+            }
+        ]
+    }
+    ```
+
+-   Run json-server:
+
+    ```bash
+    json-server --watch db.json
+    ```    
+
 -   Go to `src/main.ts` and `src/app` and notice the standalone configuration, especially app.config.ts and app.routes.ts. Examine this files. Also notice tha `app.module.ts` is not present.
 
 -   Create a navbar component in the shared folder. Notice that with a project that was create with Angular 17 all components are created as standalone components by default.
@@ -143,53 +190,6 @@ In this lab we will create a new Angular 17 project and we will create a navbar 
             return this.http.get<NavItem[]>(`${environment.api}/top-links`);
             }
     }
-    ```
-
--   Add the environment configuration to the project:
-
-    ```bash
-    ng g environments
-    ```
-
--   Modify the environment.development.ts file:
-
-    ```bash
-    export const environment = {
-        api: 'http://localhost:3000',
-    };
-    ```
-
--   Install json-server:
-
-    ```bash
-    npm i -g json-server
-    ```
-
--   Create a db.json file in the root folder:
-
-    ```bash
-    {
-        "top-links": [
-            {
-                "title": "Home",
-                "url": "/home"
-            },
-            {
-                "title": "About",
-                "url": "/about"
-            },
-            {
-                "title": "Food",
-                "url": "/food"
-            }
-        ]
-    }
-    ```
-
--   Run json-server:
-
-    ```bash
-    json-server --watch db.json
     ```
 
 -   Inject the `NavbarService` in the `navbar.component.ts`:
