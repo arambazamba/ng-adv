@@ -6,13 +6,13 @@ In this lab we will solve the following tasks:
 
 - Refactor `food-edit.component` to be implemented as a Reactive Form using FormBuilder.
 
-    Note: You can take the following components as a [reference](https://github.com/arambazamba/ng-adv/tree/main/demos/02-components-forms/component-forms/src/app/demos/samples/forms-builder):
+    Note: You can take the following components as a [reference](../../demos/01-components/02-component-forms/src/app/demos/samples/forms-builder/):
 
 - Implement Validation for the name filed to be required with min length of 3 and the price filed to be positive
 
     ![edit-form](_images/edit-form.png)
 
-    > Note: You can take the following components as a [reference](https://github.com/arambazamba/ng-adv/tree/main/demos/02-components-forms/component-forms/src/app/demos/samples/validaton-intro):
+    > Note: You can take the following components as a [reference](../../demos/01-components/02-component-forms/src/app/demos/samples/validaton-intro):
 
 ## Convert the project to bootstrap and use standalone components
 

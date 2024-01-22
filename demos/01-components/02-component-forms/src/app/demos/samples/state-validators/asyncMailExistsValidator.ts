@@ -1,4 +1,4 @@
-import { Injectable } from '@angular/core';
+import { Injectable, inject } from '@angular/core';
 import {
   AbstractControl,
   AsyncValidator,
@@ -10,14 +10,14 @@ import { PersonService } from '../person/person.service';
 
 @Injectable({ providedIn: 'root' })
 export class AsyncMailExistsValidator implements AsyncValidator {
-  constructor(private ps: PersonService) {}
+  ps = inject(PersonService);
 
   validate(
     ctrl: AbstractControl
   ): Promise<ValidationErrors | null> | Observable<ValidationErrors | null> {
     return this.ps.checkMailExists(ctrl.value).pipe(
       map((exists) => {
-        return exists ? { mailexists: true } : null;
+        return exists ? { mailExists: true } : null;
       })
     );
   }
