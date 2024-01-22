@@ -15,7 +15,7 @@ import { FoodDataService } from './food/state/food-data.service';
 export const appConfig: ApplicationConfig = {
     providers: [
         provideRouter(routes),
-        provideHttpClient(withInterceptorsFromDi()),
+        provideHttpClient(),
         provideAnimations(),
         provideStore(),
         provideState(appState),
@@ -31,6 +31,6 @@ export const appConfig: ApplicationConfig = {
             },
             multi: true,
         },
-        provideStoreDevtools({ maxAge: 25, logOnly: !isDevMode() , connectInZone: true})
+        provideStoreDevtools({ maxAge: 25, logOnly: !isDevMode(), connectInZone: true })
     ],
 };

@@ -20,7 +20,7 @@ Make sure that `app/app.config.ts` matches the following code:
 export const appConfig: ApplicationConfig = {
     providers: [
         provideRouter(routes),
-        provideHttpClient(withInterceptorsFromDi()),
+        provideHttpClient(),
         provideAnimations(),
         provideStore(),
         provideState(appState),
