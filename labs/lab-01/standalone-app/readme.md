@@ -49,7 +49,7 @@ In this lab we will create a new Angular 17 project and we will create a navbar 
         "top-links": [
             {
                 "title": "Home",
-                "url": "/home"
+                "url": ""
             },
             {
                 "title": "About",
