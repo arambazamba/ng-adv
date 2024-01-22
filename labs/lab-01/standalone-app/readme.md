@@ -69,7 +69,7 @@ In this lab we will create a new Angular 17 project and we will create a navbar 
     json-server --watch db.json
     ```    
 
--   Go to `src/main.ts` and `src/app` and notice the standalone configuration, especially app.config.ts and app.routes.ts. Examine this files. Also notice tha `app.module.ts` is not present.
+-   Go to `src/main.ts` and `src/app` and notice the standalone configuration, especially `app.config.ts` and `app.routes.ts`. Examine this files. Also notice tha `app.module.ts` is not present.
 
 -   Create a navbar component in the shared folder. Notice that with a project that was create with Angular 17 all components are created as standalone components by default.
 
