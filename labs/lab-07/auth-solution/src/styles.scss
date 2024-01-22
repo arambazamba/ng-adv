@@ -2,7 +2,7 @@
 @use '@angular/material' as mat;
 @include mat.core();
 
-//Pick colors here: https://material.io/resources/color/
+//Pick colors here: https://m2.material.io/design/color/the-color-system.html#tools-for-picking-colors
 $primary: mat.define-palette(mat.$brown-palette, 400);
 $accent: mat.define-palette(mat.$grey-palette, 400);
 $warn: mat.define-palette(mat.$red-palette);
