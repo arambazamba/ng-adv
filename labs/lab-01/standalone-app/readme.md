@@ -14,6 +14,14 @@ In this lab we will create a new Angular 17 project and we will create a navbar 
     ng new standalone-component-solution --routing --style=scss --ssr=false
     ```
 
+-   Add Angular Material to the project, chose a theme:
+
+    ```bash
+    ng add @angular/material
+    ```
+
+    ![ng-add-material](_images/ng-add-material.png)    
+
 -   Go to `src/main.ts` and `src/app` and notice the standalone configuration, especially app.config.ts and app.routes.ts. Examine this files. Also notice tha `app.module.ts` is not present.
 
 -   Create a navbar component in the shared folder. Notice that with a project that was create with Angular 17 all components are created as standalone components by default.
@@ -188,14 +196,6 @@ In this lab we will create a new Angular 17 project and we will create a navbar 
     ```bash
     json-server --watch db.json
     ```
-
--   Add Angular Material to the project, chose a theme:
-
-    ```bash
-    ng add @angular/material
-    ```
-
-    ![ng-add-material](_images/ng-add-material.png)
 
 -   Inject the `NavbarService` in the `navbar.component.ts`:
 
