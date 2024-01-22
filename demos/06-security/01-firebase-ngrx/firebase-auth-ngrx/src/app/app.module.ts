@@ -20,41 +20,43 @@ import { metaReducers, reducers } from './state';
 import { IntroComponent } from './shared/intro/intro.component';
 
 @NgModule({
-  declarations: [AppComponent, HomeComponent, ErrPageComponent],
-  imports: [
-    BrowserModule,
-    AppRoutingModule,
-    BrowserAnimationsModule,
-    MaterialModule,
-    HttpClientModule,
-    SharedModule,
-    FBAuthModule,
-    IntroComponent,
-    StoreModule.forRoot(reducers, {
-      metaReducers,
-      runtimeChecks: {
-        strictStateImmutability: false,
-        strictActionImmutability: false,
-      },
-    }),
-    EffectsModule.forRoot([]),
-    EntityDataModule.forRoot({}),
-    StoreDevtoolsModule.instrument({
-      name: 'ng-demo-app',
-      maxAge: 25,
-      logOnly: environment.production,
-    connectInZone: true}),
-    StoreRouterConnectingModule.forRoot({
-      routerState: RouterState.Full,
-    }),
-  ],
-  providers: [
-    {
-      provide: HTTP_INTERCEPTORS,
-      useClass: FBAuthInterceptor,
-      multi: true,
-    },
-  ],
-  bootstrap: [AppComponent],
+    declarations: [AppComponent],
+    imports: [
+        BrowserModule,
+        AppRoutingModule,
+        BrowserAnimationsModule,
+        MaterialModule,
+        HttpClientModule,
+        SharedModule,
+        FBAuthModule,
+        IntroComponent,
+        StoreModule.forRoot(reducers, {
+            metaReducers,
+            runtimeChecks: {
+                strictStateImmutability: false,
+                strictActionImmutability: false,
+            },
+        }),
+        EffectsModule.forRoot([]),
+        EntityDataModule.forRoot({}),
+        StoreDevtoolsModule.instrument({
+            name: 'ng-demo-app',
+            maxAge: 25,
+            logOnly: environment.production,
+            connectInZone: true
+        }),
+        StoreRouterConnectingModule.forRoot({
+            routerState: RouterState.Full,
+        }),
+        HomeComponent, ErrPageComponent,
+    ],
+    providers: [
+        {
+            provide: HTTP_INTERCEPTORS,
+            useClass: FBAuthInterceptor,
+            multi: true,
+        },
+    ],
+    bootstrap: [AppComponent],
 })
 export class AppModule { }

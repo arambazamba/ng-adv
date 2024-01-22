@@ -14,20 +14,18 @@ import { SkillsRoutingModule } from './skills.routing.module';
 import { SkillsEditComponent } from './skills-edit/skills-edit.component';
 
 @NgModule({
-  declarations: [
-    SkillsContainerComponent,
-    SkillsKpiComponent,
-    SkillRowComponent,
-    SkillsEditComponent
-  ],
-  imports: [
-    CommonModule,
-    SkillsRoutingModule,
-    MaterialModule,
-    ReactiveFormsModule,
-    HttpClientModule,
-  ],
-  providers: [SkillsEntityService, SkillsDataService],
+    imports: [
+        CommonModule,
+        SkillsRoutingModule,
+        MaterialModule,
+        ReactiveFormsModule,
+        HttpClientModule,
+        SkillsContainerComponent,
+        SkillsKpiComponent,
+        SkillRowComponent,
+        SkillsEditComponent,
+    ],
+    providers: [SkillsEntityService, SkillsDataService],
 })
 export class SkillsModule {
   constructor(

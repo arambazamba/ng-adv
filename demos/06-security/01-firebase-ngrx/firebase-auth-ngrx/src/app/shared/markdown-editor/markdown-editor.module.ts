@@ -18,16 +18,16 @@ const comps = [
 ];
 
 @NgModule({
-  declarations: comps,
-  exports: comps,
-  imports: [
-    CommonModule,
-    MaterialModule,
-    FormsModule,
-    StoreModule.forFeature(editorFeatureKey, editorReducer),
-    EffectsModule.forFeature([EditorEffects]),
-    ColumnDirective,
-    RowDirective
-  ],
+    exports: comps,
+    imports: [
+        CommonModule,
+        MaterialModule,
+        FormsModule,
+        StoreModule.forFeature(editorFeatureKey, editorReducer),
+        EffectsModule.forFeature([EditorEffects]),
+        ColumnDirective,
+        RowDirective,
+        ...comps
+    ],
 })
 export class MarkdownEditorModule { }

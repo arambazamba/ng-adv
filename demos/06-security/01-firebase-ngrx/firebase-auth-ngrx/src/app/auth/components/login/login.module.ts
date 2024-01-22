@@ -10,17 +10,17 @@ import { MatCardModule } from '@angular/material/card';
 import { ReactiveFormsModule } from '@angular/forms';
 
 @NgModule({
-  declarations: [LoginComponent],
-  exports: [LoginComponent],
-  imports: [
-    CommonModule,
-    LogInRoutingModule,
-    MatDialogModule,
-    MatFormFieldModule,
-    MatInputModule,
-    MatButtonModule,
-    MatCardModule,
-    ReactiveFormsModule,
-  ],
+    exports: [LoginComponent],
+    imports: [
+        CommonModule,
+        LogInRoutingModule,
+        MatDialogModule,
+        MatFormFieldModule,
+        MatInputModule,
+        MatButtonModule,
+        MatCardModule,
+        ReactiveFormsModule,
+        LoginComponent,
+    ],
 })
 export class LogInModule {}

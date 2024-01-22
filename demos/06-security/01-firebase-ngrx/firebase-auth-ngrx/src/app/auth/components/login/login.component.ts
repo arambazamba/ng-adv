@@ -1,15 +1,32 @@
 import { Component, TemplateRef, ViewChild, inject } from '@angular/core';
-import { FormControl, FormGroup, Validators } from '@angular/forms';
+import { FormControl, FormGroup, Validators, ReactiveFormsModule } from '@angular/forms';
 import { MatDialog } from '@angular/material/dialog';
 import { Router } from '@angular/router';
 import { combineLatestWith, map } from 'rxjs/operators';
 import { LoginCredentials } from '../../credential.model';
 import { AuthFacade } from '../../state/auth.facade';
+import { MatButton } from '@angular/material/button';
+import { MatInput } from '@angular/material/input';
+import { MatFormField, MatError } from '@angular/material/form-field';
+import { MatCard, MatCardHeader, MatCardTitle, MatCardContent, MatCardActions } from '@angular/material/card';
 
 @Component({
-  selector: 'app-login',
-  templateUrl: './login.component.html',
-  styleUrls: ['./login.component.scss'],
+    selector: 'app-login',
+    templateUrl: './login.component.html',
+    styleUrls: ['./login.component.scss'],
+    standalone: true,
+    imports: [
+        ReactiveFormsModule,
+        MatCard,
+        MatCardHeader,
+        MatCardTitle,
+        MatCardContent,
+        MatFormField,
+        MatInput,
+        MatError,
+        MatCardActions,
+        MatButton,
+    ],
 })
 export class LoginComponent {
   @ViewChild('dialog') template!: TemplateRef<any>;

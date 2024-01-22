@@ -14,14 +14,14 @@ const comps = [
 ];
 
 @NgModule({
-  imports: [
-    CommonModule,
-    FormsModule,
-    RouterModule,
-    MaterialModule,
-    NgOptimizedImage,
-  ],
-  declarations: comps,
-  exports: comps,
+    imports: [
+        CommonModule,
+        FormsModule,
+        RouterModule,
+        MaterialModule,
+        NgOptimizedImage,
+        ...comps,
+    ],
+    exports: comps,
 })
 export class SharedModule { }

@@ -17,18 +17,18 @@ import { reducer as AuthReducer, authFeatureKey } from './state/auth.reducer';
 const comps = [AuthComponent, LogoutButtonComponent, CurrentUserComponent];
 
 @NgModule({
-  declarations: comps,
-  exports: comps,
-  imports: [
-    CommonModule,
-    FormsModule,
-    ReactiveFormsModule,
-    provideFirebaseApp(() => initializeApp(environment.firebaseConfig)),
-    provideAuth(() => getAuth()),
-    MaterialModule,
-    FBAuthRoutingModule,
-    StoreModule.forFeature(authFeatureKey, AuthReducer),
-    EffectsModule.forFeature([AuthEffects]),
-  ],
+    exports: comps,
+    imports: [
+        CommonModule,
+        FormsModule,
+        ReactiveFormsModule,
+        provideFirebaseApp(() => initializeApp(environment.firebaseConfig)),
+        provideAuth(() => getAuth()),
+        MaterialModule,
+        FBAuthRoutingModule,
+        StoreModule.forFeature(authFeatureKey, AuthReducer),
+        EffectsModule.forFeature([AuthEffects]),
+        ...comps,
+    ],
 })
 export class FBAuthModule { }

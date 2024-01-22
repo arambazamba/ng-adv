@@ -10,17 +10,17 @@ import { MatCardModule } from '@angular/material/card';
 import { ReactiveFormsModule } from '@angular/forms';
 
 @NgModule({
-  declarations: [RegisterComponent],
-  exports: [RegisterComponent],
-  imports: [
-    CommonModule,
-    RegisterRoutingModule,
-    MatDialogModule,
-    MatFormFieldModule,
-    MatInputModule,
-    MatButtonModule,
-    MatCardModule,
-    ReactiveFormsModule,
-  ],
+    exports: [RegisterComponent],
+    imports: [
+        CommonModule,
+        RegisterRoutingModule,
+        MatDialogModule,
+        MatFormFieldModule,
+        MatInputModule,
+        MatButtonModule,
+        MatCardModule,
+        ReactiveFormsModule,
+        RegisterComponent,
+    ],
 })
 export class RegisterModule {}

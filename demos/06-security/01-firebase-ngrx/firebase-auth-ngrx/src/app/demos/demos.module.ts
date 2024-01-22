@@ -19,27 +19,25 @@ import { demoReducer, demosFeatureKey } from './state/demos.reducer';
 import { FormattingModule } from '../shared/formatting/formatting.module';
 
 @NgModule({
-  declarations: [
-    DemoContainerComponent,
-    FirebaseAuthComponent,
-  ],
-  imports: [
-    CommonModule,
-    FormsModule,
-    ReactiveFormsModule,
-    DemosRoutingModule,
-    FBAuthModule,
-    LogInModule,
-    RegisterModule,
-    MaterialModule,
-    HttpClientModule,
-    MarkdownRendererModule,
-    MarkdownEditorModule,
-    FormattingModule,
-    SharedModule,
-    StoreModule.forFeature(demosFeatureKey, demoReducer),
-    EffectsModule.forFeature([DemosEffects]),
-  ],
-  providers: [],
+    imports: [
+        CommonModule,
+        FormsModule,
+        ReactiveFormsModule,
+        DemosRoutingModule,
+        FBAuthModule,
+        LogInModule,
+        RegisterModule,
+        MaterialModule,
+        HttpClientModule,
+        MarkdownRendererModule,
+        MarkdownEditorModule,
+        FormattingModule,
+        SharedModule,
+        StoreModule.forFeature(demosFeatureKey, demoReducer),
+        EffectsModule.forFeature([DemosEffects]),
+        DemoContainerComponent,
+        FirebaseAuthComponent,
+    ],
+    providers: [],
 })
 export class DemosModule { }
