@@ -1,6 +1,6 @@
 import { createFeature, createReducer, createSelector, on } from '@ngrx/store';
 import { Customer } from '../customer.model';
-import { CustomersActions } from './customers.actions';
+import { customersActions } from './customers.actions';
 
 export interface CustomersState {
   customers: Customer[];
@@ -15,14 +15,14 @@ export const initialAppState: CustomersState = {
 export const customerState = createFeature({
   name: 'customers',
   reducer: createReducer(initialAppState,
-    on(CustomersActions.loadCustomersSuccess, (state, action) => ({
+    on(customersActions.loadCustomersSuccess, (state, action) => ({
       ...state,
-      customers: action.items,
+      customers: action.customers,
     })),
-    on(CustomersActions.loadCustomersFailure, (state, action) => ({
+    on(customersActions.loadCustomersFailure, (state, action) => ({
       ...state,
     })),
-    on(CustomersActions.setFilter, (state, action) => ({
+    on(customersActions.setFilter, (state, action) => ({
       ...state,
       filter: action.filter,
     })),

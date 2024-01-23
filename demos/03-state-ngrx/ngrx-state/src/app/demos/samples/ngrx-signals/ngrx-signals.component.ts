@@ -1,7 +1,7 @@
 import { Component, inject } from '@angular/core';
 import { Store } from '@ngrx/store';
 import { CustomersState, customerState } from '../../../customers/state/customers.state';
-import { CustomersActions } from 'src/app/customers/state/customers.actions';
+import { customersActions } from 'src/app/customers/state/customers.actions';
 
 @Component({
   selector: 'app-ngrx-signals',
@@ -13,6 +13,6 @@ export class NgrxSignalsComponent {
   customers = this.store.selectSignal(customerState.selectCustomers);
 
   ngOnInit(): void {
-    this.store.dispatch(CustomersActions.loadCustomers());
+    this.store.dispatch(customersActions.loadCustomers());
   }
 }

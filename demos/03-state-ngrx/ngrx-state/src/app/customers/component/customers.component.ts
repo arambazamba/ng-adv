@@ -1,6 +1,6 @@
 import { Component, OnInit, inject } from '@angular/core';
 import { Store } from '@ngrx/store';
-import { CustomersActions } from '../state/customers.actions';
+import { customersActions } from '../state/customers.actions';
 import { CustomersState, customerState } from '../state/customers.state';
 import { FormControl } from '@angular/forms';
 
@@ -15,9 +15,9 @@ export class CustomersComponent implements OnInit {
   fcFilter = new FormControl('');
 
   ngOnInit(): void {
-    this.store.dispatch(CustomersActions.loadCustomers());
+    this.store.dispatch(customersActions.loadCustomers());
     this.fcFilter.valueChanges.subscribe(value => {
-      this.store.dispatch(CustomersActions.setFilter({ filter: value ?? '' }));
+      this.store.dispatch(customersActions.setFilter({ filter: value ?? '' }));
     });
   }
 }
