@@ -7,12 +7,30 @@ import {
   SimpleChanges,
 } from '@angular/core';
 import { FoodItem } from 'src/app/food/food-item.model';
-import { UntypedFormBuilder, UntypedFormGroup, Validators } from '@angular/forms';
+import { UntypedFormBuilder, UntypedFormGroup, Validators, ReactiveFormsModule } from '@angular/forms';
+import { MatButton } from '@angular/material/button';
+import { NgIf } from '@angular/common';
+import { MatInput } from '@angular/material/input';
+import { MatFormField } from '@angular/material/form-field';
+import { MatCard, MatCardHeader, MatCardTitle, MatCardContent, MatCardActions } from '@angular/material/card';
 
 @Component({
-  selector: 'app-food-edit',
-  templateUrl: './food-edit.component.html',
-  styleUrls: ['./food-edit.component.scss'],
+    selector: 'app-food-edit',
+    templateUrl: './food-edit.component.html',
+    styleUrls: ['./food-edit.component.scss'],
+    standalone: true,
+    imports: [
+        ReactiveFormsModule,
+        MatCard,
+        MatCardHeader,
+        MatCardTitle,
+        MatCardContent,
+        MatFormField,
+        MatInput,
+        NgIf,
+        MatCardActions,
+        MatButton,
+    ],
 })
 export class FoodEditComponent implements OnInit {
   constructor(private fb: UntypedFormBuilder) {

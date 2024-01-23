@@ -1,4 +1,4 @@
-import { createReducer, on } from '@ngrx/store';
+import { createFeature, createReducer, on } from '@ngrx/store';
 import {
   changeSideNavPosition,
   changeSideNavVisible,
@@ -20,23 +20,26 @@ export const initialAppState: AppState = {
   sideNavPosition: 'side',
 };
 
-export const appReducer = createReducer(
-  initialAppState,
-  on(toggleSideNav, (state) => ({
-    ...state,
-    sideNavVisible: !state.sideNavVisible,
-  })),
-  on(setSideNavEnabled, (state, action) => ({
-    ...state,
-    sideNavEnabled: action.enabled,
-    sideNavVisible: action.enabled,
-  })),
-  on(changeSideNavVisible, (state) => ({
-    ...state,
-    sideNavVisible: !state.sideNavVisible,
-  })),
-  on(changeSideNavPosition, (state, action) => ({
-    ...state,
-    sideNavPosition: action.position,
-  }))
-);
+export const appState = createFeature({
+  name: appFeatureKey,
+  reducer: createReducer(
+    initialAppState,
+    on(toggleSideNav, (state) => ({
+      ...state,
+      sideNavVisible: !state.sideNavVisible,
+    })),
+    on(setSideNavEnabled, (state, action) => ({
+      ...state,
+      sideNavEnabled: action.enabled,
+      sideNavVisible: action.enabled,
+    })),
+    on(changeSideNavVisible, (state) => ({
+      ...state,
+      sideNavVisible: !state.sideNavVisible,
+    })),
+    on(changeSideNavPosition, (state, action) => ({
+      ...state,
+      sideNavPosition: action.position,
+    }))
+  )
+})

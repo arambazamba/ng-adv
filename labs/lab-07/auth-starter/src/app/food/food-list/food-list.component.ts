@@ -8,13 +8,41 @@ import {
   OnChanges,
 } from '@angular/core';
 import { FoodItem } from 'src/app/food/food-item.model';
-import { MatTableDataSource } from '@angular/material/table';
-import { FormControl } from '@angular/forms';
+import { MatTableDataSource, MatTable, MatColumnDef, MatHeaderCellDef, MatHeaderCell, MatCellDef, MatCell, MatHeaderRowDef, MatHeaderRow, MatRowDef, MatRow } from '@angular/material/table';
+import { FormControl, ReactiveFormsModule } from '@angular/forms';
+import { MatTooltip } from '@angular/material/tooltip';
+import { MatIcon } from '@angular/material/icon';
+import { MatButton, MatIconAnchor } from '@angular/material/button';
+import { MatInput } from '@angular/material/input';
+import { MatFormField } from '@angular/material/form-field';
+import { MatCard, MatCardContent } from '@angular/material/card';
 
 @Component({
-  selector: 'app-food-list',
-  templateUrl: './food-list.component.html',
-  styleUrls: ['./food-list.component.scss'],
+    selector: 'app-food-list',
+    templateUrl: './food-list.component.html',
+    styleUrls: ['./food-list.component.scss'],
+    standalone: true,
+    imports: [
+        MatCard,
+        MatCardContent,
+        MatFormField,
+        MatInput,
+        ReactiveFormsModule,
+        MatButton,
+        MatIcon,
+        MatTable,
+        MatColumnDef,
+        MatHeaderCellDef,
+        MatHeaderCell,
+        MatCellDef,
+        MatCell,
+        MatIconAnchor,
+        MatTooltip,
+        MatHeaderRowDef,
+        MatHeaderRow,
+        MatRowDef,
+        MatRow,
+    ],
 })
 export class FoodListComponent implements OnInit, OnChanges {
   constructor() { }
