@@ -1,10 +1,12 @@
 # Microsoft Entra Id
 
-Microsoft Entra Id is a cloud-based identity and access management service. It provides a single sign-on and multi-factor authentication for cloud applications. It is the identity provider for Microsoft 365 and Azure. It can also be used to secure custom applications.  
+Microsoft Entra Id is a cloud-based enterprise identity and access management service. It provides a single sign-on and multi-factor authentication for cloud applications. It is the identity provider for Microsoft 365 and Azure. It can also be used to secure custom applications.  
 
 ## Links & Resources
 
-[.NET Core Authentication Snippets](https://docs.microsoft.com/en-us/aspnet/core/security/authentication/social/microsoft-logins?view=aspnetcore-6.0)
+[Microsoft identity platform app types and authentication flows](https://learn.microsoft.com/en-us/entra/identity-platform/authentication-flows-app-scenarios)
+
+[.NET Authentication Snippets](https://docs.microsoft.com/en-us/aspnet/core/security/authentication/social/microsoft-logins?view=aspnetcore-6.0)
 
 [Tutorial: Sign in users and call the Microsoft Graph API from an Angular single-page application (SPA) using auth code flow](https://docs.microsoft.com/en-us/azure/active-directory/develop/tutorial-v2-angular-auth-code)
 
