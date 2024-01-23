@@ -16,6 +16,9 @@ export class CreatingObservableComponent {
     of(2, 5, 9, 12, 22).subscribe(
       data => console.log('current marble: ', data)
     );
+    let arr = [2, 5, 9, 12, 22];
+    of(arr).subscribe(val => console.log(val)); // -> 1 marble
+
   }
 
   useObsFrom() {
@@ -28,7 +31,6 @@ export class CreatingObservableComponent {
     observer.complete = this.onComplete;
 
     from(arr).subscribe(observer); // -> 5 marbles
-    of(arr).subscribe(observer); // -> 1 marble
   }
 
   useNewObs() {

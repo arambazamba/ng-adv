@@ -54,10 +54,12 @@ export class OperatorsComponent implements OnInit {
     this.vouchers$
       .pipe(
         map((vouchers) => {
-          return vouchers.map((v) => ({
-            ...v,
-            Label: `${v.Text} costs € ${v.Amount}`,
-          }));
+          return vouchers.map((v) => (
+            {
+              ...v,
+              Label: `${v.Text} costs € ${v.Amount}`,
+            }
+          ));
         })
       )
       .subscribe((data) => this.log('use map()', data));
@@ -135,12 +137,12 @@ export class OperatorsComponent implements OnInit {
 
     from(arr)
       .pipe(reduce((acc, curr) => acc + curr, 0))
-      .subscribe((d) => console.log(d));
+      .subscribe((d) => console.log("Sum from array: ", d));
 
     this.vouchers$.pipe(
       mergeMap((vouchers: Voucher[]) => vouchers),
       reduce((acc, curr) => { acc = acc + curr.Amount; return acc }, 0)
-    ).subscribe(sum => console.log("sum", sum));
+    ).subscribe(sum => console.log("Sum vouchers: ", sum));
   }
 
   usePluck() {

@@ -5,6 +5,14 @@
       "title": "Language Features"
     },
     {
+      "url": "imperative",
+      "title": "Imperative Reactivity"
+    },
+    {
+      "url": "reactive",
+      "title": "Declarative Reactivity"
+    },
+    {
       "url": "asyncpipe",
       "title": "Async Pipe"
     },
@@ -35,14 +43,6 @@
     {
       "url": "unsubscribe",
       "title": "Unsubscribing"
-    },
-    {
-      "url": "imperative",
-      "title": "Imperative Reactivity"
-    },
-    {
-      "url": "reactive",
-      "title": "Declarative Reactivity"
     },
     {
       "url": "subjects",

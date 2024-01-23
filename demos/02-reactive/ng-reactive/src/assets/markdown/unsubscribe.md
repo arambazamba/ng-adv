@@ -1,2 +1,2 @@
-- sign-pad.component.ts uses individual unsubscribe
-- imperative.component.ts uses a very common global component unsubscribe pattern
+- Examine `async-pipe.component.ts` and its use of `ngOnDestroy`and the `taskSubscription`.
+- Examine `take-until-destroyed.component.ts` and how it unsubscribes from the observable when the component is destroyed. This is a recommended pattern when dealing with multiple subscriptions in a component.

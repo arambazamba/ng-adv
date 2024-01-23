@@ -41,5 +41,4 @@ export class AsyncPipeComponent implements OnInit {
     // unsubscribe from the observable
     this.taskSubscription?.unsubscribe();
   }
-
 }

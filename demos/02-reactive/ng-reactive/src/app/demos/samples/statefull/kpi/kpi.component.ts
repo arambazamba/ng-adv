@@ -9,5 +9,5 @@ import { StatefulDemoService } from '../stateful-demo.service';
 })
 export class KpiComponent {
   service = inject(StatefulDemoService);
-  ct$ = this.service.getDemos().pipe(map((items) => items.length));
+  count = this.service.getDemos().pipe(map((items) => items.length));
 }

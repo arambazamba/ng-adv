@@ -5,6 +5,4 @@ import { Component } from '@angular/core';
   templateUrl: './signals-event-bus.component.html',
   styleUrls: ['./signals-event-bus.component.scss']
 })
-export class SignalsEventBusComponent {
-
-}
+export class SignalsEventBusComponent { }

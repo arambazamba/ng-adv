@@ -1,4 +1,4 @@
-import { Injectable } from '@angular/core';
+import { Injectable, inject } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
 import { Voucher } from './voucher.model';
@@ -9,10 +9,10 @@ import { map } from 'rxjs/operators';
   providedIn: 'root',
 })
 export class VouchersService {
-  constructor(private httpClient: HttpClient) { }
+  http = inject(HttpClient);
 
   getVouchers(): Observable<Voucher[]> {
-    return this.httpClient.get<Voucher[]>(`${environment.api}vouchers`);
+    return this.http.get<Voucher[]>(`${environment.api}vouchers`);
   }
 
   getVoucher(id: number) {

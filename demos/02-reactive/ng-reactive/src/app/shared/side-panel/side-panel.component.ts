@@ -34,7 +34,7 @@ export class SidePanelComponent {
     this.icon = this.editorDisplayed ? "close" : "create";
   }
 
-  toogleSideNav() {
+  toggleSideNav() {
     this.sidenav.toggleMenuVisibility();
   }
 
