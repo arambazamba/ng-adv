@@ -15,3 +15,15 @@ export const loadCustomers$ = createEffect((actions$ = inject(Actions), service 
   )
 }, { functional: true });
 ```
+
+- Register effects in `app.module.ts`:
+
+  ```typescript
+  EffectsModule.forRoot([]),
+  ```
+
+- Register `effects` in `app.config.ts` when using standalone configuration:
+
+  ```typescript
+  provideEffects(),
+  ```  

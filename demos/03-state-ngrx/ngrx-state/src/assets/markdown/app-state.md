@@ -37,3 +37,16 @@ export const reducers: ActionReducerMap<State> = {
   app: appState.reducer,
 };
 ```
+
+- Register `AppState` in `app.module.ts`:
+
+  ```typescript
+  StoreModule.forRoot(reducers, { metaReducers }),
+  ```
+
+- Register `appState` in `app.config.ts` when using standalone configuration:
+
+  ```typescript
+  provideStore(),
+  provideState(appState),
+  ```  
