@@ -1,6 +1,7 @@
 # Authentication using NgRx
 
 - Register a Firebase Project
+- Add a wrapper service for Firebase Authentication
 - Implement Firebase Login & Register
 - Modify `app.component.ts` to show a Login-Splash or the app
 
@@ -22,48 +23,21 @@
 
 - In the Firebase console, expand `Build` and go to `Authentication` and enable `Email/Password` as a sign-in method. Skip the e-mail validation for now.
 
+## Add a wrapper service for Firebase Authentication
 
-Example:
+- Add the following dependencies to your project:
 
-```html
-<div *ngIf="(loggedIn$ | async) == true">
-  <div>
-    <app-navbar></app-navbar>
-  </div>
-  <div class="mainrow">
-    <mat-sidenav-container style="width: 100%">
-      <mat-sidenav
-        #sidenav
-        [opened]="menuVisible$ | async"
-        [mode]="menuPosition$ | async"
-        class="sidebar"
-      >
-        Sidenav content
-      </mat-sidenav>
-      <mat-sidenav-content class="workbench">
-        <router-outlet></router-outlet>
-      </mat-sidenav-content>
-    </mat-sidenav-container>
-  </div>
-</div>
+  ```bash
+  npm install firebase @angular/fire --save
+  ```
 
-<div
-  *ngIf="(loggedIn$ | async) == false"
-  fxLayout="column"
-  fxLayoutAlign="center center"
-  class="loginsplash"
->
-  <app-login-splash>
-    <div class="login">
-      <app-login></app-login>
-    </div>
-    <div class="register">
-      <app-register></app-register>
-    </div>
-  </app-login-splash>
-</div>
-```
+- Add a wrapper service `fbauth.service.ts` to your project. You can take the following [reference](../../demos/06-security/01-firebase/firebase-auth/src/app/fbauth/firebase-auth.service.ts) implementation.
 
-Sample Login Splash:
+## Implement Auth Components
 
-![login-splash](_images/login-splash.png)
+- Implement the following components:
+  - `login.component.ts`
+  - `register.component.ts`
+  - `login-splash.component.ts`
+
+ >Note: You can use the [Firebase Auth Demo](../../demos/06-security/01-firebase/firebase-auth/src/app/fbauth/components/) as a reference.
