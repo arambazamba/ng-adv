@@ -1,0 +1,1 @@
+- Examine `mouse-dom-observables.component.ts`. Click `Capture mouse events` and hover over the grey canvas and click the left mouse button to draw.
