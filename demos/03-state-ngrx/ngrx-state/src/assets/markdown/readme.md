@@ -6,7 +6,7 @@
 - Understanding NgRx and know when to use it
 - Using Store, Actions and Reducers
 - Debugging NgRx using Redux Dev Tools
-- Implementin & Using Selectors
+- Implementing & Using Selectors
 - Using Effects
 - Scaffolding using NgRx Schematics
 - NgRx Entity
@@ -17,7 +17,7 @@
 Installation:
 
 ```
-npm i @ngrx/store @ngrx/effects @ngrx/enitity -S
+npm i @ngrx/store @ngrx/effects @ngrx/entity -S
 npm i @ngrx/store-devtools -D
 ng add @ngrx/schematics
 ```

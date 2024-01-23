@@ -1,4 +1,4 @@
-A @ngrx/component-store sample will be shown in the PWA / Realt time section of this class:
+A @ngrx/component-store sample will be shown in the PWA / Real time section of this class:
 
 ```typescript
 export interface OrdersState {

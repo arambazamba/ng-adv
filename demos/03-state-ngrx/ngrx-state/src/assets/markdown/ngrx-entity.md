@@ -16,7 +16,7 @@ export class DemoFacade {
       if (!loaded) {
         this.store.dispatch(DemoActions.loaddemos());
 ```
-- Examin how the demo facade uses the ngrx store and provides the data to the component
+- Examine how the demo facade uses the ngrx store and provides the data to the component
 
 ```typescript
 getDemos() {

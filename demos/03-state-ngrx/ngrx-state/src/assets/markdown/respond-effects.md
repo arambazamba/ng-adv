@@ -1,6 +1,6 @@
 - Effects are basically async actions that typically interact with the data store
 
-- The shared/markdown-editor contains an effect imlementation that is more complex, because it is using a facade to respond to completed actions. This is used to toggle display of the editor.
+- The shared/markdown-editor contains an effect implementation that is more complex, because it is using a facade to respond to completed actions. This is used to toggle display of the editor.
 
 - Use the Mock Markdown Editor to update a Comment of your choice. Check the `db.json` file in the root of the project if it has been updated. Display of the editor is controlled by `sidepanel.service.ts`
 

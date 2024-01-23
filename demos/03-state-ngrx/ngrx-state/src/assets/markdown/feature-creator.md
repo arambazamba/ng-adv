@@ -3,7 +3,7 @@
     - Reducer
     - Selectors
 
-Additional Selectors can be definded using extraSelectors parameter.
+Additional Selectors can be defined using extraSelectors parameter.
 
 ```TypeScript
 export const appState = createFeature({

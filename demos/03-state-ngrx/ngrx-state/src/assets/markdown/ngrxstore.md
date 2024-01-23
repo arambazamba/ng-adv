@@ -8,7 +8,7 @@ Search for: //TODO: Use this until before Action Creators
 
 Make Sure you use this reducer:
 
-```
+```typescript
 export function reducer(state: DemoState = initialDemoState, action) {
   switch (action.type) {
     case TOGGLE_SHOW_FILTER:
