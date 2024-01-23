@@ -1,0 +1,23 @@
+<mat-card appearance="outlined">
+  <mat-card-header>
+    <mat-card-title> Watch console for output </mat-card-title>
+  </mat-card-header>
+
+  <mat-card-content class="cmdItems">
+    <button mat-raised-button color="accent" (click)="impureFunction()">
+      Impure Func
+    </button>
+    <button mat-raised-button color="accent" (click)="pureFunction()">
+      Pure Func
+    </button>
+    <button mat-raised-button color="accent" (click)="shallowClone()">
+      Shallow Clone
+    </button>
+    <button mat-raised-button color="accent" (click)="deepCloning()">
+      Deep Cloning
+    </button>
+    <button mat-raised-button color="accent" (click)="useDestructuring()">
+      Destructuring
+    </button>
+  </mat-card-content>
+</mat-card>

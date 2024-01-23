@@ -1,0 +1,163 @@
+{
+  "demos": [
+    {
+      "url": "app-state",
+      "title": "App State",
+      "id": 1
+    },
+    {
+      "url": "create-feature",
+      "title": "createFeature",
+      "id": 2
+    },
+    {
+      "url": "dispatch-action",
+      "title": "Dispatch Action",
+      "id": 3
+    },
+    {
+      "url": "feature-modules-state",
+      "title": "Feature Module State",
+      "id": 5
+    },
+    {
+      "url": "effects",
+      "title": "Effects",
+      "id": 16
+    },
+    {
+      "url": "respond-effects",
+      "title": "Respond to Effects",
+      "id": 18
+    },
+    {
+      "url": "facades",
+      "title": "Facades",
+      "id": 15
+    },
+    {
+      "url": "ngrx-entity",
+      "title": "@ngrx/entity",
+      "id": 4
+    },
+    {
+      "url": "ngrx-data",
+      "title": "@ngrx/data",
+      "id": 6
+    },
+    {
+      "url": "presenter-ngrx",
+      "title": "Container Presenter NgRx",
+      "id": 13
+    },
+    {
+      "url": "cd-intro",
+      "title": "Change Detection Intro",
+      "id": 42
+    },
+    {
+      "url": "cd-profile",
+      "title": "Profile Change Detection",
+      "id": 41
+    },
+    {
+      "url": "component-store",
+      "title": "@ngrx/component-store",
+      "id": 44
+    }
+  ],
+  "skills": [
+    {
+      "id": 1,
+      "name": "RxJs",
+      "completed": false
+    },
+    {
+      "id": 2,
+      "name": "NgRx",
+      "completed": true
+    },
+    {
+      "id": 3,
+      "name": "Angular",
+      "completed": false
+    },
+    {
+      "id": 4,
+      "name": "TypeScript",
+      "completed": true
+    },
+    {
+      "id": 5,
+      "name": "Material",
+      "completed": true
+    },
+    {
+      "id": 6,
+      "name": "Node",
+      "completed": true
+    },
+    {
+      "id": 7,
+      "name": "Forms",
+      "completed": true
+    },
+    {
+      "id": 8,
+      "name": "Authentication",
+      "completed": true
+    }
+  ],
+  "comments": [
+    {
+      "id": 1,
+      "url": "",
+      "title": "Using @ngrx/store",
+      "comment": "To use @ngrx/store, we need to install it first.",
+      "saved": "2020-09-16T20:10:06.925Z"
+    },
+    {
+      "id": 2,
+      "url": "",
+      "title": "Optimizing change detection",
+      "comment": "In order to optimize change detection, we need to use OnPush strategy.",
+      "saved": "2020-09-16T20:10:06.925Z"
+    }
+  ],
+  "customers": [
+    {
+      "id": 1,
+      "name": "Cleo"
+    },
+    {
+      "id": 2,
+      "name": "Soi"
+    },
+    {
+      "id": 3,
+      "name": "Giro"
+    },
+    {
+      "id": 4,
+      "name": "Flora"
+    }
+  ],
+  "top-links": [
+    {
+      "label": "Home",
+      "url": ""
+    },
+    {
+      "label": "Demos",
+      "url": "demos"
+    },
+    {
+      "label": "Skills",
+      "url": "skills"
+    },
+    {
+      "label": "Customers",
+      "url": "customers"
+    }
+  ]
+}

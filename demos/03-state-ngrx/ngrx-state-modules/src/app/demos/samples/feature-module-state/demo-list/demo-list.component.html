@@ -1,0 +1,21 @@
+<mat-card appearance="outlined">
+  <mat-card-header>
+    <mat-card-title>
+      Demos List
+    </mat-card-title>
+  </mat-card-header>
+  <mat-card-content>
+    <div column class="list">
+      @for (d of view$ | async; track d) {
+        <app-demo-row
+          [item]="d"
+          (onDelete)="deleteItem($event)"
+          (onChangeVisibility)="changeVisibility($event)"
+          (onSelect)="selectItem($event)"
+          cdkDrag
+          class="box"
+        ></app-demo-row>
+      }
+    </div>
+  </mat-card-content>
+</mat-card>

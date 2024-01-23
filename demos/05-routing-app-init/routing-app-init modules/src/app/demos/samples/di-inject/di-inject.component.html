@@ -1,0 +1,8 @@
+<app-markdown-renderer [md]="'dependency-injection'"></app-markdown-renderer>
+
+<div>
+  <h3 border centered>Demos</h3>
+  @for (d of demos | async; track d) {
+    <div border class="entry">{{d.title}}</div>
+  }
+</div>

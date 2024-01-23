@@ -1,0 +1,101 @@
+{
+  "demos": [
+        {
+      "url": "inject",
+      "title": "DI: Inject & provide",
+      "id": 63
+    },
+    {
+      "url": "app-init",
+      "title": "App Init",
+      "id": 1
+    },
+        {
+      "url": "code-splitting",
+      "title": "Code Splitting",
+      "id": 91
+    },
+    {
+      "url": "multi-guard",
+      "title": "Route Guards",
+      "id": 7
+    },
+    {
+      "url": "multi-interceptor",
+      "title": "Interceptors",
+      "id": 8
+    },
+    {
+      "url": "global-errors",
+      "title": "Global Errors",
+      "id": 9
+    },
+    {
+      "url": "http-errors",
+      "title": "Http Errors",
+      "id": 13
+    },
+    {
+      "url": "locationsrv",
+      "title": "Location Service",
+      "id": 77
+    },
+    {
+      "url": "router-bindings",
+      "title": "Component Input Bindings",
+      "id": 44
+    },
+    {
+      "url": "auxiliary-routes",
+      "title": "Auxiliary Routes",
+      "id": 114
+    },
+    {
+      "url": "ngrx-routing",
+      "title": "NgRx Router State",
+      "id": 1
+    },
+    {
+      "url": "ngrx-resolver",
+      "title": "NgRx Resolver",
+      "id": 311
+    },
+    {
+      "url": "ngrx-router-actions",
+      "title": "NgRx Router Actions",
+      "id": 211
+    }
+  ],
+  "skills":[
+    { "id": 1, "name": "Node.js", "hours": 3, "completed": false },
+    { "id": 2, "name": "TypeScript", "hours": 4, "completed": false },
+    { "id": 3, "name": "JavaScript", "hours": 10, "completed": false },
+    { "id": 4, "name": "Angular", "hours": 20, "completed": false }
+  ],
+  "customers": [
+    {
+      "id": 1, "name": "Fritzi"
+    },
+    {
+      "id": 2, "name": "Mimi"
+    }
+  ],
+  "top-links": [
+    {
+      "label": "Home",
+      "url": ""
+    },
+    {
+      "label": "Demos",
+      "url": "demos"
+    },
+    {
+      "label": "Skills",
+      "url": "skills"
+    },
+    {
+      "label": "Customers",
+      "url": "customers"
+    }
+  ]
+}
