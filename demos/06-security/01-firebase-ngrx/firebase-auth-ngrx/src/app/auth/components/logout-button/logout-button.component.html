@@ -1,9 +1,0 @@
-@if (defaultButton) {
-  <button mat-raised-button (click)="logOut()" color="primary">Logout</button>
-}
-
-@if (!defaultButton) {
-  <button mat-mini-fab (click)="logOut()">
-    <mat-icon fxFlexAlign="center" class="cmdIcon">logout</mat-icon>
-  </button>
-}
