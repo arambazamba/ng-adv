@@ -1,4 +1,8 @@
-# MSAL secured .NET 6 Api consumed by Angular App using `@azure/msal-angular`
+# Microsoft Entra Id
+
+Microsoft Entra Id is a cloud-based identity and access management service. It provides a single sign-on and multi-factor authentication for cloud applications. It is the identity provider for Microsoft 365 and Azure. It can also be used to secure custom applications.  
+
+## Links & Resources
 
 [.NET Core Authentication Snippets](https://docs.microsoft.com/en-us/aspnet/core/security/authentication/social/microsoft-logins?view=aspnetcore-6.0)
 
