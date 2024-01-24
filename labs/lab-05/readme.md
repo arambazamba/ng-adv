@@ -100,7 +100,7 @@ In this lab we will solve the following tasks:
 
 -   Test your work by running the app with `ng s -o`
 
-### Provide CRUD and loading for food using `@ngrx/signal Signal Store`
+### Provide CRUD and loading for food using `@ngrx/signals Signal Store`
 
 -   Next we will use withComputed() to expose count as a store property. To do so update food.store.ts. To not forget to update the corresponding html template:
 
