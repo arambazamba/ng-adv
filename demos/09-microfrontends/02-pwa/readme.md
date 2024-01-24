@@ -15,10 +15,11 @@
 ---
 ### Machine Setup
 
-Allow Chrome to use self signed localhost certs:
+Allow Chrome / Edge to use self signed localhost certificates:
 
 ```
 chrome://flags/#allow-insecure-localhost
+edge://flags/#allow-insecure-localhost
 ```
 
 #### ngrok Setup
@@ -27,13 +28,46 @@ chrome://flags/#allow-insecure-localhost
 
 After creating your free account copy ngrok.exe to a folder of your choice (`C:\Program Files\ngrok`) and set a path variable to it.
 
-Next grap the auth token from your ngrok user info and add it to your machine config:
+Next grab the auth token from your ngrok user info and add it to your machine config:
 
 ```
 ngrok config add-authtoken <auth-token>
 ```
 
----
+### Food Orders Dashboard PWA
+
+- Update the `funcWebhookEP` in the following files:
+
+  - environments/environment.ts
+  - environments/environment.development.ts
+  - assets/env.js
+
+  >Note: assets/env.js is used to inject the configuration when using a container.
+
+- To serve the build you need an http-server. Use `angular-http-server` or `http-server`
+
+  ```bash
+  npm install -g angular-http-server
+  ng build -c production
+  cd .\dist\food-orders-dashboard\
+  angular-http-server
+  ```
+
+  >Note: angular-http-server listens to port 8080 by default. If you want to use another port use `angular-http-server -p <port>`.
+
+- Serve the build using ngrok:
+
+  ```bash
+  ngrok.exe http 8080
+  ```
+
+  ![ngrok](_images/ngrok.png)
+
+- You will need to add the ngrok Url to the CORS settings of the Azure Function App:
+
+  ![cors](_images/cors.png)
+
+- Open the Url provided by ngrok in your browser
 
 ### Skills Api
 
@@ -97,7 +131,7 @@ Test the app - see if it works
 
 ---
 
-### Serving your app using ngrok & install the PWA
+Serving your app using ngrok & install the PWA
 
 To serve the build you need an http-server. Use `angular-http-server` or `http-server`
 
