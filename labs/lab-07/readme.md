@@ -49,6 +49,17 @@
       .pipe(tap((auth) => console.log('authState changed to:', auth)));
     ```
 
-- Modify `app.component.html` to show the intro-component when the user is not authenticated and current content when the user is authenticated.
+- Modify `app.component.html` to show the intro-component when the user is not authenticated and current content when the user is authenticated. Add a title and an image to the intro component. A possible solution could look like this:
+
+  ![intro-component](_images/intro.png)
+
+  >Note: You can turn off authentication by setting `authEnabled` to `false` in your environment file.
 
 - Review and add `app-current-user` and the `app-logout-btn` to nav.component.html. You might have to add missing imports in the `nav.component.ts` file. The logout button should only be visible when the user is logged in.
+
+- If your time permits, you can refactor the following components to use signals:
+
+    - `app-current-user`
+    - `app-logout-btn`
+    - `app-intro`
+    - firebase-auth.service.ts

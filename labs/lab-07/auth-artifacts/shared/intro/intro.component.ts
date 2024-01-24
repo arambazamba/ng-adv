@@ -1,4 +1,4 @@
-import { CommonModule } from '@angular/common';
+import { AsyncPipe, CommonModule } from '@angular/common';
 import {
   Component,
   Input,
@@ -11,16 +11,24 @@ import { MatCardModule } from '@angular/material/card';
 import { MatDialog } from '@angular/material/dialog';
 import { Router } from '@angular/router';
 import { combineLatestWith, map } from 'rxjs/operators';
-import { FirebaseAuthUtilModule } from '../../fbauth/fbauth.module';
-import { FirebaseAuthService } from '../../fbauth/firebase-auth.service';
 import { ColumnDirective } from '../formatting/formatting-directives';
+import { FirebaseAuthService } from '../../firebase-auth/firebase-auth.service';
+import { RegisterComponent } from '../../firebase-auth/components/register/register.component';
+import { LoginComponent } from '../../firebase-auth/components/login/login.component';
 
 @Component({
   selector: 'app-intro',
   templateUrl: './intro.component.html',
   styleUrls: ['./intro.component.scss'],
   standalone: true,
-  imports: [CommonModule, MatCardModule, MatButtonModule, FirebaseAuthUtilModule, ColumnDirective]
+  imports: [
+    AsyncPipe,
+    MatCardModule,
+    MatButtonModule,
+    ColumnDirective,
+    RegisterComponent,
+    LoginComponent
+  ]
 })
 export class IntroComponent {
   dialog = inject(MatDialog);
