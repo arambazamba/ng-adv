@@ -17,7 +17,7 @@
 
     ![app-config](_images/app-config.png)
 
--   Add an `authEnabled` key with value `true` to your environment file. Also add a `firebaseConfig` and paste the config that you just copied.
+-   Add an `authEnabled` key with value `false` to your environment file. Also add a `firebaseConfig` and paste the config that you just copied.
 
 -   In the Firebase console, expand `Build` and go to `Authentication` and enable `Email/Password` as a sign-in method. Skip the e-mail validation for now.
 
@@ -29,7 +29,7 @@
     npm install firebase @angular/fire --save
     ```
 
-- Copy  to your project. You can take the following [reference](../../demos/06-security/01-firebase/firebase-auth/) implementation.
+- Copy the following [artifacts](./auth-artifacts/) to your project. You can take the following [reference](../../demos/06-security/01-firebase/firebase-auth/) implementation. Fix any import path errors that might exist.
 
 - Provide the firebase services in `app.config.ts`:
 
@@ -40,7 +40,7 @@
   )
   ```
 
-- Add the following to app.component.ts:
+- Review `firebase-auth.service.ts` and add the following to `app.component.ts`:
 
     ```typescript
     auth = inject(FirebaseAuthService);
@@ -49,22 +49,6 @@
       .pipe(tap((auth) => console.log('authState changed to:', auth)));
     ```
 
-- Add the following to nav.component.html:
+- Modify `app.component.html` to show the intro-component when the user is not authenticated and current content when the user is authenticated.
 
-    ```html
-    <div *ngIf="isAuthenticated | async">
-      <button mat-button (click)="auth.logout()">Logout</button>
-    </div>
-    ```
-
-- Import and add `current user component` and the `logout button` to nav.component.html
-
-
-## Implement Auth Components
-
--   Implement the following components:
-    -   `login.component.ts`
-    -   `register.component.ts`
-    -   `login-splash.component.ts`
-
-> Note: You can use the [Firebase Auth Demo](../../demos/06-security/01-firebase/firebase-auth/src/app/fbauth/components/) as a reference.
+- Review and add `app-current-user` and the `app-logout-btn` to nav.component.html. You might have to add missing imports in the `nav.component.ts` file. The logout button should only be visible when the user is logged in.
