@@ -56,7 +56,8 @@ import { GlobalErrService } from './error/global-err-handler';
       name: 'routing-app-init',
       maxAge: 25,
       logOnly: environment.production,
-    connectInZone: true}),
+      connectInZone: true
+    }),
     StoreRouterConnectingModule.forRoot({
       routerState: RouterState.Full,
     }),
@@ -64,9 +65,9 @@ import { GlobalErrService } from './error/global-err-handler';
   ],
   providers: [
     provideHttpClient(
-      withInterceptors([
-        retryInterceptor({ count: 5, delay: 1000 })
-      ])
+      // withInterceptors([
+      //   retryInterceptor({ count: 5, delay: 1000 })
+      // ])
     ),
     {
       provide: APP_INITIALIZER,
