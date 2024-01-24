@@ -1,20 +1,4 @@
 <mat-card appearance="outlined">
-  <mat-card-content fxLayout="row" fxLayoutGap="10px">
-    <mat-form-field>
-      <input
-        matInput
-        [formControl]="filter"
-        placeholder="Filter"
-      />
-    </mat-form-field>
-
-    <button mat-raised-button (click)="addFood()" color="primary">
-      <mat-icon>add_circle</mat-icon>
-    </button>
-  </mat-card-content>
-</mat-card>
-
-<mat-card appearance="outlined">
   <table mat-table [dataSource]="dataSource">
     <ng-container matColumnDef="id">
       <th mat-header-cell *matHeaderCellDef>Id</th>
@@ -36,25 +20,26 @@
       <td mat-cell *matCellDef="let element">{{ element.calories }}</td>
     </ng-container>
 
-    <ng-container matColumnDef="deleteItem">
+    <ng-container matColumnDef="delete">
       <th mat-header-cell *matHeaderCellDef></th>
-      <td mat-cell *matCellDef="let element" class="icon-cell">
-        <a mat-icon-button (click)="deleteFood(element)">
-          <mat-icon class="mat-18" matTooltip="Löschen">delete</mat-icon>
+      <td mat-cell *matCellDef="let element" clickable>
+        <a (click)="deleteFood(element)">
+          <mat-icon class="mat-18" matTooltip="Delete">delete</mat-icon>
         </a>
       </td>
     </ng-container>
 
-    <ng-container matColumnDef="editItem">
+    <ng-container matColumnDef="select">
       <th mat-header-cell *matHeaderCellDef></th>
-      <td mat-cell *matCellDef="let element" class="icon-cell">
-        <a mat-icon-button (click)="selectFood(element)">
-          <mat-icon class="mat-18" matTooltip="Bearbeiten">edit</mat-icon>
+      <td mat-cell *matCellDef="let element" clickable>
+        <a (click)="selectFood(element)">
+          <mat-icon class="mat-18" matTooltip="Edit">edit</mat-icon>
         </a>
       </td>
     </ng-container>
 
     <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
-    <tr mat-row *matRowDef="let row; columns: displayedColumns"></tr>
+    <tr mat-row *matRowDef="let row; columns: displayedColumns">
+    </tr>
   </table>
 </mat-card>

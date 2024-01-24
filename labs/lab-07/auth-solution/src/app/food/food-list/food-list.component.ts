@@ -1,73 +1,40 @@
-import {
-  Component,
-  OnInit,
-  Input,
-  Output,
-  EventEmitter,
-  SimpleChanges,
-  OnChanges,
-} from '@angular/core';
-import { FoodItem } from 'src/app/food/food-item.model';
-import { MatTableDataSource } from '@angular/material/table';
-import { FormControl } from '@angular/forms';
+import { Component, EventEmitter, Input, Output, SimpleChanges, WritableSignal } from '@angular/core';
+import { FoodItem } from '../food.model';
+import { MatTableDataSource, MatTableModule } from '@angular/material/table';
+import { MatCardModule } from '@angular/material/card';
+import { MatIconModule } from '@angular/material/icon';
+import { ClickableDirective } from '../../shared/formatting/formatting-directives';
 
 @Component({
   selector: 'app-food-list',
+  standalone: true,
+  imports: [MatTableModule, MatCardModule, MatIconModule, ClickableDirective],
   templateUrl: './food-list.component.html',
-  styleUrls: ['./food-list.component.scss'],
+  styleUrl: './food-list.component.scss'
 })
-export class FoodListComponent implements OnInit, OnChanges {
-  constructor() { }
+export class FoodListComponent {
+  @Input({ required: true }) food !: FoodItem[];
+  @Output() onFoodSelected: EventEmitter<FoodItem> = new EventEmitter<FoodItem>();
+  @Output() onFoodDeleted: EventEmitter<FoodItem> = new EventEmitter<FoodItem>();
 
-  @Input()
-  food: FoodItem[];
-  @Output()
-  editSelected: EventEmitter<FoodItem> = new EventEmitter();
-  @Output()
-  deleteSelected: EventEmitter<FoodItem> = new EventEmitter();
-
-  filter = new FormControl('');
-
-  displayedColumns: string[] = [
-    'id',
-    'name',
-    'price',
-    'calories',
-    'deleteItem',
-    'editItem',
-  ];
-  dataSource: MatTableDataSource<FoodItem> = new MatTableDataSource([]);
-
-  ngOnInit() {
-    this.filter.valueChanges.subscribe((filterString) => {
-      this.dataSource.filter = filterString.trim().toLowerCase();
-    });
-  }
+  displayedColumns: string[] = ['id', 'name', 'price', 'calories', 'delete', 'select'];
+  dataSource: MatTableDataSource<FoodItem> = new MatTableDataSource<FoodItem>([]);
 
   ngOnChanges(changes: SimpleChanges) {
-    console.log(changes.food.currentValue);
-    this.dataSource = new MatTableDataSource(changes.food.currentValue);
+    if (changes['food']) {
+      this.dataSource = new MatTableDataSource(changes['food'].currentValue);
+    }
   }
 
-  addFood() {
-    console.log(this.getNextId());
-    this.editSelected.emit({
-      id: this.getNextId(),
-      name: '',
-      price: 0,
-      calories: 0,
-    });
+  applyFilter(filterValue: string) {
+    this.dataSource.filter = filterValue.trim().toLowerCase();
   }
 
-  getNextId(): number {
-    return this.food.reduce((acc, f) => (acc = acc > f.id ? acc : f.id), 0) + 1;
+  selectFood(food: FoodItem) {
+    this.onFoodSelected.emit(food);
   }
 
-  selectFood(p: FoodItem) {
-    this.editSelected.emit(p);
-  }
-
-  deleteFood(p: FoodItem) {
-    this.deleteSelected.emit(p);
+  deleteFood(food: FoodItem) {
+    this.onFoodDeleted.emit(food);
   }
 }

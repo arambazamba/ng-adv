@@ -1,16 +1,13 @@
-import { Component, OnInit } from '@angular/core';
-
+import { Component } from '@angular/core';
+import { MatToolbarModule } from '@angular/material/toolbar';
+import { MatListModule } from '@angular/material/list';
 @Component({
-    selector: 'app-sidebar',
-    templateUrl: './sidebar.component.html',
-    styleUrls: ['./sidebar.component.scss'],
-    standalone: true
+  selector: 'app-sidebar',
+  standalone: true,
+  imports: [MatToolbarModule, MatListModule],
+  templateUrl: './sidebar.component.html',
+  styleUrl: './sidebar.component.scss'
 })
-export class SidebarComponent implements OnInit {
-
-  constructor() { }
-
-  ngOnInit() {
-  }
+export class SidebarComponent {
 
 }
