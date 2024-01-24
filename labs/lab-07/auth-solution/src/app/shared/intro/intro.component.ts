@@ -50,7 +50,7 @@ export class IntroComponent {
         combineLatestWith(this.as.isAuthenticated()),
         map(([close, isAuthenticated]) => {
           if (isAuthenticated) {
-            this.router.navigate(['demos']);
+            this.router.navigate(['food']);
           } else {
             this.router.navigate(['/']);
           }
@@ -67,7 +67,7 @@ export class IntroComponent {
         combineLatestWith(this.as.isAuthenticated()),
         map(([close, isAuthenticated]) => {
           if (isAuthenticated) {
-            this.router.navigate(['demos']);
+            this.router.navigate(['food']);
           } else {
             this.router.navigate(['/']);
           }
