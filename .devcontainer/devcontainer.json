@@ -6,15 +6,21 @@
     "ghcr.io/devcontainers-contrib/features/angular-cli:2": {},
     "ghcr.io/devcontainers/features/node:1": {
       "version": "18"
-    }     
-},
-"customizations": {
-	"vscode": {
-		"extensions": [
-			"Angular.ng-template",
-			"cmstead.jsrefactor",
-			"nrwl.angular-console"
-		]
-	}
-}
+    }
+  },
+  "customizations": {
+    "vscode": {
+      "extensions": [
+        "Angular.ng-template", 
+        "cmstead.jsrefactor", 
+        "nrwl.angular-console"
+        // Add any other extensions your project requires
+      ],
+      "settings": {
+        "terminal.integrated.shell.linux": "/bin/bash"
+      }
+    }
+  },
+  // If your project requires any post-create commands, add them here
+  "postCreateCommand": "npm install" 
 }

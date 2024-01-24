@@ -1,4 +1,4 @@
-# Real-time connected Angular Microfrontend that is a part of an Event Driven Architecture (EDA)
+# Real-time connected Angular Micro-Frontend that is a part of an Event Driven Architecture (EDA)
 
 Food Orders Dashboard `food-orders-dashboard` implemented as Angular Micro-Frontend using `@ngrx/component-store` displaying orders in real-time using SignalR. The orders are sent to the dashboard using an Event Grid Topic that is triggered by a CloudEvent. The CloudEvent is sent by a function app that is triggered by an HTTP request. The function app communicates with the SignalR service using a SignalR client.
 
