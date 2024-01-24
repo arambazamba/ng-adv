@@ -7,10 +7,13 @@ import { Topic } from './topic.model';
 })
 export class SignalsBasicsComponent {
   injector = inject(Injector)
+
   netAmount = signal<number>(0);
+  myString = signal('Hello World')
+  topic = signal<Topic>({ name: 'Angular Signals', likes: 0 });
+
   tax = signal(0.2).asReadonly();
   grossAmount = computed(() => this.netAmount() * (1 + this.tax()));
-  topic = signal<Topic>({ name: 'Angular Signals', likes: 0 });
 
   constructor() {
     effect(() => {

@@ -21,7 +21,7 @@ export class DemoContainerComponent implements OnInit {
   df = inject(DemoFacade);
   nav = inject(SideNavFacade);
   ls = inject(LoadingService);
-  eb = inject(SidePanelService);
+  sidePanel = inject(SidePanelService);
 
   title: string = environment.title;
   header = 'Please select a demo';
@@ -35,7 +35,7 @@ export class DemoContainerComponent implements OnInit {
     map(visible => { return visible ? { 'margin-left': '5px' } : {} })
   );
 
-  currentCMD = this.eb.getCommands();
+  currentCMD = this.sidePanel.getCommands();
   showMdEditor: boolean = false;
 
   constructor() {
