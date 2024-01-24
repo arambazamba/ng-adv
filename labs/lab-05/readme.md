@@ -13,7 +13,7 @@ In this lab we will solve the following tasks:
 -   Copy the `signals-starter` and install `@ngrx/signal`:
 
     ```bash
-    npm i -S @ngrx/signal
+    npm i -S @ngrx/signals
     ```
 
 -   Add a `food/food.model.ts` to the project. You could copy this file from a previous lab:
