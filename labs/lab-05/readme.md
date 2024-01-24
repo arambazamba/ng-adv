@@ -10,7 +10,7 @@ In this lab we will solve the following tasks:
 
 ### Setup a basic Signal Store
 
--   Copy the `signals-starter` and install `@ngrx/signal`:
+-   Copy the `signals-starter` and install `@ngrx/signals`:
 
     ```bash
     npm i -S @ngrx/signals
