@@ -1,4 +1,4 @@
-@if(isAuthenticated){
+@if(isAuthenticated | async){
   <div>
     <app-navbar></app-navbar>
   </div>
@@ -11,5 +11,5 @@
     </div>
   </div>
 } @else {
-  <app-intro></app-intro>
+  <app-intro [title]="title" [img]="img"></app-intro>
 }
