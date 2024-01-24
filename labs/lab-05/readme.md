@@ -1,4 +1,4 @@
-# Using @ngrx/signal in Angular Apps
+# Using @ngrx/signals in Angular Apps
 
 In this lab we will solve the following tasks:
 
