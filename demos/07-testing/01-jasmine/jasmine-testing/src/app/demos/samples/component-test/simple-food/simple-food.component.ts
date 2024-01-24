@@ -22,4 +22,16 @@ export class SimpleFoodComponent implements OnInit {
       this.food = this.food.filter((f) => f != food);
     });
   }
+
+  updateFood(food: FoodItem) {
+    this.food = this.food.filter((f) => f != food);
+    this.food.push(food);
+  }
+
+  // updateFood(food: FoodItem) {
+  //   let item = this.food.find((f) => f.id == food.id);
+  //   if (item) {
+  //     item = food;
+  //   }
+  // }
 }

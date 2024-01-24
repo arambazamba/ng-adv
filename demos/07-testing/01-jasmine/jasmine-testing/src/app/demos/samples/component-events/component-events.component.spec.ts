@@ -28,7 +28,7 @@ describe('Component - Events - EventsComponent', () => {
     expect(component.count).toBe(1);
     fixture.detectChanges();
 
-    const divResult = fixture.debugElement.query(By.css('#result'));
+    const divResult = fixture.debugElement.query(By.css('[data-testid="divCount"]'));
     expect(divResult.nativeElement.innerText).toContain('1');
   });
 
@@ -40,7 +40,7 @@ describe('Component - Events - EventsComponent', () => {
     expect(component.count).toBe(2);
     fixture.detectChanges();
 
-    const divResult = fixture.debugElement.query(By.css('#result'));
+    const divResult = fixture.debugElement.query(By.css('[data-testid="divCount"]'));
     expect(divResult.nativeElement.innerText).toContain('2');
   });
 });

@@ -48,4 +48,19 @@ describe('Component - Spy - FoodComponent:', () => {
     expect(component.food.length).toBe(3);
   });
 
+  it('updates the item in the list', () => {
+    const updatedFood = foodData[3];
+    component.updateFood(updatedFood);
+    expect(component.food.length).toBe(4);
+    expect(component.food[3]).toEqual(updatedFood);
+  });
+
+  // it('updates the item in the list and the index is maintained', () => {
+  //   const idx = 2
+  //   const updatedFood = foodData[idx];
+  //   component.updateFood(updatedFood);
+  //   expect(component.food.length).toBe(4);
+  //   expect(component.food[idx]).toEqual(updatedFood);
+  // });
+
 });

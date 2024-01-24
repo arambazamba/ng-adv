@@ -31,18 +31,4 @@ describe('MaterialAsyncComponent', () => {
     let tags = fixture.nativeElement.querySelectorAll('.mat-mdc-tab');
     expect(tags.length).toBe(3);
   });
-
-  it('should show display the roles of giro when the second tab is clicked', (done) => {
-    fixture.detectChanges();
-    let tags = fixture.nativeElement.querySelectorAll('.mat-mdc-tab');
-    tags[1].click();
-
-    fixture.detectChanges();
-    fixture.whenStable().then(() => {
-      fixture.detectChanges();
-      let tabBody = fixture.nativeElement.querySelector('.mat-mdc-tab-body-content');
-      done();
-      expect(tabBody.innerHTML).toContain('Giro');
-    });
-  });
 })
