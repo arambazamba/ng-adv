@@ -1,9 +1,15 @@
 # Angular Libraries
 
+[Angular Library Docs](https://angular.io/guide/libraries)
+
+[Multiple Projects - Angular File Structure](https://angular.io/guide/file-structure)
+
+## Getting Started
+
 Create a host project & Add Material & Flex Layout:
 
 ```
-ng new ux-lib --routing --style scss
+ng new ux-lib --routing --style scss --routing=false --ssr=false
 cd ux-lib
 ng add @angular/material
 ```
@@ -34,19 +40,17 @@ ng g c controls/split --project=ux-controls
 ng config projects.ux-controls.schematics.@schematics/angular:component.style scss
 ```
 
-Update `ux-controls.module.ts`:
+Update the imports in `split.component.ts`:
 
 ```typescript
-import { NgModule } from '@angular/core';
-import { MatToolbarModule } from '@angular/material/toolbar';
-import { SplitComponent } from './controls/split/split.component';
-
-@NgModule({
-  declarations: [SplitComponent],
+@Component({
+  selector: 'ux-split',
+  standalone: true,
   imports: [MatToolbarModule],
-  exports: [SplitComponent],
+  templateUrl: './split.component.html',
+  styleUrl: './split.component.scss'
 })
-export class UxControlsModule { }
+export class SplitComponent { }
 ```
 
 >Note: The "ng g c ..." cli call does not register the component in the module. This must be done manually as seen above.
@@ -55,30 +59,14 @@ Update PeerDependencies in `package.json` of the library:
 
 ```typescript
 "peerDependencies": {
-    "@angular/common": "^15.2.0",
-    "@angular/core": "^15.2.0",
-    "@angular/animations": "^15.2.0",
-    "@angular/material": "^15.2.0"
+    "@angular/common": "^17.1.0",
+    "@angular/core": "^17.1.0",
+    "@angular/animations": "^17.1.0",
+    "@angular/material": "^17.1.0"
   },
 ```
 
 > Note: You might want to change version numbers depending on the current versions
-
-split.component.ts:
-
-```typescript
-import { Component, OnInit } from '@angular/core';
-
-@Component({
-  selector: 'ux-split',
-  templateUrl: './split.component.html',
-  styleUrls: ['./split.component.scss'],
-})
-export class SplitComponent  {
-  toolbar = '100px';
-  constructor() {}
-}
-```
 
 split.component.html
 
@@ -134,7 +122,6 @@ Modify `public-api.ts`:
 
 ```typescript
 export * from './lib/controls/split/split.component';
-export * from './lib/ux-controls.module';
 ```
 
 Build Library:
@@ -147,23 +134,26 @@ ng build --project ux-controls
 
 ### Use the Split Control
 
-To use the Component import it in `app.module.ts` of you Main Project
+Update the imports in `app.component.ts`:
 
 ```typescript
-import { UxControlsModule} from "ux-controls"
+import { Component } from '@angular/core';
+import { SplitComponent } from '../../projects/ux-controls/src/public-api';
 
-@NgModule({
-  ...
-  imports: [
-    ...
-    UxControlsModule
-  ],
-  ...
+
+@Component({
+  selector: 'app-root',
+  standalone: true,
+  imports: [SplitComponent],
+  templateUrl: './app.component.html',
+  styleUrl: './app.component.scss'
 })
-export class AppModule { }
+export class AppComponent {
+  title = 'ux-lib';
+}
 ```
 
-Add it to `app.component.ts` and run `ng s -o`:
+Add it to `app.component.html` and run `ng s -o`:
 
 ```html
 <ux-split>
@@ -177,66 +167,4 @@ Test the component:
 
 ```
 ng serve -o --project ux-lib
-```
----
-## Publish Library to GitHub Packages
-
-In your GitHub Account go to `Settings/Developer settings`, create an new token with `write:packages` and `delete:packages` and copy it afterwards:
-
-![token](_images/token.jpg)
-
-
-Add an .npmrc to the folder of the lib:
-
-```
-@<GITHubUSERNAME>:registry=https://npm.pkg.github.com/
-//npm.pkg.github.com/:_authToken=<TOKEN>
-```
-
-Build the project:
-
-```
-ng build -c production --project ux-controls 
-```
-
-Login to GitHub Packages:
-
-```bash
-npm login --registry=https://npm.pkg.github.com
-npm adduser
-```
-
-Publish the lib from the folder of the lib:
-
-```
-npm publish
-```
-
-Check the result:
-
-![package](_images/package.jpg)
-
-Go to the `Package settings` in the `Package Details` and change visibility to publish
-
-
-
-### Use Library in another project
-
-Create a new project:
-
-```
-ng new ux-lib-consumer --routing --style scss
-```
-
-Add an .npmrc:
-
-```
-//npm.pkg.github.com/:_authToken=<TOKEN>
-@<GITHubUSERNAME>:registry=https://npm.pkg.github.com/
-```
-
-Install the package:
-
-```
-npm install -S @arambazamba/ux-controls@15.0.0
 ```
