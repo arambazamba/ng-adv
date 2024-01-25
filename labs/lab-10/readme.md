@@ -17,14 +17,14 @@ After creating your free account copy ngrok.exe to a folder of your choice (`C:\
 Next grab the auth token from your ngrok user info and add it to your machine config:
 
 ```
-ngrok config add-authtoken 3XjdFZdf4PgB2898gcdbu_4Rukvv4BYtU1w7WaTZE75
+ngrok config add-authtoken <your-token>
 ```
 
 A skills service container is available at DockerHub: 
 
 ```
-docker pull arambazamba/skillsservice
-docker run -it --rm -p 5051:80 skillsservice
+docker pull arambazamba/skills-api
+docker run -it --rm -p 5051:80 arambazamba/skills-api
 ```
 
 Create a new Angular project and add PWA support:

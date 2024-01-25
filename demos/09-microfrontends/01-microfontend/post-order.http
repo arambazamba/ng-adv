@@ -15,7 +15,7 @@ aeg-sas-key: {{topickey}}
    "data":{
       "id": "5c60fe1d-9851-47ca-aab9-622ca857ea29",
       "customerId": "7c5fe5c7-1b03-469b-8c71-13823d6a8049",
-      "customerName": "John Doe",
+      "customerName": "Hansi Meier",
       "address": "123 Main Street, Seattle, WA 98101",
       "status": "incoming",
       "items": [
