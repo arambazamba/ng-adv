@@ -1,7 +1,9 @@
 # Authentication using NgRx
 
--   Register a Firebase Project
--   Copy and Use the provided Firebase Authentication artifacts
+- Register a Firebase Project
+- Copy and Use the provided Firebase Authentication artifacts
+- Activate Security on the `food-route`
+- Refactor components to use signals - optional
 
 ## Register a Firebase Project
 
@@ -23,24 +25,24 @@
 
 ## Copy and Use the provided Firebase Authentication artifacts
 
-- Add the following dependencies to your project:
+-   Add the following dependencies to your project:
 
     ```bash
     npm install firebase @angular/fire --save
     ```
 
-- Copy the following [artifacts](./auth-artifacts/) to your project. You can take the following [reference](../../demos/06-security/01-firebase/firebase-auth/) implementation. Fix any import path errors that might exist.
+-   Copy the following [artifacts](./auth-artifacts/) to your project. You can take the following [reference](../../demos/06-security/01-firebase/firebase-auth/) implementation. Fix any import path errors that might exist.
 
-- Provide the firebase services in `app.config.ts`:
+-   Provide the firebase services in `app.config.ts`:
 
-  ```typescript
-  importProvidersFrom(
-    provideFirebaseApp(() => initializeApp(environment.firebaseConfig)),
-    provideAuth(() => getAuth())
-  )
-  ```
+    ```typescript
+    importProvidersFrom(
+      provideFirebaseApp(() => initializeApp(environment.firebaseConfig)),
+      provideAuth(() => getAuth())
+    )
+    ```
 
-- Review `firebase-auth.service.ts` and add the following to `app.component.ts`:
+-   Review `firebase-auth.service.ts` and add the following to `app.component.ts`:
 
     ```typescript
     auth = inject(FirebaseAuthService);
@@ -49,17 +51,65 @@
       .pipe(tap((auth) => console.log('authState changed to:', auth)));
     ```
 
-- Modify `app.component.html` to show the intro-component when the user is not authenticated and current content when the user is authenticated. Add a title and an image to the intro component. A possible solution could look like this:
+-   Modify `app.component.html` to show the intro-component when the user is not authenticated and current content when the user is authenticated. Add a title and an image to the intro component. A possible solution could look like this:
 
-  ![intro-component](_images/intro.png)
+    ![intro-component](_images/intro.png)
 
-  >Note: You can turn off authentication by setting `authEnabled` to `false` in your environment file.
+    > Note: You can turn off authentication by setting `authEnabled` to `false` in your environment file.
 
-- Review and add `app-current-user` and the `app-logout-btn` to nav.component.html. You might have to add missing imports in the `nav.component.ts` file. The logout button should only be visible when the user is logged in.
+-   Review and add `app-current-user` and the `app-logout-btn` to nav.component.html. You might have to add missing imports in the `nav.component.ts` file. The logout button should only be visible when the user is logged in.
 
-- If your time permits, you can refactor the following components to use signals:
+## Activate Security on the food route
 
-    - `app-current-user`
-    - `app-logout-btn`
-    - `app-intro`
-    - firebase-auth.service.ts
+- Examine `firebase.auth-guard.service.ts` and activate the guard on the food route in `app.routes.ts`:
+
+  ```typescript
+  export const routes: Routes = [
+      { path: "", component: HomeComponent },
+      { path: "about", component: AboutComponent },
+      {
+          path: "food",
+          component: FoodComponent,
+          canActivate: [FirebaseAuthGuard],
+      },
+  ];
+  ```
+
+- Test if you can access the food route when you are not logged in. You should be redirected to the root page.
+
+- Refactor the guard to a functional implementation on your own. A possible Solution could look like this:
+
+  ```typescript
+  export const firebaseGuard = () => {
+    const router = inject(Router);
+    const auth = inject(FirebaseAuthService);
+    const user = auth.getUser();
+    return user.pipe(
+      map((user) => {
+        if (environment.authEnabled == false || user != null) {
+          return true;
+        } else {
+          router.navigate(['/']);
+          return false;
+        }
+      })
+    );
+  }
+  ```
+
+  > Note: If you would like to forward the token to the backend, you can use `firebase-auth.interceptor.ts` as a reference and register the interceptor in `app.config.ts`:
+
+  ```typescript
+  provideHttpClient(
+      withInterceptors(firebaseAuthInterceptor)
+    ),
+  ```
+
+## Refactor components to use signals - optional
+
+-   If your time permits, you can refactor the following components to use signals:
+
+    -   `app-current-user`
+    -   `app-logout-btn`
+    -   `app-intro`
+    -   firebase-auth.service.ts
