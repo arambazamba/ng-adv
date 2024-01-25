@@ -65,7 +65,7 @@
 
 -   Add routes to `app.routes.ts`:
 
-Create `routes.txt` in the root folder. It defines routes to pre-render:
+-   Create `routes.txt` in the root folder. It defines routes to pre-render:
 
 ```
 /food/1
@@ -73,10 +73,25 @@ Create `routes.txt` in the root folder. It defines routes to pre-render:
 /food/3
 ```
 
-Create pre-rendered pages:
+-   To configure pre-rendered pages open `angular.json` and replace the following to the `architect` section:
 
-```bash
-ng run foodlist-ssr:prerender --routes-file routes.txt
-```
+    ```json
+    "prerender": true,
+    ```
 
-Examine the `dist/foodlist-ssr/browser/food` folder. You will find the pre-rendered pages.
+    with:
+
+    ```json
+    "prerender": {
+        "routesFile": "routes.txt"
+    },
+
+    ```
+
+-   Execute pre-rendering:
+
+    ```bash
+    ng build -c production
+    ```
+
+-   Examine `dist\food-list-ssr\browser\food\...`
