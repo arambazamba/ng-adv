@@ -1,10 +1,13 @@
 import { Component } from '@angular/core';
+import { MatToolbarModule } from '@angular/material/toolbar';
 
 @Component({
   selector: 'ux-split',
+  standalone: true,
+  imports: [MatToolbarModule],
   templateUrl: './split.component.html',
-  styleUrls: ['./split.component.scss'],
+  styleUrl: './split.component.scss'
 })
 export class SplitComponent {
-  constructor() {}
+
 }

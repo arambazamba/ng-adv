@@ -134,20 +134,23 @@ ng build --project ux-controls
 
 ### Use the Split Control
 
-To use the Component import it in `app.module.ts` of you Main Project
+Update the imports in `app.component.ts`:
 
 ```typescript
-import { UxControlsModule} from "ux-controls"
+import { Component } from '@angular/core';
+import { SplitComponent } from '../../projects/ux-controls/src/public-api';
 
-@NgModule({
-  ...
-  imports: [
-    ...
-    UxControlsModule
-  ],
-  ...
+
+@Component({
+  selector: 'app-root',
+  standalone: true,
+  imports: [SplitComponent],
+  templateUrl: './app.component.html',
+  styleUrl: './app.component.scss'
 })
-export class AppModule { }
+export class AppComponent {
+  title = 'ux-lib';
+}
 ```
 
 Add it to `app.component.html` and run `ng s -o`:
@@ -164,66 +167,4 @@ Test the component:
 
 ```
 ng serve -o --project ux-lib
-```
----
-## Publish Library to GitHub Packages (Optional)
-
-In your GitHub Account go to `Settings/Developer settings`, create an new token with `write:packages` and `delete:packages` and copy it afterwards:
-
-![token](_images/token.jpg)
-
-
-Add an .npmrc to the folder of the lib:
-
-```
-@<GITHubUSERNAME>:registry=https://npm.pkg.github.com/
-//npm.pkg.github.com/:_authToken=<TOKEN>
-```
-
-Build the project:
-
-```
-ng build -c production --project ux-controls 
-```
-
-Login to GitHub Packages:
-
-```bash
-npm login --registry=https://npm.pkg.github.com
-npm adduser
-```
-
-Publish the lib from the folder of the lib:
-
-```
-npm publish
-```
-
-Check the result:
-
-![package](_images/package.jpg)
-
-Go to the `Package settings` in the `Package Details` and change visibility to publish
-
-
-
-### Use Library in another project
-
-Create a new project:
-
-```
-ng new ux-lib-consumer --routing --style scss
-```
-
-Add an .npmrc:
-
-```
-//npm.pkg.github.com/:_authToken=<TOEKEN>
-@<GITHubUSERNAME>:registry=https://npm.pkg.github.com/
-```
-
-Install the package:
-
-```
-npm install -S @arambazamba/ux-controls@15.0.0
 ```
