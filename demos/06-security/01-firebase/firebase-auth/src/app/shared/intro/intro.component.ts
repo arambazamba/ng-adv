@@ -24,22 +24,22 @@ import { ColumnDirective } from '../formatting/formatting-directives';
 })
 export class IntroComponent {
   dialog = inject(MatDialog);
-  as = inject(FirebaseAuthService);
+  auth = inject(FirebaseAuthService);
   router = inject(Router);
 
   @ViewChild('register') registerTemplate!: TemplateRef<any>;
   @ViewChild('login') loginTemplate!: TemplateRef<any>;
-  @Input() title: string = '';
-  @Input() subtitle: string = '';
-  @Input() img: string = '';
-  authEnabled = this.as.isAuthenticated();
+  @Input() title = '';
+  @Input() subtitle = '';
+  @Input() img = '';
+  isAuthenticated = this.auth.isAuthenticated();
 
   logIn() {
     this.dialog
       .open(this.loginTemplate, { width: '350px' })
       .afterClosed()
       .pipe(
-        combineLatestWith(this.as.isAuthenticated()),
+        combineLatestWith(this.auth.isAuthenticated()),
         map(([close, isAuthenticated]) => {
           if (isAuthenticated) {
             this.router.navigate(['demos']);
@@ -56,7 +56,7 @@ export class IntroComponent {
       .open(this.registerTemplate, { width: '350px' })
       .afterClosed()
       .pipe(
-        combineLatestWith(this.as.isAuthenticated()),
+        combineLatestWith(this.auth.isAuthenticated()),
         map(([close, isAuthenticated]) => {
           if (isAuthenticated) {
             this.router.navigate(['demos']);

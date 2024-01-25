@@ -9,8 +9,8 @@ import { environment } from '../../environments/environment';
 })
 export class FirebaseAuthService {
   fireAuth = inject(Auth);
-  authState$ = authState(this.fireAuth);
   router = inject(Router);
+  authState$ = authState(this.fireAuth);
   user$ = this.authState$.pipe(
     tap((state) => console.log('authState changed: ', state))
   );

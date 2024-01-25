@@ -12,14 +12,14 @@
     </div>
   </mat-card-content>
   <mat-card-actions>
-    @if (authEnabled | async) {
+    @if (isAuthenticated | async) {
       <div class="actions" centered>
         <button mat-raised-button (click)="goToDemos()" color="primary">
           Proceed
         </button>
       </div>
     }
-    @if ((authEnabled | async)==false) {
+    @if ((isAuthenticated | async)==false) {
       <div class="actions cmdItems">
         <button
           mat-raised-button
