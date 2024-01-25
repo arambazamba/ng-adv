@@ -1,6 +1,6 @@
-env=$RANDOM
+env=dev
 grp=ng-adv
-loc=eastus2
+loc=westeurope
 acaenv=foodcontainers-$env
 apiimg=arambazamba/config-api
 uiimg=arambazamba/config-ui
@@ -13,9 +13,9 @@ az containerapp create -n configapi-$env -g $grp --image $apiimg \
     --environment $acaenv \
     --target-port 80 --ingress external
 
-apifqdn=$(az containerapp show -n configapi-$env -g $grp --query properties.configuration.ingress.fqdn -o tsv)    
+apiurl=$(az containerapp show -n configapi-$env -g $grp --query properties.configuration.ingress.fqdn -o tsv)    
 
 az containerapp create -n configui-$env -g $grp --image $uiimg \
     --environment $acaenv \
     --target-port 80 --ingress external \
-    --env-vars ENV_API_URL=https://$apifqdn/ 
+    --env-vars ENV_API_URL=https://$apiurl/ 

@@ -16,7 +16,7 @@ ENTRYPOINT ["dotnet", "config-api.dll"]
 # docker build --rm -f dockerfile -t config-api .
 
 # Run Image without env vars
-# docker run -it --rm -p 5051:80 config-api -e "App:UseEnv=true" 
+# docker run -it --rm -p 5051:8080 config-api -e "App:UseEnv=true" 
 
 # Browse using: 
 # http://localhost:5051/
