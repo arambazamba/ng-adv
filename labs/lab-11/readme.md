@@ -59,7 +59,9 @@
 -   Add `food/food.service.ts` from artifacts folder
 -   Add `food/shop-item.component.ts` from artifacts folder
 -   Add `food/food-list.component.ts` from artifacts folder
--   Add `food/food-detail.component.ts` from artifacts folder
+-   Add `food/food-details.component.ts` from artifacts folder
+-   Add `shared/number-picker.component.ts` from artifacts folder
+-   Add `euro.pipe.ts` from artifacts folder
 
     > Note: After adding the files review the code and make sure you understand it.
 
@@ -78,14 +80,12 @@
     ```json
     "prerender": true,
     ```
-
     with:
 
     ```json
     "prerender": {
         "routesFile": "routes.txt"
     },
-
     ```
 
 -   Execute pre-rendering:
