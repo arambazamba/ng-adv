@@ -1,52 +1,69 @@
 # Optimizing Angular Apps
-## Accessibility
+
+-   Build more accessible Angular apps
+-   Server Side Rendering (SSR) with Angular Universal
+
+## Build more accessible Angular apps
 
 [Lab: Angular A11y](https://codelabs.developers.google.com/angular-a11y)
 
 ## Server Side Rendering (SSR) with Angular Universal
 
-Create project and add Universal:
+-   Create project and add Universal:
 
-```
-ng new foodlist-ssr
-cd ng-universal
-ng add @nguniversal/express-engine
-```
+    ```
+    ng new food-list-ssr --routing --style=scss --ssr=true
+    cd food-list-ssr
+    ```
 
-Add a script to track First Contentful Pain (FCP) to `index.html`:
+-   Add Angular Material:
 
-```
-<script>
-    // Log first contentful paint - source https://web.dev/fcp/#measure-fcp-in-javascript
-    const observer = new PerformanceObserver((list) => {
-    for (const entry of list.getEntriesByName("first-contentful-paint")) {
-        console.log("FCP: ", entry.startTime);
-        observer.disconnect();
-    }
-    });
-    observer.observe({ type: "paint", buffered: true });
-</script>
-```
+    ```
+    ng add @angular/material
+    ```
 
-> Note: Reade more about [PerformanceObserver](https://developer.mozilla.org/en-US/docs/Web/API/PerformanceObserver) on MDN
+-   Add a script to track First Contentful Pain (FCP) to the `<head>` of `index.html`:
 
-Build Client und Server side & track values. Use multiple terminals:
+    ```javascript
+    <script>
+        // Log first contentful paint
+        // https://web.dev/fcp/#measure-fcp-in-javascript
+        const observer = new PerformanceObserver((list) => {
+        for (const entry of list.getEntriesByName("first-contentful-paint")) {
+            console.log("FCP: ", entry.startTime);
+            observer.disconnect();
+        }
+        });
+        observer.observe({ type: "paint", buffered: true });
+    </script>
+    ```
 
-```
-ng s -o
-npm run build:ssr
-npm run serve:ssr
-```
+    > Note: Reade more about [PerformanceObserver](https://developer.mozilla.org/en-US/docs/Web/API/PerformanceObserver) on MDN
 
-> Note: Execute Node Express on `http://localhost:4000` and compare FCP values and examine the html source. Also create Lighthouse Audit and compare time used for `Scripting`
+-   Execute Client and note the FCP value in the console:
 
-Use Universal watch mode:
+    ```bash
+    ng s -o
+    ```
 
-```
-npm run dev:ssr
-```
+-   Execute Node Express on `http://localhost:4000` and compare FCP values and examine the html source. Also create Lighthouse Audit and compare time used for `Scripting`
+
+    ```bash
+    ng build
+    npm run serve:ssr:food-list-ssr
+    ```
 
 ## Use Pre-rendering
+
+-   Add `food/food-model.ts` from artifacts folder
+-   Add `food/food.service.ts` from artifacts folder
+-   Add `food/shop-item.component.ts` from artifacts folder
+-   Add `food/food-list.component.ts` from artifacts folder
+-   Add `food/food-detail.component.ts` from artifacts folder
+
+    > Note: After adding the files review the code and make sure you understand it.
+
+-   Add routes to `app.routes.ts`:
 
 Create `routes.txt` in the root folder. It defines routes to pre-render:
 
@@ -55,6 +72,7 @@ Create `routes.txt` in the root folder. It defines routes to pre-render:
 /food/2
 /food/3
 ```
+
 Create pre-rendered pages:
 
 ```bash
