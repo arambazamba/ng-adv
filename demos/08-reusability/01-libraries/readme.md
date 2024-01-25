@@ -9,7 +9,7 @@
 Create a host project & Add Material & Flex Layout:
 
 ```
-ng new ux-lib --routing --style scss
+ng new ux-lib --routing --style scss --routing=false --ssr=false
 cd ux-lib
 ng add @angular/material
 ```
@@ -40,19 +40,17 @@ ng g c controls/split --project=ux-controls
 ng config projects.ux-controls.schematics.@schematics/angular:component.style scss
 ```
 
-Update `ux-controls.module.ts`:
+Update the imports in `split.component.ts`:
 
 ```typescript
-import { NgModule } from '@angular/core';
-import { MatToolbarModule } from '@angular/material/toolbar';
-import { SplitComponent } from './controls/split/split.component';
-
-@NgModule({
-  declarations: [SplitComponent],
+@Component({
+  selector: 'ux-split',
+  standalone: true,
   imports: [MatToolbarModule],
-  exports: [SplitComponent],
+  templateUrl: './split.component.html',
+  styleUrl: './split.component.scss'
 })
-export class UxControlsModule { }
+export class SplitComponent { }
 ```
 
 >Note: The "ng g c ..." cli call does not register the component in the module. This must be done manually as seen above.
@@ -61,27 +59,14 @@ Update PeerDependencies in `package.json` of the library:
 
 ```typescript
 "peerDependencies": {
-    "@angular/common": "^16.1.0",
-    "@angular/core": "^16.1.0",
-    "@angular/animations": "^16.1.0",
-    "@angular/material": "^16.1.0"
+    "@angular/common": "^17.1.0",
+    "@angular/core": "^17.1.0",
+    "@angular/animations": "^17.1.0",
+    "@angular/material": "^17.1.0"
   },
 ```
 
 > Note: You might want to change version numbers depending on the current versions
-
-split.component.ts:
-
-```typescript
-import { Component } from '@angular/core';
-
-@Component({
-  selector: 'ux-split',
-  templateUrl: './split.component.html',
-  styleUrls: ['./split.component.scss'],
-})
-export class SplitComponent {}
-```
 
 split.component.html
 
@@ -137,7 +122,6 @@ Modify `public-api.ts`:
 
 ```typescript
 export * from './lib/controls/split/split.component';
-export * from './lib/ux-controls.module';
 ```
 
 Build Library:
