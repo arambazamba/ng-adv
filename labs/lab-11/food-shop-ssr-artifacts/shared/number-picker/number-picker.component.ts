@@ -34,11 +34,9 @@ import { MatIconModule } from "@angular/material/icon";
   ],
 })
 export class NumberPickerComponent implements ControlValueAccessor, Validator {
-  quantity = 0;
-
   @Input() increment: number = 1;
-
   @Output() amountChanged: EventEmitter<number> = new EventEmitter<number>();
+  quantity = 0;
 
   onChange = (quantity: number) => {
     console.log('onChange', quantity);

@@ -1,13 +1,18 @@
 {
-  "name": "food-list-ssr",
-  "version": "0.0.0",
+  "name": "food-shop-ssr",
+  "author": {
+    "name": "Alexander Pajer",
+    "email": "alexander.pajer@integrations.at",
+    "url": "https://www.integrations.at"
+  },
+  "version": "17.0.0",
   "scripts": {
     "ng": "ng",
     "start": "ng serve",
     "build": "ng build",
     "watch": "ng build --watch --configuration development",
     "test": "ng test",
-    "serve:ssr:food-list-ssr": "node dist/food-list-ssr/server/server.mjs"
+    "serve:ssr:food-shop-ssr": "node dist/food-shop-ssr/server/server.mjs"
   },
   "private": true,
   "dependencies": {
