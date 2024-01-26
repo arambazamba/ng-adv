@@ -6,4 +6,5 @@
 - Token based Authentication in Angular with NgRx
 - Implementing an AuthModule using a Facade Service, Components, Guards & Interceptors
 - Optimizing Application Flow for Authentication
-- Authentication using Microsoft Identity, Azure AD and @azure/msal-angular
+- Authentication using Microsoft Entra Id
+- Microsoft Authentication Library (MSAL) vs Easy Auth using a sidecar container

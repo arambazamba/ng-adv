@@ -1,11 +1,7 @@
 # Optimizing Angular Apps
 
--   Build more accessible Angular apps
 -   Server Side Rendering (SSR)
-
-## Build more accessible Angular apps
-
-[Lab: Angular A11y](https://codelabs.developers.google.com/angular-a11y)
+-   Build more accessible Angular apps
 
 ## Server Side Rendering (SSR)
 
@@ -130,3 +126,7 @@
     ```
 
 -   Examine `dist\food-list-ssr\browser\food\...`
+
+## Build more accessible Angular apps
+
+[Lab: Angular A11y](https://codelabs.developers.google.com/angular-a11y)
