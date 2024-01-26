@@ -9,6 +9,19 @@
 
 -   Examine `package.json` and note the `@angular/ssr`and `express` dependencies. Also note the `serve:ssr:food-shop-ssr` script. It starts the Node Express server and runs the Angular app in SSR mode.
 
+- Examine the registration of [ClientHydration](https://angular.io/guide/hydration) in `app.config.ts`:
+
+    ```typescript
+    export const appConfig: ApplicationConfig = {
+    providers: [
+        provideHttpClient(),
+        provideRouter(foodRoutes),
+        provideClientHydration(),
+        provideAnimations()
+    ]
+    };
+    ```
+
 -   Add Angular Material:
 
     ```
