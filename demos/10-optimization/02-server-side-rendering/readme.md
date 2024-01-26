@@ -63,6 +63,10 @@
     ng s -o
     ```
 
+- Examine the page source and note that the content is rendered by the browser using javascript:
+
+    ![page-source](_images/page-source.png)
+    
 -   Execute Node Express on `http://localhost:4000` and compare `First Contentful Paint (FCP)` values and examine the html source. Also create Lighthouse Audit and compare time used for `Scripting`
 
     ```bash

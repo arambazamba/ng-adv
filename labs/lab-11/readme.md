@@ -59,6 +59,8 @@
     ng s -o
     ```
 
+-     
+
 -   Execute Node Express on `http://localhost:4000` and compare `First Contentful Paint (FCP)` values and examine the html source. Also create Lighthouse Audit and compare time used for `Scripting`
 
     ```bash
