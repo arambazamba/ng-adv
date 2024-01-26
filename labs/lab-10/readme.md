@@ -47,24 +47,18 @@ In this lab we will create a simple PWA using Angular and .NET Core. We will use
   };
   ```
 
-Add `HttpClientModule` and `ReactiveFormsModule` to `app.module.ts`:
+- Copy the implementation for `skills` and `hello` from the [artifacts](./skills-pwa-artifacts/) and add it to your project.
 
-```typescript
-
->Note: PWA implementation code is skipped here. Copy `skills` and `hello` to your project and add them to `app.module.ts` and `app.component.ts`:
-
-```html
-<div class="card">
-  <div class="container">
-    <app-hello [greeting]="msgGreeting"></app-hello>
-    <app-skills></app-skills>
+  ```html
+  <div class="card">
+    <div class="container">
+      <app-hello [greeting]="msgGreeting"></app-hello>
+      <app-skills></app-skills>
+    </div>
   </div>
-</div>
-```
+  ```
 
-Test the app - see if it works
-
----
+- Test the app - see if it works
 
 ## Serving your app using ngrok & install the PWA
 
