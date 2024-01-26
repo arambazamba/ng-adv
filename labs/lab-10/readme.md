@@ -4,50 +4,48 @@ In this lab we will create a simple PWA using Angular and .NET Core. We will use
 
 ## Implementation
 
-Allow Chrome to use self signed localhost certs:
+- Allow Edge to use self signed localhost certs:
 
-```
-chrome://flags/#allow-insecure-localhost
-```
+  ```
+  edge://flags/#allow-insecure-localhost
+  ```
 
-[ngrok](https://ngrok.com/) is a tool that provides an `https-secured tunnel` to `localhost` that enables testing your PWAs. Requires registration but is free.
+  >Note: For some reason Chrome has removed this setting in Dec 2023.
 
-After creating your free account copy ngrok.exe to a folder of your choice (`C:\Program Files\ngrok`) and set a path variable to it.
+- [ngrok](https://ngrok.com/) is a tool that provides an `https-secured tunnel` to `localhost` that enables testing your PWAs. Requires registration but is free. After creating your free account copy ngrok.exe to a folder of your choice (`C:\Program Files\ngrok`) and set a path variable to it. Next grab the auth token from your ngrok user info and add it to your machine config:
 
-Next grab the auth token from your ngrok user info and add it to your machine config:
+  ```
+  ngrok config add-authtoken <your-token>
+  ```
 
-```
-ngrok config add-authtoken <your-token>
-```
+- A `skills-api` container is available at Docker Hub: 
 
-A skills service container is available at DockerHub: 
+  ```bash
+  docker pull arambazamba/skills-api
+  docker run -it --rm -p 5051:80 arambazamba/skills-api
+  ```
 
-```
-docker pull arambazamba/skills-api
-docker run -it --rm -p 5051:80 arambazamba/skills-api
-```
+- Create a new Angular project and add PWA support:
 
-Create a new Angular project and add PWA support:
+  ```bash
+  ng new skills-pwa --routing --style=scss
+  cd skills-pwa
+  ng add @angular/pwa --project skills-pwa
+  ```
 
-```
-ng new skills-pwa --routing --style=scss
-cd skills-pwa
-ng add @angular/pwa --project skills-pwa
-```
+- Add environment config:
 
-Add environment config:
+  ```bash
+  ng g environments
+  ```
 
-```
-ng g environments --project skills-pwa
-```
+- Add the api url to `environment.ts`: 
 
-Make sure you adjust your `environment.ts` and `environment.development.ts` to match IP config of your dev machine
-
-```
-export const environment = {
-    api: 'https://localhost:5051/api/'
-};
-```
+  ```typescript
+  export const environment = {
+      api: 'https://localhost:5051/api/'
+  };
+  ```
 
 Add `HttpClientModule` and `ReactiveFormsModule` to `app.module.ts`:
 
