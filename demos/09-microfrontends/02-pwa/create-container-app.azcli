@@ -1,0 +1,22 @@
+env=dev
+grp=ng-adv-$env
+loc=westeurope
+acaenv=foodcontainers-$env
+app=food-orders-dashboard-$env
+img=arambazamba/food-orders-dashboard:pwa
+funcApp=foodorders-$env
+
+az group create -n $grp -l $loc
+
+az containerapp env create -n $acaenv -g $grp -l $loc
+
+az containerapp create -n $app -g $grp \
+    --image $img \
+    --environment $acaenv \
+    --target-port 80 --ingress external
+
+url=$(az containerapp show -n $app -g $grp --query properties.configuration.ingress.fqdn -o tsv)    
+
+az functionapp cors add -g $grp -n $funcApp --allowed-origins $url
+
+echo "App is available at https://$url. Added CORS settings in the function app."
