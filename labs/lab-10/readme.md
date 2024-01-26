@@ -62,72 +62,74 @@ In this lab we will create a simple PWA using Angular and .NET Core. We will use
 
 ## Serving your app using ngrok & install the PWA
 
-To serve the build you need an http-server. Use `angular-http-server` or `http-server`
+- To serve the build you need an http-server. Use `angular-http-server`:
 
-```
-npm install -g angular-http-server
-ng build -c production
-cd .\dist\skills-pwa\
-angular-http-server
-```
+  ```bash
+  npm install -g angular-http-server
+  ng build -c production
+  cd .\dist\skills-pwa\
+  angular-http-server
+  ```
 
-```
-ngrok.exe http 8080
-```
+- Start ngrok:
 
-Open the Url provided by ngrok in your browser:
+  ```
+  ngrok.exe http 8080
+  ```
 
-![ngrok](_images/ngrok.png)
+- Open the Url provided by ngrok in your browser:
 
-Now you can install the PWA:
+  ![ngrok](_images/ngrok.png)
 
-![install](_images/install.png)
+- Now you can install the PWA:
 
-Note that there is an update handler in app.component.ts:
+  ![install](_images/install.png)
 
-```typescript
-ngOnInit() {
-  this.attachUpdateHandler();
-}
+- Note that there is an update handler in app.component.ts:
 
-private attachUpdateHandler() {
-  if (this.swUpdate.isEnabled) {
-    this.swUpdate.versionUpdates.subscribe(() => {
-      if (confirm('New version available. Load New Version?')) {
-        window.location.reload();
-      }
-    });
+  ```typescript
+  ngOnInit() {
+    this.attachUpdateHandler();
   }
-}
-```
 
-Preloading / Fetching can be fine tuned in `ngsw-config.json`:
-
-```json
-"assetGroups": [
-    {
-      "name": "app",
-      "installMode": "prefetch",
-      "resources": {
-        "files": [
-          "/favicon.ico",
-          "/index.html",
-          "/manifest.webmanifest",
-          "/*.css",
-          "/*.js"
-        ]
-      }
-    },
-    {
-      "name": "assets",
-      "installMode": "lazy",
-      "updateMode": "prefetch",
-      "resources": {
-        "files": [
-          "/assets/**",
-          "/*.(svg|cur|jpg|jpeg|png|apng|webp|avif|gif|otf|ttf|woff|woff2)"
-        ]
-      }
+  private attachUpdateHandler() {
+    if (this.swUpdate.isEnabled) {
+      this.swUpdate.versionUpdates.subscribe(() => {
+        if (confirm('New version available. Load New Version?')) {
+          window.location.reload();
+        }
+      });
     }
-  ]
-```
+  }
+  ```
+
+- Preloading / Fetching can be fine tuned in `ngsw-config.json`:
+
+  ```json
+  "assetGroups": [
+      {
+        "name": "app",
+        "installMode": "prefetch",
+        "resources": {
+          "files": [
+            "/favicon.ico",
+            "/index.html",
+            "/manifest.webmanifest",
+            "/*.css",
+            "/*.js"
+          ]
+        }
+      },
+      {
+        "name": "assets",
+        "installMode": "lazy",
+        "updateMode": "prefetch",
+        "resources": {
+          "files": [
+            "/assets/**",
+            "/*.(svg|cur|jpg|jpeg|png|apng|webp|avif|gif|otf|ttf|woff|woff2)"
+          ]
+        }
+      }
+    ]
+  ```
