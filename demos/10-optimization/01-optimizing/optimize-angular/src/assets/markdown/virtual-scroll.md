@@ -1,0 +1,1 @@
+- Examine the `<cdk-virtual-scroll-viewport [itemSize]="18 * 7">` in `virtual-scroll.component.html`

@@ -2,11 +2,7 @@
   "demos": [
     {
       "url": "lighthouse",
-      "title": "Lighthose"
-    },
-    {
-      "url": "bundles",
-      "title": "Bundles"
+      "title": "Lighthouse"
     },
     {
       "url": "debug-statements",
@@ -15,10 +11,6 @@
     {
       "url": "logger",
       "title": "Logging"
-    },
-    {
-      "url": "ngfor",
-      "title": "Optimized *ngFor"
     },
     {
       "url": "vscroll",

@@ -13,15 +13,12 @@ import { SharedModule } from '../shared/shared.module';
 import { DemoContainerComponent } from './demo-container/demo-container.component';
 import { demoRoutes } from './demo.routing.module';
 import { A11yComponent } from './samples/a11y/a11y.component';
-import { BundlesComponent } from './samples/bundles/bundles.component';
 import { ConsoleComponent } from './samples/console/console.component';
 import { DebugStatementsComponent } from './samples/debug-statements/debug-statements.component';
 import { EslintComponent } from './samples/eslint/eslint.component';
 import { InjectConfigComponent } from './samples/inject-config/inject-config.component';
 import { LighthouseComponent } from './samples/lighthouse/lighthouse.component';
 import { LoggerComponent } from './samples/logger/logger.component';
-import { NgforComponent } from './samples/ngfor/ngfor.component';
-import { NgrxpushComponent } from './samples/ngrxpush/ngrxpush.component';
 import { VirtualScrollComponent } from './samples/virtual-scroll/virtual-scroll.component';
 import { DemosEffects } from './state/demos.effects';
 import { demoReducer, demosFeatureKey } from './state/demos.reducer';
@@ -32,14 +29,11 @@ import { NgOptimizedImageComponent } from './samples/ng-optimized-image/ng-optim
   declarations: [
     DemoContainerComponent,
     LoggerComponent,
-    BundlesComponent,
     ConsoleComponent,
     DebugStatementsComponent,
     InjectConfigComponent,
-    NgrxpushComponent,
     LighthouseComponent,
     VirtualScrollComponent,
-    NgforComponent,
     A11yComponent,
     EslintComponent,
     EsbuildComponent,

@@ -70,10 +70,8 @@ export class DemoContainerComponent {
       .subscribe((route: ActivatedRoute) => {
         this.selectedComponent =
           route.component != null
-            ? `Component: ${route.component
-              .toString()
-              .substring(6, route.component.toString().indexOf('{') - 1)}`
-            : '';
+            ? `Component: ${route.component.name.substring(1)}`
+            : 'Please select a demo';
       });
   }
 }
