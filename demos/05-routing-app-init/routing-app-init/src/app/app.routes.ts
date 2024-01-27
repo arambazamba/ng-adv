@@ -1,7 +1,5 @@
 import { Routes } from '@angular/router';
 import { authGuard } from './auth/auth.guard';
-import { CustomerEditComponent } from './customers/component/customer-edit/customer-edit.component';
-import { CustomersComponent } from './customers/component/customer-list/customers.component';
 import { ErrPageComponent } from './error/err-page/err-page.component';
 import { HomeComponent } from './home/home.component';
 

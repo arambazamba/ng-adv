@@ -10,11 +10,6 @@
       "title": "App Init",
       "id": 1
     },
-        {
-      "url": "code-splitting",
-      "title": "Code Splitting",
-      "id": 91
-    },
     {
       "url": "multi-guard",
       "title": "Route Guards",

@@ -2,7 +2,6 @@ import { Routes } from '@angular/router';
 import { DemoContainerComponent } from './demo-container/demo-container.component';
 import { AppInitComponent } from './samples/app-init/app-init.component';
 import { AuxiliaryRoutesComponent } from './samples/auxilary-routes/auxiliary-routes.component';
-import { CodeSplittingComponent } from './samples/code-splitting/code-splitting.component';
 import { DiInjectComponent } from './samples/di-inject/di-inject.component';
 import { GlobalErrorsComponent } from './samples/global-errors/global-errors.component';
 import { HttpErrorsComponent } from './samples/http-errors/http-errors.component';
@@ -36,10 +35,6 @@ export const demoRoutes: Routes = [
             {
                 path: 'auxiliary-routes',
                 component: AuxiliaryRoutesComponent,
-            },
-            {
-                path: 'code-splitting',
-                component: CodeSplittingComponent,
             },
             {
                 path: 'ngrx-routing',
