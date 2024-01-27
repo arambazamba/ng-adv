@@ -6,11 +6,23 @@ import {
   switchMap, take, tap
 } from 'rxjs/operators';
 import { TopicService } from '../../topics/topic.service';
+import { MatButton } from '@angular/material/button';
+import { MatCard, MatCardHeader, MatCardTitle, MatCardContent } from '@angular/material/card';
+import { MarkdownRendererComponent } from '../../../shared/markdown-renderer/markdown-renderer.component';
 
 @Component({
-  selector: 'app-transformation',
-  templateUrl: './transformation.component.html',
-  styleUrls: ['./transformation.component.scss'],
+    selector: 'app-transformation',
+    templateUrl: './transformation.component.html',
+    styleUrls: ['./transformation.component.scss'],
+    standalone: true,
+    imports: [
+        MarkdownRendererComponent,
+        MatCard,
+        MatCardHeader,
+        MatCardTitle,
+        MatCardContent,
+        MatButton,
+    ],
 })
 export class TransformationComponent {
   ts = inject(TopicService);

@@ -1,11 +1,23 @@
 import { Component, ElementRef, ViewChild } from '@angular/core';
 import { fromEvent } from 'rxjs';
 import { pairwise, switchMap, takeUntil } from 'rxjs/operators';
+import { MatButton } from '@angular/material/button';
+import { MatCard, MatCardHeader, MatCardTitle, MatCardContent } from '@angular/material/card';
+import { MarkdownRendererComponent } from '../../../shared/markdown-renderer/markdown-renderer.component';
 
 @Component({
-  selector: 'app-mouse-dom-observables',
-  templateUrl: './mouse-dom-observables.component.html',
-  styleUrls: ['./mouse-dom-observables.component.scss'],
+    selector: 'app-mouse-dom-observables',
+    templateUrl: './mouse-dom-observables.component.html',
+    styleUrls: ['./mouse-dom-observables.component.scss'],
+    standalone: true,
+    imports: [
+        MarkdownRendererComponent,
+        MatCard,
+        MatCardHeader,
+        MatCardTitle,
+        MatCardContent,
+        MatButton,
+    ],
 })
 export class MouseDomObservablesComponent {
   @ViewChild('signPad') signPad: ElementRef | undefined;

@@ -1,10 +1,19 @@
 import { Component, ElementRef, OnDestroy, ViewChild } from '@angular/core';
 import { fromEvent, map, Subscription, tap } from 'rxjs';
+import { MatButton } from '@angular/material/button';
+import { BorderDirective } from '../../../../shared/formatting/formatting-directives';
+import { MarkdownRendererComponent } from '../../../../shared/markdown-renderer/markdown-renderer.component';
 
 @Component({
-  selector: 'app-sign-pad',
-  templateUrl: './sign-pad.component.html',
-  styleUrls: ['./sign-pad.component.scss'],
+    selector: 'app-sign-pad',
+    templateUrl: './sign-pad.component.html',
+    styleUrls: ['./sign-pad.component.scss'],
+    standalone: true,
+    imports: [
+        MarkdownRendererComponent,
+        BorderDirective,
+        MatButton,
+    ],
 })
 export class SignPadComponent implements OnDestroy {
   @ViewChild('signPad', { static: true }) canvas: ElementRef | null = null;

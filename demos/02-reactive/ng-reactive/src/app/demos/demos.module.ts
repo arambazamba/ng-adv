@@ -3,11 +3,11 @@ import { HttpClientModule } from '@angular/common/http';
 import { NgModule } from '@angular/core';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { RouterModule, Routes } from '@angular/router';
-import { MaterialModule } from '../material.module';
-import { FormattingModule } from '../shared/formatting/formatting.module';
+
+
 import { MarkdownEditorComponent } from '../shared/markdown-editor/markdown-editor.component';
 import { MarkdownRendererModule } from '../shared/markdown-renderer/markdown-renderer.module';
-import { SharedModule } from '../shared/shared.module';
+
 import { DemoContainerComponent } from './demo-container/demo-container.component';
 import { ActionStreamsComponent } from './samples/action-streams/action-streams.component';
 import { AsyncPipeComponent } from './samples/async-pipe/async-pipe.component';
@@ -17,7 +17,7 @@ import { CustomOperatorsComponent } from './samples/custom-operators/custom-oper
 import { DebouncedSearchComponent } from './samples/debounced-search/debounced-search.component';
 import { DestroyRefComponent } from './samples/destroy-ref/destroy-ref.component';
 import { ErrHandlingComponent } from './samples/err-handling/err-handling.component';
-import { EventbusComponent } from './samples/eventbus/eventbus.component';
+import { EventBusComponent } from './samples/eventbus/eventbus.component';
 import { FormControlComponent } from './samples/form-control/form-control.component';
 import { ImperativeComponent } from './samples/imperative/imperative.component';
 import { LangFeaturesComponent } from './samples/lang-features/lang-features.component';
@@ -28,7 +28,7 @@ import { ReifiedReactiveComponent } from './samples/reified-reactive/reified-rea
 import { DemoRowComponent } from './samples/statefull/demo-row/demo-row.component';
 import { KpiComponent } from './samples/statefull/kpi/kpi.component';
 import { ListComponent } from './samples/statefull/list/list.component';
-import { StatefullComponent } from './samples/statefull/statefull.component';
+import { StatefulComponent } from './samples/statefull/stateful.component';
 import { SubjectsComponent } from './samples/subjects/subjects.component';
 import { TakeUntilDestroyedComponent } from './samples/take-until-destroyed/take-until-destroyed.component';
 import { TransformationComponent } from './samples/transformation/transformation.component';
@@ -58,14 +58,21 @@ const demoRoutes: Routes = [
       { path: 'transformation', component: TransformationComponent },
       { path: 'actionstreams', component: ActionStreamsComponent },
       { path: 'marble-testing', component: MarbleTestingComponent },
-      { path: 'statefull', component: StatefullComponent },
-      { path: 'ebus', component: EventbusComponent }
+      { path: 'statefull', component: StatefulComponent },
+      { path: 'ebus', component: EventBusComponent }
     ],
   },
 ];
 
 @NgModule({
-  declarations: [
+  imports: [
+    CommonModule,
+    FormsModule,
+    ReactiveFormsModule,
+    RouterModule.forChild(demoRoutes),
+    HttpClientModule,
+    MarkdownRendererModule,
+    MarkdownEditorComponent,
     DemoContainerComponent,
     FormControlComponent,
     CreatingObservableComponent,
@@ -85,26 +92,14 @@ const demoRoutes: Routes = [
     SignPadComponent,
     ImperativeComponent,
     ReifiedReactiveComponent,
-    StatefullComponent,
-    EventbusComponent,
+    StatefulComponent,
+    EventBusComponent,
     ListComponent,
     KpiComponent,
     DemoRowComponent,
     DestroyRefComponent,
     TakeUntilDestroyedComponent,
-    ResponsiveScreenComponent,
-  ],
-  imports: [
-    CommonModule,
-    SharedModule,
-    FormsModule,
-    ReactiveFormsModule,
-    RouterModule.forChild(demoRoutes),
-    MaterialModule,
-    HttpClientModule,
-    MarkdownRendererModule,
-    MarkdownEditorComponent,
-    FormattingModule
+    ResponsiveScreenComponent
   ],
   providers: [],
 })

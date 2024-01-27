@@ -6,11 +6,21 @@ import { filterOnlyEven } from './filterOnlyEven';
 import { getFromApi, logError } from './logErr';
 import { pow } from './pow';
 import { takeEveryNth } from './takeEveryNth';
+import { MatButton } from '@angular/material/button';
+import { MatCard, MatCardHeader, MatCardTitle, MatCardContent } from '@angular/material/card';
 
 @Component({
-  selector: 'app-custom-operators',
-  templateUrl: './custom-operators.component.html',
-  styleUrls: ['./custom-operators.component.scss'],
+    selector: 'app-custom-operators',
+    templateUrl: './custom-operators.component.html',
+    styleUrls: ['./custom-operators.component.scss'],
+    standalone: true,
+    imports: [
+        MatCard,
+        MatCardHeader,
+        MatCardTitle,
+        MatCardContent,
+        MatButton,
+    ],
 })
 export class CustomOperatorsComponent {
   http = inject(HttpClient);

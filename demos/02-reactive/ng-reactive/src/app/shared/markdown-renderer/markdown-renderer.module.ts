@@ -6,14 +6,14 @@ import { MarkdownRendererComponent } from './markdown-renderer.component';
 import { MatExpansionModule } from '@angular/material/expansion';
 
 @NgModule({
-  declarations: [MarkdownRendererComponent],
-  exports: [MarkdownRendererComponent],
-  imports: [
-    CommonModule,
-    MarkdownModule.forRoot({
-      loader: HttpClient,
-    }),
-    MatExpansionModule,
-  ],
+    exports: [MarkdownRendererComponent],
+    imports: [
+        CommonModule,
+        MarkdownModule.forRoot({
+            loader: HttpClient,
+        }),
+        MatExpansionModule,
+        MarkdownRendererComponent,
+    ],
 })
 export class MarkdownRendererModule { }

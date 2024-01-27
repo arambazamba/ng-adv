@@ -1,10 +1,22 @@
 import { Component, OnInit } from '@angular/core';
 import { AsyncSubject, BehaviorSubject, ReplaySubject, Subject } from 'rxjs';
+import { MatButton } from '@angular/material/button';
+import { MatCard, MatCardHeader, MatCardTitle, MatCardContent } from '@angular/material/card';
+import { MarkdownRendererComponent } from '../../../shared/markdown-renderer/markdown-renderer.component';
 
 @Component({
-  selector: 'app-subjects',
-  templateUrl: './subjects.component.html',
-  styleUrls: ['./subjects.component.scss'],
+    selector: 'app-subjects',
+    templateUrl: './subjects.component.html',
+    styleUrls: ['./subjects.component.scss'],
+    standalone: true,
+    imports: [
+        MarkdownRendererComponent,
+        MatCard,
+        MatCardHeader,
+        MatCardTitle,
+        MatCardContent,
+        MatButton,
+    ],
 })
 export class SubjectsComponent {
 

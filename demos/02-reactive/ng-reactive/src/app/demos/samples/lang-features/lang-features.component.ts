@@ -2,11 +2,21 @@ import { Component } from '@angular/core';
 import * as _ from 'lodash';
 import { combineLatest, of } from 'rxjs';
 import { map } from 'rxjs/operators';
+import { MatButton } from '@angular/material/button';
+import { MatCard, MatCardHeader, MatCardTitle, MatCardContent } from '@angular/material/card';
 
 @Component({
-  selector: 'app-lang-features',
-  templateUrl: './lang-features.component.html',
-  styleUrls: ['./lang-features.component.scss'],
+    selector: 'app-lang-features',
+    templateUrl: './lang-features.component.html',
+    styleUrls: ['./lang-features.component.scss'],
+    standalone: true,
+    imports: [
+        MatCard,
+        MatCardHeader,
+        MatCardTitle,
+        MatCardContent,
+        MatButton,
+    ],
 })
 export class LangFeaturesComponent {
   impureFunction() {

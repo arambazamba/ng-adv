@@ -1,10 +1,19 @@
 import { Component, EventEmitter, Input, Output } from '@angular/core';
 import { DemoItem } from '../../../demo-base/demo-item.model';
+import { MatIcon } from '@angular/material/icon';
+import { MatButton } from '@angular/material/button';
+import { MatSlideToggle } from '@angular/material/slide-toggle';
 
 @Component({
-  selector: 'app-demo-row',
-  templateUrl: './demo-row.component.html',
-  styleUrls: ['./demo-row.component.scss'],
+    selector: 'app-demo-row',
+    templateUrl: './demo-row.component.html',
+    styleUrls: ['./demo-row.component.scss'],
+    standalone: true,
+    imports: [
+        MatSlideToggle,
+        MatButton,
+        MatIcon,
+    ],
 })
 export class DemoRowComponent {
   @Input() item = new DemoItem();

@@ -3,11 +3,32 @@ import { Observable, Subscription } from 'rxjs';
 import { filter, mergeMap, tap } from 'rxjs/operators';
 import { TaskItem } from '../../tasks/task-item.model';
 import { TaskService } from '../../tasks/task.service';
+import { AsyncPipe, JsonPipe } from '@angular/common';
+import { FormsModule } from '@angular/forms';
+import { MatInput } from '@angular/material/input';
+import { MatFormField } from '@angular/material/form-field';
+import { MatProgressBar } from '@angular/material/progress-bar';
+import { MatCard, MatCardHeader, MatCardTitle, MatCardContent } from '@angular/material/card';
+import { MarkdownRendererComponent } from '../../../shared/markdown-renderer/markdown-renderer.component';
 
 @Component({
-  selector: 'app-async-pipe',
-  templateUrl: './async-pipe.component.html',
-  styleUrls: ['./async-pipe.component.scss'],
+    selector: 'app-async-pipe',
+    templateUrl: './async-pipe.component.html',
+    styleUrls: ['./async-pipe.component.scss'],
+    standalone: true,
+    imports: [
+        MarkdownRendererComponent,
+        MatCard,
+        MatCardHeader,
+        MatCardTitle,
+        MatCardContent,
+        MatProgressBar,
+        MatFormField,
+        MatInput,
+        FormsModule,
+        AsyncPipe,
+        JsonPipe,
+    ],
 })
 export class AsyncPipeComponent implements OnInit {
   ts = inject(TaskService);

@@ -4,11 +4,23 @@ import { combineLatestWith, map, take, tap } from 'rxjs/operators';
 import { AccountService } from '../../vouchers/account.service';
 import { VouchersService } from '../../vouchers/voucher.service';
 import { DoublerService } from '../operators/doubler.service';
+import { MatButton } from '@angular/material/button';
+import { MatCard, MatCardHeader, MatCardTitle, MatCardContent } from '@angular/material/card';
+import { MarkdownRendererComponent } from '../../../shared/markdown-renderer/markdown-renderer.component';
 
 @Component({
-  selector: 'app-combining',
-  templateUrl: './combining.component.html',
-  styleUrls: ['./combining.component.scss'],
+    selector: 'app-combining',
+    templateUrl: './combining.component.html',
+    styleUrls: ['./combining.component.scss'],
+    standalone: true,
+    imports: [
+        MarkdownRendererComponent,
+        MatCard,
+        MatCardHeader,
+        MatCardTitle,
+        MatCardContent,
+        MatButton,
+    ],
 })
 export class CombiningComponent {
   vs = inject(VouchersService);

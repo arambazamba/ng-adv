@@ -1,13 +1,20 @@
 import { Component, inject } from '@angular/core';
-import { FormControl } from '@angular/forms';
+import { FormControl, FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { combineLatest } from 'rxjs';
 import { map, startWith } from 'rxjs/operators';
 import { DemoService } from '../../demo-base/demo.service';
+import { AsyncPipe } from '@angular/common';
+import { MatCard, MatCardHeader, MatCardTitle, MatCardContent } from '@angular/material/card';
+import { MatInput } from '@angular/material/input';
+import { MatFormField } from '@angular/material/form-field';
+import { MatToolbar, MatToolbarRow } from '@angular/material/toolbar';
 
 @Component({
-  selector: 'app-action-streams',
-  templateUrl: './action-streams.component.html',
-  styleUrls: ['./action-streams.component.scss']
+    selector: 'app-action-streams',
+    templateUrl: './action-streams.component.html',
+    styleUrls: ['./action-streams.component.scss'],
+    standalone: true,
+    imports: [MatToolbar, MatToolbarRow, MatFormField, MatInput, FormsModule, ReactiveFormsModule, MatCard, MatCardHeader, MatCardTitle, MatCardContent, AsyncPipe]
 })
 export class ActionStreamsComponent {
   ds = inject(DemoService);

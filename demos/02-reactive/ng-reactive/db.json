@@ -1,7 +1,7 @@
 {
   "demos": [
     {
-      "url": "langfeatures",
+      "url": "lang-features",
       "title": "Language Features"
     },
     {
@@ -13,7 +13,7 @@
       "title": "Declarative Reactivity"
     },
     {
-      "url": "asyncpipe",
+      "url": "async-pipe",
       "title": "Async Pipe"
     },
     {
@@ -21,11 +21,11 @@
       "title": "Debounced Search"
     },
     {
-      "url": "actionstreams",
+      "url": "action-streams",
       "title": "Action Streams"
     },
     {
-      "url": "mousedomobs",
+      "url": "mouse-dom",
       "title": "Mouse & DOM Events"
     },
     {
@@ -49,11 +49,11 @@
       "title": "Subjects"
     },
     {
-      "url": "statefull",
-      "title": "Statefull Service"
+      "url": "stateful-service",
+      "title": "Stateful Service"
     },
     {
-      "url": "ebus",
+      "url": "event-bus",
       "title": "EventBus"
     },
     {
@@ -61,7 +61,7 @@
       "title": "Marble Testing"
     },
     {
-      "url": "errhandling",
+      "url": "err-handling",
       "title": "Error Handling"
     },
     {
@@ -73,7 +73,7 @@
       "title": "Transformation"
     },
     {
-      "url": "customops",
+      "url": "custom-operators",
       "title": "Custom Operators"
     }
   ],

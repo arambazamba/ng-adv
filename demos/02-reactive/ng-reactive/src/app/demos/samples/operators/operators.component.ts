@@ -14,11 +14,21 @@ import {
 import { Voucher } from '../../vouchers/voucher.model';
 import { VouchersService } from '../../vouchers/voucher.service';
 import { Person } from './person';
+import { MatButton } from '@angular/material/button';
+import { MatCard, MatCardHeader, MatCardTitle, MatCardContent } from '@angular/material/card';
 
 @Component({
-  selector: 'app-operators',
-  templateUrl: './operators.component.html',
-  styleUrls: ['./operators.component.scss'],
+    selector: 'app-operators',
+    templateUrl: './operators.component.html',
+    styleUrls: ['./operators.component.scss'],
+    standalone: true,
+    imports: [
+        MatCard,
+        MatCardHeader,
+        MatCardTitle,
+        MatCardContent,
+        MatButton,
+    ],
 })
 export class OperatorsComponent implements OnInit {
   @ViewChild('btnSwitchMap', { static: true }) btnSwitchMap: ElementRef | undefined;
