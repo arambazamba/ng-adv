@@ -1,13 +1,12 @@
 - `createFeature` in `app.state.ts` creates the following ngrx artifacts:
     - Feature Key
     - Reducer
-    - Selectors
 
 Additional Selectors can be defined using extraSelectors parameter.
 
 ```TypeScript
 export const appState = createFeature({
-  name: 'app',
+  name: appFeatureKey,
   reducer: createReducer(initialAppState,
     on(appActions.toggleSideNav, (state) => ({
       ...state,
@@ -21,11 +20,11 @@ export const appState = createFeature({
       ...state,
       sideNavPosition: action.position as MatDrawerMode,
     })),
-    on(appActions.toggleMockAuthenticated, (state, action) => {
-      return { ...state, IsMockAuthenticated: !state.IsMockAuthenticated };
-    }),
+    on(appActions.toggleMockAuthenticated, (state, action) => ({
+      ...state, IsMockAuthenticated: !state.IsMockAuthenticated
+    }))
   )
-});
+})
 ```
 
 - In a live demo replace menu.service.ts with menu.facade.ts in `demo-container.component.ts` and `navbar.component.ts`

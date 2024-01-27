@@ -27,26 +27,9 @@ export const appActions = createActionGroup({
 });
 ```
 
-- Examine root state in /app/state/index.ts and explain `State` and `ActionReducerMap`:
-
-```typescript
-export interface State {
-  app: AppState;
-}
-export const reducers: ActionReducerMap<State> = {
-  app: appState.reducer,
-};
-```
-
-- Register `AppState` in `app.module.ts`:
-
-  ```typescript
-  StoreModule.forRoot(reducers, { metaReducers }),
-  ```
-
-- Register `appState` in `app.config.ts` when using standalone configuration:
+- Register `appState` in `app.config.ts`. provideStore() provides the store as such and provideState(appState) the state slice:
 
   ```typescript
   provideStore(),
   provideState(appState),
-  ```  
+  ```

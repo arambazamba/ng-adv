@@ -24,7 +24,7 @@ export const appConfig: ApplicationConfig = {
         provideRouter(routes),
         provideAnimations(),
         //NgRx
-        provideStore({ demos: demoState.reducer }),
+        provideStore(),
         provideEffects(demoEffects),
         provideEffects(customerEffects),
         //State Slices

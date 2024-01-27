@@ -39,23 +39,11 @@
             map((data) => {
         ...
     ```
-- Show registration in skill.module.ts and explain constructor:
+- Examine registration of @ngrx/data in `app.config.ts`:
 
     ```typescript
-    @NgModule({
-    ...
-    providers: [SkillsEntityService, SkillsDataService],
-    })
-    export class SkillsModule {
-        constructor(
-            entityDefinitionService: EntityDefinitionService,
-            entityDataService: EntityDataService,
-            skillsDataService: SkillsDataService
-        ) {
-            entityDefinitionService.registerMetadataMap(entityMetadata);
-            entityDataService.registerService('Skill', skillsDataService);
-        }
-    }
+    provideEntityData(skillsEntityConfig, withEffects()),
+    { provide: DefaultDataServiceConfig, useValue: skillsDataServiceConfig },
     ```
 - Discuss initial loading in `skills-container.component.ts`
 
