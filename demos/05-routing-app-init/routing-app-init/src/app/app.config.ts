@@ -14,6 +14,8 @@ import { appState } from './state/app.state';
 import { customerState } from './customers/state/customers.state';
 import { provideEffects } from '@ngrx/effects';
 import * as customerEffects from './customers/state/customers.effects';
+import * as demoEffects from './demos/state/demos.effects';
+import { demoState } from './demos/state/demos.state';
 
 export const appConfig: ApplicationConfig = {
     providers: [
@@ -26,7 +28,9 @@ export const appConfig: ApplicationConfig = {
         // NgRx
         provideStore(),
         provideState(appState),
+        provideState(demoState),
         provideState(customerState),
+        provideEffects(demoEffects),
         provideEffects(customerEffects),
         // Application Init
         {

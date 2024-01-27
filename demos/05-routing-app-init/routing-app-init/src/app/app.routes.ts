@@ -13,7 +13,7 @@ export const appRoutes: Routes = [
     {
         path: 'demos',
         loadChildren: () =>
-            import('./demos/demos.module').then((m) => m.DemosModule),
+            import('./demos/demo.routes').then((m) => m.demoRoutes),
     },
     {
         path: 'skills',

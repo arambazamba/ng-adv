@@ -6,28 +6,28 @@ import { MatCard, MatCardHeader, MatCardTitle, MatCardContent, MatCardActions } 
 import { MarkdownRendererComponent } from '../../../shared/markdown-renderer/markdown-renderer.component';
 
 @Component({
-    selector: 'app-multi-interceptor',
-    templateUrl: './multi-interceptor.component.html',
-    styleUrls: ['./multi-interceptor.component.scss'],
-    standalone: true,
-    imports: [
-        MarkdownRendererComponent,
-        MatCard,
-        MatCardHeader,
-        MatCardTitle,
-        MatCardContent,
-        MatCardActions,
-        MatButton,
-    ],
+  selector: 'app-multi-interceptor',
+  templateUrl: './multi-interceptor.component.html',
+  styleUrls: ['./multi-interceptor.component.scss'],
+  standalone: true,
+  imports: [
+    MarkdownRendererComponent,
+    MatCard,
+    MatCardHeader,
+    MatCardTitle,
+    MatCardContent,
+    MatCardActions,
+    MatButton,
+  ],
 })
 export class MultiInterceptorComponent {
-  ds = inject(DemoService);
+  service = inject(DemoService);
   http = inject(HttpClient);
   data1 = '';
   data2 = '';
 
   httpCall(): void {
-    this.ds.getItems().subscribe((res) => console.log(res));
+    this.service.getDemos().subscribe((res) => console.log(res));
   }
 
   requestData() {

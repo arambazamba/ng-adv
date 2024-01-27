@@ -5,13 +5,13 @@ import { BorderDirective, CenteredDirective } from '../../../shared/formatting/f
 import { MarkdownRendererComponent } from '../../../shared/markdown-renderer/markdown-renderer.component';
 
 @Component({
-    selector: 'app-di-inject',
-    templateUrl: './di-inject.component.html',
-    styleUrls: ['./di-inject.component.scss'],
-    standalone: true,
-    imports: [MarkdownRendererComponent, BorderDirective, CenteredDirective, AsyncPipe]
+  selector: 'app-di-inject',
+  templateUrl: './di-inject.component.html',
+  styleUrls: ['./di-inject.component.scss'],
+  standalone: true,
+  imports: [MarkdownRendererComponent, BorderDirective, CenteredDirective, AsyncPipe]
 })
 export class DiInjectComponent {
   service = inject(DemoService);
-  demos = this.service.getItems();
+  demos = this.service.getDemos();
 }
