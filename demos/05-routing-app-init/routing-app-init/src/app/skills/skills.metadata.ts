@@ -13,6 +13,6 @@ export const entityMetadata: EntityMetadataMap = {
   },
 };
 
-export const entityConfig = {
+export const skillsEntityConfig = {
   entityMetadata,
 };

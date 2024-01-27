@@ -2,13 +2,13 @@ import { Injectable, inject } from '@angular/core';
 import { Store } from '@ngrx/store';
 import { map } from 'rxjs';
 import { authActions } from './auth.actions';
-import { AuthState, authState } from './auth.state';
+import { authState } from './auth.state';
 
 @Injectable({
     providedIn: 'root',
 })
 export class AuthFacade {
-    store = inject(Store) as Store<AuthState>;
+    store = inject(Store);
 
     isAuthenticated() {
         return this.store.select(authState.selectUser).pipe(
@@ -22,7 +22,7 @@ export class AuthFacade {
         return this.store.select(authState.selectIsPrimeMember)
     }
 
-    setFakeUserAndToken(email: string) {
+    setFakeUserAndToken(email: string, password: string) {
         this.store.dispatch(authActions.setFakeUserAndToken({ email }));
     }
 

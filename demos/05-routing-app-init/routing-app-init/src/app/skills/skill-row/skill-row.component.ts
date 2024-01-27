@@ -3,15 +3,13 @@ import {
   Component,
   EventEmitter,
   Input,
-  OnInit,
   Output,
-  SimpleChanges,
-  inject,
+  SimpleChanges
 } from '@angular/core';
-import { Skill } from '../skill.model';
 import { environment } from 'src/environments/environment';
-import { Router } from '@angular/router';
+import { Skill } from '../skill.model';
 import { MatIcon } from '@angular/material/icon';
+import { RouterLink } from '@angular/router';
 import { MatButton } from '@angular/material/button';
 
 @Component({
@@ -20,11 +18,16 @@ import { MatButton } from '@angular/material/button';
     styleUrls: ['./skill-row.component.scss'],
     changeDetection: ChangeDetectionStrategy.OnPush,
     standalone: true,
-    imports: [MatButton, MatIcon],
+    imports: [
+        MatButton,
+        RouterLink,
+        MatIcon,
+    ],
 })
 export class SkillRowComponent {
-  router = inject(Router);
   @Input() skill: Skill = new Skill();
+  @Output() itemDeleted: EventEmitter<Skill> = new EventEmitter<Skill>();
+  @Output() itemCompleted: EventEmitter<Skill> = new EventEmitter<Skill>();
 
   ngDoCheck(): void {
     if (environment.logChangeDetection) {
@@ -38,9 +41,11 @@ export class SkillRowComponent {
     }
   }
 
-  goToSkill() {
-    console.log('goToSkill');
-    this.router.navigate(['/skills/edit', this.skill.id]);
+  deleteItem(item: Skill): void {
+    this.itemDeleted.emit(item);
   }
 
+  toggleItemCompleted(item: Skill): void {
+    this.itemCompleted.emit(item);
+  }
 }

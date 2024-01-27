@@ -18,21 +18,18 @@ export const appRoutes: Routes = [
     {
         path: 'skills',
         loadChildren: () =>
-            import('./skills/skills.module').then((m) => m.SkillsModule),
+            import('./skills/skills.routes').then((m) => m.skillRoutes),
         canLoad: [authGuard],
     },
     {
         path: 'customers',
-        component: CustomersComponent,
-    },
-    {
-        path: 'customers/:id',
-        component: CustomerEditComponent,
+        loadChildren: () =>
+            import('./customers/customer.routes').then((m) => m.customersRoutes),
     },
     {
         path: 'auth',
         outlet: 'actions',
-        loadChildren: () => import('./auth/auth.module').then((m) => m.AuthModule),
+        loadChildren: () => import('./auth/auth.routes').then((m) => m.authRoutes),
     },
     {
         path: 'error',

@@ -9,11 +9,14 @@
       </div>
     </mat-toolbar-row>
   </mat-toolbar>
-
   @for (sk of skills | async; track sk) {
     <div class="item">
-      <app-skill-row [skill]="sk"></app-skill-row>
+      <app-skill-row
+        [skill]="sk"
+        (itemDeleted)="deleteItem($event)"
+        (itemCompleted)="toggleItemComplete($event)"
+      ></app-skill-row>
     </div>
   }
-
   <app-skills-kpi></app-skills-kpi>
+  

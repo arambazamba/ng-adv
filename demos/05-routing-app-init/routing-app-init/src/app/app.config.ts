@@ -16,6 +16,10 @@ import { provideEffects } from '@ngrx/effects';
 import * as customerEffects from './customers/state/customers.effects';
 import * as demoEffects from './demos/state/demos.effects';
 import { demoState } from './demos/state/demos.state';
+import { provideEntityData, withEffects, DefaultDataServiceConfig } from '@ngrx/data';
+import { skillsDataServiceConfig } from './skills/skills-data.service.config';
+import { skillsEntityConfig } from './skills/skills.metadata';
+import { authState } from './auth/state/auth.state';
 
 export const appConfig: ApplicationConfig = {
     providers: [
@@ -30,8 +34,12 @@ export const appConfig: ApplicationConfig = {
         provideState(appState),
         provideState(demoState),
         provideState(customerState),
+        provideState(authState),
         provideEffects(demoEffects),
         provideEffects(customerEffects),
+        // NgRx Data -> Skills
+        provideEntityData(skillsEntityConfig, withEffects()),
+        { provide: DefaultDataServiceConfig, useValue: skillsDataServiceConfig },
         // Application Init
         {
             provide: APP_INITIALIZER,
@@ -52,10 +60,10 @@ export const appConfig: ApplicationConfig = {
             deps: [ConfigService],
             multi: true,
         },
-        {
-            provide: ErrorHandler,
-            useClass: GlobalErrService,
-        },
+        // {
+        //     provide: ErrorHandler,
+        //     useClass: GlobalErrService,
+        // },
         {
             provide: HTTP_INTERCEPTORS,
             useClass: AuthInterceptorService,
