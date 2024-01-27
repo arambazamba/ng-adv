@@ -5,7 +5,7 @@ import { catchError, map, mergeMap } from 'rxjs/operators';
 import { CustomersService } from '../customers.service';
 import { customersActions } from './customers.actions';
 
-export const loadCustomers$ = createEffect((actions$ = inject(Actions), service = inject(CustomersService)) => {
+export const loadCustomers = createEffect((actions$ = inject(Actions), service = inject(CustomersService)) => {
   return actions$.pipe(
     ofType(customersActions.loadCustomers),
     mergeMap(() =>

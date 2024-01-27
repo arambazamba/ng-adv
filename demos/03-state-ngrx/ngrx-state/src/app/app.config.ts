@@ -1,5 +1,5 @@
 import { provideHttpClient, withInterceptorsFromDi, HTTP_INTERCEPTORS } from '@angular/common/http';
-import { ApplicationConfig } from '@angular/core';
+import { ApplicationConfig, importProvidersFrom } from '@angular/core';
 import { provideAnimations } from '@angular/platform-browser/animations';
 import { LoadingInterceptor } from './shared/loading/loading-interceptor';
 import { LoadingService } from './shared/loading/loading.service';
@@ -14,6 +14,9 @@ import { DefaultDataServiceConfig, provideEntityData, withEffects } from '@ngrx/
 import { customerState } from './customers/state/customers.state';
 import { skillsEntityConfig } from './skills/skills.metadata';
 import { skillsDataServiceConfig } from './skills/skills-data.service.config';
+import * as customerEffects from './customers/state/customers.effects';
+import * as demoEffects from './demos/state/demos.effects';
+import { MarkdownModule } from 'ngx-markdown';
 
 export const appConfig: ApplicationConfig = {
     providers: [
@@ -22,7 +25,8 @@ export const appConfig: ApplicationConfig = {
         provideAnimations(),
         //NgRx
         provideStore({ demos: demoState.reducer }),
-        provideEffects(),
+        provideEffects(demoEffects),
+        provideEffects(customerEffects),
         //State Slices
         provideState(appState),
         provideState(demoState),
@@ -34,5 +38,9 @@ export const appConfig: ApplicationConfig = {
         provideStoreDevtools({ maxAge: 25 }),
         LoadingService,
         { provide: HTTP_INTERCEPTORS, useClass: LoadingInterceptor, multi: true },
+        //Markdown
+        importProvidersFrom(
+            MarkdownModule.forRoot(),
+        )
     ]
 };

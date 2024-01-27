@@ -27,7 +27,6 @@ import { DemoRowComponent } from './samples/feature-module-state/demo-row/demo-r
 import { FeatureModuleStateComponent } from './samples/feature-module-state/feature-module-state.component';
 import { NgrxDataComponent } from './samples/ngrx-data/ngrx-data.component';
 import { NgrxEntityComponent } from './samples/ngrx-entity/ngrx-entity.component';
-import { DemosEffects } from './state/demos.effects';
 
 import { NgrxSignalsComponent } from './samples/ngrx-signals/ngrx-signals.component';
 import { CreateFeatureComponent } from './samples/create-feature/create-feature.component';
@@ -45,8 +44,6 @@ import { demoState } from './state/demos.state';
         MarkdownRendererModule,
         SharedModule,
         MarkdownEditorModule,
-        StoreModule.forFeature(demoState),
-        EffectsModule.forFeature([DemosEffects]),
         DemoContainerComponent,
         DemoRowComponent,
         DemoFilterComponent,

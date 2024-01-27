@@ -1,22 +1,22 @@
 import { createActionGroup, emptyProps, props } from '@ngrx/store';
 import { DemoItem } from '../demo-base/demo-item.model';
 
-export const DemoActions = createActionGroup({
+export const demoActions = createActionGroup({
   source: 'Demos',
   events: {
     loadDemos: emptyProps(),
-    loadDemosSuccess: props<{ items: DemoItem[] }>(),
+    loadDemosSuccess: props<{ demos: DemoItem[] }>(),
     loadDemosFailure: props<{ err: Error }>(),
-    addDemo: props<{ item: DemoItem }>(),
-    addDemoSuccess: props<{ item: DemoItem }>(),
+    addDemo: props<{ demo: DemoItem }>(),
+    addDemoSuccess: props<{ demo: DemoItem }>(),
     addDemoFailure: props<{ err: Error }>(),
-    updateDemo: props<{ item: DemoItem }>(),
-    updateDemoSuccess: props<{ item: DemoItem }>(),
+    updateDemo: props<{ demo: DemoItem }>(),
+    updateDemoSuccess: props<{ demo: DemoItem }>(),
     updateDemoFailure: props<{ err: Error }>(),
-    deleteDemo: props<{ item: DemoItem }>(),
-    deleteDemoSuccess: props<{ item: DemoItem }>(),
+    deleteDemo: props<{ demo: DemoItem }>(),
+    deleteDemoSuccess: props<{ demo: DemoItem }>(),
     deleteDemoFailure: props<{ err: Error }>(),
-    setSelected: props<{ item: DemoItem }>(),
+    setSelected: props<{ demo: DemoItem }>(),
     applyFilter: props<{ filter: string }>(),
   }
 });

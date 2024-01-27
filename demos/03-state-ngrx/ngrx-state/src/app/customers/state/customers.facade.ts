@@ -3,7 +3,6 @@ import { Store } from '@ngrx/store';
 import { CustomersState, customerState } from './customers.state';
 import { customersActions } from './customers.actions';
 
-
 @Injectable({
     providedIn: 'root'
 })
