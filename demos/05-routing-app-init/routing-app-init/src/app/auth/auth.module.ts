@@ -7,14 +7,12 @@ import { authState } from './state/auth.state';
 import { EffectsModule } from '@ngrx/effects';
 
 @NgModule({
-  declarations: [
-    AuthComponent
-  ],
-  imports: [
-    CommonModule,
-    AuthRoutingModule,
-    StoreModule.forFeature(authState),
-    EffectsModule.forFeature([])
-  ]
+    imports: [
+        CommonModule,
+        AuthRoutingModule,
+        StoreModule.forFeature(authState),
+        EffectsModule.forFeature([]),
+        AuthComponent
+    ]
 })
 export class AuthModule { }

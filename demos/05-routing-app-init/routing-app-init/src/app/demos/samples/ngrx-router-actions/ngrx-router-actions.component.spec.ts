@@ -8,8 +8,8 @@ describe('NgrxRouterActionsComponent', () => {
 
   beforeEach(() => {
     TestBed.configureTestingModule({
-      declarations: [NgrxRouterActionsComponent]
-    });
+    imports: [NgrxRouterActionsComponent]
+});
     fixture = TestBed.createComponent(NgrxRouterActionsComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();

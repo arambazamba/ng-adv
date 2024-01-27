@@ -8,14 +8,14 @@ import { MatInputModule } from '@angular/material/input';
 import { MatButtonModule } from '@angular/material/button';
 
 @NgModule({
-  declarations: [SignUpComponent],
-  imports: [
-    CommonModule,
-    SignUpRoutingModule,
-    MatDialogModule,
-    MatFormFieldModule,
-    MatInputModule,
-    MatButtonModule,
-  ],
+    imports: [
+        CommonModule,
+        SignUpRoutingModule,
+        MatDialogModule,
+        MatFormFieldModule,
+        MatInputModule,
+        MatButtonModule,
+        SignUpComponent,
+    ],
 })
 export class SignUpModule {}

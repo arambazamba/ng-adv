@@ -1,21 +1,24 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, inject } from '@angular/core';
+import { MatButton } from '@angular/material/button';
+import { RouterLink } from '@angular/router';
 import { Store } from '@ngrx/store';
 import { Customer } from '../../customer.model';
-import { CustomersActions } from '../../state/customers.actions';
-import { CustomersState } from '../../state/customers.reducer';
-import { getCustomers } from '../../state/customers.selector';
+import { customersActions } from '../../state/customers.actions';
+import { customerState } from '../../state/customers.state';
 
 @Component({
   selector: 'app-customers',
   templateUrl: './customers.component.html',
-  styleUrls: ['./customers.component.scss']
+  styleUrls: ['./customers.component.scss'],
+  standalone: true,
+  imports: [MatButton, RouterLink]
 })
 export class CustomersComponent implements OnInit {
+  state = inject(Store);
   customers: Customer[] = [];
 
-  constructor(public state: Store<CustomersState>) { }
   ngOnInit(): void {
-    this.state.dispatch(CustomersActions.loadCustomers());
-    this.state.select(getCustomers).subscribe((customer: Customer[]) => this.customers = customer);
+    this.state.dispatch(customersActions.loadCustomers());
+    this.state.select(customerState.selectCustomers).subscribe((customer: Customer[]) => this.customers = customer);
   }
 }

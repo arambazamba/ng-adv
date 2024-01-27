@@ -11,12 +11,16 @@ import {
 import { Skill } from '../skill.model';
 import { environment } from 'src/environments/environment';
 import { Router } from '@angular/router';
+import { MatIcon } from '@angular/material/icon';
+import { MatButton } from '@angular/material/button';
 
 @Component({
-  selector: 'app-skill-row',
-  templateUrl: './skill-row.component.html',
-  styleUrls: ['./skill-row.component.scss'],
-  changeDetection: ChangeDetectionStrategy.OnPush,
+    selector: 'app-skill-row',
+    templateUrl: './skill-row.component.html',
+    styleUrls: ['./skill-row.component.scss'],
+    changeDetection: ChangeDetectionStrategy.OnPush,
+    standalone: true,
+    imports: [MatButton, MatIcon],
 })
 export class SkillRowComponent {
   router = inject(Router);

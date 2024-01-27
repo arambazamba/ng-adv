@@ -5,8 +5,8 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { RouterModule, Routes } from '@angular/router';
 import { EffectsModule } from '@ngrx/effects';
 import { StoreModule } from '@ngrx/store';
-import { MaterialModule } from '../material.module';
-import { FormattingModule } from '../shared/formatting/formatting.module';
+
+
 import { MarkdownEditorModule } from '../shared/markdown-editor/markdown-editor.module';
 import { MarkdownRendererModule } from '../shared/markdown-renderer/markdown-renderer.module';
 import { SharedModule } from '../shared/shared.module';
@@ -118,7 +118,17 @@ const demoRoutes: Routes = [
 ];
 
 @NgModule({
-  declarations: [
+    imports: [
+    CommonModule,
+    UxModule,
+    FormsModule,
+    ReactiveFormsModule,
+    RouterModule.forChild(demoRoutes),
+    MarkdownRendererModule,
+    MarkdownEditorModule,
+    SharedModule,
+    StoreModule.forFeature(demoState),
+    EffectsModule.forFeature([DemosEffects]),
     DemoContainerComponent,
     RoutingComponent,
     RoutingTargetComponent,
@@ -136,24 +146,10 @@ const demoRoutes: Routes = [
     AuxiliaryRoutesComponent,
     DiInjectComponent,
     RouterBindingComponent,
-    NgrxRouterActionsComponent
-  ],
-  imports: [
-    CommonModule,
-    UxModule,
-    FormsModule,
-    ReactiveFormsModule,
-    RouterModule.forChild(demoRoutes),
-    MaterialModule,
-    MarkdownRendererModule,
-    MarkdownEditorModule,
-    SharedModule,
-    StoreModule.forFeature(demoState),
-    EffectsModule.forFeature([DemosEffects]),
-    FormattingModule,
-  ],
-  providers: [
-    provideHttpClient()
-  ],
+    NgrxRouterActionsComponent,
+],
+    providers: [
+        provideHttpClient()
+    ],
 })
 export class DemosModule { }

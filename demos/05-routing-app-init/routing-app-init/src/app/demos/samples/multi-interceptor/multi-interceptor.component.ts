@@ -1,11 +1,24 @@
 import { HttpClient } from '@angular/common/http';
 import { Component, inject } from '@angular/core';
 import { DemoService } from '../../demo-base/demo.service';
+import { MatButton } from '@angular/material/button';
+import { MatCard, MatCardHeader, MatCardTitle, MatCardContent, MatCardActions } from '@angular/material/card';
+import { MarkdownRendererComponent } from '../../../shared/markdown-renderer/markdown-renderer.component';
 
 @Component({
-  selector: 'app-multi-interceptor',
-  templateUrl: './multi-interceptor.component.html',
-  styleUrls: ['./multi-interceptor.component.scss'],
+    selector: 'app-multi-interceptor',
+    templateUrl: './multi-interceptor.component.html',
+    styleUrls: ['./multi-interceptor.component.scss'],
+    standalone: true,
+    imports: [
+        MarkdownRendererComponent,
+        MatCard,
+        MatCardHeader,
+        MatCardTitle,
+        MatCardContent,
+        MatCardActions,
+        MatButton,
+    ],
 })
 export class MultiInterceptorComponent {
   ds = inject(DemoService);

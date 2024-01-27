@@ -1,11 +1,30 @@
 import { Component, OnInit, inject } from '@angular/core';
 import { CommentItem } from '../../comment.model';
 import { EditorFacade } from '../../state/editor.facade';
+import { AsyncPipe } from '@angular/common';
+import { MatButton } from '@angular/material/button';
+import { CommentEditComponent } from '../comment-edit/comment-edit.component';
+import { CommentsListComponent } from '../comments-list/comments-list.component';
+import { ColumnDirective } from '../../../formatting/formatting-directives';
+import { MatCard, MatCardHeader, MatCardTitle, MatCardContent, MatCardActions } from '@angular/material/card';
 
 @Component({
-  selector: 'app-editor-container',
-  templateUrl: './editor-container.component.html',
-  styleUrls: ['./editor-container.component.scss'],
+    selector: 'app-editor-container',
+    templateUrl: './editor-container.component.html',
+    styleUrls: ['./editor-container.component.scss'],
+    standalone: true,
+    imports: [
+        MatCard,
+        MatCardHeader,
+        MatCardTitle,
+        MatCardContent,
+        ColumnDirective,
+        CommentsListComponent,
+        CommentEditComponent,
+        MatCardActions,
+        MatButton,
+        AsyncPipe,
+    ],
 })
 export class EditorContainerComponent implements OnInit {
   ef = inject(EditorFacade)
