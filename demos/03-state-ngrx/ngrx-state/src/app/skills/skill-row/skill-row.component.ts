@@ -8,12 +8,21 @@ import {
 } from '@angular/core';
 import { environment } from 'src/environments/environment';
 import { Skill } from '../skill.model';
+import { MatIcon } from '@angular/material/icon';
+import { RouterLink } from '@angular/router';
+import { MatButton } from '@angular/material/button';
 
 @Component({
-  selector: 'app-skill-row',
-  templateUrl: './skill-row.component.html',
-  styleUrls: ['./skill-row.component.scss'],
-  changeDetection: ChangeDetectionStrategy.OnPush,
+    selector: 'app-skill-row',
+    templateUrl: './skill-row.component.html',
+    styleUrls: ['./skill-row.component.scss'],
+    changeDetection: ChangeDetectionStrategy.OnPush,
+    standalone: true,
+    imports: [
+        MatButton,
+        RouterLink,
+        MatIcon,
+    ],
 })
 export class SkillRowComponent {
   @Input() skill: Skill = new Skill();

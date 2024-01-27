@@ -1,14 +1,32 @@
 import { Component, inject } from '@angular/core';
-import { FormControl } from '@angular/forms';
+import { FormControl, FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { combineLatestWith, map, startWith } from 'rxjs/operators';
 import { environment } from 'src/environments/environment';
 import { Skill } from '../skill.model';
 import { SkillsEntityService } from '../skills-entity.service';
+import { AsyncPipe } from '@angular/common';
+import { SkillsKpiComponent } from '../skills-kpi/skills-kpi.component';
+import { SkillRowComponent } from '../skill-row/skill-row.component';
+import { MatSlideToggle } from '@angular/material/slide-toggle';
+import { MatButton } from '@angular/material/button';
+import { MatToolbar, MatToolbarRow } from '@angular/material/toolbar';
 
 @Component({
-  selector: 'app-skills-container',
-  templateUrl: './skills-container.component.html',
-  styleUrls: ['./skills-container.component.scss'],
+    selector: 'app-skills-container',
+    templateUrl: './skills-container.component.html',
+    styleUrls: ['./skills-container.component.scss'],
+    standalone: true,
+    imports: [
+        MatToolbar,
+        MatToolbarRow,
+        MatButton,
+        MatSlideToggle,
+        FormsModule,
+        ReactiveFormsModule,
+        SkillRowComponent,
+        SkillsKpiComponent,
+        AsyncPipe,
+    ],
 })
 export class SkillsContainerComponent {
   service = inject(SkillsEntityService);

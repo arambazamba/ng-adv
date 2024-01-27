@@ -5,12 +5,12 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { RouterModule } from '@angular/router';
 import { EffectsModule } from '@ngrx/effects';
 import { StoreModule } from '@ngrx/store';
-import { MaterialModule } from '../material.module';
+
 import { MarkdownEditorModule } from '../shared/markdown-editor/markdown-editor.module';
 import { MarkdownRendererModule } from '../shared/markdown-renderer/markdown-renderer.module';
 import { SharedModule } from '../shared/shared.module';
 import { DemoContainerComponent } from './demo-container/demo-container.component';
-import { demoRoutes } from './demo.routing.module';
+import { demoRoutes } from './demo.routes';
 import { AppStateComponent } from './samples/app-state/app-state.component';
 import { ChangeDetectionProfileComponent } from './samples/change-detection-profile/change-detection-profile.component';
 import { ChangeDetectionComponent } from './samples/change-detection/change-detection.component';
@@ -28,7 +28,7 @@ import { FeatureModuleStateComponent } from './samples/feature-module-state/feat
 import { NgrxDataComponent } from './samples/ngrx-data/ngrx-data.component';
 import { NgrxEntityComponent } from './samples/ngrx-entity/ngrx-entity.component';
 import { DemosEffects } from './state/demos.effects';
-import { FormattingModule } from '../shared/formatting/formatting.module';
+
 import { NgrxSignalsComponent } from './samples/ngrx-signals/ngrx-signals.component';
 import { CreateFeatureComponent } from './samples/create-feature/create-feature.component';
 import { DispatchActionComponent } from './samples/dispatch-action/dispatch-action.component';
@@ -36,44 +36,40 @@ import { RespondToEffectsComponent } from './samples/respond-to-effects/respond-
 import { demoState } from './state/demos.state';
 
 @NgModule({
-  declarations: [
-    DemoContainerComponent,
-    DemoRowComponent,
-    DemoFilterComponent,
-    DemoEditComponent,
-    DemoListComponent,
-    AppStateComponent,
-    NgrxEntityComponent,
-    FacadesComponent,
-    EffectsComponent,
-    ChangeDetectionComponent,
-    ContainerPresenterNgrxComponent,
-    ChangeDetectorRefComponent,
-    DetectorChildComponent,
-    ChangeDetectionProfileComponent,
-    ComponentStoreComponent,
-    NgrxDataComponent,
-    FeatureModuleStateComponent,
-    NgrxEntityComponent,
-    NgrxSignalsComponent,
-    CreateFeatureComponent,
-    DispatchActionComponent,
-    RespondToEffectsComponent,
-  ],
-  imports: [
-    CommonModule,
-    FormsModule,
-    ReactiveFormsModule,
-    RouterModule.forChild(demoRoutes),
-    MaterialModule,
-    HttpClientModule,
-    MarkdownRendererModule,
-    SharedModule,
-    MarkdownEditorModule,
-    FormattingModule,
-    StoreModule.forFeature(demoState),
-    EffectsModule.forFeature([DemosEffects]),
-  ],
-  providers: [],
+    imports: [
+        CommonModule,
+        FormsModule,
+        ReactiveFormsModule,
+        RouterModule.forChild(demoRoutes),
+        HttpClientModule,
+        MarkdownRendererModule,
+        SharedModule,
+        MarkdownEditorModule,
+        StoreModule.forFeature(demoState),
+        EffectsModule.forFeature([DemosEffects]),
+        DemoContainerComponent,
+        DemoRowComponent,
+        DemoFilterComponent,
+        DemoEditComponent,
+        DemoListComponent,
+        AppStateComponent,
+        NgrxEntityComponent,
+        FacadesComponent,
+        EffectsComponent,
+        ChangeDetectionComponent,
+        ContainerPresenterNgrxComponent,
+        ChangeDetectorRefComponent,
+        DetectorChildComponent,
+        ChangeDetectionProfileComponent,
+        ComponentStoreComponent,
+        NgrxDataComponent,
+        FeatureModuleStateComponent,
+        NgrxEntityComponent,
+        NgrxSignalsComponent,
+        CreateFeatureComponent,
+        DispatchActionComponent,
+        RespondToEffectsComponent,
+    ],
+    providers: [],
 })
 export class DemosModule { }
