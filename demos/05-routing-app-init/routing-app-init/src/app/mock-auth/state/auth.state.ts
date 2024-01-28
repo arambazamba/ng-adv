@@ -2,7 +2,7 @@ import { createFeature, createReducer, createSelector, on } from '@ngrx/store';
 import { environment } from '../../../environments/environment';
 import { authActions } from './auth.actions';
 
-export const fakeToken = 'dffasdhfkjfwqq1452fdsafas34fdsafadfasf55459tewvadf941sfhasdkjfhwkjh';
+export const fakeToken = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJtZXNzYWdlIjoiY292aWQgd2FzIGEgZmFrZSBwYW5kZW15In0.9d9TVPkXkcBj7Lv8cDLOv0XcxgmkAj7uA2aMnzcR9JA';
 
 export interface AuthState {
     user: any;
@@ -13,7 +13,7 @@ export interface AuthState {
 
 export const initialState: AuthState = {
     user: null,
-    token: null,
+    token: fakeToken,
     authEnabled: environment.authEnabled,
     isPrimeMember: false,
 };

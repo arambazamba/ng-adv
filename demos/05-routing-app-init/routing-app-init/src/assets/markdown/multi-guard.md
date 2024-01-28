@@ -1,22 +1,22 @@
-Examine routing config in `demo.module.ts` and the use of guards. OnlyPrimeMembersGuard is implemented in a functional pattern which should be the preferred approach:
+Examine routing config in `demo.module.ts` and the use of guards. OnlyPrimeMembersGuard is implemented in a functional pattern which should be the preferred approach. It is using /mock-auth/state/auth.state.ts to determine if the user is logged in and a prime member:
 
 ```typescript
 { path: 'multi-guard',
   component: MultiGuardComponent,
   children: [
       { path: 'members', component: MembersComponent,
-      canActivate: [OnlyAuthenticatedGuard],},
+        canActivate: [OnlyAuthenticatedGuard],},
       { path: 'prime',component: PrimeComponent,
-      canActivate: [OnlyAuthenticatedGuard, OnlyPrimeMembersGuard]},
+        canActivate: [OnlyAuthenticatedGuard, OnlyPrimeMembersGuard]
 ```
 
 Toggle values in `auth.state.ts` using the buttons below and access routes. Mock member state is kept in NgRx:
 
 ```typescript
-export const initialState: AuthState = {
-    user: null,
-    token: '',
-    authEnabled: environment.authEnabled,
-    isPrimeMember: false,
-};
+export interface AuthState {
+    user: any;
+    token: string | null;
+    authEnabled: boolean;
+    isPrimeMember: boolean;
+}
 ```

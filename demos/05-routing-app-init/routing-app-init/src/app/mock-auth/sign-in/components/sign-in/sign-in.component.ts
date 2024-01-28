@@ -8,7 +8,7 @@ import {
 } from '@angular/core';
 import { MatDialog, MatDialogTitle, MatDialogContent, MatDialogActions } from '@angular/material/dialog';
 import { Router, RouterLink } from '@angular/router';
-import { AuthFacade } from 'src/app/auth/state/auth.facade';
+import { AuthFacade } from '../../../state/auth.facade';
 import { MatButton } from '@angular/material/button';
 import { MatInput } from '@angular/material/input';
 import { MatFormField } from '@angular/material/form-field';

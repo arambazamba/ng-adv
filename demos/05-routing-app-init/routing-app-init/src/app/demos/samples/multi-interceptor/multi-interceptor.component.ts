@@ -27,7 +27,12 @@ export class MultiInterceptorComponent {
   data2 = '';
 
   httpCall(): void {
-    this.service.getDemos().subscribe((res) => console.log(res));
+    this.http
+      .get('https://jsonplaceholder.typicode.com/todos/1')
+      .subscribe((body) => {
+        console.log(body);
+        this.data1 = JSON.stringify(body);
+      });
   }
 
   requestData() {

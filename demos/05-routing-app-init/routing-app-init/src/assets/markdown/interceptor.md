@@ -1,31 +1,16 @@
-To use multible interceptors go to `app.module.ts` and uncomment to following:
+- To register an `HttpInterceptor`, modify the providers section from app.config.ts:
 
 ```typescript
-import { interceptorProvider } from './interceptors/interceptor-provider';
+providers: [
+    provideHttpClient(
+        withInterceptors([authInterceptor])),
 ```
 
-Also change the providers section from:
+- When using HttpInterceptors and withInterceptors you must provide a functional implementation with the following base pattern. You can check `auth.interceptor.ts` for a working example:
 
 ```typescript
-providers:
-    [
-        { provide: ErrorHandler, useClass: GlobalErrHandler },
-        { provide: RouterStateSerializer, useClass: CustomSerializer },
-        {
-        provide: HTTP_INTERCEPTORS,
-        useClass: FBAuthInterceptor,
-        multi: true,
-        }
-    ]
-```
-
-to
-
-```typescript
-providers:
-    [
-        { provide: ErrorHandler, useClass: GlobalErrHandler },
-        { provide: RouterStateSerializer, useClass: CustomSerializer },
-        interceptorProvider
-    ]
+export const authInterceptor: HttpInterceptorFn = (req, next) => {
+  console.log('auth interceptor...');
+  return next(req);
+};
 ```

@@ -1,29 +1,30 @@
-import { HTTP_INTERCEPTORS, provideHttpClient } from '@angular/common/http';
+import { HTTP_INTERCEPTORS, provideHttpClient, withInterceptors } from '@angular/common/http';
 import { APP_INITIALIZER, ApplicationConfig, ErrorHandler, importProvidersFrom } from '@angular/core';
 import { provideAnimations } from '@angular/platform-browser/animations';
 import { provideRouter } from '@angular/router';
-import { appRoutes } from './app.routes';
+import { DefaultDataServiceConfig, provideEntityData, withEffects } from '@ngrx/data';
+import { provideEffects } from '@ngrx/effects';
+import { provideState, provideStore } from '@ngrx/store';
+import { provideStoreDevtools } from '@ngrx/store-devtools';
 import { MarkdownModule } from 'ngx-markdown';
-import { initFactory, AppInitService } from './app-init/app-init.service';
+import { AppInitService, initFactory } from './app-init/app-init.service';
 import { configFactory } from './app-init/config.factory';
 import { ConfigService } from './app-init/config.service';
-import { GlobalErrService } from './error/global-err-handler';
-import { AuthInterceptorService } from './interceptors/auth-interceptor.service';
-import { provideStore, provideState } from '@ngrx/store';
-import { appState } from './state/app.state';
-import { customerState } from './customers/state/customers.state';
-import { provideEffects } from '@ngrx/effects';
+import { appRoutes } from './app.routes';
 import * as customerEffects from './customers/state/customers.effects';
+import { customerState } from './customers/state/customers.state';
 import * as demoEffects from './demos/state/demos.effects';
 import { demoState } from './demos/state/demos.state';
-import { provideEntityData, withEffects, DefaultDataServiceConfig } from '@ngrx/data';
+import { GlobalErrService } from './error/global-err-handler';
+import { authInterceptor } from './interceptors/auth.interceptor';
+import { authState } from './mock-auth/state/auth.state';
 import { skillsDataServiceConfig } from './skills/skills-data.service.config';
 import { skillsEntityConfig } from './skills/skills.metadata';
-import { authState } from './auth/state/auth.state';
+import { appState } from './state/app.state';
 
 export const appConfig: ApplicationConfig = {
     providers: [
-        provideHttpClient(),
+        provideHttpClient(withInterceptors([authInterceptor])),
         provideRouter(appRoutes),
         provideAnimations(),
         importProvidersFrom(
@@ -40,6 +41,8 @@ export const appConfig: ApplicationConfig = {
         // NgRx Data -> Skills
         provideEntityData(skillsEntityConfig, withEffects()),
         { provide: DefaultDataServiceConfig, useValue: skillsDataServiceConfig },
+        //NgRx DevTools
+        provideStoreDevtools({ maxAge: 25 }),
         // Application Init
         {
             provide: APP_INITIALIZER,
@@ -63,11 +66,6 @@ export const appConfig: ApplicationConfig = {
         // {
         //     provide: ErrorHandler,
         //     useClass: GlobalErrService,
-        // },
-        {
-            provide: HTTP_INTERCEPTORS,
-            useClass: AuthInterceptorService,
-            multi: true,
-        },
+        // }
     ]
 };

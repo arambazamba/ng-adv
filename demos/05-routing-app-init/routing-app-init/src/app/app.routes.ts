@@ -1,5 +1,5 @@
 import { Routes } from '@angular/router';
-import { authGuard } from './auth/auth.guard';
+import { authGuard } from './mock-auth/auth.guard';
 import { ErrPageComponent } from './error/err-page/err-page.component';
 import { HomeComponent } from './home/home.component';
 
@@ -26,7 +26,7 @@ export const appRoutes: Routes = [
     },
     {
         path: 'auth',
-        loadChildren: () => import('./auth/auth.routes').then((m) => m.authRoutes),
+        loadChildren: () => import('./mock-auth/auth.routes').then((m) => m.authRoutes),
     },
     {
         path: 'error',

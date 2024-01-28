@@ -5,13 +5,11 @@ import { appActions } from './app.actions';
 const appFeatureKey = 'app';
 
 export interface AppState {
-  IsMockAuthenticated: boolean;
   sideNavVisible: boolean;
   sideNavPosition: MatDrawerMode;
 }
 
 export const initialAppState: AppState = {
-  IsMockAuthenticated: false,
   sideNavVisible: true,
   sideNavPosition: 'side',
 };
@@ -30,9 +28,6 @@ export const appState = createFeature({
     on(appActions.changeSideNavPosition, (state, action) => ({
       ...state,
       sideNavPosition: action.position as MatDrawerMode,
-    })),
-    on(appActions.toggleMockAuthenticated, (state, action) => ({
-      ...state, IsMockAuthenticated: !state.IsMockAuthenticated
     }))
   )
 })
