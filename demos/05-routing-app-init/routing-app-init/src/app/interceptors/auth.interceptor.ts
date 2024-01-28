@@ -1,19 +1,19 @@
 import { HttpInterceptorFn } from '@angular/common/http';
 import { inject } from '@angular/core';
 import { environment } from 'src/environments/environment';
-import { SimpleAuthTwoService } from './simple-auth-two.service';
+import { AuthFacade } from '../mock-auth/state/auth.facade';
 
-// json-server is not configured to handle authentication 
-// to avoid errors we add: 
+// json-server is not configured to handle authentication. To avoid errors we add: 
 // req.url.includes(environment.api) == false
 export const authInterceptor: HttpInterceptorFn = (req, next,) => {
-  const auth = inject(SimpleAuthTwoService);
-  if (auth.isAuthenticated && req.url.includes(environment.api) == false) {
-    console.log('adding auth header', auth.authToken)
+  const auth = inject(AuthFacade);
+  if (auth.isAuthenticated() && req.url.includes(environment.api) == false) {
+    const token = auth.getToken();
+    console.log('adding token to header:', token)
     const modifiedRequest = req.clone({
       headers: req.headers.set(
         'Authorization',
-        'Bearer ' + auth.authToken
+        'Bearer ' + token
       ),
     });
     return next(modifiedRequest);

@@ -22,8 +22,8 @@ export class AuthFacade {
         return this.store.select(authState.selectIsPrimeMember)
     }
 
-    setFakeUserAndToken(email: string, password: string) {
-        this.store.dispatch(authActions.setFakeUserAndToken({ email }));
+    setFakeUserAndToken(email: string, token: string) {
+        this.store.dispatch(authActions.setFakeUserAndToken({ email, token }));
     }
 
     getAuthResult() {
@@ -34,6 +34,10 @@ export class AuthFacade {
         return this.store.select(authState.selectUser).pipe(map((user) => {
             return user == null ? 'Anonymous' : user;
         }));
+    }
+
+    getToken() {
+        return this.store.select(authState.selectToken);
     }
 
     signIn(username: string, password: string) {

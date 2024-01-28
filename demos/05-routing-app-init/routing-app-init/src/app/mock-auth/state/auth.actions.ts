@@ -19,6 +19,6 @@ export const authActions = createActionGroup({
     redirectToRegister: emptyProps(),
     togglePrimeMember: emptyProps(),
     toggleLoggedIn: emptyProps(),
-    setFakeUserAndToken: props<{ email: string }>(),
+    setFakeUserAndToken: props<{ email: string, token: string }>(),
   }
 });
