@@ -8,7 +8,6 @@
 - Using Constructor vs inject for DI
 - APP_INITIALIZER, Injection & forwardRef
 - Implementing Global Error Handling and Retry-Patterns
-- Modules & Code Splitting
 - Introduction to @ngrx/router-store
 - Routing using NgRx Actions
 - Binding Router-Params to Component Inputs
