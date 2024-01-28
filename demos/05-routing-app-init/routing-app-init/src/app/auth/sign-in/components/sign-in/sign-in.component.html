@@ -1,5 +1,5 @@
 <ng-template #dialog>
-  <div mat-dialog-title>Sign In</div>
+  <div mat-dialog-title class="title">Please sign-in to continue </div>
 
   <div mat-dialog-content>
     <div>
@@ -15,7 +15,8 @@
     </div>
   </div>
 
-  <div mat-dialog-actions>
+  <div mat-dialog-actions class="actions">
     <button mat-flat-button (click)="signIn()" color="primary">Sign In</button>
+    <button mat-flat-button [routerLink]="['../sign-up']" color="primary">Register</button>
   </div>
 </ng-template>

@@ -1,0 +1,11 @@
+markdown p {
+  line-height: 1.8rem;
+}
+
+markdown li{
+  margin-left: 1rem;
+}
+
+code[class*=language-], pre[class*=language-]{
+    font-size: 0.9rem !important;
+}

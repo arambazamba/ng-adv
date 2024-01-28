@@ -5,7 +5,7 @@
 - ConfigService implemented in `config.service.ts` is loading the configuration data. This is a simple example of how to load configuration data from a JSON file.
 
 
-```json
+```typescript
 providers: [
 {
     provide: APP_INITIALIZER,

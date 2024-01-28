@@ -26,7 +26,6 @@ export const appRoutes: Routes = [
     },
     {
         path: 'auth',
-        outlet: 'actions',
         loadChildren: () => import('./auth/auth.routes').then((m) => m.authRoutes),
     },
     {

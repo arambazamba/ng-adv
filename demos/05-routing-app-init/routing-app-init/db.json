@@ -41,11 +41,6 @@
       "id": 44
     },
     {
-      "url": "auxiliary-routes",
-      "title": "Auxiliary Routes",
-      "id": 114
-    },
-    {
       "url": "ngrx-routing",
       "title": "NgRx Router State",
       "id": 1
