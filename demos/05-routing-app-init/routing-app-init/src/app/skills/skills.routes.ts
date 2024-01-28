@@ -4,9 +4,9 @@ import { SkillsEditComponent } from './skills-edit/skills-edit.component';
 
 export const skillRoutes: Routes = [
   {
-    path: '', component: SkillsContainerComponent,
-    children: [
-      { path: ':id', component: SkillsEditComponent }
-    ]
+    path: '', component: SkillsContainerComponent
   },
+  {
+    path: ':id', component: SkillsEditComponent
+  }
 ];

@@ -1,7 +1,10 @@
-Data preloading using @ngrx/data in `skills.module.ts`. Examine `skills.resolver.ts`:
+- Data preloading using @ngrx/data in `skills.module.ts`. Examine `skills.resolver.ts`:
 
 ```typescript
-export const skillsResolver: ResolveFn<any> = (route: ActivatedRouteSnapshot, state: RouterStateSnapshot): Observable<any> => {
+export const skillsResolver: ResolveFn<any> = (
+  route: ActivatedRouteSnapshot,
+  state: RouterStateSnapshot
+): Observable<any> => {
   const service = inject(SkillsEntityService);
   console.log('resolver');
   switch (state.url) {

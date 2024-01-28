@@ -89,8 +89,6 @@ export class WidthDirective {
   selector: '[boxed]',
   standalone: true,
   hostDirectives: [
-    FontBoldDirective,
-    WidthDirective,
     BorderDirective
   ],
 })

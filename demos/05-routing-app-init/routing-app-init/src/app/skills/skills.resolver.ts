@@ -4,7 +4,10 @@ import { EMPTY, Observable, of } from 'rxjs';
 import { mergeMap, take } from 'rxjs/operators';
 import { SkillsEntityService } from './skills-entity.service';
 
-export const skillsResolver: ResolveFn<any> = (route: ActivatedRouteSnapshot, state: RouterStateSnapshot): Observable<any> => {
+export const skillsResolver: ResolveFn<any> = (
+  route: ActivatedRouteSnapshot,
+  state: RouterStateSnapshot
+): Observable<any> => {
   const service = inject(SkillsEntityService);
   console.log('resolver');
   switch (state.url) {

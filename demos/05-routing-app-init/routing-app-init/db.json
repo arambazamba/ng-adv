@@ -31,11 +31,6 @@
       "id": 13
     },
     {
-      "url": "locationsrv",
-      "title": "Location Service",
-      "id": 77
-    },
-    {
       "url": "router-bindings",
       "title": "Component Input Bindings",
       "id": 44

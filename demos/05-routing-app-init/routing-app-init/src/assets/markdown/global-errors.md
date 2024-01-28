@@ -1,11 +1,7 @@
-import { Injectable, Injector, ErrorHandler, inject } from '@angular/core';
-import { Router } from '@angular/router';
-import { HttpErrorResponse } from '@angular/common/http';
+- Examine `error.handler.ts`:
 
-@Injectable({
-  providedIn: 'root',
-})
-export class GlobalErrService implements ErrorHandler {
+```typescript
+export class GlobalErrorHandler implements ErrorHandler {
   injector = inject(Injector);
 
   handleError(error: Error | HttpErrorResponse) {
@@ -17,3 +13,13 @@ export class GlobalErrService implements ErrorHandler {
     router.navigate(['/error'], { state: { data: (error as Error).message } });
   }
 }
+```
+
+- Examine its registration in `app.config.ts`:
+
+```typescript
+{
+    provide: ErrorHandler,
+    useClass: GlobalErrorHandler,
+},
+```

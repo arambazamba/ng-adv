@@ -15,16 +15,20 @@ import * as customerEffects from './customers/state/customers.effects';
 import { customerState } from './customers/state/customers.state';
 import * as demoEffects from './demos/state/demos.effects';
 import { demoState } from './demos/state/demos.state';
-import { GlobalErrService } from './error/global-err-handler';
 import { authInterceptor } from './interceptors/auth.interceptor';
 import { authState } from './mock-auth/state/auth.state';
 import { skillsDataServiceConfig } from './skills/skills-data.service.config';
 import { skillsEntityConfig } from './skills/skills.metadata';
 import { appState } from './state/app.state';
+import { httpErrorInterceptor } from './error/httpError.interceptor';
+import { GlobalErrorHandler } from './error/error.handler';
 
 export const appConfig: ApplicationConfig = {
     providers: [
-        provideHttpClient(withInterceptors([authInterceptor])),
+        provideHttpClient(withInterceptors([
+            authInterceptor,
+            httpErrorInterceptor
+        ])),
         provideRouter(appRoutes),
         provideAnimations(),
         importProvidersFrom(
@@ -63,9 +67,9 @@ export const appConfig: ApplicationConfig = {
             deps: [ConfigService],
             multi: true,
         },
-        // {
-        //     provide: ErrorHandler,
-        //     useClass: GlobalErrService,
-        // }
+        {
+            provide: ErrorHandler,
+            useClass: GlobalErrorHandler,
+        },
     ]
 };

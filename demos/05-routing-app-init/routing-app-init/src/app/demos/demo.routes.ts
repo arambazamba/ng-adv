@@ -4,7 +4,6 @@ import { AppInitComponent } from './samples/app-init/app-init.component';
 import { DiInjectComponent } from './samples/di-inject/di-inject.component';
 import { GlobalErrorsComponent } from './samples/global-errors/global-errors.component';
 import { HttpErrorsComponent } from './samples/http-errors/http-errors.component';
-import { LocServiceComponent } from './samples/loc-service/loc-service.component';
 import { MembersComponent } from './samples/multi-guard/members/members.component';
 import { MultiGuardComponent } from './samples/multi-guard/multi-guard.component';
 import { onlyAuthenticatedGuard } from './samples/multi-guard/only-authenticated.guard';
@@ -35,10 +34,6 @@ export const demoRoutes: Routes = [
                 path: 'ngrx-routing',
                 component: RoutingComponent,
                 children: [{ path: ':id', component: RoutingTargetComponent }],
-            },
-            {
-                path: 'locationsrv',
-                component: LocServiceComponent,
             },
             {
                 path: 'router-bindings',
