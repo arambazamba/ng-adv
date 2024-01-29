@@ -10,33 +10,34 @@ import { SkillRowComponent } from '../skill-row/skill-row.component';
 import { MatSlideToggle } from '@angular/material/slide-toggle';
 import { MatButton } from '@angular/material/button';
 import { MatToolbar, MatToolbarRow } from '@angular/material/toolbar';
+import { toSignal } from '@angular/core/rxjs-interop';
 
 @Component({
-    selector: 'app-skills-container',
-    templateUrl: './skills-container.component.html',
-    styleUrls: ['./skills-container.component.scss'],
-    standalone: true,
-    imports: [
-        MatToolbar,
-        MatToolbarRow,
-        MatButton,
-        MatSlideToggle,
-        FormsModule,
-        ReactiveFormsModule,
-        SkillRowComponent,
-        SkillsKpiComponent,
-        AsyncPipe,
-    ],
+  selector: 'app-skills-container',
+  templateUrl: './skills-container.component.html',
+  styleUrls: ['./skills-container.component.scss'],
+  standalone: true,
+  imports: [
+    MatToolbar,
+    MatToolbarRow,
+    MatButton,
+    MatSlideToggle,
+    FormsModule,
+    ReactiveFormsModule,
+    SkillRowComponent,
+    SkillsKpiComponent,
+    AsyncPipe,
+  ],
 })
 export class SkillsContainerComponent {
   service = inject(SkillsEntityService);
   fcToggle = new FormControl(true);
-  skills = this.service.entities$.pipe(
+  skills = toSignal(this.service.entities$.pipe(
     combineLatestWith(this.fcToggle.valueChanges.pipe(startWith(true))),
     map(([skills, showAll]) => {
       return showAll ? skills : skills.filter((sk: Skill) => sk.completed === showAll);
     })
-  );
+  ));
 
   ngOnInit(): void {
     this.service.loaded$.subscribe((loaded) => {

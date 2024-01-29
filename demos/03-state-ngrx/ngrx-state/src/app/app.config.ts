@@ -1,7 +1,7 @@
 import { HTTP_INTERCEPTORS, provideHttpClient, withInterceptorsFromDi } from '@angular/common/http';
 import { ApplicationConfig, importProvidersFrom } from '@angular/core';
 import { provideAnimations } from '@angular/platform-browser/animations';
-import { provideRouter } from '@angular/router';
+import { provideRouter, withComponentInputBinding } from '@angular/router';
 import { DefaultDataServiceConfig, provideEntityData, withEffects } from '@ngrx/data';
 import { provideEffects } from '@ngrx/effects';
 import { provideState, provideStore } from '@ngrx/store';
@@ -21,7 +21,7 @@ import { appState } from './state/app.state';
 export const appConfig: ApplicationConfig = {
     providers: [
         provideHttpClient(withInterceptorsFromDi()),
-        provideRouter(appRoutes),
+        provideRouter(appRoutes, withComponentInputBinding()),
         provideAnimations(),
         //NgRx
         provideStore(),
