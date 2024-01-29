@@ -1,16 +1,15 @@
-import { Component, Input, OnInit, inject } from '@angular/core';
-import { ActivatedRoute, Router } from '@angular/router';
-import { Skill } from '../skill.model';
-import { SnackbarService } from '../../shared/snackbar/snackbar.service';
-import { MatButton } from '@angular/material/button';
-import { MatSlideToggle } from '@angular/material/slide-toggle';
-import { FormsModule, ReactiveFormsModule } from '@angular/forms';
-import { MatInput } from '@angular/material/input';
-import { MatFormField } from '@angular/material/form-field';
-import { MatCard, MatCardHeader, MatCardTitle, MatCardContent, MatCardActions } from '@angular/material/card';
-import { SkillsEntityService } from '../skills-entity.service';
-import { map, skip, tap } from 'rxjs';
 import { AsyncPipe, JsonPipe } from '@angular/common';
+import { Component, Input, inject } from '@angular/core';
+import { FormBuilder, FormsModule, NonNullableFormBuilder, ReactiveFormsModule, Validators } from '@angular/forms';
+import { MatButton, MatButtonModule } from '@angular/material/button';
+import { MatCardActions, MatCardModule } from '@angular/material/card';
+import { MatFormField } from '@angular/material/form-field';
+import { MatInput } from '@angular/material/input';
+import { MatSlideToggle } from '@angular/material/slide-toggle';
+import { ActivatedRoute, Router } from '@angular/router';
+import { SnackbarService } from '../../shared/snackbar/snackbar.service';
+import { Skill } from '../skill.model';
+import { SkillsEntityService } from '../skills-entity.service';
 
 @Component({
   selector: 'app-skills-edit',
@@ -18,12 +17,10 @@ import { AsyncPipe, JsonPipe } from '@angular/common';
   styleUrls: ['./skills-edit.component.scss'],
   standalone: true,
   imports: [
-    MatCard,
-    MatCardHeader,
-    MatCardTitle,
-    MatCardContent,
+    MatCardModule,
     MatFormField,
     MatInput,
+    MatButtonModule,
     FormsModule,
     ReactiveFormsModule,
     MatSlideToggle,
@@ -39,16 +36,28 @@ export class SkillsEditComponent {
   router = inject(Router);
   service = inject(SkillsEntityService);
   sns = inject(SnackbarService);
-  skill = this.id != 0 ? this.service.getSkillById(this.id) : null;
+  fb = inject(NonNullableFormBuilder);
+  skill: Skill = new Skill();
+
+  skillForm = this.fb.group({
+    id: [0, { validators: [Validators.required] }],
+    name: '',
+    completed: false,
+  });
 
   ngOnChanges(): void {
     if (this.id != 0) {
-      this.skill = this.service.getSkillById(this.id);
+      this.service.getSkillById(this.id).subscribe((data) => {
+        if (data) {
+          this.skillForm.patchValue(data);
+        }
+      });
     }
   }
 
   saveSkill() {
-
+    this.service.upsert(this.skillForm.value as Skill).subscribe((data) => {
+    })
   }
 
   doCancel() {

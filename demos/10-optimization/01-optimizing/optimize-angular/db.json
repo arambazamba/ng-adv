@@ -2,102 +2,120 @@
   "demos": [
     {
       "url": "lighthouse",
-      "title": "Lighthouse"
+      "title": "Lighthouse",
+      "id": "5957"
     },
     {
       "url": "esbuild",
-      "title": "ES Build"
+      "title": "ES Build",
+      "id": "efc1"
     },
     {
       "url": "optimize-bundles",
-      "title": "Optimize Bundles"
+      "title": "Optimize Bundles",
+      "id": "440f"
     },
     {
       "url": "debug-statements",
-      "title": "Debug Statements"
+      "title": "Debug Statements",
+      "id": "60ff"
     },
     {
       "url": "logger",
-      "title": "Logging"
+      "title": "Logging",
+      "id": "ba35"
     },
     {
       "url": "optimized-controls",
-      "title": "Optimized Controls"
+      "title": "Optimized Controls",
+      "id": "4f29"
     },
     {
       "url": "virtual-scroll",
-      "title": "Virtual Scroll"
+      "title": "Virtual Scroll",
+      "id": "6aad"
     },
     {
       "url": "ng-optimized-img",
-      "title": "NgOptimizedImage"
+      "title": "NgOptimizedImage",
+      "id": "55c9"
     },
     {
       "url": "a11y",
-      "title": "a11y"
+      "title": "a11y",
+      "id": "51a2"
     },
     {
       "url": "eslint",
-      "title": "ESLint"
+      "title": "ESLint",
+      "id": "e03c"
     }
-
   ],
   "food": [
     {
       "name": "Pad Thai",
-      "rating": 1
+      "rating": 1,
+      "id": "601e"
     },
     {
       "name": "Butter Chicken",
-      "rating": 2
+      "rating": 2,
+      "id": "d981"
     },
     {
       "name": "Cannelloni",
-      "rating": 2
+      "rating": 2,
+      "id": "66fa"
     },
     {
       "name": "Cordon Bleu",
-      "rating": 4
+      "rating": 4,
+      "id": "63b1"
     }
   ],
   "skills": [
     {
-      "id": 1,
+      "id": "1",
       "name": "RxJs",
       "completed": false
     },
     {
-      "id": 2,
+      "id": "2",
       "name": "NgRx",
       "completed": false
     },
     {
-      "id": 3,
+      "id": "3",
       "name": "Angular",
       "completed": false
     },
     {
-      "id": 4,
+      "id": "4",
       "name": "TypeScript",
       "completed": true
     },
     {
-      "id": 5,
+      "id": "5",
       "name": "Material",
       "completed": true
     },
     {
-      "id": 6,
+      "id": "6",
       "name": "Node",
       "completed": false
     },
     {
-      "id": 7,
+      "id": "7",
       "name": "Forms",
       "completed": true
     },
     {
-      "id": 8,
+      "id": "8",
+      "name": "Authentication",
+      "completed": true
+    },
+    {
+      "id": "8",
       "name": "Authentication",
       "completed": true
     }
@@ -105,15 +123,18 @@
   "top-links": [
     {
       "label": "Home",
-      "url": ""
+      "url": "",
+      "id": "3315"
     },
     {
       "label": "Demos",
-      "url": "demos"
+      "url": "demos",
+      "id": "4ed8"
     },
     {
       "label": "Skills",
-      "url": "skills"
+      "url": "skills",
+      "id": "d732"
     }
   ],
   "logs": []
