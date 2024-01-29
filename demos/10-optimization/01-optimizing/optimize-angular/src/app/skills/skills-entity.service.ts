@@ -5,6 +5,7 @@ import {
 } from '@ngrx/data';
 import { Skill } from './skill.model';
 import { SkillsService } from './skills.service';
+import { of } from 'rxjs';
 
 @Injectable({
   providedIn: 'root',
@@ -16,6 +17,11 @@ export class SkillsEntityService extends EntityCollectionServiceBase<Skill> {
   }
 
   getSkillById(id: number) {
-    return this.service.getSkill(id);
+    if (id !== 0) {
+      return this.service.getSkill(id);
+    }
+    else {
+      return of(undefined)
+    }
   }
 }

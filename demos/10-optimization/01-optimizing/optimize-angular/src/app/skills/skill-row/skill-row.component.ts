@@ -2,16 +2,15 @@ import {
   ChangeDetectionStrategy,
   Component,
   EventEmitter,
-  Input,
   Output,
   SimpleChanges,
   input
 } from '@angular/core';
-import { environment } from 'src/environments/environment';
-import { Skill } from '../skill.model';
+import { MatButton } from '@angular/material/button';
 import { MatIcon } from '@angular/material/icon';
 import { RouterLink } from '@angular/router';
-import { MatButton } from '@angular/material/button';
+import { environment } from 'src/environments/environment';
+import { Skill } from '../skill.model';
 
 @Component({
   selector: 'app-skill-row',
@@ -27,7 +26,6 @@ import { MatButton } from '@angular/material/button';
 })
 export class SkillRowComponent {
   skill = input.required<Skill>();
-  // @Input() skill: Skill = new Skill();
   @Output() itemDeleted: EventEmitter<Skill> = new EventEmitter<Skill>();
   @Output() itemCompleted: EventEmitter<Skill> = new EventEmitter<Skill>();
 

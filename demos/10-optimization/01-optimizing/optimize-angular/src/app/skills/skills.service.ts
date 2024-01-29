@@ -1,7 +1,6 @@
 import { HttpClient } from '@angular/common/http';
-import { Injectable, inject } from '@angular/core';
+import { Injectable, Injector, inject } from '@angular/core';
 import { Observable } from 'rxjs';
-import { map } from 'rxjs/operators';
 import { environment } from '../../environments/environment';
 import { Skill } from './skill.model';
 
@@ -9,6 +8,7 @@ import { Skill } from './skill.model';
   providedIn: 'root',
 })
 export class SkillsService {
+
   http = inject(HttpClient);
   private url = `${environment.api}skills`;
 

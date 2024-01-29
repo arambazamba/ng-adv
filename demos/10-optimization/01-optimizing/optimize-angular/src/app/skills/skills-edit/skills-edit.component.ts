@@ -39,23 +39,16 @@ export class SkillsEditComponent {
   router = inject(Router);
   service = inject(SkillsEntityService);
   sns = inject(SnackbarService);
-
   skill = this.id != 0 ? this.service.getSkillById(this.id) : null;
 
-
-
-  ngOnInit(): void {
+  ngOnChanges(): void {
     if (this.id != 0) {
       this.skill = this.service.getSkillById(this.id);
     }
   }
 
-  // getSkill(id: number) {
-
-  // }
-
   saveSkill() {
-    this.sns.displayAlert('Warning', 'Save not implemented');
+
   }
 
   doCancel() {
