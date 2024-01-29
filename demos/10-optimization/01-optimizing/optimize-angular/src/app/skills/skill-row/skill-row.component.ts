@@ -4,7 +4,8 @@ import {
   EventEmitter,
   Input,
   Output,
-  SimpleChanges
+  SimpleChanges,
+  input
 } from '@angular/core';
 import { environment } from 'src/environments/environment';
 import { Skill } from '../skill.model';
@@ -13,19 +14,20 @@ import { RouterLink } from '@angular/router';
 import { MatButton } from '@angular/material/button';
 
 @Component({
-    selector: 'app-skill-row',
-    templateUrl: './skill-row.component.html',
-    styleUrls: ['./skill-row.component.scss'],
-    changeDetection: ChangeDetectionStrategy.OnPush,
-    standalone: true,
-    imports: [
-        MatButton,
-        RouterLink,
-        MatIcon,
-    ],
+  selector: 'app-skill-row',
+  templateUrl: './skill-row.component.html',
+  styleUrls: ['./skill-row.component.scss'],
+  changeDetection: ChangeDetectionStrategy.OnPush,
+  standalone: true,
+  imports: [
+    MatButton,
+    RouterLink,
+    MatIcon,
+  ],
 })
 export class SkillRowComponent {
-  @Input() skill: Skill = new Skill();
+  skill = input.required<Skill>();
+  // @Input() skill: Skill = new Skill();
   @Output() itemDeleted: EventEmitter<Skill> = new EventEmitter<Skill>();
   @Output() itemCompleted: EventEmitter<Skill> = new EventEmitter<Skill>();
 
