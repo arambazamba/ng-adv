@@ -5,6 +5,14 @@
       "title": "Lighthouse"
     },
     {
+      "url": "esbuild",
+      "title": "ES Build"
+    },
+    {
+      "url": "optimize-bundles",
+      "title": "Optimize Bundles"
+    },
+    {
       "url": "debug-statements",
       "title": "Debug Statements"
     },
@@ -13,11 +21,15 @@
       "title": "Logging"
     },
     {
-      "url": "vscroll",
+      "url": "optimized-controls",
+      "title": "Optimized Controls"
+    },
+    {
+      "url": "virtual-scroll",
       "title": "Virtual Scroll"
     },
     {
-      "url": "ngoptimizedimg",
+      "url": "ng-optimized-img",
       "title": "NgOptimizedImage"
     },
     {
@@ -27,11 +39,8 @@
     {
       "url": "eslint",
       "title": "ESLint"
-    },
-    {
-      "url": "esbuild",
-      "title": "ES Build"
     }
+
   ],
   "food": [
     {

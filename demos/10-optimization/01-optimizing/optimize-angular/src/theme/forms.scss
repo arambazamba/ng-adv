@@ -1,8 +1,18 @@
-.result{
-  min-height: 10rem;
+.hidden{
+  visibility: hidden;
 }
 
-.cmdItems button {
-  width: calc(50% - 3em);
-  margin: 1em;
+mat-form-field {
+  width: 100%;
+}
+
+.cmdItems {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  button {
+    width: calc(50% - 3rem);
+    margin: 1em;
+  }
 }

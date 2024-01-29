@@ -8,8 +8,8 @@ describe('NgOptimizedImageComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ NgOptimizedImageComponent ]
-    })
+    imports: [NgOptimizedImageComponent]
+})
     .compileComponents();
 
     fixture = TestBed.createComponent(NgOptimizedImageComponent);

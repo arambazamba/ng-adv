@@ -2,7 +2,7 @@ import { EntityMetadataMap } from '@ngrx/data';
 import { Skill } from './skill.model';
 
 export function sortByName(a: Skill, b: Skill): number {
-  const comp = a.name.localeCompare(b.name);
+  let comp = a.name.localeCompare(b.name);
   return comp;
 }
 
@@ -13,6 +13,6 @@ export const entityMetadata: EntityMetadataMap = {
   },
 };
 
-export const entityConfig = {
+export const skillsEntityConfig = {
   entityMetadata,
 };

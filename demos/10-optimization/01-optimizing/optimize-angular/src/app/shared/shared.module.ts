@@ -2,7 +2,7 @@ import { CommonModule, NgOptimizedImage } from '@angular/common';
 import { NgModule } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { RouterModule } from '@angular/router';
-import { MaterialModule } from '../material.module';
+
 import { IntroComponent } from './intro/intro.component';
 import { LoadingComponent } from './loading/loading.component';
 import { NavbarComponent } from './navbar/navbar.component';
@@ -16,14 +16,13 @@ const comps = [
 ];
 
 @NgModule({
-  imports: [
+    imports: [
     CommonModule,
     FormsModule,
     RouterModule,
-    MaterialModule,
-    NgOptimizedImage
-  ],
-  declarations: comps,
-  exports: comps,
+    NgOptimizedImage,
+    ...comps
+],
+    exports: comps,
 })
 export class SharedModule { }

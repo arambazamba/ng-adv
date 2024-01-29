@@ -9,20 +9,4 @@ import { LoggerComponent } from './samples/logger/logger.component';
 import { VirtualScrollComponent } from './samples/virtual-scroll/virtual-scroll.component';
 import { NgOptimizedImageComponent } from './samples/ng-optimized-image/ng-optimized-image.component';
 
-export const demoRoutes: Routes = [
-  {
-    path: '',
-    component: DemoContainerComponent,
-    title: 'Demos Home',
-    children: [
-      { path: 'esbuild', component: EsbuildComponent, title: 'Demos - ES Build' },
-      { path: 'logger', component: LoggerComponent, title: 'Demos - Logger' },
-      { path: 'lighthouse', component: LighthouseComponent, title: 'Demos - Lighthouse KPIs' },
-      { path: 'debug-statements', component: DebugStatementsComponent, title: 'Demos - Debug Statements' },
-      { path: 'vscroll', component: VirtualScrollComponent, title: 'Demos - Virtual Scroll' },
-      { path: 'a11y', component: A11yComponent, title: 'Demos - A11y' },
-      { path: 'eslint', component: EslintComponent, title: 'Demos - ESLint' },
-      { path: 'ngoptimizedimg', component: NgOptimizedImageComponent },
-    ],
-  },
-];
+

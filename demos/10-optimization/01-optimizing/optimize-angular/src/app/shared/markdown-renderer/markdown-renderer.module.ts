@@ -6,14 +6,14 @@ import { MarkdownModule } from 'ngx-markdown';
 import { MarkdownRendererComponent } from './markdown-renderer.component';
 
 @NgModule({
-  declarations: [MarkdownRendererComponent],
-  exports: [MarkdownRendererComponent],
-  imports: [
-    CommonModule,
-    MarkdownModule.forRoot({
-      loader: HttpClient,
-    }),
-    MatExpansionModule,
-  ],
+    exports: [MarkdownRendererComponent],
+    imports: [
+        CommonModule,
+        MarkdownModule.forRoot({
+            loader: HttpClient,
+        }),
+        MatExpansionModule,
+        MarkdownRendererComponent,
+    ],
 })
 export class MarkdownRendererModule { }

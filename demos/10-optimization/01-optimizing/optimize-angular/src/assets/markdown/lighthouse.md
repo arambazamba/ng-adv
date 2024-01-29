@@ -1,4 +1,2 @@
-Explain Lighthouse:
-
-- Audit
-- KPIs
+- Explain Lighthouse Auditing and KPIs
+    
