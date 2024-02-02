@@ -20,8 +20,8 @@ import { authState } from './mock-auth/state/auth.state';
 import { skillsDataServiceConfig } from './skills/skills-data.service.config';
 import { skillsEntityConfig } from './skills/skills.metadata';
 import { appState } from './state/app.state';
-import { httpErrorInterceptor } from './error/httpError.interceptor';
 import { GlobalErrorHandler } from './error/error.handler';
+import { httpErrorInterceptor } from './error/http-error.interceptor';
 
 export const appConfig: ApplicationConfig = {
     providers: [

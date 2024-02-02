@@ -1,4 +1,4 @@
-- Examine `demos.effects.ts` and the redirectToError$ effect:
+- Examine `demos.effects.ts` and the `redirectToError` effect:
 
 ```typescript
 redirectToError$ = createEffect(() =>

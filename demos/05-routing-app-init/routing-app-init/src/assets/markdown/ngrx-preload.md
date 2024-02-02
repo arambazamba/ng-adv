@@ -1,4 +1,4 @@
-- Data preloading using @ngrx/data in `skills.module.ts`. Examine `skills.resolver.ts`:
+- Data preloading using `@ngrx/data` in `skills.module.ts`. Examine `skills.resolver.ts`:
 
 ```typescript
 export const skillsResolver: ResolveFn<any> = (
