@@ -1,4 +1,4 @@
-import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
+import { Component, EventEmitter, Input, Output } from '@angular/core';
 import { Skill } from '../skills.model';
 
 @Component({
@@ -6,14 +6,10 @@ import { Skill } from '../skills.model';
   templateUrl: './skills-list.component.html',
   styleUrls: ['./skills-list.component.scss'],
 })
-export class SkillsListComponent implements OnInit {
+export class SkillsListComponent {
   @Input() skills: Skill[] = [];
   @Output() skillsSaved: EventEmitter<Skill[]> = new EventEmitter<Skill[]>();
   skillToAdd: string = '';
-
-  constructor() {}
-
-  ngOnInit(): void {}
 
   removeSkill(item: Skill): void {
     this.skills = this.skills.filter((s) => s.id !== item.id);
