@@ -1,5 +1,5 @@
 document.addEventListener("DOMContentLoaded", function (event) {
-    const element = document.getElementsByTagName("ng-skills")[0];
+    const element = document.getElementsByTagName("skills-list")[0];
     if (element) {
       // pass data
       const data = [
