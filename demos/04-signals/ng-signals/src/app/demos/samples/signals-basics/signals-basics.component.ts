@@ -1,9 +1,15 @@
 import { Component, Injector, computed, effect, inject, signal } from '@angular/core';
 import { Topic } from './topic.model';
+import { BorderDirective, CenteredDirective } from '../../../shared/formatting/formatting-directives';
+import { MatButton } from '@angular/material/button';
+import { MatCard, MatCardHeader, MatCardTitle, MatCardContent } from '@angular/material/card';
+import { MarkdownRendererComponent } from '../../../shared/markdown-renderer/markdown-renderer.component';
 @Component({
-  selector: 'app-signals-basics',
-  templateUrl: './signals-basics.component.html',
-  styleUrls: ['./signals-basics.component.scss']
+    selector: 'app-signals-basics',
+    templateUrl: './signals-basics.component.html',
+    styleUrls: ['./signals-basics.component.scss'],
+    standalone: true,
+    imports: [MarkdownRendererComponent, MatCard, MatCardHeader, MatCardTitle, MatCardContent, MatButton, BorderDirective, CenteredDirective]
 })
 export class SignalsBasicsComponent {
   injector = inject(Injector)

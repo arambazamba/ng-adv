@@ -1,6 +1,6 @@
 import { Component, DestroyRef, OnInit, effect, inject } from '@angular/core';
 import { takeUntilDestroyed } from '@angular/core/rxjs-interop';
-import { ActivatedRoute, NavigationEnd, Router } from '@angular/router';
+import { ActivatedRoute, NavigationEnd, Router, RouterLink, RouterOutlet } from '@angular/router';
 import { filter, map } from 'rxjs/operators';
 import { SidebarActions } from 'src/app/shared/side-panel/sidebar.actions';
 import { SidePanelService } from 'src/app/shared/side-panel/sidepanel.service';
@@ -8,11 +8,35 @@ import { SideNavFacade } from 'src/app/state/sidenav.facade';
 import { environment } from 'src/environments/environment';
 import { LoadingService } from '../../shared/loading/loading.service';
 import { DemoFacade } from '../state/demo.facade';
+import { SidePanelComponent } from '../../shared/side-panel/side-panel.component';
+import { EditorContainerComponent } from '../../shared/markdown-editor/components/editor-container/editor-container.component';
+import { LoadingComponent } from '../../shared/loading/loading.component';
+import { NgStyle, AsyncPipe } from '@angular/common';
+import { MatNavList, MatListItem } from '@angular/material/list';
+import { MatToolbar, MatToolbarRow } from '@angular/material/toolbar';
+import { MatSidenavContainer, MatSidenav, MatSidenavContent } from '@angular/material/sidenav';
 
 @Component({
-  selector: 'app-demo-container',
-  templateUrl: './demo-container.component.html',
-  styleUrls: ['./demo-container.component.scss'],
+    selector: 'app-demo-container',
+    templateUrl: './demo-container.component.html',
+    styleUrls: ['./demo-container.component.scss'],
+    standalone: true,
+    imports: [
+        MatSidenavContainer,
+        MatSidenav,
+        MatToolbar,
+        MatToolbarRow,
+        MatNavList,
+        MatListItem,
+        RouterLink,
+        MatSidenavContent,
+        NgStyle,
+        LoadingComponent,
+        RouterOutlet,
+        EditorContainerComponent,
+        SidePanelComponent,
+        AsyncPipe,
+    ],
 })
 export class DemoContainerComponent implements OnInit {
   destroyRef = inject(DestroyRef);

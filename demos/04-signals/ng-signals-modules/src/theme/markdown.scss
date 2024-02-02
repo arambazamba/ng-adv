@@ -1,0 +1,17 @@
+markdown p {
+  line-height: 1.8rem;
+}
+
+markdown li{
+  margin-left: 1rem;
+}
+
+code:not([class])  {
+  font-weight: 500;
+  font-style: italic;
+   color: var(--color-primary);
+}
+
+code[class*=language-], pre[class*=language-]{
+    font-size: 1rem !important;
+}

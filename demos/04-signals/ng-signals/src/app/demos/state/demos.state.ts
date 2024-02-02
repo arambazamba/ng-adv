@@ -6,7 +6,7 @@ import {
 } from '@ngrx/entity';
 import { createFeature, createFeatureSelector, createReducer, createSelector, on } from '@ngrx/store';
 import { DemoItem } from '../demo-base/demo-item.model';
-import { DemoActions } from './demos.actions';
+import { demoActions } from './demos.actions';
 
 
 // State
@@ -41,34 +41,34 @@ export const demoState = createFeature({
   name: demosFeatureKey,
   reducer: createReducer(
     initialState,
-    on(DemoActions.loadDemosSuccess, (state, action) => {
-      return demosAdapter.setAll(action.items, {
+    on(demoActions.loadDemosSuccess, (state, action) => {
+      return demosAdapter.setAll(action.demos, {
         ...state,
         loaded: true,
       });
     }),
-    on(DemoActions.updateDemoSuccess, (state, action) => {
+    on(demoActions.updateDemoSuccess, (state, action) => {
       const item: Update<DemoItem> = {
-        id: action.item.id,
-        changes: { visible: action.item.visible },
+        id: action.demo.id,
+        changes: { visible: action.demo.visible },
       };
       return demosAdapter.updateOne(item, { ...state });
     }),
-    on(DemoActions.deleteDemoSuccess, (state, action) => {
-      return demosAdapter.removeOne(action.item.id, {
+    on(demoActions.deleteDemoSuccess, (state, action) => {
+      return demosAdapter.removeOne(action.demo.id, {
         ...state,
       });
     }),
-    on(DemoActions.setSelected, (state, action) => {
-      return { ...state, selected: action.item };
+    on(demoActions.setSelected, (state, action) => {
+      return { ...state, selected: action.demo };
     }),
-    on(DemoActions.applyFilter, (state, action) => {
+    on(demoActions.applyFilter, (state, action) => {
       return { ...state, filter: action.filter };
     }),
     on(
-      DemoActions.updateDemoFailure,
-      DemoActions.deleteDemoFailure,
-      DemoActions.loadDemosFailure, (state, action) => {
+      demoActions.updateDemoFailure,
+      demoActions.deleteDemoFailure,
+      demoActions.loadDemosFailure, (state, action) => {
         return { ...state };
       }))
 });

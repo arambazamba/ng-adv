@@ -3,17 +3,17 @@ import { Actions, createEffect, ofType } from '@ngrx/effects';
 import { of } from 'rxjs';
 import { catchError, map, mergeMap } from 'rxjs/operators';
 import { CustomersService } from '../customers.service';
-import { CustomersActions } from './customers.actions';
+import { customersActions } from './customers.actions';
 
-export const loadCustomers$ = createEffect((actions$ = inject(Actions), service = inject(CustomersService)) => {
+export const loadCustomers = createEffect((actions$ = inject(Actions), service = inject(CustomersService)) => {
   return actions$.pipe(
-    ofType(CustomersActions.loadCustomers),
+    ofType(customersActions.loadCustomers),
     mergeMap(() =>
       service.getCustomers().pipe(
         map((customers) =>
-          CustomersActions.loadCustomersSuccess({ items: customers })
+          customersActions.loadCustomersSuccess({ customers })
         ),
-        catchError((err) => of(CustomersActions.loadCustomersFailure({ err })))
+        catchError((err) => of(customersActions.loadCustomersFailure({ err })))
       )
     )
   )

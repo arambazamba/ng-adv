@@ -1,0 +1,6 @@
+<app-markdown-renderer [md]="'rxjs-interop'"></app-markdown-renderer>
+<div border centered>
+    <div>Amount Observable {{ amount$ | async}}</div>
+    <div>Amount Signal {{ amount() }}</div>
+   
+  </div>
