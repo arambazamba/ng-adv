@@ -2,28 +2,24 @@
 
 [Angular Elements](https://angular.io/guide/elements)
 
-## Base Web Standards
-
 [Shadow DOM](https://developer.mozilla.org/en-US/docs/Web/Web_Components/Using_shadow_DOM)
 
 [Custom Elements](https://developer.mozilla.org/en-US/docs/Web/Web_Components/Using_custom_elements)
 
 [Web Templates](https://developer.mozilla.org/en-US/docs/Web/Web_Components/Using_templates_and_slots)
 
-> Note: Samples provided in `./custom-elements`
-
 ## Getting started:
 
-### Project Setup & Add Elements
+- Project Setup & Add Elements
 
-```
-ng new skills-list --routing=false --style=scss --ssr=false
-cd skills-list
-code .
-npm i -S @angular/elements
-```
+  ```
+  ng new skills-list --routing=false --style=scss --ssr=false
+  cd skills-list
+  code .
+  npm i -S @angular/elements
+  ```
 
-### Implement the component that will be exported as Angular Element
+## Implement the component that will be exported as Angular Element
 
 - Add the `FormsModule` to `app.module.ts` and add a Component using:
 
@@ -183,16 +179,16 @@ npm i -S @angular/elements
 
 - Run your component. Your result should look somehow like this after you have added some items:
 
-![skills](_images/skills.png)
+  ![skills](_images/skills.png)
 
-### Build & Package
+## Build & Package
 
 - Modify `main.ts` to create the CustomElement. Comment the following code - you might need it if you want to develop later on:
 
-```typescript
-bootstrapApplication(SkillsComponent, appConfig)
-  .catch((err) => console.error(err));
-```
+  ```typescript
+  bootstrapApplication(SkillsComponent, appConfig)
+    .catch((err) => console.error(err));
+  ```
 
 - Add the following code to `main.ts`:
 
@@ -223,7 +219,7 @@ bootstrapApplication(SkillsComponent, appConfig)
   Get-Content .\dist\skills-list\browser\polyfills.js, .\dist\skills-list\browser\main.js | Set-Content .\dist\skills-list\browser\element.js
   ```
 
-### Testing your Web Component created with Angular Elements
+## Test your Web Component created with Angular Elements
 
 - Copy `skills.js` to the output folder. It will use the @Input() and @Output() of the Angular Element
 
@@ -270,7 +266,7 @@ bootstrapApplication(SkillsComponent, appConfig)
 
 - Install a tool that can serve static pages, ie `angular-http-server`:
 
-  ```
+  ```bash
   npm i -g angular-http-server
   angular-http-server -p 8080
   ```
