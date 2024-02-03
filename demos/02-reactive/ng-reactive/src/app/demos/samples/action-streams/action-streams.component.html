@@ -1,25 +1,23 @@
-<mat-toolbar>
-  <mat-toolbar-row>
-    <mat-form-field>
-      <input
-        matInput
-        type="text"
-        placeholder="Enter Demo Partial to filter"
-        [formControl]="filter$"
-      />
-    </mat-form-field>
-  </mat-toolbar-row>
-</mat-toolbar>
+<app-markdown-renderer [md]="'action-streams'"></app-markdown-renderer>
 
-<mat-card appearance="outlined">
-  <mat-card-header>
-    <mat-card-title> Demos </mat-card-title>
-  </mat-card-header>
-  <mat-card-content>
-    @for (d of vm$ | async; track d) {
+<div boxed>
+  <mat-form-field>
+    <input
+      matInput
+      type="text"
+      placeholder="Enter a demo to filter by"
+      [formControl]="filter$"
+    />
+  </mat-form-field>
+</div>
+
+<div boxed>
+  @for (d of vm$ | async; track d) {
     <div class="row">
       <div>{{ d.title }}</div>
     </div>
     }
-  </mat-card-content>
-</mat-card>
+</div>
+
+
+

@@ -3,15 +3,15 @@ import { takeUntilDestroyed } from '@angular/core/rxjs-interop';
 import { FormControl, Validators, FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { MatInput } from '@angular/material/input';
 import { MatFormField, MatLabel, MatError } from '@angular/material/form-field';
-import { ColumnDirective } from '../../../shared/formatting/formatting-directives';
 import { MatCard, MatCardHeader, MatCardTitle, MatCardContent } from '@angular/material/card';
+import { ColumnDirective } from '../../../shared/ux-lib/formatting/formatting-directives';
 
 @Component({
-    selector: 'app-take-until-destroyed',
-    templateUrl: './take-until-destroyed.component.html',
-    styleUrls: ['./take-until-destroyed.component.scss'],
-    standalone: true,
-    imports: [MatCard, MatCardHeader, MatCardTitle, MatCardContent, ColumnDirective, MatFormField, MatLabel, MatInput, FormsModule, ReactiveFormsModule, MatError]
+  selector: 'app-take-until-destroyed',
+  templateUrl: './take-until-destroyed.component.html',
+  styleUrls: ['./take-until-destroyed.component.scss'],
+  standalone: true,
+  imports: [MatCard, MatCardHeader, MatCardTitle, MatCardContent, ColumnDirective, MatFormField, MatLabel, MatInput, FormsModule, ReactiveFormsModule, MatError]
 })
 export class TakeUntilDestroyedComponent {
   destroyRef = inject(DestroyRef);

@@ -16,19 +16,23 @@ import { VouchersService } from '../../vouchers/voucher.service';
 import { Person } from './person';
 import { MatButton } from '@angular/material/button';
 import { MatCard, MatCardHeader, MatCardTitle, MatCardContent } from '@angular/material/card';
+import { MarkdownRendererComponent } from 'src/app/shared/markdown-renderer/markdown-renderer.component';
+import { BoxedDirective } from 'src/app/shared/ux-lib/formatting/formatting-directives';
 
 @Component({
-    selector: 'app-operators',
-    templateUrl: './operators.component.html',
-    styleUrls: ['./operators.component.scss'],
-    standalone: true,
-    imports: [
-        MatCard,
-        MatCardHeader,
-        MatCardTitle,
-        MatCardContent,
-        MatButton,
-    ],
+  selector: 'app-operators',
+  templateUrl: './operators.component.html',
+  styleUrls: ['./operators.component.scss'],
+  standalone: true,
+  imports: [
+    MatCard,
+    MatCardHeader,
+    MatCardTitle,
+    MatCardContent,
+    MatButton,
+    MarkdownRendererComponent,
+    BoxedDirective
+  ],
 })
 export class OperatorsComponent implements OnInit {
   @ViewChild('btnSwitchMap', { static: true }) btnSwitchMap: ElementRef | undefined;

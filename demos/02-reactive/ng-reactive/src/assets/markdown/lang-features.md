@@ -1,0 +1,1 @@
+- Get to know some language features and concepts that are used later on in this class:

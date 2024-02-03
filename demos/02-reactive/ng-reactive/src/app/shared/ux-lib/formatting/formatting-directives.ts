@@ -60,6 +60,14 @@ export class BorderDirective {
 }
 
 @Directive({
+  selector: '[bottom-margin]',
+  host: { 'style': 'margin-bottom: var(--gap-small)' },
+  standalone: true
+})
+export class BottomMarginDirective {
+}
+
+@Directive({
   selector: '[bold]',
   host: { 'style': 'font-weight:bold;' },
   standalone: true
@@ -89,9 +97,8 @@ export class WidthDirective {
   selector: '[boxed]',
   standalone: true,
   hostDirectives: [
-    FontBoldDirective,
-    WidthDirective,
-    BorderDirective
+    BorderDirective,
+    BottomMarginDirective
   ],
 })
 export class BoxedDirective {

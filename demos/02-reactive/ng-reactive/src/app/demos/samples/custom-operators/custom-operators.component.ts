@@ -1,26 +1,30 @@
 import { HttpClient } from '@angular/common/http';
 import { Component, inject } from '@angular/core';
+import { MatButton } from '@angular/material/button';
+import { MatCard, MatCardContent, MatCardHeader, MatCardTitle } from '@angular/material/card';
 import { EMPTY, from } from 'rxjs';
 import { catchError } from 'rxjs/operators';
+import { MarkdownRendererComponent } from 'src/app/shared/markdown-renderer/markdown-renderer.component';
 import { filterOnlyEven } from './filterOnlyEven';
 import { getFromApi, logError } from './logErr';
 import { pow } from './pow';
 import { takeEveryNth } from './takeEveryNth';
-import { MatButton } from '@angular/material/button';
-import { MatCard, MatCardHeader, MatCardTitle, MatCardContent } from '@angular/material/card';
+import { BoxedDirective } from 'src/app/shared/ux-lib/formatting/formatting-directives';
 
 @Component({
-    selector: 'app-custom-operators',
-    templateUrl: './custom-operators.component.html',
-    styleUrls: ['./custom-operators.component.scss'],
-    standalone: true,
-    imports: [
-        MatCard,
-        MatCardHeader,
-        MatCardTitle,
-        MatCardContent,
-        MatButton,
-    ],
+  selector: 'app-custom-operators',
+  templateUrl: './custom-operators.component.html',
+  styleUrls: ['./custom-operators.component.scss'],
+  standalone: true,
+  imports: [
+    MatCard,
+    MatCardHeader,
+    MatCardTitle,
+    MatCardContent,
+    MatButton,
+    MarkdownRendererComponent,
+    BoxedDirective
+  ],
 })
 export class CustomOperatorsComponent {
   http = inject(HttpClient);

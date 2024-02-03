@@ -12,19 +12,21 @@ import { Voucher } from '../../vouchers/voucher.model';
 import { VouchersService } from '../../vouchers/voucher.service';
 import { MatButton } from '@angular/material/button';
 import { MatCard, MatCardHeader, MatCardTitle, MatCardContent } from '@angular/material/card';
+import { MarkdownRendererComponent } from 'src/app/shared/markdown-renderer/markdown-renderer.component';
 
 @Component({
-    selector: 'app-err-handling',
-    templateUrl: './err-handling.component.html',
-    styleUrls: ['./err-handling.component.scss'],
-    standalone: true,
-    imports: [
-        MatCard,
-        MatCardHeader,
-        MatCardTitle,
-        MatCardContent,
-        MatButton,
-    ],
+  selector: 'app-err-handling',
+  templateUrl: './err-handling.component.html',
+  styleUrls: ['./err-handling.component.scss'],
+  standalone: true,
+  imports: [
+    MatCard,
+    MatCardHeader,
+    MatCardTitle,
+    MatCardContent,
+    MatButton,
+    MarkdownRendererComponent
+  ],
 })
 export class ErrHandlingComponent {
   vs = inject(VouchersService);

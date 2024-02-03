@@ -4,19 +4,21 @@ import { combineLatest, of } from 'rxjs';
 import { map } from 'rxjs/operators';
 import { MatButton } from '@angular/material/button';
 import { MatCard, MatCardHeader, MatCardTitle, MatCardContent } from '@angular/material/card';
+import { MarkdownRendererComponent } from 'src/app/shared/markdown-renderer/markdown-renderer.component';
 
 @Component({
-    selector: 'app-lang-features',
-    templateUrl: './lang-features.component.html',
-    styleUrls: ['./lang-features.component.scss'],
-    standalone: true,
-    imports: [
-        MatCard,
-        MatCardHeader,
-        MatCardTitle,
-        MatCardContent,
-        MatButton,
-    ],
+  selector: 'app-lang-features',
+  templateUrl: './lang-features.component.html',
+  styleUrls: ['./lang-features.component.scss'],
+  standalone: true,
+  imports: [
+    MatCard,
+    MatCardHeader,
+    MatCardTitle,
+    MatCardContent,
+    MatButton,
+    MarkdownRendererComponent
+  ],
 })
 export class LangFeaturesComponent {
   impureFunction() {

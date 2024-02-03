@@ -1,15 +1,10 @@
 <app-markdown-renderer [md]="'mouse-dom'"></app-markdown-renderer>
 
-<mat-card appearance="outlined">
-  <mat-card-header>
-    <mat-card-title> Subscribe Mouse Evt </mat-card-title>
-  </mat-card-header>
-  <mat-card-content class="content cmdItems">
-    <canvas #signPad class="canvasStyle"></canvas>
-    <button mat-raised-button color="accent" (click)="subscribeMouse()">
-      Capture Mouse Events
-    </button>
+<div boxed column centered>
+  <canvas #signPad class="canvasStyle"></canvas>
+  <button mat-raised-button color="accent" (click)="subscribeMouse()">
+    Capture Mouse Events
+  </button>
 
-    <div>signPad - Mouse Moved at X: {{ result.X }} Y: {{ result.Y }}</div>
-  </mat-card-content>
-</mat-card>
+  <div>signPad - Mouse Moved at X: {{ result.X }} Y: {{ result.Y }}</div>
+</div>

@@ -1,3 +1,4 @@
-- This demo demonstrates Observable basics
-
+- There are situations where you may want to create an Observable from scratch or convert an existing data source into an Observable. 
+- For example, you may have a function that returns a value and you want to make it reactive, or you may have an array that you want to process as a stream of events. 
+- In these cases, you can use various operators and methods to create or cast Observables.
 - Open console in F12 Dev Tools to see output

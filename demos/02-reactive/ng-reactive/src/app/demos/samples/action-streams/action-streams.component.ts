@@ -8,13 +8,15 @@ import { MatCard, MatCardHeader, MatCardTitle, MatCardContent } from '@angular/m
 import { MatInput } from '@angular/material/input';
 import { MatFormField } from '@angular/material/form-field';
 import { MatToolbar, MatToolbarRow } from '@angular/material/toolbar';
+import { MarkdownRendererComponent } from 'src/app/shared/markdown-renderer/markdown-renderer.component';
+import { BoxedDirective } from '../../../shared/ux-lib/formatting/formatting-directives';
 
 @Component({
-    selector: 'app-action-streams',
-    templateUrl: './action-streams.component.html',
-    styleUrls: ['./action-streams.component.scss'],
-    standalone: true,
-    imports: [MatToolbar, MatToolbarRow, MatFormField, MatInput, FormsModule, ReactiveFormsModule, MatCard, MatCardHeader, MatCardTitle, MatCardContent, AsyncPipe]
+  selector: 'app-action-streams',
+  templateUrl: './action-streams.component.html',
+  styleUrls: ['./action-streams.component.scss'],
+  standalone: true,
+  imports: [MatToolbar, MatToolbarRow, MatFormField, MatInput, FormsModule, ReactiveFormsModule, MatCard, MatCardHeader, MatCardTitle, MatCardContent, AsyncPipe, MarkdownRendererComponent, BoxedDirective]
 })
 export class ActionStreamsComponent {
   ds = inject(DemoService);
