@@ -1,10 +1,13 @@
 import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
 import { FoodItem } from '../../food/food.model';
+import { MatIcon } from '@angular/material/icon';
 
 @Component({
-  selector: 'app-food-row',
-  templateUrl: './food-row.component.html',
-  styleUrls: ['./food-row.component.scss'],
+    selector: 'app-food-row',
+    templateUrl: './food-row.component.html',
+    styleUrls: ['./food-row.component.scss'],
+    standalone: true,
+    imports: [MatIcon],
 })
 export class FoodRowComponent implements OnInit {
   @Input() food: FoodItem | null = null;

@@ -1,11 +1,14 @@
 import { Component, OnInit, OnDestroy, inject } from '@angular/core';
 import { Subject, takeUntil } from 'rxjs';
 import { PersonService } from './person.service';
+import { MarkdownRendererComponent } from '../../../shared/markdown-renderer/markdown-renderer.component';
 
 @Component({
-  selector: 'app-marbles',
-  templateUrl: './marbles.component.html',
-  styleUrls: ['./marbles.component.scss'],
+    selector: 'app-marbles',
+    templateUrl: './marbles.component.html',
+    styleUrls: ['./marbles.component.scss'],
+    standalone: true,
+    imports: [MarkdownRendererComponent],
 })
 export class MarblesComponent implements OnInit, OnDestroy {
 

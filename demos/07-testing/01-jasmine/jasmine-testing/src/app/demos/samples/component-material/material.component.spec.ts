@@ -22,9 +22,8 @@ describe('MaterialComponent', () => {
 
   beforeEach(() => {
     TestBed.configureTestingModule({
-      declarations: [MaterialComponent],
-      imports: [MatCardModule, ReactiveFormsModule, MatInputModule, MatSliderModule, MatButtonModule, BrowserAnimationsModule],
-    }).compileComponents();
+    imports: [MatCardModule, ReactiveFormsModule, MatInputModule, MatSliderModule, MatButtonModule, BrowserAnimationsModule, MaterialComponent],
+}).compileComponents();
     fixture = TestBed.createComponent(MaterialComponent);
     fixture.detectChanges();
     loader = TestbedHarnessEnvironment.loader(fixture);

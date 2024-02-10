@@ -16,10 +16,9 @@ describe('Component - Spy - FoodComponent:', () => {
     spy.getFood.and.returnValue(of(foodData))
 
     TestBed.configureTestingModule({
-      imports: [MatCardModule, NoopAnimationsModule],
-      declarations: [SimpleFoodComponent],
-      providers: [{ provide: FoodService, useValue: spy }],
-    });
+    imports: [MatCardModule, NoopAnimationsModule, SimpleFoodComponent],
+    providers: [{ provide: FoodService, useValue: spy }],
+});
 
     fixture = TestBed.createComponent(SimpleFoodComponent);
     component = fixture.componentInstance;

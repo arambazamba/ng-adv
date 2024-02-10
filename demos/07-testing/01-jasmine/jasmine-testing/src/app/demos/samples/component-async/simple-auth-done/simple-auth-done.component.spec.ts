@@ -12,10 +12,10 @@ describe('Component - AsyncTest - done', () => {
 
   beforeEach(() => {
     TestBed.configureTestingModule({
-      declarations: [SimpleAuthDoneComponent],
-      schemas: [NO_ERRORS_SCHEMA],
-      providers: [SimpleAuthService],
-    });
+    imports: [SimpleAuthDoneComponent],
+    schemas: [NO_ERRORS_SCHEMA],
+    providers: [SimpleAuthService],
+});
 
     fixture = TestBed.createComponent(SimpleAuthDoneComponent);
     component = fixture.componentInstance;

@@ -3,7 +3,7 @@ import { NgModule } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { EffectsModule } from '@ngrx/effects';
 import { StoreModule } from '@ngrx/store';
-import { MaterialModule } from '../../material.module';
+
 import { EditorEffects } from './state/editor.effects';
 import { editorFeatureKey, editorReducer } from './state/editor.reducer';
 import { EditorContainerComponent } from './components/editor-container/editor-container.component';
@@ -18,16 +18,15 @@ const comps = [
 ];
 
 @NgModule({
-  declarations: comps,
-  exports: comps,
-  imports: [
+    exports: comps,
+    imports: [
     CommonModule,
-    MaterialModule,
     FormsModule,
     StoreModule.forFeature(editorFeatureKey, editorReducer),
     EffectsModule.forFeature([EditorEffects]),
     ColumnDirective,
-    RowDirective
-  ],
+    RowDirective,
+    ...comps
+],
 })
 export class MarkdownEditorModule { }

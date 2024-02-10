@@ -12,9 +12,8 @@ describe('ComponentWriteComponent', () => {
 
   beforeEach(() => {
     TestBed.configureTestingModule({
-      imports: [FormsModule, MatCardModule, MatInputModule, NoopAnimationsModule],
-      declarations: [ComponentWriteComponent],
-    });
+    imports: [FormsModule, MatCardModule, MatInputModule, NoopAnimationsModule, ComponentWriteComponent],
+});
     fixture = TestBed.createComponent(ComponentWriteComponent);
   });
 

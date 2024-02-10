@@ -19,10 +19,9 @@ describe('MaterialAsyncComponent', () => {
     });
 
     TestBed.configureTestingModule({
-      declarations: [MarblesComponent],
-      imports: [],
-      providers: [{ provide: PersonService, useValue: spy }],
-    });
+    imports: [MarblesComponent],
+    providers: [{ provide: PersonService, useValue: spy }],
+});
     fixture = TestBed.createComponent(MarblesComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();

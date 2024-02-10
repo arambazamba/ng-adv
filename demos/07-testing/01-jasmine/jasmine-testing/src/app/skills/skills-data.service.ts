@@ -13,6 +13,9 @@ export class SkillsDataService extends DefaultDataService<Skill> {
     super('Skill', http, httpUrlGenerator);
   }
 
+  // Because we have overwritten all CRUD methods, we do not need to proide a custom HttpUrlGenerator
+  // The current overwrites are just for demonstration purposes that represent the default behaviour
+
   override getAll() {
     return this.http.get<Skill[]>(`${environment.api}skills`).pipe(
       map((data: Skill[]) => {

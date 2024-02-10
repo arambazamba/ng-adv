@@ -9,9 +9,8 @@ describe('Component - Directive - CapitalizeDirective', () => {
 
   beforeEach(() => {
     TestBed.configureTestingModule({
-      declarations: [DirectiveComponent, CapitalizeDirective],
-      imports: [MatCardModule],
-    });
+    imports: [MatCardModule, DirectiveComponent, CapitalizeDirective],
+});
 
     fixture = TestBed.createComponent(DirectiveComponent);
     component = fixture.componentInstance;

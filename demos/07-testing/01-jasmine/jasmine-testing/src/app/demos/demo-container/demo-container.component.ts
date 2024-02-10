@@ -1,5 +1,5 @@
 import { Component, OnInit, effect, inject } from '@angular/core';
-import { ActivatedRoute, NavigationEnd, Router } from '@angular/router';
+import { ActivatedRoute, NavigationEnd, Router, RouterLink, RouterOutlet } from '@angular/router';
 import { Subject } from 'rxjs';
 import { filter, map, takeUntil } from 'rxjs/operators';
 import { SidebarActions } from 'src/app/shared/side-panel/sidebar.actions';
@@ -8,11 +8,35 @@ import { SideNavService } from 'src/app/shared/sidenav/sidenav.service';
 import { environment } from 'src/environments/environment';
 import { LoadingService } from '../../shared/loading/loading.service';
 import { DemoFacade } from '../state/demo.facade';
+import { SidePanelComponent } from '../../shared/side-panel/side-panel.component';
+import { EditorContainerComponent } from '../../shared/markdown-editor/components/editor-container/editor-container.component';
+import { LoadingComponent } from '../../shared/loading/loading.component';
+import { NgStyle, AsyncPipe } from '@angular/common';
+import { MatNavList, MatListItem } from '@angular/material/list';
+import { MatToolbar, MatToolbarRow } from '@angular/material/toolbar';
+import { MatSidenavContainer, MatSidenav, MatSidenavContent } from '@angular/material/sidenav';
 
 @Component({
-  selector: 'app-demo-container',
-  templateUrl: './demo-container.component.html',
-  styleUrls: ['./demo-container.component.scss'],
+    selector: 'app-demo-container',
+    templateUrl: './demo-container.component.html',
+    styleUrls: ['./demo-container.component.scss'],
+    standalone: true,
+    imports: [
+        MatSidenavContainer,
+        MatSidenav,
+        MatToolbar,
+        MatToolbarRow,
+        MatNavList,
+        MatListItem,
+        RouterLink,
+        MatSidenavContent,
+        NgStyle,
+        LoadingComponent,
+        RouterOutlet,
+        EditorContainerComponent,
+        SidePanelComponent,
+        AsyncPipe,
+    ],
 })
 export class DemoContainerComponent implements OnInit {
   router = inject(Router);

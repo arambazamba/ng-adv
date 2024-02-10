@@ -14,9 +14,9 @@ describe('SelectorsComponent', () => {
 
   beforeEach(() => {
     TestBed.configureTestingModule({
-      declarations: [SelectorsComponent],
-      providers: [provideMockStore({ initialState })]
-    })
+    imports: [SelectorsComponent],
+    providers: [provideMockStore({ initialState })]
+})
       .compileComponents();
 
     fixture = TestBed.createComponent(SelectorsComponent);

@@ -10,9 +10,8 @@ describe('MaterialAsyncComponent', () => {
   beforeEach(
     waitForAsync(() => {
       TestBed.configureTestingModule({
-        declarations: [MaterialAsyncComponent],
-        imports: [MaterialModule, BrowserAnimationsModule],
-      }).compileComponents();
+    imports: [MaterialModule, BrowserAnimationsModule, MaterialAsyncComponent],
+}).compileComponents();
     })
   );
 

@@ -17,10 +17,10 @@ describe('Component - AsyncTest - FakeAsync', () => {
 
   beforeEach(() => {
     TestBed.configureTestingModule({
-      declarations: [SimpleAuthFakeAsyncComponent],
-      schemas: [NO_ERRORS_SCHEMA],
-      providers: [SimpleAuthService],
-    });
+    imports: [SimpleAuthFakeAsyncComponent],
+    schemas: [NO_ERRORS_SCHEMA],
+    providers: [SimpleAuthService],
+});
 
     fixture = TestBed.createComponent(SimpleAuthFakeAsyncComponent);
     component = fixture.componentInstance;

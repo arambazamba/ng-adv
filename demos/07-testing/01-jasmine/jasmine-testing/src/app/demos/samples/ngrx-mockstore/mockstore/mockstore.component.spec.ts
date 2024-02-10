@@ -14,9 +14,9 @@ describe('MockstoreComponent', () => {
 
   beforeEach(() => {
     TestBed.configureTestingModule({
-      declarations: [MockstoreComponent],
-      providers: [provideMockStore({ initialState })]
-    }).compileComponents();
+    imports: [MockstoreComponent],
+    providers: [provideMockStore({ initialState })]
+}).compileComponents();
 
     fixture = TestBed.createComponent(MockstoreComponent);
     component = fixture.componentInstance;

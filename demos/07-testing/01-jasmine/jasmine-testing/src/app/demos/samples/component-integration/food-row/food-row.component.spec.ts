@@ -14,8 +14,8 @@ describe('Component -Integration Test - Food Row', () => {
 
   beforeEach(() => {
     TestBed.configureTestingModule({
-      declarations: [FoodRowComponent],
-    });
+    imports: [FoodRowComponent],
+});
     fixture = TestBed.createComponent(FoodRowComponent);
     component = fixture.componentInstance;
     deleteFld = fixture.debugElement.query(By.css('#deleteFld'));
