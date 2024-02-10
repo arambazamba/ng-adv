@@ -1,4 +1,4 @@
-- Navigate to folder `\component-mocking`. For better comparison the mocking example is solved using a spy in the use-spy folder.
+- Navigate to folder `component-mocking/use-spy`. For better comparison the mocking example is solved using a spy in the use-spy folder.
 
 - Creation of the spy object
 

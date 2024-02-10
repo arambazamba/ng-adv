@@ -1,5 +1,6 @@
-Navigate to folder `\simple-service` which implements a simple service with no injection.
-Examine `simple.service.ts` and `simple.service.spec.ts`
+- Navigate to folder `simple-service` which implements a simple service with no injection.
+
+- Examine `simple.service.ts` and `simple.service.spec.ts`
 
 ```typescript
 export class SimpleMessageService {

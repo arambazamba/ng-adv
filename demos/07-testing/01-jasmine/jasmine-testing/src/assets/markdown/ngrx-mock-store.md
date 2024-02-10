@@ -1,6 +1,8 @@
-Examine the mockstore.component.spec.ts.spec files in /ngrx-mockstore.
+- Examine the `mockstore.component.spec.ts.spec` files in /ngrx-mockstore.
 
-It uses the MockStore to mock the DemoState that is injected to mockstore.component.ts. You can copy initial state from the Redux Dev Tools if you are using an advanced data structure like a Map when use EntityAdapter.
+- It uses the `MockStore` to mock the `demoState` that is injected to mockstore.component.ts. 
+
+- You can copy initial state from the `Redux Dev Tools` if you are using an advanced data structure like a Map when use `EntityAdapter`.
 
 ```typescript
 beforeEach(async () => {

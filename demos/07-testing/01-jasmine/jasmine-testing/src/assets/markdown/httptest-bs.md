@@ -1,4 +1,4 @@
-- Examine `food/food.service-bs.ts` and `food/food.service--bs.spec.ts` and its http injection and the use of HttpClientTestingModule and HttpTestingController.
+- Examine `food/food.service-bs.ts` and `food/food.service--bs.spec.ts` and its http injection and the use of `HttpClientTestingModule` and `HttpTestingController`.
 
 - It represents a stateful service that is using a behavior subject to store the data and expose it to the components.
 

@@ -1,1 +1,1 @@
-- Examine material-async.component.ts and the animation that causes async behavior due to the animation when changing a tab
+- Examine `material-async.component.ts` and the animation that causes async behavior due to the animation when changing a tab

@@ -1,4 +1,4 @@
 - Examine the `*.spec` files in `/component-async`.
 - Examine `async-intro.spec.ts` to learn about the basic async testing concepts
-- Examine the Simple Auth implementations to learn about how to use done(), fakeAsync(), and asyncWhenStable()
+- Examine the Simple Auth implementations to learn about how to use `done()`, `fakeAsync()`, and `asyncWhenStable()`
 - Examine `food-menu.component.spec.ts`
