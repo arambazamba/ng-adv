@@ -1,8 +1,8 @@
 import { HTTP_INTERCEPTORS, provideHttpClient, withInterceptorsFromDi } from '@angular/common/http';
-import { ApplicationConfig, importProvidersFrom } from '@angular/core';
+import { ApplicationConfig, ENVIRONMENT_INITIALIZER, importProvidersFrom, inject } from '@angular/core';
 import { provideAnimations } from '@angular/platform-browser/animations';
 import { provideRouter, withComponentInputBinding } from '@angular/router';
-import { DefaultDataServiceConfig, provideEntityData, withEffects } from '@ngrx/data';
+import { DefaultDataServiceConfig, EntityDataService, provideEntityData, withEffects } from '@ngrx/data';
 import { provideEffects } from '@ngrx/effects';
 import { provideState, provideStore } from '@ngrx/store';
 import { provideStoreDevtools } from '@ngrx/store-devtools';
@@ -17,6 +17,8 @@ import { LoadingService } from './shared/loading/loading.service';
 import { skillsDataServiceConfig } from './skills/skills-data.service.config';
 import { skillsEntityConfig } from './skills/skills.metadata';
 import { appState } from './state/app.state';
+import { Skill } from './skills/skill.model';
+import { SkillsDataService } from './skills/skills-data.service';
 
 export const appConfig: ApplicationConfig = {
     providers: [
@@ -27,18 +29,28 @@ export const appConfig: ApplicationConfig = {
         provideStore(),
         provideEffects(demoEffects),
         provideEffects(customerEffects),
-        //State Slices
+        // State Slices
         provideState(appState),
         provideState(demoState),
         provideState(customerState),
-        //NgRx Data
+        // NgRx Data
         provideEntityData(skillsEntityConfig, withEffects()),
         { provide: DefaultDataServiceConfig, useValue: skillsDataServiceConfig },
-        //NgRx DevTools
+        // Registration of a custom EntityDataService - if you do not need it skip it
+        {
+            provide: ENVIRONMENT_INITIALIZER,
+            useValue() {
+                const entityDataService = inject(EntityDataService);
+                const skillsDataService = inject(SkillsDataService);
+                entityDataService.registerService('Skill', skillsDataService);
+            },
+            multi: true,
+        },
+        // NgRx DevTools
         provideStoreDevtools({ maxAge: 25 }),
         LoadingService,
         { provide: HTTP_INTERCEPTORS, useClass: LoadingInterceptor, multi: true },
-        //Markdown
+        // Markdown
         importProvidersFrom(
             MarkdownModule.forRoot(),
         )

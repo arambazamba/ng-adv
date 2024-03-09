@@ -7,7 +7,9 @@ import { map } from 'rxjs/operators';
 import { environment } from '../../environments/environment';
 import { Skill } from './skill.model';
 
-@Injectable()
+@Injectable({
+  providedIn: 'root',
+})
 export class SkillsDataService extends DefaultDataService<Skill> {
   constructor(http: HttpClient, httpUrlGenerator: HttpUrlGenerator) {
     super('Skill', http, httpUrlGenerator);
@@ -19,6 +21,7 @@ export class SkillsDataService extends DefaultDataService<Skill> {
   override getAll() {
     return this.http.get<Skill[]>(`${environment.api}skills`).pipe(
       map((data: Skill[]) => {
+        console.log('overridden getAll', data)
         if (!data) {
           return [];
         }
