@@ -1,9 +1,8 @@
 import { isPlatformBrowser } from '@angular/common';
-import { Inject, PLATFORM_ID } from '@angular/core';
-import { Component, OnDestroy } from '@angular/core';
+import { Component, DestroyRef, Inject, PLATFORM_ID, inject } from '@angular/core';
+import { takeUntilDestroyed } from '@angular/core/rxjs-interop';
 import { MatDrawerMode } from '@angular/material/sidenav';
 import { NavigationEnd, Router } from '@angular/router';
-import { Subject, takeUntil } from 'rxjs';
 import { filter, map, startWith, tap } from 'rxjs/operators';
 import { environment } from 'src/environments/environment';
 import { MsalAuthFacade } from './auth/state/auth.facade';
@@ -15,7 +14,12 @@ import { MenuFacade } from './state/menu/menu.facade';
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.scss'],
 })
-export class AppComponent implements OnDestroy {
+export class AppComponent {
+  af = inject(MsalAuthFacade);
+  mf = inject(MenuFacade);
+  router = inject(Router);
+  destroyRef = inject(DestroyRef);
+  windowRef = inject(SSRWindow);
   title = environment.title;
   sidenavMode: MatDrawerMode = 'side';
   sidenavVisible = this.mf.sideNavVisible;
@@ -35,15 +39,7 @@ export class AppComponent implements OnDestroy {
     })
   );
 
-  private destroy$ = new Subject();
-
-  constructor(
-    private af: MsalAuthFacade,
-    public mf: MenuFacade,
-    private router: Router,
-    private windowRef: SSRWindow,
-    @Inject(PLATFORM_ID) private platformId: any,
-  ) {
+  constructor(@Inject(PLATFORM_ID) private platformId: any,) {
     this.setSidenav();
     this.routeToFood();
     this.setMSALIframe();
@@ -59,7 +55,7 @@ export class AppComponent implements OnDestroy {
 
   setSidenav() {
     this.mf.sideNavPosition
-      .pipe(takeUntil(this.destroy$))
+      .pipe(takeUntilDestroyed(this.destroyRef))
       .subscribe((mode: string) => {
         this.sidenavMode = mode as MatDrawerMode;
       });
@@ -71,15 +67,10 @@ export class AppComponent implements OnDestroy {
     }
   }
 
-  ngOnDestroy() {
-    this.destroy$.next(true);
-    this.destroy$.complete();
-  }
-
   getWorbenchStyle() {
     let result = {};
     this.mf.sideNavVisible
-      .pipe(takeUntil(this.destroy$))
+      .pipe(takeUntilDestroyed(this.destroyRef))
       .subscribe((visible: boolean) => {
         result = visible
           ? {

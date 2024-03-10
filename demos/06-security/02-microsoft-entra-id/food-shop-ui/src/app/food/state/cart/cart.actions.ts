@@ -8,7 +8,7 @@ export const CartActions = createActionGroup({
     clear: emptyProps(),
     updateCart: props<{ item: CartItem }>(),
     checkout: props<{ item: OrderItem }>(),
-    toogglePersist: emptyProps(),
+    togglePersist: emptyProps(),
     loadFromStorage: emptyProps(),
     loadFromStorageSuccess: props<{ items: CartItem[] | null }>(),
     clearStorage: emptyProps(),

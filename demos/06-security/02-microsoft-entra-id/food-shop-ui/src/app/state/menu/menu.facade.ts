@@ -29,8 +29,8 @@ export class MenuFacade {
         console.log(breakpointState, enabled);
         let visible = breakpointState.matches ? false : true;
         let position = breakpointState.matches ? 'over' : 'side';
-        this.store.dispatch(SideNavActions.setsidenavvisible({ visible }));
-        this.store.dispatch(SideNavActions.setsidenavposition({ position }));
+        this.store.dispatch(SideNavActions.setSideNavVisible({ visible }));
+        this.store.dispatch(SideNavActions.setSideNavPosition({ position }));
       })
     );
 
@@ -47,7 +47,7 @@ export class MenuFacade {
   }
 
   setSideNavEnabled(val: boolean) {
-    this.store.dispatch(SideNavActions.setsidenavenabled({ enabled: val }));
+    this.store.dispatch(SideNavActions.setSideNavEnabled({ enabled: val }));
   }
 
   adjustSidenavToScreen(mq: string): boolean {
@@ -55,6 +55,6 @@ export class MenuFacade {
   }
 
   toggleMenuVisibility() {
-    this.store.dispatch(SideNavActions.togglesidenav());
+    this.store.dispatch(SideNavActions.toggleSideNav());
   }
 }
