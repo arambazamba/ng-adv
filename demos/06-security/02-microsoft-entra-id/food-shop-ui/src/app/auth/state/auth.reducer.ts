@@ -1,4 +1,4 @@
-import { createReducer, on } from '@ngrx/store';
+import { createFeature, createReducer, on } from '@ngrx/store';
 import { environment } from '../../../environments/environment';
 import { MsalAuthResponse } from '../auth-response.model';
 import { AuthActions } from './auth.actions';
@@ -15,16 +15,19 @@ const initialState: MsalAuthState = {
   authEnabled: environment.authEnabled,
 };
 
-export const authReducer = createReducer(
-  initialState,
-  on(AuthActions.loginsuccess, (state, action) => ({
-    ...state,
-    authResponse: action.authResponse,
-    authenticated: true,
-  })),
-  on(AuthActions.logoutsuccess, (state, action) => ({
-    ...state,
-    authResponse: null,
-    authenticated: false,
-  }))
-);
+export const authState = createFeature({
+  name: authFeatureKey,
+  reducer: createReducer(
+    initialState,
+    on(AuthActions.loginsuccess, (state, action) => ({
+      ...state,
+      authResponse: action.authResponse,
+      authenticated: true,
+    })),
+    on(AuthActions.logoutsuccess, (state, action) => ({
+      ...state,
+      authResponse: null,
+      authenticated: false,
+    }))
+  )
+});
