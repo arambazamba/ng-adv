@@ -27,7 +27,7 @@ import { CurrentUserComponent } from './components/current-user/current-user.com
 import { LoginComponent } from './components/login/login.component';
 import { MsalBroadcastServiceMock } from './mocks/MsalBroadcastService.mock';
 import { AuthEffects } from './state/auth.effects';
-import { authState } from './state/auth.reducer';
+import { authState } from './state/auth.state';
 
 const modules = environment.authEnabled
   ? [

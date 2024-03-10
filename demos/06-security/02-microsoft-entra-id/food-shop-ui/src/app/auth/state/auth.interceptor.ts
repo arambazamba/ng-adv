@@ -8,7 +8,7 @@ import { Injectable } from '@angular/core';
 import { Store } from '@ngrx/store';
 import { Observable } from 'rxjs';
 import { first, mergeMap } from 'rxjs/operators';
-import { MsalAuthState } from './auth.reducer';
+import { MsalAuthState } from './auth.state';
 import { getToken } from './auth.selectors';
 
 //TODO: Not used here
@@ -16,7 +16,7 @@ import { getToken } from './auth.selectors';
   providedIn: 'root',
 })
 export class AuthInterceptor implements HttpInterceptor {
-  constructor(private store: Store<MsalAuthState>) {}
+  constructor(private store: Store<MsalAuthState>) { }
 
   public intercept(
     req: HttpRequest<any>,
@@ -27,8 +27,8 @@ export class AuthInterceptor implements HttpInterceptor {
       mergeMap((token) => {
         const authReq = !!token
           ? req.clone({
-              setHeaders: { Authorization: 'Bearer ' + token },
-            })
+            setHeaders: { Authorization: 'Bearer ' + token },
+          })
           : req;
         return next.handle(authReq);
       })
