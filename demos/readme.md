@@ -45,10 +45,8 @@ Neue Themengebiete werden anhand von Folien und Demos erarbeitet. Am Ende der Mo
 - Content Projection 
 - Templates TemplateRef, *ngTemplateOutlet
 - Comparison: ng-template vs ng-content - pro / cons
-- ViewChild, -Children, ContentChild, -Children
 - HostBinding & HostListener
-- Recap Reactive Forms Revisited (FormGroup, Form Builder, FormControl, FormArray)
-- Dynamic Component Loading & DataBinding
+- Reactive Forms Revisited (FormGroup, Form Builder, FormControl, FormArray)
 - Untyped Forms vs Typed Forms 
 - Typed Forms Nullability, NonNullableFormBuilder, GetRawValue
 - Partial Values, Optional Controls, Dynamic Groups and FormRecord
@@ -67,10 +65,8 @@ Neue Themengebiete werden anhand von Folien und Demos erarbeitet. Am Ende der Mo
 - Mouse & DOM Events as Observables
 - Implementing Side Effects using tap
 - Base Operators: Mapping, Filtering, Merging, Scanning, ...
-- Unsubscribing (takeUntil, DestroyRef, takeUntilDestroyed)
-- Introduction to Signals
+- Unsubscribing DestroyRef & takeUntilDestroyed
 - Imperative vs Declarative Reactive Programming
-- Signals vs Observables: Synchronous  & Asynchronous Reactive Programming
 - Understanding Marble Diagrams & Debugging Observables
 - Marble-testing RxJS
 - Combination & Transformation Operators
@@ -91,15 +87,17 @@ Neue Themengebiete werden anhand von Folien und Demos erarbeitet. Am Ende der Mo
 - Implementing a reactive View Model
 - NgRx Container Presenter Best Practices
 - Using @ngrx/component-store
-- Optimize Change Detection
 
 ## Mastering Signals
 
 - Introduction to Signals (Writable, Computed, Effects)
 - Working with Arrays
 - Signals vs Observables: Synchronous  & Asynchronous Reactive Programming
+- Signal Queries: viewChild, -Children, contentChild, -Children
+- Nesting Components using Signals, input, output & model
 - Signals & Ngrx Interoperability
 - Creating a Signals Store using @ngrx/signals
+- Side Effects using rxMethod
 - Local Change Detection using Signals
 
 ## Advanced Routing and App Initialization
