@@ -1,14 +1,14 @@
-# Advanced Angular Development - Modules
+# Advanced Angular Development
 
 Im Seminar "Advanced Angular Development" bringen wir Ihre Angular Kenntnisse auf Experten-Level. Großes Augenmerk legen wir darauf, in den Demos & Labs aktuelle Coding-Styles & Patterns zu verwenden. Wir besprechen mögliche Refactorings & Schematics für die Migration bestehender Lösungen und setzen dies fallweise in Form von Live-Coding um.
 
-Wir beginnen mit der Implementierung eines Angular Material Themes und lernen dabei die Kurs-Demo-App kennen, welche wir im Laufe des Kurses erweitern. Standalone Components sowie, deren Konzepte und Migration bilden den Einstieg ins Module Components & Forms Deep Dive. 
+Wir beginnen mit Standalone Components sowie, deren Konzepte und Migration bilden den Einstieg ins Module Components & Forms Deep Dive. 
 
 Ein Schwerpunkt des Kurses ist der Themenblock Reactive Programming und State Management mit RxJS, NgRx & Signals, sowie Advanced Routing und App Initialization. 
 
 Wir diskutieren die Implementierung von Authentifizierung mit Cloud Identities und Tests mit Jasmine, Jest, Cypress. Zusätzlich behandeln wir die Themen Reusability mit Libraries, Schematics, Nx & Angular Elements und Optimierung von Anwendungen, Server Side Rendering, sowie A11y.
 
-Zum Abschluss implementieren wir ein Real Time connected Mikro-Frontend als Progressive Web App und publizieren Angular Apps in die Cloud mittels Containern und Config Injection.
+Zum Abschluss implementieren wir ein Real Time connected Micro-Frontend als Progressive Web App und publizieren Angular Apps in die Cloud mittels Containern und Config Injection.
 
 Nach Abschluss des Kurses haben die Teilnehmer Kenntnisse zu folgenden Themen:
 
@@ -16,7 +16,7 @@ Standalone Components: Concepts & Migration
 Components & Forms Deep Dive
 Mastering Reactive Programming using RxJs
 Advanced State Management using NgRx
-Mastering Signals
+Mastering Reactivity using Signals
 Advanced Routing and App Initialization
 Securing Angular using Cloud Identities
 Advanced Testing with Jasmine, Jest, Cypress and NgRx
@@ -63,7 +63,6 @@ Neue Themengebiete werden anhand von Folien und Demos erarbeitet. Am Ende der Mo
 - Data- vs Action-Streams
 - Mouse & DOM Events as Observables
 - Unsubscribing DestroyRef & takeUntilDestroyed
-- Implementing Side Effects using tap
 - Base Operators: Mapping, Filtering, Merging, 
 - Understanding Marble Diagrams & Debugging Observables
 - Marble-testing RxJS
@@ -82,18 +81,16 @@ Neue Themengebiete werden anhand von Folien und Demos erarbeitet. Am Ende der Mo
 - Effects, Facades, @ngrx/entity adapters
 - Simplifying Data Access with @ngrx/data
 - Implementing a reactive View Model
-- NgRx Container Presenter Best Practices
 - Using @ngrx/component-store
 
-## Mastering Signals
+## Mastering Reactivity using Signals
 
-- Introduction to Signals (Writable, Computed, Effects)
-- Working with Arrays
+- Introduction to Signals (WritableSignal, Computed, Effects)
 - Signals vs Observables: Synchronous  & Asynchronous Reactive Programming
 - Signal Queries: viewChild, -Children, contentChild, -Children
+- Signals & Ngrx Interoperability
 - Nesting Components using Signals, input, output & model
 - Communication between Components using Event Bus Pattern
-- Signals & Ngrx Interoperability
 - Creating a Signals Store using @ngrx/signals
 - Side Effects using rxMethod
 - Local Change Detection using Signals
@@ -132,7 +129,7 @@ Neue Themengebiete werden anhand von Folien und Demos erarbeitet. Am Ende der Mo
 - Mocking vs Spies
 - Testing Component Interaction (Read, Write, Emit, Inputs)
 - Complex Forms Testing
-- Testing Observables & BehaviourSubjects
+- Testing Observables & Signals
 - Material Testing using Component Harnesses
 - Async Component Testing (done, fakeAsync, waitForAsync)
 - Components Marble Testing
