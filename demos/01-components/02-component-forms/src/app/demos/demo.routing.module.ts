@@ -45,7 +45,7 @@ const demoRoutes: Routes = [
       },
       { path: 'standalone-bootstrap', component: BootstrapStandaloneComponent },
       { path: 'valuecontrol', component: ControlValueAccessorComponent },
-      { path: 'viewchild', component: ViewChildComponent },
+      { path: 'view-queries', component: ViewChildComponent },
       { path: 'contentchild', component: ContentChildComponent },
       { path: 'template-vs-container', component: TemplateVsContainerComponent },
       { path: 'hostbinding', component: HostBindingListenerComponent },

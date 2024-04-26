@@ -1,4 +1,4 @@
-<app-markdown-renderer [md]="'viewchild'"></app-markdown-renderer>
+<app-markdown-renderer [md]="'view-queries'"></app-markdown-renderer>
 <mat-card appearance="outlined">
     <mat-card-header>
         <mat-card-title>ViewChild</mat-card-title>
@@ -14,3 +14,8 @@
         </div>
     </mat-card-content>
 </mat-card>
+
+<div boxed>    
+    <button mat-raised-button  (click)="hideAlert()">Hide alert</button>
+    <app-alert></app-alert>
+</div>
