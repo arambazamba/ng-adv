@@ -1,45 +1,68 @@
-<form [formGroup]="skillForm" (ngSubmit)="saveForm()">
+<app-markdown-renderer [md]="'signal-forms'"></app-markdown-renderer>
+
+<div [formGroup]="skillForm" (ngSubmit)="saveForm()">
   <mat-card appearance="outlined">
     <mat-card-header>
       <mat-card-title>Skills Sheet</mat-card-title>
     </mat-card-header>
     <mat-card-content>
       <mat-form-field>
-        <mat-label>Name</mat-label>
         <input
           matInput
           type="text"
           formControlName="name"
           placeholder="Enter Name:"
-          />
-        </mat-form-field>
-        @if (skillForm.controls.name.value) {
-          <div class="border">
-            <h3>Skills:</h3>
-            @for (skill of skillForm.controls.skills.controls; track skill; let i = $index) {
-              <div formArrayName="skills">
-                <div [formGroupName]="i" rowgap>
-                  <mat-form-field>
-                    <input
-                      matInput
-                      placeholder="Skill Name"
-                      formControlName="skillName"
-                      />
-                    </mat-form-field>
-                    <mat-form-field>
-                      <input matInput placeholder="Years" formControlName="years" />
-                    </mat-form-field>
-                  </div>
-                </div>
-              }
+        />
+      </mat-form-field>
+      @if (skillForm.get('name')?.value) {
+      <div>
+        <h6>Add your skills:</h6>
+        @for (skill of skillForm.controls.skills.controls; track skill; let i =
+        $index) {
+        <div formArrayName="skills">
+          <div [formGroupName]="i" class="row">
+            <mat-form-field>
+              <input
+                matInput
+                placeholder="Skill Name"
+                formControlName="skill"
+              />
+            </mat-form-field>
+            <mat-form-field>
+              <input matInput placeholder="Years" formControlName="years" />
+            </mat-form-field>
+            <div>
+              <button
+                mat-raised-button
+                (click)="removeSkill(i)"
+                color="primary"
+              >
+                Remove
+              </button>
             </div>
-          }
-        </mat-card-content>
-        <mat-card-actions align="end">
-          @if (skillForm.controls.name.value) {
-            <button mat-raised-button (click)="addSkill()" color="accent">Add Skill</button>
-          }
-          <button mat-raised-button (click)="saveForm()" color="accent">Save</button>
-        </mat-card-actions>
-      </mat-card>
-    </form>
+          </div>
+        </div>
+        }
+      </div>
+      }
+    </mat-card-content>
+    <mat-card-actions class="cmdItems">
+      <button
+        mat-raised-button
+        (click)="addSkill()"
+        [disabled]="checkArrayValid()"
+        color="primary"
+      >
+        Add Skill
+      </button>
+      <button
+        mat-raised-button
+        (click)="saveForm()"
+        [disabled]="checkArrayValid()"
+        color="primary"
+      >
+        Save
+      </button>
+    </mat-card-actions>
+  </mat-card>
+</div>

@@ -1,11 +1,11 @@
 import { Component, inject } from '@angular/core';
-import { FormArray, FormBuilder, FormsModule, ReactiveFormsModule } from '@angular/forms';
-import { PersonService } from '../person/person.service';
-import { MatButton } from '@angular/material/button';
-import { GapDirective } from '../../../shared/ux-lib/formatting/formatting-directives';
-import { MatInput } from '@angular/material/input';
-import { MatFormField, MatLabel } from '@angular/material/form-field';
-import { MatCard, MatCardHeader, MatCardTitle, MatCardContent, MatCardActions } from '@angular/material/card';
+import { Form, FormArray, FormBuilder, FormGroup, ReactiveFormsModule } from '@angular/forms';
+import { MatButtonModule } from '@angular/material/button';
+
+import { MatCardModule } from '@angular/material/card';
+import { MatFormFieldModule } from '@angular/material/form-field';
+import { MatInputModule } from '@angular/material/input';
+import { MarkdownRendererComponent } from 'src/app/shared/markdown-renderer/markdown-renderer.component';
 
 @Component({
   selector: 'app-form-array',
@@ -13,39 +13,49 @@ import { MatCard, MatCardHeader, MatCardTitle, MatCardContent, MatCardActions } 
   styleUrls: ['./form-array.component.scss'],
   standalone: true,
   imports: [
-    FormsModule,
     ReactiveFormsModule,
-    MatCard,
-    MatCardHeader,
-    MatCardTitle,
-    MatCardContent,
-    MatFormField,
-    MatLabel,
-    MatInput,
-    GapDirective,
-    MatCardActions,
-    MatButton,
+    MatCardModule,
+    MatFormFieldModule,
+    MatInputModule,
+    MatButtonModule,
+    MarkdownRendererComponent
   ],
 })
 export class FormArrayComponent {
   fb: FormBuilder = inject(FormBuilder);
-  ps: PersonService = inject(PersonService);
+
   skillForm = this.fb.group({
-    name: '',
-    skills: this.fb.array([]),
+    name: 'Giro',
+    skills: this.fb.array([
+      this.fb.group({ skill: 'Hunting', years: '9' }),
+    ]),
   });
 
   addSkill() {
-    const skills = this.skillForm.controls.skills as FormArray;
-    skills.push(
+    const skillsGrp = this.skillForm.controls['skills'] as FormArray;
+    skillsGrp.push(
       this.fb.group({
-        skillName: '',
+        skill: '',
         years: '',
       })
     );
   }
 
+  removeSkill(index: number) {
+    const skillsGrp = this.skillForm.controls['skills'] as FormArray;
+    skillsGrp.removeAt(index);
+  }
+
+  checkArrayValid() {
+    const skillsGrp = this.skillForm.controls['skills'] as FormArray;
+    const lastSkill = skillsGrp.at(skillsGrp.length - 1);
+    if (lastSkill.value.skill === '' || lastSkill.value.years === '') {
+      return !false;
+    }
+    return !true;
+  }
+
   saveForm() {
-    console.log('form saved', this.skillForm);
+    console.log('saving ...', this.skillForm.value);
   }
 }

@@ -2,11 +2,13 @@ mat-form-field {
   width: 100%;
 }
 
-.border{
-  border: 1px dotted var(--color-primary);
-  padding: 0.5rem;
+h6 {
+  margin-left: var(--gap-medium);
+  margin-bottom: var(--gap-medium);
 }
 
-button{
-  margin: 0 0.5rem ;
+.row{
+  display: flex;
+  flex-direction: row;
+  gap: var(--gap-medium);
 }

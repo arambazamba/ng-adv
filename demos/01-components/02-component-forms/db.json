@@ -99,7 +99,7 @@
   ],
   "persons": [
     {
-      "id": 1,
+      "id": "1",
       "name": "Cleo",
       "lastname": "Whippet",
       "age": 15,
@@ -115,7 +115,7 @@
       }
     },
     {
-      "id": 2,
+      "id": "2",
       "name": "Soi",
       "age": 9,
       "gender": "female",
@@ -123,7 +123,7 @@
       "imgUrl": "/assets/images/soi.png"
     },
     {
-      "id": 3,
+      "id": "3",
       "name": "Giro",
       "age": 11,
       "gender": "male",
@@ -131,7 +131,7 @@
       "imgUrl": "/assets/images/giro.png"
     },
     {
-      "id": 4,
+      "id": "4",
       "name": "Flora",
       "age": 14,
       "gender": "female",
