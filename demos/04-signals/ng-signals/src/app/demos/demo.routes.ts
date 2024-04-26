@@ -6,6 +6,7 @@ import { SignalsEventBusComponent } from './samples/signals-event-bus/signals-ev
 import { RxjsInteropComponent } from './samples/rxjs-interop/rxjs-interop.component';
 import { SelectSignalComponent } from './samples/select-signal/select-signal.component';
 import { SignalInputsComponent } from './samples/signal-inputs/signal-inputs.component';
+import { ContainerPresenterSignalsComponent } from './samples/container-presenter/container-presenter-signals.component';
 
 export const demoRoutes: Routes = [
   {
@@ -18,6 +19,7 @@ export const demoRoutes: Routes = [
       { path: 'select-signal', component: SelectSignalComponent },
       { path: 'ngrx-signals', component: NgrxSignalsComponent },
       { path: 'signal-inputs', component: SignalInputsComponent },
+      { path: 'container-presenter', component: ContainerPresenterSignalsComponent }
     ],
   },
 ];
