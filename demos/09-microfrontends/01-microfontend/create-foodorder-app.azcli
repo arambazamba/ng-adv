@@ -1,9 +1,9 @@
-env=dev
-grp=ng-adv-$env
+env=dev-$RANDOM
+grp=az204-realtime-$env
 loc=westeurope
 storage=foodorders$env
 funcApp=foodorders-$env
-signalrhub=foodhub-$env
+signalrhub=foodsignalrhub-$env
 topic=foodevents-$env
 ngUrl=http://localhost:4200
 pwaUrl=http://localhost:8080
@@ -25,7 +25,9 @@ az monitor app-insights component create --app $funcApp --location $loc --kind w
 
 # function app
 az storage account  create -n $storage -g $grp 
-fxid=$(az functionapp create -n $funcApp -g $grp -s $storage --consumption-plan-location $loc --runtime dotnet --functions-version 4 --app-insights $funcApp --query id -o tsv)
+az functionapp create -n $funcApp -g $grp -s $storage --consumption-plan-location $loc --runtime dotnet --functions-version 4 --app-insights $funcApp 
+fxid=$(az functionapp show -n $funcApp -g $grp --query id -o tsv)
+
 az functionapp config appsettings set -n $funcApp -g $grp --settings "AzureSignalRConnectionString=$conStrSignalR"
 az functionapp cors add -g $grp -n $funcApp --allowed-origins $ngUrl $containerUrl $pwaUrl
 az functionapp cors credentials -n $funcApp -g $grp --enable true

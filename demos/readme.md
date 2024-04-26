@@ -1,6 +1,6 @@
 # Advanced Angular Development
 
-Im Seminar "Advanced Angular Development" bringen wir Ihre Angular Kenntnisse auf Experten-Level. Großes Augenmerk legen wir darauf, in den Demos & Labs aktuelle Coding-Styles & Patterns zu verwenden. Wir besprechen mögliche Refactorings & Schematics für die Migration bestehender Lösungen und setzen dies fallweise in Form von Live-Coding um.
+Im Seminar "Advanced Angular Development" bringen wir Ihre Angular Kenntnisse auf Experten-Level. Großes Augenmerk legen wir darauf, in den Demos & Labs aktuelle Coding-Styles & Patterns zu verwenden. Wir besprechen mögliche Refactorings & Schematics für die Migration bestehender Lösungen und setzen dies fallweise in Form von Live-Coding & AI assisted Coding um.
 
 Wir beginnen mit Standalone Components sowie, deren Konzepte und Migration bilden den Einstieg ins Module Components & Forms Deep Dive. 
 
@@ -8,7 +8,7 @@ Ein Schwerpunkt des Kurses ist der Themenblock Reactive Programming und State Ma
 
 Wir diskutieren die Implementierung von Authentifizierung mit Cloud Identities und Tests mit Jasmine, Jest, Cypress. Zusätzlich behandeln wir die Themen Reusability mit Libraries, Schematics, Nx & Angular Elements und Optimierung von Anwendungen, Server Side Rendering, sowie A11y.
 
-Zum Abschluss implementieren wir ein Real Time connected Micro-Frontend als Progressive Web App und publizieren Angular Apps in die Cloud mittels Containern und Config Injection.
+Zum Abschluss implementieren wir ein Real Time connected Micro-Frontend als Progressive Web App und publizieren Angular Apps in die Cloud mittels Containern und Enterprise-ready Config Management.
 
 Nach Abschluss des Kurses haben die Teilnehmer Kenntnisse zu folgenden Themen:
 
