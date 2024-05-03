@@ -5,14 +5,14 @@ import {
   Z,
   ZERO
 } from '@angular/cdk/keycodes';
-import { Component, ElementRef, EventEmitter, Input, OnDestroy, OnInit, Output, ViewChild, viewChild } from '@angular/core';
-import { FormBuilder, FormGroup, ReactiveFormsModule } from '@angular/forms';
-import { Subscription } from 'rxjs';
-import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
 import { NgIf, NgStyle } from '@angular/common';
+import { Component, ElementRef, EventEmitter, Input, OnDestroy, OnInit, Output, viewChild } from '@angular/core';
+import { FormBuilder, FormGroup, ReactiveFormsModule } from '@angular/forms';
+import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
+import { Subscription } from 'rxjs';
 
 @Component({
-  selector: 'mat-select-filter',
+  selector: 'ux-select-filter',
   templateUrl: './mat-select-filter.component.html',
   styleUrls: ['./mat-select-filter.component.scss'],
   standalone: true,
@@ -59,7 +59,7 @@ export class MatSelectFilterComponent implements OnInit, OnDestroy {
         } else if (this.hasGroup && this.groupArrayName && this.displayMember) {
           this.filteredItems = this.array.map((a: any) => {
             const objCopy = Object.assign({}, a);
-            objCopy[this.groupArrayName] = objCopy[this.groupArrayName].filter(g => g[this.displayMember].toLowerCase().includes(value['value'].toLowerCase()));
+            objCopy[this.groupArrayName] = objCopy[this.groupArrayName].filter((g: { [x: string]: string; }) => g[this.displayMember].toLowerCase().includes(value['value'].toLowerCase()));
             return objCopy;
           }).filter((x: { [x: string]: string | any[]; }) => x[this.groupArrayName].length > 0);
         } else {
