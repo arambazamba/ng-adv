@@ -29,27 +29,27 @@
       "title": "View Queries"
     },
     {
-      "url": "formcontrol",
+      "url": "form-control",
       "title": "FormControl"
     },
     {
-      "url": "reactiveforms",
+      "url": "reactive-forms",
       "title": "Reactive Forms"
     },
     {
-      "url": "formbuilder",
+      "url": "form-builder",
       "title": "Form Builder"
     },
     {
-      "url": "typedforms",
+      "url": "typed-forms",
       "title": "Typed Forms"
     },
     {
-      "url": "typedformsexplicit",
+      "url": "typed-forms-explicit",
       "title": "Typed Forms Explicit"
     },
     {
-      "url": "typednonnullable",
+      "url": "typed-non-nullable",
       "title": "Typed NonNullable"
     },
     {
@@ -57,20 +57,24 @@
       "title": "GetRawValue"
     },
     {
-      "url": "reactivenested",
+      "url": "reactive-nested",
       "title": "Nested Objects"
     },
     {
-      "url": "formarray",
+      "url": "form-array",
       "title": "FormArray"
     },
     {
       "url": "cascade",
-      "title": "Cascad Controls"
+      "title": "Cascade Controls"
     },
     {
-      "url": "valuecontrol",
+      "url": "value-control",
       "title": "ControlValueAccessor"
+    },
+    {
+      "url": "custom-controls",
+      "title": "Custom Controls"
     },
     {
       "url": "validation-typed",
@@ -91,10 +95,6 @@
     {
       "url": "container-presenter",
       "title": "Container & Required Inputs"
-    },
-    {
-      "url": "custom-controls",
-      "title": "Custom Controls"
     }
   ],
   "skills": [

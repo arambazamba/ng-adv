@@ -5,7 +5,7 @@ import {
   Z,
   ZERO
 } from '@angular/cdk/keycodes';
-import { Component, EventEmitter, Input, OnDestroy, OnInit, Output, ViewChild, viewChild } from '@angular/core';
+import { Component, ElementRef, EventEmitter, Input, OnDestroy, OnInit, Output, ViewChild, viewChild } from '@angular/core';
 import { FormBuilder, FormGroup, ReactiveFormsModule } from '@angular/forms';
 import { Subscription } from 'rxjs';
 import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
@@ -20,7 +20,7 @@ import { NgIf, NgStyle } from '@angular/common';
 })
 export class MatSelectFilterComponent implements OnInit, OnDestroy {
   private searchFormValueChangesSubscription: Subscription = new Subscription();
-  input = viewChild('input', { static: true });
+  input = viewChild.required('input', { read: ElementRef });
   // @ViewChild('input', { static: true }) input;
 
   @Input('array') array: any;
@@ -57,13 +57,13 @@ export class MatSelectFilterComponent implements OnInit, OnDestroy {
           this.filteredItems = this.array.filter((name: any) => name.toLowerCase().includes(value['value'].toLowerCase()));
           // OTHERWISE, WE CHECK THE ENTIRE STRING
         } else if (this.hasGroup && this.groupArrayName && this.displayMember) {
-          this.filteredItems = this.array.map(a => {
+          this.filteredItems = this.array.map((a: any) => {
             const objCopy = Object.assign({}, a);
             objCopy[this.groupArrayName] = objCopy[this.groupArrayName].filter(g => g[this.displayMember].toLowerCase().includes(value['value'].toLowerCase()));
             return objCopy;
-          }).filter(x => x[this.groupArrayName].length > 0);
+          }).filter((x: { [x: string]: string | any[]; }) => x[this.groupArrayName].length > 0);
         } else {
-          this.filteredItems = this.array.filter(name => name[this.displayMember].toLowerCase().includes(value['value'].toLowerCase()));
+          this.filteredItems = this.array.filter((name: { [x: string]: string; }) => name[this.displayMember].toLowerCase().includes(value['value'].toLowerCase()));
         }
         // NO RESULTS VALIDATION
 
@@ -83,7 +83,7 @@ export class MatSelectFilterComponent implements OnInit, OnDestroy {
     });
 
     setTimeout(() => {
-      this.input.nativeElement.focus();
+      this.input().nativeElement.focus();
     }, 500);
     if (!this.placeholder) {
       this.placeholder = 'Search...';

@@ -1,8 +1,8 @@
 import { Directive, HostBinding, HostListener } from '@angular/core';
 
 @Directive({
-    selector: '[hoverListener]',
-    standalone: true,
+  selector: '[hoverListener]',
+  standalone: true,
 })
 export class HoverListenerDirective {
   @HostListener('mouseover') onHover() {
@@ -11,6 +11,4 @@ export class HoverListenerDirective {
   }
 
   @HostBinding('attr.wasHovered') wasHovered = 0;
-
-  constructor() {}
 }
