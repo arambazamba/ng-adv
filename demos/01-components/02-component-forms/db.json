@@ -91,6 +91,10 @@
     {
       "url": "container-presenter",
       "title": "Container & Required Inputs"
+    },
+    {
+      "url": "custom-controls",
+      "title": "Custom Controls"
     }
   ],
   "skills": [
