@@ -1,3 +1,17 @@
 <div>
-    <ux-select-filter [placeholder]="'Select a value'" [filterPlaceholder]="'Filter options'"></ux-select-filter>
+  <mat-form-field>
+    <mat-label>Select a person</mat-label>
+    <ux-select-filter
+    [placeholder]="'Select a person'"
+    [array]="allPersons"
+    [displayMember]="'name'"
+    (filteredReturn)="filteredPersons = $event"
+  >
+  </ux-select-filter>
+    <mat-select [formControl]="fcPerson">
+        <mat-option *ngFor="let p of allPersons" [value]="p.id">
+            {{ p.name }}
+        </mat-option>
+    </mat-select>
+  </mat-form-field>
 </div>
