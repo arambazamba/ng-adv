@@ -1,4 +1,4 @@
-import { Component, forwardRef, Input } from '@angular/core';
+import { Component, forwardRef, input, Input } from '@angular/core';
 import {
   AbstractControl,
   ControlValueAccessor,
@@ -11,28 +11,28 @@ import { DecimalPipe } from '@angular/common';
 import { MatIcon } from '@angular/material/icon';
 
 @Component({
-    selector: 'app-number-picker',
-    templateUrl: './number-picker.component.html',
-    styleUrls: ['./number-picker.component.scss'],
-    providers: [
-        {
-            provide: NG_VALUE_ACCESSOR,
-            multi: true,
-            useExisting: forwardRef(() => NumberPickerComponent),
-        },
-        {
-            provide: NG_VALIDATORS,
-            multi: true,
-            useExisting: forwardRef(() => NumberPickerComponent),
-        },
-    ],
-    standalone: true,
-    imports: [MatIcon, DecimalPipe],
+  selector: 'app-number-picker',
+  templateUrl: './number-picker.component.html',
+  styleUrls: ['./number-picker.component.scss'],
+  providers: [
+    {
+      provide: NG_VALUE_ACCESSOR,
+      multi: true,
+      useExisting: forwardRef(() => NumberPickerComponent),
+    },
+    {
+      provide: NG_VALIDATORS,
+      multi: true,
+      useExisting: forwardRef(() => NumberPickerComponent),
+    },
+  ],
+  standalone: true,
+  imports: [MatIcon, DecimalPipe],
 })
 export class NumberPickerComponent implements ControlValueAccessor, Validator {
   quantity = 0;
-  @Input() increment: number = 1;
-  @Input() label: string = '';
+  increment = input<number>(1);
+  label = input<string>('');
 
   private onChange: Function = (quantity: number) => { };
 
@@ -45,7 +45,7 @@ export class NumberPickerComponent implements ControlValueAccessor, Validator {
   onAdd() {
     this.markAsTouched();
     if (!this.disabled) {
-      this.quantity += this.increment;
+      this.quantity += this.increment();
       this.onChange(this.quantity);
     }
   }
@@ -53,7 +53,7 @@ export class NumberPickerComponent implements ControlValueAccessor, Validator {
   onRemove() {
     this.markAsTouched();
     if (!this.disabled) {
-      this.quantity -= this.increment;
+      this.quantity -= this.increment();
       this.onChange(this.quantity);
     }
   }
