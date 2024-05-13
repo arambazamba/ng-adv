@@ -7,7 +7,6 @@ import { IntegrationTestComponent } from './samples/component-integration/integr
 import { MarblesComponent } from './samples/component-marbles/marbles.component';
 import { MaterialAsyncComponent } from './samples/component-material-async/material-async.component';
 import { MaterialComponent } from './samples/component-material/material.component';
-import { MockHostComponent } from './samples/component-mocking/mock-host/mock-host.component';
 import { SpyHostComponent } from './samples/component-mocking/spy-host/spy-host.component';
 import { ComponentTestComponent } from './samples/component-test/component-test.component';
 import { ComponentWriteComponent } from './samples/component-write/component-write.component';
@@ -36,7 +35,6 @@ export const demoRoutes: Routes = [
             { path: 'simpleservice', component: SimpleServiceComponent },
             { path: 'component-test', component: ComponentTestComponent },
             { path: 'integrationtests', component: IntegrationTestComponent },
-            { path: 'mock', component: MockHostComponent },
             { path: 'httptests', component: HttpTestsComponent },
             { path: 'httptests-bs', component: HttpTestsBsComponent },
             { path: 'async', component: AsyncComponent },

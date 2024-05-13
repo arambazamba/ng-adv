@@ -7,16 +7,3 @@ export const retryInterceptor = (config: RetryConfig) => {
   };
   return interceptor;
 };
-
-// @Injectable({
-//   providedIn: 'root',
-// })
-// export class RetryInterceptorService {
-//   intercept(
-//     req: HttpRequest<any>,
-//     next: HttpHandler
-//   ): Observable<HttpEvent<any>> {
-//     console.log('RetryInterceptorService');
-//     return next.handle(req).pipe(retry(3));
-//   }
-// }

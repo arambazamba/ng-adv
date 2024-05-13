@@ -1,30 +1,31 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
-import { ReactiveFormsModule } from '@angular/forms';
-import { MatCardModule } from '@angular/material/card';
-import { MatSliderModule } from '@angular/material/slider';
-import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { NoopAnimationsModule } from '@angular/platform-browser/animations';
 import { MaterialComponent } from './material.component';
-import { MatInputModule } from '@angular/material/input';
 // Notice manual import of ...Harness
 import { HarnessLoader } from '@angular/cdk/testing';
 import { TestbedHarnessEnvironment } from '@angular/cdk/testing/testbed';
-import { MatButtonModule } from '@angular/material/button';
 import { MatButtonHarness } from '@angular/material/button/testing';
-import { MatSliderHarness } from '@angular/material/slider/testing';
 import { MatInputHarness } from '@angular/material/input/testing';
+import { MatSliderHarness } from '@angular/material/slider/testing';
+import { MarkdownModule } from 'ngx-markdown';
+import { provideHttpClient } from '@angular/common/http';
 
 describe('MaterialComponent', () => {
-  let component: MaterialComponent;
   let fixture: ComponentFixture<MaterialComponent>;
   let loader: HarnessLoader;
   let sliderHarness: MatSliderHarness;
   let btnResetHarness: MatButtonHarness;
 
   beforeEach(() => {
-    TestBed.configureTestingModule({
-    imports: [MatCardModule, ReactiveFormsModule, MatInputModule, MatSliderModule, MatButtonModule, BrowserAnimationsModule, MaterialComponent],
-}).compileComponents();
-    fixture = TestBed.createComponent(MaterialComponent);
+    fixture = TestBed.configureTestingModule({
+      imports: [
+        NoopAnimationsModule,
+        MarkdownModule.forRoot()
+      ],
+      providers: [
+        provideHttpClient()
+      ]
+    }).createComponent(MaterialComponent);
     fixture.detectChanges();
     loader = TestbedHarnessEnvironment.loader(fixture);
   });
@@ -34,7 +35,6 @@ describe('MaterialComponent', () => {
       MatButtonHarness.with({ text: 'Reset' })
     );
     sliderHarness = await loader.getHarness(MatSliderHarness);
-
     await btnResetHarness.click();
     const thumb = await sliderHarness.getEndThumb();
     expect(await thumb.getValue()).toBe(1);
@@ -43,7 +43,6 @@ describe('MaterialComponent', () => {
   it('should have the correct value in the input', async () => {
     const input = await loader.getHarness(MatInputHarness);
     expect(await input.getValue()).toBe('Sushi');
-
     await input.setValue('Pizza');
     expect(await input.getValue()).toBe('Pizza');
   });

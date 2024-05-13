@@ -1,4 +1,4 @@
-import { FoodItem } from '../food/food.model';
+import { FoodItem } from '../food.model';
 import { ComponentClassComponent } from './component-class.component';
 
 describe('ComponentClassComponent', () => {

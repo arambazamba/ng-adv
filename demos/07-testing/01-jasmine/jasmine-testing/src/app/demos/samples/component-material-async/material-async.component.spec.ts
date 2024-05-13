@@ -1,6 +1,4 @@
 import { ComponentFixture, TestBed, waitForAsync } from '@angular/core/testing';
-import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import { MaterialModule } from '../../../material.module';
 import { MaterialAsyncComponent } from './material-async.component';
 
 describe('MaterialAsyncComponent', () => {
@@ -10,8 +8,8 @@ describe('MaterialAsyncComponent', () => {
   beforeEach(
     waitForAsync(() => {
       TestBed.configureTestingModule({
-    imports: [MaterialModule, BrowserAnimationsModule, MaterialAsyncComponent],
-}).compileComponents();
+        imports: [MaterialAsyncComponent],
+      }).compileComponents();
     })
   );
 

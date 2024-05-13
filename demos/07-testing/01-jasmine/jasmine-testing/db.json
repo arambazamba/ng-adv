@@ -36,11 +36,6 @@
       "id": 77
     },
     {
-      "url": "mock",
-      "title": "Comp Inject Mock",
-      "id": 4
-    },
-    {
       "url": "spy",
       "title": "Comp Inject Spy",
       "id": 44

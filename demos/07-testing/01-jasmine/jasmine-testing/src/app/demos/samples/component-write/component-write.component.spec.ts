@@ -1,35 +1,36 @@
-import { fakeAsync, flush, TestBed, ComponentFixture } from '@angular/core/testing';
+import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { FormsModule } from '@angular/forms';
-import { MatCardModule } from '@angular/material/card';
-import { MatInputModule } from '@angular/material/input';
 import { By } from '@angular/platform-browser';
 import { NoopAnimationsModule } from '@angular/platform-browser/animations';
+import { MarkdownModule } from 'ngx-markdown';
 import { ComponentWriteComponent } from './component-write.component';
 
 describe('ComponentWriteComponent', () => {
   let fixture: ComponentFixture<ComponentWriteComponent>;
 
   beforeEach(() => {
-    TestBed.configureTestingModule({
-    imports: [FormsModule, MatCardModule, MatInputModule, NoopAnimationsModule, ComponentWriteComponent],
-});
-    fixture = TestBed.createComponent(ComponentWriteComponent);
+    fixture = TestBed.configureTestingModule({
+      imports: [
+        ComponentWriteComponent,
+        NoopAnimationsModule,
+        MarkdownModule.forRoot()
+      ]
+    }).createComponent(ComponentWriteComponent);
   });
 
-  it('should be display the written Value', fakeAsync(() => {
-    const whippet = 'Soi the Whippet';
-    const giro = 'Giro the Hunter from Spain';
+  it('should create', () => {
+    expect(fixture.componentInstance).toBeTruthy();
+  });
 
-    fixture.autoDetectChanges();
-    const input = fixture.debugElement.query(By.css('input'));
-    const el = input.nativeElement;
-    flush();
+  it('should be display the written Value', () => {
+    const soi = 'Soi the Whippet';
+    fixture.detectChanges();
 
-    expect(el.value).toBe(giro);
-    el.value = whippet;
+    const input = fixture.debugElement.query(By.css('[data-testid=username]'));
+    const el = input.nativeElement as HTMLInputElement;
+    el.value = soi;
     el.dispatchEvent(new Event('input'));
-    expect(fixture.componentInstance.user.username).toBe(whippet);
+
+    expect(fixture.componentInstance.user.username).toBe(soi);
   })
-  );
 });
