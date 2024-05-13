@@ -10,24 +10,24 @@ import { MatCard, MatCardHeader, MatCardTitle, MatCardContent } from '@angular/m
 import { MarkdownRendererComponent } from '../../../shared/markdown-renderer/markdown-renderer.component';
 
 @Component({
-    selector: 'app-reified-reactive',
-    templateUrl: './reified-reactive.component.html',
-    styleUrls: ['./reified-reactive.component.scss'],
-    standalone: true,
-    imports: [
-        MarkdownRendererComponent,
-        MatCard,
-        MatCardHeader,
-        MatCardTitle,
-        MatCardContent,
-        MatFormField,
-        MatLabel,
-        MatInput,
-        FormsModule,
-        ReactiveFormsModule,
-        AsyncPipe,
-        JsonPipe,
-    ],
+  selector: 'app-reified-reactive',
+  templateUrl: './reified-reactive.component.html',
+  styleUrls: ['./reified-reactive.component.scss'],
+  standalone: true,
+  imports: [
+    MarkdownRendererComponent,
+    MatCard,
+    MatCardHeader,
+    MatCardTitle,
+    MatCardContent,
+    MatFormField,
+    MatLabel,
+    MatInput,
+    FormsModule,
+    ReactiveFormsModule,
+    AsyncPipe,
+    JsonPipe,
+  ],
 })
 export class ReifiedReactiveComponent {
   service = inject(SkillsService);

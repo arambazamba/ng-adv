@@ -1,34 +1,34 @@
+import { AsyncPipe, JsonPipe } from '@angular/common';
 import { Component, OnInit, inject } from '@angular/core';
+import { FormsModule } from '@angular/forms';
+import { MatCard, MatCardContent, MatCardHeader, MatCardTitle } from '@angular/material/card';
+import { MatFormField } from '@angular/material/form-field';
+import { MatInput } from '@angular/material/input';
+import { MatProgressBar } from '@angular/material/progress-bar';
 import { Observable, Subscription } from 'rxjs';
 import { filter, mergeMap, tap } from 'rxjs/operators';
+import { MarkdownRendererComponent } from '../../../shared/markdown-renderer/markdown-renderer.component';
 import { TaskItem } from '../../tasks/task-item.model';
 import { TaskService } from '../../tasks/task.service';
-import { AsyncPipe, JsonPipe } from '@angular/common';
-import { FormsModule } from '@angular/forms';
-import { MatInput } from '@angular/material/input';
-import { MatFormField } from '@angular/material/form-field';
-import { MatProgressBar } from '@angular/material/progress-bar';
-import { MatCard, MatCardHeader, MatCardTitle, MatCardContent } from '@angular/material/card';
-import { MarkdownRendererComponent } from '../../../shared/markdown-renderer/markdown-renderer.component';
 
 @Component({
-    selector: 'app-async-pipe',
-    templateUrl: './async-pipe.component.html',
-    styleUrls: ['./async-pipe.component.scss'],
-    standalone: true,
-    imports: [
-        MarkdownRendererComponent,
-        MatCard,
-        MatCardHeader,
-        MatCardTitle,
-        MatCardContent,
-        MatProgressBar,
-        MatFormField,
-        MatInput,
-        FormsModule,
-        AsyncPipe,
-        JsonPipe,
-    ],
+  selector: 'app-async-pipe',
+  templateUrl: './async-pipe.component.html',
+  styleUrls: ['./async-pipe.component.scss'],
+  standalone: true,
+  imports: [
+    MarkdownRendererComponent,
+    MatCard,
+    MatCardHeader,
+    MatCardTitle,
+    MatCardContent,
+    MatProgressBar,
+    MatFormField,
+    MatInput,
+    FormsModule,
+    AsyncPipe,
+    JsonPipe,
+  ],
 })
 export class AsyncPipeComponent implements OnInit {
   ts = inject(TaskService);
@@ -36,6 +36,14 @@ export class AsyncPipeComponent implements OnInit {
 
   // Classic imperative subscribe pattern the uses ngOnInit and subscribe
   tasks: TaskItem[] = [];
+
+  ngOnInit() {
+    // this subscribe has to be unsubscribed in ngOnDestroy
+    this.taskSubscription = this.ts.getTasks().subscribe((data) => {
+      //unwrap the data from the observable
+      this.tasks = data;
+    });
+  }
 
   // Reactive declarative Approach using async pipe
   // pipe is used to modify the observable stream
@@ -49,14 +57,6 @@ export class AsyncPipeComponent implements OnInit {
     mergeMap((tasks: TaskItem[]) => tasks),
     filter((t) => t.completed)
   );
-
-  ngOnInit() {
-    // this subscribe has to be unsubscribed in ngOnDestroy
-    this.taskSubscription = this.ts.getTasks().subscribe((data) => {
-      //unwrap the data from the observable
-      this.tasks = data;
-    });
-  }
 
   ngOnDestroy() {
     // unsubscribe from the observable

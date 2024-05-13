@@ -30,13 +30,13 @@
   </mat-card-content>
 </mat-card>
 
-@if (tasks$ | async; as arTasks) {
+@if (tasks$ | async; as arrTasks) {
   <mat-card appearance="outlined">
     <mat-card-header>
       <mat-card-title> Aliasing </mat-card-title>
     </mat-card-header>
     <mat-card-content>
-      @for (t of arTasks; track t) {
+      @for (t of arrTasks; track t) {
         <div>
           <div>Title: {{ t.title }}</div>
           <div>Completed: {{t.completed }}</div>
@@ -51,32 +51,3 @@
     </mat-card-content>
   </mat-card>
 }
-
-
-<mat-card appearance="outlined">
-  <mat-card-header>
-    <mat-card-title> ngModel on prop & async - One way binding </mat-card-title>
-  </mat-card-header>
-  <mat-card-content>
-    <mat-form-field>
-      <input
-        matInput
-        type="text"
-        placeholder="Title:"
-        [ngModel]="(completed$ | async)?.title"
-        />
-      </mat-form-field>
-    </mat-card-content>
-  </mat-card>
-
-  <mat-card appearance="outlined">
-    <mat-card-header>
-      <mat-card-title> ng-container & async</mat-card-title>
-    </mat-card-header>
-    <mat-card-content>
-      @if (tasks$ | async; as tasks) {
-        <div>tasks[0].id: {{ tasks[0].id }}</div>
-        <div>tasks[0].title: {{ tasks[0].title }}</div>
-      }
-    </mat-card-content>
-  </mat-card>

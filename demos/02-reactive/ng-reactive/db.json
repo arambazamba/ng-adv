@@ -17,6 +17,10 @@
       "title": "Async Pipe"
     },
     {
+      "url": "unsubscribe",
+      "title": "Unsubscribing"
+    },
+    {
       "url": "debounced",
       "title": "Debounced Search"
     },
@@ -39,10 +43,6 @@
     {
       "url": "operators",
       "title": "Base Operators"
-    },
-    {
-      "url": "unsubscribe",
-      "title": "Unsubscribing"
     },
     {
       "url": "subjects",
