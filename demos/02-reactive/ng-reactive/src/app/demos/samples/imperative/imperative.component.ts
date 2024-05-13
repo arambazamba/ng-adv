@@ -1,6 +1,6 @@
-import { Component, Input, OnInit, inject } from '@angular/core';
+import { Component, DestroyRef, Input, OnInit, inject } from '@angular/core';
 import { FormControl, FormsModule, ReactiveFormsModule } from '@angular/forms';
-import { Subject, takeUntil } from 'rxjs';
+import { Subject, Subscription, takeUntil } from 'rxjs';
 import { Skill } from '../../skills/skills';
 import { SkillsService } from '../../skills/skills.service';
 import { JsonPipe } from '@angular/common';
@@ -8,29 +8,31 @@ import { MatInput } from '@angular/material/input';
 import { MatFormField, MatLabel } from '@angular/material/form-field';
 import { MatCard, MatCardHeader, MatCardTitle, MatCardContent } from '@angular/material/card';
 import { MarkdownRendererComponent } from '../../../shared/markdown-renderer/markdown-renderer.component';
+import { takeUntilDestroyed } from '@angular/core/rxjs-interop';
 
 @Component({
-    selector: 'app-imperative',
-    templateUrl: './imperative.component.html',
-    styleUrls: ['./imperative.component.scss'],
-    standalone: true,
-    imports: [
-        MarkdownRendererComponent,
-        MatCard,
-        MatCardHeader,
-        MatCardTitle,
-        MatCardContent,
-        MatFormField,
-        MatLabel,
-        MatInput,
-        FormsModule,
-        ReactiveFormsModule,
-        JsonPipe,
-    ],
+  selector: 'app-imperative',
+  templateUrl: './imperative.component.html',
+  styleUrls: ['./imperative.component.scss'],
+  standalone: true,
+  imports: [
+    MarkdownRendererComponent,
+    MatCard,
+    MatCardHeader,
+    MatCardTitle,
+    MatCardContent,
+    MatFormField,
+    MatLabel,
+    MatInput,
+    FormsModule,
+    ReactiveFormsModule,
+    JsonPipe,
+  ],
 })
 export class ImperativeComponent implements OnInit {
   @Input() title = 'ImperativeProgramming';
   @Input() showMD = true;
+  destroy = inject(DestroyRef)
 
   filter$ = new FormControl('', { nonNullable: true });
   service = inject(SkillsService);
@@ -38,21 +40,18 @@ export class ImperativeComponent implements OnInit {
   skills: Skill[] = [];
   view: Skill[] = [];
 
-  //destroy$ is a Subject that will emit a value when the component is destroyed. Implemented in ngOnDestroy()
-  private destroy$ = new Subject();
-
   ngOnInit(): void {
     this.service
       .getSkills()
-      //takeUntil will unsubscribe from the stream when the destroy$ Subject emits a value
-      .pipe(takeUntil(this.destroy$))
+      //takeUntilDestroyed will unsubscribe from the stream when the destroy$ Subject emits a value
+      .pipe(takeUntilDestroyed(this.destroy))
       .subscribe((skills) => {
         this.skills = skills;
         this.view = skills;
       });
 
     this.filter$.valueChanges
-      .pipe(takeUntil(this.destroy$))
+      .pipe(takeUntilDestroyed(this.destroy))
       .subscribe((val) => {
         this.view =
           val == ''
@@ -60,4 +59,5 @@ export class ImperativeComponent implements OnInit {
             : this.skills.filter((skill) => skill.name.includes(val));
       });
   }
+
 }
