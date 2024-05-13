@@ -1,9 +1,8 @@
-<app-markdown-renderer [md]="'reactive-validation'"></app-markdown-renderer>
+<app-markdown-renderer [md]="'signal-forms'"></app-markdown-renderer>
+
 <mat-card appearance="outlined">
   <mat-card-header>
-    <mat-card-title>
-      Form State & Validators
-    </mat-card-title>
+    <mat-card-title> FormsBuilder & Validation </mat-card-title>
   </mat-card-header>
   <mat-card-content>
     <form
@@ -12,115 +11,114 @@
       role="form"
       novalidate
       column
-      >
-      <input matInput type="text" formControlName="id"  class="hidden"/>
+    >
       <mat-form-field>
-        <mat-label>Name</mat-label>
         <input matInput type="text" placeholder="Name" formControlName="name" />
-
+        @if (evalShowError('name')) {
+        <mat-error> The Name Hugo is not allowed </mat-error>
+        }
+        <!-- outsource the logic to the typescript file -->
+        @if (violatesMinLength()) {
+        <mat-error> Name is required (minimum 4 characters). </mat-error>
+        }
       </mat-form-field>
 
       <mat-form-field>
-        <mat-label>Last Name</mat-label>
-        <input matInput type="text" placeholder="lastName" formControlName="lastName" />
-        @if (personForm.controls.lastName.hasError('required')) {
-          <mat-error>
-            Last name is required
-          </mat-error>
-        }
-        @if (personForm.controls.lastName.hasError('nameError')) {
-          <mat-error>
-            This name is not allowed
-          </mat-error>
-        }
-        @if (personForm.controls.lastName.hasError('lengthError')) {
-          <mat-error>
-            Length must be between 4 and 15 characters
-          </mat-error>
-        }
-
-      </mat-form-field>
-
-      <mat-form-field>
-        <mat-label>Age</mat-label>
         <input matInput type="number" placeholder="Age" formControlName="age" />
-        @if (personForm.controls.lastName.hasError('lengthError')) {
-          <mat-error>
-            Person must be between 18 and 99
-          </mat-error>
+        @if (personForm.controls['age'].errors != undefined) {
+        <mat-error> Person must be between 18 and 99 </mat-error>
         }
       </mat-form-field>
 
       <mat-form-field>
-        <mat-label>E-Mail</mat-label>
         <input
           matInput
           type="text"
           placeholder="Email"
           formControlName="email"
-          />
-          @if (
-            personForm.controls['email'].errors != undefined &&
-            personForm.controls['email'].errors['mailExists']
-            ) {
-            <mat-error
-              >Sorry this mail is already registered</mat-error
-              >
-          }
-        </mat-form-field>
+        />
+        @if ( personForm.controls['email'].errors != undefined &&
+        personForm.controls['email'].errors['mailExists'] ) {
+        <mat-error>Sorry this mail is already registered</mat-error>
+        }
+      </mat-form-field>
 
-        <mat-form-field>
-          <mat-label>Gender</mat-label>
-          <mat-select placeholder="Gender" formControlName="gender">
-            <mat-option value="male">Male</mat-option>
-            <mat-option value="female">Female</mat-option>
-          </mat-select>
-        </mat-form-field>
+      <mat-form-field>
+        <mat-select placeholder="Gender" formControlName="gender">
+          <mat-option value="male">Male</mat-option>
+          <mat-option value="female">Female</mat-option>
+        </mat-select>
+      </mat-form-field>
 
-        <mat-radio-group
-          aria-label="Select an option"
-          name="wealth"
-          formControlName="wealth"
-          >
-          <mat-label>Wealth:</mat-label>
-          @for (opt of wealthOpts; track opt) {
-            <mat-radio-button value="{{ opt }}">{{
-              opt
-            }}</mat-radio-button>
-          }
-        </mat-radio-group>
-        <button mat-raised-button color="accent" (click)="validateForm()">
+      <mat-radio-group
+        aria-label="Select an option"
+        name="wealth"
+        formControlName="wealth"
+      >
+        <mat-label>Wealth:</mat-label>
+        @for (opt of wealthOpts; track opt) {
+        <mat-radio-button value="{{ opt }}">{{ opt }}</mat-radio-button>
+        }
+      </mat-radio-group>
+      <div class="cmdItems">
+        <button
+          mat-raised-button
+          (click)="validateForm(personForm)"
+          color="primary"
+        >
           Validate
         </button>
-        <button mat-raised-button color="accent" type="submit" [disabled]="!this.personForm.valid">Submit</button>
-      </form>
-    </mat-card-content>
-  </mat-card>
+        <button
+          mat-raised-button
+          type="submit"
+          color="primary"
+          [disabled]="!personForm.valid"
+        >
+          Submit
+        </button>
+      </div>
+    </form>
+  </mat-card-content>
+</mat-card>
 
-  <mat-card appearance="outlined">
-    <mat-card-header>
-      <mat-card-title>Control State - "Name" Field</mat-card-title>
-    </mat-card-header>
-    <mat-card-content>
-      Name Fld is dirty: {{ personForm.controls.name.dirty }}<br />
-      Name Fld is pristine: {{ personForm.controls.name.pristine }}<br />
-      Name Fld is valid: {{ personForm.controls.name.valid }}<br />
-      Name Fld is invalid: {{ personForm.controls.name.invalid }}<br />
-      Name Fld is touched: {{ personForm.controls.name.touched }}<br />
-      Name Fld is untouched: {{ personForm.controls.name.untouched }}
-    </mat-card-content>
-  </mat-card>
+<mat-card appearance="outlined">
+  <mat-card-header>
+    <mat-card-title>Control State - "Name" Field</mat-card-title>
+  </mat-card-header>
+  <mat-card-content>
+    Name Fld is dirty: {{ personForm.controls["name"].dirty }}<br />
+    Name Fld is pristine: {{ personForm.controls["name"].pristine }}<br />
+    Name Fld is valid: {{ personForm.controls["name"].valid }}<br />
+    Name Fld is invalid: {{ personForm.controls["name"].invalid }}<br />
+    Name Fld is touched: {{ personForm.controls["name"].touched }}<br />
+    Name Fld is untouched: {{ personForm.controls["name"].untouched }}
+  </mat-card-content>
+</mat-card>
 
-  <mat-card appearance="outlined">
-    <mat-card-header>
-      <mat-card-title>Form State</mat-card-title>
-    </mat-card-header>
-    <mat-card-content>
-      Form is dirty: {{ personForm.dirty }}<br />
-      Form is pristine: {{ personForm.pristine }}<br />
-      Form is valid: {{ personForm.valid }}<br />
-      Form is invalid: {{ personForm.invalid }}<br />
-      Form is touched: {{ personForm.touched }}<br />
-      Form is untouched: {{ personForm.untouched }}<br />
-    </mat-card-content>
-  </mat-card>
+<mat-card appearance="outlined">
+  <mat-card-header>
+    <mat-card-title>Control State - "Age" Field</mat-card-title>
+  </mat-card-header>
+  <mat-card-content>
+    Age Fld is dirty: {{ personForm.controls["age"].dirty }}<br />
+    Age Fld is pristine: {{ personForm.controls["age"].pristine }}<br />
+    Age Fld is valid: {{ personForm.controls["age"].valid }}<br />
+    Age Fld is invalid: {{ personForm.controls["age"].invalid }}<br />
+    Age Fld is touched: {{ personForm.controls["age"].touched }}<br />
+    Age Fld is untouched: {{ personForm.controls["age"].untouched }}
+  </mat-card-content>
+</mat-card>
+
+<mat-card appearance="outlined">
+  <mat-card-header>
+    <mat-card-title>Form State</mat-card-title>
+  </mat-card-header>
+  <mat-card-content>
+    Form is dirty: {{ personForm.dirty }}<br />
+    Form is pristine ('unberührt'): {{ personForm.pristine }}<br />
+    Form is valid: {{ personForm.valid }}<br />
+    Form is invalid: {{ personForm.invalid }}<br />
+    Form is touched: {{ personForm.touched }}<br />
+    Form is untouched: {{ personForm.untouched }}<br />
+  </mat-card-content>
+</mat-card>

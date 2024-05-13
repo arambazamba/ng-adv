@@ -9,7 +9,7 @@ import { map } from 'rxjs/operators';
 import { PersonService } from '../person/person.service';
 
 @Injectable({ providedIn: 'root' })
-export class AsyncMailExistsValidator implements AsyncValidator {
+export class asyncMailExistsValidator implements AsyncValidator {
   ps = inject(PersonService);
 
   validate(
