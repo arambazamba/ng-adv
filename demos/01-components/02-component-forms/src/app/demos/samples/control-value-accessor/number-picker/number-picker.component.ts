@@ -30,9 +30,9 @@ import { MatIcon } from '@angular/material/icon';
   imports: [MatIcon, DecimalPipe],
 })
 export class NumberPickerComponent implements ControlValueAccessor, Validator {
-  quantity = 0;
   increment = input<number>(1);
   label = input<string>('');
+  quantity = 0;
 
   private onChange: Function = (quantity: number) => { };
 

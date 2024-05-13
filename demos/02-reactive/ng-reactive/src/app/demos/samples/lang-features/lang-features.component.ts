@@ -1,5 +1,4 @@
 import { Component } from '@angular/core';
-import * as _ from 'lodash';
 import { combineLatest, of } from 'rxjs';
 import { map } from 'rxjs/operators';
 import { MatButton } from '@angular/material/button';
@@ -87,7 +86,7 @@ export class LangFeaturesComponent {
       ],
     };
 
-    const copiedPerson = _.cloneDeep(father);
+    const copiedPerson = structuredClone(father);
     console.log('Spreaded Person:', copiedPerson);
 
     father.children[0].name = 'Giro';
