@@ -1,6 +1,6 @@
 <h3>The Skills:</h3>
-@for (sk of skills | async; track sk) {
-  <div>
+@for (sk of skills(); track sk) {
+  <div (click)="showSkill(sk)">
     {{ sk.name}}
   </div>
 }
