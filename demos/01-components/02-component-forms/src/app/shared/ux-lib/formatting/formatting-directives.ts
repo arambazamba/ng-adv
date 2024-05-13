@@ -98,7 +98,8 @@ export class WidthDirective {
   standalone: true,
   hostDirectives: [
     BorderDirective,
-    BottomMarginDirective
+    BottomMarginDirective,
+    ColumnDirective
   ],
 })
 export class BoxedDirective {

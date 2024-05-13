@@ -1,5 +1,6 @@
-import { AsyncPipe, JsonPipe } from '@angular/common';
+import { JsonPipe } from '@angular/common';
 import { Component, inject } from '@angular/core';
+import { toSignal } from '@angular/core/rxjs-interop';
 import { FormArray, FormBuilder, FormControl, FormsModule, ReactiveFormsModule, ValidationErrors, Validators } from '@angular/forms';
 import { MatButton } from '@angular/material/button';
 import { MatCard, MatCardActions, MatCardContent, MatCardHeader, MatCardTitle } from '@angular/material/card';
@@ -29,7 +30,6 @@ import { RowDirective } from '../../../shared/ux-lib/formatting/formatting-direc
     RowDirective,
     MatCardActions,
     MatButton,
-    AsyncPipe,
     JsonPipe,
   ],
 })
@@ -38,22 +38,29 @@ export class FormErrorsComponent {
   skillForm = this.fb.group({
     name: [
       '',
-      [Validators.required, Validators.minLength(4), Validators.maxLength(15), this.validateName],
+      [
+        Validators.required,
+        Validators.minLength(4),
+        Validators.maxLength(15),
+        this.validateName
+      ],
     ],
     age: [0, [Validators.required, Validators.min(18)]],
     skillsGrp: this.fb.array([]),
   });
 
-  validationErrors = this.skillForm.valueChanges.pipe(
+  validationErrors = toSignal(this.skillForm.valueChanges.pipe(
     map(() => {
       const errors: ValidationErrors[] = [];
+
       Object.keys(this.skillForm.controls).forEach((key) => {
         let err = this.skillForm.get(key)?.errors;
         if (err) errors.push(err);
       });
+
       return errors;
     })
-  );
+  ));
 
   addSkill() {
     const skillsGrp = this.skillForm.controls.skillsGrp as FormArray;

@@ -1,5 +1,5 @@
 import { Component, OnInit, inject } from '@angular/core';
-import { FormControl, FormGroup, FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { FormControl, FormGroup, FormsModule, ReactiveFormsModule, Validators } from '@angular/forms';
 import { Person, wealthOptsValues } from '../person/person.model';
 import { PersonService } from '../person/person.service';
 import { MatButton } from '@angular/material/button';
@@ -40,7 +40,15 @@ export class TypedNonnullableComponent implements OnInit {
   wealthOpts = wealthOptsValues;
 
   personForm = new FormGroup({
-    name: new FormControl(this.person.name, { nonNullable: true }),
+    name: new FormControl(
+      this.person.name,
+      {
+        nonNullable: true,
+        validators: [Validators.required],
+        asyncValidators: [],
+        updateOn: 'change'
+      }
+    ),
     age: new FormControl(this.person.age),
     email: new FormControl(this.person.email),
     gender: new FormControl(this.person.gender),

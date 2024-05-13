@@ -6,22 +6,37 @@ import {
   ZERO
 } from '@angular/cdk/keycodes';
 import { NgIf, NgStyle } from '@angular/common';
-import { Component, ElementRef, EventEmitter, Input, OnDestroy, OnInit, Output, viewChild } from '@angular/core';
+import { Component, ElementRef, EventEmitter, Input, OnDestroy, OnInit, Output, ViewChild } from '@angular/core';
 import { FormBuilder, FormGroup, ReactiveFormsModule } from '@angular/forms';
 import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
 import { Subscription } from 'rxjs';
 
 @Component({
   selector: 'ux-select-filter',
-  templateUrl: './mat-select-filter.component.html',
-  styleUrls: ['./mat-select-filter.component.scss'],
   standalone: true,
-  imports: [ReactiveFormsModule, MatProgressSpinnerModule, NgStyle, NgIf]
+  imports: [
+    ReactiveFormsModule,
+    MatProgressSpinnerModule,
+    NgStyle,
+    NgIf
+  ],
+  template: `
+  <form [formGroup]="searchForm" class="mat-filter" [ngStyle]="{'background-color': color ? color : 'white'}">
+  <div>
+  <input #input class="mat-filter-input" matInput placeholder="{{placeholder}}" formControlName="value" (keydown)="handleKeydown($event)">
+    <mat-spinner *ngIf="localSpinner" class="spinner" diameter="16"></mat-spinner>
+  </div>
+  <div *ngIf="noResults"
+     class="noResultsMessage">
+  {{noResultsMessage}}
+</div>
+</form>
+  `,
+  styleUrls: ['./mat-select-filter.component.scss']
 })
 export class MatSelectFilterComponent implements OnInit, OnDestroy {
-  private searchFormValueChangesSubscription: Subscription = new Subscription();
-  input = viewChild.required('input', { read: ElementRef });
-  // @ViewChild('input', { static: true }) input;
+  private searchFormValueChangesSubscription: Subscription | undefined;
+  @ViewChild('input', { static: true }) input: ElementRef<HTMLInputElement> | undefined;
 
   @Input('array') array: any;
   @Input('placeholder') placeholder: string = '';
@@ -54,7 +69,7 @@ export class MatSelectFilterComponent implements OnInit, OnDestroy {
       if (value['value']) {
         // IF THE DISPLAY MEMBER INPUT IS SET WE CHECK THE SPECIFIC PROPERTY
         if (this.displayMember == null) {
-          this.filteredItems = this.array.filter((name: any) => name.toLowerCase().includes(value['value'].toLowerCase()));
+          this.filteredItems = this.array.filter((name: string) => name.toLowerCase().includes(value['value'].toLowerCase()));
           // OTHERWISE, WE CHECK THE ENTIRE STRING
         } else if (this.hasGroup && this.groupArrayName && this.displayMember) {
           this.filteredItems = this.array.map((a: any) => {
@@ -83,7 +98,7 @@ export class MatSelectFilterComponent implements OnInit, OnDestroy {
     });
 
     setTimeout(() => {
-      this.input().nativeElement.focus();
+      this.input?.nativeElement.focus();
     }, 500);
     if (!this.placeholder) {
       this.placeholder = 'Search...';
@@ -99,8 +114,9 @@ export class MatSelectFilterComponent implements OnInit, OnDestroy {
       event.stopPropagation();
     }
   }
+
   ngOnDestroy() {
     this.filteredReturn.emit(this.array);
-    this.searchFormValueChangesSubscription.unsubscribe();
+    this.searchFormValueChangesSubscription?.unsubscribe();
   }
 }

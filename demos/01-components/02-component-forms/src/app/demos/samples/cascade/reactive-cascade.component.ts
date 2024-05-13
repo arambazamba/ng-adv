@@ -66,7 +66,7 @@ export class ReactiveCascadeComponent {
   }
 
   getCriteria(type: any) {
-    const select = this.selectValues.find((_) => _.type == type);
+    const select = this.selectValues.find((tech) => tech.type == type);
     return select ? select.values : select;
   }
 

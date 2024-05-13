@@ -16,7 +16,7 @@
       </div>
 
       <div formArrayName="skills">
-        @for (skills of this.profileForm.controls['skills'].controls; track
+        @for (skills of this.profileForm.controls.skills.controls; track
         skills; let i = $index) {
         <div [formGroup]="skillsGrp" border>
           <h3>Select skill {{ i + 1 }}:</h3>
@@ -39,7 +39,7 @@
                   >Select an Option</mat-option
                 >
                 @for ( techType of getCriteria(
-                (profileForm.controls['skills'].value)[i] .techType ) ; track
+                (profileForm.controls.skills.value)[i] .techType ) ; track
                 techType) {
                   <mat-option value="{{ techType }}">{{ techType }}</mat-option>
                 }

@@ -14,6 +14,7 @@ import { ColumnDirective } from '../../../shared/ux-lib/formatting/formatting-di
 import { Person, wealthOptsValues } from '../person/person.model';
 import { PersonService } from '../person/person.service';
 import { AsyncMailExistsValidator } from './asyncMailExistsValidator';
+import { JsonPipe } from '@angular/common';
 
 @Component({
   selector: 'app-reactive-validation',
@@ -38,16 +39,15 @@ import { AsyncMailExistsValidator } from './asyncMailExistsValidator';
     MatRadioGroup,
     MatRadioButton,
     MatButton,
+    JsonPipe
   ],
 })
 export class ReactiveValidationComponent {
   fb: FormBuilder = inject(FormBuilder);
   ps: PersonService = inject(PersonService);
-  mailExistsValidator: AsyncMailExistsValidator = inject(AsyncMailExistsValidator);
+  mailExistsValidator = inject(AsyncMailExistsValidator);
   person: Person = new Person();
   wealthOpts = wealthOptsValues;
-
-  errors$: Observable<any> | undefined;
 
   personForm = this.fb.group({
     id: [this.person.id],
@@ -59,7 +59,7 @@ export class ReactiveValidationComponent {
       },
     ],
     lastName: [this.person.lastName, [Validators.required]],
-    age: [this.person.age, [Validators.min(6), Validators.max(110)], [], { nonNullable: true }],
+    age: [this.person.age, [Validators.min(6), Validators.max(110)], { nonNullable: true }],
     gender: [this.person.gender],
     email: [
       this.person.email,

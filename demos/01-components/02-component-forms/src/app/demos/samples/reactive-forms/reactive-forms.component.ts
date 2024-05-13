@@ -1,17 +1,16 @@
 import { Component, OnInit, inject } from '@angular/core';
-import { FormControl, FormGroup, UntypedFormGroup, Validators, FormsModule, ReactiveFormsModule } from '@angular/forms';
-import { Person, wealthOptsValues } from '../person/person.model';
-import { PersonService } from '../person/person.service';
-import { NgForm } from '@angular/forms';
+import { FormControl, FormGroup, FormsModule, NgForm, ReactiveFormsModule, Validators } from '@angular/forms';
 import { MatButton } from '@angular/material/button';
-import { MatRadioGroup, MatRadioButton } from '@angular/material/radio';
+import { MatCard, MatCardContent, MatCardHeader, MatCardTitle } from '@angular/material/card';
 import { MatOption } from '@angular/material/core';
-import { MatSelect } from '@angular/material/select';
 import { MatFormField, MatLabel } from '@angular/material/form-field';
 import { MatInput } from '@angular/material/input';
-import { ColumnDirective } from '../../../shared/ux-lib/formatting/formatting-directives';
-import { MatCard, MatCardHeader, MatCardTitle, MatCardContent } from '@angular/material/card';
+import { MatRadioButton, MatRadioGroup } from '@angular/material/radio';
+import { MatSelect } from '@angular/material/select';
 import { MarkdownRendererComponent } from '../../../shared/markdown-renderer/markdown-renderer.component';
+import { ColumnDirective } from '../../../shared/ux-lib/formatting/formatting-directives';
+import { Person, wealthOptsValues } from '../person/person.model';
+import { PersonService } from '../person/person.service';
 
 @Component({
   selector: 'app-reactive-forms',

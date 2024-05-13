@@ -1,14 +1,13 @@
 import { Component } from '@angular/core';
 import { FormControl, ReactiveFormsModule } from '@angular/forms';
 import { MatSlideToggleModule } from '@angular/material/slide-toggle';
-import { MarkdownRendererModule } from 'src/app/shared/markdown-renderer/markdown-renderer.module';
+import { MarkdownRendererComponent } from 'src/app/shared/markdown-renderer/markdown-renderer.component';
 import { BoxedDirective } from 'src/app/shared/ux-lib/formatting/formatting-directives';
 
 @Component({
   selector: 'app-control-flow',
   standalone: true,
-  imports: [
-    MarkdownRendererModule,
+  imports: [MarkdownRendererComponent,
     MatSlideToggleModule,
     ReactiveFormsModule,
     BoxedDirective
@@ -19,12 +18,11 @@ import { BoxedDirective } from 'src/app/shared/ux-lib/formatting/formatting-dire
 export class ControlFlowComponent {
 
   fcDisplay = new FormControl(true);
-  dogs = ["Flora", "Cleo", "Soi", "Giro"]
-  loaded = false;
+  dogs: string[] = []
 
   ngOnInit() {
     setTimeout(() => {
-      this.loaded = true;
+      this.dogs = ["Flora", "Cleo", "Soi", "Giro"]
     }, 3000);
   }
 

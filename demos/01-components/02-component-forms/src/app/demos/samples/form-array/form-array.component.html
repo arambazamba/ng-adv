@@ -14,7 +14,7 @@
           placeholder="Enter Name:"
         />
       </mat-form-field>
-      @if (skillForm.get('name')?.value) {
+      @if (skillForm.controls.name.value) {
       <div>
         <h6>Add your skills:</h6>
         @for (skill of skillForm.controls.skills.controls; track skill; let i =

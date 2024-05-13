@@ -32,7 +32,7 @@ export class FormArrayComponent {
   });
 
   addSkill() {
-    const skillsGrp = this.skillForm.controls['skills'] as FormArray;
+    const skillsGrp = this.skillForm.controls.skills as FormArray;
     skillsGrp.push(
       this.fb.group({
         skill: '',
@@ -42,17 +42,14 @@ export class FormArrayComponent {
   }
 
   removeSkill(index: number) {
-    const skillsGrp = this.skillForm.controls['skills'] as FormArray;
+    const skillsGrp = this.skillForm.controls.skills as FormArray;
     skillsGrp.removeAt(index);
   }
 
   checkArrayValid() {
-    const skillsGrp = this.skillForm.controls['skills'] as FormArray;
+    const skillsGrp = this.skillForm.controls.skills as FormArray;
     const lastSkill = skillsGrp.at(skillsGrp.length - 1);
-    if (lastSkill.value.skill === '' || lastSkill.value.years === '') {
-      return !false;
-    }
-    return !true;
+    return lastSkill.value.skill === '' || lastSkill.value.years === '';
   }
 
   saveForm() {

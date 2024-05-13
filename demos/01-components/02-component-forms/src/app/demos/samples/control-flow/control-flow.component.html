@@ -16,7 +16,7 @@
 
 <div>
   <h3>Using &#64;for, &#64;defer and &#64;placeholder</h3>
-  @defer (when loaded) {
+  @defer (when this.dogs.length > 0) {
     <div boxed>  
       <div>
         @for(dog of dogs; track $index){
@@ -24,7 +24,10 @@
         }
       </div>
     </div>
-    } @placeholder{
+    } @loading {
+      <div>Loading ...</div>
+    }      
+    @placeholder{
     <div boxed>
       <div>
         <p>Loading...</p>

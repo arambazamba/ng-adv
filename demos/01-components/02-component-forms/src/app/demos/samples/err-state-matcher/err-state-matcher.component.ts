@@ -9,25 +9,25 @@ import { MatCard, MatCardHeader, MatCardTitle, MatCardContent, MatCardActions } 
 import { MarkdownRendererComponent } from '../../../shared/markdown-renderer/markdown-renderer.component';
 
 @Component({
-    selector: 'app-err-state-matcher',
-    templateUrl: './err-state-matcher.component.html',
-    styleUrls: ['./err-state-matcher.component.scss'],
-    standalone: true,
-    imports: [
-        MarkdownRendererComponent,
-        FormsModule,
-        ReactiveFormsModule,
-        MatCard,
-        MatCardHeader,
-        MatCardTitle,
-        MatCardContent,
-        ColumnDirective,
-        MatFormField,
-        MatInput,
-        MatError,
-        MatCardActions,
-        MatButton,
-    ],
+  selector: 'app-err-state-matcher',
+  templateUrl: './err-state-matcher.component.html',
+  styleUrls: ['./err-state-matcher.component.scss'],
+  standalone: true,
+  imports: [
+    MarkdownRendererComponent,
+    FormsModule,
+    ReactiveFormsModule,
+    MatCard,
+    MatCardHeader,
+    MatCardTitle,
+    MatCardContent,
+    ColumnDirective,
+    MatFormField,
+    MatInput,
+    MatError,
+    MatCardActions,
+    MatButton,
+  ]
 })
 export class ErrStateMatcherComponent {
   matcher = new CustomStateMatcher();
