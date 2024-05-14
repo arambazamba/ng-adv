@@ -5,18 +5,18 @@ import { MatCard, MatCardHeader, MatCardTitle, MatCardContent } from '@angular/m
 import { MarkdownRendererComponent } from '../../../shared/markdown-renderer/markdown-renderer.component';
 
 @Component({
-    selector: 'app-subjects',
-    templateUrl: './subjects.component.html',
-    styleUrls: ['./subjects.component.scss'],
-    standalone: true,
-    imports: [
-        MarkdownRendererComponent,
-        MatCard,
-        MatCardHeader,
-        MatCardTitle,
-        MatCardContent,
-        MatButton,
-    ],
+  selector: 'app-subjects',
+  templateUrl: './subjects.component.html',
+  styleUrls: ['./subjects.component.scss'],
+  standalone: true,
+  imports: [
+    MarkdownRendererComponent,
+    MatCard,
+    MatCardHeader,
+    MatCardTitle,
+    MatCardContent,
+    MatButton,
+  ],
 })
 export class SubjectsComponent {
 
@@ -78,7 +78,9 @@ export class SubjectsComponent {
   }
 
   emitNextAS() {
-    this.as$.subscribe((val) => console.log('Subscriber Late', val));
+    this.as$.subscribe(
+      (val) => console.log('Subscriber Late', val),
+    );
     console.log('completing async subject in order to emit last value');
     this.as$.complete();
   }

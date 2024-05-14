@@ -10,6 +10,10 @@ import { DemoItem } from '../../demo-base/demo-item.model';
 export class StatefulDemoService {
   http = inject(HttpClient);
 
+  private demos: BehaviorSubject<DemoItem[]> = new BehaviorSubject<DemoItem[]>(
+    []
+  );
+
   constructor() {
     this.http
       .get<DemoItem[]>(`${environment.api}demos`)
@@ -19,22 +23,18 @@ export class StatefulDemoService {
       });
   }
 
-  private demos: BehaviorSubject<DemoItem[]> = new BehaviorSubject<DemoItem[]>(
-    []
-  );
-
   getDemos() {
     return this.demos.asObservable();
   }
 
-  deleteDemo(item: DemoItem): Observable<any> {
+  deleteDemo(item: DemoItem) {
     const arr = this.demos.getValue().filter((d) => d.id != item.id);
     // Emit a marble containing the current array
     this.demos.next(arr);
     return EMPTY;
   }
 
-  addDemo(item: DemoItem): Observable<any> {
+  addDemo(item: DemoItem) {
     const arr = this.demos.getValue();
     arr.push(item);
     // Emit a marble containing the current array

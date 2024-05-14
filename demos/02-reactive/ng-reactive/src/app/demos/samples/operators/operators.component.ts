@@ -86,7 +86,11 @@ export class OperatorsComponent implements OnInit {
     from(arr)
       .pipe(
         tap((el) => {
+          //logging
           (el = el * 2), console.log('tapping:', el);
+          //side effect
+          // call rest service with value to do distributed logging
+          // enable / disable spinner
         })
       )
       .subscribe((val) => console.log('logging', val));
@@ -157,17 +161,5 @@ export class OperatorsComponent implements OnInit {
       mergeMap((vouchers: Voucher[]) => vouchers),
       reduce((acc, curr) => { acc = acc + curr.Amount; return acc }, 0)
     ).subscribe(sum => console.log("Sum vouchers: ", sum));
-  }
-
-  usePluck() {
-    const person: Observable<Person> = of({
-      person: 'hugo',
-      children: [{ name: 'jimmy' }, { name: 'giro' }, { name: 'soi' }],
-    });
-
-    //pluck  deprecated
-    person.pipe(pluck('children')).subscribe(ch => console.log("children - pluck", ch));
-    //use map
-    person.pipe(map((h: Person) => h.children)).subscribe(ch => console.log("children - map", ch));
   }
 }

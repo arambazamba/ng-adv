@@ -66,7 +66,10 @@ export class ErrHandlingComponent {
         }),
         finalize(() => console.log('finalizing ...'))
       )
-      .subscribe((data) => console.log('tryCatchAlike result', data));
+      .subscribe(
+        (data) => console.log('tryCatchAlike result', data),
+        (err) => console.log('tryCatchAlike error', err)
+      );
   }
 
   fallbackValue() {

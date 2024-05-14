@@ -81,20 +81,17 @@ Create a folder `app/state` and add the following code to index.ts:
 
 ```typescript
 import { ActionReducerMap, MetaReducer } from '@ngrx/store';
-import { environment } from '../../environments/environment';
-import { appReducer, AppState } from './app.reducer';
+import { AppState, appState } from './app.state';
 
 export interface State {
   app: AppState;
 }
 
 export const reducers: ActionReducerMap<State> = {
-  app: appReducer,
+  app: appState.reducer,
 };
 
-export const metaReducers: MetaReducer<State>[] = !environment.production
-  ? []
-  : [];
+export const metaReducers: MetaReducer<State>[] = [];
 ```
 
 Create a `app/state/sidenav.facades.ts` which is responsible to provide the responsive sideNav container. We decided to use a facades to encapsulate the BreakpointObserver logic, and thereby keep the component as simple as possible. 

@@ -14,11 +14,10 @@ import * as demoEffects from './demos/state/demos.effects';
 import { demoState } from './demos/state/demos.state';
 import { LoadingInterceptor } from './shared/loading/loading-interceptor';
 import { LoadingService } from './shared/loading/loading.service';
+import { SkillsDataService } from './skills/skills-data.service';
 import { skillsDataServiceConfig } from './skills/skills-data.service.config';
 import { skillsEntityConfig } from './skills/skills.metadata';
 import { appState } from './state/app.state';
-import { Skill } from './skills/skill.model';
-import { SkillsDataService } from './skills/skills-data.service';
 
 export const appConfig: ApplicationConfig = {
     providers: [

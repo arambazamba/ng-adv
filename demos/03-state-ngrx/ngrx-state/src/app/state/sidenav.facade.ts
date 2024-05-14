@@ -9,8 +9,8 @@ import { AppState, appState } from './app.state';
   providedIn: 'root',
 })
 export class SideNavFacade {
-  breakpointObserver = inject(BreakpointObserver);
   store = inject(Store<AppState>);
+  breakpointObserver = inject(BreakpointObserver);
 
   constructor() {
     this.breakpointObserver

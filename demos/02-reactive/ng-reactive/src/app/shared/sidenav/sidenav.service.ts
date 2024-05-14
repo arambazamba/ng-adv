@@ -39,10 +39,6 @@ export class SideNavService {
       })
     );
 
-  setSideNavEnabled(val: boolean) {
-    this.visible$.next(val);
-  }
-
   adjustSidenavToScreen(mq: string): boolean {
     return mq == 'xs' ? false : true;
   }

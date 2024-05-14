@@ -21,7 +21,7 @@ describe('Marble Testing', () => {
   });
 
   it('test with operator', () => {
-    // destructuring cold anad expectObservable from RunHelpers
+    // destructuring cold and expectObservable from RunHelpers
     testScheduler.run(({ cold, expectObservable }) => {
       const source$ = cold('a--b-c|', { a: 1, b: 3, c: 5 });
       const piperesult$ = source$.pipe(map((v) => v * 10));
