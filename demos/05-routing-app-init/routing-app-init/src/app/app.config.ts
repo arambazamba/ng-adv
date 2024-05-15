@@ -1,4 +1,4 @@
-import { HTTP_INTERCEPTORS, provideHttpClient, withInterceptors } from '@angular/common/http';
+import { provideHttpClient, withInterceptors } from '@angular/common/http';
 import { APP_INITIALIZER, ApplicationConfig, ErrorHandler, importProvidersFrom } from '@angular/core';
 import { provideAnimations } from '@angular/platform-browser/animations';
 import { provideRouter, withComponentInputBinding } from '@angular/router';
@@ -15,20 +15,22 @@ import * as customerEffects from './customers/state/customers.effects';
 import { customerState } from './customers/state/customers.state';
 import * as demoEffects from './demos/state/demos.effects';
 import { demoState } from './demos/state/demos.state';
+import { GlobalErrorHandler } from './error/error.handler';
+import { httpErrorInterceptor } from './error/http-error.interceptor';
 import { authInterceptor } from './interceptors/auth.interceptor';
 import { authState } from './mock-auth/state/auth.state';
 import { skillsDataServiceConfig } from './skills/skills-data.service.config';
 import { skillsEntityConfig } from './skills/skills.metadata';
 import { appState } from './state/app.state';
-import { GlobalErrorHandler } from './error/error.handler';
-import { httpErrorInterceptor } from './error/http-error.interceptor';
 
 export const appConfig: ApplicationConfig = {
     providers: [
-        provideHttpClient(withInterceptors([
-            authInterceptor,
-            httpErrorInterceptor
-        ])),
+        provideHttpClient(
+            withInterceptors([
+                authInterceptor,
+                httpErrorInterceptor
+            ])
+        ),
         provideRouter(appRoutes, withComponentInputBinding()),
         provideAnimations(),
         importProvidersFrom(

@@ -16,8 +16,7 @@ export const appRoutes: Routes = [
     {
         path: 'skills',
         loadChildren: () =>
-            import('./skills/skills.routes').then((m) => m.skillRoutes),
-        canLoad: [authGuard],
+            import('./skills/skills.routes').then((m) => m.skillRoutes)
     },
     {
         path: 'customers',

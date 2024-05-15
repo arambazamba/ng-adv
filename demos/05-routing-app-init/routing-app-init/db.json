@@ -11,11 +11,6 @@
       "id": 1
     },
     {
-      "url": "multi-guard",
-      "title": "Route Guards",
-      "id": 7
-    },
-    {
       "url": "multi-interceptor",
       "title": "Interceptors",
       "id": 8
@@ -29,6 +24,11 @@
       "url": "http-errors",
       "title": "Http Errors",
       "id": 13
+    },
+    {
+      "url": "multi-guard",
+      "title": "Route Guards",
+      "id": 7
     },
     {
       "url": "router-bindings",
