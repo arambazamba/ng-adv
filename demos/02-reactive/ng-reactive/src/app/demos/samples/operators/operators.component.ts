@@ -1,23 +1,21 @@
 import { Component, ElementRef, OnInit, ViewChild, inject } from '@angular/core';
-import { Observable, from, interval, of } from 'rxjs';
+import { MatButton } from '@angular/material/button';
+import { MatCard, MatCardContent, MatCardHeader, MatCardTitle } from '@angular/material/card';
+import { from, interval, of } from 'rxjs';
 import {
   delay,
   filter,
   find,
   map,
   mergeMap,
-  pluck,
   reduce,
   take,
   tap
 } from 'rxjs/operators';
-import { Voucher } from '../../vouchers/voucher.model';
-import { VouchersService } from '../../vouchers/voucher.service';
-import { Person } from './person';
-import { MatButton } from '@angular/material/button';
-import { MatCard, MatCardHeader, MatCardTitle, MatCardContent } from '@angular/material/card';
 import { MarkdownRendererComponent } from 'src/app/shared/markdown-renderer/markdown-renderer.component';
 import { BoxedDirective } from 'src/app/shared/ux-lib/formatting/formatting-directives';
+import { Voucher } from '../../vouchers/voucher.model';
+import { VouchersService } from '../../vouchers/voucher.service';
 
 @Component({
   selector: 'app-operators',
@@ -35,7 +33,6 @@ import { BoxedDirective } from 'src/app/shared/ux-lib/formatting/formatting-dire
   ],
 })
 export class OperatorsComponent implements OnInit {
-  @ViewChild('btnSwitchMap', { static: true }) btnSwitchMap: ElementRef | undefined;
   vs = inject(VouchersService);
   response: any;
 
