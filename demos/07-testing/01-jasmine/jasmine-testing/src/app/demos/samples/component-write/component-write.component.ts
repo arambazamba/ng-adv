@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, Signal, signal } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { MatInputModule } from '@angular/material/input';
 import { MatFormFieldModule } from '@angular/material/form-field';
@@ -19,5 +19,5 @@ import { MarkdownRendererComponent } from '../../../shared/markdown-renderer/mar
   ],
 })
 export class ComponentWriteComponent {
-  user = { username: 'Giro the hunter from Spain' };
+  user: Signal<{ username: string }> = signal({ username: 'Giro the hunter from Spain' });
 }

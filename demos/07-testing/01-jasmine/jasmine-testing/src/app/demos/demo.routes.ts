@@ -18,7 +18,6 @@ import { UnitTestingComponent } from './samples/intro-unit-testing/unit-testing.
 import { MockStoreComponent } from './samples/mock-store/mock-store.component';
 import { NgrxMockstoreComponent } from './samples/ngrx-mockstore/ngrx-mockstore.component';
 import { NgrxReducersComponent } from './samples/ngrx-reducers/ngrx-reducers.component';
-import { NgrxSelectorsComponent } from './samples/ngrx-selectors/ngrx-selectors.component';
 import { TestPipeComponent } from './samples/pipe/test-pipe.component';
 import { SimpleServiceComponent } from './samples/simple-service/simple-service.component';
 
@@ -46,7 +45,6 @@ export const demoRoutes: Routes = [
             { path: 'component-class', component: ComponentClassComponent },
             { path: 'spy', component: SpyHostComponent },
             { path: 'ngrx-mock-store', component: NgrxMockstoreComponent },
-            { path: 'ngrx-selectors', component: NgrxSelectorsComponent },
             { path: 'ngrx-reducers', component: NgrxReducersComponent },
             { path: 'standalone-dom', loadComponent: () => import('./samples/component-standalone/component-standalone.component').then(m => m.ComponentStandaloneComponent) }
         ],

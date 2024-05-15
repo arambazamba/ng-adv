@@ -31,6 +31,6 @@ describe('ComponentWriteComponent', () => {
     el.value = soi;
     el.dispatchEvent(new Event('input'));
 
-    expect(fixture.componentInstance.user.username).toBe(soi);
+    expect(fixture.componentInstance.user().username).toBe(soi);
   })
 });

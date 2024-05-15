@@ -91,11 +91,6 @@
       "id": 51
     },
     {
-      "url": "ngrx-selectors",
-      "title": "NgRx Selectors",
-      "id": 53
-    },
-    {
       "url": "ngrx-reducers",
       "title": "NgRx Reducers",
       "id": 59
