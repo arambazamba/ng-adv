@@ -1,23 +1,22 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, inject } from '@angular/core';
+import { MatCard, MatCardContent, MatCardHeader, MatCardTitle } from '@angular/material/card';
 import { SimpleAuthService } from '../simple-auth.service';
-import { MatCard, MatCardHeader, MatCardTitle, MatCardContent } from '@angular/material/card';
 
 @Component({
-    selector: 'app-simple-auth-done',
-    templateUrl: './simple-auth-done.component.html',
-    styleUrls: ['./simple-auth-done.component.scss'],
-    standalone: true,
-    imports: [
-        MatCard,
-        MatCardHeader,
-        MatCardTitle,
-        MatCardContent,
-    ],
+  selector: 'app-simple-auth-done',
+  templateUrl: './simple-auth-done.component.html',
+  styleUrls: ['./simple-auth-done.component.scss'],
+  standalone: true,
+  imports: [
+    MatCard,
+    MatCardHeader,
+    MatCardTitle,
+    MatCardContent,
+  ],
 })
 export class SimpleAuthDoneComponent implements OnInit {
+  auth = inject(SimpleAuthService);
   needsLogin = true;
-
-  constructor(private auth: SimpleAuthService) {}
 
   ngOnInit() {
     this.auth.isAuthenticated().subscribe((isAuth) => {

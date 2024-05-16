@@ -2,7 +2,7 @@
 
 Tools Setup:
 
-- Install [Wallaby.js](https://marketplace.visualstudio.com/items?itemName=WallabyJs.wallaby-vscode) and get your [trial licence](https://wallabyjs.com/download/) - (optional) 
+- Install [Wallaby.js](https://marketplace.visualstudio.com/items?itemName=WallabyJs.wallaby-vscode) and get your [trial license](https://wallabyjs.com/download/) - (optional) 
 
 ```bash
 code --install-extension wallabyjs.wallaby-vscode

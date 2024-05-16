@@ -35,15 +35,6 @@ describe('MaterialAsyncComponent', () => {
     expect(component).toBeTruthy();
   });
 
-  it('should complete destroy', () => {
-    testScheduler.run((helpers) => {
-      const { expectObservable } = helpers;
-      const expected = '|';
-      component.ngOnDestroy();
-      expectObservable(component.destroy$).toBe(expected);
-    });
-  });
-
   it('should render the correct values when 3 marbles are emitted', () => {
     testScheduler.run((helpers) => {
       const { cold, expectObservable } = helpers;

@@ -1,4 +1,3 @@
-import { NO_ERRORS_SCHEMA } from '@angular/core';
 import {
   ComponentFixture,
   fakeAsync,
@@ -17,10 +16,9 @@ describe('Component - AsyncTest - FakeAsync', () => {
 
   beforeEach(() => {
     TestBed.configureTestingModule({
-    imports: [SimpleAuthFakeAsyncComponent],
-    schemas: [NO_ERRORS_SCHEMA],
-    providers: [SimpleAuthService],
-});
+      imports: [SimpleAuthFakeAsyncComponent],
+      providers: [SimpleAuthService],
+    });
 
     fixture = TestBed.createComponent(SimpleAuthFakeAsyncComponent);
     component = fixture.componentInstance;

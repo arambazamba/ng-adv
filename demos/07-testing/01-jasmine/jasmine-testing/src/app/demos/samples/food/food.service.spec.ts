@@ -49,6 +49,7 @@ describe('Service - HttpTest -FoodService', () => {
 
     //flush the mock data
     req.flush(data);
+
   });
 
   it('should return only items that are not discontinued', () => {

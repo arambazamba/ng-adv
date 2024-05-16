@@ -1,7 +1,6 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 import { AuthService } from '../auth.service';
 import { UseSpyComponent } from './use-spy.component';
-import { MatCardModule } from '@angular/material/card';
 
 describe('UseMockComponent with MockAuth Service', () => {
   let spy: any;
@@ -15,9 +14,9 @@ describe('UseMockComponent with MockAuth Service', () => {
     spy.useAzureAD = true;
 
     TestBed.configureTestingModule({
-    imports: [MatCardModule, UseSpyComponent],
-    providers: [{ provide: AuthService, useValue: spy }],
-}).compileComponents();
+      imports: [UseSpyComponent],
+      providers: [{ provide: AuthService, useValue: spy }],
+    }).compileComponents();
 
     fixture = TestBed.createComponent(UseSpyComponent);
     comp = fixture.componentInstance;

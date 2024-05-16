@@ -28,7 +28,7 @@ describe('ComponentEventsComponent', () => {
     const divClick = fixture.debugElement.query(By.css('[data-testid=btnIncrement]'));
     divClick.triggerEventHandler('click', {});
 
-    expect(fixture.componentInstance.count).toBe(1);
+    expect(fixture.componentInstance.count()).toBe(1);
     fixture.detectChanges();
 
     const divResult = fixture.debugElement.query(By.css('[data-testid=result]'));
@@ -40,7 +40,7 @@ describe('ComponentEventsComponent', () => {
     divClick.nativeElement.click();
     divClick.nativeElement.click();
 
-    expect(fixture.componentInstance.count).toBe(2);
+    expect(fixture.componentInstance.count()).toBe(2);
     fixture.detectChanges();
 
     const divResult = fixture.debugElement.query(By.css('[data-testid=result]'));

@@ -1,4 +1,3 @@
-import { NO_ERRORS_SCHEMA } from '@angular/core';
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 import { By } from '@angular/platform-browser';
 import { of } from 'rxjs';
@@ -12,10 +11,9 @@ describe('Component - AsyncTest - done', () => {
 
   beforeEach(() => {
     TestBed.configureTestingModule({
-    imports: [SimpleAuthDoneComponent],
-    schemas: [NO_ERRORS_SCHEMA],
-    providers: [SimpleAuthService],
-});
+      imports: [SimpleAuthDoneComponent],
+      providers: [SimpleAuthService],
+    });
 
     fixture = TestBed.createComponent(SimpleAuthDoneComponent);
     component = fixture.componentInstance;
