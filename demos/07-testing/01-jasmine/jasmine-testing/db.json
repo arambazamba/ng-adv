@@ -6,7 +6,7 @@
       "id": 1
     },
     {
-      "url": "testpipe",
+      "url": "pipe",
       "title": "Test Pipe",
       "id": 2
     },
@@ -16,17 +16,17 @@
       "id": 88
     },
     {
-      "url": "simpleservice",
+      "url": "simple-service",
       "title": "Simple Service",
       "id": 3
     },
     {
-      "url": "httptests",
+      "url": "http-tests",
       "title": "Service Http",
       "id": 8
     },
     {
-      "url": "httptests-bs",
+      "url": "http-tests-bs",
       "title": "Service BS Http",
       "id": 83
     },
@@ -51,11 +51,6 @@
       "id": 63
     },
     {
-      "url": "standalone-dom",
-      "title": "Standalone Comp. DOM",
-      "id": 69
-    },
-    {
       "url": "component-events",
       "title": "Comp Events",
       "id": 89
@@ -76,7 +71,7 @@
       "id": 12
     },
     {
-      "url": "integrationtests",
+      "url": "integration-tests",
       "title": "Comp Nested Integration",
       "id": 6
     },
@@ -94,11 +89,6 @@
       "url": "ngrx-reducers",
       "title": "NgRx Reducers",
       "id": 59
-    },
-    {
-      "url": "cypress",
-      "title": "Cypress Intro",
-      "id": 66
     }
   ],
   "food": [
