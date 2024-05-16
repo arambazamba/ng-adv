@@ -6,8 +6,6 @@ import { delay } from 'rxjs/operators';
   providedIn: 'root'
 })
 export class SimpleAuthService {
-  constructor() { }
-
   keyToken = 'token';
 
   isAuthenticated(): Observable<boolean> {
