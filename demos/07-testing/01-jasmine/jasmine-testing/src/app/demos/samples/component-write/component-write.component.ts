@@ -19,5 +19,9 @@ import { MarkdownRendererComponent } from '../../../shared/markdown-renderer/mar
   ],
 })
 export class ComponentWriteComponent {
-  user: Signal<{ username: string }> = signal({ username: 'Giro the hunter from Spain' });
+
+  user: Signal<userType> = signal({ username: 'Giro the hunter from Spain', id: 1 });
+
 }
+
+export type userType = { username: string, id: number }

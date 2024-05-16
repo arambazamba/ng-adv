@@ -3,8 +3,8 @@ import {
   HttpTestingController
 } from '@angular/common/http/testing';
 import { TestBed } from '@angular/core/testing';
-import { FoodServiceBS } from './food.service-bs';
 import { environment } from '../../../../environments/environment.prod';
+import { FoodServiceBS } from './food.service-bs';
 
 describe('Service - HttpTest -FoodService', () => {
   let service: FoodServiceBS;
@@ -41,33 +41,25 @@ describe('Service - HttpTest -FoodService', () => {
     expect(service).toBeTruthy();
     service.getFood().subscribe((items) => {
       expect(items).toBe(data);
-    });
-  });
-
-  it('should return initialized the data', (done) => {
-    service.getFood().subscribe((items) => {
       expect(items.length).toEqual(2);
-      done();
     });
   });
 
-  it('should create a post in an array', (done) => {
+  it('should create a post in an array', () => {
     service.addFood({ id: 3, name: 'Cannelloni', rating: 4 },);
 
     service.getFood().subscribe((items) => {
       expect(items.length).toEqual(3);
-      done();
     });
   });
 
-  it('should return the correct amount of items', (done) => {
+  it('should return the correct amount of items', () => {
     service.addFood({ id: 1, name: 'Pad Thai', rating: 5 });
     service.addFood({ id: 2, name: 'Butter Chicken', rating: 5 });
 
     service.getFood().subscribe((items) => {
       expect(items.length).toEqual(4);
       expect(items[1].name).toEqual('Butter Chicken');
-      done();
     });
   });
 

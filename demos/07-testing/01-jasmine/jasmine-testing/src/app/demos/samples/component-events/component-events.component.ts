@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, signal } from '@angular/core';
 import { MatButtonModule } from '@angular/material/button';
 import { MatCardModule } from '@angular/material/card';
 import { MarkdownRendererComponent } from '../../../shared/markdown-renderer/markdown-renderer.component';
@@ -16,9 +16,9 @@ import { MarkdownRendererComponent } from '../../../shared/markdown-renderer/mar
 })
 export class ComponentEventsComponent {
 
-  count = 0;
+  count = signal(0);
 
   incrementCount() {
-    this.count += 1;
+    this.count.update((c) => c + 1);
   }
 }

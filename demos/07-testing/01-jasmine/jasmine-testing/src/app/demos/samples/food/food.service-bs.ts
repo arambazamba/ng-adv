@@ -2,8 +2,8 @@ import { HttpClient } from '@angular/common/http';
 import { Injectable, inject } from '@angular/core';
 import * as _ from 'lodash';
 import { BehaviorSubject, of } from 'rxjs';
-import { FoodItem } from './food.model';
 import { environment } from '../../../../environments/environment.prod';
+import { FoodItem } from './food.model';
 
 @Injectable({
   providedIn: 'root',
