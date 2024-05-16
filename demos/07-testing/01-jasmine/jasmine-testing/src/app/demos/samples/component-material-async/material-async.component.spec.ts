@@ -1,5 +1,7 @@
 import { ComponentFixture, TestBed, waitForAsync } from '@angular/core/testing';
 import { MaterialAsyncComponent } from './material-async.component';
+import { MarkdownModule } from 'ngx-markdown';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 describe('MaterialAsyncComponent', () => {
   let fixture: ComponentFixture<MaterialAsyncComponent>;
@@ -8,7 +10,11 @@ describe('MaterialAsyncComponent', () => {
   beforeEach(
     waitForAsync(() => {
       TestBed.configureTestingModule({
-        imports: [MaterialAsyncComponent],
+        imports: [
+          BrowserAnimationsModule,
+          MaterialAsyncComponent,
+          MarkdownModule.forRoot(),
+        ],
       }).compileComponents();
     })
   );
