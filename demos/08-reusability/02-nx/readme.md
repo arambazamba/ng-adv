@@ -24,7 +24,7 @@ npm i -g nx
 Create a workspace tutorial-app-ws using the Angular preset:
 
 ```bash
-npx create-nx-workspace nx-mono-repo --preset=angular-monorepo --standaloneApi false --nxCloud false --appName tutorial-app --routing true --style scss
+npx create-nx-workspace nx-mono-repo --preset=angular-monorepo --standaloneApi false --appName tutorial-app --routing true --style scss
 ```
 
 ![nx-scaffold](_images/nx-scaffold.jpg)

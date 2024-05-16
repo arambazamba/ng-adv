@@ -31,7 +31,6 @@ describe('Component - Integration Test', () => {
     fs = jasmine.createSpyObj(['getFood', 'deleteFood']);
 
     const module = {
-      declarations: [FoodListComponent, FoodRowComponent, RatingPipe],
       providers: [{ provide: FoodServiceBS, useValue: fs }],
       schemas: [NO_ERRORS_SCHEMA],
     };
