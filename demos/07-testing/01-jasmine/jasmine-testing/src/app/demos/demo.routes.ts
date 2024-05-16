@@ -15,7 +15,6 @@ import { DirectiveHostComponent } from './samples/directive/directive-host/direc
 import { HttpTestsBsComponent } from './samples/http-tests-bs/http-tests-bs.component';
 import { HttpTestsComponent } from './samples/http-tests/http-tests.component';
 import { UnitTestingComponent } from './samples/intro-unit-testing/unit-testing.component';
-import { MockStoreComponent } from './samples/mock-store/mock-store.component';
 import { NgrxMockstoreComponent } from './samples/ngrx-mockstore/ngrx-mockstore.component';
 import { NgrxReducersComponent } from './samples/ngrx-reducers/ngrx-reducers.component';
 import { TestPipeComponent } from './samples/pipe/test-pipe.component';
@@ -29,24 +28,23 @@ export const demoRoutes: Routes = [
             { path: 'testing-intro', component: UnitTestingComponent },
             { path: 'component-events', component: ComponentEventsComponent },
             { path: 'component-write', component: ComponentWriteComponent },
-            { path: 'testpipe', component: TestPipeComponent },
+            { path: 'pipe', component: TestPipeComponent },
             { path: 'directive', component: DirectiveHostComponent },
-            { path: 'simpleservice', component: SimpleServiceComponent },
+            { path: 'simple-service', component: SimpleServiceComponent },
             { path: 'component-test', component: ComponentTestComponent },
-            { path: 'integrationtests', component: IntegrationTestComponent },
-            { path: 'httptests', component: HttpTestsComponent },
-            { path: 'httptests-bs', component: HttpTestsBsComponent },
+            { path: 'integration-tests', component: IntegrationTestComponent },
+            { path: 'http-tests', component: HttpTestsComponent },
+            { path: 'http-tests-bs', component: HttpTestsBsComponent },
             { path: 'async', component: AsyncComponent },
             { path: 'material-async', component: MaterialAsyncComponent },
             { path: 'material', component: MaterialComponent },
             { path: 'marbles', component: MarblesComponent },
-            { path: 'mockstore', component: MockStoreComponent },
             { path: 'cypress', component: CypressComponent },
             { path: 'component-class', component: ComponentClassComponent },
             { path: 'spy', component: SpyHostComponent },
             { path: 'ngrx-mock-store', component: NgrxMockstoreComponent },
             { path: 'ngrx-reducers', component: NgrxReducersComponent },
-            { path: 'standalone-dom', loadComponent: () => import('./samples/component-standalone/component-standalone.component').then(m => m.ComponentStandaloneComponent) }
+
         ],
     }
 ];
