@@ -1,0 +1,21 @@
+env=dev
+grp=ng-adv
+loc=westeurope
+acr=acrngadv
+
+az group create -n $grp -l westeurope
+
+az acr create -g $grp -n $acr --sku Basic --admin-enabled true
+az acr login -n $acr
+
+cd food-orders-dashboard-pwa
+az acr build --image food-orders-dashboard-pwa -g $grp --registry $acr --file dockerfile .
+cd ..
+
+cd skills-api
+az acr build --image skills-api -g $grp --registry $acr --file dockerfile .
+cd ..
+
+cd skills-ui
+az acr build --image skills-ui -g $grp --registry $acr --file dockerfile .
+cd ..

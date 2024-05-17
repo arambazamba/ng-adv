@@ -10,8 +10,8 @@ az acr login -n $acr
 
 cd config-api
 az acr build --image config-api -g $grp --registry $acr --file dockerfile .
-..
+cd ..
 
 cd config-ui
 az acr build --image config-ui -g $grp --registry $acr --file dockerfile .
-..
+cd ..
