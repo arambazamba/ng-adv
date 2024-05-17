@@ -1,21 +1,37 @@
 env=dev
 grp=ng-adv
 loc=westeurope
-acaenv=foodcontainers-$env
-apiimg=arambazamba/config-api
-uiimg=arambazamba/config-ui
+acr=acrngadv
+acaenv=ngadv-$env
+apiimg=$acr.azurecr.io/config-api
+uiimg=$acr.azurecr.io/config-ui
 
 az group create -n $grp -l $loc
 
+az acr create -g $grp -n $acr --sku Basic --admin-enabled true
+
+pwd=$(az acr credential show -n $acr -g $grp --query passwords[0].value -o tsv)
+loginSrv=$(az acr list -g $grp --query "[?name=='$acr'].loginServer" -o tsv) 
+
 az containerapp env create -n $acaenv -g $grp -l $loc
 
-az containerapp create -n configapi-$env -g $grp --image $apiimg \
+apiUrl=$(az containerapp create -n configapi-$env -g $grp \
+    --image $apiimg \
     --environment $acaenv \
-    --target-port 80 --ingress external
+    --target-port 8080 \
+    --ingress external \
+    --registry-server $loginSrv \
+    --registry-username $acr \
+    --registry-password $pwd \
+    --query properties.configuration.ingress.fqdn -o tsv
+) 
 
-apiurl=$(az containerapp show -n configapi-$env -g $grp --query properties.configuration.ingress.fqdn -o tsv)    
-
-az containerapp create -n configui-$env -g $grp --image $uiimg \
+az containerapp create -n configui-$env -g $grp \
+    --image acrngadv.azurecr.io/config-ui:latest \
     --environment $acaenv \
-    --target-port 80 --ingress external \
-    --env-vars ENV_API_URL=https://$apiurl/ 
+    --target-port 80 \
+    --ingress external \
+    --env-vars ENV_API_URL=https://$apiUrl/ \
+    --registry-server $loginSrv \
+    --registry-username $acr \
+    --registry-password $pwd

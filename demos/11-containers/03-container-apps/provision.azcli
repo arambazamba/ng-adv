@@ -1,0 +1,12 @@
+env=dev
+grp=ng-adv
+loc=westeurope
+acr=acrngadv
+acaenv=ngadv-$env
+apiimg=$acr.azurecr.io/config-api
+uiimg=$acr.azurecr.io/config-ui
+
+az group create -n $grp -l $loc
+
+az deployment group create -g $grp -f provision.bicep \
+    -p env=$env loc=$loc acrName=$acr apiimg=$apiimg uiimg=$uiimg acaenv=$acaenv
