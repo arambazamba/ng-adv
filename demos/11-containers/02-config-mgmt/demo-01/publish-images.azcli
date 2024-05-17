@@ -1,0 +1,17 @@
+env=dev
+grp=ng-adv
+loc=westeurope
+acr=acrngadv
+
+az group create -n $grp -l westeurope
+
+az acr create -g $grp -n $acr --sku Basic --admin-enabled true
+az acr login -n $acr
+
+cd config-api
+az acr build --image config-api -g $grp --registry $acr --file dockerfile .
+..
+
+cd config-ui
+az acr build --image config-ui -g $grp --registry $acr --file dockerfile .
+..
