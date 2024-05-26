@@ -47,7 +47,7 @@ Neue Themengebiete werden anhand von Folien und Demos erarbeitet. Am Ende der Mo
 - Comparison: ng-template vs ng-content - pro / cons
 - HostBinding & HostListener
 - Reactive Forms Revisited (FormGroup, Form Builder, FormControl, FormArray)
-- Untyped Forms vs Typed Forms 
+- Unified Form Events
 - Typed Forms Nullability, NonNullableFormBuilder, GetRawValue
 - Partial Values, Optional Controls, Dynamic Groups and FormRecord
 - Cascading Form Controls
@@ -93,7 +93,7 @@ Neue Themengebiete werden anhand von Folien und Demos erarbeitet. Am Ende der Mo
 - Communication between Components using Event Bus Pattern
 - Creating a Signals Store using @ngrx/signals
 - Side Effects using rxMethod
-- Local Change Detection using Signals
+- Zoneless Change Detection using Signals
 
 ## Advanced Routing and App Initialization
 
