@@ -50,6 +50,7 @@ Neue Themengebiete werden anhand von Folien und Demos erarbeitet. Am Ende der Mo
 - Unified Form Events
 - Typed Forms Nullability, NonNullableFormBuilder, GetRawValue
 - Partial Values, Optional Controls, Dynamic Groups and FormRecord
+- Form Control State Change Events
 - Cascading Form Controls
 - Implementing Custom Controls using ControlValueAccessor
 - Typed Forms Validation & Custom Validators
@@ -105,6 +106,7 @@ Neue Themengebiete werden anhand von Folien und Demos erarbeitet. Am Ende der Mo
 - Introduction to @ngrx/router-store
 - Routing using NgRx Actions
 - Binding Router-Params to Component Inputs
+- Route Redirect Functions
 - Functional Route Guards & Interceptors
 - View Transition Api
 - Auxiliary Routes: Common use cases
@@ -160,12 +162,13 @@ Neue Themengebiete werden anhand von Folien und Demos erarbeitet. Am Ende der Mo
 
 - Using Chrome Dev Tools & Lighthouse for Performance Optimization
 - Analyzing and Optimizing Bundles & Modules
-- Deferred Loading
 - Understanding & Using Page Traces
 - Optimizing Images using NgOptimizedImage 
 - Logging NgRx to custom destinations using Meta-Reducers 
 - Virtual- & Infinite Scrolling
 - Understanding, Profiling & Optimizing Angular Change Detection
+- Understanding & Optimizing Angular Change Detection
+- Introduction to Zoneless Change Detection
 - Using Linting and Autoformat with Prettier
 - Accessibility A11y: Best Practices & Linting
 - Introduction to Server Side Rendering (SSR) and Non-destructive hydration

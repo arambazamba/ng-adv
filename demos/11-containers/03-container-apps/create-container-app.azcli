@@ -19,6 +19,7 @@ apiUrl=$(az containerapp create -n configapi-$env -g $grp \
     --image $apiimg \
     --environment $acaenv \
     --target-port 8080 \
+    --min-replicas 1 \
     --ingress external \
     --registry-server $loginSrv \
     --registry-username $acr \

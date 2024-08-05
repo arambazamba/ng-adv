@@ -28,7 +28,7 @@ export class ViewChildComponent {
   nbrLiters = viewChild.required('liters', { read: ElementRef });
   nbrCost = viewChild.required('cost', { read: ElementRef });
   inputs = viewChildren('input');
-  alert = viewChild.required(AlertComponent, { read: ElementRef });
+  alert = viewChild.required(AlertComponent);
 
   ngAfterViewInit(): void {
     console.log("viewChildren:", this.inputs());
@@ -42,6 +42,7 @@ export class ViewChildComponent {
   }
 
   hideAlert() {
-    this.alert().nativeElement.style.display = 'none';
+    this.alert().logAlert();
+    // this.alert().nativeElement.style.display = 'none';
   }
 }

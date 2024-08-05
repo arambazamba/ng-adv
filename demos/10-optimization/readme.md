@@ -7,8 +7,8 @@
 - Logging NgRx to custom destinations using Meta-Reducers 
 - Virtual- & Infinite Scrolling
 - Understanding, Profiling & Optimizing Angular Change Detection
-- Optimize Change Detection using ngrxPush, ChangeDetectioRef
-- Change Detection and Signals
+- Understanding & Optimizing Angular Change Detection
+- Introduction to Zoneless Change Detection
 - Using Linting and Autoformat with Prettier
 - Accessibility A11y: Best Practices & Linting
 - Introduction to Server Side Rendering (SSR) and Non-destructive hydration
