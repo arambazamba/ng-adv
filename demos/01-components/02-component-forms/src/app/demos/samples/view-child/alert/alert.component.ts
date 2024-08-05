@@ -8,5 +8,7 @@ import { Component } from '@angular/core';
   styleUrl: './alert.component.scss'
 })
 export class AlertComponent {
-
+  logAlert() {
+    console.log('Alert');
+  }
 }
