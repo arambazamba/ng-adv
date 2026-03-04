@@ -4,14 +4,12 @@ import { Observable, from, of } from 'rxjs';
 import { delay } from 'rxjs/operators';
 import { MatButton } from '@angular/material/button';
 import { MatCard, MatCardHeader, MatCardTitle, MatCardContent } from '@angular/material/card';
-import { MarkdownRendererComponent } from '../../../shared/markdown-renderer/markdown-renderer.component';
 
 @Component({
   selector: 'app-simple-observable',
   templateUrl: './creating-observable.component.html',
   styleUrls: ['./creating-observable.component.scss'],
   imports: [
-    MarkdownRendererComponent,
     MatCard,
     MatCardHeader,
     MatCardTitle,

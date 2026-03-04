@@ -7,7 +7,8 @@
     <app-markdown-editor></app-markdown-editor>
   </div>
   ```
-- Examine `sidenav.service.ts`. It toggles the responsive behaviour of the `mat-sidenav` in `demo-container.component.html` and is using a `BehaviourSubject` to implement a stateful service. 
+
+- Examine `sidenav.service.ts`. It toggles the responsive behaviour of the `mat-sidenav` in `demo-container.component.html` and is using a `BehaviourSubject` to implement a stateful service.
 
 - It is also injected to `navbar.component.ts` to toggle the sidenav from the navbar.
 
@@ -19,3 +20,9 @@
   ```
 
 - We will refactor `sidenav.service.ts to the ngrx state later on
+
+---
+
+## 2026 Context
+
+RxJS remains important for library integration and reactive patterns. Use Signals for application state (Module 03), HttpResource for HTTP requests, and SignalStore for complex state (Module 05).

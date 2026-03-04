@@ -3,14 +3,12 @@ import { MatButton } from '@angular/material/button';
 import { fromEvent } from 'rxjs';
 import { pairwise, switchMap, takeUntil } from 'rxjs/operators';
 import { BoxedDirective } from '../../../shared/formatting/formatting-directives';
-import { MarkdownRendererComponent } from '../../../shared/markdown-renderer/markdown-renderer.component';
 
 @Component({
   selector: 'app-mouse-dom-observables',
   templateUrl: './mouse-dom-observables.component.html',
   styleUrls: ['./mouse-dom-observables.component.scss'],
   imports: [
-    MarkdownRendererComponent,
     MatButton,
     BoxedDirective,
   ],

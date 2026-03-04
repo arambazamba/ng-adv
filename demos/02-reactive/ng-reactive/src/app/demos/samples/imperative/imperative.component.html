@@ -1,5 +1,3 @@
-<app-markdown-renderer [md]="'imperative'" />
-
 <mat-card appearance="outlined">
   <mat-card-header>
     <mat-card-title> {{ title() }} </mat-card-title>
@@ -14,12 +12,12 @@
       <h2>Skills</h2>
       <ul>
         @for (skill of view(); track skill) {
-        <li>
-          <div>
-            <span>{{ skill.name }}</span>
-            <span>completed: {{ skill.completed }}</span>
-          </div>
-        </li>
+          <li>
+            <div>
+              <span>{{ skill.name }}</span>
+              <span>completed: {{ skill.completed }}</span>
+            </div>
+          </li>
         }
       </ul>
     </div>

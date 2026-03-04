@@ -1,5 +1,3 @@
-<app-markdown-renderer [md]="'action-streams'" />
-
 <div boxed>
   <mat-form-field>
     <input
@@ -13,8 +11,8 @@
 
 <div boxed>
   @for (d of vm$ | async; track d) {
-  <div class="row">
-    <div>{{ d.title }}</div>
-  </div>
+    <div class="row">
+      <div>{{ d.title }}</div>
+    </div>
   }
 </div>

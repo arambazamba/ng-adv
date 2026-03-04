@@ -2,14 +2,12 @@ import { ChangeDetectionStrategy, Component } from '@angular/core';
 import { AsyncSubject, BehaviorSubject, ReplaySubject, Subject } from 'rxjs';
 import { MatButton } from '@angular/material/button';
 import { MatCard, MatCardHeader, MatCardTitle, MatCardContent } from '@angular/material/card';
-import { MarkdownRendererComponent } from '../../../shared/markdown-renderer/markdown-renderer.component';
 
 @Component({
   selector: 'app-subjects',
   templateUrl: './subjects.component.html',
   styleUrls: ['./subjects.component.scss'],
   imports: [
-    MarkdownRendererComponent,
     MatCard,
     MatCardHeader,
     MatCardTitle,

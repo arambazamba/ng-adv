@@ -9,7 +9,6 @@ import {
   retry,
   tap
 } from 'rxjs/operators';
-import { MarkdownRendererComponent } from '../../../shared/markdown-renderer/markdown-renderer.component';
 import { Voucher } from '../../vouchers/voucher.model';
 import { VouchersService } from '../../vouchers/voucher.service';
 
@@ -22,8 +21,7 @@ import { VouchersService } from '../../vouchers/voucher.service';
     MatCardHeader,
     MatCardTitle,
     MatCardContent,
-    MatButton,
-    MarkdownRendererComponent
+    MatButton
   ],
   changeDetection: ChangeDetectionStrategy.OnPush
 })

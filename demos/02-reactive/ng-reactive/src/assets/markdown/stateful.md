@@ -8,11 +8,28 @@
 
 - Examine the two components in `stateful.component.html`:
 
-    ```html
-    <app-list></app-list>
-    <app-kpi></app-kpi>
-    ```
+  ```html
+  <app-list></app-list> <app-kpi></app-kpi>
+  ```
 
 - Use the `Add Demo` button on the sidebar to add an item. Examine the implementation code and its effect on the two components
 
-    ![add-demo](assets/images/add-demo.jpg)
+  ![add-demo](assets/images/add-demo.jpg)
+
+## Modern Alternative: SignalStore (2026+)
+
+For new applications, use SignalStore instead of BehaviorSubject:
+
+```typescript
+import { signalStore, withState } from "@ngrx/signals";
+
+export const demoStore = signalStore(withState({ demos: [] as DemoItem[] }));
+```
+
+See Module 05: NGRx Signals for complete state management patterns.
+
+---
+
+## 2026 Context
+
+RxJS remains important for library integration and reactive patterns. Use Signals for application state (Module 03), HttpResource for HTTP requests, and SignalStore for complex state (Module 05).

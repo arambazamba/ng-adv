@@ -6,18 +6,24 @@ import { CombiningComponent } from './samples/combining/combining.component';
 import { CreatingObservableComponent } from './samples/creating-observables/creating-observable.component';
 import { CustomOperatorsComponent } from './samples/custom-operators/custom-operators.component';
 import { DebouncedSearchComponent } from './samples/debounced-search/debounced-search.component';
+import { DeclarativeComponent } from './samples/declarative/declarative.component';
 import { ErrHandlingComponent } from './samples/err-handling/err-handling.component';
 import { EventBusComponent } from './samples/eventbus/eventbus.component';
+import { HttpresourcePatternComponent } from './samples/httpresource-pattern/httpresource-pattern.component';
+import { HttpWithRxjsComponent } from './samples/http-with-rxjs/http-with-rxjs.component';
 import { ImperativeComponent } from './samples/imperative/imperative.component';
 import { MarbleTestingComponent } from './samples/marble-testing/marble-testing.component';
 import { MouseDomObservablesComponent } from './samples/mouse-dom-observables/mouse-dom-observables.component';
+import { ObservableToSignalComponent } from './samples/observable-to-signal/observable-to-signal.component';
 import { OperatorsComponent } from './samples/operators/operators.component';
+import { RequestStatusPatternComponent } from './samples/request-status-pattern/request-status-pattern.component';
 import { ResponsiveScreenComponent } from './samples/responsive-screen/responsive-screen.component';
 import { StatefulComponent } from './samples/stateful/stateful.component';
+import { SubjectToOutputComponent } from './samples/subject-to-output/subject-to-output.component';
 import { SubjectsComponent } from './samples/subjects/subjects.component';
+import { TimerIntervalComponent } from './samples/timer-interval/timer-interval.component';
 import { TransformationComponent } from './samples/transformation/transformation.component';
 import { UnsubscribingComponent } from './samples/unsubscribing/unsubscribing.component';
-import { DeclarativeComponent } from './samples/declarative/declarative.component';
 
 export const demoRoutes: Routes = [
     {
@@ -41,7 +47,13 @@ export const demoRoutes: Routes = [
             { path: 'action-streams', component: ActionStreamsComponent },
             { path: 'marble-testing', component: MarbleTestingComponent },
             { path: 'stateful-service', component: StatefulComponent },
-            { path: 'event-bus', component: EventBusComponent }
+            { path: 'event-bus', component: EventBusComponent },
+            { path: 'observable-to-signal', component: ObservableToSignalComponent },
+            { path: 'httpresource-pattern', component: HttpresourcePatternComponent },
+            { path: 'subject-to-output', component: SubjectToOutputComponent },
+            { path: 'timer-interval', component: TimerIntervalComponent },
+            { path: 'http-with-rxjs', component: HttpWithRxjsComponent },
+            { path: 'request-status-pattern', component: RequestStatusPatternComponent },
         ],
     },
 ];

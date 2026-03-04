@@ -1,7 +1,6 @@
 import { ChangeDetectionStrategy, Component, ElementRef, OnDestroy, signal, ViewChild } from '@angular/core';
 import { fromEvent, map, Subscription, tap } from 'rxjs';
 import { MatButton } from '@angular/material/button';
-import { MarkdownRendererComponent } from '../../../../shared/markdown-renderer/markdown-renderer.component';
 import { BorderDirective } from '../../../../shared/formatting/formatting-directives';
 
 @Component({
@@ -9,7 +8,6 @@ import { BorderDirective } from '../../../../shared/formatting/formatting-direct
   templateUrl: './sign-pad.component.html',
   styleUrls: ['./sign-pad.component.scss'],
   imports: [
-    MarkdownRendererComponent,
     BorderDirective,
     MatButton,
   ],

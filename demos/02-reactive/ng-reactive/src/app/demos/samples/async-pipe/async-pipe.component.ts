@@ -6,7 +6,6 @@ import { MatCard, MatCardContent, MatCardHeader, MatCardTitle } from '@angular/m
 import { MatProgressBar } from '@angular/material/progress-bar';
 import { Observable } from 'rxjs';
 import { filter, mergeMap, tap } from 'rxjs/operators';
-import { MarkdownRendererComponent } from '../../../shared/markdown-renderer/markdown-renderer.component';
 import { TaskItem } from '../../tasks/task-item.model';
 import { TaskService } from '../../tasks/task.service';
 
@@ -15,7 +14,6 @@ import { TaskService } from '../../tasks/task.service';
   templateUrl: './async-pipe.component.html',
   styleUrls: ['./async-pipe.component.scss'],
   imports: [
-    MarkdownRendererComponent,
     MatCard,
     MatCardHeader,
     MatCardTitle,

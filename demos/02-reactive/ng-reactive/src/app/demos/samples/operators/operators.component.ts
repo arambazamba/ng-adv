@@ -12,7 +12,6 @@ import {
   take,
   tap
 } from 'rxjs/operators';
-import { MarkdownRendererComponent } from '../../../shared/markdown-renderer/markdown-renderer.component';
 import { BoxedDirective } from '../../../shared/formatting/formatting-directives';
 import { Voucher } from '../../vouchers/voucher.model';
 import { VouchersService } from '../../vouchers/voucher.service';
@@ -27,7 +26,6 @@ import { VouchersService } from '../../vouchers/voucher.service';
     MatCardTitle,
     MatCardContent,
     MatButton,
-    MarkdownRendererComponent,
     BoxedDirective
   ],
   changeDetection: ChangeDetectionStrategy.OnPush

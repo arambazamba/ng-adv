@@ -6,14 +6,12 @@ import { VouchersService } from '../../vouchers/voucher.service';
 import { DoublerService } from '../operators/doubler.service';
 import { MatButton } from '@angular/material/button';
 import { MatCard, MatCardHeader, MatCardTitle, MatCardContent } from '@angular/material/card';
-import { MarkdownRendererComponent } from '../../../shared/markdown-renderer/markdown-renderer.component';
 
 @Component({
   selector: 'app-combining',
   templateUrl: './combining.component.html',
   styleUrls: ['./combining.component.scss'],
   imports: [
-    MarkdownRendererComponent,
     MatCard,
     MatCardHeader,
     MatCardTitle,

@@ -8,7 +8,6 @@ import {
   switchMap, take, tap
 } from 'rxjs/operators';
 import { BoxedDirective } from '../../../shared/formatting/formatting-directives';
-import { MarkdownRendererComponent } from '../../../shared/markdown-renderer/markdown-renderer.component';
 import { TopicService } from '../../topics/topic.service';
 
 @Component({
@@ -16,7 +15,6 @@ import { TopicService } from '../../topics/topic.service';
   templateUrl: './transformation.component.html',
   styleUrls: ['./transformation.component.scss'],
   imports: [
-    MarkdownRendererComponent,
     MatCard,
     MatCardHeader,
     MatCardTitle,

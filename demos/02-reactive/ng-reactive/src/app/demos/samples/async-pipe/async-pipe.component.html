@@ -1,4 +1,3 @@
-<app-markdown-renderer [md]="'asyncpipe'" />
 <mat-card appearance="outlined">
   <mat-card-header>
     <mat-card-title> Classic imperative subscribe pattern </mat-card-title>
@@ -39,7 +38,7 @@
       @for (t of arrTasks; track t) {
         <div>
           <div>Title: {{ t.title }}</div>
-          <div>Completed: {{t.completed }}</div>
+          <div>Completed: {{ t.completed }}</div>
         </div>
       }
     </mat-card-content>

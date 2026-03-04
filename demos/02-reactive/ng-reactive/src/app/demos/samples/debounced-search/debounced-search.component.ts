@@ -5,7 +5,6 @@ import { MatCard, MatCardContent, MatCardHeader, MatCardTitle } from '@angular/m
 import { MatFormField } from '@angular/material/form-field';
 import { MatInput } from '@angular/material/input';
 import { debounceTime, tap } from 'rxjs/operators';
-import { MarkdownRendererComponent } from 'src/app/shared/markdown-renderer/markdown-renderer.component';
 
 @Component({
   selector: 'app-debounced-search',
@@ -20,8 +19,7 @@ import { MarkdownRendererComponent } from 'src/app/shared/markdown-renderer/mark
     MatInput,
     FormsModule,
     ReactiveFormsModule,
-    AsyncPipe,
-    MarkdownRendererComponent
+    AsyncPipe
   ],
   changeDetection: ChangeDetectionStrategy.OnPush
 })

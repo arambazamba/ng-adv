@@ -143,6 +143,54 @@
       "sortOrder": 27,
       "topic": "RxJS Operators & Observables",
       "md": "stateful"
+    },
+    {
+      "url": "observable-to-signal",
+      "title": "Observable → Signal",
+      "teaches": "Convert Observables to signals using toSignal(). Access reactive data synchronously in templates without async pipe or manual subscriptions.",
+      "sortOrder": 28,
+      "topic": "Signal Interop",
+      "md": "observable-to-signal"
+    },
+    {
+      "url": "httpresource-pattern",
+      "title": "HttpResource Pattern",
+      "teaches": "Use httpResource() for declarative HTTP data fetching with built-in loading, error, and value states. The modern alternative to manual HTTP + BehaviorSubject patterns.",
+      "sortOrder": 29,
+      "topic": "Signal Interop",
+      "md": "httpresource-pattern"
+    },
+    {
+      "url": "subject-to-output",
+      "title": "Subject vs output()",
+      "teaches": "Compare Subject-based event multicasting with Angular output() signals. Understand when to use each pattern for component communication.",
+      "sortOrder": 30,
+      "topic": "Signal Interop",
+      "md": "subject-to-output"
+    },
+    {
+      "url": "timer-interval",
+      "title": "Timer & Interval Operators",
+      "teaches": "Create time-based streams with interval(), timer(), and delay(). Understand cold observable creation and takeUntilDestroyed for cleanup.",
+      "sortOrder": 31,
+      "topic": "RxJS Operators & Observables",
+      "md": "timer-interval"
+    },
+    {
+      "url": "http-with-rxjs",
+      "title": "HTTP + RxJS Integration",
+      "teaches": "Use HttpClient with switchMap(), shareReplay(), debounceTime() and distinctUntilChanged(). Write efficient, cancelable HTTP streams.",
+      "sortOrder": 32,
+      "topic": "RxJS Operators & Observables",
+      "md": "http-with-rxjs"
+    },
+    {
+      "url": "request-status-pattern",
+      "title": "Request Status Tracking",
+      "teaches": "Track idle/loading/success/error states using BehaviorSubject. The classic RxJS pattern before signal-based alternatives like httpResource().",
+      "sortOrder": 33,
+      "topic": "RxJS Operators & Observables",
+      "md": "request-status-pattern"
     }
   ],
   "skills": [

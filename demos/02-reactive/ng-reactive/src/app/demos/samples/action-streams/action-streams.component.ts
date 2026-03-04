@@ -5,7 +5,6 @@ import { MatFormField } from '@angular/material/form-field';
 import { MatInput } from '@angular/material/input';
 import { combineLatest } from 'rxjs';
 import { map, startWith } from 'rxjs/operators';
-import { MarkdownRendererComponent } from '../../../shared/markdown-renderer/markdown-renderer.component';
 import { BoxedDirective } from '../../../shared/formatting/formatting-directives';
 import { DemoService } from '../../demo-container/demo.service';
 import { DemoItem } from '../../demo-container/demo-item.model';
@@ -14,7 +13,7 @@ import { DemoItem } from '../../demo-container/demo-item.model';
   selector: 'app-action-streams',
   templateUrl: './action-streams.component.html',
   styleUrls: ['./action-streams.component.scss'],
-  imports: [MatFormField, MatInput, FormsModule, ReactiveFormsModule, AsyncPipe, MarkdownRendererComponent, BoxedDirective],
+  imports: [MatFormField, MatInput, FormsModule, ReactiveFormsModule, AsyncPipe, BoxedDirective],
   changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class ActionStreamsComponent {

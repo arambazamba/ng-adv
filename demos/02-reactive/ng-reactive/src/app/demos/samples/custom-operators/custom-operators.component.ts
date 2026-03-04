@@ -4,7 +4,6 @@ import { MatButton } from '@angular/material/button';
 import { MatCard, MatCardContent, MatCardHeader, MatCardTitle } from '@angular/material/card';
 import { EMPTY, from } from 'rxjs';
 import { catchError } from 'rxjs/operators';
-import { MarkdownRendererComponent } from '../../../shared/markdown-renderer/markdown-renderer.component';
 import { filterOnlyEven } from './filterOnlyEven';
 import { getFromApi, logError } from './logErr';
 import { pow } from './pow';
@@ -21,7 +20,6 @@ import { BoxedDirective } from '../../../shared/formatting/formatting-directives
     MatCardTitle,
     MatCardContent,
     MatButton,
-    MarkdownRendererComponent,
     BoxedDirective
   ],
   changeDetection: ChangeDetectionStrategy.OnPush
