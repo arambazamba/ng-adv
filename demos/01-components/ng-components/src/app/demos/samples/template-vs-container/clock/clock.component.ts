@@ -1,4 +1,4 @@
-import { ChangeDetectionStrategy, Component, OnInit } from '@angular/core';
+import { ChangeDetectionStrategy, Component, effect, signal } from '@angular/core';
 
 @Component({
   selector: 'app-clock',
@@ -7,11 +7,10 @@ import { ChangeDetectionStrategy, Component, OnInit } from '@angular/core';
   standalone: true,
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
-export class ClockComponent implements OnInit {
-  time = '';
-  constructor() { }
+export class ClockComponent {
+  time = signal('');
 
-  ngOnInit(): void {
-    this.time = new Date().toTimeString();
+  constructor() {
+    this.time.set(new Date().toTimeString());
   }
 }

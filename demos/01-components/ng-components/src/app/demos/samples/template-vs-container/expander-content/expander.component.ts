@@ -1,4 +1,4 @@
-import { ChangeDetectionStrategy, Component, Input, OnInit } from '@angular/core';
+import { ChangeDetectionStrategy, Component, input, signal } from '@angular/core';
 
 @Component({
   selector: 'app-expander',
@@ -7,15 +7,11 @@ import { ChangeDetectionStrategy, Component, Input, OnInit } from '@angular/core
   standalone: true,
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
-export class ExpanderComponent implements OnInit {
-  expanded = false;
-  @Input() title = '';
-
-  constructor() { }
-
-  ngOnInit(): void { }
+export class ExpanderComponent {
+  expanded = signal(false);
+  readonly title = input('');
 
   toggleExpander() {
-    this.expanded = !this.expanded;
+    this.expanded.update(v => !v);
   }
 }

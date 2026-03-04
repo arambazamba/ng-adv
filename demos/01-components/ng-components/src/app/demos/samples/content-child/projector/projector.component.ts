@@ -4,7 +4,6 @@ import {
   Component,
   ContentChild,
   ElementRef,
-  OnInit,
 } from '@angular/core';
 
 @Component({

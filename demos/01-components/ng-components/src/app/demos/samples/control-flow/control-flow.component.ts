@@ -1,4 +1,4 @@
-import { ChangeDetectionStrategy, ChangeDetectorRef, Component, inject } from '@angular/core';
+import { ChangeDetectionStrategy, Component, signal } from '@angular/core';
 import { FormControl, ReactiveFormsModule } from '@angular/forms';
 import { MatSlideToggleModule } from '@angular/material/slide-toggle';
 import { MarkdownRendererComponent } from '../../../shared/markdown-renderer/markdown-renderer.component';
@@ -17,14 +17,12 @@ import { BoxedDirective } from '../../../shared/formatting/formatting-directives
   changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class ControlFlowComponent {
-  private cdr = inject(ChangeDetectorRef);
   fcDisplay = new FormControl(true);
-  dogs: string[] = []
+  dogs = signal<string[]>([]);
 
-  ngOnInit() {
+  constructor() {
     setTimeout(() => {
-      this.dogs = ["Flora", "Cleo", "Soi", "Giro"]
-      this.cdr.markForCheck();
+      this.dogs.set(["Flora", "Cleo", "Soi", "Giro"]);
     }, 5000);
   }
 }

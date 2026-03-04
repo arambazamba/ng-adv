@@ -1,14 +1,18 @@
-import { Directive, HostBinding, HostListener } from '@angular/core';
+import { Directive, signal } from '@angular/core';
 
 @Directive({
   selector: '[hoverListener]',
   standalone: true,
+  host: {
+    '(mouseover)': 'onHover()',
+    '[attr.wasHovered]': 'wasHovered()'
+  }
 })
 export class HoverListenerDirective {
-  @HostListener('mouseover') onHover() {
-    this.wasHovered++;
+  protected wasHovered = signal(0);
+
+  onHover() {
+    this.wasHovered.update(v => v + 1);
     console.log('hovering');
   }
-
-  @HostBinding('attr.wasHovered') wasHovered = 0;
 }

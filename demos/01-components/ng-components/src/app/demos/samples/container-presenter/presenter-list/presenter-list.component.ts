@@ -1,4 +1,4 @@
-import { ChangeDetectionStrategy, Component, EventEmitter, Input, Output, SimpleChanges } from '@angular/core';
+import { ChangeDetectionStrategy, Component, input, output } from '@angular/core';
 import { Person } from '../../person/person.model';
 import { MatCard, MatCardHeader, MatCardTitle } from '@angular/material/card';
 
@@ -10,14 +10,8 @@ import { MatCard, MatCardHeader, MatCardTitle } from '@angular/material/card';
   changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class PresenterListComponent {
-  @Input() persons: Person[] = [];
-  @Output() personSelected = new EventEmitter<Person>();
-
-  ngOnChanges(changes: SimpleChanges): void {
-    if (changes['persons']) {
-      console.log('receiving new persons:', changes['persons'].currentValue);
-    }
-  }
+  readonly persons = input<Person[]>([]);
+  readonly personSelected = output<Person>();
 
   selectPerson(p: Person) {
     this.personSelected.emit(p);

@@ -13,10 +13,10 @@ import { NavbarComponent } from './shared/navbar/navbar.component';
   changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class AppComponent {
-  titleService = inject(Title);
-  title: string = environment.title;
+  protected readonly titleService = inject(Title);
+  protected readonly title: string = environment.title;
 
-  ngOnInit() {
+  constructor() {
     this.titleService.setTitle(this.title);
   }
 }

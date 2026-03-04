@@ -1,4 +1,5 @@
-import { ChangeDetectionStrategy, ChangeDetectorRef, Component, OnInit, inject } from '@angular/core';
+import { ChangeDetectionStrategy, Component, inject, signal } from '@angular/core';
+import { toSignal } from '@angular/core/rxjs-interop';
 import { PersonService } from '../person/person.service';
 import { Person } from '../person/person.model';
 import { PresenterEditComponent } from './presenter-edit/presenter-edit.component';
@@ -12,31 +13,24 @@ import { MarkdownRendererComponent } from '../../../shared/markdown-renderer/mar
   imports: [MarkdownRendererComponent, PresenterListComponent, PresenterEditComponent],
   changeDetection: ChangeDetectionStrategy.OnPush
 })
-export class ContainerPresenterComponent implements OnInit {
-  ps = inject(PersonService);
-  private cdr = inject(ChangeDetectorRef);
-  persons: Person[] = [];
-  current: Person | null = null;
-
-  ngOnInit() {
-    this.ps.getPersons().subscribe((data) => {
-      this.persons = data;
-      this.cdr.markForCheck();
-    });
-  }
+export class ContainerPresenterComponent {
+  private ps = inject(PersonService);
+  persons = toSignal(this.ps.getPersons(), { initialValue: [] });
+  current = signal<Person | null>(null);
 
   onPersonSelected(p: Person) {
-    this.current = { ...p };
+    this.current.set({ ...p });
   }
 
   onPersonSaved(p: Person) {
     console.log('saving to service:', p);
-    const existing: Person | undefined = this.persons.find((i) => i.id == p.id);
+    const personsArray = this.persons();
+    const existing: Person | undefined = personsArray.find((i) => i.id == p.id);
     if (existing) {
       Object.assign(existing, p);
     } else {
-      this.persons.push(p);
+      personsArray.push(p);
     }
-    console.log('Persons array after save', this.persons);
+    console.log('Persons array after save', personsArray);
   }
 }

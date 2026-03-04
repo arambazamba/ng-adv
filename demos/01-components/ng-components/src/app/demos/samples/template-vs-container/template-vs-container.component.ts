@@ -1,4 +1,4 @@
-import { ChangeDetectionStrategy, Component, OnInit } from '@angular/core';
+import { ChangeDetectionStrategy, Component } from '@angular/core';
 import { interval } from 'rxjs';
 import { map } from 'rxjs/operators';
 import { AsyncPipe } from '@angular/common';
@@ -25,10 +25,6 @@ import { MarkdownRendererComponent } from '../../../shared/markdown-renderer/mar
     ],
     changeDetection: ChangeDetectionStrategy.OnPush
 })
-export class TemplateVsContainerComponent implements OnInit {
+export class TemplateVsContainerComponent {
     currentTime = interval(100).pipe(map(() => new Date().toTimeString()));
-
-    constructor() { }
-
-    ngOnInit(): void { }
 }

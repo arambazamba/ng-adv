@@ -1,4 +1,4 @@
-import { ChangeDetectionStrategy, Component, OnInit } from '@angular/core';
+import { ChangeDetectionStrategy, Component } from '@angular/core';
 import { MarkdownRendererComponent } from '../../../shared/markdown-renderer/markdown-renderer.component';
 
 @Component({
@@ -8,11 +8,5 @@ import { MarkdownRendererComponent } from '../../../shared/markdown-renderer/mar
   imports: [MarkdownRendererComponent],
   changeDetection: ChangeDetectionStrategy.OnPush
 })
-export class BootstrapStandaloneComponent implements OnInit {
+export class BootstrapStandaloneComponent { }
 
-  constructor() { }
-
-  ngOnInit(): void {
-  }
-
-}

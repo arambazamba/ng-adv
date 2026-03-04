@@ -1,4 +1,4 @@
-import { ChangeDetectionStrategy, Component, OnInit } from '@angular/core';
+import { ChangeDetectionStrategy, Component } from '@angular/core';
 import { HoverListenerDirective } from './hover-listener.directive';
 import { MatCard, MatCardHeader, MatCardTitle, MatCardContent } from '@angular/material/card';
 import { BindingComponent } from './binding/binding.component';
@@ -19,8 +19,4 @@ import { MarkdownRendererComponent } from '../../../shared/markdown-renderer/mar
     ],
     changeDetection: ChangeDetectionStrategy.OnPush
 })
-export class HostBindingListenerComponent implements OnInit {
-    constructor() { }
-
-    ngOnInit(): void { }
-}
+export class HostBindingListenerComponent { }

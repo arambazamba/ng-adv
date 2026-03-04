@@ -1,4 +1,4 @@
-import { ChangeDetectionStrategy, Component, Input, OnInit, TemplateRef } from '@angular/core';
+import { ChangeDetectionStrategy, Component, input, signal, TemplateRef } from '@angular/core';
 import { NgTemplateOutlet } from '@angular/common';
 
 @Component({
@@ -8,16 +8,12 @@ import { NgTemplateOutlet } from '@angular/common';
   imports: [NgTemplateOutlet],
   changeDetection: ChangeDetectionStrategy.OnPush
 })
-export class ExpanderTemplateComponent implements OnInit {
-  @Input() title = '';
-  @Input() content: TemplateRef<any> | null = null;
-  expanded = false;
-
-  constructor() { }
-
-  ngOnInit(): void { }
+export class ExpanderTemplateComponent {
+  readonly title = input('');
+  readonly content = input<TemplateRef<any> | null>(null);
+  expanded = signal(false);
 
   toggleExpander() {
-    this.expanded = !this.expanded;
+    this.expanded.update(v => !v);
   }
 }
