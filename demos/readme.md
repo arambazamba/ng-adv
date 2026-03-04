@@ -4,30 +4,14 @@ This is a workshop for experienced Angular developers who want to deepen their k
 
 ## Modules
 
-### Standalone Components: Concepts & Migration
-
-- Standalone Components vs Modules
-- Creating Standalone Components and Converting existing Components
-- Understanding the Angular Bootstrapping Process
-- app.config.ts & app.routes.ts
-- Registering Providers in app.config.ts
-- Migration an existing Project to Standalone Components
-
-### Components & Forms Deep Dive
+### Components & Change Detection
 
 - Using & Migrating to Control Flow Syntax
 - Deferred Loading
 - Standalone Directives & Directives Composition Api
 - Content Projection
 - HostBinding & HostListener
-- Reactive Forms (FormGroup, Form Builder, FormControl, FormArray)
-- Typed Forms Nullability, NonNullableFormBuilder, GetRawValue
-- Partial Values, Optional Controls, Dynamic Groups and FormRecord
-- Classic Form Events vs Unified Form Events
-- Cascading Form Controls
-- Implementing Custom Controls using ControlValueAccessor
-- Typed Forms Validation & Custom Validators
-- Handling FormErrors & ErrorStateMatcher
+- Change Detection Strategies (Default, OnPush, Signal based)
 
 ### Mastering Reactive Programming using RxJS
 

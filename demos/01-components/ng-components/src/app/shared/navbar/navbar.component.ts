@@ -1,13 +1,14 @@
-import { Component, inject, ChangeDetectionStrategy } from '@angular/core';
+import { ChangeDetectionStrategy, Component, inject } from '@angular/core';
+import { toSignal } from '@angular/core/rxjs-interop';
 import { SnackbarService } from '../snackbar/snackbar.service';
-import { SideNavService } from '../sidenav/sidenav.service';
+import { NavbarService } from './navbar.service';
 import { RouterLinkActive, RouterLink } from '@angular/router';
 import { MatIcon } from '@angular/material/icon';
 import { MatToolbar, MatToolbarRow } from '@angular/material/toolbar';
+import { SideNavService } from '../sidenav/sidenav.service';
 
 @Component({
   selector: 'app-navbar',
-  standalone: true,
   templateUrl: './navbar.component.html',
   styleUrls: ['./navbar.component.scss'],
   imports: [
@@ -20,12 +21,13 @@ import { MatToolbar, MatToolbarRow } from '@angular/material/toolbar';
   changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class NavbarComponent {
-  ms = inject(SideNavService);
+  nav = inject(SideNavService);
+  ms = inject(NavbarService);
   sns = inject(SnackbarService);
-  menuItems = this.ms.getTopItems();
+  menuItems = toSignal(this.ms.getTopItems(), { initialValue: [] });
 
   toggleMenu() {
-    this.ms.toggleMenuVisibility();
+    this.nav.toggleMenuVisibility();
   }
 
   toggleApps() {
