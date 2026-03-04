@@ -39,7 +39,6 @@ export class SidePanelComponent {
   );
   isDemosRoute = computed(() => this.url().startsWith('/demos'));
 
-  markdownPaneVisible = this.layout.markdownPaneVisible;
   isEditorActive = this.layout.isEditorActive;
 
   toggleSideNav() {

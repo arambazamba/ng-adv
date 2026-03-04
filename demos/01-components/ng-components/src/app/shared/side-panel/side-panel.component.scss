@@ -1,17 +1,10 @@
-
-mat-toolbar{
+mat-toolbar {
   height: 100%;
   padding-top: 3rem !important;
 }
 
-mat-toolbar-row{
+mat-toolbar-row {
   display: flex;
   flex-direction: column;
   gap: var(--gap-big);
-}
-
-.pane-size {
-  font-size: 11px;
-  color: var(--color-text, #333);
-  text-align: center;
 }

@@ -1,6 +1,6 @@
 import { ChangeDetectionStrategy, Component } from '@angular/core';
 import { MarkdownRendererComponent } from '../../../shared/markdown-renderer/markdown-renderer.component';
-import { BorderDirective, BoxedDirective, ColumnDirective } from '../../../shared/ux-lib/formatting/formatting-directives';
+import { BorderDirective, BoxedDirective } from '../../../shared/formatting/formatting-directives';
 
 @Component({
     selector: 'app-directive-composition',
@@ -9,8 +9,7 @@ import { BorderDirective, BoxedDirective, ColumnDirective } from '../../../share
     imports: [
         MarkdownRendererComponent,
         BorderDirective,
-        BoxedDirective,
-        ColumnDirective
+        BoxedDirective
     ],
     changeDetection: ChangeDetectionStrategy.OnPush
 })

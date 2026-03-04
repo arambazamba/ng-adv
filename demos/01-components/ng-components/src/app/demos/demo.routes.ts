@@ -1,6 +1,5 @@
 import { Routes } from '@angular/router';
 import { DemoContainerComponent } from './demo-container/demo-container.component';
-
 import { StandaloneComponent } from './samples/standalone/standalone.component';
 import { BootstrapStandaloneComponent } from './samples/bootstrap-standalone/bootstrap-standalone.component';
 import { ControlFlowComponent } from './samples/control-flow/control-flow.component';

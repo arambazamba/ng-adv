@@ -9,7 +9,7 @@ import { MatCard, MatCardContent, MatCardHeader, MatCardTitle } from '@angular/m
 import { MarkdownRendererComponent } from '../../../shared/markdown-renderer/markdown-renderer.component';
 import { AlertComponent } from './alert/alert.component';
 import { MatButtonModule } from '@angular/material/button';
-import { BoxedDirective } from '../../../shared/ux-lib/formatting/formatting-directives';
+import { BoxedDirective } from '../../../shared/formatting/formatting-directives';
 
 @Component({
   selector: 'app-view-child',
