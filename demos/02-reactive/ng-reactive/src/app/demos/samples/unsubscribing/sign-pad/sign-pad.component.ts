@@ -2,7 +2,7 @@ import { ChangeDetectionStrategy, Component, ElementRef, OnDestroy, signal, View
 import { fromEvent, map, Subscription, tap } from 'rxjs';
 import { MatButton } from '@angular/material/button';
 import { MarkdownRendererComponent } from '../../../../shared/markdown-renderer/markdown-renderer.component';
-import { BorderDirective } from '../../../../shared/ux-lib/formatting/formatting-directives';
+import { BorderDirective } from '../../../../shared/formatting/formatting-directives';
 
 @Component({
   selector: 'app-sign-pad',

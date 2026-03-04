@@ -7,9 +7,9 @@ import { DemoItem } from '../../demo-container/demo-item.model';
 })
 export class StatefulDemoService {
   private readonly sampleDemos: DemoItem[] = [
-    { id: 1, title: 'Observable Basics', url: 'observable-basics', teaches: 'Observable fundamentals', sortOrder: 1, topic: 'Basics', visible: true },
-    { id: 2, title: 'Subject & Behavior', url: 'subject-behavior', teaches: 'Subjects and behaviors', sortOrder: 2, topic: 'Basics', visible: true },
-    { id: 3, title: 'Operators', url: 'operators', teaches: 'RxJS operators', sortOrder: 3, topic: 'Operators', visible: true },
+    { id: 1, title: 'Observable Basics', url: 'observable-basics', teaches: 'Observable fundamentals', sortOrder: 1, topic: 'Basics', visible: true, md: '' },
+    { id: 2, title: 'Subject & Behavior', url: 'subject-behavior', teaches: 'Subjects and behaviors', sortOrder: 2, topic: 'Basics', visible: true, md: '' },
+    { id: 3, title: 'Operators', url: 'operators', teaches: 'RxJS operators', sortOrder: 3, topic: 'Operators', visible: true, md: '' },
   ];
 
   private demos: BehaviorSubject<DemoItem[]> = new BehaviorSubject<DemoItem[]>(

@@ -1,9 +1,9 @@
 import { ChangeDetectionStrategy, Component, computed, inject, input, NgZone } from '@angular/core';
 import { MatExpansionPanel, MatExpansionPanelHeader, MatExpansionPanelTitle } from '@angular/material/expansion';
 import { MarkdownComponent } from 'ngx-markdown';
-import mermaid from 'mermaid';
 import { environment } from '../../../environments/environment';
 import { RendererStateService } from './renderer-state.service';
+import { LibraryLoaderService } from '../services/library-loader.service';
 
 @Component({
   selector: 'app-markdown-renderer',
@@ -20,24 +20,25 @@ import { RendererStateService } from './renderer-state.service';
 export class MarkdownRendererComponent {
   private state = inject(RendererStateService);
   private ngZone = inject(NgZone);
+  private libLoader = inject(LibraryLoaderService);
+
   md = input.required<string>();
   contentVisible = this.state.visible;
   markdownSrc = computed(() => `${environment.markdownPath}${this.md()}.md`);
-
-  constructor() {
-    // Initialize mermaid once
-    mermaid.initialize({ startOnLoad: true, theme: 'dark' });
-  }
 
   togglePanel() {
     this.state.toggleVisibility();
   }
 
-  onMarkdownLoad() {
+  async onMarkdownLoad() {
     try {
-      this.ngZone.runOutsideAngular(() => {
-        setTimeout(() => {
-          mermaid.run();
+      await this.libLoader.loadMermaid();
+      await this.libLoader.loadPrismJsTheme();
+
+      this.ngZone.runOutsideAngular(async () => {
+        setTimeout(async () => {
+          const mermaid = await import('mermaid');
+          await mermaid.default.run();
         }, 100);
       });
     } catch (error) {

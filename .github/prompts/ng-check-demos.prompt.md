@@ -76,6 +76,7 @@ Audit a demo module for outdated patterns, update markdown guides, suggest impro
   - `teaches`: 1-2 sentence concept summary
   - `topic`: category (e.g., "Component Fundamentals", "State Management", "Advanced Patterns")
   - `sortOrder`: logical progression number
+  - `md`: the markdown filename without extension
 
 **Validate existing entries:**
 
@@ -175,3 +176,19 @@ Main Agent: Synthesize results → present audit report
     ↓
 Deliver consolidated report + file updates
 ```
+
+---
+
+## Final Deliverable
+
+Create `FINDINGS.md` in the module root (e.g., `demos/02-reactive/ng-reactive/FINDINGS.md`) containing:
+
+- **Summary:** Module name, audit date, audit status (pass/needs-work)
+- **Task A Results:** Audit findings grouped by component with anti-pattern counts by severity
+- **Task B Results:** Markdown sync status for each demo
+- **Task C Results:** db.json validation report, new/updated entries, missing entries
+- **Task D Results:** Proposed new demo suggestions with rationale
+- **Cleanup Results:** Deleted files, flagged routes, incomplete entries (if executed)
+- **Action Items:** Summary of changes made and next steps
+
+**Note:** FINDINGS.md is a working document for audit transparency — not user-facing documentation.

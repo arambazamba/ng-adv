@@ -29,22 +29,14 @@
               "src/assets"
             ],
             "styles": [
-              "src/styles.scss",
-              "node_modules/prismjs/themes/prism-okaidia.min.css"
+              "src/styles.scss"
             ],
             "stylePreprocessorOptions": {
               "includePaths": [
                 "src/theme"
               ]
             },
-            "scripts": [
-              "node_modules/marked/lib/marked.umd.js",
-              "node_modules/prismjs/prism.js",
-              "node_modules/prismjs/components/prism-csharp.min.js",
-              "node_modules/prismjs/components/prism-typescript.min.js",
-              "node_modules/prismjs/components/prism-css.min.js",
-              "node_modules/mermaid/dist/mermaid.min.js"
-            ],
+            "scripts": [],
             "allowedCommonJsDependencies": [
               "lodash",
               "util",
@@ -99,13 +91,6 @@
         "extract-i18n": {
           "builder": "@angular/build:extract-i18n",
           "options": {
-            "buildTarget": "component-forms:build"
-          }
-        },
-        "test": {
-          "builder": "@angular/build:unit-test",
-          "options": {
-            "tsConfig": "tsconfig.spec.json",
             "buildTarget": "component-forms:build"
           }
         }

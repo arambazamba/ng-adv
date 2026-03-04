@@ -1,9 +1,8 @@
-import { ChangeDetectionStrategy, Component, ElementRef, viewChild } from '@angular/core';
-import { AsyncPipe } from '@angular/common';
+import { ChangeDetectionStrategy, Component, ElementRef, signal, viewChild } from '@angular/core';
 import { MatButton } from '@angular/material/button';
-import { BehaviorSubject, fromEvent } from 'rxjs';
+import { fromEvent } from 'rxjs';
 import { pairwise, switchMap, takeUntil } from 'rxjs/operators';
-import { BoxedDirective } from '../../../shared/ux-lib/formatting/formatting-directives';
+import { BoxedDirective } from '../../../shared/formatting/formatting-directives';
 import { MarkdownRendererComponent } from '../../../shared/markdown-renderer/markdown-renderer.component';
 
 @Component({
@@ -14,13 +13,12 @@ import { MarkdownRendererComponent } from '../../../shared/markdown-renderer/mar
     MarkdownRendererComponent,
     MatButton,
     BoxedDirective,
-    AsyncPipe,
   ],
   changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class MouseDomObservablesComponent {
   signPad = viewChild<ElementRef>('signPad');
-  result$ = new BehaviorSubject<{ X: number; Y: number }>({ X: -1, Y: -1 });
+  result = signal<{ X: number; Y: number }>({ X: -1, Y: -1 });
   cx: CanvasRenderingContext2D | null = null;
 
   subscribeMouse() {
@@ -43,10 +41,10 @@ export class MouseDomObservablesComponent {
         this.cx.lineCap = 'round';
 
         // this will capture all mousedown events from the canvas element
-        const mouse$ = fromEvent(canvasEl, 'mousedown').pipe(
+        const mouse$ = fromEvent<MouseEvent>(canvasEl, 'mousedown').pipe(
           switchMap((e) => {
             // after a mouse down, we'll record all mouse moves
-            return fromEvent(canvasEl, 'mousemove').pipe(
+            return fromEvent<MouseEvent>(canvasEl, 'mousemove').pipe(
               // stop once the user releases the mouse
               // this will trigger a 'mouseup' event
               takeUntil(fromEvent(canvasEl, 'mouseup')),
@@ -100,7 +98,7 @@ export class MouseDomObservablesComponent {
       this.cx.stroke();
       this.cx.closePath();
 
-      this.result$.next({ X: currentPos.x, Y: currentPos.y });
+      this.result.set({ X: currentPos.x, Y: currentPos.y });
     }
   }
 }

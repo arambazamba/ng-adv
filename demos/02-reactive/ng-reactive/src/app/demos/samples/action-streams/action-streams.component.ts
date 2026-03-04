@@ -5,9 +5,10 @@ import { MatFormField } from '@angular/material/form-field';
 import { MatInput } from '@angular/material/input';
 import { combineLatest } from 'rxjs';
 import { map, startWith } from 'rxjs/operators';
-import { MarkdownRendererComponent } from 'src/app/shared/markdown-renderer/markdown-renderer.component';
-import { BoxedDirective } from '../../../shared/ux-lib/formatting/formatting-directives';
-import { DemoService } from '../../demo-shared/demo.service';
+import { MarkdownRendererComponent } from '../../../shared/markdown-renderer/markdown-renderer.component';
+import { BoxedDirective } from '../../../shared/formatting/formatting-directives';
+import { DemoService } from '../../demo-container/demo.service';
+import { DemoItem } from '../../demo-container/demo-item.model';
 
 @Component({
   selector: 'app-action-streams',
@@ -19,17 +20,17 @@ import { DemoService } from '../../demo-shared/demo.service';
 export class ActionStreamsComponent {
   ds = inject(DemoService);
 
-  demos$ = this.ds.getItems();
+  demos$ = this.ds.getDemos();
   filter$ = new FormControl<string>('', { nonNullable: true });
 
   vm$ = combineLatest([
     this.demos$,
     this.filter$.valueChanges.pipe(startWith('')),
-  ]).pipe(
-    map(([demos, filter]) => {
+  ] as const).pipe(
+    map(([demos, filter]: [DemoItem[], string]) => {
       return filter == ''
         ? demos
-        : demos.filter((d) =>
+        : demos.filter((d: DemoItem) =>
           d.title.toLowerCase().includes(filter.toLowerCase())
         );
     })

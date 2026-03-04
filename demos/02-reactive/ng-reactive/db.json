@@ -5,91 +5,144 @@
       "title": "Imperative Reactivity",
       "teaches": "Understand the limitations of imperative programming with callbacks and mutable state. See how manual subscription management leads to memory leaks and complex control flow.",
       "sortOrder": 1,
-      "topic": "Reactive Fundamentals"
+      "topic": "Reactive Fundamentals",
+      "md": "imperative"
     },
     {
       "url": "reactive",
       "title": "Declarative Reactivity",
       "teaches": "Transition to declarative reactive programming with Observables. Let RxJS handle data flow and subscriptions automatically for cleaner, more maintainable code.",
       "sortOrder": 2,
-      "topic": "Reactive Fundamentals"
+      "topic": "Reactive Fundamentals",
+      "md": "reactive"
     },
     {
       "url": "async-pipe",
       "title": "Async Pipe",
       "teaches": "Use the async pipe to subscribe to Observables directly in templates. Mark components as OnPush for performance and let Angular handle subscription cleanup.",
       "sortOrder": 3,
-      "topic": "Reactive Fundamentals"
+      "topic": "Reactive Fundamentals",
+      "md": "asyncpipe"
     },
     {
       "url": "unsubscribe",
       "title": "Unsubscribing",
       "teaches": "Prevent memory leaks by properly unsubscribing from Observables. Explore patterns like takeUntil() and subscription management in component lifecycle.",
       "sortOrder": 4,
-      "topic": "Reactive Fundamentals"
+      "topic": "Reactive Fundamentals",
+      "md": "unsubscribe"
+    },
+    {
+      "url": "subjects",
+      "title": "Subjects",
+      "teaches": "Learn about Subjects, a special type of Observable that acts as both observer and observable. Use Subjects to multicast values to multiple subscribers.",
+      "sortOrder": 5,
+      "topic": "Reactive Fundamentals",
+      "md": "subjects"
     },
     {
       "url": "action-streams",
       "title": "Action Streams",
       "teaches": "Build reactive data flows from user actions using Subject and streams. Combine multiple action streams to create responsive, event-driven applications.",
       "sortOrder": 10,
-      "topic": "Handling Events & Data"
+      "topic": "Handling Events & Data",
+      "md": "action-streams"
     },
     {
       "url": "debounced",
       "title": "Debounced Search",
       "teaches": "Implement efficient search with debounceTime() to reduce API calls. Combine with switchMap() to cancel previous requests when user types new queries.",
       "sortOrder": 11,
-      "topic": "Handling Events & Data"
+      "topic": "Handling Events & Data",
+      "md": "debounce"
     },
     {
       "url": "mouse-dom",
       "title": "Mouse & DOM Events",
       "teaches": "Convert DOM events into Observable streams using fromEvent(). Handle mouse movements, clicks, and other browser events reactively.",
       "sortOrder": 12,
-      "topic": "Handling Events & Data"
+      "topic": "Handling Events & Data",
+      "md": "mouse-dom"
     },
     {
       "url": "responsive-screen",
       "title": "Responsive Screen",
       "teaches": "React to screen size changes and media queries using Observables. Build responsive layouts that adapt dynamically to viewport dimensions.",
       "sortOrder": 13,
-      "topic": "Handling Events & Data"
+      "topic": "Handling Events & Data",
+      "md": "responsive-screen"
+    },
+    {
+      "url": "event-bus",
+      "title": "Event Bus",
+      "teaches": "Implement a publish-subscribe pattern with Observables. Use an event bus to decouple component communication and enable loose coupling.",
+      "sortOrder": 14,
+      "topic": "Handling Events & Data",
+      "md": "event-bus"
     },
     {
       "url": "creating",
       "title": "Creating Observables",
       "teaches": "Create Observables from scratch using of(), from(), interval(), and custom Observable constructors. Understand cold vs hot Observables.",
       "sortOrder": 20,
-      "topic": "RxJS Operators & Observables"
+      "topic": "RxJS Operators & Observables",
+      "md": "creating"
     },
     {
       "url": "operators",
       "title": "Base Operators",
       "teaches": "Master fundamental operators like map(), filter(), reduce(), and forEach(). Transform and filter Observable streams with common operations.",
       "sortOrder": 21,
-      "topic": "RxJS Operators & Observables"
+      "topic": "RxJS Operators & Observables",
+      "md": "operators"
     },
     {
       "url": "transformation",
       "title": "Transformation",
       "teaches": "Use advanced transformation operators like flatMap(), switchMap(), and mergeMap(). Control how nested Observables are flattened into result streams.",
       "sortOrder": 22,
-      "topic": "RxJS Operators & Observables"
+      "topic": "RxJS Operators & Observables",
+      "md": "transformation"
     },
     {
       "url": "err-handling",
       "title": "Error Handling",
       "teaches": "Handle errors in Observable streams with catchError() and retry(). Recover from failures gracefully and log errors appropriately.",
       "sortOrder": 23,
-      "topic": "RxJS Operators & Observables"
+      "topic": "RxJS Operators & Observables",
+      "md": "error-handling"
     },
     {
       "url": "custom-operators",
       "title": "Custom Operators",
       "teaches": "Build reusable custom operators with the pipe() pattern. Encapsulate complex transformation logic into composable, shareable utilities.",
       "sortOrder": 24,
-      "topic": "RxJS Operators & Observables"
+      "topic": "RxJS Operators & Observables",
+      "md": "custom-operators"
+    },
+    {
+      "url": "combining",
+      "title": "Combining Observables",
+      "teaches": "Combine multiple Observable streams using operators like merge(), concat(), combineLatest(), and zip(). Coordinate data from multiple sources efficiently.",
+      "sortOrder": 25,
+      "topic": "RxJS Operators & Observables",
+      "md": "combining"
+    },
+    {
+      "url": "marble-testing",
+      "title": "Marble Testing",
+      "teaches": "Test Observable sequences using marble diagrams and TestScheduler. Verify complex async behavior predictably with visual test notation.",
+      "sortOrder": 26,
+      "topic": "RxJS Operators & Observables",
+      "md": "marble-testing"
+    },
+    {
+      "url": "stateful-service",
+      "title": "Stateful Service",
+      "teaches": "Use Observables in services to manage application state. Implement state management with services as a foundation before adopting NgRx.",
+      "sortOrder": 27,
+      "topic": "RxJS Operators & Observables",
+      "md": "stateful"
     }
   ],
   "skills": [

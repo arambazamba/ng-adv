@@ -4,7 +4,7 @@ import { FormControl, FormsModule, ReactiveFormsModule, Validators } from '@angu
 import { MatCard, MatCardContent, MatCardHeader, MatCardTitle } from '@angular/material/card';
 import { MatError, MatFormField, MatLabel } from '@angular/material/form-field';
 import { MatInput } from '@angular/material/input';
-import { ColumnDirective } from '../../../shared/ux-lib/formatting/formatting-directives';
+import { ColumnDirective } from '../../../shared/formatting/formatting-directives';
 
 @Component({
   selector: 'app-take-until-destroyed',

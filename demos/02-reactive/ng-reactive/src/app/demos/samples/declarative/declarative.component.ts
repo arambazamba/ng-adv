@@ -7,8 +7,8 @@ import { AsyncPipe, JsonPipe } from '@angular/common';
 import { MatCard, MatCardHeader, MatCardTitle, MatCardContent } from '@angular/material/card';
 import { MatFormField, MatLabel } from '@angular/material/form-field';
 import { MatInput } from '@angular/material/input';
-import { MarkdownRendererComponent } from 'src/app/shared/markdown-renderer/markdown-renderer.component';
-import { BoxedDirective } from 'src/app/shared/ux-lib/formatting/formatting-directives';
+import { MarkdownRendererComponent } from '../../../shared/markdown-renderer/markdown-renderer.component';
+import { BoxedDirective } from '../../../shared/formatting/formatting-directives';
 
 @Component({
   selector: 'app-declarative',

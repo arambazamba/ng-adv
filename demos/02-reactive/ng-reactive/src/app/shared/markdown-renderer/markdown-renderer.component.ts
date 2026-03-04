@@ -1,25 +1,48 @@
-import { ChangeDetectionStrategy, Component, input, signal } from '@angular/core';
-import { environment } from 'src/environments/environment';
-import { MarkdownComponent } from 'ngx-markdown';
+import { ChangeDetectionStrategy, Component, computed, inject, input, NgZone } from '@angular/core';
 import { MatExpansionPanel, MatExpansionPanelHeader, MatExpansionPanelTitle } from '@angular/material/expansion';
+import { MarkdownComponent } from 'ngx-markdown';
+import { environment } from '../../../environments/environment';
+import { RendererStateService } from './renderer-state.service';
+import { LibraryLoaderService } from '../services/library-loader.service';
 
 @Component({
   selector: 'app-markdown-renderer',
   templateUrl: './markdown-renderer.component.html',
-  styleUrls: ['./markdown-renderer.component.scss'],
+  styleUrl: './markdown-renderer.component.scss',
+  changeDetection: ChangeDetectionStrategy.OnPush,
   imports: [
     MatExpansionPanel,
     MatExpansionPanelHeader,
     MatExpansionPanelTitle,
     MarkdownComponent,
-  ],
-  changeDetection: ChangeDetectionStrategy.OnPush
+  ]
 })
 export class MarkdownRendererComponent {
-  md = input.required<string>();
-  panelOpenState = signal(true);
+  private state = inject(RendererStateService);
+  private ngZone = inject(NgZone);
+  private libLoader = inject(LibraryLoaderService);
 
-  getMarkdown(): string {
-    return `${environment.markdownPath}${this.md()}.md`;
+  md = input.required<string>();
+  contentVisible = this.state.visible;
+  markdownSrc = computed(() => `${environment.markdownPath}${this.md()}.md`);
+
+  togglePanel() {
+    this.state.toggleVisibility();
+  }
+
+  async onMarkdownLoad() {
+    try {
+      await this.libLoader.loadMermaid();
+      await this.libLoader.loadPrismJsTheme();
+
+      this.ngZone.runOutsideAngular(async () => {
+        setTimeout(async () => {
+          const mermaid = await import('mermaid');
+          await mermaid.default.run();
+        }, 100);
+      });
+    } catch (error) {
+      console.error('Error rendering mermaid diagrams:', error);
+    }
   }
 }

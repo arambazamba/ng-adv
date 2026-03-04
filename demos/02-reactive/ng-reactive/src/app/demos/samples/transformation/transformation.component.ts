@@ -7,7 +7,7 @@ import {
   delay, exhaustMap, mergeMap,
   switchMap, take, tap
 } from 'rxjs/operators';
-import { BoxedDirective } from 'src/app/shared/ux-lib/formatting/formatting-directives';
+import { BoxedDirective } from '../../../shared/formatting/formatting-directives';
 import { MarkdownRendererComponent } from '../../../shared/markdown-renderer/markdown-renderer.component';
 import { TopicService } from '../../topics/topic.service';
 

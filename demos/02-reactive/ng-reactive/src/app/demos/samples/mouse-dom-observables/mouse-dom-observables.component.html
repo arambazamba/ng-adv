@@ -6,5 +6,7 @@
     Capture Mouse Events
   </button>
 
-  <div>signPad - Mouse Moved at X: {{ (result$ | async)?.X }} Y: {{ (result$ | async)?.Y }}</div>
+  @if (result(); as pos) {
+    <div>signPad - Mouse Moved at X: {{ pos.X }} Y: {{ pos.Y }}</div>
+  }
 </div>

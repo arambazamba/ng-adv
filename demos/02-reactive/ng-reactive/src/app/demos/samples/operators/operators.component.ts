@@ -12,8 +12,8 @@ import {
   take,
   tap
 } from 'rxjs/operators';
-import { MarkdownRendererComponent } from 'src/app/shared/markdown-renderer/markdown-renderer.component';
-import { BoxedDirective } from 'src/app/shared/ux-lib/formatting/formatting-directives';
+import { MarkdownRendererComponent } from '../../../shared/markdown-renderer/markdown-renderer.component';
+import { BoxedDirective } from '../../../shared/formatting/formatting-directives';
 import { Voucher } from '../../vouchers/voucher.model';
 import { VouchersService } from '../../vouchers/voucher.service';
 

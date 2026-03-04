@@ -38,14 +38,7 @@
                 "src/theme"
               ]
             },
-            "scripts": [
-              "node_modules/marked/lib/marked.umd.js",
-              "node_modules/prismjs/prism.js",
-              "node_modules/prismjs/components/prism-csharp.min.js",
-              "node_modules/prismjs/components/prism-typescript.min.js",
-              "node_modules/prismjs/components/prism-css.min.js",
-              "node_modules/mermaid/dist/mermaid.min.js"
-            ]
+            "scripts": []
           },
           "configurations": {
             "production": {
@@ -91,37 +84,6 @@
         },
         "extract-i18n": {
           "builder": "@angular/build:extract-i18n"
-        },
-        "test": {
-          "builder": "@angular/build:karma",
-          "options": {
-            "polyfills": [],
-            "tsConfig": "tsconfig.spec.json",
-            "inlineStyleLanguage": "scss",
-            "assets": [
-              {
-                "glob": "**/*",
-                "input": "public"
-              }
-            ],
-            "styles": [
-              "src/styles.scss",
-              "node_modules/prismjs/themes/prism-okaidia.min.css"
-            ],
-            "stylePreprocessorOptions": {
-              "includePaths": [
-                "src/theme"
-              ]
-            },
-            "scripts": [
-              "node_modules/marked/lib/marked.umd.js",
-              "node_modules/prismjs/prism.js",
-              "node_modules/prismjs/components/prism-csharp.min.js",
-              "node_modules/prismjs/components/prism-typescript.min.js",
-              "node_modules/prismjs/components/prism-css.min.js",
-              "node_modules/mermaid/dist/mermaid.min.js"
-            ]
-          }
         }
       }
     }

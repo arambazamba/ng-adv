@@ -4,12 +4,12 @@ import { MatButton } from '@angular/material/button';
 import { MatCard, MatCardContent, MatCardHeader, MatCardTitle } from '@angular/material/card';
 import { EMPTY, from } from 'rxjs';
 import { catchError } from 'rxjs/operators';
-import { MarkdownRendererComponent } from 'src/app/shared/markdown-renderer/markdown-renderer.component';
+import { MarkdownRendererComponent } from '../../../shared/markdown-renderer/markdown-renderer.component';
 import { filterOnlyEven } from './filterOnlyEven';
 import { getFromApi, logError } from './logErr';
 import { pow } from './pow';
 import { takeEveryNth } from './takeEveryNth';
-import { BoxedDirective } from 'src/app/shared/ux-lib/formatting/formatting-directives';
+import { BoxedDirective } from '../../../shared/formatting/formatting-directives';
 
 @Component({
   selector: 'app-custom-operators',
