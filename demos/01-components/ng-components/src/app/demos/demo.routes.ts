@@ -11,6 +11,9 @@ import { TemplateVsContainerComponent } from './samples/template-vs-container/te
 import { HostBindingListenerComponent } from './samples/host-binding-listener/host-binding-listener.component';
 import { ContainerPresenterComponent } from './samples/container-presenter/container-presenter.component';
 import { DynamicComponentsComponent } from './samples/dynamic-components/dynamic-components.component';
+import { ResourceApiComponent } from './samples/resource-api/resource-api.component';
+import { AntipatternsComponent } from './samples/antipatterns/antipatterns.component';
+import { ModernTemplateFeaturesComponent } from './samples/modern-template-features/modern-template-features.component';
 
 export const demoRoutes: Routes = [
   {
@@ -35,6 +38,9 @@ export const demoRoutes: Routes = [
       { path: 'host-binding', component: HostBindingListenerComponent },
       { path: 'container-presenter', component: ContainerPresenterComponent },
       { path: 'dynamic-components', component: DynamicComponentsComponent },
+      { path: 'resource-api', component: ResourceApiComponent },
+      { path: 'antipatterns', component: AntipatternsComponent },
+      { path: 'modern-template-features', component: ModernTemplateFeaturesComponent },
     ],
   },
 ];

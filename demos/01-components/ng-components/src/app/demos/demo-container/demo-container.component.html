@@ -35,20 +35,38 @@
           </mat-toolbar>
         </div>
         <div class="gdMain">
-          <as-split direction="vertical" unit="pixel" (dragProgress)="onSplitDragEnd($any($event))" (dragEnd)="onSplitDragEnd($event)">
-            <as-split-area #paneDemo [size]="demoPaneSize()" [visible]="hasDemoContent()">
+          <as-split
+            class="demo-splitter"
+            direction="vertical"
+            unit="pixel"
+            (dragProgress)="onSplitDragEnd($any($event))"
+            (dragEnd)="onSplitDragEnd($event)"
+          >
+            <as-split-area
+              #paneDemo
+              [size]="demoPaneSize()"
+              [visible]="hasDemoContent()"
+            >
               <div class="split-content" #demoPaneContent>
                 <router-outlet />
               </div>
             </as-split-area>
-            <as-split-area #paneMarkdown [size]="'*'" [visible]="showMarkdownPane()">
+            <as-split-area
+              #paneMarkdown
+              [size]="'*'"
+              [visible]="showMarkdownPane()"
+            >
               <div class="split-content">
-                @if (markdownMode() === 'guide') {
+                @if (markdownMode() === "guide") {
                   @if (guideMd()) {
                     <app-markdown-renderer [md]="guideMd()" />
                   }
                 } @else {
-                  <app-markdown-editor-container [demoTitle]="currentDemoTitle()" [demoMd]="currentMd()" [demoUrl]="'demos/' + currentUrl()" />
+                  <app-markdown-editor-container
+                    [demoTitle]="currentDemoTitle()"
+                    [demoMd]="currentMd()"
+                    [demoUrl]="'demos/' + currentUrl()"
+                  />
                 }
               </div>
             </as-split-area>

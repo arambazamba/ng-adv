@@ -34,7 +34,7 @@
       "sortOrder": 4,
       "topic": "Component Composition",
       "id": 4,
-      "md": "directives-composition"
+      "md": "directive-composition"
     },
     {
       "url": "content-child",
@@ -46,10 +46,19 @@
       "md": "content-child"
     },
     {
+      "url": "modern-template-features",
+      "title": "Modern Template Features",
+      "teaches": "Write arrow functions and spread syntax directly in templates (v21.1+). Use signal.update(n => n + 1) and spread operators without wrapper methods.",
+      "sortOrder": 6,
+      "topic": "Template Syntax",
+      "id": 15,
+      "md": "modern-template-features"
+    },
+    {
       "url": "view-queries",
       "title": "View Queries",
       "teaches": "Query template elements with @ViewChild and @ViewChildren. Obtain references to child components or DOM elements in the component view.",
-      "sortOrder": 10,
+      "sortOrder": 7,
       "topic": "Advanced Patterns",
       "id": 6,
       "md": "view-queries"
@@ -58,16 +67,16 @@
       "url": "template-vs-container",
       "title": "Template vs Container",
       "teaches": "Understand the difference between ng-template and ng-container. Control when and where template content is rendered in the DOM.",
-      "sortOrder": 11,
+      "sortOrder": 8,
       "topic": "Advanced Patterns",
       "id": 7,
-      "md": "template-vs-container"
+      "md": "templ-content"
     },
     {
       "url": "host-binding",
       "title": "Host Binding & Listener",
       "teaches": "Manage component host properties and events with @HostBinding and @HostListener. Style the component element and respond to user interactions.",
-      "sortOrder": 12,
+      "sortOrder": 9,
       "topic": "Advanced Patterns",
       "id": 8,
       "md": "host-binding"
@@ -76,7 +85,7 @@
       "url": "container-presenter",
       "title": "Container Presenter",
       "teaches": "Separate data logic (container) from presentation (presenter) components. Use this pattern for cleaner, more reusable component architecture.",
-      "sortOrder": 13,
+      "sortOrder": 10,
       "topic": "Advanced Patterns",
       "id": 9,
       "md": "container-presenter"
@@ -85,16 +94,34 @@
       "url": "dynamic-components",
       "title": "Dynamic Components",
       "teaches": "Create and insert components dynamically at runtime using ViewContainerRef. Pass data to dynamic components and handle their lifecycle.",
-      "sortOrder": 14,
+      "sortOrder": 11,
       "topic": "Advanced Patterns",
       "id": 10,
       "md": "dynamic-components"
     },
     {
+      "url": "resource-api",
+      "title": "Resource API",
+      "teaches": "Use resource() for declarative, reactive HTTP data loading with automatic loading states and error handling. Replace manual Observable + subscribe() patterns with signal-based data fetching.",
+      "sortOrder": 12,
+      "topic": "Data Loading",
+      "id": 13,
+      "md": "resource-api"
+    },
+    {
+      "url": "antipatterns",
+      "title": "Antipatterns",
+      "teaches": "Learn what NOT to do in modern Angular. Understand outdated patterns like Observable subscriptions, manual state management, and legacy decorators. See why resource() and signals are better.",
+      "sortOrder": 13,
+      "topic": "Data Loading",
+      "id": 14,
+      "md": "antipatterns"
+    },
+    {
       "url": "lazy-standalone",
       "title": "Lazy Standalone Comp.",
       "teaches": "Load standalone components on-demand via routes. Reduce initial bundle size by lazy loading features that aren't immediately needed.",
-      "sortOrder": 20,
+      "sortOrder": 14,
       "topic": "Routing & Bootstrap",
       "id": 11,
       "md": "lazy-standalone"
@@ -103,10 +130,10 @@
       "url": "standalone-bootstrap",
       "title": "Load Standalone Apps",
       "teaches": "Bootstrap standalone applications with bootstrapApplication(). Set up providers, routes, and configuration without NgModule.",
-      "sortOrder": 21,
+      "sortOrder": 15,
       "topic": "Routing & Bootstrap",
       "id": 12,
-      "md": "standalone-bootstrap"
+      "md": "bootstrap"
     }
   ],
   "pets": [
