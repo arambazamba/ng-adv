@@ -46,15 +46,4 @@ export class SkillsStateService {
 >
 ```
 
----
-
-## 2026 Context
-
-This is the **classic RxJS pattern** — understand it for legacy codebases. In new code replace the entire pattern with a single `httpResource()` call:
-
-```typescript
-protected skills = httpResource<Skill[]>(() => `${env.api}skills`);
-// skills.isLoading(), skills.error(), skills.value() — built-in
-```
-
-See the **HttpResource Pattern** demo for the modern equivalent.
+See the **HttpResource Pattern** demo for modern alternatives like `httpResource()` that automate this pattern.

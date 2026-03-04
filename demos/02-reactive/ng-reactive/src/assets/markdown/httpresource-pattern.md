@@ -41,9 +41,3 @@ protected selectedId = signal(1);
 protected detail = httpResource<Skill>(() => `${environment.api}skills/${this.selectedId()}`);
 // Automatically re-fetches whenever selectedId changes
 ```
-
----
-
-## 2026 Context
-
-`httpResource()` is the recommended pattern for HTTP in 2026 Angular. It replaces the manual `status$` / `loading$` / `data$` approach shown in the Request Status Pattern demo.

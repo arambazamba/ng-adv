@@ -38,9 +38,3 @@ combineLatest([this.items$, this.filter$]).pipe(map(([items, filter]) => items.f
 concat(this.http.post("/api/validate", data), this.http.post("/api/save", data));
 // validate completes first, then save starts
 ```
-
----
-
-## 2026 Context
-
-`forkJoin()` and `combineLatest()` remain common in Angular. For simple parallel HTTP, prefer `httpResource()` (Signal Interop demos). For complex combinations, RxJS is still the right tool.

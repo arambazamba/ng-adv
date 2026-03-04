@@ -52,9 +52,3 @@ filteredSkills$ = this.filterControl.valueChanges.pipe(
   )
 );
 ```
-
----
-
-## 2026 Context
-
-This pattern is common in Angular libraries. For new application code, prefer `httpResource()` which handles loading/error/caching declaratively. Use the manual RxJS approach when you need fine-grained operator control.
