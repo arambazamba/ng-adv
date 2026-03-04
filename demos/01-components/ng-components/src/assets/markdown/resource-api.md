@@ -9,9 +9,9 @@ The `resource()` API is Angular's modern, signal-based approach to HTTP data fet
 Create a resource with a loader function:
 
 ```typescript
-import { Component, inject, resource } from '@angular/core';
-import { HttpClient } from '@angular/common/http';
-import { firstValueFrom } from 'rxjs';
+import { Component, inject, resource } from "@angular/core";
+import { HttpClient } from "@angular/common/http";
+import { firstValueFrom } from "rxjs";
 
 interface Pet {
   id: number;
@@ -20,7 +20,7 @@ interface Pet {
 }
 
 @Component({
-  selector: 'app-pet-detail',
+  selector: "app-pet-detail",
   template: `
     @if (petResource.isLoading()) {
       <p>Loading...</p>
@@ -31,17 +31,15 @@ interface Pet {
     @if (petResource.value(); as pet) {
       <p>{{ pet.name }}</p>
     }
-  `
+  `,
 })
 export class PetDetailComponent {
   private http = inject(HttpClient);
 
   protected petResource = resource({
     loader: async () => {
-      return await firstValueFrom(
-        this.http.get<Pet>('/api/pets/1')
-      );
-    }
+      return await firstValueFrom(this.http.get<Pet>("/api/pets/1"));
+    },
   });
 }
 ```
@@ -58,14 +56,12 @@ export class PetDetailComponent {
   protected petResource = resource({
     request: () => ({ id: this.petId() }),
     loader: async ({ request }) => {
-      return await firstValueFrom(
-        this.http.get<Pet>(`/api/pets/${request.id}`)
-      );
-    }
+      return await firstValueFrom(this.http.get<Pet>(`/api/pets/${request.id}`));
+    },
   });
 
   protected loadNext() {
-    this.petId.update(id => id + 1); // Automatically refetches!
+    this.petId.update((id) => id + 1); // Automatically refetches!
   }
 }
 ```
@@ -93,30 +89,24 @@ Use with `@if`, `@for`, and modern control flow:
 
 ```html
 @if (myResource.isLoading()) {
-  <app-spinner />
-}
-
-@if (myResource.error(); as error) {
-  <div class="error">{{ error }}</div>
-}
-
-@if (myResource.value(); as data) {
-  @for (item of data; track item.id) {
-    <app-item [item]="item" />
-  }
-}
+<app-spinner />
+} @if (myResource.error(); as error) {
+<div class="error">{{ error }}</div>
+} @if (myResource.value(); as data) { @for (item of data; track item.id) {
+<app-item [item]="item" />
+} }
 ```
 
 ## Advantages over Manual Subscription Pattern
 
-| Feature | resource() | .subscribe() |
-|---------|-----------|--------------|
-| **Automatic loading state** | ✅ Built-in | ❌ Manual signals |
-| **Automatic error handling** | ✅ Built-in | ❌ Manual error logic |
-| **Reactive updates** | ✅ Automatic refetch on signal change | ❌ Must manually trigger |
-| **Memory leaks** | ✅ No | ❌ Must unsubscribe |
-| **Lines of code** | ✅ ~5 lines | ❌ ~20+ lines |
-| **Test complexity** | ✅ Simple | ❌ Complex mocking |
+| Feature                      | resource()                            | .subscribe()             |
+| ---------------------------- | ------------------------------------- | ------------------------ |
+| **Automatic loading state**  | ✅ Built-in                           | ❌ Manual signals        |
+| **Automatic error handling** | ✅ Built-in                           | ❌ Manual error logic    |
+| **Reactive updates**         | ✅ Automatic refetch on signal change | ❌ Must manually trigger |
+| **Memory leaks**             | ✅ No                                 | ❌ Must unsubscribe      |
+| **Lines of code**            | ✅ ~5 lines                           | ❌ ~20+ lines            |
+| **Test complexity**          | ✅ Simple                             | ❌ Complex mocking       |
 
 ## Common Patterns
 

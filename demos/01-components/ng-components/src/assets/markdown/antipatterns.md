@@ -7,6 +7,7 @@ This guide highlights common **outdated patterns** that were necessary before re
 ## ❌ Antipattern 1: Manual Observable + .subscribe()
 
 **Problem:**
+
 ```typescript
 // ❌ OLD - Manual subscription management
 export class PetDetailComponent implements OnInit, OnDestroy {
@@ -41,13 +42,14 @@ export class PetDetailComponent implements OnInit, OnDestroy {
         error: (err) => {
           this.error.set(err.message);
           this.isLoading.set(false);
-        }
+        },
       });
   }
 }
 ```
 
 **Why it's bad:**
+
 - ❌ Must manually unsubscribe to prevent memory leaks
 - ❌ 3+ signals to manually coordinate (pet, isLoading, error)
 - ❌ Requires lifecycle hooks (OnInit, OnDestroy)
@@ -55,6 +57,7 @@ export class PetDetailComponent implements OnInit, OnDestroy {
 - ❌ No automatic reactivity when IDs change
 
 **✅ Modern Alternative:**
+
 ```typescript
 // ✅ NEW - Signal-based resource
 export class PetDetailComponent {
@@ -64,19 +67,18 @@ export class PetDetailComponent {
   protected petResource = resource({
     request: () => ({ id: this.petId() }),
     loader: async ({ request }) => {
-      return await firstValueFrom(
-        this.http.get<Pet>(`/api/pets/${request.id}`)
-      );
-    }
+      return await firstValueFrom(this.http.get<Pet>(`/api/pets/${request.id}`));
+    },
   });
 
   protected loadNext() {
-    this.petId.update(id => id + 1); // Auto-refetches!
+    this.petId.update((id) => id + 1); // Auto-refetches!
   }
 }
 ```
 
 **Benefits:**
+
 - ✅ Zero boilerplate - resource handles everything
 - ✅ No manual subscription management
 - ✅ Automatic reactivity - changing `petId()` triggers refetch
@@ -88,6 +90,7 @@ export class PetDetailComponent {
 ## ❌ Antipattern 2: BehaviorSubject for Local State
 
 **Problem:**
+
 ```typescript
 // ❌ OLD - BehaviorSubject for state management
 export class DataComponent {
@@ -99,9 +102,7 @@ export class DataComponent {
   }
 
   loadData() {
-    this.http.get<Data[]>('/api/data').subscribe(
-      data => this.store$.next(data)
-    );
+    this.http.get<Data[]>("/api/data").subscribe((data) => this.store$.next(data));
   }
 }
 
@@ -109,6 +110,7 @@ export class DataComponent {
 ```
 
 **Why it's bad:**
+
 - ❌ RxJS learning curve unnecessary for simple state
 - ❌ Requires async pipe in templates
 - ❌ BehaviorSubject is overly complex for local state
@@ -116,6 +118,7 @@ export class DataComponent {
 - ❌ Less performant than signals
 
 **✅ Modern Alternative:**
+
 ```typescript
 // ✅ NEW - Signals for local state
 export class DataComponent {
@@ -124,10 +127,8 @@ export class DataComponent {
 
   protected dataResource = resource({
     loader: async () => {
-      return await firstValueFrom(
-        this.http.get<Data[]>('/api/data')
-      );
-    }
+      return await firstValueFrom(this.http.get<Data[]>("/api/data"));
+    },
   });
 }
 
@@ -139,24 +140,27 @@ export class DataComponent {
 ## ❌ Antipattern 3: Constructor Injection
 
 **Problem:**
+
 ```typescript
 // ❌ OLD - Constructor parameters
 export class MyComponent {
   constructor(
     private http: HttpClient,
     private router: Router,
-    private userService: UserService
+    private userService: UserService,
   ) {}
 }
 ```
 
 **Why it's bad:**
+
 - ❌ Harder to test - requires constructor parameters in tests
 - ❌ Less tree-shakeable
 - ❌ Less flexible for optional dependencies
 - ❌ More boilerplate in subclasses
 
 **✅ Modern Alternative:**
+
 ```typescript
 // ✅ NEW - inject() function
 export class MyComponent {
@@ -171,11 +175,12 @@ export class MyComponent {
 ## ❌ Antipattern 4: @Input() / @Output() Decorators
 
 **Problem:**
+
 ```typescript
 // ❌ OLD - Class decorators for component I/O
 @Component({
-  selector: 'app-user-card',
-  template: '{{ user.name }}'
+  selector: "app-user-card",
+  template: "{{ user.name }}",
 })
 export class UserCardComponent {
   @Input() user: User;
@@ -190,6 +195,7 @@ export class UserCardComponent {
 ```
 
 **Why it's bad:**
+
 - ❌ Type safety issues - can be undefined until set
 - ❌ More verbose than signals
 - ❌ EventEmitter is overkill for simple outputs
@@ -197,11 +203,12 @@ export class UserCardComponent {
 - ❌ Multiple patterns in codebase (some use decorators, some use signals)
 
 **✅ Modern Alternative:**
+
 ```typescript
 // ✅ NEW - Signal inputs & outputs
 @Component({
-  selector: 'app-user-card',
-  template: '{{ user().name }}'
+  selector: "app-user-card",
+  template: "{{ user().name }}",
 })
 export class UserCardComponent {
   readonly user = input.required<User>();
@@ -217,18 +224,17 @@ export class UserCardComponent {
 
 ---
 
-## ❌ Antipattern 5: *ngIf / *ngFor / *ngSwitch
+## ❌ Antipattern 5: *ngIf / *ngFor / \*ngSwitch
 
 **Problem:**
+
 ```html
 <!-- ❌ OLD - Structural directives -->
 <div *ngIf="isVisible">
   <p>Visible</p>
 </div>
 
-<div *ngFor="let item of items; trackBy: trackById">
-  {{ item.name }}
-</div>
+<div *ngFor="let item of items; trackBy: trackById">{{ item.name }}</div>
 
 <div [ngSwitch]="type">
   <div *ngSwitchCase="'a'">Type A</div>
@@ -237,6 +243,7 @@ export class UserCardComponent {
 ```
 
 **Why it's bad:**
+
 - ❌ Asterisk syntax confusing for newcomers
 - ❌ Less performant than control flow blocks
 - ❌ trackBy is optional and often forgotten
@@ -244,27 +251,20 @@ export class UserCardComponent {
 - ❌ Angular directive soup - looks like template syntax but isn't
 
 **✅ Modern Alternative:**
+
 ```html
 <!-- ✅ NEW - Control flow blocks -->
 @if (isVisible) {
-  <p>Visible</p>
-}
-
-@for (item of items; track item.id) {
-  {{ item.name }}
-}
-
-@switch (type) {
-  @case ('a') {
-    <div>Type A</div>
-  }
-  @default {
-    <div>Other</div>
-  }
-}
+<p>Visible</p>
+} @for (item of items; track item.id) { {{ item.name }} } @switch (type) { @case ('a') {
+<div>Type A</div>
+} @default {
+<div>Other</div>
+} }
 ```
 
 **Benefits:**
+
 - ✅ Cleaner, more readable syntax
 - ✅ track is required (prevents bugs)
 - ✅ No CommonModule needed
@@ -276,11 +276,12 @@ export class UserCardComponent {
 ## ❌ Antipattern 6: ChangeDetectionStrategy.Default
 
 **Problem:**
+
 ```typescript
 // ❌ OLD - Default change detection (zone.js)
 @Component({
-  selector: 'app-user-list',
-  template: '...'
+  selector: "app-user-list",
+  template: "...",
   // NO changeDetection specified = Default (OnPush not used)
 })
 export class UserListComponent {
@@ -290,18 +291,20 @@ export class UserListComponent {
 ```
 
 **Why it's bad:**
+
 - ❌ Angular runs change detection on every event
 - ❌ Massive performance hit in large applications
 - ❌ Inefficient for modern, signal-based architecture
 - ❌ Incompatible with zoneless applications
 
 **✅ Modern Alternative:**
+
 ```typescript
 // ✅ NEW - OnPush change detection
 @Component({
-  selector: 'app-user-list',
-  template: '...',
-  changeDetection: ChangeDetectionStrategy.OnPush
+  selector: "app-user-list",
+  template: "...",
+  changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class UserListComponent {
   // Change detection ONLY:
@@ -317,35 +320,38 @@ export class UserListComponent {
 ## ❌ Antipattern 7: CommonModule Imports
 
 **Problem:**
+
 ```typescript
 // ❌ OLD - CommonModule required for directives
-import { CommonModule } from '@angular/common';
+import { CommonModule } from "@angular/common";
 
 @Component({
-  selector: 'app-list',
+  selector: "app-list",
   imports: [CommonModule], // Must import to use ngIf, ngFor, etc.
   template: `
     <div *ngIf="items">
       <p *ngFor="let item of items">{{ item }}</p>
     </div>
-  `
+  `,
 })
 export class ListComponent {
-  items = ['a', 'b'];
+  items = ["a", "b"];
 }
 ```
 
 **Why it's bad:**
+
 - ❌ Extra dependency just for directives
 - ❌ Not tree-shakeable
 - ❌ CommonModule is massive (~100KB)
 - ❌ Unnecessary with modern control flow blocks
 
 **✅ Modern Alternative:**
+
 ```typescript
 // ✅ NEW - No CommonModule needed
 @Component({
-  selector: 'app-list',
+  selector: "app-list",
   // imports: [CommonModule] <-- Remove!
   template: `
     @if (items) {
@@ -353,10 +359,10 @@ export class ListComponent {
         <p>{{ item }}</p>
       }
     }
-  `
+  `,
 })
 export class ListComponent {
-  protected items = signal(['a', 'b']);
+  protected items = signal(["a", "b"]);
 }
 ```
 
