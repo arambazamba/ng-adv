@@ -16,9 +16,7 @@ import { MarbleTestingComponent } from './samples/marble-testing/marble-testing.
 import { MouseDomObservablesComponent } from './samples/mouse-dom-observables/mouse-dom-observables.component';
 import { ObservableToSignalComponent } from './samples/observable-to-signal/observable-to-signal.component';
 import { OperatorsComponent } from './samples/operators/operators.component';
-import { RequestStatusPatternComponent } from './samples/request-status-pattern/request-status-pattern.component';
 import { ResponsiveScreenComponent } from './samples/responsive-screen/responsive-screen.component';
-import { StatefulComponent } from './samples/stateful/stateful.component';
 import { SubjectToOutputComponent } from './samples/subject-to-output/subject-to-output.component';
 import { SubjectsComponent } from './samples/subjects/subjects.component';
 import { TimerIntervalComponent } from './samples/timer-interval/timer-interval.component';
@@ -30,30 +28,28 @@ export const demoRoutes: Routes = [
         path: '',
         component: DemoContainerComponent,
         children: [
-            { path: 'responsive-screen', component: ResponsiveScreenComponent },
-            { path: 'subjects', component: SubjectsComponent },
             { path: 'imperative', component: ImperativeComponent },
             { path: 'reactive', component: DeclarativeComponent },
-            { path: 'creating', component: CreatingObservableComponent },
-            { path: 'mouse-dom', component: MouseDomObservablesComponent },
-            { path: 'operators', component: OperatorsComponent },
-            { path: 'debounced', component: DebouncedSearchComponent },
-            { path: 'unsubscribe', component: UnsubscribingComponent },
             { path: 'async-pipe', component: AsyncPipeComponent },
-            { path: 'custom-operators', component: CustomOperatorsComponent },
-            { path: 'err-handling', component: ErrHandlingComponent },
-            { path: 'combining', component: CombiningComponent },
+            { path: 'unsubscribe', component: UnsubscribingComponent },
+            { path: 'subjects', component: SubjectsComponent },
+            { path: 'creating', component: CreatingObservableComponent },
+            { path: 'operators', component: OperatorsComponent },
             { path: 'transformation', component: TransformationComponent },
-            { path: 'action-streams', component: ActionStreamsComponent },
+            { path: 'combining', component: CombiningComponent },
+            { path: 'err-handling', component: ErrHandlingComponent },
+            { path: 'custom-operators', component: CustomOperatorsComponent },
+            { path: 'timer-interval', component: TimerIntervalComponent },
             { path: 'marble-testing', component: MarbleTestingComponent },
-            { path: 'stateful-service', component: StatefulComponent },
+            { path: 'action-streams', component: ActionStreamsComponent },
+            { path: 'debounced', component: DebouncedSearchComponent },
+            { path: 'mouse-dom', component: MouseDomObservablesComponent },
+            { path: 'responsive-screen', component: ResponsiveScreenComponent },
             { path: 'event-bus', component: EventBusComponent },
+            { path: 'http-with-rxjs', component: HttpWithRxjsComponent },
             { path: 'observable-to-signal', component: ObservableToSignalComponent },
             { path: 'httpresource-pattern', component: HttpresourcePatternComponent },
             { path: 'subject-to-output', component: SubjectToOutputComponent },
-            { path: 'timer-interval', component: TimerIntervalComponent },
-            { path: 'http-with-rxjs', component: HttpWithRxjsComponent },
-            { path: 'request-status-pattern', component: RequestStatusPatternComponent },
         ],
     },
 ];
