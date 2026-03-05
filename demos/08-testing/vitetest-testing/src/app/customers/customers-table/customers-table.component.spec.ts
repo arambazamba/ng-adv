@@ -63,7 +63,8 @@ describe('Component - DOM - CustomersTableComponent', () => {
     const editSpy = vi.fn();
     component.edit.subscribe(editSpy);
 
-    const editBtn = fixture.debugElement.queryAll(By.css('button[color=primary]'))[0];
+    const firstRow = fixture.debugElement.query(By.css('mat-row'));
+    const editBtn = firstRow.query(By.css('button[color=primary]'));
     editBtn.nativeElement.click();
 
     expect(editSpy).toHaveBeenCalledWith(mockCustomers[0]);

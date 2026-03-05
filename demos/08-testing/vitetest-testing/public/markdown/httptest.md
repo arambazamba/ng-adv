@@ -5,6 +5,7 @@ Test Angular services that use `HttpClient` with `HttpTestingController` to mock
 ## Overview
 
 When testing services that fetch data from APIs, you need to:
+
 1. Mock the HTTP layer with `HttpTestingController`
 2. Control the request flow and flush mock responses
 3. Assert that correct URLs, methods, and payloads were sent
@@ -15,18 +16,18 @@ When testing services that fetch data from APIs, you need to:
 Import testing utilities and configure TestBed with HTTP providers:
 
 ```typescript
-import { TestBed } from '@angular/core/testing';
-import { HttpClientTestingModule, HttpTestingController } from '@angular/common/http/testing';
-import { CustomersService } from './customers.service';
+import { TestBed } from "@angular/core/testing";
+import { HttpClientTestingModule, HttpTestingController } from "@angular/common/http/testing";
+import { CustomersService } from "./customers.service";
 
-describe('CustomersService', () => {
+describe("CustomersService", () => {
   let service: CustomersService;
   let httpMock: HttpTestingController;
 
   beforeEach(() => {
     TestBed.configureTestingModule({
       imports: [HttpClientTestingModule],
-      providers: [CustomersService]
+      providers: [CustomersService],
     });
     service = TestBed.inject(CustomersService);
     httpMock = TestBed.inject(HttpTestingController);
@@ -42,22 +43,22 @@ describe('CustomersService', () => {
 ## Testing GET Requests
 
 ```typescript
-it('should fetch customers from API', () => {
+it("should fetch customers from API", () => {
   const mockCustomers = [
-    { id: 1, name: 'John' },
-    { id: 2, name: 'Jane' }
+    { id: 1, name: "John" },
+    { id: 2, name: "Jane" },
   ];
 
-  service.getCustomers().subscribe(customers => {
+  service.getCustomers().subscribe((customers) => {
     expect(customers).toEqual(mockCustomers);
   });
 
   // Assert exactly one request was made
-  const req = httpMock.expectOne('/api/customers');
-  
+  const req = httpMock.expectOne("/api/customers");
+
   // Verify request method
-  expect(req.request.method).toBe('GET');
-  
+  expect(req.request.method).toBe("GET");
+
   // Deliver mock response
   req.flush(mockCustomers);
 });
@@ -66,21 +67,21 @@ it('should fetch customers from API', () => {
 ## Testing POST Requests
 
 ```typescript
-it('should create a new customer', () => {
-  const newCustomer = { name: 'Alice' };
+it("should create a new customer", () => {
+  const newCustomer = { name: "Alice" };
   const mockResponse = { id: 3, ...newCustomer };
 
-  service.createCustomer(newCustomer).subscribe(result => {
+  service.createCustomer(newCustomer).subscribe((result) => {
     expect(result.id).toBe(3);
-    expect(result.name).toBe('Alice');
+    expect(result.name).toBe("Alice");
   });
 
-  const req = httpMock.expectOne('/api/customers');
-  expect(req.request.method).toBe('POST');
-  
+  const req = httpMock.expectOne("/api/customers");
+  expect(req.request.method).toBe("POST");
+
   // Assert request body contains sent data
   expect(req.request.body).toEqual(newCustomer);
-  
+
   req.flush(mockResponse);
 });
 ```
@@ -88,19 +89,19 @@ it('should create a new customer', () => {
 ## Testing PUT/UPDATE Requests
 
 ```typescript
-it('should update a customer', () => {
+it("should update a customer", () => {
   const customerId = 1;
-  const updates = { name: 'Updated Name' };
+  const updates = { name: "Updated Name" };
   const mockResponse = { id: customerId, ...updates };
 
-  service.updateCustomer(customerId, updates).subscribe(result => {
-    expect(result.name).toBe('Updated Name');
+  service.updateCustomer(customerId, updates).subscribe((result) => {
+    expect(result.name).toBe("Updated Name");
   });
 
   const req = httpMock.expectOne(`/api/customers/${customerId}`);
-  expect(req.request.method).toBe('PUT');
+  expect(req.request.method).toBe("PUT");
   expect(req.request.body).toEqual(updates);
-  
+
   req.flush(mockResponse);
 });
 ```
@@ -108,7 +109,7 @@ it('should update a customer', () => {
 ## Testing DELETE Requests
 
 ```typescript
-it('should delete a customer', () => {
+it("should delete a customer", () => {
   const customerId = 1;
 
   service.deleteCustomer(customerId).subscribe(() => {
@@ -117,8 +118,8 @@ it('should delete a customer', () => {
   });
 
   const req = httpMock.expectOne(`/api/customers/${customerId}`);
-  expect(req.request.method).toBe('DELETE');
-  
+  expect(req.request.method).toBe("DELETE");
+
   req.flush(null); // DELETE typically returns empty response
 });
 ```
@@ -126,28 +127,28 @@ it('should delete a customer', () => {
 ## Testing Error Scenarios
 
 ```typescript
-it('should handle 404 errors', () => {
+it("should handle 404 errors", () => {
   service.getCustomer(999).subscribe(
     () => expect(true).toBe(false), // Should not succeed
-    error => {
+    (error) => {
       expect(error.status).toBe(404);
-    }
+    },
   );
 
-  const req = httpMock.expectOne('/api/customers/999');
-  req.flush('Customer not found', { status: 404, statusText: 'Not Found' });
+  const req = httpMock.expectOne("/api/customers/999");
+  req.flush("Customer not found", { status: 404, statusText: "Not Found" });
 });
 
-it('should handle server errors', () => {
+it("should handle server errors", () => {
   service.getCustomers().subscribe(
     () => expect(true).toBe(false),
-    error => {
+    (error) => {
       expect(error.status).toBe(500);
-    }
+    },
   );
 
-  const req = httpMock.expectOne('/api/customers');
-  req.error(new ErrorEvent('Server error'), { status: 500 });
+  const req = httpMock.expectOne("/api/customers");
+  req.error(new ErrorEvent("Server error"), { status: 500 });
 });
 ```
 

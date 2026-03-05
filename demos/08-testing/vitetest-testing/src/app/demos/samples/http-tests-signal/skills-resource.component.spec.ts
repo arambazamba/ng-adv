@@ -39,9 +39,10 @@ describe('Component - httpResource - SkillsResourceComponent', () => {
     controller.expectOne(url).flush(mockSkills);
   });
 
-  it('should render skill rows after data arrives', () => {
+  it('should render skill rows after data arrives', async () => {
     fixture.detectChanges();
     controller.expectOne(url).flush(mockSkills);
+    await fixture.whenStable();
     fixture.detectChanges();
 
     const rows = fixture.debugElement.queryAll(By.css('[data-testid=skill-row]'));

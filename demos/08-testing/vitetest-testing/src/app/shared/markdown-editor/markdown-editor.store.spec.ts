@@ -3,7 +3,7 @@ import { HttpTestingController, provideHttpClientTesting } from '@angular/common
 import { TestBed } from '@angular/core/testing';
 import { Dispatcher } from '@ngrx/signals/events';
 import { describe, it, expect, beforeEach, afterEach, vi } from 'vitest';
-import { of, throwError } from 'rxjs';
+import { of, Subject } from 'rxjs';
 import { MarkdownEditorService } from './markdown-editor.service';
 import { markdownEditorStore } from './markdown-editor.store';
 import { mdEditorEvents } from './markdown-editor.events';
@@ -23,9 +23,9 @@ describe('Signal Store - markdownEditorStore', () => {
   beforeEach(() => {
     serviceSpy = {
       getMarkdownItems: vi.fn().mockReturnValue(of(mockItems)),
-      saveMarkdownItem: vi.fn(),
-      deleteMarkdownItem: vi.fn(),
-      getMarkdownContent: vi.fn(),
+      saveMarkdownItem: vi.fn().mockReturnValue(of(mockItems[0])),
+      deleteMarkdownItem: vi.fn().mockReturnValue(of(true)),
+      getMarkdownContent: vi.fn().mockReturnValue(of('# Content')),
     };
 
     TestBed.configureTestingModule({
@@ -55,9 +55,17 @@ describe('Signal Store - markdownEditorStore', () => {
   });
 
   it('should set isLoading to true when fetch event is dispatched', () => {
-    dispatcher.dispatch(mdEditorEvents.fetch());
+    TestBed.flushEffects(); // complete init with of(mockItems) — isLoading is now false
+
+    const subject = new Subject<MarkdownItem[]>();
+    serviceSpy.getMarkdownItems.mockReturnValue(subject.asObservable());
+
+    dispatcher.dispatch(mdEditorEvents.fetch()); // reducer sets isLoading=true, effect waits on subject
     expect(store.isLoading()).toBe(true);
-    TestBed.flushEffects();
+
+    subject.next(mockItems);
+    subject.complete();
+    expect(store.isLoading()).toBe(false);
   });
 
   it('should add items to the entity collection after fetchSuccess', () => {
@@ -103,9 +111,20 @@ describe('Signal Store - markdownEditorStore', () => {
   });
 
   it('should clear markdownContent when loadContent is dispatched', () => {
-    dispatcher.dispatch(mdEditorEvents.loadContentSuccess('# Previous'));
-    dispatcher.dispatch(mdEditorEvents.loadContent('some-file'));
+    // Use a Subject so getMarkdownContent never emits — markdownContent stays null after reducer runs
+    const subject = new Subject<string>();
+    serviceSpy.getMarkdownContent.mockReturnValue(subject.asObservable());
 
+    TestBed.flushEffects(); // complete onInit fetch
+
+    dispatcher.dispatch(mdEditorEvents.loadContentSuccess('# Previous'));
+    expect(store.markdownContent()).toBe('# Previous');
+
+    // loadContent: reducer sets markdownContent=null, effect subscribes to subject (no emission)
+    dispatcher.dispatch(mdEditorEvents.loadContent('some-file'));
+    TestBed.flushEffects();
     expect(store.markdownContent()).toBeNull();
+
+    subject.complete();
   });
 });

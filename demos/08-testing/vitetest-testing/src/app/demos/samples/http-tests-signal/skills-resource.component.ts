@@ -10,12 +10,12 @@ import { environment } from '../../../../environments/environment';
     @if (skills.isLoading()) {
       <p data-testid="loading">Loading...</p>
     } @else {
-      @for (skill of skills.value() ?? []; track skill.id) {
+      @for (skill of skills.value(); track skill.id) {
         <div data-testid="skill-row">{{ skill.name }}</div>
       }
     }
   `,
 })
 export class SkillsResourceComponent {
-  skills = httpResource<Skill[]>(`${environment.api}skills`);
+  skills = httpResource<Skill[]>(() => `${environment.api}skills`);
 }

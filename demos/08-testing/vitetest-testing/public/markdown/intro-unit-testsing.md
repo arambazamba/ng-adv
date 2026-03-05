@@ -2,9 +2,10 @@
 
 Get started with Vitest and Angular testing fundamentals. Write your first unit test for a plain TypeScript class without any Angular complexity.
 
-## Overview 
+## Overview
 
 Unit testing basics:
+
 - **describe()** - Groups related tests together
 - **it()** - Individual test case
 - **expect()** - Assertion that verifies a condition
@@ -18,29 +19,29 @@ Examine `simple-class.ts` and `simple-class.spec.ts`:
 // simple-class.ts
 export class SimpleClass {
   sayHelloWorld(): string {
-    return 'Hello World!';
+    return "Hello World!";
   }
 }
 ```
 
 ```typescript
 // simple-class.spec.ts
-import { describe, it, expect, beforeEach } from 'vitest';
-import { SimpleClass } from './simple-class';
+import { describe, it, expect, beforeEach } from "vitest";
+import { SimpleClass } from "./simple-class";
 
-describe('Class - Hello world Test', () => {
+describe("Class - Hello world Test", () => {
   let sc: SimpleClass;
 
   beforeEach(() => {
     sc = new SimpleClass();
   });
 
-  it('contains 12 characters', () => {
+  it("contains 12 characters", () => {
     expect(sc.sayHelloWorld().length).toEqual(12);
   });
 
-  it('says Hello World!', () => {
-    expect(sc.sayHelloWorld()).toEqual('Hello World!');
+  it("says Hello World!", () => {
+    expect(sc.sayHelloWorld()).toEqual("Hello World!");
   });
 });
 ```
@@ -48,7 +49,7 @@ describe('Class - Hello world Test', () => {
 ## Test Structure Breakdown
 
 ```typescript
-describe('MyFeature', () => {
+describe("MyFeature", () => {
   // Test group name
 
   let myObject: MyClass;
@@ -58,16 +59,16 @@ describe('MyFeature', () => {
     myObject = new MyClass();
   });
 
-  it('should do something specific', () => {
+  it("should do something specific", () => {
     // Arrange: prepare test data (already done in beforeEach)
     // Act: call the method being tested
     const result = myObject.doSomething();
-    
+
     // Assert: verify the result
-    expect(result).toBe('expected value');
+    expect(result).toBe("expected value");
   });
 
-  it('should handle edge cases', () => {
+  it("should handle edge cases", () => {
     expect(myObject.getValue()).toBeNull();
   });
 });
@@ -86,8 +87,8 @@ expect(value).toBeTruthy();
 expect(value).toBeFalsy();
 
 // String matching
-expect('hello world').toContain('world');
-expect('hello@example.com').toMatch(/example\.com/);
+expect("hello world").toContain("world");
+expect("hello@example.com").toMatch(/example\.com/);
 
 // Arrays
 expect([1, 2, 3]).toHaveLength(3);
@@ -95,7 +96,7 @@ expect([1, 2, 3]).toContain(2);
 
 // Exceptions
 expect(() => throwingFn()).toThrow();
-expect(() => throwingFn()).toThrowError('specific message');
+expect(() => throwingFn()).toThrowError("specific message");
 ```
 
 ## Additional Examples
@@ -113,27 +114,27 @@ export class VoucherValidator {
 
 ```typescript
 // voucher-validator.spec.ts
-describe('VoucherValidator', () => {
+describe("VoucherValidator", () => {
   let validator: VoucherValidator;
 
   beforeEach(() => {
     validator = new VoucherValidator();
   });
 
-  it('returns true for valid voucher code', () => {
-    expect(validator.isValidVoucher('ABCDE')).toBe(true);
+  it("returns true for valid voucher code", () => {
+    expect(validator.isValidVoucher("ABCDE")).toBe(true);
   });
 
-  it('returns false for lowercase code', () => {
-    expect(validator.isValidVoucher('abcde')).toBe(false);
+  it("returns false for lowercase code", () => {
+    expect(validator.isValidVoucher("abcde")).toBe(false);
   });
 
-  it('returns false for code too short', () => {
-    expect(validator.isValidVoucher('ABC')).toBe(false);
+  it("returns false for code too short", () => {
+    expect(validator.isValidVoucher("ABC")).toBe(false);
   });
 
-  it('returns false for code too long', () => {
-    expect(validator.isValidVoucher('ABCDEF')).toBe(false);
+  it("returns false for code too long", () => {
+    expect(validator.isValidVoucher("ABCDEF")).toBe(false);
   });
 });
 ```

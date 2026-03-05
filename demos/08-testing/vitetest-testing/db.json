@@ -47,7 +47,7 @@
     },
     {
       "url": "spy",
-      "title": "Comp Spy — Customers",
+      "title": "Comp Spy Customers",
       "teaches": "Test CustomersComponent by providing a mock customersStore signal object. Use vi.fn() spies to assert that store methods are called correctly when component methods fire.",
       "topic": "Component Testing",
       "sortOrder": 6,
@@ -65,7 +65,7 @@
     },
     {
       "url": "component-events",
-      "title": "Comp Interaction — Customers",
+      "title": "Comp Interaction Customers",
       "teaches": "Test CustomersComponent interactions end-to-end. Emit events from child presenter and assert that the container calls the correct store methods.",
       "topic": "Component Testing",
       "sortOrder": 8,
@@ -74,7 +74,7 @@
     },
     {
       "url": "component-test",
-      "title": "Comp CRUD — Customers",
+      "title": "CRUD Customers",
       "teaches": "Test SimpleCustomersComponent which uses Angular's resource() API for data loading. Spy on CustomersService to control HTTP responses and verify add/delete interactions.",
       "topic": "Component Testing",
       "sortOrder": 9,
@@ -101,7 +101,7 @@
     },
     {
       "url": "async",
-      "title": "Comp Async — Customers",
+      "title": "Comp Async Customers",
       "teaches": "Test asynchronous loading in CustomersComponent using fakeAsync/tick. Verify that progress bar appears while loading and rows render after data arrives.",
       "topic": "Async Testing",
       "sortOrder": 12,

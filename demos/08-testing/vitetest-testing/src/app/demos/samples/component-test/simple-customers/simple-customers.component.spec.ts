@@ -56,6 +56,7 @@ describe('Component - Resource & Spy - SimpleCustomersComponent', () => {
   it('should reload the resource after deletion', async () => {
     await fixture.whenStable();
     component.deleteCustomer(customerData[1]);
+    await fixture.whenStable();
     expect(serviceSpy.getCustomers).toHaveBeenCalledTimes(2);
   });
 });

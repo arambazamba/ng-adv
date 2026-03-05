@@ -1,4 +1,4 @@
-import { ComponentFixture, fakeAsync, TestBed, tick } from '@angular/core/testing';
+import { ComponentFixture, TestBed } from '@angular/core/testing';
 import { NoopAnimationsModule } from '@angular/platform-browser/animations';
 import { By } from '@angular/platform-browser';
 import { signal } from '@angular/core';
@@ -51,52 +51,46 @@ describe('Component - Async - CustomersComponent', () => {
     expect(bar).toBeTruthy();
   });
 
-  it('should hide progress bar when loading completes', fakeAsync(() => {
+  it('should hide progress bar when loading completes', () => {
     loading.set(false);
     customers.set(mockCustomers);
-    tick();
     fixture.detectChanges();
 
     const bar = fixture.debugElement.query(By.css('mat-progress-bar'));
     expect(bar).toBeNull();
-  }));
+  });
 
-  it('should render customer rows after data loads', fakeAsync(() => {
+  it('should render customer rows after data loads', () => {
     loading.set(false);
     customers.set(mockCustomers);
-    tick();
     fixture.detectChanges();
 
     const rows = fixture.debugElement.queryAll(By.css('mat-row'));
     expect(rows.length).toBe(2);
-  }));
+  });
 
-  it('should show edit form after customer is selected asynchronously', fakeAsync(() => {
+  it('should show edit form after customer is selected asynchronously', () => {
     loading.set(false);
     customers.set(mockCustomers);
-    tick();
     fixture.detectChanges();
 
     selectedCustomer.set(mockCustomers[0]);
-    tick();
     fixture.detectChanges();
 
     const editForm = fixture.debugElement.query(By.css('app-customer-edit'));
     expect(editForm).toBeTruthy();
-  }));
+  });
 
-  it('should hide edit form after async save completes', fakeAsync(() => {
+  it('should hide edit form after async save completes', () => {
     loading.set(false);
     customers.set(mockCustomers);
     selectedCustomer.set(mockCustomers[0]);
-    tick();
     fixture.detectChanges();
 
     selectedCustomer.set(null);
-    tick();
     fixture.detectChanges();
 
     const editForm = fixture.debugElement.query(By.css('app-customer-edit'));
     expect(editForm).toBeNull();
-  }));
+  });
 });
