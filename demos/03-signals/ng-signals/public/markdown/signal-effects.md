@@ -5,12 +5,13 @@
 ```typescript
 completedFilter = signal<boolean | undefined>(undefined);
 
-skillsResource = httpResource<Skill[]>(() => {
-  const filter = this.completedFilter();
-  return filter !== undefined
-    ? `${environment.api}skills?completed=${filter}`
-    : undefined;
-}, { defaultValue: [] });
+skillsResource = httpResource<Skill[]>(
+  () => {
+    const filter = this.completedFilter();
+    return filter !== undefined ? `${environment.api}skills?completed=${filter}` : undefined;
+  },
+  { defaultValue: [] },
+);
 ```
 
 - When `completedFilter.set(true)` is called, `httpResource()` **automatically re-executes** because it depends on the signal
@@ -28,7 +29,7 @@ onStatusChange(event: MatSelectChange) {
 
 ```html
 @for (skill of skillsResource.value(); track $index) {
-  <div>{{ skill.name }}</div>
+<div>{{ skill.name }}</div>
 }
 ```
 
