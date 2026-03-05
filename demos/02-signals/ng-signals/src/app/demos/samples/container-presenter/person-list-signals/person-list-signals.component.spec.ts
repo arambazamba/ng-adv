@@ -11,8 +11,8 @@ describe('PersonListSignalsComponent', () => {
     await TestBed.configureTestingModule({
       imports: [PersonListSignalsComponent]
     })
-    .compileComponents();
-    
+      .compileComponents();
+
     fixture = TestBed.createComponent(PersonListSignalsComponent);
     component = fixture.componentInstance;
   });

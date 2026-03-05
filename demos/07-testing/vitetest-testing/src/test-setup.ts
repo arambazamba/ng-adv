@@ -4,7 +4,7 @@ import { getTestBed } from '@angular/core/testing';
 let testBedInitialized = false;
 
 if (!testBedInitialized) {
-  getTestBed().initTestEnvironment(BrowserDynamicTestingModule, platformBrowserDynamicTesting());
-  testBedInitialized = true;
+    getTestBed().initTestEnvironment(BrowserDynamicTestingModule, platformBrowserDynamicTesting());
+    testBedInitialized = true;
 }
 

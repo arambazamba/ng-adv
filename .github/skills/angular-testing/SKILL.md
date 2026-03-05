@@ -119,12 +119,12 @@ import { ComponentFixture, TestBed } from '@angular/core/testing';
 
 Replace Jasmine spy syntax with Vitest:
 
-| Jasmine | Vitest |
-|---------|--------|
-| `spyOn(obj, 'method')` | `vi.spyOn(obj, 'method')` |
-| `.and.returnValue(val)` | `.mockReturnValue(val)` |
-| `.and.throwError(err)` | `.mockRejectedValue(err)` |
-| `.and.callThrough()` | `.mockImplementation((args) => original(args))` |
+| Jasmine                 | Vitest                                          |
+| ----------------------- | ----------------------------------------------- |
+| `spyOn(obj, 'method')`  | `vi.spyOn(obj, 'method')`                       |
+| `.and.returnValue(val)` | `.mockReturnValue(val)`                         |
+| `.and.throwError(err)`  | `.mockRejectedValue(err)`                       |
+| `.and.callThrough()`    | `.mockImplementation((args) => original(args))` |
 
 ### Migration Example
 
@@ -206,38 +206,41 @@ import { ComponentFixture, TestBed } from '@angular/core/testing';
 import { Counter } from './counter.component';
 
 describe('Counter', () => {
-  let component: Counter;
-  let fixture: ComponentFixture<Counter>;
+let component: Counter;
+let fixture: ComponentFixture<Counter>;
 
-  beforeEach(async () => {
-    await TestBed.configureTestingModule({
-      imports: [Counter], // Standalone component
-    }).compileComponents();
+beforeEach(async () => {
+await TestBed.configureTestingModule({
+imports: [Counter], // Standalone component
+}).compileComponents();
 
     fixture = TestBed.createComponent(Counter);
     component = fixture.componentInstance;
     fixture.detectChanges();
-  });
 
-  it('should create', () => {
-    expect(component).toBeTruthy();
-  });
+});
 
-  it('should increment count', () => {
-    expect(component.count()).toBe(0);
-    component.increment();
-    expect(component.count()).toBe(1);
-  });
+it('should create', () => {
+expect(component).toBeTruthy();
+});
 
-  it('should display count in template', () => {
-    component.count.set(5);
-    fixture.detectChanges();
+it('should increment count', () => {
+expect(component.count()).toBe(0);
+component.increment();
+expect(component.count()).toBe(1);
+});
+
+it('should display count in template', () => {
+component.count.set(5);
+fixture.detectChanges();
 
     const element = fixture.nativeElement.querySelector('.count');
     expect(element.textContent).toContain('5');
-  });
+
 });
-```
+});
+
+````
 
 ## Testing Signals
 
@@ -260,7 +263,7 @@ describe('Signal logic', () => {
     expect(doubled()).toBe(12);
   });
 });
-```
+````
 
 ### Testing Component Signals
 
@@ -641,6 +644,7 @@ describe('UserCmpt', () => {
 ### Vitest vs Jasmine
 
 **Use Vitest for new projects.** It provides:
+
 - No Karma server dependency
 - Faster test execution
 - Better TypeScript support
@@ -658,6 +662,7 @@ describe('UserCmpt', () => {
 ### Common Patterns
 
 **Always use standalone components:**
+
 ```typescript
 @Component({
   selector: 'app-example',
@@ -669,6 +674,7 @@ export class ExampleComponent { }
 ```
 
 **Always use OnPush for testability:**
+
 ```typescript
 changeDetection: ChangeDetectionStrategy.OnPush,
 // Requires explicit fixture.detectChanges() calls
@@ -676,6 +682,7 @@ changeDetection: ChangeDetectionStrategy.OnPush,
 ```
 
 **Prefer input()/output() over @Input/@Output:**
+
 ```typescript
 // ✅ Modern
 item = input.required<Item>();
@@ -689,16 +696,19 @@ selected = output<Item>();
 ### Debugging Tests
 
 Run with detailed output:
+
 ```bash
 ng test -- --reporter=verbose
 ```
 
 Run specific test file:
+
 ```bash
 ng test -- src/app/component.spec.ts
 ```
 
 Debug in browser:
+
 ```bash
 ng test -- --watch --browser=chrome
 ```
