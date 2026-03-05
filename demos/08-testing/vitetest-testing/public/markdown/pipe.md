@@ -1,19 +1,20 @@
-Navigate to folder `\pipe` and examine `phonenumber.pipe.ts` and `phonenumber.pipe.spec.ts`
+# Test Pipe — PhonenumberPipe
+
+Unit test Angular pipes in isolation by instantiating the pipe class directly and asserting transform output.
+
+## Spec file
+
+Navigate to `pipe/` and examine `phonenumber.pipe.spec.ts`
 
 ```typescript
-export class PhonenumberPipe implements PipeTransform {
-  transform(value: any, args?: any): any {
-    if (undefined !== value && value.length === 10) {
-      return (
-        '(' +
-        value.substring(0, 3) +
-        ') ' +
-        value.substring(3, 6) +
-        ' ' +
-        value.substring(6)
-      );
-    }
-    return '';
-  }
-}
+const pipe = new PhonenumberPipe();
+expect(pipe.transform("1234567890")).toBe("(123) 456 7890");
+expect(pipe.transform("abc")).toBe("");
 ```
+
+## Key Concepts
+
+- Pipes are plain classes — instantiate directly without TestBed
+- Call `.transform()` with test inputs and assert output
+- Test edge cases: undefined, wrong length, valid input
+- No DOM or Angular setup required

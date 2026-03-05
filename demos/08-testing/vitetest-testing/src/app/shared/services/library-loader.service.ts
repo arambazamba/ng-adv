@@ -22,7 +22,7 @@ export class LibraryLoaderService {
         }
         const link = document.createElement('link');
         link.rel = 'stylesheet';
-        link.href = 'node_modules/prismjs/themes/prism-okaidia.min.css';
+        link.href = '/theme/prism-okaidia.min.css';
         document.head.appendChild(link);
         this.prismJsCssLoaded = true;
     }

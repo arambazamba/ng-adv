@@ -1,8 +1,10 @@
 # Playwright E2E Testing
 
-Playwright tests live in [`e2e/`](https://github.com) alongside the app.
+Write end-to-end tests with Playwright using the Page Object Model and fixtures. Reset API state between tests for full isolation.
 
-## Key concepts
+Playwright tests live in [`e2e/`](e2e/) alongside the app.
+
+## Key Concepts
 
 ### Page Object Model (POM)
 
@@ -13,16 +15,16 @@ export class CustomersPage {
   constructor(private page: Page) {}
 
   editButton(rowName: string | RegExp) {
-    return this.page.getByRole('row', { name: rowName }).getByRole('button').first();
+    return this.page.getByRole("row", { name: rowName }).getByRole("button").first();
   }
 
   async fillName(name: string) {
-    await this.page.getByRole('textbox', { name: 'Name' }).fill(name);
+    await this.page.getByRole("textbox", { name: "Name" }).fill(name);
   }
 
   async save() {
-    await this.page.getByRole('button', { name: 'Save' }).click();
-    await this.page.waitForLoadState('networkidle');
+    await this.page.getByRole("button", { name: "Save" }).click();
+    await this.page.waitForLoadState("networkidle");
   }
 }
 ```
@@ -34,7 +36,7 @@ Extend Playwright's `test` with custom fixtures to inject the POM and reset stat
 ```typescript
 export const test = base.extend<{ customersPage: CustomersPage }>({
   customersPage: async ({ page, request }, use) => {
-    await resetCustomers(request);   // reset json-server via API
+    await resetCustomers(request); // reset json-server via API
     const cp = new CustomersPage(page);
     await cp.goto();
     await use(cp);
@@ -42,7 +44,7 @@ export const test = base.extend<{ customersPage: CustomersPage }>({
 });
 ```
 
-### API reset for isolation
+### API Reset for Isolation
 
 Each test gets a clean slate by deleting and re-seeding data through the REST API before it runs.
 
@@ -58,18 +60,18 @@ async function resetCustomers(request: APIRequestContext) {
 }
 ```
 
-### Writing tests
+### Writing Tests
 
 ```typescript
-import { test, expect } from './customers.fixture';
+import { test, expect } from "./customers.fixture";
 
-test('updates the row after save', async ({ customersPage }) => {
+test("updates the row after save", async ({ customersPage }) => {
   await customersPage.editButton(/Cleo/).click();
-  await customersPage.fillName('Cleo Updated');
+  await customersPage.fillName("Cleo Updated");
   await customersPage.save();
 
-  await customersPage.expectRowVisible('Cleo Updated');
-  await customersPage.expectRowHidden('Cleo');
+  await customersPage.expectRowVisible("Cleo Updated");
+  await customersPage.expectRowHidden("Cleo");
 });
 ```
 

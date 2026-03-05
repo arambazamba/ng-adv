@@ -230,6 +230,22 @@
       "url": "customers"
     }
   ],
+  "markdownItems": [
+    {
+      "id": 1,
+      "url": "http-tests-signal",
+      "title": "Key Concepts for httpResource Testing",
+      "comment": "httpResource() uses HttpClient internally so HttpTestingController works the same way",
+      "saved": "2020-09-16T20:10:06.925Z"
+    },
+    {
+      "id": 2,
+      "url": "http-tests-signal",
+      "title": "Flushing Responses",
+      "comment": "Call fixture.detectChanges() first to trigger the resource request, then flush with httpMock.expectOne()",
+      "saved": "2020-09-16T20:10:06.925Z"
+    }
+  ],
   "comments": [
     {
       "id": 1,
