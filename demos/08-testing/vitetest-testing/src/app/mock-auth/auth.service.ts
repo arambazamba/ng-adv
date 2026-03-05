@@ -1,34 +1,28 @@
 import { Injectable, inject } from '@angular/core';
-import { AuthFacade } from './state/auth.facade';
+import { authStore } from './auth.store';
 import { Router } from '@angular/router';
 
 @Injectable({
   providedIn: 'root',
 })
 export class AuthService {
-  authFacade = inject(AuthFacade);
+  store = inject(authStore);
   router = inject(Router);
 
   isAuthenticated() {
-    return this.authFacade.isAuthenticated();
+    return this.store.isAuthenticated();
   }
 
-  createUser(email: string, password: string) {
-    this.authFacade.setFakeUserAndToken(email);
-    return this.authFacade.getAuthResult()
-  };
+  createUser(email: string, _password: string) {
+    this.store.setFakeUserAndToken(email);
+  }
 
-  logIn(
-    email: string,
-    password: string
-  ) {
-    this.authFacade.setFakeUserAndToken(email);
-    return this.authFacade.getAuthResult()
-  };
-
+  logIn(email: string, _password: string) {
+    this.store.setFakeUserAndToken(email);
+  }
 
   logOut() {
-    this.authFacade.signOut();
+    this.store.signOut();
     this.router.navigate(['/']);
   }
 }

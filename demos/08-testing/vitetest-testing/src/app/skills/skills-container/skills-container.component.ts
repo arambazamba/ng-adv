@@ -1,14 +1,12 @@
-import { ChangeDetectionStrategy, Component, inject } from '@angular/core';
-import { takeUntilDestroyed, toSignal } from '@angular/core/rxjs-interop';
-import { FormControl, FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { ChangeDetectionStrategy, Component, computed, inject, signal } from '@angular/core';
+import { FormsModule } from '@angular/forms';
 import { MatButton } from '@angular/material/button';
 import { MatSlideToggle } from '@angular/material/slide-toggle';
 import { MatToolbar, MatToolbarRow } from '@angular/material/toolbar';
 import { Router } from '@angular/router';
-import { combineLatestWith, map, startWith } from 'rxjs/operators';
 import { SkillRowComponent } from '../skill-row/skill-row.component';
 import { Skill } from '../skill.model';
-import { SkillsEntityService } from '../skills-entity.service';
+import { skillsStore } from '../skills.store';
 import { SkillsKpiComponent } from '../skills-kpi/skills-kpi.component';
 
 @Component({
@@ -22,39 +20,29 @@ import { SkillsKpiComponent } from '../skills-kpi/skills-kpi.component';
     MatButton,
     MatSlideToggle,
     FormsModule,
-    ReactiveFormsModule,
     SkillRowComponent,
     SkillsKpiComponent,
   ]
 })
 export class SkillsContainerComponent {
-  service = inject(SkillsEntityService);
+  store = inject(skillsStore);
   router = inject(Router);
-  fcToggle = new FormControl(true);
+  showAll = signal(true);
 
-  skills = toSignal(this.service.entities$.pipe(
-    combineLatestWith(this.fcToggle.valueChanges.pipe(startWith(true))),
-    map(([skills, showAll]) => {
-      const filtered = showAll ? skills : skills.filter((sk: Skill) => sk.completed === showAll);
-      return filtered.sort((a, b) => a.id - b.id);
-    })
-  ), { initialValue: [] as Skill[] });
-
-  constructor() {
-    this.service.loaded$.pipe(takeUntilDestroyed()).subscribe((loaded) => {
-      if (!loaded) this.service.getAll();
-    });
-  }
+  skills = computed(() => {
+    const all = this.store.skills();
+    return this.showAll() ? all : all.filter((sk: Skill) => sk.completed);
+  });
 
   addItem(): void {
     this.router.navigate(['/skills', 'new']);
   }
 
   deleteItem(item: Skill): void {
-    this.service.delete(item);
+    this.store.deleteSkill(item);
   }
 
   toggleItemComplete(item: Skill): void {
-    this.service.update({ ...item, completed: !item.completed });
+    this.store.updateSkill({ ...item, completed: !item.completed });
   }
 }

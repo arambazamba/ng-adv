@@ -6,7 +6,8 @@
       "teaches": "Set up Vitest with Angular and write your first unit test. Understand test structure with describe/it blocks and basic assertions.",
       "topic": "Introduction",
       "sortOrder": 1,
-      "id": 1
+      "id": 1,
+      "md": "intro-unit-testsing"
     },
     {
       "url": "pipe",
@@ -14,7 +15,8 @@
       "teaches": "Unit test Angular pipes in isolation by instantiating the pipe class directly and asserting transform output.",
       "topic": "Pipes & Directives",
       "sortOrder": 2,
-      "id": 2
+      "id": 2,
+      "md": "pipe"
     },
     {
       "url": "directive",
@@ -22,7 +24,8 @@
       "teaches": "Test attribute directives by creating a host component in TestBed and asserting DOM changes caused by the directive.",
       "topic": "Pipes & Directives",
       "sortOrder": 3,
-      "id": 88
+      "id": 88,
+      "md": "directive"
     },
     {
       "url": "simple-service",
@@ -30,7 +33,8 @@
       "teaches": "Test a service class without DI by instantiating it directly. Verify methods and state mutations in isolation.",
       "topic": "Services",
       "sortOrder": 4,
-      "id": 3
+      "id": 3,
+      "md": "simpleservice"
     },
     {
       "url": "http-tests",
@@ -38,7 +42,8 @@
       "teaches": "Test Angular services that use HttpClient with HttpTestingController. Flush mock responses and verify request URLs and methods.",
       "topic": "Services",
       "sortOrder": 5,
-      "id": 8
+      "id": 8,
+      "md": "httptest"
     },
     {
       "url": "http-tests-signal",
@@ -46,7 +51,8 @@
       "teaches": "Test a service that uses signals for local state alongside HttpClient. Verify signal reactivity and state management.",
       "topic": "Services",
       "sortOrder": 6,
-      "id": 83
+      "id": 83,
+      "md": "httptest-signal"
     },
     {
       "url": "component-class",
@@ -54,7 +60,8 @@
       "teaches": "Test component logic by instantiating the class directly (no TestBed). Fast and simple for components without template dependencies.",
       "topic": "Component Testing",
       "sortOrder": 7,
-      "id": 77
+      "id": 77,
+      "md": "component-class"
     },
     {
       "url": "spy",
@@ -62,7 +69,8 @@
       "teaches": "Use jasmine.createSpyObj to mock injected services in TestBed. Verify component behaviour when the service spy returns specific values.",
       "topic": "Component Testing",
       "sortOrder": 8,
-      "id": 44
+      "id": 44,
+      "md": "component-spy"
     },
     {
       "url": "component-test",
@@ -70,7 +78,8 @@
       "teaches": "Mock a service dependency in TestBed with createSpyObj and .and.returnValue to control Observable outputs. Assert DOM state and service interactions.",
       "topic": "Component Testing",
       "sortOrder": 9,
-      "id": 5
+      "id": 5,
+      "md": "component-test"
     },
     {
       "url": "component-write",
@@ -78,7 +87,8 @@
       "teaches": "Write to signal state and read DOM output after detectChanges. Use nativeElement queries to assert rendered text and attributes.",
       "topic": "Component Testing",
       "sortOrder": 10,
-      "id": 63
+      "id": 63,
+      "md": "component-write"
     },
     {
       "url": "component-events",
@@ -86,7 +96,8 @@
       "teaches": "Trigger DOM events and verify signal output emissions. Use fixture.debugElement to dispatch synthetic events and assert component reactions.",
       "topic": "Component Testing",
       "sortOrder": 11,
-      "id": 89
+      "id": 89,
+      "md": "component-events"
     },
     {
       "url": "component-input-signals",
@@ -94,7 +105,8 @@
       "teaches": "Set signal inputs on a component under test using fixture.componentRef.setInput(). Assert rendered output and required input validation.",
       "topic": "Component Testing",
       "sortOrder": 12,
-      "id": 633
+      "id": 633,
+      "md": "component-input-signals"
     },
     {
       "url": "material",
@@ -102,7 +114,8 @@
       "teaches": "Use Angular Material component test harnesses to interact with Material UI elements in specs without coupling tests to DOM internals.",
       "topic": "Component Testing",
       "sortOrder": 13,
-      "id": 19
+      "id": 19,
+      "md": "material-harness"
     },
     {
       "url": "async",
@@ -110,7 +123,8 @@
       "teaches": "Handle async operations in tests using fakeAsync/tick and whenStable. Test components that load data asynchronously.",
       "topic": "Async Testing",
       "sortOrder": 14,
-      "id": 9
+      "id": 9,
+      "md": "component-async"
     },
     {
       "url": "material-async",
@@ -118,7 +132,8 @@
       "teaches": "Combine Material test harnesses with async/await to interact with Material components that have asynchronous rendering.",
       "topic": "Async Testing",
       "sortOrder": 15,
-      "id": 12
+      "id": 12,
+      "md": "material-async"
     },
     {
       "url": "integration-tests",
@@ -126,23 +141,18 @@
       "teaches": "Write integration tests that render a parent component with real child components. Verify the full component tree without shallow mocking.",
       "topic": "Integration Testing",
       "sortOrder": 16,
-      "id": 6
+      "id": 6,
+      "md": "component-integration"
     },
-    {
-      "url": "marbles",
-      "title": "Comp Marbles",
-      "teaches": "Use RxJS marble testing to assert Observable timing and emission sequences. Ideal for testing services with complex async pipelines.",
-      "topic": "RxJS Testing",
-      "sortOrder": 17,
-      "id": 79
-    },
+
     {
       "url": "mock-signals-store",
       "title": "Mock Signals Store",
       "teaches": "Mock an NgRx Signal Store in component tests by providing a fake store that returns signals. Assert component output based on signal values.",
       "topic": "NgRx Testing",
       "sortOrder": 18,
-      "id": 56
+      "id": 56,
+      "md": "mock-signals-store"
     },
     {
       "url": "test-signals-store",
@@ -150,7 +160,8 @@
       "teaches": "Integration-test an NgRx Signal Store with a real service spy. Verify store state changes after calling store methods.",
       "topic": "NgRx Testing",
       "sortOrder": 19,
-      "id": 53
+      "id": 53,
+      "md": "test-signals-store"
     }
   ],
   "food": [

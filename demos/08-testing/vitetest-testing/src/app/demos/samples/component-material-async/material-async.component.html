@@ -1,5 +1,3 @@
-<app-markdown-renderer [md]="'material-async'" />
-
 <mat-card>
   <mat-card-header>
     <mat-card-title>Async & Material</mat-card-title>
@@ -12,8 +10,8 @@
             {{ ut.name }}
           </ng-template>
           <div class="content">
-            {{ ut.name }} was born on {{ ut.created | date: 'MM/dd/yyyy' }}.
-            {{ut.description}}
+            {{ ut.name }} was born on {{ ut.created | date: "MM/dd/yyyy" }}.
+            {{ ut.description }}
           </div>
         </mat-tab>
       }

@@ -1,1 +1,0 @@
-- Examine `food-list.component.spec.ts`. It is using `<app-food-row>` component.

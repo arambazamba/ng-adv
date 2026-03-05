@@ -5,23 +5,21 @@ import { MatCardModule } from '@angular/material/card';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatInputModule } from '@angular/material/input';
 import { MatSliderModule } from '@angular/material/slider';
-import { MarkdownRendererComponent } from '../../../shared/markdown-renderer/markdown-renderer.component';
 
 @Component({
-    selector: 'app-material',
-    changeDetection: ChangeDetectionStrategy.OnPush,
-    templateUrl: './material.component.html',
-    styleUrls: ['./material.component.scss'],
-    imports: [
-        MarkdownRendererComponent,
-        MatCardModule,
-        FormsModule,
-        ReactiveFormsModule,
-        MatFormFieldModule,
-        MatInputModule,
-        MatSliderModule,
-        MatButtonModule
-    ]
+  selector: 'app-material',
+  changeDetection: ChangeDetectionStrategy.OnPush,
+  templateUrl: './material.component.html',
+  styleUrls: ['./material.component.scss'],
+  imports: [
+    MatCardModule,
+    FormsModule,
+    ReactiveFormsModule,
+    MatFormFieldModule,
+    MatInputModule,
+    MatSliderModule,
+    MatButtonModule
+  ]
 })
 export class MaterialComponent {
   value = 50;

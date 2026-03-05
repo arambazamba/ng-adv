@@ -3,7 +3,7 @@
     <div class="title">SPA Skills</div>
     <div>
       <button mat-raised-button (click)="addItem()" color="primary">Add</button>
-      <mat-slide-toggle [formControl]="fcToggle" color="primary"
+      <mat-slide-toggle [checked]="showAll()" (change)="showAll.set($event.checked)" color="primary"
         >ShowAll</mat-slide-toggle>
     </div>
   </mat-toolbar-row>

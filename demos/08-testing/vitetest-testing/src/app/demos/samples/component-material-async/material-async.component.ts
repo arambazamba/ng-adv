@@ -4,7 +4,6 @@ import { usersdata } from './users-data';
 import { DatePipe } from '@angular/common';
 import { MatTabGroup, MatTab, MatTabLabel } from '@angular/material/tabs';
 import { MatCard, MatCardHeader, MatCardTitle, MatCardContent } from '@angular/material/card';
-import { MarkdownRendererComponent } from '../../../shared/markdown-renderer/markdown-renderer.component';
 
 @Component({
     selector: 'app-material-async',
@@ -12,7 +11,6 @@ import { MarkdownRendererComponent } from '../../../shared/markdown-renderer/mar
     templateUrl: './material-async.component.html',
     styleUrls: ['./material-async.component.scss'],
     imports: [
-        MarkdownRendererComponent,
         MatCard,
         MatCardHeader,
         MatCardTitle,
@@ -24,6 +22,6 @@ import { MarkdownRendererComponent } from '../../../shared/markdown-renderer/mar
     ]
 })
 export class MaterialAsyncComponent {
-  displayedColumns = ['email', 'created', 'roles'];
-  users: User[] = usersdata;
+    displayedColumns = ['email', 'created', 'roles'];
+    users: User[] = usersdata;
 }

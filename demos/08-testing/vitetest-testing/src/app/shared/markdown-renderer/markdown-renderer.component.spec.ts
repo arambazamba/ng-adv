@@ -2,6 +2,7 @@ import { provideHttpClient } from '@angular/common/http';
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 import { provideNoopAnimations } from '@angular/platform-browser/animations';
 import { provideMarkdown } from 'ngx-markdown';
+import { describe, it, expect, beforeEach, vi } from 'vitest';
 import { environment } from '../../../environments/environment';
 import { MarkdownRendererComponent } from './markdown-renderer.component';
 import { RendererStateService } from './renderer-state.service';
@@ -44,7 +45,7 @@ describe('MarkdownRendererComponent', () => {
     });
 
     it('should toggle panel visibility', () => {
-        spyOn(rendererStateService, 'toggleVisibility');
+        vi.spyOn(rendererStateService, 'toggleVisibility');
         component.togglePanel();
         expect(rendererStateService.toggleVisibility).toHaveBeenCalled();
     });

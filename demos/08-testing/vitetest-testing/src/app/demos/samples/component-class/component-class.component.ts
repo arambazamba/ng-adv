@@ -1,15 +1,12 @@
 import { Component, ChangeDetectionStrategy, signal } from '@angular/core';
 import { MatButtonModule } from '@angular/material/button';
 import { MatCardModule } from '@angular/material/card';
-import { MarkdownRendererComponent } from '../../../shared/markdown-renderer/markdown-renderer.component';
 import { FoodItem } from '../food/food.model';
 
 @Component({
   selector: 'app-component-class',
   changeDetection: ChangeDetectionStrategy.OnPush,
-  template: `<app-markdown-renderer [md]="'component-class'"
-       />
-      <mat-card appearance="outlined">
+  template: `<mat-card appearance="outlined">
         <mat-card-header>
           <mat-card-title>ComponentClassComponent</mat-card-title>
         </mat-card-header>
@@ -24,7 +21,6 @@ import { FoodItem } from '../food/food.model';
       `,
   styles: ['h1 { color: green; font-size: 2rem}'],
   imports: [
-    MarkdownRendererComponent,
     MatCardModule,
     MatButtonModule
   ]

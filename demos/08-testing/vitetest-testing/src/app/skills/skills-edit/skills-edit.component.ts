@@ -8,10 +8,10 @@ import { MatSlideToggle } from '@angular/material/slide-toggle';
 import { ActivatedRoute, Router } from '@angular/router';
 import { toSignal } from '@angular/core/rxjs-interop';
 import { map } from 'rxjs/operators';
-import { firstValueFrom } from 'rxjs';
 import { SnackbarService } from '../../shared/snackbar/snackbar.service';
 import { Skill } from '../skill.model';
-import { SkillsEntityService } from '../skills-entity.service';
+import { skillsStore } from '../skills.store';
+import { SkillsService } from '../skills.service';
 
 @Component({
   selector: 'app-skills-edit',
@@ -24,7 +24,8 @@ import { SkillsEntityService } from '../skills-entity.service';
 export class SkillsEditComponent {
   route = inject(ActivatedRoute);
   router = inject(Router);
-  service = inject(SkillsEntityService);
+  store = inject(skillsStore);
+  service = inject(SkillsService);
   sns = inject(SnackbarService);
 
   id = toSignal(
@@ -50,7 +51,7 @@ export class SkillsEditComponent {
       if (routeId === 'new' || routeId === '') {
         this.skillModel.set({ id: 0, name: '', completed: false });
       } else if (idNum > 0) {
-        this.service.getSkillById(idNum).subscribe((data) => {
+        this.service.getSkill(idNum).subscribe((data) => {
           if (data) this.skillModel.set(data);
         });
       }
@@ -60,8 +61,11 @@ export class SkillsEditComponent {
   saveSkill() {
     submit(this.skillForm, async () => {
       const skill = this.skillModel();
-      const op$ = this.isNew ? this.service.add(skill) : this.service.update(skill);
-      await firstValueFrom(op$);
+      if (this.isNew) {
+        this.store.addSkill(skill);
+      } else {
+        this.store.updateSkill(skill);
+      }
       this.sns.displayAlert('Skills', this.isNew ? 'Skill added' : 'Skill updated');
       this.router.navigate(['/skills']);
     });

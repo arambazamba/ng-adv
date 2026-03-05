@@ -1,4 +1,3 @@
-<app-markdown-renderer [md]="'material-harness'" />
 <mat-card>
   <mat-card-header>
     <mat-card-title>Material Harness</mat-card-title>
@@ -8,13 +7,12 @@
       <div>
         <mat-form-field>
           <mat-label>Favorite food</mat-label>
-          <input matInput value="Sushi" name="favorite-food">
+          <input matInput value="Sushi" name="favorite-food" />
         </mat-form-field>
       </div>
       <div>
-        <mat-slider min="1"
-          max="100">
-          <input matSliderThumb formControlName="slider">
+        <mat-slider min="1" max="100">
+          <input matSliderThumb formControlName="slider" />
         </mat-slider>
       </div>
       <div>
@@ -22,15 +20,13 @@
           mat-raised-button
           color="primary"
           (click)="resetSlider()"
-          type="button">
+          type="button"
+        >
           Reset
         </button>
       </div>
       <div>
-        <button
-          mat-raised-button
-          color="primary"
-          type="button">
+        <button mat-raised-button color="primary" type="button">
           Just there to have 2 buttons
         </button>
       </div>
@@ -38,8 +34,8 @@
       <div class="info">
         @if (sliderForm.invalid) {
           <div>
-            slider has <b><i>invalid </i> </b> value and choose value greater than
-            10.
+            slider has <b><i>invalid </i> </b> value and choose value greater
+            than 10.
           </div>
         }
         @if (sliderForm.valid) {
@@ -49,25 +45,26 @@
         }
         @if (sliderForm.pristine) {
           <div>
-            Slider having state <b><i>pristine.</i></b> Slider value not yet changed
-            by user.
+            Slider having state <b><i>pristine.</i></b> Slider value not yet
+            changed by user.
           </div>
         }
         @if (sliderForm.dirty) {
           <div>
-            Slider having state <b><i>dirty.</i></b> Slider value changed by user.
+            Slider having state <b><i>dirty.</i></b> Slider value changed by
+            user.
           </div>
         }
         @if (sliderForm.untouched) {
           <div>
-            Slider having state <b><i>untouched.</i></b> Slider has not visited by
-            user.
+            Slider having state <b><i>untouched.</i></b> Slider has not visited
+            by user.
           </div>
         }
         @if (sliderForm.touched) {
           <div>
-            Slider having state <b><i>touched.</i> </b> Slider has been visited by
-            user.
+            Slider having state <b><i>touched.</i> </b> Slider has been visited
+            by user.
           </div>
         }
       </div>

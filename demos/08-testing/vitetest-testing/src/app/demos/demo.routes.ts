@@ -5,7 +5,6 @@ import { ComponentClassComponent } from './samples/component-class/component-cla
 import { ComponentEventsComponent } from './samples/component-events/component-events.component';
 import { ComponentInputSignalsComponent } from './samples/component-input-signals/component-input-signals.component';
 import { IntegrationTestComponent } from './samples/component-integration/integration-test.component';
-import { MarblesComponent } from './samples/component-marbles/marbles.component';
 import { MaterialAsyncComponent } from './samples/component-material-async/material-async.component';
 import { MaterialComponent } from './samples/component-material/material.component';
 import { SpyHostComponent } from './samples/component-mocking/spy-host/spy-host.component';
@@ -39,7 +38,6 @@ export const demoRoutes: Routes = [
             { path: 'async', component: AsyncComponent },
             { path: 'material-async', component: MaterialAsyncComponent },
             { path: 'material', component: MaterialComponent },
-            { path: 'marbles', component: MarblesComponent },
             { path: 'component-class', component: ComponentClassComponent },
             { path: 'spy', component: SpyHostComponent },
             { path: 'mock-signals-store', component: MockSignalsStoreComponent },

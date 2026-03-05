@@ -1,6 +1,5 @@
 import { Component, ChangeDetectionStrategy } from '@angular/core';
 import { MatCard, MatCardContent, MatCardHeader, MatCardTitle } from '@angular/material/card';
-import { MarkdownRendererComponent } from '../../../shared/markdown-renderer/markdown-renderer.component';
 import { PhonenumberPipe } from './phonenumber.pipe';
 
 @Component({
@@ -9,7 +8,6 @@ import { PhonenumberPipe } from './phonenumber.pipe';
     templateUrl: './test-pipe.component.html',
     styleUrls: ['./test-pipe.component.scss'],
     imports: [
-        MarkdownRendererComponent,
         MatCard,
         MatCardHeader,
         MatCardTitle,
@@ -18,5 +16,5 @@ import { PhonenumberPipe } from './phonenumber.pipe';
     ]
 })
 export class TestPipeComponent {
-  phone = "3333333333";
+    phone = "3333333333";
 }

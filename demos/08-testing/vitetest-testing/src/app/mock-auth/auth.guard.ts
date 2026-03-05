@@ -1,16 +1,13 @@
 import { inject } from '@angular/core';
 import { Router } from '@angular/router';
-import { tap } from 'rxjs';
-import { AuthFacade } from './state/auth.facade';
+import { authStore } from './auth.store';
 
 export const authGuard = () => {
-  const authService = inject(AuthFacade);
+  const store = inject(authStore);
   const router = inject(Router);
-  return authService.isAuthenticated().pipe(
-    tap((authenticated) => {
-      if (!authenticated) {
-        router.navigate(['/auth/sign-in']);
-      }
-    })
-  );
+  if (!store.isAuthenticated()) {
+    router.navigate(['/auth/sign-in']);
+    return false;
+  }
+  return true;
 };

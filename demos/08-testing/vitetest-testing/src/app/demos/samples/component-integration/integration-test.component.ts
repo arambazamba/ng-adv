@@ -3,7 +3,6 @@ import { FoodItem } from '../food/food.model';
 import { FoodListComponent } from './food-list/food-list.component';
 import { FoodRowComponent } from './food-row/food-row.component';
 import { MatCard, MatCardHeader, MatCardTitle, MatCardContent } from '@angular/material/card';
-import { MarkdownRendererComponent } from '../../../shared/markdown-renderer/markdown-renderer.component';
 
 @Component({
     selector: 'app-integration-test',
@@ -11,7 +10,6 @@ import { MarkdownRendererComponent } from '../../../shared/markdown-renderer/mar
     templateUrl: './integration-test.component.html',
     styleUrls: ['./integration-test.component.scss'],
     imports: [
-        MarkdownRendererComponent,
         MatCard,
         MatCardHeader,
         MatCardTitle,
@@ -21,5 +19,5 @@ import { MarkdownRendererComponent } from '../../../shared/markdown-renderer/mar
     ]
 })
 export class IntegrationTestComponent {
-  f: FoodItem = { id: 99, name: 'Cordon Bleu', rating: 4 };
+    f: FoodItem = { id: 99, name: 'Cordon Bleu', rating: 4 };
 }

@@ -8,7 +8,7 @@ import {
 } from '@angular/core';
 import { MatDialog, MatDialogTitle, MatDialogContent, MatDialogActions } from '@angular/material/dialog';
 import { Router, RouterLink } from '@angular/router';
-import { AuthFacade } from '../../../state/auth.facade';
+import { authStore } from '../../../auth.store';
 import { MatButton } from '@angular/material/button';
 import { MatInput } from '@angular/material/input';
 import { MatFormField } from '@angular/material/form-field';
@@ -32,7 +32,7 @@ import { MatFormField } from '@angular/material/form-field';
 export class SignInComponent implements AfterViewInit {
   router = inject(Router);
   dialog = inject(MatDialog);
-  as = inject(AuthFacade);
+  store = inject(authStore);
   @ViewChild('dialog') template: TemplateRef<any> | null = null;
 
   ngAfterViewInit() {
@@ -48,7 +48,7 @@ export class SignInComponent implements AfterViewInit {
   }
 
   signIn() {
-    this.as.signIn('mockUser', 'mockPassword');
+    this.store.signIn('mockUser', 'mockPassword');
     this.dialog.closeAll();
   }
 }
