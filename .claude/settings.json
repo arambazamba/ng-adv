@@ -1,5 +1,6 @@
 {
     "permissions": {
-        "write": "allow"
-    }
+        "defaultMode": "acceptEdits"
+    },
+    "enableAllProjectMcpServers": true
 }

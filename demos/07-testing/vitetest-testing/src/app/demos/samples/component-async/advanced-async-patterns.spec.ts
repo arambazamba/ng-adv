@@ -21,47 +21,47 @@ describe('Advanced Async Testing Patterns', () => {
 
         it('executes side effects when signal changes', async () => {
             let stopEffect: ReturnType<typeof effect> | undefined;
+            const result = signal<string>('initial');
+            const sideEffectLog: string[] = [];
 
             runInInjectionContext(injector, () => {
-                const result = signal<string>('initial');
-                const sideEffectLog: string[] = [];
-
-                // Set up effect to log when signal changes
                 stopEffect = effect(() => {
                     sideEffectLog.push(result());
                 });
-
-                // Change signal value
-                result.set('updated');
-
-                // Wait for microtask processing
-                expect(sideEffectLog).toContain('initial');
             });
 
-            await Promise.resolve();
-            stopEffect?.destroy(); // Cleanup effect
+            TestBed.flushEffects();
+            expect(sideEffectLog).toContain('initial');
+
+            result.set('updated');
+            TestBed.flushEffects();
+
+            expect(sideEffectLog).toContain('updated');
+            stopEffect?.destroy();
         });
 
         it('handles multiple rapid signal changes correctly', async () => {
-            runInInjectionContext(injector, () => {
-                const counter = signal(0);
-                const changes: number[] = [];
+            const counter = signal(0);
+            const changes: number[] = [];
+            let stopEffect: ReturnType<typeof effect> | undefined;
 
-                const stopEffect = effect(() => {
+            runInInjectionContext(injector, () => {
+                stopEffect = effect(() => {
                     changes.push(counter());
                 });
-
-                // Rapid signal updates
-                counter.set(1);
-                counter.set(2);
-                counter.set(3);
-
-                expect(counter()).toBe(3);
-                expect(changes).toContain(0); // initial
-                stopEffect?.destroy();
             });
 
-            await Promise.resolve();
+            TestBed.flushEffects();
+
+            counter.set(1);
+            counter.set(2);
+            counter.set(3);
+
+            TestBed.flushEffects();
+
+            expect(counter()).toBe(3);
+            expect(changes).toContain(0); // initial
+            stopEffect?.destroy();
         });
     });
 

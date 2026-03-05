@@ -2,7 +2,7 @@ import { NO_ERRORS_SCHEMA } from '@angular/core';
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 import { By } from '@angular/platform-browser';
 import { of } from 'rxjs';
-import { describe, it, expect, beforeEach } from 'vitest';
+import { describe, it, expect, beforeEach, vi } from 'vitest';
 import { SimpleAuthService } from '../simple-auth.service';
 import { SimpleAuthWhenStableComponent } from './simple-auth-when-stable.component';
 
@@ -18,16 +18,18 @@ describe('Component - AsyncTest - async ... whenStable', () => {
       providers: [SimpleAuthService],
     }).compileComponents();
 
-    fixture = TestBed.createComponent(SimpleAuthWhenStableComponent);
-    component = fixture.componentInstance;
     service = TestBed.inject(SimpleAuthService);
   });
 
   it('component has been created', () => {
+    fixture = TestBed.createComponent(SimpleAuthWhenStableComponent);
+    component = fixture.componentInstance;
     expect(component).toBeTruthy();
   });
 
   it('returns false when the user is not authenticated', () => {
+    fixture = TestBed.createComponent(SimpleAuthWhenStableComponent);
+    component = fixture.componentInstance;
     fixture.detectChanges();
     expect(component.needsLogin).toBeTruthy();
     expect(
@@ -39,6 +41,8 @@ describe('Component - AsyncTest - async ... whenStable', () => {
 
   it('returns true when the user is authenticated', async () => {
     vi.spyOn(service, 'isAuthenticated').mockReturnValue(of(true));
+    fixture = TestBed.createComponent(SimpleAuthWhenStableComponent);
+    component = fixture.componentInstance;
     fixture.detectChanges();
     await fixture.whenStable();
 

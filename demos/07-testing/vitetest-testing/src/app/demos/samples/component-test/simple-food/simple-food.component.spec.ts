@@ -20,12 +20,6 @@ describe('SimpleFoodComponent', () => {
 
         TestBed.resetTestingModule();
 
-        TestBed.overrideComponent(SimpleFoodComponent, {
-            set: {
-                template: '<div class="foodrow">Test</div>'
-            }
-        });
-
         await TestBed.configureTestingModule({
             imports: [MatCardModule, NoopAnimationsModule, SimpleFoodComponent],
             providers: [{ provide: FoodService, useValue: spy }],
