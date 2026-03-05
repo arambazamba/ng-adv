@@ -18,6 +18,7 @@ import { TestPipeComponent } from './samples/pipe/test-pipe.component';
 import { SimpleServiceComponent } from './samples/simple-service/simple-service.component';
 import { MockSignalsStoreComponent } from './samples/mock-signals-store/mock-signals-store.component';
 import { TestSignalsStoreComponent } from './samples/test-signals-store/test-signals-store.component';
+import { PlaywrightComponent } from './samples/playwright/playwright.component';
 
 export const demoRoutes: Routes = [
     {
@@ -42,6 +43,7 @@ export const demoRoutes: Routes = [
             { path: 'spy', component: SpyHostComponent },
             { path: 'mock-signals-store', component: MockSignalsStoreComponent },
             { path: 'test-signals-store', component: TestSignalsStoreComponent },
+            { path: 'playwright', component: PlaywrightComponent },
         ],
     }
 ];

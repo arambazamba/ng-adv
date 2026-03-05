@@ -1,5 +1,5 @@
 <div class="edit-form">
-  <form (ngSubmit)="submit()">
+  <form (submit)="submit($event)">
     <mat-form-field>
       <mat-label>Id</mat-label>
       <input matInput [value]="customerModel().id" readonly />

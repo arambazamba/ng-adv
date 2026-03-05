@@ -23,95 +23,39 @@
 | 19  | `ngrx-reducers`           | NgRx Reducers           | Unit test NgRx reducers as pure functions by passing state and actions directly. Verify state transitions without TestBed.                            | NgRx Testing        |
 | 20  | `mock-signals-store`      | Mock Signals Store      | Mock an NgRx Signal Store in component tests by providing a fake store that returns signals. Assert component output based on signal values.          | NgRx Testing        |
 | 21  | `test-signals-store`      | Test Signals Store      | Integration-test an NgRx Signal Store with a real service spy. Verify store state changes after calling store methods.                                | NgRx Testing        |
-| 22  | `cypress`                 | Cypress                 | Introduction to Cypress for end-to-end testing. Learn the difference between unit tests and E2E tests and when to use each approach.                  | E2E Testing         |
+| 22  | `playwright`              | Playwright E2E          | Write end-to-end tests with Playwright using the Page Object Model and fixtures. Reset API state between tests for full isolation.                    | E2E Testing         |
 
-✅ **Test Updates:**
+## Playwright Tests
 
-- All specs now use modern vitest syntax
-- Removed ngOnInit() calls in favor of resource() lifecycle
-- Updated signal testing patterns in component specs
+End-to-end tests for the Customers feature live in [`e2e/`](e2e/).
 
----
+| File | Purpose |
+|---|---|
+| `customers.fixture.ts` | `CustomersPage` POM + `test` fixture that resets json-server data before each test |
+| `customers.spec.ts` | 12 fixture-based tests covering table load, edit, delete, and add |
+| `customers.interaction.ts` | Sequential interaction script mirroring manual browser exploration |
 
-## Testing Best Practices
+### Setup (first time)
 
-### 1️⃣ Isolate with Direct Class Instantiation
-
-```typescript
-const component = new ComponentClassComponent();
-expect(component.food()).toHaveLength(2);
+```bash
+npm install -D @playwright/test
+npx playwright install chromium
 ```
 
-### 2️⃣ Mock Services with createSpyObj
+### Running
 
-```typescript
-const spy = jasmine.createSpyObj("FoodService", ["getFood"]);
-spy.getFood.and.returnValue(of(mockData));
+Requires `ng serve` and `json-server` running in separate terminals.
+
+```bash
+# Run all e2e tests (headless)
+npx playwright test
+
+# Run with browser visible
+npx playwright test --headed
+
+# Interactive UI mode (recommended for debugging)
+npx playwright test --ui
+
+# Run a single file
+npx playwright test e2e/customers.spec.ts
 ```
-
-### 3️⃣ Test Signals Directly
-
-```typescript
-const count = signal(0);
-count.update((c) => c + 1);
-expect(count()).toBe(1);
-```
-
-### 4️⃣ Use resource() for HTTP
-
-```typescript
-const data = resource({
-  loader: () => http.get("/api/food"),
-});
-expect(data.hasValue()).toBe(true);
-```
-
-### 5️⃣ Test Async with fakeAsync/tick
-
-```typescript
-it("handles async operations", fakeAsync(() => {
-  component.loadData();
-  tick(300);
-  expect(component.dataLoaded()).toBe(true);
-}));
-```
-
----
-
-## Folder Structure
-
-```
-vitetest-testing/
-├── src/
-│   ├── app/
-│   │   ├── demos/
-│   │   │   ├── samples/              # Individual demo components
-│   │   │   ├── demo-container/       # Route container
-│   │   │   └── demo.routes.ts
-│   │   ├── shared/                   # Shared utilities
-│   │   └── state/                    # Global state
-│   ├── public/
-│   │   └── markdown/                 # Demo documentation
-│   └── main.ts
-├── db.json                           # Demo metadata & test data
-├── vitest.config.ts                  # Vitest configuration
-├── angular.json
-└── package.json
-```
-
----
-
-## Resources
-
-- [Vitest Documentation](https://vitest.dev/)
-- [Angular Testing Guide](https://angular.dev/guide/testing)
-- [Signals API](https://angular.dev/guide/signals)
-- [Resource API](https://angular.dev/api/core/resource)
-- [RxJS Marble Testing](https://rxjs.dev/guide/testing)
-- [NgRx Signal Store](https://ngrx.io/guide/store)
-
----
-
-**Last Updated:** March 5, 2026  
-**Test Coverage:** 80%+  
-**Vitest Status:** ✅ All tests passing

@@ -30,7 +30,8 @@ export class CustomerEditComponent {
     required(fieldPath.name, { message: 'Name is required' });
   });
 
-  submit() {
+  submit(event: SubmitEvent) {
+    event.preventDefault();
     if (this.customerForm().valid()) {
       this.save.emit(this.customerModel());
     }
