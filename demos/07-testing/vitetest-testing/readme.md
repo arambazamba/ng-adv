@@ -1,28 +1,5 @@
 # Vitest Testing Module - Angular 21+ Demo Catalog
 
-**Framework:** Angular 21+  
-**Test Framework:** Vitest  
-**Change Detection:** OnPush (all components)  
-**State Management:** Signals + resource()
-
----
-
-## Demo Overview
-
-This module demonstrates modern Angular 21+ testing patterns using **Vitest** as the test framework and **signals** for state management. All demos follow best practices with standalone components and reactive patterns.
-
-### Quick Start
-
-```bash
-npm install
-npm start        # Start dev server (http://localhost:4200/demos)
-npm test         # Run all tests with Vitest
-```
-
----
-
-## Demo Catalog
-
 | #   | Route                     | Title                   | Teaches                                                                                                                                               | Topic               |
 | --- | ------------------------- | ----------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------- | ------------------- |
 | 1   | `testing-intro`           | Testing Intro           | Set up Vitest with Angular and write your first unit test. Understand test structure with describe/it blocks and basic assertions.                    | Introduction        |
@@ -47,57 +24,6 @@ npm test         # Run all tests with Vitest
 | 20  | `mock-signals-store`      | Mock Signals Store      | Mock an NgRx Signal Store in component tests by providing a fake store that returns signals. Assert component output based on signal values.          | NgRx Testing        |
 | 21  | `test-signals-store`      | Test Signals Store      | Integration-test an NgRx Signal Store with a real service spy. Verify store state changes after calling store methods.                                | NgRx Testing        |
 | 22  | `cypress`                 | Cypress                 | Introduction to Cypress for end-to-end testing. Learn the difference between unit tests and E2E tests and when to use each approach.                  | E2E Testing         |
-
----
-
-## Learning Path
-
-### Beginner
-
-Start with **Testing Intro** → **Pipe** → **Directive** → **Simple Service** to understand test isolation and basic patterns.
-
-### Intermediate
-
-Progress to **Component Testing** demos (Component Class → Comp Inject Spy → Comp Spy returnValue) to learn MockStore and service mocking.
-
-### Advanced
-
-Study **Async Testing** → **Marbles** → **RxJS Testing** for complex async scenarios.
-
-### State Management
-
-**NgRx Mock Store** → **NgRx Reducers** → **Mock Signals Store** → **Test Signals Store** for modern NgRx Signal Store patterns.
-
----
-
-## Key Technologies
-
-- **Vitest** - Fast unit test framework compatible with Jasmine syntax
-- **Signals** - Angular 21+ reactive state primitive
-- **resource()** - Modern declarative data loading
-- **TestBed** - Angular's component testing utility
-- **Angular Material** - Material Design components with test harnesses
-- **RxJS Marbles** - Observable timing and sequence testing
-- **NgRx Signal Store** - Modern, signal-based state management
-
----
-
-## Recent Changes (March 2026)
-
-✅ **Modernized Components:**
-
-- Replaced `OnInit + subscribe()` with `resource()` and `toSignal()`
-- Converted BehaviorSubject to `signal()` for local state
-- Updated specs to modern vitest patterns
-- Removed 6 outdated ngrx-classic demo folders
-
-✅ **Updated Components:**
-
-- SimpleFoodComponent: resource()-based HTTP loading
-- ComponentClassComponent: Signal-based state management
-- FoodListComponent: Signal-integrated service patterns
-- SimpleAuth components: toSignal() conversion
-- FoodServiceBS: Complete signal migration
 
 ✅ **Test Updates:**
 

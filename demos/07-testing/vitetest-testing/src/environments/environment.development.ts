@@ -1,6 +1,6 @@
 export const environment = {
     authEnabled: false,
-    title: 'Jasmine Testing',
+    title: 'Vitest Testing',
     logChangeDetection: true,
     logChanges: true,
     markdownPath: 'markdown/',
