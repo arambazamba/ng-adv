@@ -14,19 +14,19 @@ This module demonstrates a full-featured e-commerce application with server-side
 
 ## Demonstrated Patterns & Features
 
-| Feature | Location | Description |
-|---------|----------|-------------|
-| **SSR Bootstrap** | `main.server.ts` | Server bootstrap function with Angular SSR context |
-| **Server Configuration** | `app.config.server.ts` | Application config with `provideServerRendering()` |
-| **Express Server** | `server.ts` | Node.js Express server setup with CommonEngine for rendering |
-| **Food Service** | `src/app/food/food.service.ts` | Reactive data service for product catalog |
-| **Food List** | `src/app/food/food-list/` | Main product list component with filtering and pagination |
-| **Food Details** | `src/app/food/food-details/` | Product detail view with selection capabilities |
-| **Shop Item** | `src/app/food/shop-item/` | Reusable product card component with add-to-cart |
-| **Euro Pipe** | `src/app/shared/euro.pipe.ts` | Custom pipe for currency formatting |
-| **Number Picker** | `src/app/shared/number-picker/` | Quantity selector component |
-| **Static Assets** | `src/assets/` | Product images and static resources |
-| **Data Source** | `db.json` | Mock product catalog (Butter Chicken, Blini with Salmon, Wiener Schnitzel) |
+| Feature                  | Location                        | Description                                                                |
+| ------------------------ | ------------------------------- | -------------------------------------------------------------------------- |
+| **SSR Bootstrap**        | `main.server.ts`                | Server bootstrap function with Angular SSR context                         |
+| **Server Configuration** | `app.config.server.ts`          | Application config with `provideServerRendering()`                         |
+| **Express Server**       | `server.ts`                     | Node.js Express server setup with CommonEngine for rendering               |
+| **Food Service**         | `src/app/food/food.service.ts`  | Reactive data service for product catalog                                  |
+| **Food List**            | `src/app/food/food-list/`       | Main product list component with filtering and pagination                  |
+| **Food Details**         | `src/app/food/food-details/`    | Product detail view with selection capabilities                            |
+| **Shop Item**            | `src/app/food/shop-item/`       | Reusable product card component with add-to-cart                           |
+| **Euro Pipe**            | `src/app/shared/euro.pipe.ts`   | Custom pipe for currency formatting                                        |
+| **Number Picker**        | `src/app/shared/number-picker/` | Quantity selector component                                                |
+| **Static Assets**        | `src/assets/`                   | Product images and static resources                                        |
+| **Data Source**          | `db.json`                       | Mock product catalog (Butter Chicken, Blini with Salmon, Wiener Schnitzel) |
 
 ## Application Structure
 
