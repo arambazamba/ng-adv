@@ -1,5 +1,6 @@
 import {
   Component,
+  ChangeDetectionStrategy,
   input,
   output
 } from '@angular/core';
@@ -18,6 +19,7 @@ import { MatIconModule } from "@angular/material/icon";
     templateUrl: './number-picker.component.html',
     styleUrls: ['./number-picker.component.scss'],
     imports: [MatIconModule],
+    changeDetection: ChangeDetectionStrategy.OnPush,
     providers: [
         {
             provide: NG_VALUE_ACCESSOR,
@@ -36,9 +38,7 @@ export class NumberPickerComponent implements ControlValueAccessor, Validator {
   readonly amountChanged = output<number>();
   quantity = 0;
 
-  onChange = (quantity: number) => {
-    console.log('onChange', quantity);
-  };
+  onChange = (quantity: number) => {};
 
   onTouched = () => { };
 
@@ -80,7 +80,6 @@ export class NumberPickerComponent implements ControlValueAccessor, Validator {
     if (!this.touched) {
       this.onTouched();
       this.touched = true;
-      console.log('markAsTouched');
     }
   }
 
