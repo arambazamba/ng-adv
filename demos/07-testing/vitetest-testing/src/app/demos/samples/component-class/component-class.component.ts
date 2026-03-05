@@ -1,14 +1,13 @@
-import { Component, OnInit, ChangeDetectionStrategy } from '@angular/core';
+import { Component, ChangeDetectionStrategy, signal } from '@angular/core';
 import { MatButtonModule } from '@angular/material/button';
-
 import { MatCardModule } from '@angular/material/card';
 import { MarkdownRendererComponent } from '../../../shared/markdown-renderer/markdown-renderer.component';
 import { FoodItem } from '../food/food.model';
 
 @Component({
-    selector: 'app-component-class',
-    changeDetection: ChangeDetectionStrategy.OnPush,
-    template: `<app-markdown-renderer [md]="'component-class'"
+  selector: 'app-component-class',
+  changeDetection: ChangeDetectionStrategy.OnPush,
+  template: `<app-markdown-renderer [md]="'component-class'"
        />
       <mat-card appearance="outlined">
         <mat-card-header>
@@ -16,32 +15,28 @@ import { FoodItem } from '../food/food.model';
         </mat-card-header>
         <mat-card-content>
           <h1>{{ title }}</h1>
-          @for (f of food; track f) {
+          @for (f of food(); track f.id) {
             <div>{{ f.name }}</div>
           }
         </mat-card-content>
       </mat-card>
       <button mat-raised-button (click)="addFood({ id: 4, name: 'Blini with Salmon', rating: 1 })" color="primary">Add Food</button>
       `,
-    styles: ['h1 { color: green; font-size: 2rem}'],
-    imports: [
-        MarkdownRendererComponent,
-        MatCardModule,
-        MatButtonModule
-    ]
+  styles: ['h1 { color: green; font-size: 2rem}'],
+  imports: [
+    MarkdownRendererComponent,
+    MatCardModule,
+    MatButtonModule
+  ]
 })
-export class ComponentClassComponent implements OnInit {
-  title = 'Food App';
-  food: FoodItem[] = []
+export class ComponentClassComponent {
+  protected readonly title = 'Food App';
+  protected readonly food = signal<FoodItem[]>([
+    { id: 2, name: 'Pad Thai', rating: 1 },
+    { id: 3, name: 'Butter Chicken', rating: 2 },
+  ]);
 
-  ngOnInit(): void {
-    this.food = [
-      { id: 2, name: 'Pad Thai', rating: 1 },
-      { id: 3, name: 'Butter Chicken', rating: 2 },
-    ];
-  }
-
-  addFood(item: FoodItem) {
-    this.food.push(item);
+  protected addFood(item: FoodItem) {
+    this.food.update(items => [...items, item]);
   }
 }

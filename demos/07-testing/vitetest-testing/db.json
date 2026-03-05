@@ -137,27 +137,11 @@
       "id": 79
     },
     {
-      "url": "ngrx-mock-store",
-      "title": "NgRx Mock Store",
-      "teaches": "Test NgRx-connected components with MockStore and provideMockStore. Override selectors at test-time without dispatching real actions.",
-      "topic": "NgRx Testing",
-      "sortOrder": 18,
-      "id": 51
-    },
-    {
-      "url": "ngrx-reducers",
-      "title": "NgRx Reducers",
-      "teaches": "Unit test NgRx reducers as pure functions by passing state and actions directly. Verify state transitions without TestBed.",
-      "topic": "NgRx Testing",
-      "sortOrder": 19,
-      "id": 59
-    },
-    {
       "url": "mock-signals-store",
       "title": "Mock Signals Store",
       "teaches": "Mock an NgRx Signal Store in component tests by providing a fake store that returns signals. Assert component output based on signal values.",
       "topic": "NgRx Testing",
-      "sortOrder": 20,
+      "sortOrder": 18,
       "id": 56
     },
     {
@@ -165,16 +149,8 @@
       "title": "Test Signals Store",
       "teaches": "Integration-test an NgRx Signal Store with a real service spy. Verify store state changes after calling store methods.",
       "topic": "NgRx Testing",
-      "sortOrder": 21,
+      "sortOrder": 19,
       "id": 53
-    },
-    {
-      "url": "cypress",
-      "title": "Cypress",
-      "teaches": "Introduction to Cypress for end-to-end testing. Learn the difference between unit tests and E2E tests and when to use each approach.",
-      "topic": "E2E Testing",
-      "sortOrder": 22,
-      "id": 54
     }
   ],
   "food": [

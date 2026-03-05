@@ -1,6 +1,5 @@
 import { HttpClient } from '@angular/common/http';
-import { Injectable, inject } from '@angular/core';
-import { BehaviorSubject, of } from 'rxjs';
+import { Injectable, inject, signal, effect } from '@angular/core';
 import { environment } from '../../../../environments/environment';
 import { FoodItem } from './food.model';
 
@@ -8,36 +7,35 @@ import { FoodItem } from './food.model';
   providedIn: 'root',
 })
 export class FoodServiceBS {
-  http = inject(HttpClient);
+  private readonly http = inject(HttpClient);
+  private readonly foodSignal = signal<FoodItem[]>([]);
 
   constructor() {
+    this.loadFood();
+  }
+
+  private loadFood() {
     this.http
       .get<FoodItem[]>(`${environment.api}food`)
       .subscribe((data) => {
-        this.food.next(data);
+        this.foodSignal.set(data);
       });
   }
 
-  food: BehaviorSubject<FoodItem[]> = new BehaviorSubject<FoodItem[]>([]);
-
   getFood() {
-    return this.food.asObservable();
+    return this.foodSignal.asReadonly();
   }
 
   deleteFood(item: FoodItem) {
-    const filtered = this.food.value.filter((f: FoodItem) => !this.deepEqual(f, item));
-    this.food.next(filtered);
-    return of(true);
+    const filtered = this.foodSignal().filter((f: FoodItem) => !this.deepEqual(f, item));
+    this.foodSignal.set(filtered);
   }
 
   addFood(item: FoodItem) {
-    let arr = this.food.value;
-    arr.push(item);
-    this.food.next(arr);
-    return of(true);
+    this.foodSignal.update(items => [...items, item]);
   }
 
-  deepEqual(obj1: any, obj2: any): boolean {
+  private deepEqual(obj1: any, obj2: any): boolean {
     if (obj1 === obj2) return true;
     if (obj1 == null || obj2 == null) return false;
     if (typeof obj1 !== 'object' || typeof obj2 !== 'object') return false;

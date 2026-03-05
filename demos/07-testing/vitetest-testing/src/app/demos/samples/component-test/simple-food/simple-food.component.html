@@ -3,10 +3,14 @@
     <mat-card-title>Food Component - Click to remove</mat-card-title>
   </mat-card-header>
   <mat-card-content>
-    @for (f of food; track f) {
-      <div (click)="deleteFood(f)" class="foodrow">
-        {{ f.name }}
-      </div>
+    @if (food.isLoading()) {
+      <div>Loading...</div>
+    } @else if (food.value()) {
+      @for (f of food.value(); track f.id) {
+        <div (click)="deleteFood(f)" class="foodrow">
+          {{ f.name }}
+        </div>
+      }
     }
   </mat-card-content>
 </mat-card>

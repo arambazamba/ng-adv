@@ -1,45 +1,34 @@
-import { Component, OnInit, inject, ChangeDetectionStrategy } from '@angular/core';
+import { Component, inject, ChangeDetectionStrategy, resource, computed } from '@angular/core';
 import { FoodItem } from '../../food/food.model';
 import { FoodService } from '../../food/food.service';
 import { MatCard, MatCardHeader, MatCardTitle, MatCardContent } from '@angular/material/card';
+import { lastValueFrom } from 'rxjs';
 
 @Component({
-    selector: 'app-simple-food',
-    changeDetection: ChangeDetectionStrategy.OnPush,
-    templateUrl: './simple-food.component.html',
-    styleUrls: ['./simple-food.component.scss'],
-    imports: [
-        MatCard,
-        MatCardHeader,
-        MatCardTitle,
-        MatCardContent,
-    ]
+  selector: 'app-simple-food',
+  changeDetection: ChangeDetectionStrategy.OnPush,
+  templateUrl: './simple-food.component.html',
+  styleUrls: ['./simple-food.component.scss'],
+  imports: [
+    MatCard,
+    MatCardHeader,
+    MatCardTitle,
+    MatCardContent,
+  ]
 })
-export class SimpleFoodComponent implements OnInit {
-  fs = inject(FoodService);
-  food: FoodItem[] = [];
+export class SimpleFoodComponent {
+  protected readonly fs = inject(FoodService);
 
-  ngOnInit() {
-    this.fs.getFood().subscribe((data) => {
-      this.food = data;
+  protected readonly food = resource({
+    loader: () => lastValueFrom(this.fs.getFood())
+  });
+
+  protected readonly isLoading = computed(() => this.food.status() === 'loading');
+  protected readonly hasError = computed(() => this.food.status() === 'error');
+
+  protected deleteFood(item: FoodItem) {
+    this.fs.deleteFood(item).subscribe(() => {
+      this.food.reload();
     });
   }
-
-  deleteFood(food: FoodItem) {
-    this.fs.deleteFood(food).subscribe(() => {
-      this.food = this.food.filter((f) => f != food);
-    });
-  }
-
-  updateFood(food: FoodItem) {
-    this.food = this.food.filter((f) => f != food);
-    this.food.push(food);
-  }
-
-  // updateFood(food: FoodItem) {
-  //   let item = this.food.find((f) => f.id == food.id);
-  //   if (item) {
-  //     item = food;
-  //   }
-  // }
 }

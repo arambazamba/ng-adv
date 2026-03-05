@@ -11,13 +11,10 @@ import { MaterialComponent } from './samples/component-material/material.compone
 import { SpyHostComponent } from './samples/component-mocking/spy-host/spy-host.component';
 import { ComponentTestComponent } from './samples/component-test/component-test.component';
 import { ComponentWriteComponent } from './samples/component-write/component-write.component';
-import { CypressComponent } from './samples/cypress/cypress.component';
 import { DirectiveHostComponent } from './samples/directive/directive-host/directive-host.component';
 import { HttpTestsBsComponent } from './samples/http-tests-bs/http-tests-bs.component';
 import { HttpTestsComponent } from './samples/http-tests/http-tests.component';
 import { UnitTestingComponent } from './samples/intro-unit-testing/unit-testing.component';
-import { NgrxMockstoreComponent } from './samples/ngrx-mockstore/ngrx-mockstore.component';
-import { NgrxReducersComponent } from './samples/ngrx-reducers/ngrx-reducers.component';
 import { TestPipeComponent } from './samples/pipe/test-pipe.component';
 import { SimpleServiceComponent } from './samples/simple-service/simple-service.component';
 import { MockSignalsStoreComponent } from './samples/mock-signals-store/mock-signals-store.component';
@@ -43,11 +40,8 @@ export const demoRoutes: Routes = [
             { path: 'material-async', component: MaterialAsyncComponent },
             { path: 'material', component: MaterialComponent },
             { path: 'marbles', component: MarblesComponent },
-            { path: 'cypress', component: CypressComponent },
             { path: 'component-class', component: ComponentClassComponent },
             { path: 'spy', component: SpyHostComponent },
-            { path: 'ngrx-mock-store', component: NgrxMockstoreComponent },
-            { path: 'ngrx-reducers', component: NgrxReducersComponent },
             { path: 'mock-signals-store', component: MockSignalsStoreComponent },
             { path: 'test-signals-store', component: TestSignalsStoreComponent },
         ],
