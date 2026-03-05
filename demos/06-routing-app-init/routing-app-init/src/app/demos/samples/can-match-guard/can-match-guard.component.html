@@ -8,18 +8,19 @@
     <h3>canMatch vs canActivate</h3>
     <ul>
       <li>
-        <strong>canMatch:</strong> Prevents lazy module from loading at all if guard fails.
-        Ideal for role-based features to avoid downloading code users can't access.
+        <strong>canMatch:</strong> Prevents lazy module from loading at all if
+        guard fails. Ideal for role-based features to avoid downloading code
+        users can't access.
       </li>
       <li>
-        <strong>canActivate:</strong> Loads module but prevents route activation.
-        Module code is downloaded even if access is denied.
+        <strong>canActivate:</strong> Loads module but prevents route
+        activation. Module code is downloaded even if access is denied.
       </li>
     </ul>
-    
+
     <p>
-      <strong>Authentication Status:</strong> 
-      {{ (authFacade.isAuthenticated() | async) ? 'Authenticated' : 'Not Authenticated' }}
+      <strong>Authentication Status:</strong>
+      {{ isAuthenticated() ? "Authenticated" : "Not Authenticated" }}
     </p>
   </mat-card-content>
   <mat-card-actions>

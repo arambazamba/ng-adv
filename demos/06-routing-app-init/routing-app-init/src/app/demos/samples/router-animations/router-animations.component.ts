@@ -1,4 +1,4 @@
-import { ChangeDetectionStrategy, Component, OnInit } from '@angular/core';
+import { ChangeDetectionStrategy, Component } from '@angular/core';
 import { MarkdownRendererComponent } from '../../../shared/markdown-renderer/markdown-renderer.component';
 
 @Component({
@@ -8,11 +8,4 @@ import { MarkdownRendererComponent } from '../../../shared/markdown-renderer/mar
   changeDetection: ChangeDetectionStrategy.OnPush,
   imports: [MarkdownRendererComponent]
 })
-export class RouterAnimationsComponent implements OnInit {
-
-  constructor() { }
-
-  ngOnInit(): void {
-  }
-
-}
+export class RouterAnimationsComponent { }

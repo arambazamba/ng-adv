@@ -4,17 +4,15 @@
     <mat-card-title>{{ title }}</mat-card-title>
   </mat-card-header>
   <mat-card-content class="cmdItems">
-    <button
-      mat-raised-button
-      color="primary"
-      (click)="toggleLoggedIn()">
+    <button mat-raised-button color="primary" (click)="toggleLoggedIn()">
       Toggle LoggedIn
     </button>
     <button
       mat-raised-button
       color="primary"
       (click)="togglePrimeMember()"
-      [disabled]="btnTogglePrimeEnabled | async">
+      [disabled]="btnTogglePrimeEnabled()"
+    >
       Toggle Prime Member
     </button>
     <button mat-raised-button [routerLink]="['members']" color="primary">
@@ -25,7 +23,7 @@
     </button>
     <div>
       <pre>
-        <p>Currently logged in: {{ user | async | json  }}</p>
+        <p>Currently logged in: {{ user() | json  }}</p>
       </pre>
     </div>
   </mat-card-content>

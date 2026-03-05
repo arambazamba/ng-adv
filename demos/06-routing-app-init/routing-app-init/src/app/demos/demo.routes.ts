@@ -6,15 +6,18 @@ import { DiInjectComponent } from './samples/di-inject/di-inject.component';
 import { GlobalErrorsComponent } from './samples/global-errors/global-errors.component';
 import { HttpErrorsComponent } from './samples/http-errors/http-errors.component';
 import { HttpResourceComponent } from './samples/http-resource/http-resource.component';
+import { HttpresourceRouteResolverComponent } from './samples/httpresource-route-resolver/httpresource-route-resolver.component';
+import { httpResourceAlbumResolver } from './samples/httpresource-route-resolver/httpresource-route-resolver.resolver';
 import { MembersComponent } from './samples/multi-guard/members/members.component';
 import { MultiGuardComponent } from './samples/multi-guard/multi-guard.component';
 import { onlyAuthenticatedGuard } from './samples/multi-guard/only-authenticated.guard';
 import { onlyPrimeMembersGuard } from './samples/multi-guard/only-prime-members.guard';
 import { PrimeComponent } from './samples/multi-guard/prime/prime.component';
 import { MultiInterceptorComponent } from './samples/multi-interceptor/multi-interceptor.component';
-import { NgrxRouterActionsComponent } from './samples/ngrx-router-actions/ngrx-router-actions.component';
-import { PreloadingNgrxComponent } from './samples/preloading-ngrx/preloading-ngrx.component';
 import { PreloadingStrategyComponent } from './samples/preloading-strategy/preloading-strategy.component';
+import { QueryParamsSignalsComponent } from './samples/query-params-signals/query-params-signals.component';
+import { RouteResolversSignalsComponent } from './samples/route-resolvers-signals/route-resolvers-signals.component';
+import { routeDataResolver } from './samples/route-resolvers-signals/route-resolver';
 import { RouterAnimationsComponent } from './samples/router-animations/router-animations.component';
 import { RouterBindingComponent } from './samples/router-binding/router-binding.component';
 import { RouteTitlesComponent } from './samples/route-titles/route-titles.component';
@@ -64,24 +67,22 @@ export const demoRoutes: Routes = [
                 title: 'HTTP Resource'
             },
             {
+                path: 'httpresource-resolver/:id',
+                component: HttpresourceRouteResolverComponent,
+                title: 'HTTP Resource Route Resolver',
+                resolve: {
+                    album: httpResourceAlbumResolver
+                }
+            },
+            {
                 path: 'can-match-guard',
                 component: CanMatchGuardComponent,
                 title: 'CanMatch Guard'
             },
             {
-                path: 'ngrx-resolver',
-                component: PreloadingNgrxComponent,
-                title: 'NgRx Data Preload'
-            },
-            {
                 path: 'view-transitions',
                 component: ViewTransitionsComponent,
                 title: 'View Transitions'
-            },
-            {
-                path: 'ngrx-router-actions',
-                component: NgrxRouterActionsComponent,
-                title: 'NgRx Router Actions'
             },
             {
                 path: 'multi-guard',
@@ -124,6 +125,19 @@ export const demoRoutes: Routes = [
                 path: 'router-animations',
                 component: RouterAnimationsComponent,
                 title: 'Router Animations'
+            },
+            {
+                path: 'route-resolvers-signals',
+                component: RouteResolversSignalsComponent,
+                title: 'Route Resolvers with Signals',
+                resolve: {
+                    data: routeDataResolver
+                }
+            },
+            {
+                path: 'query-params-signals',
+                component: QueryParamsSignalsComponent,
+                title: 'Query Parameters with Signals'
             }
         ],
     },

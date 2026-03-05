@@ -4,23 +4,27 @@
 
 ## Demos
 
-- Dependency Injection in Depth: Resolution modifiers and Dependency providers
-- Using Constructor vs inject for DI
-- APP_INITIALIZER, Injection & forwardRef
-- Implementing Global Error Handling and Retry-Patterns
-- Introduction to @ngrx/router-store
-- Routing using NgRx Actions
-- Binding Router-Params to Component Inputs
-- Functional Route Guards & Interceptors
-- Integrating Route Guards & Interceptors with NgRx
-- Chaining Route Guards & Interceptors
-- Auxiliary Routes: Common use cases
-- Preloading Component Data from NgRx using Functional Resolvers
-- Using Preloading Strategies
-- Router Animations & Anchor Scrolling
-- Introduction to Visual Feedback (Loading-, Saving-, ...-Indicator)
+| #   | Route                      | Title                         | Teaches                                                                                                                                                                 | Topic                 |
+| --- | -------------------------- | ----------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------- | --------------------- |
+| 1   | `app-init`                 | App Initialization            | Configure application startup behavior using APP_INITIALIZER tokens. Run setup logic before the application bootstraps.                                                 | App Initialization    |
+| 2   | `inject`                   | DI: Inject & Provide          | Use the inject() function to retrieve registered dependencies in a component. Learn how to provide custom services and configure injection tokens.                      | App Initialization    |
+| 3   | `global-errors`            | Global Error Handler          | Implement a global error handler using ErrorHandler token. Catch and log all application errors in one place.                                                           | Error Handling        |
+| 4   | `http-errors`              | HTTP Error Handler            | Create interceptors that catch and transform HTTP errors. Implement centralized error recovery strategies.                                                              | Error Handling        |
+| 5   | `multi-interceptor`        | HTTP Interceptors             | Create multiple HTTP interceptors to add cross-cutting concerns like auth headers, logging, and error handling. Chain interceptors for request/response transformation. | Error Handling        |
+| 6   | `router-bindings`          | Component Input Bindings      | Bind route parameters directly to component inputs using bindToComponentInputs strategy. Simplify parameter handling with signal-based inputs.                          | Routing               |
+| 7   | `ngrx-routing`             | NgRx Router State             | Access router state through NgRx store. Manage navigation history and route parameters in application state.                                                            | Routing               |
+| 8   | `route-titles`             | Route Titles                  | Set dynamic page titles for each route using the title property in route configuration. Update browser tab titles automatically.                                        | Routing               |
+| 9   | `router-animations`        | Router Animations             | Add smooth transitions between route components using Angular animations. Enhance navigation UX with view enter/exit effects.                                           | Routing               |
+| 10  | `view-transitions`         | View Transitions              | Leverage native View Transitions API for seamless animated navigation. Create shared element animations across route changes.                                           | Routing               |
+| 11  | `can-match-guard`          | CanMatch Guard                | Use canMatch guards to conditionally load routes based on runtime conditions. Prevent route initialization before matching.                                             | Routing               |
+| 12  | `multi-guard`              | Route Guards                  | Stack multiple route guards to enforce authorization policies. Combine authentication and role-based access control.                                                    | Routing               |
+| 13  | `preloading-strategy`      | Preloading Strategy           | Implement custom preloading strategies to eager-load routes in the background. Optimize performance with selective preloading.                                          | Routing               |
+| 14  | `http-resource`            | HTTP Resource                 | Fetch data declaratively using the resource() function with signal-based reactive requests. Manage loading and error states automatically.                              | Routing               |
+| 15  | `httpresource-resolver`    | HTTP Resource Route Resolver  | Preload route data using ResolveFn with HTTP requests. Deliver type-safe data to components via signal-based inputs without managing subscriptions.                     | Routing               |
+| 16  | `route-resolvers-signals`  | Route Resolvers with Signals  | Preload route data using ResolveFn with signals. Bind resolved data directly to component signal inputs for type-safe, auto-unwrapped data delivery.                    | Routing               |
+| 17  | `query-params-signals`     | Query Parameters with Signals | Manage query parameters reactively using signals. Synchronize component state with URL search params for bookmarkable, shareable filtered views.                        | Routing               |
 
-## Routing and NgRx
+## Demos Reference
 
 Add Routing:
 
@@ -65,11 +69,12 @@ StoreRouterConnectingModule.forRoot({
 });
 ```
 
-REMARK: 
+REMARK:
 Dependent on Runtime Checks only the minimal Router Serializer can be used! The Full Router State will not be serializeable and therefore does not work with the Serializeability runtime checks!
 An own serializer can be implemented.
 
 Example for runtime checks
+
 ```typescript
     StoreModule.forRoot(reducers, {
       runtimeChecks: {
@@ -115,8 +120,8 @@ The LoginRedirect can be listened to in an effect:
 @Injectable()
 export class AuthEffects {
   constructor(
-  	private actions$: Actions, 
-  	private as: AuthService, 
+  	private actions$: Actions,
+  	private as: AuthService,
   	private router:Router) {}
 
   // Redirect to login page

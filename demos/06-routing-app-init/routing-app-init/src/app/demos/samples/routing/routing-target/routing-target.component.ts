@@ -1,9 +1,10 @@
 import { ChangeDetectionStrategy, Component, inject } from '@angular/core';
+import { toSignal } from '@angular/core/rxjs-interop';
 import { RouterReducerState } from '@ngrx/router-store';
 import { Store } from '@ngrx/store';
 import { tap } from 'rxjs/operators';
 import { getRouterInfo } from 'src/app/state/router.selectors';
-import { AsyncPipe, JsonPipe } from '@angular/common';
+import { JsonPipe } from '@angular/common';
 import { MatCard, MatCardContent } from '@angular/material/card';
 
 @Component({
@@ -14,11 +15,10 @@ import { MatCard, MatCardContent } from '@angular/material/card';
     imports: [
         MatCard,
         MatCardContent,
-        AsyncPipe,
         JsonPipe,
     ]
 })
 export class RoutingTargetComponent {
     store = inject(Store) as Store<RouterReducerState>;
-    routerState$ = this.store.select(getRouterInfo).pipe(tap(console.log));
+    routerState = toSignal(this.store.select(getRouterInfo).pipe(tap(console.log)));
 }

@@ -1,5 +1,6 @@
-import { AsyncPipe, JsonPipe } from '@angular/common';
+import { JsonPipe } from '@angular/common';
 import { ChangeDetectionStrategy, Component, inject } from '@angular/core';
+import { toSignal } from '@angular/core/rxjs-interop';
 import { MatButton } from '@angular/material/button';
 import { MatCard, MatCardContent, MatCardHeader, MatCardTitle } from '@angular/material/card';
 import { RouterLink, RouterOutlet } from '@angular/router';
@@ -21,17 +22,16 @@ import { MarkdownRendererComponent } from '../../../shared/markdown-renderer/mar
     MatButton,
     RouterLink,
     RouterOutlet,
-    AsyncPipe,
     JsonPipe,
   ]
 })
 export class MultiGuardComponent {
   title = 'Using multiple Auth Guards';
   auth = inject(AuthFacade);
-  user = this.auth.getUser();
+  user = toSignal(this.auth.getUser());
 
-  btnTogglePrimeEnabled = this.auth.isAuthenticated()
-    .pipe(map((LoggedIn) => !LoggedIn));
+  btnTogglePrimeEnabled = toSignal(this.auth.isAuthenticated()
+    .pipe(map((LoggedIn) => !LoggedIn)));
 
   toggleLoggedIn() {
     this.auth.toggleLoggedIn()

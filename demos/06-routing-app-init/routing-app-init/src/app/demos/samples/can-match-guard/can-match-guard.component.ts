@@ -1,10 +1,10 @@
 import { ChangeDetectionStrategy, Component, inject } from '@angular/core';
+import { toSignal } from '@angular/core/rxjs-interop';
 import { Router, CanMatchFn } from '@angular/router';
 import { MarkdownRendererComponent } from '../../../shared/markdown-renderer/markdown-renderer.component';
 import { MatCard, MatCardContent, MatCardHeader, MatCardTitle, MatCardActions } from '@angular/material/card';
 import { MatButton } from '@angular/material/button';
 import { AuthFacade } from '../../../mock-auth/state/auth.facade';
-import { AsyncPipe } from '@angular/common';
 
 /**
  * canMatch vs  canActivate:
@@ -16,16 +16,16 @@ import { AsyncPipe } from '@angular/common';
 export const featureAccessGuard: CanMatchFn = () => {
   const authFacade = inject(AuthFacade);
   const router = inject(Router);
-  
+
   // In real app, check user role/permissions here
   const hasAccess = Math.random() > 0.5; // Simulate random access
-  
+
   if (!hasAccess) {
     console.log('Access denied - module will not be loaded');
     router.navigate(['/auth/sign-in']);
     return false;
   }
-  
+
   console.log('Access granted - module can be loaded');
   return true;
 };
@@ -42,13 +42,13 @@ export const featureAccessGuard: CanMatchFn = () => {
     MatCardHeader,
     MatCardTitle,
     MatCardActions,
-    MatButton,
-    AsyncPipe
+    MatButton
   ]
 })
 export class CanMatchGuardComponent {
   protected router = inject(Router);
   protected authFacade = inject(AuthFacade);
+  protected isAuthenticated = toSignal(this.authFacade.isAuthenticated());
 
   protected tryNavigation() {
     // This would navigate to a route protected by canMatch
