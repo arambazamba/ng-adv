@@ -12,11 +12,11 @@ describe('Component - AsyncTest - FakeAsync', () => {
   let fixture: ComponentFixture<SimpleAuthFakeAsyncComponent>;
   let service: SimpleAuthService;
 
-  beforeEach(() => {
-    TestBed.configureTestingModule({
+  beforeEach(async () => {
+    await TestBed.configureTestingModule({
       imports: [SimpleAuthFakeAsyncComponent],
       providers: [SimpleAuthService],
-    });
+    }).compileComponents();
 
     fixture = TestBed.createComponent(SimpleAuthFakeAsyncComponent);
     component = fixture.componentInstance;
@@ -42,7 +42,6 @@ describe('Component - AsyncTest - FakeAsync', () => {
 
   it('returns true when the user is authenticated', () => {
     vi.spyOn(service, 'isAuthenticated').mockReturnValue(of(true));
-    component.ngOnInit();
     fixture.detectChanges();
 
     expect(

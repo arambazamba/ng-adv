@@ -30,13 +30,13 @@ import { FoodItem } from '../food/food.model';
   ]
 })
 export class ComponentClassComponent {
-  protected readonly title = 'Food App';
-  protected readonly food = signal<FoodItem[]>([
+  readonly title = 'Food App';
+  readonly food = signal<FoodItem[]>([
     { id: 2, name: 'Pad Thai', rating: 1 },
     { id: 3, name: 'Butter Chicken', rating: 2 },
   ]);
 
-  protected addFood(item: FoodItem) {
+  addFood(item: FoodItem) {
     this.food.update(items => [...items, item]);
   }
 }

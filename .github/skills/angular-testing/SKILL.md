@@ -11,11 +11,15 @@ Test Angular v20+ applications with Vitest (recommended) or Jasmine, focusing on
 
 Angular v20+ has native Vitest support through the `@angular/build` package.
 
+### Installation
+
 ```bash
 npm install -D vitest jsdom
 ```
 
-Configure in angular.json:
+### Configure angular.json
+
+Add test architect:
 
 ```json
 {
@@ -35,19 +39,168 @@ Configure in angular.json:
 }
 ```
 
-Run tests:
+### Configure tsconfig.spec.json
 
-```bash
-ng test              # Run tests
-ng test --watch      # Watch mode
-ng test --code-coverage  # With coverage
+Update compiler types for Vitest globals:
+
+```json
+{
+  "extends": "./tsconfig.json",
+  "compilerOptions": {
+    "outDir": "./out-tsc/spec",
+    "types": ["vitest/globals"]
+  },
+  "include": [
+    "src/**/*.spec.ts",
+    "src/**/*.d.ts"
+  ]
+}
 ```
 
-For Vitest migration from Jasmine and advanced configuration, see [references/vitest-migration.md](references/vitest-migration.md).
+### Create test-setup.ts
+
+Create `src/test-setup.ts` to initialize Angular TestBed (required for all tests):
+
+```typescript
+import { getTestBed } from '@angular/core/testing';
+import {
+  BrowserDynamicTestingModule,
+  platformBrowserDynamicTesting,
+} from '@angular/platform-browser-dynamic/testing';
+
+// Initialize the Angular testing environment
+getTestBed().initTestEnvironment(
+  BrowserDynamicTestingModule,
+  platformBrowserDynamicTesting(),
+);
+```
+
+### Configure vitest.config.ts
+
+```typescript
+/// <reference types="vitest" />
+import { defineConfig } from 'vitest/config';
+
+export default defineConfig({
+    test: {
+        globals: true,
+        include: ['src/**/*.spec.ts'],
+        setupFiles: ['src/test-setup.ts'],
+    },
+});
+```
+
+### Run Tests
+
+```bash
+ng test              # Run tests once
+ng test --watch      # Watch mode (recommended for development)
+ng test --code-coverage  # With coverage report
+```
+
+## Vitest Migration from Jasmine
+
+When migrating existing Jasmine tests to Vitest, use these patterns and replacements.
+
+### Import Updates
+
+Add Vitest globals to test files:
+
+```typescript
+// ✅ Vitest (new)
+import { describe, it, expect, beforeEach, afterEach, vi } from 'vitest';
+import { ComponentFixture, TestBed } from '@angular/core/testing';
+
+// ❌ Old - Remove this
+// Don't import jasmine library anymore
+```
+
+### Spying on Methods
+
+Replace Jasmine spy syntax with Vitest:
+
+| Jasmine | Vitest |
+|---------|--------|
+| `spyOn(obj, 'method')` | `vi.spyOn(obj, 'method')` |
+| `.and.returnValue(val)` | `.mockReturnValue(val)` |
+| `.and.throwError(err)` | `.mockRejectedValue(err)` |
+| `.and.callThrough()` | `.mockImplementation((args) => original(args))` |
+
+### Migration Example
+
+```typescript
+// ❌ Jasmine
+describe('MyComponent', () => {
+  it('should call service', () => {
+    const spy = spyOn(myService, 'fetch').and.returnValue(of(mockData));
+    component.loadData();
+    expect(spy).toHaveBeenCalledWith('query');
+  });
+});
+
+// ✅ Vitest
+describe('MyComponent', () => {
+  let service: MyService;
+
+  beforeEach(async () => {
+    await TestBed.configureTestingModule({
+      imports: [MyComponent],
+      providers: [MyService],
+    }).compileComponents();
+    service = TestBed.inject(MyService);
+  });
+
+  it('should call service', () => {
+    const spy = vi.spyOn(service, 'fetch').mockReturnValue(of(mockData));
+    const component = TestBed.createComponent(MyComponent).componentInstance;
+    component.loadData();
+    expect(spy).toHaveBeenCalledWith('query');
+  });
+});
+```
+
+### Spying on Component Output Signals
+
+For testing component outputs:
+
+```typescript
+@Component({
+  selector: 'app-item',
+  template: `<button (click)="select()">Select</button>`,
+})
+export class ItemComponent {
+  item = input.required<Item>();
+  selected = output<Item>();
+
+  select() {
+    this.selected.emit(this.item());
+  }
+}
+
+describe('ItemComponent', () => {
+  it('should emit selected event on click', () => {
+    const fixture = TestBed.createComponent(ItemComponent);
+    const spy = vi.spyOn(fixture.componentInstance.selected, 'emit');
+
+    fixture.componentRef.setInput('item', { id: '1', name: 'Test' });
+    fixture.nativeElement.querySelector('button').click();
+
+    expect(spy).toHaveBeenCalledWith({ id: '1', name: 'Test' });
+  });
+});
+```
+
+### Key Differences from Jasmine
+
+- **Global spyOn unavailable**: Must use `vi.spyOn()` explicitly
+- **TestBed still available globally**: From Angular, works unmodified
+- **Setup file required**: `test-setup.ts` initializes TestBed for all tests
+- **TypeScript types**: Update tsconfig.spec.json to use `vitest/globals`
+- **Faster watch mode**: Vitest provides quicker feedback than Karma
 
 ## Basic Component Test
 
-```typescript
+Following Angular v20+ best practices with standalone components and OnPush change detection:
 import { describe, it, expect, beforeEach } from 'vitest';
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 import { Counter } from './counter.component';
@@ -271,40 +424,71 @@ describe('UserService', () => {
 
 ## Mocking Dependencies
 
-### Using Vitest Mocks
+### Using vi.spyOn for Real Services
+
+The recommended approach is to inject the real service and spy on its methods:
 
 ```typescript
 import { describe, it, expect, vi, beforeEach } from 'vitest';
+import { TestBed } from '@angular/core/testing';
 
 describe('UserProfile', () => {
-  const mockUserService = {
-    getUser: vi.fn(),
-    updateUser: vi.fn(),
-    user: signal<User | null>(null),
-  };
+  let service: UserService;
 
   beforeEach(async () => {
-    vi.clearAllMocks();
-    mockUserService.getUser.mockReturnValue(of({ id: '1', name: 'Test' }));
-
     await TestBed.configureTestingModule({
       imports: [UserProfile],
-      providers: [
-        { provide: UserService, useValue: mockUserService },
-      ],
+      providers: [UserService],
     }).compileComponents();
+
+    service = TestBed.inject(UserService);
   });
 
   it('should call getUser on init', () => {
+    const spy = vi.spyOn(service, 'getUser').mockReturnValue(of({ id: '1', name: 'Test' }));
+
     const fixture = TestBed.createComponent(UserProfile);
     fixture.detectChanges();
 
-    expect(mockUserService.getUser).toHaveBeenCalledWith('1');
+    expect(spy).toHaveBeenCalledWith('1');
   });
 });
 ```
 
+### Using Full Mock Objects
+
+For complete replacement of services:
+
+```typescript
+const mockUserService = {
+  getUser: vi.fn(),
+  updateUser: vi.fn(),
+  user: signal<User | null>(null),
+};
+
+beforeEach(async () => {
+  vi.clearAllMocks();
+  mockUserService.getUser.mockReturnValue(of({ id: '1', name: 'Test' }));
+
+  await TestBed.configureTestingModule({
+    imports: [UserProfile],
+    providers: [
+      { provide: UserService, useValue: mockUserService },
+    ],
+  }).compileComponents();
+});
+
+it('should call getUser on init', () => {
+  const fixture = TestBed.createComponent(UserProfile);
+  fixture.detectChanges();
+
+  expect(mockUserService.getUser).toHaveBeenCalledWith('1');
+});
+```
+
 ### Mock Signal-Based Service
+
+For services with signals:
 
 ```typescript
 const mockAuth = {
@@ -452,6 +636,77 @@ describe('UserCmpt', () => {
 });
 ```
 
-For advanced testing patterns including component harnesses, router testing, form testing, and directive testing, see [references/testing-patterns.md](references/testing-patterns.md).
+## Best Practices & Recommendations
 
-For Vitest migration from Jasmine, see [references/vitest-migration.md](references/vitest-migration.md).
+### Vitest vs Jasmine
+
+**Use Vitest for new projects.** It provides:
+- No Karma server dependency
+- Faster test execution
+- Better TypeScript support
+- Modern JavaScript tooling
+- Native module support
+
+### Test Organization
+
+1. **One spec file per component/service**: `component.spec.ts` adjacent to `component.ts`
+2. **Setup services in `beforeEach`**: Initialize TestBed and inject dependencies
+3. **Use meaningful test names**: Describe behavior, not implementation
+4. **Keep tests focused**: One assertion per test when possible
+5. **Mock external dependencies**: HTTP, localStorage, timers, etc.
+
+### Common Patterns
+
+**Always use standalone components:**
+```typescript
+@Component({
+  selector: 'app-example',
+  template: '...',
+  changeDetection: ChangeDetectionStrategy.OnPush,
+  imports: [CommonModule, ...],
+})
+export class ExampleComponent { }
+```
+
+**Always use OnPush for testability:**
+```typescript
+changeDetection: ChangeDetectionStrategy.OnPush,
+// Requires explicit fixture.detectChanges() calls
+// Makes tests more explicit and reliable
+```
+
+**Prefer input()/output() over @Input/@Output:**
+```typescript
+// ✅ Modern
+item = input.required<Item>();
+selected = output<Item>();
+
+// ❌ Legacy
+@Input() item!: Item;
+@Output() selected = new EventEmitter<Item>();
+```
+
+### Debugging Tests
+
+Run with detailed output:
+```bash
+ng test -- --reporter=verbose
+```
+
+Run specific test file:
+```bash
+ng test -- src/app/component.spec.ts
+```
+
+Debug in browser:
+```bash
+ng test -- --watch --browser=chrome
+```
+
+### Performance Tips
+
+1. Use `provideHttpClientTesting()` for HTTP tests
+2. Mock expensive operations (timers, animations)
+3. Use `fakeAsync` for time-dependent tests
+4. Clear mocks in `afterEach` when needed
+5. Limit use of `fixture.detectChanges()` calls

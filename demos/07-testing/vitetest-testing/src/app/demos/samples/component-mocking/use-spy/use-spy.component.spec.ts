@@ -1,17 +1,18 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 import { AuthService } from '../auth.service';
 import { UseSpyComponent } from './use-spy.component';
+import { describe, it, expect, beforeEach, vi } from 'vitest';
 
 describe('UseMockComponent with MockAuth Service', () => {
   let spy: any;
   let comp: UseSpyComponent;
   let fixture: ComponentFixture<UseSpyComponent>;
 
-  beforeEach(() => {
+  beforeEach(async () => {
     spy = { isAuthenticated: vi.fn(), useAzureAD: true };
     spy.isAuthenticated.mockReturnValue(true);
 
-    TestBed.configureTestingModule({
+    await TestBed.configureTestingModule({
       imports: [UseSpyComponent],
       providers: [{ provide: AuthService, useValue: spy }],
     }).compileComponents();

@@ -18,10 +18,10 @@ import { MatCard, MatCardHeader, MatCardTitle, MatCardContent } from '@angular/m
   ]
 })
 export class FoodListComponent {
-  protected readonly fs = inject(FoodServiceBS);
-  protected readonly food = this.fs.getFood();
+  readonly fs = inject(FoodServiceBS);
+  readonly food = this.fs.getFood();
 
-  protected deleteFood(food: FoodItem) {
+  deleteFood(food: FoodItem) {
     this.fs.deleteFood(food);
   }
 }

@@ -20,5 +20,5 @@ export class SimpleAuthDoneComponent {
   protected readonly isAuthenticated = toSignal(this.auth.isAuthenticated(), {
     initialValue: false
   });
-  protected readonly needsLogin = computed(() => !this.isAuthenticated());
+  readonly needsLogin = computed(() => !this.isAuthenticated());
 }

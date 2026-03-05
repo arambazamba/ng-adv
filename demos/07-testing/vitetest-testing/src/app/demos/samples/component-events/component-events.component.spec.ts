@@ -3,13 +3,14 @@ import { ComponentFixture, TestBed } from '@angular/core/testing';
 import { By } from '@angular/platform-browser';
 import { NoopAnimationsModule } from '@angular/platform-browser/animations';
 import { MarkdownModule } from 'ngx-markdown';
+import { describe, it, expect, beforeEach } from 'vitest';
 import { ComponentEventsComponent } from './component-events.component';
 
 describe('ComponentEventsComponent', () => {
   let fixture: ComponentFixture<ComponentEventsComponent>;
 
-  beforeEach(() => {
-    fixture = TestBed.configureTestingModule({
+  beforeEach(async () => {
+    await TestBed.configureTestingModule({
       imports: [
         NoopAnimationsModule,
         MarkdownModule.forRoot()
@@ -17,7 +18,8 @@ describe('ComponentEventsComponent', () => {
       providers: [
         provideHttpClient()
       ]
-    }).createComponent(ComponentEventsComponent);
+    }).compileComponents();
+    fixture = TestBed.createComponent(ComponentEventsComponent);
   });
 
   it('should create', () => {

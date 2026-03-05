@@ -41,9 +41,9 @@
       "id": 8
     },
     {
-      "url": "http-tests-bs",
-      "title": "Service BS Http",
-      "teaches": "Test a service that uses BehaviorSubject for local state alongside HttpClient. Verify Observable emissions and state management.",
+      "url": "http-tests-signal",
+      "title": "Service Signal Http",
+      "teaches": "Test a service that uses signals for local state alongside HttpClient. Verify signal reactivity and state management.",
       "topic": "Services",
       "sortOrder": 6,
       "id": 83

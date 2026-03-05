@@ -1,0 +1,628 @@
+
+[1m[46m RUN [49m[22m [36mv4.0.18 [39m[90mD:/git-classes/angular-advanced/demos/07-testing/vitetest-testing[39m
+
+ [31mΓ¥»[39m src/app/demos/samples/component-async/food-menu/food-menu.component.spec.ts [2m([22m[2m3 tests[22m[2m | [22m[31m3 failed[39m[2m)[22m[32m 9[2mms[22m[39m
+[31m     [31m├ù[31m should have a list of 3 food items (using fake timers)[39m[32m 6[2mms[22m[39m
+[31m     [31m├ù[31m should have a list of 3 food items (using autoDetectChanges)[39m[32m 1[2mms[22m[39m
+[31m     [31m├ù[31m should have a list of 3 food items (using whenStable)[39m[32m 1[2mms[22m[39m
+ [32mΓ£ô[39m src/app/demos/samples/component-marbles/marble-syntax.spec.ts [2m([22m[2m2 tests[22m[2m)[22m[32m 9[2mms[22m[39m
+ [32mΓ£ô[39m src/app/demos/samples/food/food.service-bs.spec.ts [2m([22m[2m4 tests[22m[2m)[22m[32m 24[2mms[22m[39m
+ [32mΓ£ô[39m src/app/demos/samples/food/food.service.spec.ts [2m([22m[2m4 tests[22m[2m)[22m[32m 19[2mms[22m[39m
+ [31mΓ¥»[39m src/app/demos/samples/directive/capitalize.directive.spec.ts [2m([22m[2m3 tests[22m[2m | [22m[31m3 failed[39m[2m)[22m[32m 7[2mms[22m[39m
+[31m     [31m├ù[31m should create component[39m[32m 5[2mms[22m[39m
+[31m     [31m├ù[31m should capitalize text when initially clicked[39m[32m 1[2mms[22m[39m
+[31m     [31m├ù[31m should lowercase when clicked twice[39m[32m 1[2mms[22m[39m
+ [32mΓ£ô[39m src/app/shared/loading/loading.service.spec.ts [2m([22m[2m4 tests[22m[2m)[22m[32m 17[2mms[22m[39m
+ [31mΓ¥»[39m src/app/demos/samples/component-integration/food-row/food-row.component.spec.ts [2m([22m[2m5 tests[22m[2m | [22m[31m5 failed[39m[2m)[22m[32m 8[2mms[22m[39m
+[31m     [31m├ù[31m should have the correct food item[39m[32m 6[2mms[22m[39m
+[31m     [31m├ù[31m should render the food name[39m[32m 0[2mms[22m[39m
+[31m     [31m├ù[31m should render the food name when food is changed[39m[32m 0[2mms[22m[39m
+[31m     [31m├ù[31m should trigger delete[39m[32m 0[2mms[22m[39m
+[31m     [31m├ù[31m should trigger edit[39m[32m 0[2mms[22m[39m
+ [31mΓ¥»[39m src/app/demos/samples/component-mocking/use-spy/use-spy.component.spec.ts [2m([22m[2m3 tests[22m[2m | [22m[31m3 failed[39m[2m)[22m[32m 9[2mms[22m[39m
+[31m     [31m├ù[31m should create[39m[32m 6[2mms[22m[39m
+[31m     [31m├ù[31m should return Authenticated true[39m[32m 1[2mms[22m[39m
+[31m     [31m├ù[31m should have the correct login state on the Template[39m[32m 1[2mms[22m[39m
+ [31mΓ¥»[39m src/app/demos/samples/component-async/simple-auth-fake-async/simple-auth-fake-async.component.spec.ts [2m([22m[2m3 tests[22m[2m | [22m[31m3 failed[39m[2m)[22m[32m 6[2mms[22m[39m
+[31m     [31m├ù[31m component has been created[39m[32m 4[2mms[22m[39m
+[31m     [31m├ù[31m returns false when the user is not authenticated[39m[32m 1[2mms[22m[39m
+[31m     [31m├ù[31m returns true when the user is authenticated[39m[32m 0[2mms[22m[39m
+ [31mΓ¥»[39m src/app/demos/samples/component-async/simple-auth-async-when-stable/simple-auth-when-stable.component.spec.ts [2m([22m[2m3 tests[22m[2m | [22m[31m3 failed[39m[2m)[22m[32m 7[2mms[22m[39m
+[31m     [31m├ù[31m component has been created[39m[32m 5[2mms[22m[39m
+[31m     [31m├ù[31m returns false when the user is not authenticated[39m[32m 1[2mms[22m[39m
+[31m     [31m├ù[31m returns true when the user is authenticated[39m[32m 0[2mms[22m[39m
+ [31mΓ¥»[39m src/app/demos/samples/component-async/simple-auth-done/simple-auth-done.component.spec.ts [2m([22m[2m3 tests[22m[2m | [22m[31m3 failed[39m[2m)[22m[32m 9[2mms[22m[39m
+[31m     [31m├ù[31m component has been created[39m[32m 6[2mms[22m[39m
+[31m     [31m├ù[31m returns false when the user is not authenticated[39m[32m 1[2mms[22m[39m
+[31m     [31m├ù[31m returns true when the user is authenticated[39m[32m 0[2mms[22m[39m
+ [31mΓ¥»[39m src/app/shared/intro/intro.component.spec.ts [2m([22m[2m3 tests[22m[2m | [22m[31m3 failed[39m[2m)[22m[32m 11[2mms[22m[39m
+[31m     [31m├ù[31m should create[39m[32m 8[2mms[22m[39m
+[31m     [31m├ù[31m should display the title[39m[32m 1[2mms[22m[39m
+[31m     [31m├ù[31m should display the subtitle[39m[32m 1[2mms[22m[39m
+ [32mΓ£ô[39m src/app/shared/side-panel/sidepanel.service.spec.ts [2m([22m[2m3 tests[22m[2m)[22m[32m 31[2mms[22m[39m
+ [32mΓ£ô[39m src/app/demos/state/demos.state.spec.ts [2m([22m[2m4 tests[22m[2m)[22m[32m 28[2mms[22m[39m
+ [32mΓ£ô[39m src/app/customers/customer-list/customers.component.spec.ts [2m([22m[2m1 test[22m[2m)[22m[32m 32[2mms[22m[39m
+ [31mΓ¥»[39m src/app/shared/markdown-renderer/markdown-renderer.component.spec.ts [2m([22m[2m5 tests[22m[2m | [22m[31m5 failed[39m[2m)[22m[32m 12[2mms[22m[39m
+[31m     [31m├ù[31m should create[39m[32m 7[2mms[22m[39m
+[31m     [31m├ù[31m should set md input correctly[39m[32m 1[2mms[22m[39m
+[31m     [31m├ù[31m should return correct markdown path[39m[32m 1[2mms[22m[39m
+[31m     [31m├ù[31m should toggle panel visibility[39m[32m 1[2mms[22m[39m
+[31m     [31m├ù[31m should get initial content visibility state[39m[32m 0[2mms[22m[39m
+ [31mΓ¥»[39m src/app/shared/navbar/navbar.service.spec.ts [2m([22m[2m3 tests[22m[2m | [22m[31m3 failed[39m[2m)[22m[32m 10[2mms[22m[39m
+[31m     [31m├ù[31m should create[39m[32m 6[2mms[22m[39m
+[31m     [31m├ù[31m should toggle menu visibility[39m[32m 1[2mms[22m[39m
+[31m     [31m├ù[31m should display alert when toggling apps[39m[32m 1[2mms[22m[39m
+ [32mΓ£ô[39m src/app/customers/customers.store.spec.ts [2m([22m[2m6 tests[22m[2m)[22m[32m 38[2mms[22m[39m
+ [31mΓ¥»[39m src/app/demos/samples/component-test/simple-food/simple-food.component.spec.ts [2m([22m[2m4 tests[22m[2m | [22m[31m4 failed[39m[2m)[22m[32m 13[2mms[22m[39m
+[31m     [31m├ù[31m should load food items using resource[39m[32m 9[2mms[22m[39m
+[31m     [31m├ù[31m should display food items in the template[39m[32m 1[2mms[22m[39m
+[31m     [31m├ù[31m should delete food item from list[39m[32m 1[2mms[22m[39m
+[31m     [31m├ù[31m should update food item[39m[32m 1[2mms[22m[39m
+ [31mΓ¥»[39m src/app/demos/samples/component-integration/food-list/food-list.component.spec.ts [2m([22m[2m2 tests[22m[2m | [22m[31m2 failed[39m[2m)[22m[32m 23[2mms[22m[39m
+[31m     [31m├ù[31m should render each FoodItem as FoodItemRow[39m[32m 19[2mms[22m[39m
+[31m     [31m├ù[31m should have three rows when an item is deleted[39m[32m 3[2mms[22m[39m
+ [31mΓ¥»[39m src/app/shared/side-panel/side-panel.component.spec.ts [2m([22m[2m5 tests[22m[2m | [22m[31m5 failed[39m[2m)[22m[32m 8[2mms[22m[39m
+[31m     [31m├ù[31m should create[39m[32m 5[2mms[22m[39m
+[31m     [31m├ù[31m should toggle editor display and icon[39m[32m 1[2mms[22m[39m
+[31m     [31m├ù[31m should call toggleMenuVisibility on SideNavService[39m[32m 0[2mms[22m[39m
+[31m     [31m├ù[31m should call toggleVisibility on RendererStateService[39m[32m 0[2mms[22m[39m
+[31m     [31m├ù[31m should handle keyboard event to toggle info[39m[32m 0[2mms[22m[39m
+ [31mΓ¥»[39m src/app/demos/samples/component-marbles/marbles.component.spec.ts [2m([22m[2m2 tests[22m[2m | [22m[31m2 failed[39m[2m)[22m[32m 6[2mms[22m[39m
+[31m     [31m├ù[31m should create[39m[32m 5[2mms[22m[39m
+[31m     [31m├ù[31m should render the correct values when 3 marbles are emitted[39m[32m 1[2mms[22m[39m
+ [31mΓ¥»[39m src/app/demos/samples/component-input-signals/component-input-signals.component.spec.ts [2m([22m[2m1 test[22m[2m | [22m[31m1 failed[39m[2m)[22m[32m 7[2mms[22m[39m
+[31m     [31m├ù[31m should create[39m[32m 5[2mms[22m[39m
+ [31mΓ¥»[39m src/app/demos/samples/component-events/component-events.component.spec.ts [2m([22m[2m3 tests[22m[2m | [22m[31m3 failed[39m[2m)[22m[32m 18[2mms[22m[39m
+[31m     [31m├ù[31m should create[39m[32m 13[2mms[22m[39m
+[31m     [31m├ù[31m should increment the count - triggerEventHandler[39m[32m 2[2mms[22m[39m
+[31m     [31m├ù[31m should increment the count - native Api[39m[32m 1[2mms[22m[39m
+ [31mΓ¥»[39m src/app/demos/samples/component-material-async/material-async.component.spec.ts [2m([22m[2m2 tests[22m[2m | [22m[31m2 failed[39m[2m)[22m[32m 5[2mms[22m[39m
+[31m     [31m├ù[31m should create[39m[32m 4[2mms[22m[39m
+[31m     [31m├ù[31m should render 3 tags[39m[32m 1[2mms[22m[39m
+ [32mΓ£ô[39m src/app/demos/samples/component-class/component-class.component.spec.ts [2m([22m[2m4 tests[22m[2m)[22m[32m 5[2mms[22m[39m
+ [31mΓ¥»[39m src/app/demos/samples/component-write/component-write.component.spec.ts [2m([22m[2m2 tests[22m[2m | [22m[31m2 failed[39m[2m)[22m[32m 5[2mms[22m[39m
+[31m     [31m├ù[31m should create[39m[32m 4[2mms[22m[39m
+[31m     [31m├ù[31m should be display the written Value[39m[32m 0[2mms[22m[39m
+ [31mΓ¥»[39m src/app/app.component.spec.ts [2m([22m[2m2 tests[22m[2m | [22m[31m2 failed[39m[2m)[22m[32m 19[2mms[22m[39m
+[31m     [31m├ù[31m should create the app[39m[32m 16[2mms[22m[39m
+[31m     [31m├ù[31m should have the 'Jasmine Testing' title[39m[32m 2[2mms[22m[39m
+ [31mΓ¥»[39m src/app/demos/samples/component-material/material.component.spec.ts [2m([22m[2m2 tests[22m[2m | [22m[31m2 failed[39m[2m)[22m[32m 15[2mms[22m[39m
+[31m     [31m├ù[31m should btnReset the slider when btnReset is clicked[39m[32m 13[2mms[22m[39m
+[31m     [31m├ù[31m should have the correct value in the input[39m[32m 2[2mms[22m[39m
+ [32mΓ£ô[39m src/app/demos/samples/pipe/phonenumber.pipe.spec.ts [2m([22m[2m4 tests[22m[2m)[22m[32m 3[2mms[22m[39m
+ [32mΓ£ô[39m src/app/demos/samples/pipe/rating.pipe.spec.ts [2m([22m[2m7 tests[22m[2m)[22m[32m 4[2mms[22m[39m
+ [32mΓ£ô[39m src/app/demos/samples/intro-unit-testing/voucher-validator.spec.ts [2m([22m[2m3 tests[22m[2m)[22m[32m 3[2mms[22m[39m
+ [32mΓ£ô[39m src/app/demos/samples/simple-service/simple.service.spec.ts [2m([22m[2m4 tests[22m[2m)[22m[32m 3[2mms[22m[39m
+ [32mΓ£ô[39m src/app/demos/samples/component-mocking/auth.service.spec.ts [2m([22m[2m2 tests[22m[2m)[22m[32m 3[2mms[22m[39m
+ [32mΓ£ô[39m src/app/demos/samples/intro-unit-testing/simple-class.spec.ts [2m([22m[2m2 tests[22m[2m)[22m[32m 2[2mms[22m[39m
+[90mstdout[2m | src/app/demos/samples/component-async/async-intro.spec.ts[2m > [22m[2mAsync Testing Examples[2m > [22m[2mAsynchronous test example with done()
+[22m[39mrunning assertions
+
+[90mstdout[2m | src/app/demos/samples/component-async/async-intro.spec.ts[2m > [22m[2mAsync Testing Examples[2m > [22m[2mVitest fake timers - Macrotask
+[22m[39mrunning assertions setTimeout()
+
+[90mstdout[2m | src/app/demos/samples/component-async/async-intro.spec.ts[2m > [22m[2mAsync Testing Examples[2m > [22m[2mMicrotask - Promise
+[22m[39mPromise then() evaluated successfully
+
+[90mstdout[2m | src/app/demos/samples/component-async/async-intro.spec.ts[2m > [22m[2mAsync Testing Examples[2m > [22m[2mMicrotask - Promise
+[22m[39mNested Promise then() evaluated successfully
+
+[90mstdout[2m | src/app/demos/samples/component-async/async-intro.spec.ts[2m > [22m[2mAsync Testing Examples[2m > [22m[2mMicrotask - Promise
+[22m[39mRunning test assertions
+
+[90mstdout[2m | src/app/demos/samples/component-async/async-intro.spec.ts[2m > [22m[2mAsync Testing Examples[2m > [22m[2mVitest fake timers - Observables
+[22m[39mRunning test assertions
+
+ [32mΓ£ô[39m src/app/demos/samples/component-async/async-intro.spec.ts [2m([22m[2m5 tests[22m[2m)[22m[33m 1020[2mms[22m[39m
+     [33m[2mΓ£ô[22m[39m Asynchronous test example with done() [33m 1014[2mms[22m[39m
+ [32mΓ£ô[39m src/app/state/app.reducer.spec.ts [2m([22m[2m4 tests[22m[2m)[22m[32m 3[2mms[22m[39m
+ [32mΓ£ô[39m src/app/demos/samples/component-marbles/person.service.spec.ts [2m([22m[2m2 tests[22m[2m)[22m[33m 1461[2mms[22m[39m
+     [33m[2mΓ£ô[22m[39m should return persons in sequence [33m 1445[2mms[22m[39m
+
+ΓÄ»ΓÄ»ΓÄ»ΓÄ»ΓÄ»ΓÄ» Failed Tests 59 ΓÄ»ΓÄ»ΓÄ»ΓÄ»ΓÄ»ΓÄ»ΓÄ»
+
+ FAIL  src/app/app.component.spec.ts > AppComponent > should create the app
+Error: Component 'AppComponent' is not resolved:
+ - templateUrl: ./app.component.html
+ - styleUrls: ["./app.component.scss"]
+Did you run and wait for 'resolveComponentResources()'?
+ Γ¥» Function.get node_modules/@angular/core/fesm2022/_debug_node-chunk.mjs:17586:17
+ Γ¥» getComponentDef node_modules/@angular/core/fesm2022/_effect-chunk2.mjs:489:14
+ Γ¥» TestBedImpl.createComponent node_modules/@angular/core/fesm2022/testing.mjs:1467:26
+ Γ¥» Function.createComponent node_modules/@angular/core/fesm2022/testing.mjs:1306:33
+ Γ¥» src/app/app.component.spec.ts:13:29
+     11| 
+     12|   it('should create the app', () => {
+     13|     const fixture = TestBed.createComponent(AppComponent);
+       |                             ^
+     14|     const app = fixture.componentInstance;
+     15|     expect(app).toBeTruthy();
+
+ΓÄ»ΓÄ»ΓÄ»ΓÄ»ΓÄ»ΓÄ»ΓÄ»ΓÄ»ΓÄ»ΓÄ»ΓÄ»ΓÄ»ΓÄ»ΓÄ»ΓÄ»ΓÄ»ΓÄ»ΓÄ»ΓÄ»ΓÄ»ΓÄ»ΓÄ»ΓÄ»[1/59]ΓÄ»
+
+ FAIL  src/app/app.component.spec.ts > AppComponent > should have the 'Jasmine Testing' title
+Error: Component 'AppComponent' is not resolved:
+ - templateUrl: ./app.component.html
+ - styleUrls: ["./app.component.scss"]
+Did you run and wait for 'resolveComponentResources()'?
+ Γ¥» Function.get node_modules/@angular/core/fesm2022/_debug_node-chunk.mjs:17586:17
+ Γ¥» getComponentDef node_modules/@angular/core/fesm2022/_effect-chunk2.mjs:489:14
+ Γ¥» TestBedImpl.createComponent node_modules/@angular/core/fesm2022/testing.mjs:1467:26
+ Γ¥» Function.createComponent node_modules/@angular/core/fesm2022/testing.mjs:1306:33
+ Γ¥» src/app/app.component.spec.ts:19:29
+     17| 
+     18|   it(`should have the 'Jasmine Testing' title`, () => {
+     19|     const fixture = TestBed.createComponent(AppComponent);
+       |                             ^
+     20|     const app = fixture.componentInstance;
+     21|     expect(app.title).toEqual('Jasmine Testing');
+
+ΓÄ»ΓÄ»ΓÄ»ΓÄ»ΓÄ»ΓÄ»ΓÄ»ΓÄ»ΓÄ»ΓÄ»ΓÄ»ΓÄ»ΓÄ»ΓÄ»ΓÄ»ΓÄ»ΓÄ»ΓÄ»ΓÄ»ΓÄ»ΓÄ»ΓÄ»ΓÄ»[2/59]ΓÄ»
+
+ FAIL  src/app/shared/intro/intro.component.spec.ts > IntroComponent > should create
+ FAIL  src/app/shared/intro/intro.component.spec.ts > IntroComponent > should display the title
+ FAIL  src/app/shared/intro/intro.component.spec.ts > IntroComponent > should display the subtitle
+Error: Component 'IntroComponent' is not resolved:
+ - templateUrl: ./intro.component.html
+ - styleUrls: ["./intro.component.scss"]
+Did you run and wait for 'resolveComponentResources()'?
+ Γ¥» Function.get node_modules/@angular/core/fesm2022/_debug_node-chunk.mjs:17586:17
+ Γ¥» getComponentDef node_modules/@angular/core/fesm2022/testing.mjs:1154:16
+ Γ¥» isStandaloneComponent node_modules/@angular/core/fesm2022/testing.mjs:1150:15
+ Γ¥» queueTypesFromModulesArrayRecur node_modules/@angular/core/fesm2022/testing.mjs:925:20
+ Γ¥» TestBedCompiler.queueTypesFromModulesArray node_modules/@angular/core/fesm2022/testing.mjs:943:5
+ Γ¥» TestBedCompiler.configureTestingModule node_modules/@angular/core/fesm2022/testing.mjs:567:12
+ Γ¥» TestBedImpl.configureTestingModule node_modules/@angular/core/fesm2022/testing.mjs:1402:19
+ Γ¥» Function.configureTestingModule node_modules/@angular/core/fesm2022/testing.mjs:1273:33
+ Γ¥» src/app/shared/intro/intro.component.spec.ts:13:23
+     11| 
+     12|     beforeEach(async () => {
+     13|         await TestBed.configureTestingModule({
+       |                       ^
+     14|             imports: [
+     15|                 MatCardModule,
+
+ΓÄ»ΓÄ»ΓÄ»ΓÄ»ΓÄ»ΓÄ»ΓÄ»ΓÄ»ΓÄ»ΓÄ»ΓÄ»ΓÄ»ΓÄ»ΓÄ»ΓÄ»ΓÄ»ΓÄ»ΓÄ»ΓÄ»ΓÄ»ΓÄ»ΓÄ»ΓÄ»[3/59]ΓÄ»
+
+ FAIL  src/app/shared/markdown-renderer/markdown-renderer.component.spec.ts > MarkdownRendererComponent > should create
+ FAIL  src/app/shared/markdown-renderer/markdown-renderer.component.spec.ts > MarkdownRendererComponent > should set md input correctly
+ FAIL  src/app/shared/markdown-renderer/markdown-renderer.component.spec.ts > MarkdownRendererComponent > should return correct markdown path
+ FAIL  src/app/shared/markdown-renderer/markdown-renderer.component.spec.ts > MarkdownRendererComponent > should toggle panel visibility
+ FAIL  src/app/shared/markdown-renderer/markdown-renderer.component.spec.ts > MarkdownRendererComponent > should get initial content visibility state
+Error: Component 'MarkdownRendererComponent' is not resolved:
+ - templateUrl: ./markdown-renderer.component.html
+ - styleUrls: ["./markdown-renderer.component.scss"]
+Did you run and wait for 'resolveComponentResources()'?
+ Γ¥» Function.get node_modules/@angular/core/fesm2022/_debug_node-chunk.mjs:17586:17
+ Γ¥» getComponentDef node_modules/@angular/core/fesm2022/testing.mjs:1154:16
+ Γ¥» isStandaloneComponent node_modules/@angular/core/fesm2022/testing.mjs:1150:15
+ Γ¥» queueTypesFromModulesArrayRecur node_modules/@angular/core/fesm2022/testing.mjs:925:20
+ Γ¥» TestBedCompiler.queueTypesFromModulesArray node_modules/@angular/core/fesm2022/testing.mjs:943:5
+ Γ¥» TestBedCompiler.configureTestingModule node_modules/@angular/core/fesm2022/testing.mjs:567:12
+ Γ¥» TestBedImpl.configureTestingModule node_modules/@angular/core/fesm2022/testing.mjs:1402:19
+ Γ¥» Function.configureTestingModule node_modules/@angular/core/fesm2022/testing.mjs:1273:33
+ Γ¥» src/app/shared/markdown-renderer/markdown-renderer.component.spec.ts:16:23
+     14| 
+     15|     beforeEach(async () => {
+     16|         await TestBed.configureTestingModule({
+       |                       ^
+     17|             imports: [
+     18|                 MarkdownModule.forRoot(),
+
+ΓÄ»ΓÄ»ΓÄ»ΓÄ»ΓÄ»ΓÄ»ΓÄ»ΓÄ»ΓÄ»ΓÄ»ΓÄ»ΓÄ»ΓÄ»ΓÄ»ΓÄ»ΓÄ»ΓÄ»ΓÄ»ΓÄ»ΓÄ»ΓÄ»ΓÄ»ΓÄ»[4/59]ΓÄ»
+
+ FAIL  src/app/shared/navbar/navbar.service.spec.ts > NavbarComponent > should create
+ FAIL  src/app/shared/navbar/navbar.service.spec.ts > NavbarComponent > should toggle menu visibility
+ FAIL  src/app/shared/navbar/navbar.service.spec.ts > NavbarComponent > should display alert when toggling apps
+Error: Component 'NavbarComponent' is not resolved:
+ - templateUrl: ./navbar.component.html
+ - styleUrls: ["./navbar.component.scss"]
+Did you run and wait for 'resolveComponentResources()'?
+ Γ¥» Function.get node_modules/@angular/core/fesm2022/_debug_node-chunk.mjs:17586:17
+ Γ¥» getComponentDef node_modules/@angular/core/fesm2022/testing.mjs:1154:16
+ Γ¥» isStandaloneComponent node_modules/@angular/core/fesm2022/testing.mjs:1150:15
+ Γ¥» queueTypesFromModulesArrayRecur node_modules/@angular/core/fesm2022/testing.mjs:925:20
+ Γ¥» TestBedCompiler.queueTypesFromModulesArray node_modules/@angular/core/fesm2022/testing.mjs:943:5
+ Γ¥» TestBedCompiler.configureTestingModule node_modules/@angular/core/fesm2022/testing.mjs:567:12
+ Γ¥» TestBedImpl.configureTestingModule node_modules/@angular/core/fesm2022/testing.mjs:1402:19
+ Γ¥» Function.configureTestingModule node_modules/@angular/core/fesm2022/testing.mjs:1273:33
+ Γ¥» src/app/shared/navbar/navbar.service.spec.ts:20:23
+     18| 
+     19|     beforeEach(async () => {
+     20|         await TestBed.configureTestingModule({
+       |                       ^
+     21|             imports: [
+     22|                 MatToolbar,
+
+ΓÄ»ΓÄ»ΓÄ»ΓÄ»ΓÄ»ΓÄ»ΓÄ»ΓÄ»ΓÄ»ΓÄ»ΓÄ»ΓÄ»ΓÄ»ΓÄ»ΓÄ»ΓÄ»ΓÄ»ΓÄ»ΓÄ»ΓÄ»ΓÄ»ΓÄ»ΓÄ»[5/59]ΓÄ»
+
+ FAIL  src/app/shared/side-panel/side-panel.component.spec.ts > SidePanelComponent > should create
+ FAIL  src/app/shared/side-panel/side-panel.component.spec.ts > SidePanelComponent > should toggle editor display and icon
+ FAIL  src/app/shared/side-panel/side-panel.component.spec.ts > SidePanelComponent > should call toggleMenuVisibility on SideNavService
+ FAIL  src/app/shared/side-panel/side-panel.component.spec.ts > SidePanelComponent > should call toggleVisibility on RendererStateService
+ FAIL  src/app/shared/side-panel/side-panel.component.spec.ts > SidePanelComponent > should handle keyboard event to toggle info
+Error: Component 'SidePanelComponent' is not resolved:
+ - templateUrl: ./side-panel.component.html
+ - styleUrls: ["./side-panel.component.scss"]
+Did you run and wait for 'resolveComponentResources()'?
+ Γ¥» Function.get node_modules/@angular/core/fesm2022/_debug_node-chunk.mjs:17586:17
+ Γ¥» getComponentDef node_modules/@angular/core/fesm2022/testing.mjs:1154:16
+ Γ¥» isStandaloneComponent node_modules/@angular/core/fesm2022/testing.mjs:1150:15
+ Γ¥» queueTypesFromModulesArrayRecur node_modules/@angular/core/fesm2022/testing.mjs:925:20
+ Γ¥» TestBedCompiler.queueTypesFromModulesArray node_modules/@angular/core/fesm2022/testing.mjs:943:5
+ Γ¥» TestBedCompiler.configureTestingModule node_modules/@angular/core/fesm2022/testing.mjs:567:12
+ Γ¥» TestBedImpl.configureTestingModule node_modules/@angular/core/fesm2022/testing.mjs:1402:19
+ Γ¥» Function.configureTestingModule node_modules/@angular/core/fesm2022/testing.mjs:1273:33
+ Γ¥» src/app/shared/side-panel/side-panel.component.spec.ts:22:23
+     20| 
+     21|     beforeEach(async () => {
+     22|         await TestBed.configureTestingModule({
+       |                       ^
+     23|             imports: [
+     24|                 MatToolbar,
+
+ΓÄ»ΓÄ»ΓÄ»ΓÄ»ΓÄ»ΓÄ»ΓÄ»ΓÄ»ΓÄ»ΓÄ»ΓÄ»ΓÄ»ΓÄ»ΓÄ»ΓÄ»ΓÄ»ΓÄ»ΓÄ»ΓÄ»ΓÄ»ΓÄ»ΓÄ»ΓÄ»[6/59]ΓÄ»
+
+ FAIL  src/app/demos/samples/component-events/component-events.component.spec.ts > ComponentEventsComponent > should create
+ FAIL  src/app/demos/samples/component-events/component-events.component.spec.ts > ComponentEventsComponent > should increment the count - triggerEventHandler
+ FAIL  src/app/demos/samples/component-events/component-events.component.spec.ts > ComponentEventsComponent > should increment the count - native Api
+Error: Component 'ComponentEventsComponent' is not resolved:
+ - templateUrl: ./component-events.component.html
+ - styleUrls: ["./component-events.component.scss"]
+Did you run and wait for 'resolveComponentResources()'?
+ Γ¥» Function.get node_modules/@angular/core/fesm2022/_debug_node-chunk.mjs:17586:17
+ Γ¥» getComponentDef node_modules/@angular/core/fesm2022/_effect-chunk2.mjs:489:14
+ Γ¥» TestBedImpl.createComponent node_modules/@angular/core/fesm2022/testing.mjs:1467:26
+ Γ¥» src/app/demos/samples/component-events/component-events.component.spec.ts:20:8
+     18|         provideHttpClient()
+     19|       ]
+     20|     }).createComponent(ComponentEventsComponent);
+       |        ^
+     21|   });
+     22| 
+
+ΓÄ»ΓÄ»ΓÄ»ΓÄ»ΓÄ»ΓÄ»ΓÄ»ΓÄ»ΓÄ»ΓÄ»ΓÄ»ΓÄ»ΓÄ»ΓÄ»ΓÄ»ΓÄ»ΓÄ»ΓÄ»ΓÄ»ΓÄ»ΓÄ»ΓÄ»ΓÄ»[7/59]ΓÄ»
+
+ FAIL  src/app/demos/samples/component-input-signals/component-input-signals.component.spec.ts > ComponentInputSignalsComponent > should create
+Error: Component 'ComponentInputSignalsComponent' is not resolved:
+ - templateUrl: ./component-input-signals.component.html
+ - styleUrl: ./component-input-signals.component.scss
+Did you run and wait for 'resolveComponentResources()'?
+ Γ¥» Function.get node_modules/@angular/core/fesm2022/_debug_node-chunk.mjs:17586:17
+ Γ¥» getComponentDef node_modules/@angular/core/fesm2022/testing.mjs:1154:16
+ Γ¥» isStandaloneComponent node_modules/@angular/core/fesm2022/testing.mjs:1150:15
+ Γ¥» queueTypesFromModulesArrayRecur node_modules/@angular/core/fesm2022/testing.mjs:925:20
+ Γ¥» TestBedCompiler.queueTypesFromModulesArray node_modules/@angular/core/fesm2022/testing.mjs:943:5
+ Γ¥» TestBedCompiler.configureTestingModule node_modules/@angular/core/fesm2022/testing.mjs:567:12
+ Γ¥» TestBedImpl.configureTestingModule node_modules/@angular/core/fesm2022/testing.mjs:1402:19
+ Γ¥» Function.configureTestingModule node_modules/@angular/core/fesm2022/testing.mjs:1273:33
+ Γ¥» src/app/demos/samples/component-input-signals/component-input-signals.component.spec.ts:12:19
+     10| 
+     11|   beforeEach(async () => {
+     12|     await TestBed.configureTestingModule({
+       |                   ^
+     13|       imports: [
+     14|         MarkdownModule.forRoot(),
+
+ΓÄ»ΓÄ»ΓÄ»ΓÄ»ΓÄ»ΓÄ»ΓÄ»ΓÄ»ΓÄ»ΓÄ»ΓÄ»ΓÄ»ΓÄ»ΓÄ»ΓÄ»ΓÄ»ΓÄ»ΓÄ»ΓÄ»ΓÄ»ΓÄ»ΓÄ»ΓÄ»[8/59]ΓÄ»
+
+ FAIL  src/app/demos/samples/component-marbles/marbles.component.spec.ts > MaterialAsyncComponent > should create
+ FAIL  src/app/demos/samples/component-marbles/marbles.component.spec.ts > MaterialAsyncComponent > should render the correct values when 3 marbles are emitted
+Error: Component 'MarblesComponent' is not resolved:
+ - templateUrl: ./marbles.component.html
+ - styleUrls: ["./marbles.component.scss"]
+Did you run and wait for 'resolveComponentResources()'?
+ Γ¥» Function.get node_modules/@angular/core/fesm2022/_debug_node-chunk.mjs:17586:17
+ Γ¥» getComponentDef node_modules/@angular/core/fesm2022/testing.mjs:1154:16
+ Γ¥» isStandaloneComponent node_modules/@angular/core/fesm2022/testing.mjs:1150:15
+ Γ¥» queueTypesFromModulesArrayRecur node_modules/@angular/core/fesm2022/testing.mjs:925:20
+ Γ¥» TestBedCompiler.queueTypesFromModulesArray node_modules/@angular/core/fesm2022/testing.mjs:943:5
+ Γ¥» TestBedCompiler.configureTestingModule node_modules/@angular/core/fesm2022/testing.mjs:567:12
+ Γ¥» TestBedImpl.configureTestingModule node_modules/@angular/core/fesm2022/testing.mjs:1402:19
+ Γ¥» Function.configureTestingModule node_modules/@angular/core/fesm2022/testing.mjs:1273:33
+ Γ¥» src/app/demos/samples/component-marbles/marbles.component.spec.ts:24:13
+     22|     });
+     23| 
+     24|     TestBed.configureTestingModule({
+       |             ^
+     25|       imports: [
+     26|         MarblesComponent,
+
+ΓÄ»ΓÄ»ΓÄ»ΓÄ»ΓÄ»ΓÄ»ΓÄ»ΓÄ»ΓÄ»ΓÄ»ΓÄ»ΓÄ»ΓÄ»ΓÄ»ΓÄ»ΓÄ»ΓÄ»ΓÄ»ΓÄ»ΓÄ»ΓÄ»ΓÄ»ΓÄ»[9/59]ΓÄ»
+
+ FAIL  src/app/demos/samples/component-material/material.component.spec.ts > MaterialComponent > should btnReset the slider when btnReset is clicked
+ FAIL  src/app/demos/samples/component-material/material.component.spec.ts > MaterialComponent > should have the correct value in the input
+Error: Component 'MaterialComponent' is not resolved:
+ - templateUrl: ./material.component.html
+ - styleUrls: ["./material.component.scss"]
+Did you run and wait for 'resolveComponentResources()'?
+ Γ¥» Function.get node_modules/@angular/core/fesm2022/_debug_node-chunk.mjs:17586:17
+ Γ¥» getComponentDef node_modules/@angular/core/fesm2022/_effect-chunk2.mjs:489:14
+ Γ¥» TestBedImpl.createComponent node_modules/@angular/core/fesm2022/testing.mjs:1467:26
+ Γ¥» src/app/demos/samples/component-material/material.component.spec.ts:28:8
+     26|         provideHttpClient()
+     27|       ]
+     28|     }).createComponent(MaterialComponent);
+       |        ^
+     29|     fixture.detectChanges();
+     30|     loader = TestbedHarnessEnvironment.loader(fixture);
+
+ΓÄ»ΓÄ»ΓÄ»ΓÄ»ΓÄ»ΓÄ»ΓÄ»ΓÄ»ΓÄ»ΓÄ»ΓÄ»ΓÄ»ΓÄ»ΓÄ»ΓÄ»ΓÄ»ΓÄ»ΓÄ»ΓÄ»ΓÄ»ΓÄ»ΓÄ»[10/59]ΓÄ»
+
+ FAIL  src/app/demos/samples/component-material-async/material-async.component.spec.ts > MaterialAsyncComponent > should create
+ FAIL  src/app/demos/samples/component-material-async/material-async.component.spec.ts > MaterialAsyncComponent > should render 3 tags
+Error: Component 'MaterialAsyncComponent' is not resolved:
+ - templateUrl: ./material-async.component.html
+ - styleUrls: ["./material-async.component.scss"]
+Did you run and wait for 'resolveComponentResources()'?
+ Γ¥» Function.get node_modules/@angular/core/fesm2022/_debug_node-chunk.mjs:17586:17
+ Γ¥» getComponentDef node_modules/@angular/core/fesm2022/testing.mjs:1154:16
+ Γ¥» isStandaloneComponent node_modules/@angular/core/fesm2022/testing.mjs:1150:15
+ Γ¥» queueTypesFromModulesArrayRecur node_modules/@angular/core/fesm2022/testing.mjs:925:20
+ Γ¥» TestBedCompiler.queueTypesFromModulesArray node_modules/@angular/core/fesm2022/testing.mjs:943:5
+ Γ¥» TestBedCompiler.configureTestingModule node_modules/@angular/core/fesm2022/testing.mjs:567:12
+ Γ¥» TestBedImpl.configureTestingModule node_modules/@angular/core/fesm2022/testing.mjs:1402:19
+ Γ¥» Function.configureTestingModule node_modules/@angular/core/fesm2022/testing.mjs:1273:33
+ Γ¥» src/app/demos/samples/component-material-async/material-async.component.spec.ts:12:19
+     10| 
+     11|   beforeEach(async () => {
+     12|     await TestBed.configureTestingModule({
+       |                   ^
+     13|       imports: [
+     14|         NoopAnimationsModule,
+
+ΓÄ»ΓÄ»ΓÄ»ΓÄ»ΓÄ»ΓÄ»ΓÄ»ΓÄ»ΓÄ»ΓÄ»ΓÄ»ΓÄ»ΓÄ»ΓÄ»ΓÄ»ΓÄ»ΓÄ»ΓÄ»ΓÄ»ΓÄ»ΓÄ»ΓÄ»[11/59]ΓÄ»
+
+ FAIL  src/app/demos/samples/component-write/component-write.component.spec.ts > ComponentWriteComponent > should create
+ FAIL  src/app/demos/samples/component-write/component-write.component.spec.ts > ComponentWriteComponent > should be display the written Value
+Error: Component 'ComponentWriteComponent' is not resolved:
+ - templateUrl: component-write.component.html
+ - styleUrls: ["./component-write.component.scss"]
+Did you run and wait for 'resolveComponentResources()'?
+ Γ¥» Function.get node_modules/@angular/core/fesm2022/_debug_node-chunk.mjs:17586:17
+ Γ¥» getComponentDef node_modules/@angular/core/fesm2022/testing.mjs:1154:16
+ Γ¥» isStandaloneComponent node_modules/@angular/core/fesm2022/testing.mjs:1150:15
+ Γ¥» queueTypesFromModulesArrayRecur node_modules/@angular/core/fesm2022/testing.mjs:925:20
+ Γ¥» TestBedCompiler.queueTypesFromModulesArray node_modules/@angular/core/fesm2022/testing.mjs:943:5
+ Γ¥» TestBedCompiler.configureTestingModule node_modules/@angular/core/fesm2022/testing.mjs:567:12
+ Γ¥» TestBedImpl.configureTestingModule node_modules/@angular/core/fesm2022/testing.mjs:1402:19
+ Γ¥» Function.configureTestingModule node_modules/@angular/core/fesm2022/testing.mjs:1273:33
+ Γ¥» src/app/demos/samples/component-write/component-write.component.spec.ts:12:23
+     10| 
+     11|   beforeEach(() => {
+     12|     fixture = TestBed.configureTestingModule({
+       |                       ^
+     13|       imports: [
+     14|         ComponentWriteComponent,
+
+ΓÄ»ΓÄ»ΓÄ»ΓÄ»ΓÄ»ΓÄ»ΓÄ»ΓÄ»ΓÄ»ΓÄ»ΓÄ»ΓÄ»ΓÄ»ΓÄ»ΓÄ»ΓÄ»ΓÄ»ΓÄ»ΓÄ»ΓÄ»ΓÄ»ΓÄ»[12/59]ΓÄ»
+
+ FAIL  src/app/demos/samples/directive/capitalize.directive.spec.ts > Component - Directive - CapitalizeDirective > should create component
+ FAIL  src/app/demos/samples/directive/capitalize.directive.spec.ts > Component - Directive - CapitalizeDirective > should capitalize text when initially clicked
+ FAIL  src/app/demos/samples/directive/capitalize.directive.spec.ts > Component - Directive - CapitalizeDirective > should lowercase when clicked twice
+Error: Component 'DirectiveComponent' is not resolved:
+ - templateUrl: ./directive.component.html
+ - styleUrls: ["./directive.component.scss"]
+Did you run and wait for 'resolveComponentResources()'?
+ Γ¥» Function.get node_modules/@angular/core/fesm2022/_debug_node-chunk.mjs:17586:17
+ Γ¥» getComponentDef node_modules/@angular/core/fesm2022/testing.mjs:1154:16
+ Γ¥» isStandaloneComponent node_modules/@angular/core/fesm2022/testing.mjs:1150:15
+ Γ¥» queueTypesFromModulesArrayRecur node_modules/@angular/core/fesm2022/testing.mjs:925:20
+ Γ¥» TestBedCompiler.queueTypesFromModulesArray node_modules/@angular/core/fesm2022/testing.mjs:943:5
+ Γ¥» TestBedCompiler.configureTestingModule node_modules/@angular/core/fesm2022/testing.mjs:567:12
+ Γ¥» TestBedImpl.configureTestingModule node_modules/@angular/core/fesm2022/testing.mjs:1402:19
+ Γ¥» Function.configureTestingModule node_modules/@angular/core/fesm2022/testing.mjs:1273:33
+ Γ¥» src/app/demos/samples/directive/capitalize.directive.spec.ts:11:13
+      9| 
+     10|   beforeEach(() => {
+     11|     TestBed.configureTestingModule({
+       |             ^
+     12|       imports: [MatCardModule, CapitalizeDirective, DirectiveComponentΓÇª
+     13|     });
+
+ΓÄ»ΓÄ»ΓÄ»ΓÄ»ΓÄ»ΓÄ»ΓÄ»ΓÄ»ΓÄ»ΓÄ»ΓÄ»ΓÄ»ΓÄ»ΓÄ»ΓÄ»ΓÄ»ΓÄ»ΓÄ»ΓÄ»ΓÄ»ΓÄ»ΓÄ»[13/59]ΓÄ»
+
+ FAIL  src/app/demos/samples/component-async/food-menu/food-menu.component.spec.ts > FoodMenuComponent > should have a list of 3 food items (using fake timers)
+ FAIL  src/app/demos/samples/component-async/food-menu/food-menu.component.spec.ts > FoodMenuComponent > should have a list of 3 food items (using autoDetectChanges)
+ FAIL  src/app/demos/samples/component-async/food-menu/food-menu.component.spec.ts > FoodMenuComponent > should have a list of 3 food items (using whenStable)
+Error: Component 'FoodMenuComponent' is not resolved:
+ - templateUrl: ./food-menu.component.html
+ - styleUrls: ["./food-menu.component.scss"]
+Did you run and wait for 'resolveComponentResources()'?
+ Γ¥» Function.get node_modules/@angular/core/fesm2022/_debug_node-chunk.mjs:17586:17
+ Γ¥» getComponentDef node_modules/@angular/core/fesm2022/testing.mjs:1154:16
+ Γ¥» isStandaloneComponent node_modules/@angular/core/fesm2022/testing.mjs:1150:15
+ Γ¥» queueTypesFromModulesArrayRecur node_modules/@angular/core/fesm2022/testing.mjs:925:20
+ Γ¥» TestBedCompiler.queueTypesFromModulesArray node_modules/@angular/core/fesm2022/testing.mjs:943:5
+ Γ¥» TestBedCompiler.configureTestingModule node_modules/@angular/core/fesm2022/testing.mjs:567:12
+ Γ¥» TestBedImpl.configureTestingModule node_modules/@angular/core/fesm2022/testing.mjs:1402:19
+ Γ¥» Function.configureTestingModule node_modules/@angular/core/fesm2022/testing.mjs:1273:33
+ Γ¥» src/app/demos/samples/component-async/food-menu/food-menu.component.spec.ts:10:19
+      8| 
+      9|   beforeEach(async () => {
+     10|     await TestBed.configureTestingModule({
+       |                   ^
+     11|       imports: [FoodMenuComponent]
+     12|     }).compileComponents();
+
+ΓÄ»ΓÄ»ΓÄ»ΓÄ»ΓÄ»ΓÄ»ΓÄ»ΓÄ»ΓÄ»ΓÄ»ΓÄ»ΓÄ»ΓÄ»ΓÄ»ΓÄ»ΓÄ»ΓÄ»ΓÄ»ΓÄ»ΓÄ»ΓÄ»ΓÄ»[14/59]ΓÄ»
+
+ FAIL  src/app/demos/samples/component-async/simple-auth-async-when-stable/simple-auth-when-stable.component.spec.ts > Component - AsyncTest - async ... whenStable > component has been created
+ FAIL  src/app/demos/samples/component-async/simple-auth-async-when-stable/simple-auth-when-stable.component.spec.ts > Component - AsyncTest - async ... whenStable > returns false when the user is not authenticated
+ FAIL  src/app/demos/samples/component-async/simple-auth-async-when-stable/simple-auth-when-stable.component.spec.ts > Component - AsyncTest - async ... whenStable > returns true when the user is authenticated
+Error: Component 'SimpleAuthWhenStableComponent' is not resolved:
+ - templateUrl: ./simple-auth-when-stable.component.html
+ - styleUrls: ["./simple-auth-when-stable.component.scss"]
+Did you run and wait for 'resolveComponentResources()'?
+ Γ¥» Function.get node_modules/@angular/core/fesm2022/_debug_node-chunk.mjs:17586:17
+ Γ¥» getComponentDef node_modules/@angular/core/fesm2022/testing.mjs:1154:16
+ Γ¥» isStandaloneComponent node_modules/@angular/core/fesm2022/testing.mjs:1150:15
+ Γ¥» queueTypesFromModulesArrayRecur node_modules/@angular/core/fesm2022/testing.mjs:925:20
+ Γ¥» TestBedCompiler.queueTypesFromModulesArray node_modules/@angular/core/fesm2022/testing.mjs:943:5
+ Γ¥» TestBedCompiler.configureTestingModule node_modules/@angular/core/fesm2022/testing.mjs:567:12
+ Γ¥» TestBedImpl.configureTestingModule node_modules/@angular/core/fesm2022/testing.mjs:1402:19
+ Γ¥» Function.configureTestingModule node_modules/@angular/core/fesm2022/testing.mjs:1273:33
+ Γ¥» src/app/demos/samples/component-async/simple-auth-async-when-stable/simple-auth-when-stable.component.spec.ts:14:13
+     12| 
+     13|   beforeEach(() => {
+     14|     TestBed.configureTestingModule({
+       |             ^
+     15|       imports: [SimpleAuthWhenStableComponent],
+     16|       schemas: [NO_ERRORS_SCHEMA],
+
+ΓÄ»ΓÄ»ΓÄ»ΓÄ»ΓÄ»ΓÄ»ΓÄ»ΓÄ»ΓÄ»ΓÄ»ΓÄ»ΓÄ»ΓÄ»ΓÄ»ΓÄ»ΓÄ»ΓÄ»ΓÄ»ΓÄ»ΓÄ»ΓÄ»ΓÄ»[15/59]ΓÄ»
+
+ FAIL  src/app/demos/samples/component-async/simple-auth-done/simple-auth-done.component.spec.ts > Component - AsyncTest - done > component has been created
+ FAIL  src/app/demos/samples/component-async/simple-auth-done/simple-auth-done.component.spec.ts > Component - AsyncTest - done > returns false when the user is not authenticated
+ FAIL  src/app/demos/samples/component-async/simple-auth-done/simple-auth-done.component.spec.ts > Component - AsyncTest - done > returns true when the user is authenticated
+Error: Component 'SimpleAuthDoneComponent' is not resolved:
+ - templateUrl: ./simple-auth-done.component.html
+ - styleUrls: ["./simple-auth-done.component.scss"]
+Did you run and wait for 'resolveComponentResources()'?
+ Γ¥» Function.get node_modules/@angular/core/fesm2022/_debug_node-chunk.mjs:17586:17
+ Γ¥» getComponentDef node_modules/@angular/core/fesm2022/testing.mjs:1154:16
+ Γ¥» isStandaloneComponent node_modules/@angular/core/fesm2022/testing.mjs:1150:15
+ Γ¥» queueTypesFromModulesArrayRecur node_modules/@angular/core/fesm2022/testing.mjs:925:20
+ Γ¥» TestBedCompiler.queueTypesFromModulesArray node_modules/@angular/core/fesm2022/testing.mjs:943:5
+ Γ¥» TestBedCompiler.configureTestingModule node_modules/@angular/core/fesm2022/testing.mjs:567:12
+ Γ¥» TestBedImpl.configureTestingModule node_modules/@angular/core/fesm2022/testing.mjs:1402:19
+ Γ¥» Function.configureTestingModule node_modules/@angular/core/fesm2022/testing.mjs:1273:33
+ Γ¥» src/app/demos/samples/component-async/simple-auth-done/simple-auth-done.component.spec.ts:13:13
+     11| 
+     12|   beforeEach(() => {
+     13|     TestBed.configureTestingModule({
+       |             ^
+     14|       imports: [SimpleAuthDoneComponent],
+     15|       providers: [SimpleAuthService],
+
+ΓÄ»ΓÄ»ΓÄ»ΓÄ»ΓÄ»ΓÄ»ΓÄ»ΓÄ»ΓÄ»ΓÄ»ΓÄ»ΓÄ»ΓÄ»ΓÄ»ΓÄ»ΓÄ»ΓÄ»ΓÄ»ΓÄ»ΓÄ»ΓÄ»ΓÄ»[16/59]ΓÄ»
+
+ FAIL  src/app/demos/samples/component-async/simple-auth-fake-async/simple-auth-fake-async.component.spec.ts > Component - AsyncTest - FakeAsync > component has been created
+ FAIL  src/app/demos/samples/component-async/simple-auth-fake-async/simple-auth-fake-async.component.spec.ts > Component - AsyncTest - FakeAsync > returns false when the user is not authenticated
+ FAIL  src/app/demos/samples/component-async/simple-auth-fake-async/simple-auth-fake-async.component.spec.ts > Component - AsyncTest - FakeAsync > returns true when the user is authenticated
+Error: Component 'SimpleAuthFakeAsyncComponent' is not resolved:
+ - templateUrl: ./simple-auth-fake-async.component.html
+ - styleUrls: ["./simple-auth-fake-async.component.scss"]
+Did you run and wait for 'resolveComponentResources()'?
+ Γ¥» Function.get node_modules/@angular/core/fesm2022/_debug_node-chunk.mjs:17586:17
+ Γ¥» getComponentDef node_modules/@angular/core/fesm2022/testing.mjs:1154:16
+ Γ¥» isStandaloneComponent node_modules/@angular/core/fesm2022/testing.mjs:1150:15
+ Γ¥» queueTypesFromModulesArrayRecur node_modules/@angular/core/fesm2022/testing.mjs:925:20
+ Γ¥» TestBedCompiler.queueTypesFromModulesArray node_modules/@angular/core/fesm2022/testing.mjs:943:5
+ Γ¥» TestBedCompiler.configureTestingModule node_modules/@angular/core/fesm2022/testing.mjs:567:12
+ Γ¥» TestBedImpl.configureTestingModule node_modules/@angular/core/fesm2022/testing.mjs:1402:19
+ Γ¥» Function.configureTestingModule node_modules/@angular/core/fesm2022/testing.mjs:1273:33
+ Γ¥» src/app/demos/samples/component-async/simple-auth-fake-async/simple-auth-fake-async.component.spec.ts:16:13
+     14| 
+     15|   beforeEach(() => {
+     16|     TestBed.configureTestingModule({
+       |             ^
+     17|       imports: [SimpleAuthFakeAsyncComponent],
+     18|       providers: [SimpleAuthService],
+
+ΓÄ»ΓÄ»ΓÄ»ΓÄ»ΓÄ»ΓÄ»ΓÄ»ΓÄ»ΓÄ»ΓÄ»ΓÄ»ΓÄ»ΓÄ»ΓÄ»ΓÄ»ΓÄ»ΓÄ»ΓÄ»ΓÄ»ΓÄ»ΓÄ»ΓÄ»[17/59]ΓÄ»
+
+ FAIL  src/app/demos/samples/component-integration/food-list/food-list.component.spec.ts > Component - Integration Test > should render each FoodItem as FoodItemRow
+ FAIL  src/app/demos/samples/component-integration/food-list/food-list.component.spec.ts > Component - Integration Test > should have three rows when an item is deleted
+Error: Component 'FoodListComponent' is not resolved:
+ - templateUrl: ./food-list.component.html
+ - styleUrls: ["./food-list.component.scss"]
+Did you run and wait for 'resolveComponentResources()'?
+ Γ¥» Function.get node_modules/@angular/core/fesm2022/_debug_node-chunk.mjs:17586:17
+ Γ¥» getComponentDef node_modules/@angular/core/fesm2022/_effect-chunk2.mjs:489:14
+ Γ¥» TestBedImpl.createComponent node_modules/@angular/core/fesm2022/testing.mjs:1467:26
+ Γ¥» Function.createComponent node_modules/@angular/core/fesm2022/testing.mjs:1306:33
+ Γ¥» src/app/demos/samples/component-integration/food-list/food-list.component.spec.ts:38:23
+     36| 
+     37|     TestBed.configureTestingModule(module);
+     38|     fixture = TestBed.createComponent(FoodListComponent);
+       |                       ^
+     39|     comp = fixture.componentInstance;
+     40|     de = fixture.debugElement;
+
+ΓÄ»ΓÄ»ΓÄ»ΓÄ»ΓÄ»ΓÄ»ΓÄ»ΓÄ»ΓÄ»ΓÄ»ΓÄ»ΓÄ»ΓÄ»ΓÄ»ΓÄ»ΓÄ»ΓÄ»ΓÄ»ΓÄ»ΓÄ»ΓÄ»ΓÄ»[18/59]ΓÄ»
+
+ FAIL  src/app/demos/samples/component-test/simple-food/simple-food.component.spec.ts > SimpleFoodComponent > should load food items using resource
+ FAIL  src/app/demos/samples/component-test/simple-food/simple-food.component.spec.ts > SimpleFoodComponent > should display food items in the template
+ FAIL  src/app/demos/samples/component-test/simple-food/simple-food.component.spec.ts > SimpleFoodComponent > should delete food item from list
+ FAIL  src/app/demos/samples/component-test/simple-food/simple-food.component.spec.ts > SimpleFoodComponent > should update food item
+Error: Component 'SimpleFoodComponent' is not resolved:
+ - templateUrl: ./simple-food.component.html
+ - styleUrls: ["./simple-food.component.scss"]
+Did you run and wait for 'resolveComponentResources()'?
+ Γ¥» Function.get node_modules/@angular/core/fesm2022/_debug_node-chunk.mjs:17586:17
+ Γ¥» getComponentDef node_modules/@angular/core/fesm2022/testing.mjs:1154:16
+ Γ¥» isStandaloneComponent node_modules/@angular/core/fesm2022/testing.mjs:1150:15
+ Γ¥» queueTypesFromModulesArrayRecur node_modules/@angular/core/fesm2022/testing.mjs:925:20
+ Γ¥» TestBedCompiler.queueTypesFromModulesArray node_modules/@angular/core/fesm2022/testing.mjs:943:5
+ Γ¥» TestBedCompiler.configureTestingModule node_modules/@angular/core/fesm2022/testing.mjs:567:12
+ Γ¥» TestBedImpl.configureTestingModule node_modules/@angular/core/fesm2022/testing.mjs:1402:19
+ Γ¥» Function.configureTestingModule node_modules/@angular/core/fesm2022/testing.mjs:1273:33
+ Γ¥» src/app/demos/samples/component-test/simple-food/simple-food.component.spec.ts:21:23
+     19|         };
+     20| 
+     21|         await TestBed.configureTestingModule({
+       |                       ^
+     22|             imports: [MatCardModule, NoopAnimationsModule, SimpleFoodCΓÇª
+     23|             providers: [{ provide: FoodService, useValue: spy }],
+
+ΓÄ»ΓÄ»ΓÄ»ΓÄ»ΓÄ»ΓÄ»ΓÄ»ΓÄ»ΓÄ»ΓÄ»ΓÄ»ΓÄ»ΓÄ»ΓÄ»ΓÄ»ΓÄ»ΓÄ»ΓÄ»ΓÄ»ΓÄ»ΓÄ»ΓÄ»[19/59]ΓÄ»
+
+ FAIL  src/app/demos/samples/component-integration/food-row/food-row.component.spec.ts > Component -Integration Test - Food Row > should have the correct food item
+ FAIL  src/app/demos/samples/component-integration/food-row/food-row.component.spec.ts > Component -Integration Test - Food Row > should render the food name
+ FAIL  src/app/demos/samples/component-integration/food-row/food-row.component.spec.ts > Component -Integration Test - Food Row > should render the food name when food is changed
+ FAIL  src/app/demos/samples/component-integration/food-row/food-row.component.spec.ts > Component -Integration Test - Food Row > should trigger delete
+ FAIL  src/app/demos/samples/component-integration/food-row/food-row.component.spec.ts > Component -Integration Test - Food Row > should trigger edit
+Error: Component 'FoodRowComponent' is not resolved:
+ - templateUrl: ./food-row.component.html
+ - styleUrls: ["./food-row.component.scss"]
+Did you run and wait for 'resolveComponentResources()'?
+ Γ¥» Function.get node_modules/@angular/core/fesm2022/_debug_node-chunk.mjs:17586:17
+ Γ¥» getComponentDef node_modules/@angular/core/fesm2022/testing.mjs:1154:16
+ Γ¥» isStandaloneComponent node_modules/@angular/core/fesm2022/testing.mjs:1150:15
+ Γ¥» queueTypesFromModulesArrayRecur node_modules/@angular/core/fesm2022/testing.mjs:925:20
+ Γ¥» TestBedCompiler.queueTypesFromModulesArray node_modules/@angular/core/fesm2022/testing.mjs:943:5
+ Γ¥» TestBedCompiler.configureTestingModule node_modules/@angular/core/fesm2022/testing.mjs:567:12
+ Γ¥» TestBedImpl.configureTestingModule node_modules/@angular/core/fesm2022/testing.mjs:1402:19
+ Γ¥» Function.configureTestingModule node_modules/@angular/core/fesm2022/testing.mjs:1273:33
+ Γ¥» src/app/demos/samples/component-integration/food-row/food-row.component.spec.ts:15:13
+     13| 
+     14|   beforeEach(() => {
+     15|     TestBed.configureTestingModule({
+       |             ^
+     16|       imports: [FoodRowComponent],
+     17|     });
+
+ΓÄ»ΓÄ»ΓÄ»ΓÄ»ΓÄ»ΓÄ»ΓÄ»ΓÄ»ΓÄ»ΓÄ»ΓÄ»ΓÄ»ΓÄ»ΓÄ»ΓÄ»ΓÄ»ΓÄ»ΓÄ»ΓÄ»ΓÄ»ΓÄ»ΓÄ»[20/59]ΓÄ»
+
+ FAIL  src/app/demos/samples/component-mocking/use-spy/use-spy.component.spec.ts > UseMockComponent with MockAuth Service > should create
+ FAIL  src/app/demos/samples/component-mocking/use-spy/use-spy.component.spec.ts > UseMockComponent with MockAuth Service > should return Authenticated true
+ FAIL  src/app/demos/samples/component-mocking/use-spy/use-spy.component.spec.ts > UseMockComponent with MockAuth Service > should have the correct login state on the Template
+Error: Component 'UseSpyComponent' is not resolved:
+ - templateUrl: ./use-spy.component.html
+ - styleUrls: ["./use-spy.component.scss"]
+Did you run and wait for 'resolveComponentResources()'?
+ Γ¥» Function.get node_modules/@angular/core/fesm2022/_debug_node-chunk.mjs:17586:17
+ Γ¥» getComponentDef node_modules/@angular/core/fesm2022/testing.mjs:1154:16
+ Γ¥» isStandaloneComponent node_modules/@angular/core/fesm2022/testing.mjs:1150:15
+ Γ¥» queueTypesFromModulesArrayRecur node_modules/@angular/core/fesm2022/testing.mjs:925:20
+ Γ¥» TestBedCompiler.queueTypesFromModulesArray node_modules/@angular/core/fesm2022/testing.mjs:943:5
+ Γ¥» TestBedCompiler.configureTestingModule node_modules/@angular/core/fesm2022/testing.mjs:567:12
+ Γ¥» TestBedImpl.configureTestingModule node_modules/@angular/core/fesm2022/testing.mjs:1402:19
+ Γ¥» Function.configureTestingModule node_modules/@angular/core/fesm2022/testing.mjs:1273:33
+ Γ¥» src/app/demos/samples/component-mocking/use-spy/use-spy.component.spec.ts:14:19
+     12|     spy.isAuthenticated.mockReturnValue(true);
+     13| 
+     14|     await TestBed.configureTestingModule({
+       |                   ^
+     15|       imports: [UseSpyComponent],
+     16|       providers: [{ provide: AuthService, useValue: spy }],
+
+ΓÄ»ΓÄ»ΓÄ»ΓÄ»ΓÄ»ΓÄ»ΓÄ»ΓÄ»ΓÄ»ΓÄ»ΓÄ»ΓÄ»ΓÄ»ΓÄ»ΓÄ»ΓÄ»ΓÄ»ΓÄ»ΓÄ»ΓÄ»ΓÄ»ΓÄ»[21/59]ΓÄ»
+
+
+[2m Test Files [22m [1m[31m20 failed[39m[22m[2m | [22m[1m[32m18 passed[39m[22m[90m (38)[39m
+[2m      Tests [22m [1m[31m59 failed[39m[22m[2m | [22m[1m[32m65 passed[39m[22m[90m (124)[39m
+[2m   Start at [22m 08:58:30
+[2m   Duration [22m 3.75s[2m (transform 4.18s, setup 22.16s, import 8.95s, tests 2.91s, environment 37.39s)[22m
+

@@ -7,7 +7,7 @@ describe('FoodMenuComponent', () => {
   let fixture: ComponentFixture<FoodMenuComponent>;
 
   beforeEach(async () => {
-    TestBed.configureTestingModule({
+    await TestBed.configureTestingModule({
       imports: [FoodMenuComponent]
     }).compileComponents();
 

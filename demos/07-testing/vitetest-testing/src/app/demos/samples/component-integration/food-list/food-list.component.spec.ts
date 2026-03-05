@@ -2,6 +2,7 @@ import { DebugElement, NO_ERRORS_SCHEMA } from '@angular/core';
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 import { By } from '@angular/platform-browser';
 import { of } from 'rxjs';
+import { describe, it, expect, beforeEach, vi } from 'vitest';
 import { FoodServiceBS } from '../../food/food.service-bs';
 import { FoodRowComponent } from '../food-row/food-row.component';
 import { FoodListComponent } from './food-list.component';
@@ -26,7 +27,7 @@ describe('Component - Integration Test', () => {
   let comp: FoodListComponent;
   let de: DebugElement;
 
-  beforeEach(() => {
+  beforeEach(async () => {
     foodServiceSpy = { getFood: vi.fn(), deleteFood: vi.fn() };
 
     const module = {
@@ -34,7 +35,7 @@ describe('Component - Integration Test', () => {
       schemas: [NO_ERRORS_SCHEMA],
     };
 
-    TestBed.configureTestingModule(module);
+    await TestBed.configureTestingModule(module).compileComponents();
     fixture = TestBed.createComponent(FoodListComponent);
     comp = fixture.componentInstance;
     de = fixture.debugElement;

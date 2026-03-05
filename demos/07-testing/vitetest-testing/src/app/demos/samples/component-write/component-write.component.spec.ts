@@ -3,13 +3,14 @@ import { ComponentFixture, TestBed } from '@angular/core/testing';
 import { By } from '@angular/platform-browser';
 import { NoopAnimationsModule } from '@angular/platform-browser/animations';
 import { MarkdownModule } from 'ngx-markdown';
+import { describe, it, expect, beforeEach } from 'vitest';
 import { ComponentWriteComponent } from './component-write.component';
 
 describe('ComponentWriteComponent', () => {
   let fixture: ComponentFixture<ComponentWriteComponent>;
 
-  beforeEach(() => {
-    fixture = TestBed.configureTestingModule({
+  beforeEach(async () => {
+    await TestBed.configureTestingModule({
       imports: [
         ComponentWriteComponent,
         NoopAnimationsModule,
@@ -18,7 +19,8 @@ describe('ComponentWriteComponent', () => {
       providers: [
         provideHttpClient(),
       ],
-    }).createComponent(ComponentWriteComponent);
+    }).compileComponents();
+    fixture = TestBed.createComponent(ComponentWriteComponent);
   });
 
   it('should create', () => {

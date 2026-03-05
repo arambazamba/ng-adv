@@ -9,11 +9,11 @@ describe('Component - AsyncTest - done', () => {
   let fixture: ComponentFixture<SimpleAuthDoneComponent>;
   let service: SimpleAuthService;
 
-  beforeEach(() => {
-    TestBed.configureTestingModule({
+  beforeEach(async () => {
+    await TestBed.configureTestingModule({
       imports: [SimpleAuthDoneComponent],
       providers: [SimpleAuthService],
-    });
+    }).compileComponents();
 
     fixture = TestBed.createComponent(SimpleAuthDoneComponent);
     component = fixture.componentInstance;
@@ -35,7 +35,6 @@ describe('Component - AsyncTest - done', () => {
 
   it('returns true when the user is authenticated', () => {
     vi.spyOn(service, 'isAuthenticated').mockReturnValue(of(true));
-    component.ngOnInit();
     fixture.detectChanges();
     expect(
       fixture.debugElement

@@ -12,7 +12,7 @@ import { SpyHostComponent } from './samples/component-mocking/spy-host/spy-host.
 import { ComponentTestComponent } from './samples/component-test/component-test.component';
 import { ComponentWriteComponent } from './samples/component-write/component-write.component';
 import { DirectiveHostComponent } from './samples/directive/directive-host/directive-host.component';
-import { HttpTestsBsComponent } from './samples/http-tests-bs/http-tests-bs.component';
+import { HttpTestsSignalComponent } from './samples/http-tests-signal/http-tests-signal.component';
 import { HttpTestsComponent } from './samples/http-tests/http-tests.component';
 import { UnitTestingComponent } from './samples/intro-unit-testing/unit-testing.component';
 import { TestPipeComponent } from './samples/pipe/test-pipe.component';
@@ -35,7 +35,7 @@ export const demoRoutes: Routes = [
             { path: 'component-test', component: ComponentTestComponent },
             { path: 'integration-tests', component: IntegrationTestComponent },
             { path: 'http-tests', component: HttpTestsComponent },
-            { path: 'http-tests-bs', component: HttpTestsBsComponent },
+            { path: 'http-tests-signal', component: HttpTestsSignalComponent },
             { path: 'async', component: AsyncComponent },
             { path: 'material-async', component: MaterialAsyncComponent },
             { path: 'material', component: MaterialComponent },

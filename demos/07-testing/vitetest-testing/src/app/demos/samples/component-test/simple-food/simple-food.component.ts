@@ -17,16 +17,16 @@ import { lastValueFrom } from 'rxjs';
   ]
 })
 export class SimpleFoodComponent {
-  protected readonly fs = inject(FoodService);
+  readonly fs = inject(FoodService);
 
-  protected readonly food = resource({
+  readonly food = resource({
     loader: () => lastValueFrom(this.fs.getFood())
   });
 
-  protected readonly isLoading = computed(() => this.food.status() === 'loading');
-  protected readonly hasError = computed(() => this.food.status() === 'error');
+  readonly isLoading = computed(() => this.food.status() === 'loading');
+  readonly hasError = computed(() => this.food.status() === 'error');
 
-  protected deleteFood(item: FoodItem) {
+  deleteFood(item: FoodItem) {
     this.fs.deleteFood(item).subscribe(() => {
       this.food.reload();
     });

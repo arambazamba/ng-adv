@@ -16,8 +16,8 @@ describe('MaterialComponent', () => {
   let sliderHarness: MatSliderHarness;
   let btnResetHarness: MatButtonHarness;
 
-  beforeEach(() => {
-    fixture = TestBed.configureTestingModule({
+  beforeEach(async () => {
+    await TestBed.configureTestingModule({
       imports: [
         NoopAnimationsModule,
         MarkdownModule.forRoot()
@@ -25,7 +25,8 @@ describe('MaterialComponent', () => {
       providers: [
         provideHttpClient()
       ]
-    }).createComponent(MaterialComponent);
+    }).compileComponents();
+    fixture = TestBed.createComponent(MaterialComponent);
     fixture.detectChanges();
     loader = TestbedHarnessEnvironment.loader(fixture);
   });

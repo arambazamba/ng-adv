@@ -81,6 +81,12 @@
           },
           "defaultConfiguration": "development"
         },
+        "test": {
+          "builder": "@angular/build:unit-test",
+          "options": {
+            "runnerConfig": "vitest.config.ts"
+          }
+        },
         "extract-i18n": {
           "builder": "@angular/build:extract-i18n"
         }

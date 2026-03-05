@@ -5,6 +5,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MarkdownModule } from 'ngx-markdown';
 import { EMPTY, of } from 'rxjs';
 import { TestScheduler } from 'rxjs/testing';
+import { describe, it, expect, beforeEach, vi } from 'vitest';
 import { MarblesComponent } from './marbles.component';
 import { PersonService } from './person.service';
 
@@ -14,14 +15,14 @@ describe('MaterialAsyncComponent', () => {
   let testScheduler: TestScheduler;
   let spy: any;
 
-  beforeEach(() => {
+  beforeEach(async () => {
     spy = { getPersons: vi.fn() };
     spy.getPersons.mockReturnValue(of(EMPTY));
     testScheduler = new TestScheduler((actual, expected) => {
       expect(actual).toEqual(expected);
     });
 
-    TestBed.configureTestingModule({
+    await TestBed.configureTestingModule({
       imports: [
         MarblesComponent,
         MarkdownModule.forRoot(),
@@ -31,7 +32,7 @@ describe('MaterialAsyncComponent', () => {
         { provide: PersonService, useValue: spy },
         provideHttpClient()
       ],
-    });
+    }).compileComponents();
     fixture = TestBed.createComponent(MarblesComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();

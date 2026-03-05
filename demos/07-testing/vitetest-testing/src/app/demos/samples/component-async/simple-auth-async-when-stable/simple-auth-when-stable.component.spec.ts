@@ -2,6 +2,7 @@ import { NO_ERRORS_SCHEMA } from '@angular/core';
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 import { By } from '@angular/platform-browser';
 import { of } from 'rxjs';
+import { describe, it, expect, beforeEach } from 'vitest';
 import { SimpleAuthService } from '../simple-auth.service';
 import { SimpleAuthWhenStableComponent } from './simple-auth-when-stable.component';
 
@@ -10,12 +11,12 @@ describe('Component - AsyncTest - async ... whenStable', () => {
   let fixture: ComponentFixture<SimpleAuthWhenStableComponent>;
   let service: SimpleAuthService;
 
-  beforeEach(() => {
-    TestBed.configureTestingModule({
+  beforeEach(async () => {
+    await TestBed.configureTestingModule({
       imports: [SimpleAuthWhenStableComponent],
       schemas: [NO_ERRORS_SCHEMA],
       providers: [SimpleAuthService],
-    });
+    }).compileComponents();
 
     fixture = TestBed.createComponent(SimpleAuthWhenStableComponent);
     component = fixture.componentInstance;
