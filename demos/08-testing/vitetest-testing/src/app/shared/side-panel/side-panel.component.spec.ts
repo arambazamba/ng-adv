@@ -1,82 +1,51 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
-import { describe, it, expect, beforeEach, vi } from 'vitest';
 import { SidePanelComponent } from './side-panel.component';
-import { SnackbarService } from '../snackbar/snackbar.service';
-import { SidePanelService } from './sidepanel.service';
-import { RendererStateService } from '../markdown-renderer/renderer-state.service';
+import { LayoutStore } from '../layout/layout.store';
 import { SideNavService } from '../sidenav/sidenav.service';
-import { MatIcon } from '@angular/material/icon';
-import { MatMiniFabButton } from '@angular/material/button';
-import { MatToolbar, MatToolbarRow } from '@angular/material/toolbar';
-import { MatTooltipModule } from '@angular/material/tooltip';
 
 describe('SidePanelComponent', () => {
     let component: SidePanelComponent;
     let fixture: ComponentFixture<SidePanelComponent>;
-
-    let rendererStateService: RendererStateService;
+    let layoutStore: InstanceType<typeof LayoutStore>;
     let sideNavService: SideNavService;
-    let snackbarService: SnackbarService;
-    let sidePanelService: SidePanelService;
 
     beforeEach(async () => {
+        localStorage.clear();
         await TestBed.configureTestingModule({
-            imports: [
-                MatToolbar,
-                MatToolbarRow,
-                MatMiniFabButton,
-                MatIcon,
-                MatTooltipModule,
-                SidePanelComponent
-            ],
-            providers: [
-                SnackbarService,
-                SidePanelService,
-                RendererStateService,
-                SideNavService
-            ]
+            imports: [SidePanelComponent],
+            providers: [LayoutStore, SideNavService]
         }).compileComponents();
 
         fixture = TestBed.createComponent(SidePanelComponent);
         component = fixture.componentInstance;
-        snackbarService = TestBed.inject(SnackbarService);
-        sidePanelService = TestBed.inject(SidePanelService);
-        rendererStateService = TestBed.inject(RendererStateService);
+        layoutStore = TestBed.inject(LayoutStore);
         sideNavService = TestBed.inject(SideNavService);
         fixture.detectChanges();
+    });
+
+    afterEach(() => {
+        localStorage.clear();
     });
 
     it('should create', () => {
         expect(component).toBeTruthy();
     });
 
-    it('should toggle editor display and icon', () => {
-        component.editorDisplayed = false;
-        component.icon = 'create';
-        component.toggleEditor();
-        expect(component.editorDisplayed).toBe(true);
-        expect(component.icon).toBe('close');
-        component.toggleEditor();
-        expect(component.editorDisplayed).toBe(false);
-        expect(component.icon).toBe('create');
+    it('should call layout.showGuide on showGuide', () => {
+        const spy = spyOn(layoutStore, 'showGuide');
+        component.showGuide();
+        expect(spy).toHaveBeenCalled();
     });
 
-    it('should call toggleMenuVisibility on SideNavService', () => {
-        const toggleMenuVisibilitySpy = vi.spyOn(sideNavService, 'toggleMenuVisibility');
+    it('should call layout.showEditor on showEditor', () => {
+        const spy = spyOn(layoutStore, 'showEditor');
+        component.showEditor();
+        expect(spy).toHaveBeenCalled();
+    });
+
+    it('should toggle sidenav visibility via service', () => {
+        const spy = spyOn(sideNavService, 'toggleMenuVisibility');
         component.toggleSideNav();
-        expect(toggleMenuVisibilitySpy).toHaveBeenCalled();
-    });
-
-    it('should call toggleVisibility on RendererStateService', () => {
-        const toggleVisibilitySpy = vi.spyOn(rendererStateService, 'toggleVisibility');
-        component.toggleInfo();
-        expect(toggleVisibilitySpy).toHaveBeenCalled();
-    });
-
-    it('should handle keyboard event to toggle info', () => {
-        const toggleInfoSpy = vi.spyOn(component, 'toggleInfo');
-        const event = new KeyboardEvent('keydown', { ctrlKey: true, key: 'i' });
-        component.handleKeyboardEvent(event);
-        expect(toggleInfoSpy).toHaveBeenCalled();
+        expect(spy).toHaveBeenCalled();
     });
 });

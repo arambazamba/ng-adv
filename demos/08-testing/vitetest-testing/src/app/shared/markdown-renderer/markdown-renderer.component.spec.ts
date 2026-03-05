@@ -1,9 +1,7 @@
 import { provideHttpClient } from '@angular/common/http';
 import { ComponentFixture, TestBed } from '@angular/core/testing';
-import { describe, it, expect, beforeEach, vi } from 'vitest';
-import { MatExpansionPanel, MatExpansionPanelHeader, MatExpansionPanelTitle } from '@angular/material/expansion';
-import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import { MarkdownComponent, MarkdownModule } from 'ngx-markdown';
+import { provideNoopAnimations } from '@angular/platform-browser/animations';
+import { provideMarkdown } from 'ngx-markdown';
 import { environment } from '../../../environments/environment';
 import { MarkdownRendererComponent } from './markdown-renderer.component';
 import { RendererStateService } from './renderer-state.service';
@@ -15,18 +13,11 @@ describe('MarkdownRendererComponent', () => {
 
     beforeEach(async () => {
         await TestBed.configureTestingModule({
-            imports: [
-                MarkdownModule.forRoot(),
-                BrowserAnimationsModule,
-                MatExpansionPanel,
-                MatExpansionPanelHeader,
-                MatExpansionPanelTitle,
-                MarkdownComponent,
-                MarkdownRendererComponent
-            ],
+            imports: [MarkdownRendererComponent],
             providers: [
-                RendererStateService,
-                provideHttpClient()
+                provideNoopAnimations(),
+                provideHttpClient(),
+                provideMarkdown(),
             ]
         }).compileComponents();
 
@@ -49,17 +40,16 @@ describe('MarkdownRendererComponent', () => {
         fixture.componentRef.setInput('md', 'test-markdown');
         fixture.detectChanges();
         const expectedPath = `${environment.markdownPath}test-markdown.md`;
-        expect(component.getMarkdown()).toBe(expectedPath);
+        expect(component.markdownSrc()).toBe(expectedPath);
     });
 
     it('should toggle panel visibility', () => {
-        vi.spyOn(rendererStateService, 'toggleVisibility');
+        spyOn(rendererStateService, 'toggleVisibility');
         component.togglePanel();
         expect(rendererStateService.toggleVisibility).toHaveBeenCalled();
     });
 
     it('should get initial content visibility state', () => {
-        const initialVisibility = rendererStateService.getVisible();
-        expect(component.contentVisible()).toBe(initialVisibility());
+        expect(component.contentVisible()).toBe(true);
     });
 });

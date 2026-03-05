@@ -7,18 +7,23 @@ import { map } from 'rxjs/operators';
 import { environment } from '../../environments/environment';
 import { Skill } from './skill.model';
 
-@Injectable()
+@Injectable({
+  providedIn: 'root',
+})
 export class SkillsDataService extends DefaultDataService<Skill> {
   constructor(http: HttpClient, httpUrlGenerator: HttpUrlGenerator) {
     super('Skill', http, httpUrlGenerator);
+    console.log('SkillsDataService instantiated');
   }
 
-  // Because we have overwritten all CRUD methods, we do not need to proide a custom HttpUrlGenerator
+  // Because we have overwritten all CRUD methods, we do not need to provide a custom HttpUrlGenerator
   // The current overwrites are just for demonstration purposes that represent the default behaviour
 
   override getAll() {
+    console.log('[SkillsDataService.getAll] called');
     return this.http.get<Skill[]>(`${environment.api}skills`).pipe(
       map((data: Skill[]) => {
+        console.log('[SkillsDataService.getAll] response:', data);
         if (!data) {
           return [];
         }
@@ -30,11 +35,8 @@ export class SkillsDataService extends DefaultDataService<Skill> {
   }
 
   override add(skill: Skill): Observable<Skill> {
-    return this.http.post<Skill>(`${environment.api}skills`, skill).pipe(
-      map((data) => {
-        return { ...skill, id: data.id };
-      })
-    );
+    const { id: _id, ...payload } = skill;
+    return this.http.post<Skill>(`${environment.api}skills`, payload);
   }
 
   override update(skill: Update<Skill>): Observable<Skill> {

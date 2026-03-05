@@ -2,5 +2,5 @@
   <mat-expansion-panel-header>
     <mat-panel-title>Instructions</mat-panel-title>
   </mat-expansion-panel-header>
-  <markdown [src]="getMarkdown()" />
+  <markdown mermaid [src]="markdownSrc()" (load)="onMarkdownLoad()" />
 </mat-expansion-panel>

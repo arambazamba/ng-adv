@@ -7,7 +7,7 @@ export const skillsDataServiceConfig: DefaultDataServiceConfig = {
     entityHttpResourceUrls: {
         Skill: {
             entityResourceUrl: `${environment.api}skills/`,
-            collectionResourceUrl: `${environment.api}skills`
+            collectionResourceUrl: `${environment.api}skills/`
         },
     }
 }
