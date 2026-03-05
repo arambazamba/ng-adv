@@ -17,27 +17,23 @@ Angular v20+ has native Vitest support through the `@angular/build` package.
 npm install -D vitest jsdom
 ```
 
-### Configure angular.json
+### Configure angular.json (Critical Setup)
 
-Add test architect:
+**Three files must be configured correctly.** Using the wrong approach causes Angular template compilation to fail silently.
+
+Use `tsConfig` + `buildTarget`, NOT `runnerConfig`:
 
 ```json
-{
-  "projects": {
-    "your-app": {
-      "architect": {
-        "test": {
-          "builder": "@angular/build:unit-test",
-          "options": {
-            "tsConfig": "tsconfig.spec.json",
-            "buildTarget": "your-app:build"
-          }
-        }
-      }
-    }
+"test": {
+  "builder": "@angular/build:unit-test",
+  "options": {
+    "tsConfig": "tsconfig.spec.json",
+    "buildTarget": "<project-name>:build"
   }
 }
 ```
+
+**Do NOT use `runnerConfig: "vitest.config.ts"`** — it bypasses Angular's compiler pipeline and component templates will not compile.
 
 ### Configure tsconfig.spec.json
 
@@ -90,6 +86,8 @@ export default defineConfig({
 });
 ```
 
+**Do NOT set `environment: 'jsdom'`** — the Angular builder configures the test environment. Setting it explicitly conflicts.
+
 ### Run Tests
 
 ```bash
@@ -97,6 +95,22 @@ ng test              # Run tests once
 ng test --watch      # Watch mode (recommended for development)
 ng test --code-coverage  # With coverage report
 ```
+
+---
+
+## Imports — Always Explicit
+
+Every spec file must import from `'vitest'` explicitly. Do not rely on globals even though `globals: true` is set — explicit imports make the testing framework visible to students and tools and ensure proper type checking.
+
+```typescript
+import { describe, it, expect, beforeEach, afterEach, vi } from 'vitest';
+```
+
+Only import what the file uses. Common combinations:
+
+- Pure class/service: `describe, it, expect, beforeEach`
+- With spies: add `vi`
+- With teardown: add `afterEach`
 
 ## Vitest Migration from Jasmine
 
@@ -198,49 +212,153 @@ describe('ItemComponent', () => {
 - **TypeScript types**: Update tsconfig.spec.json to use `vitest/globals`
 - **Faster watch mode**: Vitest provides quicker feedback than Karma
 
+---
+
+## Spying on Services — Order Matters
+
+**Critical:** `toSignal()` and `resource()` run in the constructor. If you spy on a service method that is called during construction, the spy **must be set up before `createComponent`**.
+
+### Wrong — spy is too late:
+
+```typescript
+beforeEach(async () => {
+  await TestBed.configureTestingModule({ ... }).compileComponents();
+  fixture = TestBed.createComponent(MyComponent); // constructor runs here
+  service = TestBed.inject(MyService);
+});
+
+it('shows data', () => {
+  vi.spyOn(service, 'getData').mockReturnValue(of(true)); // too late!
+  fixture.detectChanges();
+});
+```
+
+### Correct — spy before createComponent:
+
+```typescript
+beforeEach(async () => {
+  await TestBed.configureTestingModule({ ... }).compileComponents();
+  service = TestBed.inject(MyService); // inject first
+});
+
+it('shows data', () => {
+  vi.spyOn(service, 'getData').mockReturnValue(of(true)); // spy before create
+  fixture = TestBed.createComponent(MyComponent);
+  component = fixture.componentInstance;
+  fixture.detectChanges();
+});
+```
+
+---
+
+## Mocking Signal-Based Services
+
+When a service method returns a **signal** (not an Observable), mock it with a signal:
+
+```typescript
+import { signal } from '@angular/core';
+
+// WRONG — service returns a signal, not an Observable
+foodServiceSpy = { getFood: vi.fn().mockReturnValue(of(data)) };
+
+// CORRECT
+const foodSignal = signal(data);
+foodServiceSpy = { getFood: vi.fn().mockReturnValue(foodSignal.asReadonly()) };
+```
+
+For services where the signal is read at construction time, set up the mock in `beforeEach` before creating the component:
+
+```typescript
+const mockAuth = {
+  user: signal<User | null>(null),
+  isAuthenticated: computed(() => mockAuth.user() !== null),
+  login: vi.fn(),
+  logout: vi.fn(),
+};
+
+providers: [{ provide: AuthService, useValue: mockAuth }]
+
+// In test — set signal value then detect changes:
+mockAuth.user.set({ id: '1', name: 'Test' });
+fixture.detectChanges();
+expect(fixture.nativeElement.querySelector('.content')).toBeTruthy();
+```
+
+---
+
+## Testing Effects
+
+`effect()` runs asynchronously — use `TestBed.flushEffects()` to flush pending effects in tests.
+
+```typescript
+import { signal, effect, Injector, runInInjectionContext } from '@angular/core';
+import { TestBed } from '@angular/core/testing';
+
+let injector: Injector;
+
+beforeEach(() => {
+  TestBed.configureTestingModule({});
+  injector = TestBed.inject(Injector);
+});
+
+it('runs effect when signal changes', () => {
+  const count = signal(0);
+  const log: number[] = [];
+  let stopEffect: ReturnType<typeof effect> | undefined;
+
+  runInInjectionContext(injector, () => {
+    stopEffect = effect(() => log.push(count()));
+  });
+
+  TestBed.flushEffects(); // flush initial run
+  expect(log).toContain(0);
+
+  count.set(5);
+  TestBed.flushEffects();
+  expect(log).toContain(5);
+
+  stopEffect?.destroy();
+});
+```
+
+---
+
 ## Basic Component Test
 
 Following Angular v20+ best practices with standalone components and OnPush change detection:
-import { describe, it, expect, beforeEach } from 'vitest';
+
+```typescript
+import { describe, it, expect, beforeEach, vi } from 'vitest';
 import { ComponentFixture, TestBed } from '@angular/core/testing';
-import { Counter } from './counter.component';
 
-describe('Counter', () => {
-let component: Counter;
-let fixture: ComponentFixture<Counter>;
+describe('MyComponent', () => {
+  let fixture: ComponentFixture<MyComponent>;
+  let component: MyComponent;
 
-beforeEach(async () => {
-await TestBed.configureTestingModule({
-imports: [Counter], // Standalone component
-}).compileComponents();
+  beforeEach(async () => {
+    await TestBed.configureTestingModule({
+      imports: [MyComponent],
+      providers: [
+        { provide: MyService, useValue: { getData: vi.fn().mockReturnValue(of([])) } }
+      ]
+    }).compileComponents();
 
-    fixture = TestBed.createComponent(Counter);
+    fixture = TestBed.createComponent(MyComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
+  });
 
+  it('sets signal input', () => {
+    fixture.componentRef.setInput('data', mockData);
+    fixture.detectChanges();
+    expect(fixture.nativeElement.textContent).toContain('expected');
+  });
+
+  it('should create', () => {
+    expect(component).toBeTruthy();
+  });
 });
-
-it('should create', () => {
-expect(component).toBeTruthy();
-});
-
-it('should increment count', () => {
-expect(component.count()).toBe(0);
-component.increment();
-expect(component.count()).toBe(1);
-});
-
-it('should display count in template', () => {
-component.count.set(5);
-fixture.detectChanges();
-
-    const element = fixture.nativeElement.querySelector('.count');
-    expect(element.textContent).toContain('5');
-
-});
-});
-
-````
+```
 
 ## Testing Signals
 
@@ -263,7 +381,7 @@ describe('Signal logic', () => {
     expect(doubled()).toBe(12);
   });
 });
-````
+```
 
 ### Testing Component Signals
 
@@ -556,7 +674,44 @@ describe('ItemCmpt', () => {
 
 ## Testing Async Operations
 
+### Using Vitest Fake Timers (Recommended)
+
+Use `vi.useFakeTimers()` / `vi.useRealTimers()` instead of Angular's `fakeAsync`/`tick`:
+
+```typescript
+it('debounces input', () => {
+  vi.useFakeTimers();
+  component.query.set('test');
+  vi.advanceTimersByTime(300);
+  fixture.detectChanges();
+  expect(component.results().length).toBeGreaterThan(0);
+  vi.useRealTimers();
+});
+
+it('handles observable with delay', () => {
+  vi.useFakeTimers();
+  fixture.detectChanges();
+  vi.advanceTimersByTime(300);
+  fixture.detectChanges();
+  expect(fixture.nativeElement.textContent).toContain('Loaded');
+  vi.useRealTimers();
+});
+```
+
+For promise-based async, use `async/await` + `fixture.whenStable()`:
+
+```typescript
+it('loads async data', async () => {
+  fixture.detectChanges();
+  await fixture.whenStable();
+  fixture.detectChanges();
+  expect(component.data()).toBeDefined();
+});
+```
+
 ### Using fakeAsync
+
+For time-dependent tests that require Angular's async utilities:
 
 ```typescript
 import { fakeAsync, tick, flush } from '@angular/core/testing';
@@ -638,6 +793,27 @@ describe('UserCmpt', () => {
   });
 });
 ```
+
+---
+
+## Rules
+
+Follow these rules to avoid common testing pitfalls:
+
+- **Always import from `'vitest'` explicitly** — never rely on globals, even though `globals: true` is set
+- **Use `tsConfig` + `buildTarget` in `angular.json`**, never `runnerConfig` — it bypasses Angular's compiler
+- **Never set `environment: 'jsdom'` in `vitest.config.ts`** — the Angular builder configures this
+- **Spy on services BEFORE `createComponent`** when the method is called in the constructor
+- **Mock signal-returning methods with `signal().asReadonly()`**, not `of()`
+- **Call `TestBed.flushEffects()` after registering effects** before asserting
+- **Use `vi.useFakeTimers()` / `vi.advanceTimersByTime()`** instead of `fakeAsync`/`tick` with Vitest
+- **Always `httpMock.verify()` in `afterEach`** to catch outstanding HTTP requests
+- **Use `vi.clearAllMocks()` in `beforeEach`** when reusing spies across tests
+- **Use `fixture.componentRef.setInput()`** for signal inputs
+- **Never test private methods** — test behavior and output
+- **Always use `fixture.detectChanges()`** explicitly with OnPush components
+
+---
 
 ## Best Practices & Recommendations
 

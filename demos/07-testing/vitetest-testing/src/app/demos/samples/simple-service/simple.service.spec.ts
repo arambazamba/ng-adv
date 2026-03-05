@@ -1,3 +1,4 @@
+import { describe, it, expect, beforeEach } from 'vitest';
 import { SimpleMessageService } from './simple.service';
 import { msgs } from './test-data';
 

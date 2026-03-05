@@ -2,6 +2,7 @@ import { CapitalizeDirective } from './capitalize.directive';
 import { DirectiveComponent } from './directive.component';
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 import { MatCardModule } from '@angular/material/card';
+import { describe, it, expect, beforeEach } from 'vitest';
 
 describe('Component - Directive - CapitalizeDirective', () => {
   let component: DirectiveComponent;

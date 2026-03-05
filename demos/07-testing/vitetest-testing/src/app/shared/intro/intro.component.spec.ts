@@ -1,4 +1,5 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
+import { describe, it, expect, beforeEach } from 'vitest';
 import { IntroComponent } from './intro.component';
 import { By } from '@angular/platform-browser';
 import { MatCardModule } from '@angular/material/card';

@@ -1,5 +1,6 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 import { By } from '@angular/platform-browser';
+import { describe, it, expect, beforeEach, vi } from 'vitest';
 import { FoodMenuComponent } from './food-menu.component';
 
 describe('FoodMenuComponent', () => {

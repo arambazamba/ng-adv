@@ -1,3 +1,4 @@
+import { describe, it, expect, beforeEach } from 'vitest';
 import { SimpleClass } from './simple-class';
 
 describe('Class - Hello world Test', () => {

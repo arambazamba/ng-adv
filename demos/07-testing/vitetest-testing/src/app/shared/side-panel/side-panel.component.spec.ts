@@ -1,4 +1,5 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
+import { describe, it, expect, beforeEach, vi } from 'vitest';
 import { SidePanelComponent } from './side-panel.component';
 import { SnackbarService } from '../snackbar/snackbar.service';
 import { SidePanelService } from './sidepanel.service';

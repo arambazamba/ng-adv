@@ -1,6 +1,6 @@
 import { TestBed } from '@angular/core/testing';
+import { describe, it, expect, beforeEach } from 'vitest';
 import { PersonService } from './person.service';
-import { of } from 'rxjs';
 
 describe('PersonService', () => {
     let service: PersonService;

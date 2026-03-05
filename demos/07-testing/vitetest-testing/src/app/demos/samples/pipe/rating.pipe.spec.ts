@@ -1,3 +1,4 @@
+import { describe, it, expect, beforeEach } from 'vitest';
 import { RatingPipe } from './rating.pipe';
 
 describe('Pipe - RatingPipe', () => {

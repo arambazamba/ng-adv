@@ -1,5 +1,6 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 import { NoopAnimationsModule } from '@angular/platform-browser/animations';
+import { describe, it, expect, beforeEach } from 'vitest';
 import { MaterialComponent } from './material.component';
 // Notice manual import of ...Harness
 import { HarnessLoader } from '@angular/cdk/testing';

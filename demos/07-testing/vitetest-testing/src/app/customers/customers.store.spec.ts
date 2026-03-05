@@ -1,10 +1,10 @@
 import { TestBed } from '@angular/core/testing';
+import { describe, it, expect, beforeEach, vi } from 'vitest';
 import { customersStore } from './customers.store';
 import { CustomersService } from './customers.service';
 import { Customer } from './customer.model';
 import { of, throwError } from 'rxjs';
 import { patchState, signalStore, withState, withMethods } from '@ngrx/signals';
-import { delay } from 'rxjs/operators';
 
 describe('CustomersStore', () => {
     let store: InstanceType<typeof customersStore>;

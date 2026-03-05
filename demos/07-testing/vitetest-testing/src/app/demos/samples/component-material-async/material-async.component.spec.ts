@@ -1,5 +1,6 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 import { NoopAnimationsModule } from '@angular/platform-browser/animations';
+import { describe, it, expect, beforeEach } from 'vitest';
 import { MarkdownModule } from 'ngx-markdown';
 import { MaterialAsyncComponent } from './material-async.component';
 import { provideHttpClient } from '@angular/common/http';

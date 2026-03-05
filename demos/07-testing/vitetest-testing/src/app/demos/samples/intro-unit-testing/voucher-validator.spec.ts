@@ -1,3 +1,4 @@
+import { describe, it, expect } from 'vitest';
 import { VoucherValidator } from './voucher-validator';
 import { goodVoucher, badVoucher, nullVoucher } from './voucher-validator.data';
 

@@ -1,4 +1,5 @@
 import { TestBed } from '@angular/core/testing';
+import { describe, it, expect, beforeEach } from 'vitest';
 import { SidePanelService } from './sidepanel.service';
 import { SidebarActions } from './sidebar.actions';
 
