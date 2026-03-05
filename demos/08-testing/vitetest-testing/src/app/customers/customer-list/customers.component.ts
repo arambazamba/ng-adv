@@ -1,21 +1,41 @@
 import { ChangeDetectionStrategy, Component, inject } from '@angular/core';
-import { MatButton } from '@angular/material/button';
-import { RouterLink } from '@angular/router';
 import { customersStore } from '../customers.store';
-import { MatProgressBar } from '@angular/material/progress-bar';
+import { CustomersTableComponent } from '../customers-table/customers-table.component';
+import { CustomerEditComponent } from '../customer-edit/customer-edit.component';
+import { Customer } from '../customer.model';
 
 @Component({
   selector: 'app-customers',
   templateUrl: './customers.component.html',
   styleUrls: ['./customers.component.scss'],
-  imports: [
-    MatButton,
-    RouterLink,
-    MatProgressBar
-  ],
+  imports: [CustomersTableComponent, CustomerEditComponent],
   changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class CustomersComponent {
   store = inject(customersStore);
-  customers = this.store.customers;
+
+  onEdit(customer: Customer) {
+    this.store.selectCustomer(customer);
+  }
+
+  onDelete(id: number) {
+    this.store.deleteCustomer(id);
+  }
+
+  onAdd() {
+    const newCustomer: Customer = { id: this.store.nextId(), name: '' };
+    this.store.selectCustomer(newCustomer);
+  }
+
+  onSave(customer: Customer) {
+    if (customer.id === 0 || !this.store.customers().find(c => c.id === customer.id)) {
+      this.store.addCustomer(customer);
+    } else {
+      this.store.updateCustomer(customer);
+    }
+  }
+
+  onCancel() {
+    this.store.selectCustomer(null);
+  }
 }

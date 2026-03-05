@@ -1,13 +1,19 @@
-<div class="box">
-  <form [formGroup]="customersForm" (ngSubmit)="updateCustomer()">
+<div class="edit-form">
+  <form (ngSubmit)="submit()">
     <mat-form-field>
       <mat-label>Id</mat-label>
-      <input matInput formControlName="id" readonly />
+      <input matInput [value]="customerModel().id" readonly />
     </mat-form-field>
     <mat-form-field>
       <mat-label>Name</mat-label>
-      <input matInput formControlName="name" />
+      <input matInput [formField]="customerForm.name" />
+      @if (customerForm.name().touched() && customerForm.name().invalid()) {
+        <mat-error>{{ customerForm.name().errors()[0].message }}</mat-error>
+      }
     </mat-form-field>
-    <button mat-raised-button type="submit" color="primary">Save</button>
+    <div class="actions">
+      <button mat-raised-button type="submit" color="primary" [disabled]="customerForm().invalid()">Save</button>
+      <button mat-button type="button" (click)="cancel.emit()">Cancel</button>
+    </div>
   </form>
 </div>

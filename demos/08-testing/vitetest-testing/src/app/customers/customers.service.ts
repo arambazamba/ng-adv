@@ -16,4 +16,12 @@ export class CustomersService {
   updateCustomer(customer: Customer) {
     return this.http.put<Customer>(environment.api + 'customers/' + customer.id, customer);
   }
+
+  deleteCustomer(id: number) {
+    return this.http.delete(environment.api + 'customers/' + id);
+  }
+
+  addCustomer(customer: Customer) {
+    return this.http.post<Customer>(environment.api + 'customers', customer);
+  }
 }
