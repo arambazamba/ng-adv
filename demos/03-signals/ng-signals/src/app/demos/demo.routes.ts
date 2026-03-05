@@ -11,6 +11,10 @@ import { SignalsEventBusComponent } from './samples/signals-event-bus/signals-ev
 import { ZonelessChangeDetectionComponent } from './samples/zoneless-change-detection/zoneless-change-detection.component';
 import { DeepSignalsComponent } from './samples/deep-signals/deep-signals.component';
 import { HttpResourceComponent } from './samples/http-resource/http-resource.component';
+import { SignalEqualityComponent } from './samples/signal-equality/signal-equality.component';
+import { LinkedSignalResetComponent } from './samples/linked-signal-reset/linked-signal-reset.component';
+import { EffectCleanupComponent } from './samples/effect-cleanup/effect-cleanup.component';
+import { EffectOnceComponent } from './samples/effect-once/effect-once.component';
 
 export const demoRoutes: Routes = [
   {
@@ -18,16 +22,20 @@ export const demoRoutes: Routes = [
     component: DemoContainerComponent,
     children: [
       { path: 'signals-basics', component: SignalsBasicsComponent },
-      { path: 'signals-effects', component: SignalEffectsComponent },
-      { path: 'deep-signals', component: DeepSignalsComponent },
-      { path: 'rxjs-interop', component: RxjsInteropComponent },
-      { path: 'signal-inputs', component: SignalInputsComponent },
-      { path: 'model-inputs', component: ModelInputsComponent },
-      { path: 'signals-event-bus', component: SignalsEventBusComponent },
-      { path: 'select-signal', component: SelectSignalComponent },
-      { path: 'container-presenter', component: ContainerPresenterSignalsComponent },
-      { path: 'zoneless-change-detection', component: ZonelessChangeDetectionComponent },
       { path: 'http-resource', component: HttpResourceComponent },
+      { path: 'signal-effects', component: SignalEffectsComponent },
+      { path: 'deep-signals', component: DeepSignalsComponent },
+      { path: 'signal-inputs', component: SignalInputsComponent },
+      { path: 'signal-equality', component: SignalEqualityComponent },
+      { path: 'linked-signal-reset', component: LinkedSignalResetComponent },
+      { path: 'effect-cleanup', component: EffectCleanupComponent },
+      { path: 'effect-once', component: EffectOnceComponent },
+      { path: 'model-inputs', component: ModelInputsComponent },
+      { path: 'container-presenter', component: ContainerPresenterSignalsComponent },
+      { path: 'signals-event-bus', component: SignalsEventBusComponent },
+      { path: 'rxjs-interop', component: RxjsInteropComponent },
+      { path: 'select-signal', component: SelectSignalComponent },
+      { path: 'zoneless-change-detection', component: ZonelessChangeDetectionComponent },
     ],
   },
 ];

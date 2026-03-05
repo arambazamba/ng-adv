@@ -17,14 +17,6 @@
       "md": "http-resource"
     },
     {
-      "url": "deep-signals",
-      "title": "Deep Signal Changes",
-      "teaches": "Track nested changes within signal objects using deep equality checks. Understand when signals notify dependent computations.",
-      "sortOrder": 4,
-      "topic": "Signals Fundamentals",
-      "md": "deep-signals"
-    },
-    {
       "url": "signal-effects",
       "title": "Signal Effects & Filtering",
       "teaches": "Use effect() to react to signal changes for side effects. Track filter state with signals and update httpResource() parameters dynamically. Demonstrates conditional data loading.",
@@ -33,12 +25,52 @@
       "md": "signal-effects"
     },
     {
+      "url": "deep-signals",
+      "title": "Deep Signal Changes",
+      "teaches": "Track nested changes within signal objects using deep equality checks. Understand when signals notify dependent computations.",
+      "sortOrder": 4,
+      "topic": "Signals Fundamentals",
+      "md": "deep-signals"
+    },
+    {
       "url": "signal-inputs",
       "title": "Inputs Signals",
       "teaches": "Define typed component inputs as signals using input() and input.required(). Use with two-way binding in parent components.",
       "sortOrder": 5,
       "topic": "Signals Fundamentals",
       "md": "signal-inputs"
+    },
+    {
+      "url": "signal-equality",
+      "title": "Signal Equality",
+      "teaches": "Define custom equality comparisons with the equal() option. Control when computed() and dependents re-run. Avoid unnecessary notifications for deep mutations.",
+      "sortOrder": 6,
+      "topic": "Signals Fundamentals",
+      "md": "signal-equality"
+    },
+    {
+      "url": "linked-signal-reset",
+      "title": "LinkedSignal & Reset",
+      "teaches": "Create writable dependent signals with linkedSignal(). Keep signals synced while allowing independent updates. Reset derived signals to base state.",
+      "sortOrder": 7,
+      "topic": "Signal Patterns",
+      "md": "linked-signal-reset"
+    },
+    {
+      "url": "effect-cleanup",
+      "title": "Effect Cleanup",
+      "teaches": "Clean up resources in effects: timers, intervals, subscriptions, listeners. Use cleanup functions to prevent memory leaks when effects destroy.",
+      "sortOrder": 8,
+      "topic": "Signal Patterns",
+      "md": "effect-cleanup"
+    },
+    {
+      "url": "effect-once",
+      "title": "One-Shot Effects",
+      "teaches": "Run effects one time or conditionally. Use manual destroy() to disable effects. Common for initialization logic that only runs once.",
+      "sortOrder": 9,
+      "topic": "Signal Patterns",
+      "md": "effect-once"
     },
     {
       "url": "model-inputs",
