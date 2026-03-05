@@ -21,6 +21,7 @@ Migrate the `<app-markdown-renderer>` from individual sample component templates
 For each demo entry in `db.json`, add an `md` property matching the markdown name currently passed to `<app-markdown-renderer>` in that sample's HTML template.
 
 **Example:**
+
 ```json
 {
   "url": "app-state",
@@ -41,6 +42,7 @@ Add `md: string = ''` to the `DemoItem` class.
 ### Step 3: Update `SidePanelService`
 
 Replace enum-based commands with simple boolean signal toggles:
+
 ```typescript
 import { Injectable, signal } from '@angular/core';
 
@@ -75,6 +77,7 @@ toggleRenderer() { this.eb.toggleRenderer(); }
 ```
 
 Template buttons:
+
 ```html
 <button mat-mini-fab (click)="toggleSideNav()"><mat-icon>menu</mat-icon></button>
 <button mat-mini-fab (click)="toggleRenderer()"><mat-icon>description</mat-icon></button>
@@ -100,11 +103,13 @@ For each sample component:
 2. **TypeScript file:** Remove the `MarkdownRendererComponent` import statement and remove it from the `imports` array
 
 **Affected components** (scan all `*.component.html` under `demos/samples/` for `app-markdown-renderer`):
+
 - Find with: `grep -r "app-markdown-renderer" src/app/demos/samples/`
 
 ### Step 7: Update SCSS
 
 Simplify the grid layout since workbench/mdeditor areas are now handled by angular-split:
+
 ```scss
 .gdSidenavContent {
   grid-template-rows: 65px auto;
@@ -126,6 +131,26 @@ Simplify the grid layout since workbench/mdeditor areas are now handled by angul
 }
 ```
 
+### Step 8: Fix code block syntax highlighting in `angular.json`
+
+Markdown code blocks require prismjs assets to be bundled. Without them, code blocks render as unstyled plain text.
+
+Add the prismjs CSS theme to `styles` and its scripts to `scripts` in `angular.json`:
+
+```json
+"styles": [
+  "node_modules/prismjs/themes/prism-okaidia.css",
+  "src/styles.scss"
+],
+"scripts": [
+  "node_modules/prismjs/prism.js",
+  "node_modules/prismjs/components/prism-typescript.min.js",
+  "node_modules/prismjs/components/prism-javascript.min.js"
+]
+```
+
+`prismjs` is already a dependency — no additional install needed.
+
 ## Verification
 
 1. Run `ng build` to verify no compile errors
@@ -133,3 +158,4 @@ Simplify the grid layout since workbench/mdeditor areas are now handled by angul
 3. Toggle the markdown guide visibility using the sidebar button
 4. Drag split gutters to resize panes
 5. Hidden panes should collapse fully (angular-split `[visible]` binding)
+6. Code blocks in markdown guides should render with dark Okaidia syntax highlighting
