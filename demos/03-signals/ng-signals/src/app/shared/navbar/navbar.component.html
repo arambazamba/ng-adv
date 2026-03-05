@@ -3,15 +3,15 @@
     <div (click)="toggleMenu()" class="hamburgerMenu">
       <mat-icon color="accent">menu</mat-icon>
     </div>
-    <div><img ngSrc="/images/angular.svg" width="50" height="50" alt="Angular logo" /></div>
+    <div><img width="50px" src="/images/angular.svg" /></div>
     <div class="menuContainer">
-      @for (mi of ms.topItems.value(); track mi) {
+      @for (mi of menuItems(); track mi) {
         <div
           routerLink="{{ '/' + mi.url }}"
           routerLinkActive="navLinkActive"
           [routerLinkActiveOptions]="{ exact: true }"
           class="navLink"
-          >
+        >
           {{ mi.label }}
         </div>
       }

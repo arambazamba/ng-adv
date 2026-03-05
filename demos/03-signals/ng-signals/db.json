@@ -5,77 +5,80 @@
       "title": "Signals Basics",
       "teaches": "Create reactive state with signal(). Use computed() for derived state and effect() for side effects. Read values with calling the signal as function, update with .set() and .update().",
       "sortOrder": 1,
-      "topic": "Signals Fundamentals"
+      "topic": "Signals Fundamentals",
+      "md": "signals-basics"
     },
     {
-      "url": "signal-effects",
-      "title": "HTTP Resource & Signals",
-      "teaches": "Fetch data reactively with httpResource(). Respond to signal changes automatically. Handle loading states and errors with resource computed signals.",
+      "url": "http-resource",
+      "title": "HTTP Resource API",
+      "teaches": "Load and display async data with httpResource(). Handle loading state, errors, and display data conditionally in templates.",
       "sortOrder": 2,
-      "topic": "Signals Fundamentals"
+      "topic": "Signals Fundamentals",
+      "md": "http-resource"
     },
     {
       "url": "deep-signals",
       "title": "Deep Signal Changes",
       "teaches": "Track nested changes within signal objects using deep equality checks. Understand when signals notify dependent computations.",
-      "sortOrder": 3,
-      "topic": "Signals Fundamentals"
+      "sortOrder": 4,
+      "topic": "Signals Fundamentals",
+      "md": "deep-signals"
     },
     {
       "url": "signal-inputs",
       "title": "Component Inputs with Signals",
       "teaches": "Define typed component inputs as signals using input() and input.required(). Use with two-way binding in parent components.",
-      "sortOrder": 4,
-      "topic": "Signals Fundamentals"
+      "sortOrder": 5,
+      "topic": "Signals Fundamentals",
+      "md": "signal-inputs"
     },
     {
       "url": "model-inputs",
       "title": "Model Two-Way Binding",
       "teaches": "Implement two-way binding with model() signal API. Parent and child components sync data mutually without manual event handling.",
       "sortOrder": 10,
-      "topic": "Signal Patterns"
+      "topic": "Signal Patterns",
+      "md": "model-inputs"
     },
     {
       "url": "container-presenter",
       "title": "Container-Presenter with Signals",
       "teaches": "Apply Container-Presenter pattern using signals. Container manages state and httpResource data, Presenter displays UI. Pass data and callbacks to child presenters.",
       "sortOrder": 11,
-      "topic": "Signal Patterns"
+      "topic": "Signal Patterns",
+      "md": "container-presenter"
     },
     {
       "url": "signals-event-bus",
       "title": "Signals EventBus",
       "teaches": "Create a lightweight event bus with signals for cross-component communication. Emit and subscribe to events without RxJS.",
       "sortOrder": 12,
-      "topic": "Signal Patterns"
+      "topic": "Signal Patterns",
+      "md": "signals-bus"
     },
     {
       "url": "rxjs-interop",
       "title": "RxJS to Signals Bridge",
       "teaches": "Convert RxJS Observables to signals with toSignal(). Create writeable signals from async sources. Combine signals with existing Observable code.",
       "sortOrder": 13,
-      "topic": "Signal Patterns"
+      "topic": "Signal Patterns",
+      "md": "rxjs-interop"
     },
     {
       "url": "select-signal",
       "title": "NgRx selectSignal Integration",
       "teaches": "Use NgRx selectSignal() to derive signals directly from store state. Type-safe store integration without subscribe patterns.",
       "sortOrder": 20,
-      "topic": "Advanced Integration"
+      "topic": "Advanced Integration",
+      "md": "select-signal"
     },
     {
       "url": "zoneless-change-detection",
       "title": "OnPush & Zoneless CD",
       "teaches": "Run Angular with zoneless change detection using signals. Remove NgZone dependency and improve performance with pure signal-based reactivity.",
       "sortOrder": 21,
-      "topic": "Advanced Integration"
-    },
-    {
-      "url": "http-resource",
-      "title": "HTTP Resource API",
-      "teaches": "Load and display async data with httpResource(). Handle loading state, errors, and display data conditionally in templates.",
-      "sortOrder": 22,
-      "topic": "Advanced Integration"
+      "topic": "Advanced Integration",
+      "md": "zoneless-change-detection"
     }
   ],
   "skills": [

@@ -1,11 +1,11 @@
-<app-markdown-renderer [md]="'container-presenter'" />
-
-<app-person-list-signals [persons]="personsResource.value()"
+<app-person-list-signals
+  [persons]="personsResource.value()"
   (personSelected)="onPersonSelected($event)"
- />
+/>
 
 @if (current()) {
-  <app-person-edit-signals [person]="current()"
+  <app-person-edit-signals
+    [person]="current()"
     (onSavePerson)="onPersonSaved($event)"
-   />
+  />
 }

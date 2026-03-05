@@ -1,16 +1,13 @@
 import { ChangeDetectionStrategy, Component } from '@angular/core';
 import { httpResource } from '@angular/common/http';
-import { MarkdownRendererComponent } from '../../../shared/markdown-renderer/markdown-renderer.component';
-import { BoxedDirective } from '../../../shared/ux-lib/formatting/formatting-directives';
+import { BoxedDirective } from '../../../shared/formatting/formatting-directives';
 import { Skill } from '../../../skills/skill.model';
 import { environment } from '../../../../environments/environment';
 
 @Component({
-    selector: 'app-http-resource',
-    imports: [MarkdownRendererComponent, BoxedDirective],
-    template: `
-    <app-markdown-renderer [md]="'http-resource'" />
-
+  selector: 'app-http-resource',
+  imports: [BoxedDirective],
+  template: `
     <div boxed>
       @if (skillsResource.isLoading()) {
         <p>Loading...</p>
@@ -25,8 +22,8 @@ import { environment } from '../../../../environments/environment';
       }
     </div>
   `,
-    changeDetection: ChangeDetectionStrategy.OnPush,
+  changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class HttpResourceComponent {
-    skillsResource = httpResource<Skill[]>(() => `${environment.api}skills`);
+  skillsResource = httpResource<Skill[]>(() => `${environment.api}skills`);
 }

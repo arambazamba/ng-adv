@@ -2,12 +2,11 @@ import { ChangeDetectionStrategy, Component, inject } from '@angular/core';
 import { Store } from '@ngrx/store';
 import { customersActions } from '../../../customers/state/customers.actions';
 import { CustomersState, customerState } from '../../../customers/state/customers.state';
-import { BorderDirective } from '../../../shared/ux-lib/formatting/formatting-directives';
-import { MarkdownRendererComponent } from '../../../shared/markdown-renderer/markdown-renderer.component';
+import { BorderDirective } from '../../../shared/formatting/formatting-directives';
 
 @Component({
   selector: 'app-select-signal',
-  imports: [MarkdownRendererComponent, BorderDirective],
+  imports: [BorderDirective],
   templateUrl: './select-signal.component.html',
   styleUrl: './select-signal.component.scss',
   changeDetection: ChangeDetectionStrategy.OnPush

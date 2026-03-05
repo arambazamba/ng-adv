@@ -4,7 +4,7 @@ This repository contains training materials, demos, and infrastructure forAdvanc
 
 ## Repository Purpose & Structure
 
-**Primary Goal**: Provide instructor-led demos and labs for Azure DevOps, GitHub Actions, IaC, and cloud-native development patterns.
+**Primary Goal**: Provide instructor-led demos and labs for Angular Development development patterns.
 
 ### Key Directories
 
@@ -13,9 +13,11 @@ This repository contains training materials, demos, and infrastructure forAdvanc
 
 Always start applications from their respective project folders and not the repository root.
 
-## General RULES
+## IMPORTANT RULES
 
 - Write clean code. No comments. Do not over engineer!!!
+- You always consult the Angular MCP for best practices
 - Do not write docs if you are not asked to. If you are asked to write docs, be concise, short and to the point.
 - Never use Powershell for Angular code refactoring !!!
 - Use the running app provided by the user!!!
+- When you implement changes in the UI you check them using Chrome MCP

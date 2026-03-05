@@ -1,12 +1,10 @@
-<app-markdown-renderer [md]="'signals-effects'" />
-
 <div boxed>
   <mat-form-field appearance="fill">
     <mat-label>Choose an state for the tasks to show</mat-label>
     <mat-select (selectionChange)="onStatusChange($event)">
       @for (option of options; track $index) {
         <mat-option [value]="option == 'Completed' ? true : false">
-            {{ option }}
+          {{ option }}
         </mat-option>
       }
     </mat-select>
@@ -14,9 +12,9 @@
 </div>
 
 <div class="result">
-    @for(skill of skillsResource.value(); track $index){
-        <div>
-            {{ skill.name }}    
-        </div>
-    }
+  @for (skill of skillsResource.value(); track $index) {
+    <div>
+      {{ skill.name }}
+    </div>
+  }
 </div>

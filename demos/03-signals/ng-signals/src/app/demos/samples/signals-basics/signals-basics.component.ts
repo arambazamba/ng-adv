@@ -1,15 +1,13 @@
 import { ChangeDetectionStrategy, Component, Injector, computed, effect, inject, signal } from '@angular/core';
 import { Topic } from './topic.model';
-import { BorderDirective, CenteredDirective } from '../../../shared/ux-lib/formatting/formatting-directives';
+import { BorderDirective, CenteredDirective } from '../../../shared/formatting/formatting-directives';
 import { MatButton } from '@angular/material/button';
 import { MatCard, MatCardHeader, MatCardTitle, MatCardContent } from '@angular/material/card';
-import { MarkdownRendererComponent } from '../../../shared/markdown-renderer/markdown-renderer.component';
 @Component({
   selector: 'app-signals-basics',
   templateUrl: './signals-basics.component.html',
   styleUrls: ['./signals-basics.component.scss'],
   imports: [
-    MarkdownRendererComponent,
     MatCard,
     MatCardHeader,
     MatCardTitle,

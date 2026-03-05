@@ -3,15 +3,13 @@ import { ChangeDetectionStrategy, Component, effect, signal } from '@angular/cor
 import { toSignal } from '@angular/core/rxjs-interop';
 import { MatButtonModule } from '@angular/material/button';
 import { of } from 'rxjs';
-import { BorderDirective, CenteredDirective } from '../../../shared/ux-lib/formatting/formatting-directives';
-import { MarkdownRendererComponent } from '../../../shared/markdown-renderer/markdown-renderer.component';
+import { BorderDirective, CenteredDirective } from '../../../shared/formatting/formatting-directives';
 
 @Component({
   selector: 'app-rxjs-interop',
   imports: [
     AsyncPipe,
     MatButtonModule,
-    MarkdownRendererComponent,
     BorderDirective,
     CenteredDirective
   ],

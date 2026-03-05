@@ -1,13 +1,12 @@
 import { ChangeDetectionStrategy, Component, OnInit, computed, signal } from '@angular/core';
 import { httpResource } from '@angular/common/http';
-import { BoxedDirective, ClickableDirective } from '../../../shared/ux-lib/formatting/formatting-directives';
-import { MarkdownRendererComponent } from '../../../shared/markdown-renderer/markdown-renderer.component';
+import { BoxedDirective, ClickableDirective } from '../../../shared/formatting/formatting-directives';
 import { Skill } from '../../../skills/skill.model';
 import { environment } from '../../../../environments/environment';
 
 @Component({
   selector: 'app-zoneless-change-detection',
-  imports: [MarkdownRendererComponent, BoxedDirective, ClickableDirective],
+  imports: [BoxedDirective, ClickableDirective],
   templateUrl: './zoneless-change-detection.component.html',
   styleUrl: './zoneless-change-detection.component.scss',
   changeDetection: ChangeDetectionStrategy.OnPush

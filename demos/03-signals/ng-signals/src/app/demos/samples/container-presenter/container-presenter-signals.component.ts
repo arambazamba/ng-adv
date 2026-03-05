@@ -1,6 +1,5 @@
 import { ChangeDetectionStrategy, Component, signal } from '@angular/core';
 import { httpResource } from '@angular/common/http';
-import { MarkdownRendererComponent } from '../../../shared/markdown-renderer/markdown-renderer.component';
 import { PersonEditSignalsComponent } from './person-edit-signals/person-edit-signals.component';
 import { PersonListSignalsComponent } from './person-list-signals/person-list-signals.component';
 import { Person } from './person.model';
@@ -9,7 +8,6 @@ import { environment } from '../../../../environments/environment';
 @Component({
   selector: 'app-container-presenter-signals',
   imports: [
-    MarkdownRendererComponent,
     PersonListSignalsComponent,
     PersonEditSignalsComponent
   ],

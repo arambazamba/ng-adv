@@ -1,16 +1,18 @@
 import { Injectable, signal } from '@angular/core';
-import { SidebarActions } from './sidebar.actions';
 
 @Injectable({ providedIn: 'root' })
 export class SidePanelService {
-  private commands = signal<SidebarActions>(SidebarActions.HIDE_MARKDOWN);
-  readonly currentCommand = this.commands.asReadonly();
+  private _editorVisible = signal(false);
+  private _rendererVisible = signal(true);
 
-  getCommands() {
-    return this.currentCommand;
+  editorVisible = this._editorVisible.asReadonly();
+  rendererVisible = this._rendererVisible.asReadonly();
+
+  toggleEditor() {
+    this._editorVisible.update(v => !v);
   }
 
-  triggerCmd(action: SidebarActions) {
-    this.commands.set(action);
+  toggleRenderer() {
+    this._rendererVisible.update(v => !v);
   }
 }
