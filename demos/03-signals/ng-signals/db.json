@@ -25,8 +25,16 @@
       "md": "deep-signals"
     },
     {
+      "url": "signal-effects",
+      "title": "Signal Effects & Filtering",
+      "teaches": "Use effect() to react to signal changes for side effects. Track filter state with signals and update httpResource() parameters dynamically. Demonstrates conditional data loading.",
+      "sortOrder": 3,
+      "topic": "Signals Fundamentals",
+      "md": "signal-effects"
+    },
+    {
       "url": "signal-inputs",
-      "title": "Component Inputs with Signals",
+      "title": "Inputs Signals",
       "teaches": "Define typed component inputs as signals using input() and input.required(). Use with two-way binding in parent components.",
       "sortOrder": 5,
       "topic": "Signals Fundamentals",
@@ -42,7 +50,7 @@
     },
     {
       "url": "container-presenter",
-      "title": "Container-Presenter with Signals",
+      "title": "Signals Container-Presenter",
       "teaches": "Apply Container-Presenter pattern using signals. Container manages state and httpResource data, Presenter displays UI. Pass data and callbacks to child presenters.",
       "sortOrder": 11,
       "topic": "Signal Patterns",

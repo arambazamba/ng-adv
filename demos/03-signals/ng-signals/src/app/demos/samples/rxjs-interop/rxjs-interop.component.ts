@@ -8,7 +8,6 @@ import { BorderDirective, CenteredDirective } from '../../../shared/formatting/f
 @Component({
   selector: 'app-rxjs-interop',
   imports: [
-    AsyncPipe,
     MatButtonModule,
     BorderDirective,
     CenteredDirective
