@@ -17,3 +17,4 @@ Always start applications from their respective project folders and not the repo
 
 - Write clean code. No comments. Do not over engineer!!!
 - Do not write docs if you are not asked to. If you are asked to write docs, be concise, short and to the point.
+- Never use Powershell for Angular code refactoring.
