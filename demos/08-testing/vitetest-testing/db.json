@@ -167,7 +167,7 @@
       "title": "Playwright E2E",
       "teaches": "Write end-to-end tests with Playwright using the Page Object Model and fixtures. Reset API state between tests for full isolation.",
       "topic": "E2E Testing",
-      "sortOrder": 22,
+      "sortOrder": 19,
       "id": 22,
       "md": "playwright"
     }
