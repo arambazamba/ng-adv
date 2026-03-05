@@ -2,47 +2,65 @@
   "demos": [
     {
       "url": "lighthouse",
-      "title": "Lighthouse",
+      "title": "Instrument Web Vitals",
+      "teaches": "Measure and optimize Core Web Vitals and performance metrics using Chrome DevTools Lighthouse audits.",
+      "topic": "Performance Measurement",
+      "sortOrder": 1,
+      "md": "lighthouse",
       "id": "5957"
     },
     {
       "url": "optimize-bundles",
-      "title": "Optimize Bundles",
+      "title": "Optimize Bundles & Loading",
+      "teaches": "Analyze and reduce bundle size for faster loading by understanding esbuild and tree-shaking mechanisms.",
+      "topic": "Bundle Optimization",
+      "sortOrder": 2,
+      "md": "bundles",
       "id": "440f"
-    },
-    {
-      "url": "debug-statements",
-      "title": "Debug Statements",
-      "id": "60ff"
-    },
-    {
-      "url": "logger",
-      "title": "Logging",
-      "id": "ba35"
     },
     {
       "url": "optimized-controls",
       "title": "Optimized Controls",
+      "teaches": "Combine OnPush change detection with Reactive Forms for optimal form performance and minimal re-renders.",
+      "topic": "Performance Optimization",
+      "sortOrder": 5,
+      "md": "optimized-controls",
       "id": "4f29"
     },
     {
       "url": "virtual-scroll",
       "title": "Virtual Scroll",
+      "teaches": "Render large lists efficiently with CDK virtual scrolling by dynamically loading and unloading visible items.",
+      "topic": "Performance Optimization",
+      "sortOrder": 6,
+      "md": "virtual-scroll",
       "id": "6aad"
     },
     {
       "url": "ng-optimized-img",
       "title": "NgOptimizedImage",
+      "teaches": "Use NgOptimizedImage directive for responsive image optimization with automatic srcset generation.",
+      "topic": "Asset Optimization",
+      "sortOrder": 7,
+      "md": "optimized-img",
       "id": "55c9"
     },
     {
       "url": "a11y",
-      "title": "a11y",
+      "title": "A11y Optimization",
+      "teaches": "Implement WCAG AA accessibility standards using semantic HTML, ARIA attributes, and accessibility linting.",
+      "topic": "Accessibility",
+      "sortOrder": 8,
+      "md": "a11y",
       "id": "51a2"
     },
     {
       "url": "eslint",
-      "title": "ESLint",
+      "title": "Implement Linting",
+      "teaches": "Configure and enforce code quality rules with ESLint to maintain consistent coding standards.",
+      "topic": "Code Quality",
+      "sortOrder": 9,
+      "md": "eslint",
       "id": "e03c"
     }
   ],

@@ -1,20 +1,22 @@
-- Examine ngx-logger config in demos.module.ts
+- Configure ngx-logger in your application for server-side logging:
 
   ```typescript
   LoggerModule.forRoot({
-    serverLoggingUrl: 'http://localhost:3000/logs',
+    serverLoggingUrl: "http://localhost:3000/logs",
     level: NgxLoggerLevel.DEBUG,
-    serverLogLevel: NgxLoggerLevel.ERROR
-  }),
+    serverLogLevel: NgxLoggerLevel.ERROR,
+  });
   ```
 
-- Examine `index.ts` and the use of the `logNgRX-function`. You could also use the `logNgRX` function to log the state to the server:
+- Inject `NGXLogger` in your components to log messages at different levels:
 
   ```typescript
-  export function logNgRX(reducer: ActionReducer<any>): ActionReducer<any> {
-    return function (state, action) {
-      console.log('ngrx', action.type);
-      return reducer(state, action);
-    };
-  }
+  ngxLogger = inject(NGXLogger);
+
+  ngxLogger.debug("Debug message");
+  ngxLogger.info("Info message");
+  ngxLogger.warn("Warning message");
+  ngxLogger.error("Error message");
   ```
+
+- Use the `AILoggerService` as an abstraction layer for application insights and centralized logging
