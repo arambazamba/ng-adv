@@ -4,13 +4,12 @@ import { PersonService } from '../person/person.service';
 import { Person } from '../person/person.model';
 import { PresenterEditComponent } from './presenter-edit/presenter-edit.component';
 import { PresenterListComponent } from './presenter-list/presenter-list.component';
-import { MarkdownRendererComponent } from '../../../shared/markdown-renderer/markdown-renderer.component';
 
 @Component({
   selector: 'app-container-presenter',
   templateUrl: './container-presenter.component.html',
   styleUrls: ['./container-presenter.component.scss'],
-  imports: [MarkdownRendererComponent, PresenterListComponent, PresenterEditComponent],
+  imports: [PresenterListComponent, PresenterEditComponent],
   changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class ContainerPresenterComponent {

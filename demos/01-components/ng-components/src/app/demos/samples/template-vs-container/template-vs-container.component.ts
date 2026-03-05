@@ -6,14 +6,12 @@ import { ExpanderTemplateComponent } from './expander-template/expander-template
 import { ClockComponent } from './clock/clock.component';
 import { ExpanderComponent } from './expander-content/expander.component';
 import { MatCard, MatCardHeader, MatCardTitle, MatCardContent } from '@angular/material/card';
-import { MarkdownRendererComponent } from '../../../shared/markdown-renderer/markdown-renderer.component';
 
 @Component({
     selector: 'app-template-vs-container',
     templateUrl: './template-vs-container.component.html',
     styleUrls: ['./template-vs-container.component.scss'],
     imports: [
-        MarkdownRendererComponent,
         MatCard,
         MatCardHeader,
         MatCardTitle,

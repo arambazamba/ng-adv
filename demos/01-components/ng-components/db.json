@@ -10,10 +10,28 @@
       "md": "standalone"
     },
     {
+      "url": "lazy-standalone",
+      "title": "Lazy Standalone Comp.",
+      "teaches": "Load standalone components on-demand via routes. Reduce initial bundle size by lazy loading features that aren't immediately needed.",
+      "sortOrder": 2,
+      "topic": "Component Fundamentals",
+      "id": 11,
+      "md": "lazy-standalone"
+    },
+    {
+      "url": "standalone-bootstrap",
+      "title": "Load Standalone Apps",
+      "teaches": "Bootstrap standalone applications with bootstrapApplication(). Set up providers, routes, and configuration without NgModule.",
+      "sortOrder": 3,
+      "topic": "Component Fundamentals",
+      "id": 12,
+      "md": "bootstrap"
+    },
+    {
       "url": "control-flow",
       "title": "Control Flow",
       "teaches": "Use modern Angular control flow syntax with @if, @for, @switch, and @let. Replace ngIf, ngFor, and ngSwitch with cleaner, more performant alternatives.",
-      "sortOrder": 2,
+      "sortOrder": 4,
       "topic": "Component Fundamentals",
       "id": 2,
       "md": "control-flow"
@@ -22,7 +40,7 @@
       "url": "content-projection",
       "title": "Content Projection",
       "teaches": "Design flexible components with <ng-content> slots. Pass template content to child components using named projections and default content.",
-      "sortOrder": 3,
+      "sortOrder": 5,
       "topic": "Component Composition",
       "id": 3,
       "md": "content-projection"
@@ -31,7 +49,7 @@
       "url": "directives-composition",
       "title": "Directives Composition",
       "teaches": "Combine multiple directives on a single element to compose behaviors. Use hostDirectives to attach directives as component dependencies.",
-      "sortOrder": 4,
+      "sortOrder": 6,
       "topic": "Component Composition",
       "id": 4,
       "md": "directive-composition"
@@ -40,7 +58,7 @@
       "url": "content-child",
       "title": "Content Child",
       "teaches": "Query projected content with @ContentChild and @ContentChildren. Access and interact with elements passed via content projection.",
-      "sortOrder": 5,
+      "sortOrder": 7,
       "topic": "Component Composition",
       "id": 5,
       "md": "content-child"
@@ -49,7 +67,7 @@
       "url": "modern-template-features",
       "title": "Modern Template Features",
       "teaches": "Write arrow functions and spread syntax directly in templates (v21.1+). Use signal.update(n => n + 1) and spread operators without wrapper methods.",
-      "sortOrder": 6,
+      "sortOrder": 8,
       "topic": "Template Syntax",
       "id": 15,
       "md": "modern-template-features"
@@ -58,8 +76,8 @@
       "url": "view-queries",
       "title": "View Queries",
       "teaches": "Query template elements with @ViewChild and @ViewChildren. Obtain references to child components or DOM elements in the component view.",
-      "sortOrder": 7,
-      "topic": "Advanced Patterns",
+      "sortOrder": 9,
+      "topic": "Component Advanced Patterns",
       "id": 6,
       "md": "view-queries"
     },
@@ -67,8 +85,8 @@
       "url": "template-vs-container",
       "title": "Template vs Container",
       "teaches": "Understand the difference between ng-template and ng-container. Control when and where template content is rendered in the DOM.",
-      "sortOrder": 8,
-      "topic": "Advanced Patterns",
+      "sortOrder": 10,
+      "topic": "Component Advanced Patterns",
       "id": 7,
       "md": "templ-content"
     },
@@ -76,8 +94,8 @@
       "url": "host-binding",
       "title": "Host Binding & Listener",
       "teaches": "Manage component host properties and events with @HostBinding and @HostListener. Style the component element and respond to user interactions.",
-      "sortOrder": 9,
-      "topic": "Advanced Patterns",
+      "sortOrder": 11,
+      "topic": "Component Advanced Patterns",
       "id": 8,
       "md": "host-binding"
     },
@@ -85,8 +103,8 @@
       "url": "container-presenter",
       "title": "Container Presenter",
       "teaches": "Separate data logic (container) from presentation (presenter) components. Use this pattern for cleaner, more reusable component architecture.",
-      "sortOrder": 10,
-      "topic": "Advanced Patterns",
+      "sortOrder": 12,
+      "topic": "Component Advanced Patterns",
       "id": 9,
       "md": "container-presenter"
     },
@@ -94,8 +112,8 @@
       "url": "dynamic-components",
       "title": "Dynamic Components",
       "teaches": "Create and insert components dynamically at runtime using ViewContainerRef. Pass data to dynamic components and handle their lifecycle.",
-      "sortOrder": 11,
-      "topic": "Advanced Patterns",
+      "sortOrder": 13,
+      "topic": "Component Advanced Patterns",
       "id": 10,
       "md": "dynamic-components"
     },
@@ -103,7 +121,7 @@
       "url": "resource-api",
       "title": "Resource API",
       "teaches": "Use resource() for declarative, reactive HTTP data loading with automatic loading states and error handling. Replace manual Observable + subscribe() patterns with signal-based data fetching.",
-      "sortOrder": 12,
+      "sortOrder": 14,
       "topic": "Data Loading",
       "id": 13,
       "md": "resource-api"
@@ -112,28 +130,10 @@
       "url": "antipatterns",
       "title": "Antipatterns",
       "teaches": "Learn what NOT to do in modern Angular. Understand outdated patterns like Observable subscriptions, manual state management, and legacy decorators. See why resource() and signals are better.",
-      "sortOrder": 13,
-      "topic": "Data Loading",
+      "sortOrder": 15,
+      "topic": "Component Antipatterns",
       "id": 14,
       "md": "antipatterns"
-    },
-    {
-      "url": "lazy-standalone",
-      "title": "Lazy Standalone Comp.",
-      "teaches": "Load standalone components on-demand via routes. Reduce initial bundle size by lazy loading features that aren't immediately needed.",
-      "sortOrder": 14,
-      "topic": "Routing & Bootstrap",
-      "id": 11,
-      "md": "lazy-standalone"
-    },
-    {
-      "url": "standalone-bootstrap",
-      "title": "Load Standalone Apps",
-      "teaches": "Bootstrap standalone applications with bootstrapApplication(). Set up providers, routes, and configuration without NgModule.",
-      "sortOrder": 15,
-      "topic": "Routing & Bootstrap",
-      "id": 12,
-      "md": "bootstrap"
     }
   ],
   "pets": [

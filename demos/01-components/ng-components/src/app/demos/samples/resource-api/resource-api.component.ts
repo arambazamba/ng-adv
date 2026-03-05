@@ -6,7 +6,6 @@ import {
     signal
 } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
-import { MarkdownRendererComponent } from '../../../shared/markdown-renderer/markdown-renderer.component';
 import {
     MatCard,
     MatCardContent,
@@ -35,7 +34,6 @@ interface Pet {
     styleUrl: './resource-api.component.scss',
     changeDetection: ChangeDetectionStrategy.OnPush,
     imports: [
-        MarkdownRendererComponent,
         MatCard,
         MatCardContent,
         MatCardHeader,

@@ -6,7 +6,6 @@ import {
   viewChildren
 } from '@angular/core';
 import { MatCard, MatCardContent, MatCardHeader, MatCardTitle } from '@angular/material/card';
-import { MarkdownRendererComponent } from '../../../shared/markdown-renderer/markdown-renderer.component';
 import { AlertComponent } from './alert/alert.component';
 import { MatButtonModule } from '@angular/material/button';
 import { BoxedDirective } from '../../../shared/formatting/formatting-directives';
@@ -16,7 +15,6 @@ import { BoxedDirective } from '../../../shared/formatting/formatting-directives
   templateUrl: './view-child.component.html',
   styleUrls: ['./view-child.component.scss'],
   imports: [
-    MarkdownRendererComponent,
     MatCard,
     MatCardHeader,
     MatCardTitle,
