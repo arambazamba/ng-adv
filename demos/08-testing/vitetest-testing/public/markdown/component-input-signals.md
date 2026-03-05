@@ -1,17 +1,11 @@
-- Examine `intro.component.ts`. It contains `inputs` and `input.required`:
+# Input Signals and Outputs — CustomerEditComponent
 
-```typescript
-export class IntroComponent {
-  title = input.required<string>();
-  img = input.required<string>();
-  subtitle = input<string>('');
-}
-```
+Test CustomerEditComponent which has a required customer signal input and save/cancel outputs.
 
-Use `fixture.componentRef.setInput()` to set the values of the `inputs`:
+## Spec file
 
-```typescript
-fixture.componentRef.setInput('title', 'Test Title');
-fixture.componentRef.setInput('img', 'test-image.jpg');
-fixture.componentRef.setInput('subtitle', 'Test Subtitle');
-```
+## Key Concepts
+- fixture.componentRef.setInput() works for required input() signals
+- Changing the input resets linkedSignal — verify via DOM values
+- Subscribe to output() signals with a spy before triggering events
+- Test disabled state via button.disabled attribute

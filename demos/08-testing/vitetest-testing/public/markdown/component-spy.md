@@ -1,23 +1,14 @@
-- Navigate to folder `component-mocking/use-spy`. For better comparison the mocking example is solved using a spy in the use-spy folder.
+# Comp Spy — CustomersComponent
 
-- Creation of the spy object
+Test CustomersComponent by replacing the customersStore with a spy object.
 
-```javascript
-beforeEach(() => {
-    spy = jasmine.createSpyObj('AuthService', ['isAuthenticated']);
-    spy.isAuthenticated.and.returnValue(true);
-    comp = new UseSpyComponent(spy);
-  });
-```
+## Spec file
 
-- In the providers section the spy object is used
+## Pattern
+Provide a fake store with signal() properties and vi.fn() methods.
+Use  to inject the fake.
 
-```javascript
-beforeEach(async () => {
-    await TestBed.configureTestingModule({
-      imports: [],
-      declarations: [UseSpyComponent],
-      providers: [{ provide: AuthService, useValue: spy }],
-    }).compileComponents();;
-});
-```
+## Key Concepts
+- Use signal() for state properties and vi.fn() for methods
+- Assert spy calls with toHaveBeenCalledWith()
+- No HTTP requests, no real store effects

@@ -1,5 +1,11 @@
-- Examine `integration-test.component.html` and notice how it passes a value to its child component `food-row.component.html` using an `@Input()` property.
+# Container / Presenter — Customers
 
-- Examine `food-row.component.spec.ts` and notice how it tests for the value passed in from the parent component and the events to be emitted.
+Integration-test CustomersComponent with real child presenters.
 
-- Examine `food-list.component.spec.ts`. It is using `<app-food-row>` component.
+## Spec file
+
+## Key Concepts
+- No NO_ERRORS_SCHEMA — real child components are rendered
+- By.directive(ChildComp) finds child components in the tree
+- Verify that signal inputs flow from container to presenter
+- Verify that output events from a presenter reach the container

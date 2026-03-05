@@ -1,45 +1,12 @@
-- Examine `food/food.service.ts` and `food/food.service.spec.ts` for HTTP testing with Angular services.
+# Service HTTP Test — CustomersService
 
-- HTTP tests verify that services correctly use `HttpClient` and can validate HTTP requests/responses using `HttpTestingController`.
+Test Angular services that use HttpClient with HttpTestingController.
 
-```typescript
-@Injectable({
-  providedIn: 'root',
-})
-export class FoodService {
-  private http = inject(HttpClient);
+## Spec file
 
-  getFood() {
-    return this.http.get<FoodItem[]>(`${environment.api}food`)
-  }
-
-  getAvailableFood() {
-    return this.getFood().pipe(
-      map(items => items.filter(item => !item.discontinued))
-    );
-  }
-```
-
-**Testing Pattern:**
-
-```typescript
-beforeEach(() => {
-  TestBed.configureTestingModule({
-    providers: [FoodService, provideHttpClient(), provideHttpClientTesting()],
-  });
-});
-
-it("should fetch food items", () => {
-  const service = TestBed.inject(FoodService);
-  const controller = TestBed.inject(HttpTestingController);
-
-  service.getFood().subscribe((items) => {
-    expect(items.length).toBe(3);
-  });
-
-  // Verify the request
-  const req = controller.expectOne(`${environment.api}food`);
-  expect(req.request.method).toBe("GET");
-  req.flush([{ id: 1, name: "Pad Thai", rating: 5 }]);
-});
-```
+## Key Concepts
+-  replaces the real HTTP backend
+-  asserts exactly one request was made
+-  delivers the mock response to the observable
+-  in afterEach ensures no unexpected requests remain
+- Test all HTTP verbs: GET, POST, PUT, DELETE

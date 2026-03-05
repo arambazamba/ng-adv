@@ -1,42 +1,10 @@
-Navigate to folder `component-test/simple-food` and examine `simple-food.component.ts` & `simple-food.component.spec.ts`.
+# Comp CRUD — SimpleCustomersComponent
 
-Navigate to folder `demos/food/`: `food.service.ts`
+Test a component using Angular resource() for data loading with a service spy.
 
-**Modern Vitest Pattern with Spy Objects:**
+## Spec file
 
-Create mock services using Vitest spies for component testing:
-
-```typescript
-import { vi } from "vitest";
-
-beforeEach(async () => {
-  const mockFS = {
-    getItems: vi.fn().mockReturnValue(
-      of([
-        { id: 1, name: "Pad Thai", rating: 5 },
-        { id: 2, name: "Green Curry", rating: 4 },
-      ]),
-    ),
-    deleteItem: vi.fn().mockReturnValue(of(null)),
-  };
-
-  await TestBed.configureTestingModule({
-    imports: [SimpleFoodComponent],
-    providers: [{ provide: FoodService, useValue: mockFS }],
-  }).compileComponents();
-});
-```
-
-**Set Mock Return Values:**
-
-```typescript
-const mockFS = TestBed.inject(FoodService) as any;
-mockFS.deleteItem.mockReturnValue(of(true));
-```
-
-**Verify Service Interactions:**
-
-```typescript
-expect(mockFS.deleteItem).toHaveBeenCalledWith(foodData[3]);
-expect(mockFS.deleteItem).toHaveBeenCalledTimes(1);
-```
+## Key Concepts
+- vi.fn().mockReturnValue(of(data)) returns a synchronous observable
+- resource() is async so use await fixture.whenStable() before asserting
+- resource.reload() triggers another GET call after deletion

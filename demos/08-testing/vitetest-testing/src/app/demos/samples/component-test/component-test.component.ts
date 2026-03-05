@@ -1,12 +1,12 @@
-import { Component, OnInit, ChangeDetectionStrategy } from '@angular/core';
-import { SimpleFoodComponent } from './simple-food/simple-food.component';
+import { Component, ChangeDetectionStrategy } from '@angular/core';
+import { SimpleCustomersComponent } from './simple-customers/simple-customers.component';
 
 @Component({
     selector: 'app-component-test',
     changeDetection: ChangeDetectionStrategy.OnPush,
     templateUrl: './component-test.component.html',
     styleUrls: ['./component-test.component.scss'],
-    imports: [SimpleFoodComponent]
+    imports: [SimpleCustomersComponent]
 })
 export class ComponentTestComponent {
 

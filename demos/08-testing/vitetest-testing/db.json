@@ -2,8 +2,8 @@
   "demos": [
     {
       "url": "testing-intro",
-      "title": "Testing Intro",
-      "teaches": "Set up Vitest with Angular and write your first unit test. Understand test structure with describe/it blocks and basic assertions.",
+      "title": "Hello World Test",
+      "teaches": "Write your first Vitest unit test. Understand describe/it blocks, assertions with expect, and beforeEach setup. Test a plain TypeScript class without Angular.",
       "topic": "Introduction",
       "sortOrder": 1,
       "id": 1,
@@ -28,139 +28,139 @@
       "md": "directive"
     },
     {
-      "url": "simple-service",
-      "title": "Simple Service",
-      "teaches": "Test a service class without DI by instantiating it directly. Verify methods and state mutations in isolation.",
+      "url": "http-tests",
+      "title": "Service HTTP Test",
+      "teaches": "Test CustomersService CRUD operations using HttpTestingController. Flush mock responses and verify request URLs, methods, and body payloads for GET, POST, PUT and DELETE.",
       "topic": "Services",
       "sortOrder": 4,
-      "id": 3,
-      "md": "simpleservice"
-    },
-    {
-      "url": "http-tests",
-      "title": "Service Http",
-      "teaches": "Test Angular services that use HttpClient with HttpTestingController. Flush mock responses and verify request URLs and methods.",
-      "topic": "Services",
-      "sortOrder": 5,
       "id": 8,
       "md": "httptest"
     },
     {
       "url": "http-tests-signal",
-      "title": "Service Signal Http",
-      "teaches": "Test a service that uses signals for local state alongside HttpClient. Verify signal reactivity and state management.",
+      "title": "httpResource Test",
+      "teaches": "Test a component that uses Angular's httpResource() for reactive data fetching. Use HttpTestingController to flush responses and assert loading state and rendered output.",
       "topic": "Services",
-      "sortOrder": 6,
+      "sortOrder": 5,
       "id": 83,
       "md": "httptest-signal"
     },
     {
-      "url": "component-class",
-      "title": "Comp Test Class",
-      "teaches": "Test component logic by instantiating the class directly (no TestBed). Fast and simple for components without template dependencies.",
-      "topic": "Component Testing",
-      "sortOrder": 7,
-      "id": 77,
-      "md": "component-class"
-    },
-    {
       "url": "spy",
-      "title": "Comp Inject Spy",
-      "teaches": "Use jasmine.createSpyObj to mock injected services in TestBed. Verify component behaviour when the service spy returns specific values.",
+      "title": "Comp Spy — Customers",
+      "teaches": "Test CustomersComponent by providing a mock customersStore signal object. Use vi.fn() spies to assert that store methods are called correctly when component methods fire.",
       "topic": "Component Testing",
-      "sortOrder": 8,
+      "sortOrder": 6,
       "id": 44,
       "md": "component-spy"
     },
     {
+      "url": "component-write",
+      "title": "Comp DOM Test",
+      "teaches": "Test CustomersTableComponent DOM output using setInput() for signal inputs. Query mat-row and mat-cell elements to verify rendered customer data and progress bar visibility.",
+      "topic": "Component Testing",
+      "sortOrder": 7,
+      "id": 63,
+      "md": "component-write"
+    },
+    {
+      "url": "component-events",
+      "title": "Comp Interaction — Customers",
+      "teaches": "Test CustomersComponent interactions end-to-end. Emit events from child presenter and assert that the container calls the correct store methods.",
+      "topic": "Component Testing",
+      "sortOrder": 8,
+      "id": 89,
+      "md": "component-events"
+    },
+    {
       "url": "component-test",
-      "title": "Comp Spy returnValue",
-      "teaches": "Mock a service dependency in TestBed with createSpyObj and .and.returnValue to control Observable outputs. Assert DOM state and service interactions.",
+      "title": "Comp CRUD — Customers",
+      "teaches": "Test SimpleCustomersComponent which uses Angular's resource() API for data loading. Spy on CustomersService to control HTTP responses and verify add/delete interactions.",
       "topic": "Component Testing",
       "sortOrder": 9,
       "id": 5,
       "md": "component-test"
     },
     {
-      "url": "component-write",
-      "title": "Comp Write / Read DOM",
-      "teaches": "Write to signal state and read DOM output after detectChanges. Use nativeElement queries to assert rendered text and attributes.",
+      "url": "component-input-signals",
+      "title": "Input Signals & Outputs",
+      "teaches": "Test CustomerEditComponent using fixture.componentRef.setInput() to set required signal inputs. Verify that save and cancel outputs emit the correct values.",
       "topic": "Component Testing",
       "sortOrder": 10,
-      "id": 63,
-      "md": "component-write"
-    },
-    {
-      "url": "component-events",
-      "title": "Comp Events",
-      "teaches": "Trigger DOM events and verify signal output emissions. Use fixture.debugElement to dispatch synthetic events and assert component reactions.",
-      "topic": "Component Testing",
-      "sortOrder": 11,
-      "id": 89,
-      "md": "component-events"
-    },
-    {
-      "url": "component-input-signals",
-      "title": "Comp Input Signals",
-      "teaches": "Set signal inputs on a component under test using fixture.componentRef.setInput(). Assert rendered output and required input validation.",
-      "topic": "Component Testing",
-      "sortOrder": 12,
       "id": 633,
       "md": "component-input-signals"
     },
     {
       "url": "material",
-      "title": "Comp Material Harness",
-      "teaches": "Use Angular Material component test harnesses to interact with Material UI elements in specs without coupling tests to DOM internals.",
+      "title": "Material Harness",
+      "teaches": "Test CustomersTableComponent using Angular Material test harnesses (MatTableHarness, MatButtonHarness). Interact with Material elements without coupling to DOM internals.",
       "topic": "Component Testing",
-      "sortOrder": 13,
+      "sortOrder": 11,
       "id": 19,
       "md": "material-harness"
     },
     {
       "url": "async",
-      "title": "Comp Async",
-      "teaches": "Handle async operations in tests using fakeAsync/tick and whenStable. Test components that load data asynchronously.",
+      "title": "Comp Async — Customers",
+      "teaches": "Test asynchronous loading in CustomersComponent using fakeAsync/tick. Verify that progress bar appears while loading and rows render after data arrives.",
       "topic": "Async Testing",
-      "sortOrder": 14,
+      "sortOrder": 12,
       "id": 9,
       "md": "component-async"
     },
     {
-      "url": "material-async",
-      "title": "Comp Material Async",
-      "teaches": "Combine Material test harnesses with async/await to interact with Material components that have asynchronous rendering.",
-      "topic": "Async Testing",
-      "sortOrder": 15,
-      "id": 12,
-      "md": "material-async"
-    },
-    {
       "url": "integration-tests",
-      "title": "Comp Nested Integration",
-      "teaches": "Write integration tests that render a parent component with real child components. Verify the full component tree without shallow mocking.",
+      "title": "Container / Presenter",
+      "teaches": "Integration-test CustomersComponent (container) with real CustomersTableComponent and CustomerEditComponent (presenters). Verify signal data flow and output wiring across the tree.",
       "topic": "Integration Testing",
-      "sortOrder": 16,
+      "sortOrder": 13,
       "id": 6,
       "md": "component-integration"
     },
     {
       "url": "mock-signals-store",
-      "title": "Mock Signals Store",
-      "teaches": "Mock an NgRx Signal Store in component tests by providing a fake store that returns signals. Assert component output based on signal values.",
+      "title": "Mock Signal Store",
+      "teaches": "Mock the markdownEditorStore in component tests by providing a fake store object with signal properties. Assert component behaviour based on controlled signal values.",
       "topic": "NgRx Testing",
-      "sortOrder": 18,
+      "sortOrder": 14,
       "id": 56,
       "md": "mock-signals-store"
     },
     {
       "url": "test-signals-store",
-      "title": "Test Signals Store",
-      "teaches": "Integration-test an NgRx Signal Store with a real service spy. Verify store state changes after calling store methods.",
+      "title": "Test Signal Store",
+      "teaches": "Test the markdownEditorStore directly by dispatching events via the Dispatcher. Verify state transitions for fetch, save, delete, and loadContent event flows.",
       "topic": "NgRx Testing",
-      "sortOrder": 19,
+      "sortOrder": 15,
       "id": 53,
       "md": "test-signals-store"
+    },
+    {
+      "url": "simple-service",
+      "title": "Simple Service",
+      "teaches": "Test a service class without DI by instantiating it directly. Verify add, delete and clear methods and state mutations in isolation.",
+      "topic": "Introduction",
+      "sortOrder": 16,
+      "id": 3,
+      "md": "simpleservice"
+    },
+    {
+      "url": "component-class",
+      "title": "Class-Only Test",
+      "teaches": "Test component signal state by instantiating the class directly without TestBed. Fast and simple for pure logic tests that do not need the DOM.",
+      "topic": "Component Testing",
+      "sortOrder": 17,
+      "id": 77,
+      "md": "component-class"
+    },
+    {
+      "url": "material-async",
+      "title": "Material Async",
+      "teaches": "Combine Material test harnesses with async/await to interact with Material components that have asynchronous rendering.",
+      "topic": "Async Testing",
+      "sortOrder": 18,
+      "id": 12,
+      "md": "material-async"
     },
     {
       "url": "playwright",

@@ -1,10 +1,12 @@
-<mat-card>
-  <mat-card-header>
-    <mat-card-title> Food Row Component </mat-card-title>
-  </mat-card-header>
-  <mat-card-content>
-    <app-food-row [food]="f" />
-  </mat-card-content>
-</mat-card>
+<app-customers-table
+  [customers]="customers()"
+  [loading]="loading()"
+  (edit)="onEdit($event)"
+/>
 
-<app-food-list />
+@if (selectedCustomer(); as customer) {
+  <app-customer-edit
+    [customer]="customer"
+    (cancel)="onCancel()"
+  />
+}

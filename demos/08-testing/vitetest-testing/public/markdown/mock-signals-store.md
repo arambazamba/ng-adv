@@ -1,1 +1,8 @@
-Examine `customers.component.spec.ts` and `customers.component.ts` to see how to test a component that uses a service which returns a signal. Note how we create a mock service that returns a signal using `signal()` from `@angular/core`. This allows us to simulate different states of the signal in our tests.
+# Mock Signal Store — markdownEditorStore
+
+Mock the markdownEditorStore when testing components that depend on it.
+
+## Key Concepts
+- Provide a plain object with signal() properties matching the real store
+- Use vi.fn() for any method the component calls
+- Mutate signals to simulate loading / error states

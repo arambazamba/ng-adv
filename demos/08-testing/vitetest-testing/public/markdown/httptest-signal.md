@@ -1,28 +1,11 @@
-- Examine `food/food.service-bs.ts` and `food/food.service-bs.spec.ts` for HTTP testing with signal-based state management.
+# httpResource Test — SkillsResourceComponent
 
-- It represents a `FoodService` that combines `HttpClient` with Angular signals to manage local state, demonstrating modern state management patterns.
+Test a component that uses Angular httpResource() with HttpTestingController.
 
-```typescript
-@Injectable({
-  providedIn: 'root',
-})
-export class FoodServiceBS {
-  private readonly http = inject(HttpClient);
-  private readonly foodSignal = signal<FoodItem[]>([]);
+## Spec file
 
-  constructor() {
-    this.loadFood();
-  }
-
-  private loadFood() {
-    this.http
-      .get<FoodItem[]>(`${environment.api}food`)
-      .subscribe((data) => {
-        this.foodSignal.set(data);
-      });
-  }
-
-  getFood() {
-    return this.foodSignal.asReadonly();
-  }
-```
+## Key Concepts
+- httpResource() uses HttpClient internally so HttpTestingController works the same way
+- Call fixture.detectChanges() first to trigger the resource request
+- Flush the request then call detectChanges() again to render the response
+- Test loading state before flush and data state after flush

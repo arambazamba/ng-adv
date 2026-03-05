@@ -1,23 +1,28 @@
-import { Component, OnInit, ChangeDetectionStrategy } from '@angular/core';
-import { FoodItem } from '../food/food.model';
-import { FoodListComponent } from './food-list/food-list.component';
-import { FoodRowComponent } from './food-row/food-row.component';
-import { MatCard, MatCardHeader, MatCardTitle, MatCardContent } from '@angular/material/card';
+import { Component, ChangeDetectionStrategy, signal } from '@angular/core';
+import { CustomersTableComponent } from '../../../customers/customers-table/customers-table.component';
+import { CustomerEditComponent } from '../../../customers/customer-edit/customer-edit.component';
+import { Customer } from '../../../customers/customer.model';
 
 @Component({
     selector: 'app-integration-test',
     changeDetection: ChangeDetectionStrategy.OnPush,
     templateUrl: './integration-test.component.html',
     styleUrls: ['./integration-test.component.scss'],
-    imports: [
-        MatCard,
-        MatCardHeader,
-        MatCardTitle,
-        MatCardContent,
-        FoodRowComponent,
-        FoodListComponent,
-    ]
+    imports: [CustomersTableComponent, CustomerEditComponent],
 })
 export class IntegrationTestComponent {
-    f: FoodItem = { id: 99, name: 'Cordon Bleu', rating: 4 };
+    customers = signal<Customer[]>([
+        { id: 1, name: 'Soi' },
+        { id: 2, name: 'Giro' },
+    ]);
+    loading = signal(false);
+    selectedCustomer = signal<Customer | null>(null);
+
+    onEdit(customer: Customer) {
+        this.selectedCustomer.set(customer);
+    }
+
+    onCancel() {
+        this.selectedCustomer.set(null);
+    }
 }
